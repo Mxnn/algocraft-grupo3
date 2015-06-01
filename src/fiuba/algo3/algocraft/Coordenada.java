@@ -17,8 +17,7 @@ public class Coordenada {
 	}
 	
     @Override
-    public boolean equals(Object otro) 
-    {
+    public boolean equals(Object otro) {
         if (this == otro)
           return true;
 
