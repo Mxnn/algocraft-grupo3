@@ -1,4 +1,5 @@
 package fiuba.algo3.algocraft;
+import java.util.HashMap;
 
 public class Mapa {
 	private String nombre;
@@ -11,13 +12,13 @@ public class Mapa {
         this.nombre = nombre;
         this.columnas = columnas;
         this.filas = filas;
-        this.tablero = new HashMap<List, Parcela>();
+        this.tablero = new HashMap<Coordenada, Parcela>();
         this.llenarMapaConParcelasDeTierra();
     }
 
     private void llenarMapaConParcelasDeTierra() {
-    	for (int fil = 0; fil < this.filas; fil++){
-    	     for (int col = 0; col < this.columnas; col++){
+    	for (int x = 0; x < this.filas; x++){
+    	     for (int y = 0; y < this.columnas; y++){
     	    	 Coordenada coordenada = new Coordenada(x,y);
     			 Parcela parcela = new ParcelaTierra();
     	    	 this.tablero.put(coordenada,parcela);
