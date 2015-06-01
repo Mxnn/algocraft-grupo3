@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 
 public abstract class Parcela {
+	
 	protected Interactuable elemento;
 
     public Parcela() {
