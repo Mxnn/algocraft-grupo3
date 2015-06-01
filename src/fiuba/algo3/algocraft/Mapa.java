@@ -12,21 +12,21 @@ public class Mapa {
         this.columnas = columnas;
         this.filas = filas;
         this.matrizDeParcelas = new Parcela [columnas][filas];
-        this.llenarMapaConParcelas();
+        this.llenarMapaConParcelasDeTierra();
     }
 
-    private void llenarMapaConParcelas() {
+    private void llenarMapaConParcelasDeTierra() {
     	for (int fil = 0; fil < this.filas; fil++)
     	     for (int col = 0; col < this.columnas; col++)
-    	    	 this.matrizDeParcelas[col][fil] = new Parcela();
+    	    	 this.matrizDeParcelas[col][fil] = new ParcelaTierra();
     }
     
-    public void ubicarElementoEnCoordenada(int x, int y, Interactuable item) {
+    public void ubicarElementoEnParcela(int x, int y, Interactuable elemento) throws ExcepcionElementoInvalidoParaParcela {
     	Parcela parcela = this.matrizDeParcelas[x][y];
-    	parcela.guardarElemento(item);
+    	parcela.guardarElemento(elemento);
     }
     
-    public Interactuable devolverElementoEnCoordenada(int x, int y) {
+    public Interactuable devolverElementoEnParcela(int x, int y) {
     	Parcela parcela = this.matrizDeParcelas[x][y];
 
     	return parcela.devolverElemento();
