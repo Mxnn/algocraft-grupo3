@@ -4,33 +4,31 @@ public class Mapa {
 	private String nombre;
     private int columnas;
     private int filas;
-    private int [][] matrizDeParcelas; 
+    private Parcela [][] matrizDeParcelas;
+
     
     public Mapa(String nombre, int columnas, int filas) {
         this.nombre = nombre;
         this.columnas = columnas;
         this.filas = filas;
-        this.matrizDeParcelas = new int [columnas][filas];
-        this.llenarMatriz();
+        this.matrizDeParcelas = new Parcela [columnas][filas];
+        this.llenarMapaConParcelas();
     }
- 
-    private llenarMatriz(){
-    	for ( fil = 0; fil<this.filas; fil++ )
-    	     for ( col = 0; col<this.columnas; col++ )
-    	     {
-    	    	 this.matrizDeParcelas [ col][ fil ] = new Parcela();                                         
-    	     }
+
+    private void llenarMapaConParcelas() {
+    	for (int fil = 0; fil < this.filas; fil++)
+    	     for (int col = 0; col < this.columnas; col++)
+    	    	 this.matrizDeParcelas[col][fil] = new Parcela();
     }
     
-    public ubicarEnCoordenada(int x, int y, Interactuable item){
+    public void ubicarElementoEnCoordenada(int x, int y, Interactuable item) {
     	Parcela parcela = this.matrizDeParcelas[x][y];
-    	parcela.guardar(item);
-    	
+    	parcela.guardarElemento(item);
     }
     
-    public devolverElementoEnCoordenada(int x, int y){
+    public Interactuable devolverElementoEnCoordenada(int x, int y) {
     	Parcela parcela = this.matrizDeParcelas[x][y];
-    	Interactuable item = parcela.devolverItem();
-    	return item;
+
+    	return parcela.devolverElemento();
     }
 }

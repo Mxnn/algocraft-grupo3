@@ -1,10 +1,7 @@
 package fiuba.algo3.algocraft;
 
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Test;
-@RunWith(JUnit4.class)
 
 public class ParcelaTest {
 
@@ -12,21 +9,24 @@ public class ParcelaTest {
 	public void devolverItemDevuelveInteractuableGuardado() {
 		Parcela parcela = new Parcela();
 		Interactuable recurso = new Recurso();
-		parcela.guardar(recurso);
-		Assert.assertSame(recurso,parcela.devolverItem());
+		parcela.guardarElemento(recurso);
+
+		Assert.assertSame(recurso, parcela.devolverElemento());
 	}
 	
 	@Test
 	public void estaVaciaDevuelveTrueCuandoLoEsta(){
 		Parcela parcela = new Parcela();
+
 		Assert.assertTrue(parcela.estaVacia());
 	}
 	
 	@Test
-	public void estaVaciaDevuelveFalseCuandoEstaOcupada(){
+	public void estaVaciaDevuelveFalseCuandoEstaOcupada() {
 		Parcela parcela = new Parcela();
 		Interactuable recurso = new Recurso();
-		parcela.guardar(recurso);
+		parcela.guardarElemento(recurso);
+
 		Assert.assertFalse(parcela.estaVacia());
 	}
 	
@@ -35,9 +35,10 @@ public class ParcelaTest {
 		Parcela parcela = new Parcela();
 		Interactuable recurso = new Recurso();
 		Interactuable recurso2 = new Recurso();
-		parcela.guardar(recurso);
-		parcela.guardar(recurso2);
-		Assert.assertSame(recurso,parcela.devolverItem());
+		parcela.guardarElemento(recurso);
+		parcela.guardarElemento(recurso2);
+
+		Assert.assertSame(recurso, parcela.devolverElemento());
 	}
 	
 

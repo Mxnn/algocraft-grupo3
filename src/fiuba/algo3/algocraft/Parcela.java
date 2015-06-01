@@ -1,20 +1,19 @@
 package fiuba.algo3.algocraft;
 
 public class Parcela {
-	private Interactuable item;
+	private Interactuable elemento;
 	
-	public estaVacia(){
-		return this.item == null; 
+	public boolean estaVacia(){
+		return (this.elemento == null);
 	}
 	
-	public guardar(Interactuable item){
-		if this.estaVacia(){
-			this.item = item;
+	public void guardarElemento(Interactuable elemento) {
+		if (this.estaVacia()) {
+			this.elemento = elemento;
 		}
 	}
 	
-	public devolverItem(){
-		return this.item;
+	public Interactuable devolverElemento(){
+		return this.elemento;
 	}
-
 }
