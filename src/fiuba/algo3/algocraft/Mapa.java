@@ -16,12 +16,13 @@ public class Mapa {
     }
 
     private void llenarMapaConParcelasDeTierra() {
-    	for (int fil = 0; fil < this.filas; fil++)
+    	for (int fil = 0; fil < this.filas; fil++){
     	     for (int col = 0; col < this.columnas; col++){
     	    	 Coordenada coordenada = new Coordenada(x,y);
     			 Parcela parcela = new ParcelaTierra();
     	    	 this.tablero.put(coordenada,parcela);
     	     }
+    	}
     }
     
     public void ubicarElementoEnParcela(int x, int y, Interactuable elemento) throws ExcepcionElementoInvalidoParaParcela {
