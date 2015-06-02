@@ -23,27 +23,27 @@ public class ParcelaVolcanTest {
         parcela.guardarElemento(unidad);
     }
     
-//  @Test
-//  public void guardarExtractorGasGuardaCorrectamente() throws ExcepcionElementoNoAdmitidoEnParcela{
-//  		Parcela parcela = new ParcelaVolcan();
-//  		Interactuable extractor = new Refineria(1,1);
-//  		parcela.guardarElemento(extractor);
-//  		Assert.assertSame(parcela.devolverElemento(),extractor);
-//  }
-  
-//  @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
-//  public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractorDeMineral() throws ExcepcionElementoNoAdmitidoEnParcela {
-//      Parcela parcela = new ParcelaVolcan();
-//      Interactuable extractor = new CentroDeMineral();
-//
-//      parcela.guardarElemento(extractor);
-//  }
-  
-//  @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
-//  public void guardarElementoLanzaExcepcionSiElElementoEsUnaConstruccionParaUnidades() throws ExcepcionElementoNoAdmitidoEnParcela {
-//      Parcela parcela = new ParcelaVolcan();
-//      Interactuable construccion = new Barraca();
-//
-//      parcela.guardarElemento(construccion);
-//  }
+    @Test
+    public void guardarExtractorGasGuardaCorrectamente() throws ExcepcionElementoNoAdmitidoEnParcela{
+        Parcela parcela = new ParcelaVolcan();
+        Interactuable extractor = new Refineria(1,1);
+        parcela.guardarElemento(extractor);
+        Assert.assertSame(parcela.devolverElemento(),extractor);
+    }
+
+    @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractorDeMineral() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Parcela parcela = new ParcelaVolcan();
+        Interactuable extractor = new CentroDeMineral();
+
+        parcela.guardarElemento(extractor);
+    }
+
+    @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnaConstruccionParaUnidades() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Parcela parcela = new ParcelaVolcan();
+        Interactuable construccion = new Barraca();
+
+        parcela.guardarElemento(construccion);
+    }
 }

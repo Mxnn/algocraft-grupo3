@@ -23,27 +23,30 @@ public class ParcelaMineralTest {
 
         parcela.guardarElemento(unidad);
     }
-//    @Test
-//    public void guardarExtractorMineralGuardaCorrectamente() throws ExcepcionElementoNoAdmitidoEnParcela{
-//    	Parcela parcela = new ParcelaMineral();
-//    	Interactuable extractorMineral = new CentroDeMineral();
-//    	parcela.guardarElemento(extractorMineral);
-//    	Assert.assertSame(parcela.devolverElemento(),extractorMineral);
-//    }
+
+    @Test
+    public void guardarElementoGuardaElElementoSiEsDeTipoExtractorMineral() throws ExcepcionElementoNoAdmitidoEnParcela {
+    	Parcela parcela = new ParcelaMineral();
+    	Interactuable extractorMineral = new CentroDeMineral();
+
+    	parcela.guardarElemento(extractorMineral);
+
+    	Assert.assertSame(parcela.devolverElemento(), extractorMineral);
+    }
     
-//    @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
-//    public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractorDeGas() throws ExcepcionElementoNoAdmitidoEnParcela {
-//        Parcela parcela = new ParcelaMineral();
-//        Interactuable construccion = new Refineria(1,1);
-//
-//        parcela.guardarElemento(construccion);
-//    }
+    @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractorDeGas() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Parcela parcela = new ParcelaMineral();
+        Interactuable construccion = new Refineria(1,1);
+
+        parcela.guardarElemento(construccion);
+    }
     
-//    @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
-//    public void guardarElementoLanzaExcepcionSiElElementoEsUnaConstruccionParaUnidades() throws ExcepcionElementoNoAdmitidoEnParcela {
-//        Parcela parcela = new ParcelaMineral();
-//        Interactuable construccion = new Barraca();
-//
-//        parcela.guardarElemento(construccion);
-//    }
+    @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnaConstruccionParaUnidades() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Parcela parcela = new ParcelaMineral();
+        Interactuable construccion = new Barraca();
+
+        parcela.guardarElemento(construccion);
+    }
 }

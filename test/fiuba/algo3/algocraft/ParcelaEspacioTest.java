@@ -26,19 +26,27 @@ public class ParcelaEspacioTest {
         Assert.assertSame(parcela.devolverElemento(), unidadVoladora);
     }
     
-//    @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
-//    public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractor() throws ExcepcionElementoNoAdmitidoEnParcela {
-//        Parcela parcela = new ParcelaEspacio();
-//        Interactuable extractor = new CentroDeMineral();
-//
-//        parcela.guardarElemento(extractor);
-//    }
-    
-  @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
-  public void guardarElementoLanzaExcepcionSiElElementoEsUnaConstruccion() throws ExcepcionElementoNoAdmitidoEnParcela {
-      Parcela parcela = new ParcelaEspacio();
-      Interactuable construccion = new Barraca();
+    @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractorDeMineral() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Parcela parcela = new ParcelaEspacio();
+        Interactuable extractor = new CentroDeMineral();
 
-      parcela.guardarElemento(construccion);
-  }
+        parcela.guardarElemento(extractor);
+    }
+
+    @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractorDeGas() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Parcela parcela = new ParcelaEspacio();
+        Interactuable extractor = new Refineria(400, 2);
+
+        parcela.guardarElemento(extractor);
+    }
+    
+    @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnaConstruccion() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Parcela parcela = new ParcelaEspacio();
+         Interactuable construccion = new Barraca();
+
+         parcela.guardarElemento(construccion);
+    }
 }
