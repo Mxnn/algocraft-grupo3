@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+
 public class ParcelaTierra extends Parcela {
     public void guardarElemento(Unidad unidad) {
         this.elemento = unidad;

@@ -1,5 +1,8 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.Excepciones.ExcepcionColorEnUso;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionNombreEnUso;
+
 import java.util.ArrayList;
 
 public class Juego {

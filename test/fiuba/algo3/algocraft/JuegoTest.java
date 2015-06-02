@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.Excepciones.ExcepcionColorEnUso;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionNombreEnUso;
 import org.junit.Assert;
 import org.junit.Test;
 
