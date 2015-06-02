@@ -25,4 +25,20 @@ public class ParcelaEspacioTest {
 
         Assert.assertSame(parcela.devolverElemento(), unidadVoladora);
     }
+    
+//    @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
+//    public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractor() throws ExcepcionElementoNoAdmitidoEnParcela {
+//        Parcela parcela = new ParcelaEspacio();
+//        Interactuable extractor = new CentroDeMineral();
+//
+//        parcela.guardarElemento(extractor);
+//    }
+    
+  @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
+  public void guardarElementoLanzaExcepcionSiElElementoEsUnaConstruccion() throws ExcepcionElementoNoAdmitidoEnParcela {
+      Parcela parcela = new ParcelaEspacio();
+      Interactuable construccion = new Barraca();
+
+      parcela.guardarElemento(construccion);
+  }
 }
