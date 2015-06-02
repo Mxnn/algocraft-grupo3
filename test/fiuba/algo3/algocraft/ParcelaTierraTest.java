@@ -1,7 +1,9 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.RazaTerran.Golliat;
+import fiuba.algo3.algocraft.RazaTerran.Espectro;
 import fiuba.algo3.algocraft.RazaTerran.Marine;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -42,4 +44,23 @@ public class ParcelaTierraTest {
 
         Assert.assertSame(marine, parcela.devolverElemento());
     }
+    
+    @Test
+    public void parcelaAceptaElementosVoladores() throws ExcepcionElementoNoAdmitidoEnParcela {
+    	Parcela parcela = new ParcelaTierra();
+    	Interactuable espectro = new Espectro();
+    	parcela.guardarElemento(espectro);
+    	Assert.assertSame(espectro, parcela.devolverElemento());
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
