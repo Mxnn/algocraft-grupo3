@@ -23,15 +23,13 @@ public class Jugador {
         return this.color;
     }
 
-	public void crearExtractorGaz() {
-
-		ExtractorGaz unExtractorGaz = raza.crearExtractorGaz();
-		unExtractorGaz.setProprietario(this);
-		construcciones.add(unExtractorGaz);
-		
+	public void crearExtractorGas() {
+		ExtractorGas unExtractorGas = raza.crearExtractorGas();
+		unExtractorGas.setProprietario(this);
+		construcciones.add(unExtractorGas);
 	}
 
-	public Object cantidadDeConstrucciones() {
+	public int cantidadDeConstrucciones() {
         return construcciones.size();
 	}
 }

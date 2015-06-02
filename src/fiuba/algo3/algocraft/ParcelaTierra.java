@@ -5,7 +5,7 @@ public class ParcelaTierra extends Parcela {
         this.elemento = unidad;
     }
 
-    public void guardarElemento(UnidadVoladora unidadVoladora) throws ExcepcionElementoInvalidoParaParcela {
+    public void guardarElemento(UnidadVoladora unidadVoladora) throws ExcepcionElementoNoAdmitidoEnParcela {
         this.elemento = unidadVoladora;
     }
 }

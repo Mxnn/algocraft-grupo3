@@ -12,7 +12,7 @@ public abstract class Parcela {
 		return (this.elemento == null);
 	}
 
-	public void guardarElemento(Interactuable elemento) throws ExcepcionElementoInvalidoParaParcela {
+	public void guardarElemento(Interactuable elemento) throws ExcepcionElementoNoAdmitidoEnParcela {
 		if (this.estaVacia()) {
 			elemento.guardarEnParcela(this);
 		}
@@ -20,9 +20,9 @@ public abstract class Parcela {
 
     /*public abstract void guardarElemento(Construccion construccion);*/
 
-    public abstract void guardarElemento(Unidad unidad) throws ExcepcionElementoInvalidoParaParcela;
+    public abstract void guardarElemento(Unidad unidad) throws ExcepcionElementoNoAdmitidoEnParcela;
 
-    public abstract void guardarElemento(UnidadVoladora unidadVoladora) throws ExcepcionElementoInvalidoParaParcela;
+    public abstract void guardarElemento(UnidadVoladora unidadVoladora) throws ExcepcionElementoNoAdmitidoEnParcela;
 	
 	public Interactuable devolverElemento(){
 		return this.elemento;

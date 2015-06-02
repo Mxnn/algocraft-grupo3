@@ -5,7 +5,7 @@ public class Mapa {
 	private String nombre;
     private int columnas;
     private int filas;
-    HashMap<Coordenada, Parcela> tablero; 
+    private HashMap<Coordenada, Parcela> tablero;
 
     
     public Mapa(String nombre, int columnas, int filas) {
@@ -26,7 +26,7 @@ public class Mapa {
     	}
     }
     
-    public void ubicarElementoEnParcela(int x, int y, Interactuable elemento) throws ExcepcionElementoInvalidoParaParcela {
+    public void ubicarElementoEnParcela(int x, int y, Interactuable elemento) throws ExcepcionElementoNoAdmitidoEnParcela {
     	Coordenada coord = new Coordenada(x,y);
     	Parcela parcela = this.tablero.get(coord);
     	parcela.guardarElemento(elemento);

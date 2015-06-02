@@ -10,17 +10,16 @@ public class Terran implements Raza {
             INSTANCIA = new Terran();
         }
     }
+
     public static Terran getInstance() {
         if (INSTANCIA == null)
             createInstance();
 
         return INSTANCIA;
     }
-    
 
 	@Override
-	public ExtractorGaz crearExtractorGaz() {
-		Refineria unaRefineria = new Refineria(750,6);
-		return unaRefineria;
+	public ExtractorGas crearExtractorGas() {
+		return new Refineria(750,6);
 	}
 }

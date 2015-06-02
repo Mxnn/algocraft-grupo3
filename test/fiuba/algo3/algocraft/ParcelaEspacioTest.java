@@ -7,8 +7,8 @@ import org.junit.Test;
 
 public class ParcelaEspacioTest {
 
-    @Test(expected = ExcepcionElementoInvalidoParaParcela.class)
-    public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadDeTierra() throws ExcepcionElementoInvalidoParaParcela {
+    @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadDeTierra() throws ExcepcionElementoNoAdmitidoEnParcela {
         Parcela parcela = new ParcelaEspacio();
         Interactuable unidad = new Marine();
 
@@ -16,7 +16,7 @@ public class ParcelaEspacioTest {
     }
 
     @Test
-    public void guardarElementoGuardaElElementoSiEsUnaUnidadVoladora() throws ExcepcionElementoInvalidoParaParcela {
+    public void guardarElementoGuardaElElementoSiEsUnaUnidadVoladora() throws ExcepcionElementoNoAdmitidoEnParcela {
         Parcela parcela = new ParcelaEspacio();
         Interactuable unidadVoladora = new Espectro();
 

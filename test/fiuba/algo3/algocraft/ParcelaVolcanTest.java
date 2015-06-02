@@ -5,16 +5,16 @@ import fiuba.algo3.algocraft.RazaTerran.Marine;
 import org.junit.Test;
 
 public class ParcelaVolcanTest {
-    @Test(expected = ExcepcionElementoInvalidoParaParcela.class)
-    public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadDeTierra() throws ExcepcionElementoInvalidoParaParcela {
+    @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadDeTierra() throws ExcepcionElementoNoAdmitidoEnParcela {
         Parcela parcela = new ParcelaVolcan();
         Interactuable unidad = new Marine();
 
         parcela.guardarElemento(unidad);
     }
 
-    @Test(expected = ExcepcionElementoInvalidoParaParcela.class)
-    public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadVoladora() throws ExcepcionElementoInvalidoParaParcela {
+    @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadVoladora() throws ExcepcionElementoNoAdmitidoEnParcela {
         Parcela parcela = new ParcelaVolcan();
         Interactuable unidad = new Espectro();
 

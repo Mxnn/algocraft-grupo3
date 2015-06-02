@@ -8,7 +8,7 @@ import org.junit.Test;
 public class MapaTest {
 
 	@Test
-	public void devolverElementoEnParcelaDevuelveElementoGuardado() throws ExcepcionElementoInvalidoParaParcela {
+	public void devolverElementoEnParcelaDevuelveElementoGuardado() throws ExcepcionElementoNoAdmitidoEnParcela {
 		Mapa mapa = new Mapa("basico", 5, 5);
 		Interactuable marine = new Marine();
 		mapa.ubicarElementoEnParcela(0, 0, marine);
@@ -17,7 +17,7 @@ public class MapaTest {
 	}
 
     @Test
-    public void ubicarElementoEnParcelaLanzaExcepcionSiElElementoNoCorrespondeALaParcela() throws ExcepcionElementoInvalidoParaParcela {
+    public void ubicarGolliatEnParcelaLanzaExcepcionSiElElementoNoEsAdmitidoEnLaParcela() throws ExcepcionElementoNoAdmitidoEnParcela {
         Mapa mapa = new Mapa("basico", 5, 5);
         Interactuable golliat = new Golliat();
         mapa.ubicarElementoEnParcela(0, 0, golliat);

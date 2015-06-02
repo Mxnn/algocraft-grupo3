@@ -15,7 +15,7 @@ public class ParcelaTierraTest {
     }
 
     @Test
-    public void devolverElementoDevuelveInteractuableGuardado() throws ExcepcionElementoInvalidoParaParcela {
+    public void devolverElementoDevuelveInteractuableGuardado() throws ExcepcionElementoNoAdmitidoEnParcela {
         Parcela parcela = new ParcelaTierra();
         Interactuable marine = new Marine();
         parcela.guardarElemento(marine);
@@ -24,7 +24,7 @@ public class ParcelaTierraTest {
     }
 
     @Test
-    public void estaVaciaDevuelveFalseCuandoEstaOcupada() throws ExcepcionElementoInvalidoParaParcela {
+    public void estaVaciaDevuelveFalseCuandoEstaOcupada() throws ExcepcionElementoNoAdmitidoEnParcela {
         Parcela parcela = new ParcelaTierra();
         Interactuable marine = new Marine();
         parcela.guardarElemento(marine);
@@ -33,7 +33,7 @@ public class ParcelaTierraTest {
     }
 
     @Test
-    public void guardarNoSobreEscribeElementoYaGuardado() throws ExcepcionElementoInvalidoParaParcela {
+    public void guardarNoSobreEscribeElementoYaGuardado() throws ExcepcionElementoNoAdmitidoEnParcela {
         Parcela parcela = new ParcelaTierra();
         Interactuable marine = new Marine();
         Interactuable golliat = new Golliat();
