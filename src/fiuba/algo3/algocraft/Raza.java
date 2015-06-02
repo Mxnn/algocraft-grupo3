@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft;
 
-public abstract class Raza {
+public interface Raza {
+
+	public ExtractorGaz crearExtractorGaz();
 
 }

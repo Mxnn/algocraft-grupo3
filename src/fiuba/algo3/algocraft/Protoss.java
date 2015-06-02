@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft;
 
-public class Protoss extends Raza {
+public class Protoss implements Raza {
     private static Protoss INSTANCIA = null;
 
     private Protoss() { }
@@ -16,4 +16,11 @@ public class Protoss extends Raza {
 
         return INSTANCIA;
     }
+
+	@Override
+	public ExtractorGaz crearExtractorGaz() {
+		return null;
+
+		
+	}
 }

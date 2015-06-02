@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft;
 
-public class Terran extends Raza {
+public class Terran implements Raza {
     private static Terran INSTANCIA = null;
 
     private Terran() { }
@@ -16,4 +16,11 @@ public class Terran extends Raza {
 
         return INSTANCIA;
     }
+    
+
+	@Override
+	public ExtractorGaz crearExtractorGaz() {
+		Refineria unaRefineria = new Refineria(750,6);
+		return unaRefineria;
+	}
 }

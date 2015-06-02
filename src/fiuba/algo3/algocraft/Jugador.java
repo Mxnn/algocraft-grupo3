@@ -1,10 +1,14 @@
 package fiuba.algo3.algocraft;
 
+import java.util.ArrayList;
+
 public class Jugador {
     private String nombre;
     private Color color;
     private Raza raza;
-
+    private ArrayList<Construccion> construcciones = new ArrayList<Construccion>();
+    
+    
     public Jugador(String nombre, Color color, Raza raza) {
         this.nombre = nombre;
         this.color = color;
@@ -18,4 +22,16 @@ public class Jugador {
     public Color obtenerColor() {
         return this.color;
     }
+
+	public void crearExtractorGaz() {
+
+		ExtractorGaz unExtractorGaz = raza.crearExtractorGaz();
+		unExtractorGaz.setProprietario(this);
+		construcciones.add(unExtractorGaz);
+		
+	}
+
+	public Object cantidadDeConstrucciones() {
+        return construcciones.size();
+	}
 }
