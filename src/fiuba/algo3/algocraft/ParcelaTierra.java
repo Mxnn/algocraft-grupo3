@@ -8,4 +8,12 @@ public class ParcelaTierra extends Parcela {
     public void guardarElemento(UnidadVoladora unidadVoladora) throws ExcepcionElementoNoAdmitidoEnParcela {
         this.elemento = unidadVoladora;
     }
+    
+    public void guardarElemento(ConstruccionParaUnidades construccion) throws ExcepcionElementoNoAdmitidoEnParcela{
+    	this.elemento = construccion;
+    }
+    //los extractores no pueden ir sobre una parcela comun
+    public void guardarElemento(ConstruccionExtractora construccion) throws ExcepcionElementoNoAdmitidoEnParcela{
+    	throw new ExcepcionElementoNoAdmitidoEnParcela();
+    }
 }
