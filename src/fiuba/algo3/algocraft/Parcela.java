@@ -20,8 +20,10 @@ public abstract class Parcela {
 
     public abstract void guardarElemento(ConstruccionParaUnidades construccionUnidades) throws ExcepcionElementoNoAdmitidoEnParcela;
     //en el juego los extractores solo pueden ir sobre volcanes o minas
-    public abstract void guardarElemento(ConstruccionExtractora construccionExtractora) throws ExcepcionElementoNoAdmitidoEnParcela;
- 
+    public abstract void guardarElemento(ExtractorGas extractor) throws ExcepcionElementoNoAdmitidoEnParcela;
+    
+    public abstract void guardarElemento(ExtractorMineral extractor) throws ExcepcionElementoNoAdmitidoEnParcela;
+    
     public abstract void guardarElemento(Unidad unidad) throws ExcepcionElementoNoAdmitidoEnParcela;
 
     public abstract void guardarElemento(UnidadVoladora unidadVoladora) throws ExcepcionElementoNoAdmitidoEnParcela;

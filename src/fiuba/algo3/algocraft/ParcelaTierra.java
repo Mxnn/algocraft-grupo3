@@ -13,7 +13,11 @@ public class ParcelaTierra extends Parcela {
     	this.elemento = construccion;
     }
     //los extractores no pueden ir sobre una parcela comun
-    public void guardarElemento(ConstruccionExtractora construccion) throws ExcepcionElementoNoAdmitidoEnParcela{
+    public void guardarElemento(ExtractorGas extractor) throws ExcepcionElementoNoAdmitidoEnParcela{
+    	throw new ExcepcionElementoNoAdmitidoEnParcela();
+    }
+    
+    public void guardarElemento(ExtractorMineral extractor) throws ExcepcionElementoNoAdmitidoEnParcela{
     	throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
 }
