@@ -1,11 +1,13 @@
 package fiuba.algo3.algocraft;
 
-public class ParcelaEspacio extends Parcela {
+public class ParcelaVolcan extends Parcela {
     public void guardarElemento(UnidadVoladora unidadVoladora) throws ExcepcionElementoInvalidoParaParcela {
-        this.elemento = unidadVoladora;
+        throw new ExcepcionElementoInvalidoParaParcela();
     }
 
     public void guardarElemento(Unidad unidad) throws ExcepcionElementoInvalidoParaParcela {
         throw new ExcepcionElementoInvalidoParaParcela();
     }
+
+    //Si agregan un Construccion ver que sea extractor de gas.
 }

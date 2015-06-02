@@ -18,13 +18,11 @@ public abstract class Parcela {
 		}
 	}
 
-    /*public abstract void guardarElemento(Volador volador);
+    /*public abstract void guardarElemento(Construccion construccion);*/
 
-    public abstract void guardarElemento(Unidad unidad);
+    public abstract void guardarElemento(Unidad unidad) throws ExcepcionElementoInvalidoParaParcela;
 
-    public abstract void guardarElemento(Construccion construccion);*/
-
-    public abstract void guardarElemento(Recurso recurso) throws ExcepcionElementoInvalidoParaParcela;
+    public abstract void guardarElemento(UnidadVoladora unidadVoladora) throws ExcepcionElementoInvalidoParaParcela;
 	
 	public Interactuable devolverElemento(){
 		return this.elemento;

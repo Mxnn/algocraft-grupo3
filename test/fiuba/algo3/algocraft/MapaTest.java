@@ -1,6 +1,8 @@
 package fiuba.algo3.algocraft;
 
-import junit.framework.Assert;
+import fiuba.algo3.algocraft.RazaTerran.Golliat;
+import fiuba.algo3.algocraft.RazaTerran.Marine;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class MapaTest {
@@ -8,18 +10,18 @@ public class MapaTest {
 	@Test
 	public void devolverElementoEnParcelaDevuelveElementoGuardado() throws ExcepcionElementoInvalidoParaParcela {
 		Mapa mapa = new Mapa("basico", 5, 5);
-		Interactuable recurso = new Recurso();
-		mapa.ubicarElementoEnParcela(0, 0, recurso);
+		Interactuable marine = new Marine();
+		mapa.ubicarElementoEnParcela(0, 0, marine);
 
-		Assert.assertSame(recurso, mapa.devolverElementoEnParcela(0,0));
+		Assert.assertSame(marine, mapa.devolverElementoEnParcela(0, 0));
 	}
 
     @Test
     public void ubicarElementoEnParcelaLanzaExcepcionSiElElementoNoCorrespondeALaParcela() throws ExcepcionElementoInvalidoParaParcela {
         Mapa mapa = new Mapa("basico", 5, 5);
-        Interactuable recurso = new Recurso();
-        mapa.ubicarElementoEnParcela(0, 0, recurso);
+        Interactuable golliat = new Golliat();
+        mapa.ubicarElementoEnParcela(0, 0, golliat);
 
-        Assert.assertSame(recurso, mapa.devolverElementoEnParcela(0,0));
+        Assert.assertSame(golliat, mapa.devolverElementoEnParcela(0,0));
     }
 }

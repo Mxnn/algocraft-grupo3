@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.RazaTerran.Golliat;
+import fiuba.algo3.algocraft.RazaTerran.Marine;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,17 +17,17 @@ public class ParcelaTierraTest {
     @Test
     public void devolverElementoDevuelveInteractuableGuardado() throws ExcepcionElementoInvalidoParaParcela {
         Parcela parcela = new ParcelaTierra();
-        Interactuable recurso = new Recurso();
-        parcela.guardarElemento(recurso);
+        Interactuable marine = new Marine();
+        parcela.guardarElemento(marine);
 
-        Assert.assertSame(recurso, parcela.devolverElemento());
+        Assert.assertSame(marine, parcela.devolverElemento());
     }
 
     @Test
     public void estaVaciaDevuelveFalseCuandoEstaOcupada() throws ExcepcionElementoInvalidoParaParcela {
         Parcela parcela = new ParcelaTierra();
-        Interactuable recurso = new Recurso();
-        parcela.guardarElemento(recurso);
+        Interactuable marine = new Marine();
+        parcela.guardarElemento(marine);
 
         Assert.assertFalse(parcela.estaVacia());
     }
@@ -33,11 +35,11 @@ public class ParcelaTierraTest {
     @Test
     public void guardarNoSobreEscribeElementoYaGuardado() throws ExcepcionElementoInvalidoParaParcela {
         Parcela parcela = new ParcelaTierra();
-        Interactuable recurso = new Recurso();
-        Interactuable recurso2 = new Recurso();
-        parcela.guardarElemento(recurso);
-        parcela.guardarElemento(recurso2);
+        Interactuable marine = new Marine();
+        Interactuable golliat = new Golliat();
+        parcela.guardarElemento(marine);
+        parcela.guardarElemento(golliat);
 
-        Assert.assertSame(recurso, parcela.devolverElemento());
+        Assert.assertSame(marine, parcela.devolverElemento());
     }
 }

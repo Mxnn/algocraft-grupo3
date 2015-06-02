@@ -1,7 +1,11 @@
 package fiuba.algo3.algocraft;
 
 public class ParcelaTierra extends Parcela {
-    public void guardarElemento(Recurso recurso) {
-        this.elemento = recurso;
+    public void guardarElemento(Unidad unidad) {
+        this.elemento = unidad;
+    }
+
+    public void guardarElemento(UnidadVoladora unidadVoladora) throws ExcepcionElementoInvalidoParaParcela {
+        this.elemento = unidadVoladora;
     }
 }
