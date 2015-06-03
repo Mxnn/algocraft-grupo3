@@ -1,7 +1,7 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionColorEnUso;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNombreEnUso;
+import fiuba.algo3.algocraft.Excepciones.*;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class JuegoTest {
     }*/
 
     @Test
-    public void crearJugadorConNombreAgregaJugadorAlJuego() throws ExcepcionColorEnUso, ExcepcionNombreEnUso {
+    public void crearJugadorConNombreAgregaJugadorAlJuego() throws ExcepcionColorEnUso, ExcepcionNombreEnUso, ExcepcionNombreCorto {
         Juego juego = new Juego();
 
         juego.crearJugador("Juan", Color.ROJO, Terran.getInstance());
@@ -26,7 +26,7 @@ public class JuegoTest {
     }
 
     @Test(expected = ExcepcionNombreEnUso.class)
-    public void crearJugadoresConNombresIgualesLanzaExcepcionNombreEnUso() throws ExcepcionColorEnUso, ExcepcionNombreEnUso {
+    public void crearJugadoresConNombresIgualesLanzaExcepcionNombreEnUso() throws ExcepcionColorEnUso, ExcepcionNombreEnUso, ExcepcionNombreCorto {
         Juego juego = new Juego();
 
         juego.crearJugador("Juan", Color.ROJO, Terran.getInstance());
@@ -34,10 +34,17 @@ public class JuegoTest {
     }
 
     @Test(expected = ExcepcionColorEnUso.class)
-    public void crearJugadoresConColoresIgualesLanzaExcepcionColorEnUso() throws ExcepcionNombreEnUso, ExcepcionColorEnUso {
+    public void crearJugadoresConColoresIgualesLanzaExcepcionColorEnUso() throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNombreCorto {
         Juego juego = new Juego();
 
         juego.crearJugador("Juan", Color.ROJO, Terran.getInstance());
         juego.crearJugador("Pedro", Color.ROJO, Protoss.getInstance());
+    }
+
+    @Test(expected = ExcepcionNombreCorto.class)
+    public void crearJugadorConNombreConMenosDe4LetrasLanzaExcepcion() throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNombreCorto {
+        Juego juego = new Juego();
+
+        juego.crearJugador("TRE", Color.ROJO, Terran.getInstance());
     }
 }

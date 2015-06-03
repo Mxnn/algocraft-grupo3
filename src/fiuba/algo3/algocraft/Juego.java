@@ -1,13 +1,13 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionColorEnUso;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNombreEnUso;
+import fiuba.algo3.algocraft.Excepciones.*;
 
 import java.util.ArrayList;
 
 public class Juego {
     //EL CODIGO COMENTADO ES EL CODIGO PARA EL SINGLETON DE LA CLASE (NECESITO "LIMPIAR" EL OBJETO CLASE PARA BORRAR LOS USUARIOS "INSCRIPTOS")
     //private static Juego INSTANCIA = null;
+    private static int LONGITUD_MINIMA_PARA_EL_NOMBRE = 4;
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 
     /*
@@ -25,7 +25,10 @@ public class Juego {
         return INSTANCIA;
     }*/
 
-    public void crearJugador(String nombre, Color color, Raza raza) throws ExcepcionNombreEnUso, ExcepcionColorEnUso {
+    public void crearJugador(String nombre, Color color, Raza raza) throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNombreCorto {
+        if (nombre.length() < LONGITUD_MINIMA_PARA_EL_NOMBRE)
+            throw new ExcepcionNombreCorto();
+
         if (this.elNombreEstaEnUso(nombre))
             throw new ExcepcionNombreEnUso();
 
