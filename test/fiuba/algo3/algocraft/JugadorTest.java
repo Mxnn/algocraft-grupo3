@@ -9,7 +9,7 @@ public class JugadorTest {
 	@Test
 	public void AlCrearExtractorGasSeAgregaLaConstruccionEnElArrayDelJugador(){
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-		unJugador.crearExtractorGas(unJugador);
+		unJugador.crearExtractorGas();
 		
 		Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
 	}
