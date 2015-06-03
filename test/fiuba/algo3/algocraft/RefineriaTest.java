@@ -9,7 +9,7 @@ public class RefineriaTest {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         ExtractorGas refineria = new Refineria(unJugadorPropietario);
 
-        refineria.absorberGas();
+        refineria.absorberGasVespeno();
 
         Assert.assertEquals(unJugadorPropietario.obtenerGasVespeno(), Jugador.GAS_VESPENO_INICIAL + 10);
     }
