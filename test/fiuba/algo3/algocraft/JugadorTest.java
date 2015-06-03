@@ -3,7 +3,6 @@ package fiuba.algo3.algocraft;
 import org.junit.Assert;
 import org.junit.Test;
 
-
 public class JugadorTest {
 
 	@Test
