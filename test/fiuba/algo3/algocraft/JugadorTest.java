@@ -15,10 +15,11 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void AlCrearExtractorMineralSeAgregaLaConstruccionEnElArrayDelJugador(){
-		Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-		unJugador.crearExtractorMineral();
-		
-		Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
-	}	
+	public void AlCrearExtractorMineralSeAgregaLaConstruccionEnElArrayDelJugador() {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        unJugador.crearExtractorMineral();
+
+        Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
+    }
+
 }

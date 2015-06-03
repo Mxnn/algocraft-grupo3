@@ -3,6 +3,13 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 
 public class ParcelaVolcan extends Parcela {
+
+    public void despedirGas() {
+        if (!this.estaVacia()) {
+            ((ExtractorGas) (this.elemento)).absorberGas();
+        }
+    }
+
     public void guardarElemento(UnidadVoladora unidadVoladora) throws ExcepcionElementoNoAdmitidoEnParcela {
         throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
@@ -22,5 +29,4 @@ public class ParcelaVolcan extends Parcela {
     public void guardarElemento(ExtractorMineral mina) throws ExcepcionElementoNoAdmitidoEnParcela{
     	throw new ExcepcionElementoNoAdmitidoEnParcela(); 
     }
-    //Si agregan un Construccion ver que sea extractor de gas.
 }

@@ -28,7 +28,9 @@ public class ParcelaVolcanTest {
         Parcela parcela = new ParcelaVolcan();
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
         Interactuable extractor = new Refineria(unJugador);
+
         parcela.guardarElemento(extractor);
+
         Assert.assertSame(parcela.devolverElemento(),extractor);
     }
 
@@ -48,5 +50,16 @@ public class ParcelaVolcanTest {
         Interactuable construccion = new Barraca(unJugador);
 
         parcela.guardarElemento(construccion);
+    }
+
+    @Test
+    public void unaParcelaVolcanDespideElGasYSeLoSumaAlJugadorSiEnEstaParcelaHayUnExtractorDeGas() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        ParcelaVolcan parcela = new ParcelaVolcan();
+
+        parcela.guardarElemento(unJugadorPropietario.crearExtractorGas());
+        parcela.despedirGas();
+
+        Assert.assertEquals(unJugadorPropietario.obtenerGasVespeno(), Jugador.GAS_VESPENO_INICIAL + 10);
     }
 }

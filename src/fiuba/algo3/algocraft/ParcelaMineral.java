@@ -10,7 +10,7 @@ public class ParcelaMineral extends Parcela {
     public void guardarElemento(Unidad unidad) throws ExcepcionElementoNoAdmitidoEnParcela {
         throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
-    //Si agregan un Construccion ver que sea extractor de mineral.
+
     public void guardarElemento(ConstruccionParaUnidades construccion) throws ExcepcionElementoNoAdmitidoEnParcela{
     	throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
