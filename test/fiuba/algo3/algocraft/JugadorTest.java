@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -62,10 +63,19 @@ public class JugadorTest {
     }
 
     @Test
-    public void creadorDeSoldadosCreaEdificioCreadorDeSoldados() {
+      public void creadorDeSoldadosCreaEdificioCreadorDeSoldados() {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
         unJugador.crearCreadorDeSoldados();
+
+        Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
+    }
+
+    @Test
+    public void creadorDeUnidadesTerrestresCreaEdificioCreadorDeSoldados() throws ExcepcionConstruccionesRequeridasNoCreadas {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+        unJugador.crearCreadorDeUnidadesTerrestres();
 
         Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
     }

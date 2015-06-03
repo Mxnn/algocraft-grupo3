@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+
 public class Terran implements Raza {
     private static Terran INSTANCIA = null;
 
@@ -32,5 +34,9 @@ public class Terran implements Raza {
 
     public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) {
         return new Barraca(propietario);
+    }
+
+    public CreadorDeUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas {
+        return new Fabrica(propietario);
     }
 }

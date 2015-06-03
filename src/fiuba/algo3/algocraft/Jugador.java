@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+
 import java.util.ArrayList;
 
 public class Jugador {
@@ -61,6 +63,13 @@ public class Jugador {
         construcciones.add(creadorDeSoldados);
 
         return creadorDeSoldados;
+    }
+
+    public Interactuable crearCreadorDeUnidadesTerrestres() throws ExcepcionConstruccionesRequeridasNoCreadas {
+        CreadorDeUnidadesTerrestres creadorDeUnidadesTerrestres = raza.crearCreadorDeUnidadesTerrestres(this);
+        construcciones.add(creadorDeUnidadesTerrestres);
+
+        return creadorDeUnidadesTerrestres;
     }
 	
 	public int cantidadDeConstrucciones() {
