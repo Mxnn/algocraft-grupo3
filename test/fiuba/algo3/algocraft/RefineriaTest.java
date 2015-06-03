@@ -7,7 +7,7 @@ public class RefineriaTest {
     @Test
     public void unaRefineriaAbsorbeGasVespenoYSeLoSumaAlJugadorPropietario() {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        Refineria refineria = new Refineria(unJugadorPropietario);
+        ExtractorGas refineria = new Refineria(unJugadorPropietario);
 
         refineria.absorberGas();
 

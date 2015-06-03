@@ -52,4 +52,15 @@ public class ParcelaMineralTest {
 
         parcela.guardarElemento(construccion);
     }
+
+    @Test
+    public void darMineralesSumaMineralesAlJugadorSiEnLaParcelaHayUnExtractorDeMineral() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        ParcelaMineral parcela = new ParcelaMineral();
+
+        parcela.guardarElemento(unJugadorPropietario.crearExtractorMineral());
+        parcela.darMinerales();
+
+        Assert.assertEquals(unJugadorPropietario.obtenerMineral(), Jugador.MINERAL_INICIAL + 10);
+    }
 }

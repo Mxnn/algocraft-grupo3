@@ -53,7 +53,7 @@ public class ParcelaVolcanTest {
     }
 
     @Test
-    public void unaParcelaVolcanDespideElGasYSeLoSumaAlJugadorSiEnEstaParcelaHayUnExtractorDeGas() throws ExcepcionElementoNoAdmitidoEnParcela {
+    public void despedirGasSumaGasVespenoAlJugadorSiEnLaParcelaHayUnExtractorDeGas() throws ExcepcionElementoNoAdmitidoEnParcela {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         ParcelaVolcan parcela = new ParcelaVolcan();
 

@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class Jugador {
     static final int GAS_VESPENO_INICIAL = 0;
-    //static final int MINERAL_INICIAL = 200;
+    static final int MINERAL_INICIAL = 200;
 
     private String nombre;
     private Color color;
     private Raza raza;
     private ArrayList<Construccion> construcciones = new ArrayList<Construccion>();
     private int gasVespeno;
-    //private int mineral;
+    private int mineral;
     
     
     public Jugador(String nombre, Color color, Raza raza) {
@@ -19,7 +19,7 @@ public class Jugador {
         this.color = color;
         this.raza = raza;
         this.gasVespeno = GAS_VESPENO_INICIAL;
-        //this.mineral = MINERAL_INICIAL;
+        this.mineral = MINERAL_INICIAL;
     }
 
     public String obtenerNombre() {
@@ -50,10 +50,18 @@ public class Jugador {
 	}
 
     public void sumarGasVespeno(int cantidad) {
-        this.gasVespeno = this.gasVespeno + cantidad;
+        this.gasVespeno =+ cantidad;
     }
 
     public int obtenerGasVespeno() {
         return this.gasVespeno;
+    }
+
+    public void sumarMinerales(int cantidad) {
+        this.mineral += cantidad;
+    }
+
+    public int obtenerMineral() {
+        return this.mineral;
     }
 }

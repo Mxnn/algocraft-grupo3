@@ -22,4 +22,17 @@ public class JugadorTest {
         Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
     }
 
+    @Test
+    public void elJugadorEmpiezaCon200DeMinerales() {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+        Assert.assertEquals(unJugador.obtenerMineral(), 200);
+    }
+
+    @Test
+    public void elJugadorEmpiezaCon0GasVespeno() {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+        Assert.assertEquals(unJugador.obtenerGasVespeno(), 0);
+    }
 }
