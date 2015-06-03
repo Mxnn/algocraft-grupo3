@@ -1,10 +1,12 @@
 package fiuba.algo3.algocraft.RazaTerran;
 
+import fiuba.algo3.algocraft.Jugador;
 import fiuba.algo3.algocraft.RangoAtaque;
 import fiuba.algo3.algocraft.UnidadTerrestre;
 
 public class Golliat extends UnidadTerrestre {
-    public Golliat() {
+    public Golliat(Jugador propietario) {
+        this.propietario = propietario;
         this.vida = 125;
         this.suministro = 2;
         /*this.danyo = new Danyo(10, 12);

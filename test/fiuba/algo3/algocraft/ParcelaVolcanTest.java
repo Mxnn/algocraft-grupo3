@@ -9,16 +9,18 @@ import org.junit.Assert;
 public class ParcelaVolcanTest {
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
     public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadDeTierra() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Parcela parcela = new ParcelaVolcan();
-        Interactuable unidad = new Marine();
+        Interactuable unidad = new Marine(unJugador);
 
         parcela.guardarElemento(unidad);
     }
 
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
     public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadVoladora() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Parcela parcela = new ParcelaVolcan();
-        Interactuable unidad = new Espectro();
+        Interactuable unidad = new Espectro(unJugador);
 
         parcela.guardarElemento(unidad);
     }

@@ -10,7 +10,8 @@ public class MapaTest {
 	@Test
 	public void devolverElementoEnParcelaDevuelveElementoGuardado() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa {
 		Mapa mapa = new Mapa(2, 5, 5);
-		Interactuable marine = new Marine();
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+		Interactuable marine = new Marine(unJugador);
 		mapa.ubicarElementoEnParcela(0, 0, marine);
 
 		Assert.assertSame(marine, mapa.devolverElementoEnParcela(0, 0));
@@ -18,16 +19,18 @@ public class MapaTest {
 
     @Test
     public void ubicarGolliatEnParcelaLanzaExcepcionSiElElementoNoEsAdmitidoEnLaParcela() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Mapa mapa = new Mapa(2, 5, 5);
-        Interactuable golliat = new Golliat();
+        Interactuable golliat = new Golliat(unJugador);
 
         mapa.ubicarElementoEnParcela(0, 0, golliat);
     }
 
     @Test
     public void ubicarUnidadVoladoraEnParcelaEspacioLaUbica() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Mapa mapa = new Mapa(2, 5, 5);
-        Interactuable espectro = new Espectro();
+        Interactuable espectro = new Espectro(unJugador);
         mapa.ubicarElementoEnParcela(0, 0, espectro);
 
         Assert.assertSame(espectro, mapa.devolverElementoEnParcela(0,0));

@@ -17,8 +17,9 @@ public class ParcelaTierraTest {
 
     @Test
     public void devolverElementoDevuelveInteractuableGuardado() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Parcela parcela = new ParcelaTierra();
-        Interactuable marine = new Marine();
+        Interactuable marine = new Marine(unJugador);
         parcela.guardarElemento(marine);
 
         Assert.assertSame(marine, parcela.devolverElemento());
@@ -26,8 +27,9 @@ public class ParcelaTierraTest {
 
     @Test
     public void estaVaciaDevuelveFalseCuandoEstaOcupada() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Parcela parcela = new ParcelaTierra();
-        Interactuable marine = new Marine();
+        Interactuable marine = new Marine(unJugador);
         parcela.guardarElemento(marine);
 
         Assert.assertFalse(parcela.estaVacia());
@@ -35,9 +37,10 @@ public class ParcelaTierraTest {
 
     @Test
     public void guardarNoSobreEscribeElementoYaGuardado() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Parcela parcela = new ParcelaTierra();
-        Interactuable marine = new Marine();
-        Interactuable golliat = new Golliat();
+        Interactuable marine = new Marine(unJugador);
+        Interactuable golliat = new Golliat(unJugador);
 
         parcela.guardarElemento(marine);
         parcela.guardarElemento(golliat);
@@ -47,8 +50,9 @@ public class ParcelaTierraTest {
     
     @Test
     public void parcelaGuardaUnidadesVoladoras() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
     	Parcela parcela = new ParcelaTierra();
-    	Interactuable espectro = new Espectro();
+    	Interactuable espectro = new Espectro(unJugador);
 
     	parcela.guardarElemento(espectro);
 

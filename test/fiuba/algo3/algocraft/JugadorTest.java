@@ -60,4 +60,13 @@ public class JugadorTest {
 
         Assert.assertEquals(unJugador.capacidadDePoblacion(), Jugador.CAPACIDAD_DE_POBLACION_MAXIMA);
     }
+
+    @Test
+    public void creadorDeSoldadosCreaEdificioCreadorDeSoldados() {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+        unJugador.crearCreadorDeSoldados();
+
+        Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
+    }
 }

@@ -55,6 +55,13 @@ public class Jugador {
 
         return adicionalSuministros;
     }
+
+    public Interactuable crearCreadorDeSoldados() {
+        CreadorDeSoldados creadorDeSoldados = raza.crearCreadorDeSoldados(this);
+        construcciones.add(creadorDeSoldados);
+
+        return creadorDeSoldados;
+    }
 	
 	public int cantidadDeConstrucciones() {
         return construcciones.size();

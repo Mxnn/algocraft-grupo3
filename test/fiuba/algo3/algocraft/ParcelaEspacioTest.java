@@ -10,16 +10,18 @@ public class ParcelaEspacioTest {
 
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
     public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadDeTierra() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Parcela parcela = new ParcelaEspacio();
-        Interactuable unidad = new Marine();
+        Interactuable unidad = new Marine(unJugador);
 
         parcela.guardarElemento(unidad);
     }
 
     @Test
     public void guardarElementoGuardaElElementoSiEsUnaUnidadVoladora() throws ExcepcionElementoNoAdmitidoEnParcela {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Parcela parcela = new ParcelaEspacio();
-        Interactuable unidadVoladora = new Espectro();
+        Interactuable unidadVoladora = new Espectro(unJugador);
 
         parcela.guardarElemento(unidadVoladora);
 

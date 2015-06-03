@@ -28,4 +28,8 @@ public class Protoss implements Raza {
     public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) {
         return null;
     }
+
+    public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) {
+        return null;
+    }
 }

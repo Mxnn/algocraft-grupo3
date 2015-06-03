@@ -29,4 +29,8 @@ public class Terran implements Raza {
     public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) {
         return new DepositoSuministro(propietario);
     }
+
+    public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) {
+        return new Barraca(propietario);
+    }
 }

@@ -8,9 +8,9 @@ public interface Raza {
 
 	public ExtractorMineral crearExtractorMineral(Jugador propietario);
 
-    /*public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario);
+    public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario);
 
-    public CreadorUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario);
+    /*public CreadorUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario);
 
     public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario);*/
 

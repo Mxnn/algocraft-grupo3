@@ -1,10 +1,12 @@
 package fiuba.algo3.algocraft.RazaTerran;
 
+import fiuba.algo3.algocraft.Jugador;
 import fiuba.algo3.algocraft.RangoAtaque;
 import fiuba.algo3.algocraft.UnidadTerrestre;
 
 public class Marine extends UnidadTerrestre {
-    public Marine() {
+    public Marine(Jugador propietario) {
+        this.propietario = propietario;
         this.vida = 40;
         this.suministro = 1;
         /*this.danyo = new Danyo(6, 6);

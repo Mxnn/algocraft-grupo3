@@ -1,10 +1,12 @@
 package fiuba.algo3.algocraft.RazaTerran;
 
+import fiuba.algo3.algocraft.Jugador;
 import fiuba.algo3.algocraft.RangoAtaque;
 import fiuba.algo3.algocraft.UnidadVoladora;
 
 public class NaveCiencia extends UnidadVoladora {
-    public NaveCiencia() {
+    public NaveCiencia(Jugador propietario) {
+        this.propietario = propietario;
         this.vida = 200;
         this.suministro = 2;
         /*this.danyo = new Danyo(0,0);
