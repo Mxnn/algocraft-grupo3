@@ -38,6 +38,7 @@ public class ParcelaTierraTest {
         Parcela parcela = new ParcelaTierra();
         Interactuable marine = new Marine();
         Interactuable golliat = new Golliat();
+
         parcela.guardarElemento(marine);
         parcela.guardarElemento(golliat);
 
@@ -48,14 +49,17 @@ public class ParcelaTierraTest {
     public void parcelaGuardaUnidadesVoladoras() throws ExcepcionElementoNoAdmitidoEnParcela {
     	Parcela parcela = new ParcelaTierra();
     	Interactuable espectro = new Espectro();
+
     	parcela.guardarElemento(espectro);
+
     	Assert.assertSame(espectro, parcela.devolverElemento());
     }
     
     @Test
     public void parcelaGuardaConstruccion() throws ExcepcionElementoNoAdmitidoEnParcela {
     	Parcela parcela = new ParcelaTierra();
-    	Interactuable construccion = new Barraca();
+        Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
+    	Interactuable construccion = new Barraca(unJugador);
 
     	parcela.guardarElemento(construccion);
 
@@ -65,7 +69,8 @@ public class ParcelaTierraTest {
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
     public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractor() throws ExcepcionElementoNoAdmitidoEnParcela {
         Parcela parcela = new ParcelaTierra();
-        Interactuable construccion = new CentroDeMineral();
+        Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
+        Interactuable construccion = new CentroDeMineral(unJugador);
 
         parcela.guardarElemento(construccion);
     }

@@ -19,7 +19,7 @@ public class Terran implements Raza {
     }
 
 	@Override
-	public ExtractorGas crearExtractorGas() {
-		return new Refineria(750,6);
+	public ExtractorGas crearExtractorGas(Jugador propietario) {
+		return new Refineria(propietario);
 	}
 }

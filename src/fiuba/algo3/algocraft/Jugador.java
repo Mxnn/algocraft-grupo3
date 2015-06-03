@@ -23,8 +23,8 @@ public class Jugador {
         return this.color;
     }
 
-	public void crearExtractorGas() {
-		ExtractorGas unExtractorGas = raza.crearExtractorGas();
+	public void crearExtractorGas(Jugador propietario) {
+		ExtractorGas unExtractorGas = raza.crearExtractorGas(propietario);
 		unExtractorGas.setProprietario(this);
 		construcciones.add(unExtractorGas);
 	}

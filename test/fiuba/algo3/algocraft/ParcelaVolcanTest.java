@@ -26,7 +26,8 @@ public class ParcelaVolcanTest {
     @Test
     public void guardarExtractorGasGuardaCorrectamente() throws ExcepcionElementoNoAdmitidoEnParcela{
         Parcela parcela = new ParcelaVolcan();
-        Interactuable extractor = new Refineria(1,1);
+        Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
+        Interactuable extractor = new Refineria(unJugador);
         parcela.guardarElemento(extractor);
         Assert.assertSame(parcela.devolverElemento(),extractor);
     }
@@ -34,7 +35,8 @@ public class ParcelaVolcanTest {
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
     public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractorDeMineral() throws ExcepcionElementoNoAdmitidoEnParcela {
         Parcela parcela = new ParcelaVolcan();
-        Interactuable extractor = new CentroDeMineral();
+        Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
+        Interactuable extractor = new CentroDeMineral(unJugador);
 
         parcela.guardarElemento(extractor);
     }
@@ -42,7 +44,8 @@ public class ParcelaVolcanTest {
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
     public void guardarElementoLanzaExcepcionSiElElementoEsUnaConstruccionParaUnidades() throws ExcepcionElementoNoAdmitidoEnParcela {
         Parcela parcela = new ParcelaVolcan();
-        Interactuable construccion = new Barraca();
+        Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
+        Interactuable construccion = new Barraca(unJugador);
 
         parcela.guardarElemento(construccion);
     }
