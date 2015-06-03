@@ -72,10 +72,19 @@ public class JugadorTest {
     }
 
     @Test
-    public void creadorDeUnidadesTerrestresCreaEdificioCreadorDeSoldados() throws ExcepcionConstruccionesRequeridasNoCreadas {
+    public void creadorDeUnidadesTerrestresCreaEdificioCreadorDeUnidadesTerrestres() throws ExcepcionConstruccionesRequeridasNoCreadas {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
         unJugador.crearCreadorDeUnidadesTerrestres();
+
+        Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
+    }
+
+    @Test
+    public void creadorDeUnidadesAereasCreaEdificioCreadorDeUniadesAereas() throws ExcepcionConstruccionesRequeridasNoCreadas {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+        unJugador.crearCreadorDeUnidadesAereas();
 
         Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
     }

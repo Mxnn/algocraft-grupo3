@@ -71,6 +71,13 @@ public class Jugador {
 
         return creadorDeUnidadesTerrestres;
     }
+
+    public Interactuable crearCreadorDeUnidadesAereas() throws ExcepcionConstruccionesRequeridasNoCreadas {
+        CreadorDeUnidadesAereas creadorDeUnidadesAereas = raza.crearCreadorDeUnidadesAereas(this);
+        construcciones.add(creadorDeUnidadesAereas);
+
+        return creadorDeUnidadesAereas;
+    }
 	
 	public int cantidadDeConstrucciones() {
         return construcciones.size();

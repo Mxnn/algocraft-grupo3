@@ -14,6 +14,5 @@ public interface Raza {
 
     public CreadorDeUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas;
 
-    /*public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario);*/
-
+    public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas;
 }

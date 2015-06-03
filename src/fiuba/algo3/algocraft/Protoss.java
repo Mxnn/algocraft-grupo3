@@ -36,4 +36,8 @@ public class Protoss implements Raza {
     public CreadorDeUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario) {
         return null;
     }
+
+    public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario) {
+        return null;
+    }
 }
