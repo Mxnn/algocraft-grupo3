@@ -29,7 +29,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void elJugadorEmpiezaCon0GasVespeno() {
+    public void elJugadorEmpiezaConCeroGasVespeno() {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
         Assert.assertEquals(unJugador.obtenerGasVespeno(), 0);
@@ -50,5 +50,14 @@ public class JugadorTest {
 
         Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
         Assert.assertEquals(unJugador.capacidadDePoblacion(), 5);
+    }
+
+    @Test
+    public void incrementarCapacidadDePoblacionNoSumaMasDeLaPoblacionMaxima() {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+        unJugador.incrementarCapacidadDePoblacion(205);
+
+        Assert.assertEquals(unJugador.capacidadDePoblacion(), Jugador.CAPACIDAD_DE_POBLACION_MAXIMA);
     }
 }
