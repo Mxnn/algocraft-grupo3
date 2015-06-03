@@ -21,4 +21,10 @@ public class Protoss implements Raza {
 	public ExtractorGas crearExtractorGas(Jugador jugador) {
 		return null;
 	}
+
+	@Override
+	public ExtractorMineral crearExtractorMineral(Jugador propietario) {
+
+		return null;
+	}
 }

@@ -28,6 +28,11 @@ public class Jugador {
 		construcciones.add(unExtractorGas);
 	}
 
+	public void crearExtractorMineral() {
+		ExtractorMineral unExtractorMineral = raza.crearExtractorMineral(this);
+		construcciones.add(unExtractorMineral);
+	}
+	
 	public int cantidadDeConstrucciones() {
         return construcciones.size();
 	}

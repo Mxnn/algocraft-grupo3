@@ -22,4 +22,10 @@ public class Terran implements Raza {
 	public ExtractorGas crearExtractorGas(Jugador propietario) {
 		return new Refineria(propietario);
 	}
+
+	@Override
+	public ExtractorMineral crearExtractorMineral(Jugador propietario) {
+
+		return new CentroDeMineral(propietario);
+	}
 }
