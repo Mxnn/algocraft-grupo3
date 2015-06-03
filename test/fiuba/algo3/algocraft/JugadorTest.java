@@ -34,4 +34,21 @@ public class JugadorTest {
 
         Assert.assertEquals(unJugador.obtenerGasVespeno(), 0);
     }
+
+    @Test
+    public void elJugadorComienzaConCeroDeCapacidadDePoblacion() {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+        Assert.assertEquals(unJugador.capacidadDePoblacion(), 0);
+    }
+
+    @Test
+    public void crearDepositoDeSuministrosAumentaPoblacionDelJugadorEn5YSumaConstruccionesAlJugador() {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+        unJugador.crearAdicionalDeSuministro();
+
+        Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
+        Assert.assertEquals(unJugador.capacidadDePoblacion(), 5);
+    }
 }

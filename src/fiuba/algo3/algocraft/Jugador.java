@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Jugador {
     static final int GAS_VESPENO_INICIAL = 0;
     static final int MINERAL_INICIAL = 200;
+    static final int CAPACIDAD_DE_POBLACION_MAXIMA = 200;
 
     private String nombre;
     private Color color;
@@ -12,6 +13,8 @@ public class Jugador {
     private ArrayList<Construccion> construcciones = new ArrayList<Construccion>();
     private int gasVespeno;
     private int mineral;
+    private int capacidadDePoblacion;
+    //private int poblacion;
     
     
     public Jugador(String nombre, Color color, Raza raza) {
@@ -20,6 +23,7 @@ public class Jugador {
         this.raza = raza;
         this.gasVespeno = GAS_VESPENO_INICIAL;
         this.mineral = MINERAL_INICIAL;
+        this.capacidadDePoblacion = 0;
     }
 
     public String obtenerNombre() {
@@ -44,6 +48,13 @@ public class Jugador {
 
         return unExtractorMineral;
 	}
+
+    public Interactuable crearAdicionalDeSuministro() {
+        AdicionalSuministros adicionalSuministros = raza.crearAdicionalDeSuministros(this);
+        construcciones.add(adicionalSuministros);
+
+        return adicionalSuministros;
+    }
 	
 	public int cantidadDeConstrucciones() {
         return construcciones.size();
@@ -63,5 +74,16 @@ public class Jugador {
 
     public int obtenerMineral() {
         return this.mineral;
+    }
+
+    public void incrementarCapacidadDePoblacion(int cantidad) {
+        if ( (this.capacidadDePoblacion + cantidad) > CAPACIDAD_DE_POBLACION_MAXIMA)
+            this.capacidadDePoblacion = CAPACIDAD_DE_POBLACION_MAXIMA;
+        else
+            this.capacidadDePoblacion += cantidad;
+    }
+
+    public int capacidadDePoblacion() {
+        return this.capacidadDePoblacion;
     }
 }

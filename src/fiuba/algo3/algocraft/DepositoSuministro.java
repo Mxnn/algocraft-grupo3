@@ -1,12 +1,13 @@
 package fiuba.algo3.algocraft;
 
-public class DepositoSuministro extends ConstruccionParaUnidades {
+public class DepositoSuministro extends AdicionalSuministros {
 
     public DepositoSuministro(Jugador propietario) {
         this.propietario = propietario;
         this.vida = 500;
         this.tiempoDeConstruccion = 6;
+        this.cantidadDeSuministrosAdicionales = 5;
+        propietario.incrementarCapacidadDePoblacion(this.cantidadDeSuministrosAdicionales);
         //Costo = 100M
-        //DA +5 POBLACION
     }
 }

@@ -18,14 +18,15 @@ public class Terran implements Raza {
         return INSTANCIA;
     }
 
-	@Override
 	public ExtractorGas crearExtractorGas(Jugador propietario) {
 		return new Refineria(propietario);
 	}
 
-	@Override
 	public ExtractorMineral crearExtractorMineral(Jugador propietario) {
-
 		return new CentroDeMineral(propietario);
 	}
+
+    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) {
+        return new DepositoSuministro(propietario);
+    }
 }
