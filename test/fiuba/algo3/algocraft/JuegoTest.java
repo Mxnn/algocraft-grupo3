@@ -16,7 +16,7 @@ public class JuegoTest {
     }*/
 
     @Test
-    public void crearJugadorConNombreAgregaJugadorAlJuego() throws ExcepcionColorEnUso, ExcepcionNombreEnUso, ExcepcionNombreCorto {
+    public void crearJugadorConNombreAgregaJugadorAlJuego() throws ExcepcionColorEnUso, ExcepcionNombreEnUso, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores {
         Juego juego = new Juego();
 
         juego.crearJugador("Juan", Color.ROJO, Terran.getInstance());
@@ -26,7 +26,7 @@ public class JuegoTest {
     }
 
     @Test(expected = ExcepcionNombreEnUso.class)
-    public void crearJugadoresConNombresIgualesLanzaExcepcionNombreEnUso() throws ExcepcionColorEnUso, ExcepcionNombreEnUso, ExcepcionNombreCorto {
+    public void crearJugadoresConNombresIgualesLanzaExcepcionNombreEnUso() throws ExcepcionColorEnUso, ExcepcionNombreEnUso, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores {
         Juego juego = new Juego();
 
         juego.crearJugador("Juan", Color.ROJO, Terran.getInstance());
@@ -34,7 +34,7 @@ public class JuegoTest {
     }
 
     @Test(expected = ExcepcionColorEnUso.class)
-    public void crearJugadoresConColoresIgualesLanzaExcepcionColorEnUso() throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNombreCorto {
+    public void crearJugadoresConColoresIgualesLanzaExcepcionColorEnUso() throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores {
         Juego juego = new Juego();
 
         juego.crearJugador("Juan", Color.ROJO, Terran.getInstance());
@@ -42,9 +42,18 @@ public class JuegoTest {
     }
 
     @Test(expected = ExcepcionNombreCorto.class)
-    public void crearJugadorConNombreConMenosDe4LetrasLanzaExcepcion() throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNombreCorto {
+     public void crearJugadorConNombreConMenosDe4LetrasLanzaExcepcion() throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores {
         Juego juego = new Juego();
 
         juego.crearJugador("TRE", Color.ROJO, Terran.getInstance());
+    }
+
+    @Test(expected = ExcepcionAlcanzadoElMaximoCupoDeJugadores.class)
+    public void crearTresJugadoresLanzaExcepcion() throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores {
+        Juego juego = new Juego();
+
+        juego.crearJugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.crearJugador("Pablo", Color.AZUL, Terran.getInstance());
+        juego.crearJugador("Carlos", Color.VERDE, Terran.getInstance());
     }
 }

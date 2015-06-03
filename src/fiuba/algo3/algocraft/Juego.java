@@ -8,6 +8,8 @@ public class Juego {
     //EL CODIGO COMENTADO ES EL CODIGO PARA EL SINGLETON DE LA CLASE (NECESITO "LIMPIAR" EL OBJETO CLASE PARA BORRAR LOS USUARIOS "INSCRIPTOS")
     //private static Juego INSTANCIA = null;
     private static int LONGITUD_MINIMA_PARA_EL_NOMBRE = 4;
+    private static int MAXIMO_NUMERO_DE_JUGADORES = 2;
+
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 
     /*
@@ -25,7 +27,10 @@ public class Juego {
         return INSTANCIA;
     }*/
 
-    public void crearJugador(String nombre, Color color, Raza raza) throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNombreCorto {
+    public void crearJugador(String nombre, Color color, Raza raza) throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores {
+        if (jugadores.size() == MAXIMO_NUMERO_DE_JUGADORES)
+            throw new ExcepcionAlcanzadoElMaximoCupoDeJugadores();
+
         if (nombre.length() < LONGITUD_MINIMA_PARA_EL_NOMBRE)
             throw new ExcepcionNombreCorto();
 
