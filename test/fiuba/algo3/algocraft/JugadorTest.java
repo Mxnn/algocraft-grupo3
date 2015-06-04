@@ -1,13 +1,15 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 public class JugadorTest {
 
 	@Test
-	public void AlCrearExtractorGasSeAgregaLaConstruccionEnElArrayDelJugador(){
+	public void AlCrearExtractorGasSeAgregaLaConstruccionEnElArrayDelJugador() throws ExcepcionRecursosInsuficientes{
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 		unJugador.crearExtractorGas();
 		
@@ -88,4 +90,22 @@ public class JugadorTest {
 
         Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
     }
+   
+    @Test(expected = ExcepcionRecursosInsuficientes.class)
+    public void siElJugadorNoTieneSuficamenteRecursosNoSeCreaElExtractorDeGaz() throws ExcepcionRecursosInsuficientes{
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO,Terran.getInstance() );
+    	unJugador.setMineral(0);
+    	
+    	unJugador.crearExtractorGas();
+    	
+    }
+  
+    @Test
+    public void CreandoElExtractorGazSeSacanLosMineralesDelJugador() throws ExcepcionRecursosInsuficientes{
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO,Terran.getInstance() );
+    	unJugador.setMineral(120);
+    	unJugador.crearExtractorGas();
+    	 Assert.assertEquals(unJugador.obtenerMineral(),20);
+    	
+    } 
 }

@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 
 import java.util.ArrayList;
 
@@ -37,7 +38,7 @@ public class Jugador {
     }
 
     //Deberia crear la construccion en un lugar del mapa (coordenadas) y el jugador tiene que tener acceso al mapa (lo usa)
-	public Interactuable crearExtractorGas() {
+	public Interactuable crearExtractorGas() throws ExcepcionRecursosInsuficientes {
 		ExtractorGas unExtractorGas = raza.crearExtractorGas(this);
 		construcciones.add(unExtractorGas);
 
@@ -109,4 +110,9 @@ public class Jugador {
     public int capacidadDePoblacion() {
         return this.capacidadDePoblacion;
     }
+
+	public void setMineral(int cantidad) {
+		this.mineral= cantidad;
+		
+	}
 }
