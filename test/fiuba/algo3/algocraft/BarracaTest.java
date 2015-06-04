@@ -12,4 +12,12 @@ public class BarracaTest {
 
         Assert.assertNotNull(barraca.crearMarine());
     }
+
+    @Test
+    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        Barraca barraca = new Barraca(unJugador);
+
+        Assert.assertEquals(barraca.obtenerTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_SOLDADOS);
+    }
 }

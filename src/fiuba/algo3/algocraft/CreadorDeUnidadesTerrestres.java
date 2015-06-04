@@ -1,4 +1,4 @@
 package fiuba.algo3.algocraft;
 
-public class CreadorDeUnidadesTerrestres extends ConstruccionParaUnidades {
+public abstract class CreadorDeUnidadesTerrestres extends ConstruccionParaUnidades {
 }

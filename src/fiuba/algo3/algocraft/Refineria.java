@@ -7,4 +7,8 @@ public class Refineria extends ExtractorGas {
         this.tiempoDeConstruccion = 6;
         //Costo 100M
     }
+
+    public TipoDeConstruccion obtenerTipoDeConstruccion() {
+        return TipoDeConstruccion.EXTRACTOR_GAS;
+    }
 }

@@ -113,6 +113,14 @@ public class Jugador {
 
 	public void setMineral(int cantidad) {
 		this.mineral= cantidad;
-		
 	}
+
+    public boolean tieneConstruccionDeTipo(TipoDeConstruccion tipo) {
+        for (Construccion c : construcciones) {
+            if (c.obtenerTipoDeConstruccion() == tipo)
+                return true;
+        }
+
+        return false;
+    }
 }

@@ -77,18 +77,21 @@ public class JugadorTest {
     public void creadorDeUnidadesTerrestresCreaEdificioCreadorDeUnidadesTerrestres() throws ExcepcionConstruccionesRequeridasNoCreadas {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
+        unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
 
-        Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
+        Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 2);
     }
 
     @Test
     public void creadorDeUnidadesAereasCreaEdificioCreadorDeUniadesAereas() throws ExcepcionConstruccionesRequeridasNoCreadas {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
+        unJugador.crearCreadorDeSoldados();
+        unJugador.crearCreadorDeUnidadesTerrestres();
         unJugador.crearCreadorDeUnidadesAereas();
 
-        Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
+        Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 3);
     }
    
     @Test(expected = ExcepcionRecursosInsuficientes.class)
@@ -101,11 +104,80 @@ public class JugadorTest {
     }
   
     @Test
-    public void CreandoElExtractorGazSeSacanLosMineralesDelJugador() throws ExcepcionRecursosInsuficientes{
+    public void CreandoElExtractorGasSeSacanLosMineralesDelJugador() throws ExcepcionRecursosInsuficientes{
     	Jugador unJugador = new Jugador("Juan", Color.ROJO,Terran.getInstance() );
     	unJugador.setMineral(120);
     	unJugador.crearExtractorGas();
-    	 Assert.assertEquals(unJugador.obtenerMineral(),20);
-    	
-    } 
+
+    	Assert.assertEquals(unJugador.obtenerMineral(),20);
+    }
+
+    @Test
+    public void tieneConstruccionDeTipoExtractorGasDevuelveFalseSiNoSeCreoNada() throws ExcepcionRecursosInsuficientes{
+        Jugador unJugador = new Jugador("Juan", Color.ROJO,Terran.getInstance() );
+
+        Assert.assertFalse(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_GAS));
+        Assert.assertFalse(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_MINERAL));
+        Assert.assertFalse(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_SOLDADOS));
+        Assert.assertFalse(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS));
+        Assert.assertFalse(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES));
+        Assert.assertFalse(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.ADICIONAL_SUMINISTROS));
+    }
+
+    @Test
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElAdicionalDeSuministros() throws ExcepcionRecursosInsuficientes{
+        Jugador unJugador = new Jugador("Juan", Color.ROJO,Terran.getInstance() );
+
+        unJugador.crearAdicionalDeSuministro();
+
+        Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.ADICIONAL_SUMINISTROS));
+    }
+
+    @Test
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElExtractorGas() throws ExcepcionRecursosInsuficientes{
+        Jugador unJugador = new Jugador("Juan", Color.ROJO,Terran.getInstance() );
+
+        unJugador.crearExtractorGas();
+
+        Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_GAS));
+    }
+
+    @Test
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElExtractorMineral() throws ExcepcionRecursosInsuficientes{
+        Jugador unJugador = new Jugador("Juan", Color.ROJO,Terran.getInstance() );
+
+        unJugador.crearExtractorMineral();
+
+        Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_MINERAL));
+    }
+
+    @Test
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElCreadorDeSoldados() throws ExcepcionRecursosInsuficientes{
+        Jugador unJugador = new Jugador("Juan", Color.ROJO,Terran.getInstance() );
+
+        unJugador.crearCreadorDeSoldados();
+
+        Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_SOLDADOS));
+    }
+
+    @Test
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElCreadorDeUnidadesTerrestres() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO,Terran.getInstance() );
+
+        unJugador.crearCreadorDeSoldados();
+        unJugador.crearCreadorDeUnidadesTerrestres();
+
+        Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES));
+    }
+
+    @Test
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElCreadorDeUnidadesAereas() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO,Terran.getInstance() );
+
+        unJugador.crearCreadorDeSoldados();
+        unJugador.crearCreadorDeUnidadesTerrestres();
+        unJugador.crearCreadorDeUnidadesAereas();
+
+        Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS));
+    }
 }

@@ -10,4 +10,8 @@ public class DepositoSuministro extends AdicionalSuministros {
         propietario.incrementarCapacidadDePoblacion(this.cantidadDeSuministrosAdicionales);
         //Costo = 100M
     }
+
+    public TipoDeConstruccion obtenerTipoDeConstruccion() {
+        return TipoDeConstruccion.ADICIONAL_SUMINISTROS;
+    }
 }

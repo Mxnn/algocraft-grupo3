@@ -7,4 +7,8 @@ public class CentroDeMineral extends ExtractorMineral{
         this.vida = 500;
         //Costo = 50M
     }
+
+    public TipoDeConstruccion obtenerTipoDeConstruccion() {
+        return TipoDeConstruccion.EXTRACTOR_MINERAL;
+    }
 }

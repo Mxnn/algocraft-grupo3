@@ -3,12 +3,15 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.RazaTerran.Marine;
 
 public class Barraca extends CreadorDeSoldados {
-	public Barraca(Jugador propietario){
+	public Barraca(Jugador propietario) {
         this.propietario = propietario;
         this.vida = 1000;
         this.tiempoDeConstruccion = 12;
         //Costo = 12M
-        //Crea a Marine
+    }
+
+    public TipoDeConstruccion obtenerTipoDeConstruccion() {
+        return TipoDeConstruccion.CREADOR_DE_SOLDADOS;
     }
 
     public Marine crearMarine() {

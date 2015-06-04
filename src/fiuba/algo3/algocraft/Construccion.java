@@ -9,6 +9,8 @@ public abstract class Construccion implements Interactuable {
 	protected int tiempoDeConstruccion;
     //Costo
 
+    public abstract TipoDeConstruccion obtenerTipoDeConstruccion();
+
     public void guardarEnParcela(Parcela parcela) throws ExcepcionElementoNoAdmitidoEnParcela {
         parcela.guardarElemento(this);
     }
