@@ -180,4 +180,19 @@ public class JugadorTest {
 
         Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS));
     }
+
+    @Test(expected= ExcepcionConstruccionesRequeridasNoCreadas.class)
+    public void jugadorCreaCreadorDeUnidadesTerrestresSinTenerCreadorDeSoldadosLanzaExcepcion() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO,Terran.getInstance() );
+
+        unJugador.crearCreadorDeUnidadesTerrestres();
+    }
+
+    @Test(expected= ExcepcionConstruccionesRequeridasNoCreadas.class)
+    public void jugadorCreaCreadorDeUnidadesAereasSinTenerCreadorDeUnidadesTerrestresLanzaExcepcion() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO,Terran.getInstance() );
+
+        unJugador.crearCreadorDeUnidadesAereas();
+    }
+
 }
