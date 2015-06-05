@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 
 import java.util.ArrayList;
@@ -9,6 +10,8 @@ public class Jugador {
     static final int GAS_VESPENO_INICIAL = 0;
     static final int MINERAL_INICIAL = 200;
     static final int CAPACIDAD_DE_POBLACION_MAXIMA = 200;
+    static final int CAPACIDAD_DE_POBLACION_INICIAL = 0;
+    static final int POBLACION_INICIAL = 0;
 
     private String nombre;
     private Color color;
@@ -17,7 +20,7 @@ public class Jugador {
     private int gasVespeno;
     private int mineral;
     private int capacidadDePoblacion;
-    //private int poblacion;
+    private int poblacion;
     
     
     public Jugador(String nombre, Color color, Raza raza) {
@@ -26,7 +29,8 @@ public class Jugador {
         this.raza = raza;
         this.gasVespeno = GAS_VESPENO_INICIAL;
         this.mineral = MINERAL_INICIAL;
-        this.capacidadDePoblacion = 0;
+        this.capacidadDePoblacion = CAPACIDAD_DE_POBLACION_INICIAL;
+        this.poblacion = POBLACION_INICIAL;
     }
 
     public String obtenerNombre() {
@@ -111,10 +115,6 @@ public class Jugador {
         return this.capacidadDePoblacion;
     }
 
-	public void setMineral(int cantidad) {
-		this.mineral= cantidad;
-	}
-
     public boolean tieneConstruccionDeTipo(TipoDeConstruccion tipo) {
         for (Construccion c : construcciones) {
             if (c.obtenerTipoDeConstruccion() == tipo)
@@ -122,5 +122,17 @@ public class Jugador {
         }
 
         return false;
+    }
+
+    public void incrementarPoblacion(int cantidad) throws ExcepcionNoHaySuministrosDisponibles {
+        int total = this.poblacion += cantidad;
+        if (total > this.capacidadDePoblacion)
+            throw new ExcepcionNoHaySuministrosDisponibles();
+        else
+            this.poblacion = total;
+    }
+
+    public int obtenerPoblacion() {
+        return this.poblacion;
     }
 }

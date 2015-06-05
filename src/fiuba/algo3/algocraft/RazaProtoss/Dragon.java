@@ -11,7 +11,6 @@ public class Dragon extends UnidadTerrestre{
         this.propietario = propietario;
         this.vida = 100;
         this.escudo = 80;
-        this.suministro = 2;
         /*this.danyo = new Danyo(20,20);
         this.costo = new Costo();*/
         this.vision = 8;

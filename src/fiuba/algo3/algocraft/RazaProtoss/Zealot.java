@@ -10,7 +10,6 @@ public class Zealot extends UnidadTerrestre {
 	        this.propietario = propietario;
 	        this.vida = 100;
 	        this.escudo = 60;
-	        this.suministro = 2;
 	        /*this.danyo = new Danyo();
 	        this.costo = new Costo();*/
 	        this.vision = 7;

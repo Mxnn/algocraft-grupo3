@@ -11,7 +11,6 @@ public class Scout extends UnidadVoladora {
         this.propietario = propietario;
         this.escudo = 100;
         this.vida = 150;
-        this.suministro = 3;
         /*this.danyo = new Danyo();
         this.costo = new Costo();*/
         this.vision = 7;

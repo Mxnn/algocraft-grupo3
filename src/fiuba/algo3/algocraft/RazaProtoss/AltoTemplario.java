@@ -11,7 +11,6 @@ public class AltoTemplario extends UnidadTerrestre{
         this.propietario = propietario;
         this.vida = 40;
         this.escudo = 40;
-        this.suministro = 2;
         /*this.danyo = new Danyo();
         this.costo = new Costo();*/
         this.vision = 7;

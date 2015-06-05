@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.RazaTerran.Golliat;
 
 public class Fabrica extends CreadorDeUnidadesTerrestres {
@@ -18,7 +19,7 @@ public class Fabrica extends CreadorDeUnidadesTerrestres {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES;
     }
 
-    public Golliat crearGolliat() {
+    public Golliat crearGolliat() throws ExcepcionNoHaySuministrosDisponibles {
         return new Golliat(this.propietario);
     }
 }

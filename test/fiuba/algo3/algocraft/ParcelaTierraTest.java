@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.RazaTerran.*;
 
 import org.junit.Assert;
@@ -16,8 +17,9 @@ public class ParcelaTierraTest {
     }
 
     @Test
-    public void devolverElementoDevuelveInteractuableGuardado() throws ExcepcionElementoNoAdmitidoEnParcela {
+    public void devolverElementoDevuelveInteractuableGuardado() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        unJugador.crearAdicionalDeSuministro();
         Parcela parcela = new ParcelaTierra();
         Interactuable marine = new Marine(unJugador);
         parcela.guardarElemento(marine);
@@ -26,9 +28,10 @@ public class ParcelaTierraTest {
     }
 
     @Test
-    public void estaVaciaDevuelveFalseCuandoEstaOcupada() throws ExcepcionElementoNoAdmitidoEnParcela {
+    public void estaVaciaDevuelveFalseCuandoEstaOcupada() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Parcela parcela = new ParcelaTierra();
+        unJugador.crearAdicionalDeSuministro();
         Interactuable marine = new Marine(unJugador);
         parcela.guardarElemento(marine);
 
@@ -36,8 +39,9 @@ public class ParcelaTierraTest {
     }
 
     @Test
-    public void guardarNoSobreEscribeElementoYaGuardado() throws ExcepcionElementoNoAdmitidoEnParcela {
+    public void guardarNoSobreEscribeElementoYaGuardado() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        unJugador.crearAdicionalDeSuministro();
         Parcela parcela = new ParcelaTierra();
         Interactuable marine = new Marine(unJugador);
         Interactuable golliat = new Golliat(unJugador);
@@ -49,8 +53,9 @@ public class ParcelaTierraTest {
     }
     
     @Test
-    public void parcelaGuardaUnidadesVoladoras() throws ExcepcionElementoNoAdmitidoEnParcela {
+    public void parcelaGuardaUnidadesVoladoras() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        unJugador.crearAdicionalDeSuministro();
     	Parcela parcela = new ParcelaTierra();
     	Interactuable espectro = new Espectro(unJugador);
 
@@ -63,6 +68,7 @@ public class ParcelaTierraTest {
     public void parcelaGuardaConstruccion() throws ExcepcionElementoNoAdmitidoEnParcela {
     	Parcela parcela = new ParcelaTierra();
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
+        unJugador.crearAdicionalDeSuministro();
     	Interactuable construccion = new Barraca(unJugador);
 
     	parcela.guardarElemento(construccion);

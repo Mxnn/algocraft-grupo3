@@ -7,14 +7,12 @@ import fiuba.algo3.algocraft.UnidadVoladora;
 public class NaveTransporte extends UnidadVoladora {
     /*private int capacidad;
     private int plazasOcupadas;*/
-	
 	private int escudo;
 	
     public NaveTransporte(Jugador propietario) {
         this.propietario = propietario;
         this.vida = 80;
         this.escudo = 60;
-        this.suministro = 2;
         /*this.danyo = new Danyo(0,0);
         this.costo = new Costo(100, 100);*/
         this.vision = 8;

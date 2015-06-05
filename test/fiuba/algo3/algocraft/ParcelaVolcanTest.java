@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.RazaTerran.Espectro;
 import fiuba.algo3.algocraft.RazaTerran.Marine;
@@ -9,18 +10,20 @@ import org.junit.Assert;
 
 public class ParcelaVolcanTest {
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
-    public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadDeTierra() throws ExcepcionElementoNoAdmitidoEnParcela {
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadDeTierra() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Parcela parcela = new ParcelaVolcan();
+        unJugador.crearAdicionalDeSuministro();
         Interactuable unidad = new Marine(unJugador);
 
         parcela.guardarElemento(unidad);
     }
 
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
-    public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadVoladora() throws ExcepcionElementoNoAdmitidoEnParcela {
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadVoladora() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Parcela parcela = new ParcelaVolcan();
+        unJugador.crearAdicionalDeSuministro();
         Interactuable unidad = new Espectro(unJugador);
 
         parcela.guardarElemento(unidad);

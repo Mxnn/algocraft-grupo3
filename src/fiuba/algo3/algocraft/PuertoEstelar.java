@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.RazaTerran.Espectro;
 import fiuba.algo3.algocraft.RazaTerran.NaveCiencia;
 import fiuba.algo3.algocraft.RazaTerran.NaveTransporte;
@@ -20,15 +21,15 @@ public class PuertoEstelar extends CreadorDeUnidadesAereas {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS;
     }
 
-    public Espectro crearEspectro() {
+    public Espectro crearEspectro() throws ExcepcionNoHaySuministrosDisponibles {
         return new Espectro(this.propietario);
     }
 
-    public NaveTransporte crearNaveTransporte() {
+    public NaveTransporte crearNaveTransporte() throws ExcepcionNoHaySuministrosDisponibles {
         return new NaveTransporte(this.propietario);
     }
 
-    public NaveCiencia crearNaveCiencia() {
+    public NaveCiencia crearNaveCiencia() throws ExcepcionNoHaySuministrosDisponibles {
         return new NaveCiencia(this.propietario);
     }
 }
