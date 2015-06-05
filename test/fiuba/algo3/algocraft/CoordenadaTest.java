@@ -1,6 +1,5 @@
 package fiuba.algo3.algocraft;
 import java.util.HashMap;
-import static org.junit.Assert.*;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -32,7 +31,7 @@ public class CoordenadaTest {
 	public void nuevaCoordenadaEsEncontradaEnHashMap(){
 		Coordenada coordenada1 = new Coordenada(1,2);
 		Coordenada coordenada2 = new Coordenada(1,2);
-		HashMap<Coordenada, String> hash = new HashMap();
+		HashMap<Coordenada, String> hash = new HashMap<Coordenada, String>();
 		hash.put(coordenada1,"coord(1,2)");
 		Assert.assertTrue("coord(1,2)" == hash.get(coordenada2));
 	}
