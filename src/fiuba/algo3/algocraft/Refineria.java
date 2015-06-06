@@ -5,7 +5,7 @@ public class Refineria extends ExtractorGas {
 	
     public static int COSTO_MINERAL= 100;
     public static int COSTO_GAZ = 0;
- 
+    public static Costo COSTO = new Costo(100,0);
     
     public Refineria(Jugador propietario) {
         this.propietario = propietario;

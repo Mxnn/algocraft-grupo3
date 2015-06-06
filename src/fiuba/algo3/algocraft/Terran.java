@@ -24,12 +24,22 @@ public class Terran implements Raza {
         return INSTANCIA;
     }
 
+    public boolean recursosInsuficientes(Jugador propietario, Costo costo){
 
+    	return((propietario.obtenerGasVespeno()<costo.getCostoGas()) || (propietario.obtenerMineral()<costo.getCostoMineral()));
+   
+    }
+
+    public void restarCosto(Jugador propietario, Costo costo){
+    	propietario.sumarGasVespeno(-costo.getCostoGas());
+    	propietario.sumarMinerales(-costo.getCostoMineral());
+    }
+    
 	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (propietario.obtenerMineral() < Refineria.COSTO_MINERAL) 
+        if (recursosInsuficientes(propietario,Refineria.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
 		
-        propietario.sumarMinerales(-Refineria.COSTO_MINERAL);
+        restarCosto(propietario,Refineria.COSTO);
 		return new Refineria(propietario);
 	}
 
