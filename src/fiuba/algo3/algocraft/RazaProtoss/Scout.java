@@ -5,11 +5,11 @@ import fiuba.algo3.algocraft.RangoAtaque;
 import fiuba.algo3.algocraft.UnidadVoladora;
 
 public class Scout extends UnidadVoladora {
-	private int escudo;
+	//private int escudo;
 	
     public Scout(Jugador propietario) {
         this.propietario = propietario;
-        this.escudo = 100;
+        //this.escudo = 100;
         this.vida = 150;
         /*this.danyo = new Danyo();
         this.costo = new Costo();*/

@@ -5,12 +5,12 @@ import fiuba.algo3.algocraft.Jugador;
 import fiuba.algo3.algocraft.RangoAtaque;
 
 public class Dragon extends UnidadTerrestre{
-	private int escudo;
+	//private int escudo;
 
     public Dragon(Jugador propietario) {
         this.propietario = propietario;
         this.vida = 100;
-        this.escudo = 80;
+        //this.escudo = 80;
         /*this.danyo = new Danyo(20,20);
         this.costo = new Costo();*/
         this.vision = 8;
