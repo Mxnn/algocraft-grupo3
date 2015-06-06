@@ -28,7 +28,7 @@ public class PuertoEstelarP extends CreadorDeUnidadesAereas{
         return new Scout(this.propietario);
     }
     
-    public NaveTransporteP crearSNaveTransporte() throws ExcepcionNoHaySuministrosDisponibles {
+    public NaveTransporteP crearNaveTransporteP() throws ExcepcionNoHaySuministrosDisponibles {
         return new NaveTransporteP(this.propietario);
     }
  }
