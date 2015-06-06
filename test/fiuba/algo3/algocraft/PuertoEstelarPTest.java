@@ -1,7 +1,5 @@
 package fiuba.algo3.algocraft;
 
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -25,7 +23,7 @@ public class PuertoEstelarPTest {
 	    }
 
 	    @Test
-	    public void crearNaveDeTransporteCreaNaveDeTransporte() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles {
+	    public void crearNaveDeTransportePCreaNaveDeTransporteP() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles {
 	    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 	        unJugador.crearCreadorDeSoldados();
 	        PuertoEstelarP puerto = new PuertoEstelarP(unJugador);
