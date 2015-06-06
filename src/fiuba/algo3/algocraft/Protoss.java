@@ -1,5 +1,8 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.ConstruccionesProtoss.*;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+
 public class Protoss implements Raza {
     private static Protoss INSTANCIA = null;
 
@@ -17,27 +20,27 @@ public class Protoss implements Raza {
         return INSTANCIA;
     }
 
-	public ExtractorGas crearExtractorGas(Jugador jugador) {
-		return null;
+	public ExtractorGas crearExtractorGas(Jugador propietario) {
+		return new Asimilador(propietario);
 	}
 
 	public ExtractorMineral crearExtractorMineral(Jugador propietario) {
-		return null;
+		return new NexoMineral(propietario);
 	}
 
     public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) {
-        return null;
+        return new Pilon(propietario);
     }
 
     public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) {
-        return null;
+        return new Acceso(propietario);
     }
 
-    public CreadorDeUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario) {
-        return null;
+    public CreadorDeUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas{
+        return new ArchivosTemplarios(propietario);
     }
 
-    public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario) {
-        return null;
+    public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas{
+        return new PuertoEstelar(propietario);
     }
 }
