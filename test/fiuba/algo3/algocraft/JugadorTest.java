@@ -23,7 +23,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void alCrearExtractorMineralSeAgregaLaConstruccionEnElArrayDelJugador() {
+	public void alCrearExtractorMineralSeAgregaLaConstruccionEnElArrayDelJugador() throws ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearExtractorMineral();
 
@@ -114,9 +114,27 @@ public class JugadorTest {
 
     	unJugador.crearExtractorGas();
 
-    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - 100);
+    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - Refineria.COSTO.getCostoMineral());
     }
 
+    @Test(expected = ExcepcionRecursosInsuficientes.class)
+    public void crearCreadorDeMineralesLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+        unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
+        unJugador.crearExtractorMineral();
+    }
+    
+    @Test
+    public void crearExtractorDeMineralRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+    	unJugador.crearExtractorMineral();
+
+    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - CentroDeMineral.COSTO.getCostoMineral());
+    }
+    
+    
     @Test
     public void tieneConstruccionDeTipoDevuelveFalseSiNoSeCreoNada() throws ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());

@@ -49,7 +49,7 @@ public class Jugador {
         return unExtractorGas;
 	}
 
-	public Interactuable crearExtractorMineral() {
+	public Interactuable crearExtractorMineral() throws ExcepcionRecursosInsuficientes {
 		ExtractorMineral unExtractorMineral = raza.crearExtractorMineral(this);
 		construcciones.add(unExtractorMineral);
 

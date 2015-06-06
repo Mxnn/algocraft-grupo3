@@ -44,7 +44,11 @@ public class Terran implements Raza {
 	}
 
 
-	public ExtractorMineral crearExtractorMineral(Jugador propietario) {
+	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+        if (recursosInsuficientes(propietario,CentroDeMineral.COSTO)) 
+            throw new ExcepcionRecursosInsuficientes();
+		
+        restarCosto(propietario,CentroDeMineral.COSTO);
 		return new CentroDeMineral(propietario);
 	}
 
