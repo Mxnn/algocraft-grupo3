@@ -6,7 +6,7 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 public class Terran implements Raza {
     private static Terran INSTANCIA = null;
 
-    private static int MINERAL_NECESARIO_REFINERIA = 100;
+
 
 
     private Terran() { }
@@ -26,10 +26,10 @@ public class Terran implements Raza {
 
 
 	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (propietario.obtenerMineral() < MINERAL_NECESARIO_REFINERIA) 
+        if (propietario.obtenerMineral() < Refineria.COSTO_MINERAL) 
             throw new ExcepcionRecursosInsuficientes();
 		
-        propietario.sumarMinerales(-MINERAL_NECESARIO_REFINERIA);
+        propietario.sumarMinerales(-Refineria.COSTO_MINERAL);
 		return new Refineria(propietario);
 	}
 

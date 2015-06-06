@@ -1,11 +1,17 @@
 package fiuba.algo3.algocraft;
 
+
 public class Refineria extends ExtractorGas {
+	
+    public static int COSTO_MINERAL= 100;
+    public static int COSTO_GAZ = 0;
+ 
+    
     public Refineria(Jugador propietario) {
         this.propietario = propietario;
         this.vida = 750;
         this.tiempoDeConstruccion = 6;
-        //Costo 100M
+
     }
 
     public TipoDeConstruccion obtenerTipoDeConstruccion() {
