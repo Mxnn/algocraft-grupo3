@@ -4,6 +4,11 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.RazaTerran.Marine;
 
 public class Barraca extends CreadorDeSoldados {
+
+    public static int COSTO_MINERAL= 150;
+    public static int COSTO_GAZ = 0;
+    public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAZ);
+    
 	public Barraca(Jugador propietario) {
         this.propietario = propietario;
         this.vida = 1000;

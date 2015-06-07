@@ -56,7 +56,7 @@ public class Jugador {
         return unExtractorMineral;
 	}
 
-    public Interactuable crearAdicionalDeSuministro() {
+    public Interactuable crearAdicionalDeSuministro() throws ExcepcionRecursosInsuficientes {
         AdicionalSuministros adicionalSuministros = raza.crearAdicionalDeSuministros(this);
         construcciones.add(adicionalSuministros);
 

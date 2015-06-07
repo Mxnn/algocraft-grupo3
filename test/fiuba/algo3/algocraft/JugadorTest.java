@@ -52,7 +52,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void crearDepositoDeSuministrosAumentaPoblacionDelJugadorEn5YSumaConstruccionesAlJugador() {
+    public void crearDepositoDeSuministrosAumentaPoblacionDelJugadorEn5YSumaConstruccionesAlJugador() throws ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
         unJugador.crearAdicionalDeSuministro();
@@ -126,6 +126,23 @@ public class JugadorTest {
     }
     
     @Test
+    public void crearAdicionalDeSuministrosRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+    	unJugador.crearAdicionalDeSuministro();
+
+    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - DepositoSuministro.COSTO.getCostoMineral());
+    }
+    
+    @Test(expected = ExcepcionRecursosInsuficientes.class)
+    public void crearAdicionalDeSuministrosLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+        unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
+        unJugador.crearAdicionalDeSuministro();
+    }
+    
+    @Test
     public void crearExtractorDeMineralRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes {
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
@@ -133,6 +150,7 @@ public class JugadorTest {
 
     	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - CentroDeMineral.COSTO.getCostoMineral());
     }
+    
     
     
     @Test
@@ -236,7 +254,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void crearMarineSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles {
+    public void crearMarineSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Barraca barraca;
 
@@ -249,7 +267,7 @@ public class JugadorTest {
     }
 
     @Test
-     public void crearGolliatSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas {
+     public void crearGolliatSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Fabrica fabrica;
 
@@ -265,7 +283,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void crearNaveCienciaSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas {
+    public void crearNaveCienciaSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         PuertoEstelar puerto;
 
@@ -282,7 +300,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void crearEspectroSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas {
+    public void crearEspectroSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         PuertoEstelar puerto;
 
@@ -299,7 +317,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void crearNaveTransporteSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas {
+    public void crearNaveTransporteSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         PuertoEstelar puerto;
 

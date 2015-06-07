@@ -5,7 +5,7 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 
 public interface Raza {
 
-    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario);
+    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes;
 
 	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes;
 

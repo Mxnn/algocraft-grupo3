@@ -52,7 +52,12 @@ public class Terran implements Raza {
 		return new CentroDeMineral(propietario);
 	}
 
-    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) {
+    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+        if (recursosInsuficientes(propietario,DepositoSuministro.COSTO)) 
+            throw new ExcepcionRecursosInsuficientes();
+		
+        restarCosto(propietario,DepositoSuministro.COSTO);
+        
         return new DepositoSuministro(propietario);
     }
 
