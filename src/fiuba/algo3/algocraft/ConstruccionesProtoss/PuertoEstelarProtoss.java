@@ -5,12 +5,12 @@ import fiuba.algo3.algocraft.Jugador;
 import fiuba.algo3.algocraft.TipoDeConstruccion;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
-import fiuba.algo3.algocraft.RazaProtoss.NaveTransporte;
+import fiuba.algo3.algocraft.RazaProtoss.NaveTransporteProtoss;
 import fiuba.algo3.algocraft.RazaProtoss.Scout;
 
 
-public class PuertoEstelar extends CreadorDeUnidadesAereas{
-	public PuertoEstelar(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas{
+public class PuertoEstelarProtoss extends CreadorDeUnidadesAereas{
+	public PuertoEstelarProtoss(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas{
         if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_SOLDADOS))
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
 		this.propietario = propietario;
@@ -28,8 +28,8 @@ public class PuertoEstelar extends CreadorDeUnidadesAereas{
         return new Scout(this.propietario);
     }
     
-    public NaveTransporte crearSNaveTransporte() throws ExcepcionNoHaySuministrosDisponibles {
-        return new NaveTransporte(this.propietario);
+    public NaveTransporteProtoss crearNaveTransporte() throws ExcepcionNoHaySuministrosDisponibles {
+        return new NaveTransporteProtoss(this.propietario);
     }
  }
 

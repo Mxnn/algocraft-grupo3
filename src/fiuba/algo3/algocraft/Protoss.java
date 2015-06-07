@@ -41,6 +41,6 @@ public class Protoss implements Raza {
     }
 
     public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas{
-        return new PuertoEstelarP(propietario);
+        return new PuertoEstelarProtoss(propietario);
     }
 }

@@ -11,6 +11,10 @@ public class NaveCiencia extends UnidadVoladora {
     public static final int VISION = 10;
     public static final int CUPO_TRANSPORTE = 0;
     public static final int TIEMPO_DE_CONSTRUCCION = 10;
+    public static final int ENERGIA_MAXIMA = 200;
+    public static final int ENERGIA_INICIAL = 50;
+    public static final int REGENERACION_ENERGIA = 10;
+
 
     public NaveCiencia(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
         propietario.incrementarPoblacion(SUMINISTRO);

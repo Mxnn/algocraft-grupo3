@@ -4,12 +4,12 @@ import fiuba.algo3.algocraft.Jugador;
 import fiuba.algo3.algocraft.RangoAtaque;
 import fiuba.algo3.algocraft.UnidadVoladora;
 
-public class NaveTransporteP extends UnidadVoladora {
+public class NaveTransporteProtoss extends UnidadVoladora {
     /*private int capacidad;
     private int plazasOcupadas;*/
 	//private int escudo;
 	
-    public NaveTransporteP(Jugador propietario) {
+    public NaveTransporteProtoss(Jugador propietario) {
         this.propietario = propietario;
         this.vida = 80;
         //this.escudo = 60;
