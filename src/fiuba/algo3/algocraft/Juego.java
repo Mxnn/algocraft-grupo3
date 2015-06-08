@@ -3,6 +3,8 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.Excepciones.*;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Juego {
     //EL CODIGO COMENTADO ES EL CODIGO PARA EL SINGLETON DE LA CLASE (NECESITO "LIMPIAR" EL OBJETO CLASE PARA BORRAR LOS USUARIOS "INSCRIPTOS")
@@ -11,7 +13,7 @@ public class Juego {
     private static int MAXIMO_NUMERO_DE_JUGADORES = 2;
 
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
-
+    private List tareasDelTurno = new LinkedList();
     /*
     private Juego() { }
 

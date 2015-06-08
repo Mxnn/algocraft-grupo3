@@ -2,6 +2,8 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.Excepciones.*;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Mapa {
     private static final int NUMERO_DE_BASES_MAXIMO = 4;
@@ -68,4 +70,42 @@ public class Mapa {
             throw new ExcepcionCoordenadaFueraDelMapa();
         }
     }
+
+	public void calcularItinerario(Coordenada desde, Coordenada hasta) { 
+		//metodo a mejorar , no se evite edificios y quisas las coordenadas no existen en el tablero
+		 
+		LinkedList<Coordenada> elItinerario = new LinkedList<Coordenada>();
+		
+		int auxX = desde.getX();
+		int auxY = desde.getY();
+		Coordenada aux = new Coordenada(auxX,auxY);
+		
+		while ((auxX!=hasta.getX()) &&(auxY!=hasta.getY()) ){
+			if(auxX<hasta.getX()){
+				auxX +=1;
+			}else{
+				if (auxY<hasta.getY()){	
+				auxY +=1;
+			
+				}else{
+					if(auxX>hasta.getX()){
+						auxX -=1;
+					}else{
+						if(auxY>hasta.getY()){
+							auxY -=1;
+						}
+					}
+				}
+		
+			}
+			elItinerario.add(aux);
+
+		}
+		Parcela ParcelaPartida = this.tablero.get(desde);
+		Unidad laUnidad = (Unidad) ParcelaPartida.elemento;
+		laUnidad.itinerario = elItinerario;
+		
+	}
+    
+    
 }

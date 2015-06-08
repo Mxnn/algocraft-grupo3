@@ -84,4 +84,25 @@ public class MapaTest {
 
         mapa.obtenerParcelaEnCoordenada(coordenada);
     }
+    
+    @Test
+    public void llamandoElMetodoCalcularItinerarioSeHaceUnaListaDeParcelaEnLaUnidad() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido{
+          Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+          Mapa mapa = new Mapa(2, 10, 10);
+          Coordenada desde = new Coordenada(5, 5);
+          Coordenada hasta = new Coordenada(8, 8);         
+          unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(2, 2));
+          Unidad golliat = new Golliat(unJugador);
+          mapa.ubicarElementoEnParcela(desde, golliat);
+          
+    	  mapa.calcularItinerario(desde, hasta);
+    	  
+    	  Assert.assertNotNull(golliat.itinerario);
+    	  
+    }
+   // @Test
+   // public void llamandoElMetodoMoverSeGuardaElItinerarioEnLaUnidad(){
+    
+   // }
+    
 }
