@@ -17,7 +17,7 @@ public abstract class Raza {
 		    	propietario.sumarMinerales(-(costo.getCostoMineral()));
 	   }
 		    
-    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario, Parcela parcela) throws ExcepcionRecursosInsuficientes {
 		return null;
 	}
 

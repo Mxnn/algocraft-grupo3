@@ -1,9 +1,6 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNaveDeTransporteLlena;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.RazaProtoss.Dragon;
 import fiuba.algo3.algocraft.RazaProtoss.NaveTransporteProtoss;
 import fiuba.algo3.algocraft.RazaTerran.Marine;
@@ -13,11 +10,12 @@ import org.junit.Test;
 
 public class NaveTransporteProtossTest {
     @Test
-    public void insertarUnidadInsertaLaUnidadEnLaNave() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes {
+    public void insertarUnidadInsertaLaUnidadEnLaNave() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        Mapa mapa = new Mapa(2, 5, 5);
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
-        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         NaveTransporteProtoss nave = new NaveTransporteProtoss(unJugador);
 
         nave.insertarUnidad(new Dragon(unJugador));
@@ -26,13 +24,14 @@ public class NaveTransporteProtossTest {
     }
 
     @Test(expected = ExcepcionNaveDeTransporteLlena.class)
-    public void insertarUnidadLanzaExcepcionSiLaNaveEstaLlena() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes {
+    public void insertarUnidadLanzaExcepcionSiLaNaveEstaLlena() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
+        Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
-        unJugador.crearAdicionalDeSuministro();
-        unJugador.crearAdicionalDeSuministro();
-        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(2, 2));
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         NaveTransporteProtoss nave = new NaveTransporteProtoss(unJugador);
 
         for (int i = 1; i <= 4; i++) {
@@ -43,13 +42,14 @@ public class NaveTransporteProtossTest {
     }
 
     @Test
-    public void destruirNaveDestruyeTodasLasUnidadesQueHayEnSuInterior() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto {
+    public void destruirNaveDestruyeTodasLasUnidadesQueHayEnSuInterior() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
+        Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
-        unJugador.crearAdicionalDeSuministro();
-        unJugador.crearAdicionalDeSuministro();
-        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(2, 2));
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         NaveTransporteProtoss nave = new NaveTransporteProtoss(unJugador);
 
         for (int i = 1; i <= 2; i++) {

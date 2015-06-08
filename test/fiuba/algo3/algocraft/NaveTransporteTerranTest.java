@@ -1,9 +1,6 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNaveDeTransporteLlena;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.RazaTerran.Golliat;
 import fiuba.algo3.algocraft.RazaTerran.Marine;
 import fiuba.algo3.algocraft.RazaTerran.NaveTransporteTerran;
@@ -12,11 +9,12 @@ import org.junit.Test;
 
 public class NaveTransporteTerranTest {
     @Test
-    public void insertarUnidadInsertaLaUnidadEnLaNave() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes {
+    public void insertarUnidadInsertaLaUnidadEnLaNave() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        Mapa mapa = new Mapa(2, 5, 5);
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
-        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
 
         nave.insertarUnidad(new Marine(unJugador));
@@ -25,13 +23,14 @@ public class NaveTransporteTerranTest {
     }
 
     @Test(expected = ExcepcionNaveDeTransporteLlena.class)
-    public void insertarUnidadLanzaExcepcionSiLaNaveEstaLlena() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes {
+    public void insertarUnidadLanzaExcepcionSiLaNaveEstaLlena() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        Mapa mapa = new Mapa(2, 5, 5);
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
-        unJugador.crearAdicionalDeSuministro();
-        unJugador.crearAdicionalDeSuministro();
-        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 2));
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 3));
         NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
 
         for (int i = 1; i <= 4; i++) {
@@ -42,13 +41,14 @@ public class NaveTransporteTerranTest {
     }
 
     @Test
-    public void destruirNaveDestruyeTodasLasUnidadesQueHayEnSuInterior() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto {
+    public void destruirNaveDestruyeTodasLasUnidadesQueHayEnSuInterior() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        Mapa mapa = new Mapa(2, 5, 5);
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
-        unJugador.crearAdicionalDeSuministro();
-        unJugador.crearAdicionalDeSuministro();
-        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 2));
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 3));
         NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
 
         for (int i = 1; i <= 4; i++) {

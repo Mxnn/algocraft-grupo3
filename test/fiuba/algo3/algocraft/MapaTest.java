@@ -10,21 +10,21 @@ public class MapaTest {
 	@Test
 	public void devolverElementoEnParcelaDevuelveElementoGuardado() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada {
 		Mapa mapa = new Mapa(2, 5, 5);
+        Coordenada coordenada = new Coordenada(3, 3);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro(mapa, coordenada);
 		Interactuable marine = new Marine(unJugador);
-        Coordenada coordenada = new Coordenada(0,0);
 
-		mapa.ubicarElementoEnParcela(coordenada, marine);
+		mapa.ubicarElementoEnParcela(new Coordenada(0,0), marine);
 
-		Assert.assertSame(marine, mapa.devolverElementoEnParcela(coordenada));
+		Assert.assertSame(marine, mapa.devolverElementoEnParcela(new Coordenada(0, 0)));
 	}
 
     @Test
     public void ubicarGolliatEnParcelaLanzaExcepcionSiElElementoNoEsAdmitidoEnLaParcela() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Mapa mapa = new Mapa(2, 5, 5);
-        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         Interactuable golliat = new Golliat(unJugador);
         Coordenada coordenada = new Coordenada(0,0);
 
@@ -35,7 +35,7 @@ public class MapaTest {
     public void ubicarUnidadVoladoraEnParcelaEspacioLaUbica() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Mapa mapa = new Mapa(2, 5, 5);
-        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         Interactuable espectro = new Espectro(unJugador);
         Coordenada coordenada = new Coordenada(0,0);
 
@@ -70,7 +70,7 @@ public class MapaTest {
         Mapa mapa = new Mapa(2, 10, 10);
         Coordenada coordenada = new Coordenada(5, 5);
 
-        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(2, 2));
         Interactuable golliat = new Golliat(unJugador);
         mapa.ubicarElementoEnParcela(coordenada, golliat);
 

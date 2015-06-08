@@ -24,6 +24,10 @@ public abstract class Parcela {
         }
 	}
 
+    public void vaciarParcela() {
+        this.elemento = null;
+    }
+
 	public abstract void guardarElemento(Interactuable elemento) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada;
 	
 	public Interactuable devolverElemento(){

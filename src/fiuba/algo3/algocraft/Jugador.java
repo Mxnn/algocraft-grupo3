@@ -1,9 +1,6 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionCoordenadaFueraDelMapa;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.Excepciones.*;
 
 import java.util.ArrayList;
 
@@ -43,12 +40,9 @@ public class Jugador {
         return this.color;
     }
 
-    //Deberia crear la construccion en un lugar del mapa (coordenadas) y el jugador tiene que tener acceso al mapa (lo usa)
-	public Interactuable crearExtractorGas(/*Mapa mapa, Coordenada coordenada*/) throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa {
-		//Parcela parcela = mapa.obtenerParcelaEnCoordenada(coordenada);
+	public Interactuable crearExtractorGas() throws ExcepcionRecursosInsuficientes {
         ExtractorGas unExtractorGas = raza.crearExtractorGas(this);
 
-        //parcela.setElemento(unExtractorGas);
 		construcciones.add(unExtractorGas);
 
         return unExtractorGas;
@@ -61,8 +55,11 @@ public class Jugador {
         return unExtractorMineral;
 	}
 
-    public Interactuable crearAdicionalDeSuministro() throws ExcepcionRecursosInsuficientes {
-        AdicionalSuministros adicionalSuministros = raza.crearAdicionalDeSuministros(this);
+    public Interactuable crearAdicionalDeSuministro(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada {
+        Parcela parcela = mapa.obtenerParcelaEnCoordenada(coordenada);
+        AdicionalSuministros adicionalSuministros = raza.crearAdicionalDeSuministros(this, parcela);
+
+        parcela.setElemento(adicionalSuministros);
         construcciones.add(adicionalSuministros);
 
         return adicionalSuministros;

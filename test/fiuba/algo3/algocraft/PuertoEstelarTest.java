@@ -1,30 +1,31 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.Excepciones.*;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 public class PuertoEstelarTest {
     @Test
-    public void crearEspectroCreaEspectro() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
+    public void crearEspectroCreaEspectro() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        Mapa mapa = new Mapa(2, 5, 5);
+
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
         PuertoEstelar puerto = new PuertoEstelar(unJugador);
 
-        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
 
         Assert.assertNotNull(puerto.crearEspectro());
     }
 
     @Test
-    public void crearNaveDeTransporteCreaNaveDeTransporte() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
+    public void crearNaveDeTransporteCreaNaveDeTransporte() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        Mapa mapa = new Mapa(2, 5, 5);
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
         
@@ -32,21 +33,22 @@ public class PuertoEstelarTest {
         unJugador.crearCreadorDeUnidadesTerrestres();
         PuertoEstelar puerto = new PuertoEstelar(unJugador);
 
-        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
 
         Assert.assertNotNull(puerto.crearNaveTransporte());
     }
 
     @Test
-    public void crearNaveCienciaCreaUnaNaveCiencia() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
+    public void crearNaveCienciaCreaUnaNaveCiencia() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        Mapa mapa = new Mapa(2, 5, 5);
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
         PuertoEstelar puerto = new PuertoEstelar(unJugador);
 
-        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
 
         Assert.assertNotNull(puerto.crearNaveCiencia());
     }

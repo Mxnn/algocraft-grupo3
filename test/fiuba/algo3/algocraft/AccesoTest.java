@@ -1,39 +1,38 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.Excepciones.*;
 import org.junit.Test;
 
 import fiuba.algo3.algocraft.ConstruccionesProtoss.Acceso;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
-import fiuba.algo3.algocraft.RazaProtoss.Dragon;
-import fiuba.algo3.algocraft.RazaProtoss.Zealot;
 
 import org.junit.Assert;
 
 public class AccesoTest {
     @Test
-    public void crearZealotCreaUnZealot() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
+    public void crearZealotCreaUnZealot() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
-        unJugador.crearAdicionalDeSuministro();
+        Mapa mapa = new Mapa(2, 5, 5);
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1 ,1));
         Acceso acceso = new Acceso(unJugador);
 
-        Assert.assertTrue(acceso.crearZealot() instanceof Zealot);
+        Assert.assertNotNull(acceso.crearZealot());
     }
     
     @Test
-    public void crearDragonCreaUnDragon() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
+    public void crearDragonCreaUnDragon() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
-        unJugador.crearAdicionalDeSuministro();
+        Mapa mapa = new Mapa(2, 5, 5);
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         Acceso acceso = new Acceso(unJugador);
 
-        Assert.assertTrue(acceso.crearDragon() instanceof Dragon);
+        Assert.assertNotNull(acceso.crearDragon());
     }
 
     @Test
-    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
+    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        unJugador.crearAdicionalDeSuministro();
+        Mapa mapa = new Mapa(2, 5, 5);
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         Acceso acceso = new Acceso(unJugador);
 
         Assert.assertEquals(acceso.obtenerTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_SOLDADOS);

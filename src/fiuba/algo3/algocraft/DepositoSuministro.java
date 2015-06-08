@@ -7,8 +7,9 @@ public class DepositoSuministro extends AdicionalSuministros {
     public static int COSTO_GAS = 0;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
-    public DepositoSuministro(Jugador propietario) {
+    public DepositoSuministro(Jugador propietario, Parcela parcela) {
         this.propietario = propietario;
+        this.parcelaUbicacion = parcela;
         this.estado = new Estado(VIDA_INICIAL);
         this.tiempoDeConstruccion = 6;
         this.CANTIDAD_DE_SUMINISTROS_ADICIONALES = 5;

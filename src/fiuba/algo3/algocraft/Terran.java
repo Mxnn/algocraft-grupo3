@@ -40,13 +40,13 @@ public class Terran extends Raza {
 		return new CentroDeMineral(propietario);
 	}
 
-    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario, Parcela parcela) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,DepositoSuministro.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
 		
         restarCosto(propietario,DepositoSuministro.COSTO);
         
-        return new DepositoSuministro(propietario);
+        return new DepositoSuministro(propietario, parcela);
     }
 
     public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) throws ExcepcionRecursosInsuficientes {

@@ -39,7 +39,7 @@ public class Protoss extends Raza {
 		return new NexoMineral(propietario);
 	}
 
-    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario, Parcela parcela) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,Pilon.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
 		
