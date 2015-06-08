@@ -4,9 +4,7 @@ import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
 public class NaveTransporteTerran extends NaveTransporte {
-    /*private int capacidad;
-    private int plazasOcupadas;*/
-	
+
     public static int COSTO_MINERAL = 100;
     public static int COSTO_GAS = 100;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);

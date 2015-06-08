@@ -9,7 +9,7 @@ public abstract class NaveTransporte extends UnidadVoladora {
     protected int capacidad;
     protected ArrayList<UnidadTerrestre> unidades = new ArrayList<UnidadTerrestre>();
 
-    public void meterUnidad(UnidadTerrestre unidad) throws ExcepcionNaveDeTransporteLlena {
+    public void insertarUnidad(UnidadTerrestre unidad) throws ExcepcionNaveDeTransporteLlena {
         int lugaresTotalesOcupadas = lugaresOcupados + unidad.obtenerCupoDeTransporte();
         if (lugaresTotalesOcupadas <= capacidad) {
             lugaresOcupados = lugaresTotalesOcupadas;
@@ -17,5 +17,9 @@ public abstract class NaveTransporte extends UnidadVoladora {
         }
         else
             throw new ExcepcionNaveDeTransporteLlena();
+    }
+
+    public int cantidadDeUnidades() {
+        return this.unidades.size();
     }
 }
