@@ -1,21 +1,18 @@
 package fiuba.algo3.algocraft.ConstruccionesProtoss;
 
-import fiuba.algo3.algocraft.Costo;
-import fiuba.algo3.algocraft.ExtractorMineral;
-import fiuba.algo3.algocraft.Jugador;
-import fiuba.algo3.algocraft.TipoDeConstruccion;
+import fiuba.algo3.algocraft.*;
 
 public class NexoMineral  extends ExtractorMineral {
-    public static int COSTO_MINERAL= 50;
-    public static int COSTO_GAZ = 0;
-    public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAZ);
+    private static final int VIDA_INICIAL = 250;
+    private static final int ESCUDO_INICIAL = 250;
+    public static int COSTO_MINERAL = 50;
+    public static int COSTO_GAS = 0;
+    public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
     public NexoMineral(Jugador propietario) {
         this.propietario = propietario;
-        this.vida = 250;
-        //escudo = 250
+        this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         this.tiempoDeConstruccion = 4;
-
     }
 
     public TipoDeConstruccion obtenerTipoDeConstruccion() {

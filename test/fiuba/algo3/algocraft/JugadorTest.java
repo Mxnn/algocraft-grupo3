@@ -4,11 +4,8 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCrea
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 
-import fiuba.algo3.algocraft.RazaTerran.NaveTransporte;
-import fiuba.algo3.algocraft.RazaTerran.Espectro;
-import fiuba.algo3.algocraft.RazaTerran.Golliat;
-import fiuba.algo3.algocraft.RazaTerran.Marine;
-import fiuba.algo3.algocraft.RazaTerran.NaveCiencia;
+import fiuba.algo3.algocraft.RazaTerran.*;
+import fiuba.algo3.algocraft.RazaTerran.NaveTransporteTerran;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -414,7 +411,7 @@ public class JugadorTest {
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas();
         puerto.crearEspectro();
 
-        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + NaveTransporte.SUMINISTRO);
+        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + NaveTransporteTerran.SUMINISTRO);
     }
 
     //Los demas tambien tienen que hacer lo mismo

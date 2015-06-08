@@ -4,7 +4,6 @@ public abstract class Unidad extends Interactuable {
 
     protected int vision;
     protected RangoAtaque rangoAtaque;
-    protected int cupoDeTransporte;
     protected Coordenada posicion;
 
     /*protected Danyo danyo; //INTERFAZ ATACANTE

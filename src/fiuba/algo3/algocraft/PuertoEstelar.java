@@ -4,10 +4,11 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCrea
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.RazaTerran.Espectro;
 import fiuba.algo3.algocraft.RazaTerran.NaveCiencia;
-import fiuba.algo3.algocraft.RazaTerran.NaveTransporte;
+import fiuba.algo3.algocraft.RazaTerran.NaveTransporteTerran;
 
 public class PuertoEstelar extends CreadorDeUnidadesAereas {
-	
+
+    private static final int VIDA_INICIAL = 1300;
     public static int COSTO_MINERAL= 150;
     public static int COSTO_GAZ = 100;
     public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAZ);
@@ -17,7 +18,7 @@ public class PuertoEstelar extends CreadorDeUnidadesAereas {
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
 
         this.propietario = propietario;
-        this.vida = 1300;
+        this.estado = new Estado(VIDA_INICIAL);
         this.tiempoDeConstruccion = 10;
 
     }
@@ -30,8 +31,8 @@ public class PuertoEstelar extends CreadorDeUnidadesAereas {
         return new Espectro(this.propietario);
     }
 
-    public NaveTransporte crearNaveTransporte() throws ExcepcionNoHaySuministrosDisponibles {
-        return new NaveTransporte(this.propietario);
+    public NaveTransporteTerran crearNaveTransporte() throws ExcepcionNoHaySuministrosDisponibles {
+        return new NaveTransporteTerran(this.propietario);
     }
 
     public NaveCiencia crearNaveCiencia() throws ExcepcionNoHaySuministrosDisponibles {

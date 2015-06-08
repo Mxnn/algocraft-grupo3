@@ -1,15 +1,14 @@
 package fiuba.algo3.algocraft.ConstruccionesProtoss;
 
-import fiuba.algo3.algocraft.Costo;
-import fiuba.algo3.algocraft.CreadorDeUnidadesTerrestres;
-import fiuba.algo3.algocraft.Jugador;
-import fiuba.algo3.algocraft.TipoDeConstruccion;
+import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.RazaProtoss.AltoTemplario;
 
 public class ArchivosTemplarios extends CreadorDeUnidadesTerrestres {
-	
+
+    private static final int VIDA_INICIAL = 500;
+    private static final int ESCUDO_INICIAL = 500;
     public static int COSTO_MINERAL= 150;
     public static int COSTO_GAZ = 200;
     public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAZ);
@@ -20,8 +19,7 @@ public class ArchivosTemplarios extends CreadorDeUnidadesTerrestres {
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
 
         this.propietario = propietario;
-        this.vida = 500;
-        //escudo = 500
+        this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         this.tiempoDeConstruccion = 9;
 
     }

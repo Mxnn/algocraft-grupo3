@@ -3,6 +3,8 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 
 public abstract class UnidadTerrestre extends Unidad {
+    protected int cupoDeTransporte;
+
     public void guardarEnParcela(ParcelaTierra parcela) throws ExcepcionElementoNoAdmitidoEnParcela {
         parcela.setElemento(this);
     }
@@ -18,4 +20,6 @@ public abstract class UnidadTerrestre extends Unidad {
     public void guardarEnParcela(ParcelaVolcan parcela) throws ExcepcionElementoNoAdmitidoEnParcela {
         throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
+
+    public int obtenerCupoDeTransporte() { return this.cupoDeTransporte; }
 }

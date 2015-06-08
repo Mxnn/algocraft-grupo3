@@ -5,13 +5,14 @@ import fiuba.algo3.algocraft.RazaTerran.Marine;
 
 public class Barraca extends CreadorDeSoldados {
 
-    public static int COSTO_MINERAL= 150;
-    public static int COSTO_GAZ = 0;
-    public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAZ);
+    private static final int VIDA_INICIAL = 1000;
+    public static int COSTO_MINERAL = 150;
+    public static int COSTO_GAS = 0;
+    public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
 	public Barraca(Jugador propietario) {
         this.propietario = propietario;
-        this.vida = 1000;
+        this.estado = new Estado(VIDA_INICIAL);
         this.tiempoDeConstruccion = 12;
 
     }

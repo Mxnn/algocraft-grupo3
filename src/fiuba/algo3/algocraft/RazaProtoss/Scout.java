@@ -1,25 +1,27 @@
 package fiuba.algo3.algocraft.RazaProtoss;
 
-import fiuba.algo3.algocraft.Costo;
-import fiuba.algo3.algocraft.Jugador;
-import fiuba.algo3.algocraft.RangoAtaque;
-import fiuba.algo3.algocraft.UnidadVoladora;
+import fiuba.algo3.algocraft.*;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
 public class Scout extends UnidadVoladora {
-	//private int escudo;
+    public static final int SUMINISTRO = 2;
+    public static final int VIDA_INICIAL = 150;
+    public static final int ESCUDO_INICIAL = 100;
+    public static final int VISION = 7;
+    public static final int TIEMPO_DE_CONSTRUCCION = 9;
+
     public static int COSTO_MINERAL= 300;
-    public static int COSTO_GAZ = 150;
-    public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAZ);
+    public static int COSTO_GAS = 150;
+    public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAS);
     
     
-    public Scout(Jugador propietario) {
+    public Scout(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
+        propietario.incrementarPoblacion(SUMINISTRO);
         this.propietario = propietario;
-        //this.escudo = 100;
-        this.vida = 150;
-        /*this.danyo = new Danyo();*/
-        this.vision = 7;
-        this.cupoDeTransporte = 0;
+        this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
+        /*this.danyo = new Danyo(20, 20);*/
+        this.vision = VISION;
         this.rangoAtaque = new RangoAtaque(4, 4);
-        this.tiempoDeConstruccion = 9;
+        this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
     }
 }
