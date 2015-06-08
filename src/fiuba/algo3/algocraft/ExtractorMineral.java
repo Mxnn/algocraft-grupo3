@@ -2,7 +2,7 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 
-public abstract class ExtractorMineral extends ConstruccionExtractora {
+public abstract class ExtractorMineral extends Construccion {
     private static final int CANTIDAD_DE_MINERALES_RECOLECTADOS_POR_TURNO = 10;
 
     public void recolectarMinerales() {

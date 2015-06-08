@@ -1,4 +1,4 @@
 package fiuba.algo3.algocraft;
 
-public abstract class CreadorDeSoldados extends ConstruccionParaUnidades {
+public abstract class CreadorDeSoldados extends Construccion {
 }
