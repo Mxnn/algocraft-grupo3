@@ -5,6 +5,10 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.RazaTerran.Golliat;
 
 public class Fabrica extends CreadorDeUnidadesTerrestres {
+    public static int COSTO_MINERAL= 200;
+    public static int COSTO_GAZ = 100;
+    public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAZ);	
+	
     public Fabrica(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas {
         if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_SOLDADOS))
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
@@ -12,7 +16,7 @@ public class Fabrica extends CreadorDeUnidadesTerrestres {
         this.propietario = propietario;
         this.vida = 1250;
         this.tiempoDeConstruccion = 12;
-        //Costo = 200M/100G
+
     }
 
     public TipoDeConstruccion obtenerTipoDeConstruccion() {

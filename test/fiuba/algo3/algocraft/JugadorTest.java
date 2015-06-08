@@ -13,7 +13,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class JugadorTest {
-
+    public static int RECURSOS_SUFFICIENTES= 1000;
 	@Test
 	public void alCrearExtractorGasSeAgregaLaConstruccionEnElArrayDelJugador() throws ExcepcionRecursosInsuficientes {
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
@@ -82,7 +82,8 @@ public class JugadorTest {
     @Test
     public void creadorDeUnidadesTerrestresCreaEdificioCreadorDeUnidadesTerrestres() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-
+        unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
 
@@ -92,7 +93,9 @@ public class JugadorTest {
     @Test
     public void creadorDeUnidadesAereasCreaEdificioCreadorDeUniadesAereas() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-
+        unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
+  
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
         unJugador.crearCreadorDeUnidadesAereas();
@@ -171,6 +174,9 @@ public class JugadorTest {
 
     
     
+ 
+    
+    
     @Test
     public void tieneConstruccionDeTipoDevuelveFalseSiNoSeCreoNada() throws ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
@@ -222,7 +228,9 @@ public class JugadorTest {
     @Test
     public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElCreadorDeUnidadesTerrestres() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-
+        unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
+        
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
 
@@ -233,6 +241,9 @@ public class JugadorTest {
     public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElCreadorDeUnidadesAereas() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
+        unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
+        
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
         unJugador.crearCreadorDeUnidadesAereas();
@@ -243,7 +254,9 @@ public class JugadorTest {
     @Test(expected = ExcepcionConstruccionesRequeridasNoCreadas.class)
     public void jugadorCreaCreadorDeUnidadesTerrestresSinTenerCreadorDeSoldadosLanzaExcepcion() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-
+        unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
+        
         unJugador.crearCreadorDeUnidadesTerrestres();
     }
 
@@ -289,8 +302,8 @@ public class JugadorTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Fabrica fabrica;
 
-        unJugador.sumarMinerales(450);
-        unJugador.sumarGasVespeno(100);
+        unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
         unJugador.crearAdicionalDeSuministro();
         unJugador.crearCreadorDeSoldados();
 
@@ -305,8 +318,8 @@ public class JugadorTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         PuertoEstelar puerto;
 
-        unJugador.sumarMinerales(600);
-        unJugador.sumarGasVespeno(200);
+        unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
         unJugador.crearAdicionalDeSuministro();
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
@@ -322,8 +335,8 @@ public class JugadorTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         PuertoEstelar puerto;
 
-        unJugador.sumarMinerales(600);
-        unJugador.sumarGasVespeno(200);
+        unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
         unJugador.crearAdicionalDeSuministro();
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
@@ -339,8 +352,8 @@ public class JugadorTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         PuertoEstelar puerto;
 
-        unJugador.sumarMinerales(600);
-        unJugador.sumarGasVespeno(200);
+        unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
         unJugador.crearAdicionalDeSuministro();
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
