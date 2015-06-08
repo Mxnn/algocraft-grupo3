@@ -25,20 +25,14 @@ public class Terran implements Raza {
     }
 
     public boolean recursosInsuficientes(Jugador propietario, Costo costo){
-    	boolean condition = false;
-    	if (propietario.obtenerGasVespeno()<costo.getCostoGas())
-    		condition = true;
-    	
-    	if (propietario.obtenerMineral()<costo.getCostoMineral())
-    		condition = true;
-    	return condition;
-    //	return((propietario.obtenerGasVespeno()<costo.getCostoGas())  (propietario.obtenerMineral()<costo.getCostoMineral()));
+
+    return((propietario.obtenerGasVespeno()<costo.getCostoGas()) || (propietario.obtenerMineral()<costo.getCostoMineral()));
    
     }
 
     public void restarCosto(Jugador propietario, Costo costo){
-    	propietario.sumarGasVespeno(-costo.getCostoGas());
-    	propietario.sumarMinerales(-costo.getCostoMineral());
+    	propietario.sumarGasVespeno(-(costo.getCostoGas()));
+    	propietario.sumarMinerales(-(costo.getCostoMineral()));
     }
     
 	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
@@ -76,7 +70,10 @@ public class Terran implements Raza {
     }
 
     public CreadorDeUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
-    	
+        if (recursosInsuficientes(propietario,Fabrica.COSTO)) 
+            throw new ExcepcionRecursosInsuficientes();
+		
+        restarCosto(propietario,Fabrica.COSTO);
     	return new Fabrica(propietario);
     }
 

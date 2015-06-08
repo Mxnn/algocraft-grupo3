@@ -11,8 +11,8 @@ public class PuertoEstelarTest {
     @Test
     public void crearEspectroCreaEspectro() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        unJugador.sumarMinerales(700);
-        unJugador.sumarGasVespeno(700);
+        unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
         PuertoEstelar puerto = new PuertoEstelar(unJugador);
@@ -25,8 +25,8 @@ public class PuertoEstelarTest {
     @Test
     public void crearNaveDeTransporteCreaNaveDeTransporte() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        unJugador.sumarMinerales(450);
-        unJugador.sumarGasVespeno(100);
+        unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
         
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
@@ -40,8 +40,8 @@ public class PuertoEstelarTest {
     @Test
     public void crearNaveCienciaCreaUnaNaveCiencia() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        unJugador.sumarMinerales(450);
-        unJugador.sumarGasVespeno(100);
+        unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
         PuertoEstelar puerto = new PuertoEstelar(unJugador);
@@ -54,6 +54,8 @@ public class PuertoEstelarTest {
     @Test
      public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
         PuertoEstelar puerto = new PuertoEstelar(unJugador);

@@ -89,7 +89,7 @@ public class Jugador {
 	}
 
     public void sumarGasVespeno(int cantidad) {
-        this.gasVespeno =+ cantidad;
+        this.gasVespeno = this.gasVespeno +  cantidad;
     }
 
     public int obtenerGasVespeno() {
@@ -97,7 +97,7 @@ public class Jugador {
     }
 
     public void sumarMinerales(int cantidad) {
-        this.mineral += cantidad;
+        this.mineral = this.mineral+ cantidad;
     }
 
     public int obtenerMineral() {

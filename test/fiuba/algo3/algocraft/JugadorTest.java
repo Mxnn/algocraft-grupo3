@@ -112,6 +112,16 @@ public class JugadorTest {
     }
   
     @Test
+    public void sePuedeSumarGazVespeno() throws ExcepcionRecursosInsuficientes {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+    	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
+
+    	Assert.assertEquals(unJugador.obtenerGasVespeno(), Jugador.GAS_VESPENO_INICIAL + RECURSOS_SUFFICIENTES);
+    }
+    
+    
+    @Test
     public void crearExtractorDeGasRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes {
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
@@ -174,7 +184,27 @@ public class JugadorTest {
 
     
     
+    @Test(expected = ExcepcionRecursosInsuficientes.class)
+    public void crearCreadorDeUnidadesTerrestresLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+    	unJugador.crearCreadorDeSoldados();  //construction requirida para crear el creador de unidades terrestres   
+        unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL + Barraca.COSTO.getCostoMineral());
+        unJugador.crearCreadorDeUnidadesTerrestres();
+    }
+    
+    @Test
+    public void crearCreadorDeUnidadesTerrestresRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
+      
+    	unJugador.crearCreadorDeSoldados();   //construction requirida para crear el creador de unidades terrestres    
  
+    	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
+    	unJugador.crearCreadorDeUnidadesTerrestres();
+
+    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Barraca.COSTO.getCostoMineral() - Fabrica.COSTO.getCostoMineral());
+    }
+
     
     
     @Test
