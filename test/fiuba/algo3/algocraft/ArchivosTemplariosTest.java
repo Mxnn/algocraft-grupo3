@@ -6,12 +6,13 @@ import org.junit.Test;
 import fiuba.algo3.algocraft.ConstruccionesProtoss.ArchivosTemplarios;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.RazaProtoss.AltoTemplario;
 
 public class ArchivosTemplariosTest {
 
 	@Test
-	public void crearAltoTemplariotCreaUnAltoTemplario() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles {
+	public void crearAltoTemplariotCreaUnAltoTemplario() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesAereas();
@@ -21,7 +22,7 @@ public class ArchivosTemplariosTest {
     }
 	
 	@Test
-    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas {
+    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesAereas();

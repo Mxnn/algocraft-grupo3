@@ -11,7 +11,7 @@ public interface Raza {
 
 	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes;
 
-    public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario);
+    public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) throws ExcepcionRecursosInsuficientes;
 
     public CreadorDeUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas;
 

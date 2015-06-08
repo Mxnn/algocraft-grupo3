@@ -71,7 +71,7 @@ public class JugadorTest {
     }
 
     @Test
-      public void creadorDeSoldadosCreaEdificioCreadorDeSoldados() {
+      public void creadorDeSoldadosCreaEdificioCreadorDeSoldados() throws ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
         unJugador.crearCreadorDeSoldados();
@@ -80,7 +80,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void creadorDeUnidadesTerrestresCreaEdificioCreadorDeUnidadesTerrestres() throws ExcepcionConstruccionesRequeridasNoCreadas {
+    public void creadorDeUnidadesTerrestresCreaEdificioCreadorDeUnidadesTerrestres() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
         unJugador.crearCreadorDeSoldados();
@@ -90,7 +90,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void creadorDeUnidadesAereasCreaEdificioCreadorDeUniadesAereas() throws ExcepcionConstruccionesRequeridasNoCreadas {
+    public void creadorDeUnidadesAereasCreaEdificioCreadorDeUniadesAereas() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
         unJugador.crearCreadorDeSoldados();
@@ -152,7 +152,23 @@ public class JugadorTest {
     }
     
 
+    @Test(expected = ExcepcionRecursosInsuficientes.class)
+    public void crearCreadorDeSoldadosLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+        unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
+        unJugador.crearCreadorDeSoldados();
+    }
     
+    @Test
+    public void crearCreadorDeSoldadosRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+    	unJugador.crearCreadorDeSoldados();
+
+    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - Barraca.COSTO.getCostoMineral());
+    }
+
     
     
     @Test
@@ -246,7 +262,7 @@ public class JugadorTest {
     }
 
     @Test(expected = ExcepcionNoHaySuministrosDisponibles.class)
-    public void crearUnidadSinSuministrosLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles {
+    public void crearUnidadSinSuministrosLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Barraca barraca;
 

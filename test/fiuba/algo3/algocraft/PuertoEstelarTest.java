@@ -11,6 +11,8 @@ public class PuertoEstelarTest {
     @Test
     public void crearEspectroCreaEspectro() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        unJugador.sumarMinerales(700);
+        unJugador.sumarGasVespeno(700);
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
         PuertoEstelar puerto = new PuertoEstelar(unJugador);
@@ -23,6 +25,9 @@ public class PuertoEstelarTest {
     @Test
     public void crearNaveDeTransporteCreaNaveDeTransporte() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        unJugador.sumarMinerales(450);
+        unJugador.sumarGasVespeno(100);
+        
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
         PuertoEstelar puerto = new PuertoEstelar(unJugador);
@@ -35,6 +40,8 @@ public class PuertoEstelarTest {
     @Test
     public void crearNaveCienciaCreaUnaNaveCiencia() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        unJugador.sumarMinerales(450);
+        unJugador.sumarGasVespeno(100);
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();
         PuertoEstelar puerto = new PuertoEstelar(unJugador);
@@ -45,7 +52,7 @@ public class PuertoEstelarTest {
     }
 
     @Test
-     public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas {
+     public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesTerrestres();

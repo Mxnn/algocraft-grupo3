@@ -63,7 +63,7 @@ public class Jugador {
         return adicionalSuministros;
     }
 
-    public Interactuable crearCreadorDeSoldados() {
+    public Interactuable crearCreadorDeSoldados() throws ExcepcionRecursosInsuficientes {
         CreadorDeSoldados creadorDeSoldados = raza.crearCreadorDeSoldados(this);
         construcciones.add(creadorDeSoldados);
 

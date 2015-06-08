@@ -33,7 +33,7 @@ public class PuertoEstelarProtossTest {
 	    }
 
 	    @Test
-	     public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas {
+	     public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
 	    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 	        unJugador.crearCreadorDeSoldados();
 	        PuertoEstelarProtoss puerto = new PuertoEstelarProtoss(unJugador);

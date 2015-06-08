@@ -13,7 +13,7 @@ public class Barraca extends CreadorDeSoldados {
         this.propietario = propietario;
         this.vida = 1000;
         this.tiempoDeConstruccion = 12;
-        //Costo = 150M
+
     }
 
     public TipoDeConstruccion obtenerTipoDeConstruccion() {

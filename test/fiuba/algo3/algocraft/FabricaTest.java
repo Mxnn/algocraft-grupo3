@@ -11,6 +11,8 @@ public class FabricaTest {
     @Test
     public void crearGolliatCreaUnGolliat() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        unJugador.sumarMinerales(700);
+        unJugador.sumarGasVespeno(700);
         unJugador.crearAdicionalDeSuministro();
         unJugador.crearCreadorDeSoldados();
         Fabrica fabrica = new Fabrica(unJugador);
@@ -19,7 +21,7 @@ public class FabricaTest {
     }
 
     @Test
-    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas {
+    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearCreadorDeSoldados();
         Fabrica fabrica = new Fabrica(unJugador);

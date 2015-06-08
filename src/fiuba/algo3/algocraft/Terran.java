@@ -61,7 +61,11 @@ public class Terran implements Raza {
         return new DepositoSuministro(propietario);
     }
 
-    public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) {
+    public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+        if (recursosInsuficientes(propietario,Barraca.COSTO)) 
+            throw new ExcepcionRecursosInsuficientes();
+		
+        restarCosto(propietario,Barraca.COSTO);
         return new Barraca(propietario);
     }
 
