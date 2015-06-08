@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 
 public abstract class ExtractorGas extends Construccion {
     private static final int CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO = 10;
@@ -21,7 +22,7 @@ public abstract class ExtractorGas extends Construccion {
         throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
     
-    public void guardarEnParcela(ParcelaVolcan parcela) throws ExcepcionElementoNoAdmitidoEnParcela {
+    public void guardarEnParcela(ParcelaVolcan parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
     }
 }

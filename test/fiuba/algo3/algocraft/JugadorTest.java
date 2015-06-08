@@ -1,10 +1,7 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.ConstruccionesProtoss.*;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.Excepciones.*;
 
 import fiuba.algo3.algocraft.RazaTerran.*;
 import org.junit.Assert;
@@ -13,7 +10,7 @@ import org.junit.Test;
 public class JugadorTest {
     public static int RECURSOS_SUFFICIENTES = 1000;
 	@Test
-	public void alCrearExtractorGasSeAgregaLaConstruccionEnElArrayDelJugador() throws ExcepcionRecursosInsuficientes {
+	public void alCrearExtractorGasSeAgregaLaConstruccionEnElArrayDelJugador() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa {
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 		unJugador.crearExtractorGas();
 		
@@ -110,7 +107,7 @@ public class JugadorTest {
     }
     
     @Test(expected = ExcepcionRecursosInsuficientes.class)
-    public void crearExtractorDeGasLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    public void crearExtractorDeGasLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionCoordenadaFueraDelMapa {
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
         unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
@@ -120,7 +117,7 @@ public class JugadorTest {
 
     
     @Test
-    public void crearExtractorDeGasRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes {
+    public void crearExtractorDeGasRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa {
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
     	unJugador.crearExtractorGas();
@@ -235,7 +232,7 @@ public class JugadorTest {
     
     
     @Test(expected = ExcepcionRecursosInsuficientes.class)
-    public void crearExtractorDeGasParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    public void crearExtractorDeGasParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionCoordenadaFueraDelMapa {
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 
         unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
@@ -245,7 +242,7 @@ public class JugadorTest {
 
     
     @Test
-    public void crearExtractorDeGasParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes {
+    public void crearExtractorDeGasParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa {
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 
     	unJugador.crearExtractorGas();
@@ -385,7 +382,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElExtractorGas() throws ExcepcionRecursosInsuficientes{
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElExtractorGas() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
         unJugador.crearExtractorGas();

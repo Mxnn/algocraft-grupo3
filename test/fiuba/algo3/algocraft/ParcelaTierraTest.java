@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.RazaTerran.*;
 
@@ -18,7 +19,7 @@ public class ParcelaTierraTest {
     }
 
     @Test
-    public void devolverElementoDevuelveInteractuableGuardado() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
+    public void devolverElementoDevuelveInteractuableGuardado() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro();
         Parcela parcela = new ParcelaTierra();
@@ -29,7 +30,7 @@ public class ParcelaTierraTest {
     }
 
     @Test
-    public void estaVaciaDevuelveFalseCuandoEstaOcupada() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
+    public void estaVaciaDevuelveFalseCuandoEstaOcupada() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Parcela parcela = new ParcelaTierra();
         unJugador.crearAdicionalDeSuministro();
@@ -39,8 +40,8 @@ public class ParcelaTierraTest {
         Assert.assertFalse(parcela.estaVacia());
     }
 
-    @Test
-    public void guardarNoSobreEscribeElementoYaGuardado() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
+    @Test(expected = ExcepcionParcelaOcupada.class)
+    public void guardarElementoSobreUnaParcelaYaOcupdaLanzaExcepcion() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro();
         Parcela parcela = new ParcelaTierra();
@@ -49,12 +50,10 @@ public class ParcelaTierraTest {
 
         parcela.guardarElemento(marine);
         parcela.guardarElemento(golliat);
-
-        Assert.assertSame(marine, parcela.devolverElemento());
     }
     
     @Test
-    public void parcelaGuardaUnidadesVoladoras() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
+    public void parcelaGuardaUnidadesVoladoras() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro();
     	Parcela parcela = new ParcelaTierra();
@@ -66,7 +65,7 @@ public class ParcelaTierraTest {
     }
     
     @Test
-    public void parcelaGuardaConstruccion() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionRecursosInsuficientes {
+    public void parcelaGuardaConstruccion() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada {
     	Parcela parcela = new ParcelaTierra();
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro();
@@ -78,7 +77,7 @@ public class ParcelaTierraTest {
     }
     
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
-    public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractor() throws ExcepcionElementoNoAdmitidoEnParcela {
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractor() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         Parcela parcela = new ParcelaTierra();
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
         Interactuable construccion = new CentroDeMineral(unJugador);

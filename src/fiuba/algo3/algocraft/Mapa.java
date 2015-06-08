@@ -37,7 +37,7 @@ public class Mapa {
     	}
     }
     
-    public void ubicarElementoEnParcela(Coordenada coordenada, Interactuable elemento) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
+    public void ubicarElementoEnParcela(Coordenada coordenada, Interactuable elemento) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada {
         if (this.coordenadaExiste(coordenada)) {
             Parcela parcela = this.tablero.get(coordenada);
             parcela.guardarElemento(elemento);
@@ -58,5 +58,14 @@ public class Mapa {
 
     private boolean coordenadaExiste(Coordenada coordenada) {
         return ( (coordenada.getX() >= 0 && coordenada.getX() < this.columnas) && (coordenada.getY() >= 0 && coordenada.getY() < this.filas) );
+    }
+
+    public Parcela obtenerParcelaEnCoordenada(Coordenada coordenada) throws ExcepcionCoordenadaFueraDelMapa {
+        if (this.coordenadaExiste(coordenada)) {
+            return this.tablero.get(coordenada);
+        }
+        else {
+            throw new ExcepcionCoordenadaFueraDelMapa();
+        }
     }
 }

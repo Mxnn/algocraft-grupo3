@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 
@@ -43,9 +44,11 @@ public class Jugador {
     }
 
     //Deberia crear la construccion en un lugar del mapa (coordenadas) y el jugador tiene que tener acceso al mapa (lo usa)
-	public Interactuable crearExtractorGas() throws ExcepcionRecursosInsuficientes {
+	public Interactuable crearExtractorGas(/*Mapa mapa, Coordenada coordenada*/) throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa {
+		//Parcela parcela = mapa.obtenerParcelaEnCoordenada(coordenada);
+        ExtractorGas unExtractorGas = raza.crearExtractorGas(this);
 
-		ExtractorGas unExtractorGas = raza.crearExtractorGas(this);
+        //parcela.setElemento(unExtractorGas);
 		construcciones.add(unExtractorGas);
 
         return unExtractorGas;
