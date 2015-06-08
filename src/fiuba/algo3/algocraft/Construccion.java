@@ -21,4 +21,8 @@ public abstract class Construccion extends Interactuable {
     public void guardarEnParcela(ParcelaVolcan parcela) throws ExcepcionElementoNoAdmitidoEnParcela {
         throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
+
+    public void destruir() {
+        (this.propietario).eliminarConstruccion(this);
+    }
 }

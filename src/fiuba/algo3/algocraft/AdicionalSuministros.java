@@ -1,8 +1,10 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
-
 public abstract class AdicionalSuministros extends Construccion {
-    protected int cantidadDeSuministrosAdicionales;
-    
+    protected int CANTIDAD_DE_SUMINISTROS_ADICIONALES;
+
+    public void destruir() {
+        (this.propietario).decrementarPoblacion(this.CANTIDAD_DE_SUMINISTROS_ADICIONALES);
+        super.destruir();
+    }
 }

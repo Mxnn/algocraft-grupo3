@@ -6,9 +6,6 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 public class Terran implements Raza {
     private static Terran INSTANCIA = null;
 
-
-
-
     private Terran() { }
 
     private synchronized static void createInstance() {

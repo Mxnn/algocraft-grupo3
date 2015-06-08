@@ -14,20 +14,17 @@ public abstract class Interactuable {
             (this.estado).recibirDanyo(cantidad);
         }
         catch (ExcepcionEstadoMuerto e) {
-            //this.matarInteractuable();
+            this.destruir();
         }
     }
 
-    //public abstract void matarInteractuable();
-
-    public void guardarEnParcela(Parcela parcela) throws ExcepcionElementoNoAdmitidoEnParcela{
-    	parcela.guardarElemento(this);
-    }
+    public abstract void destruir();
     
     public abstract void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela;
+
     public abstract void guardarEnParcela(ParcelaMineral parcela) throws ExcepcionElementoNoAdmitidoEnParcela;
+
     public abstract void guardarEnParcela(ParcelaVolcan parcela) throws ExcepcionElementoNoAdmitidoEnParcela;
+
     public abstract void guardarEnParcela(ParcelaTierra parcela) throws ExcepcionElementoNoAdmitidoEnParcela;
-    
-    
 }

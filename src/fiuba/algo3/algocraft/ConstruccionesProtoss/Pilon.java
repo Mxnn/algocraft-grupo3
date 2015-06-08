@@ -14,8 +14,8 @@ public class Pilon extends AdicionalSuministros {
         this.propietario = propietario;
         this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         this.tiempoDeConstruccion = 5;
-        this.cantidadDeSuministrosAdicionales = 5;
-        propietario.incrementarCapacidadDePoblacion(this.cantidadDeSuministrosAdicionales);
+        this.CANTIDAD_DE_SUMINISTROS_ADICIONALES = 5;
+        propietario.incrementarCapacidadDePoblacion(this.CANTIDAD_DE_SUMINISTROS_ADICIONALES);
 
     }
 

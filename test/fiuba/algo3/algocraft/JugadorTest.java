@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 
@@ -338,19 +339,21 @@ public class JugadorTest {
     public void crearMarineSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Barraca barraca;
+        Marine marine;
 
         unJugador.sumarMinerales(250);
         unJugador.crearAdicionalDeSuministro();
         barraca = (Barraca) unJugador.crearCreadorDeSoldados();
-        barraca.crearMarine();
+        marine = barraca.crearMarine();
 
-        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + Marine.SUMINISTRO);
+        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + marine.SUMINISTRO);
     }
 
     @Test
      public void crearGolliatSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Fabrica fabrica;
+        Golliat golliat;
 
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
@@ -358,15 +361,16 @@ public class JugadorTest {
         unJugador.crearCreadorDeSoldados();
 
         fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesTerrestres();
-        fabrica.crearGolliat();
+        golliat = fabrica.crearGolliat();
 
-        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + Golliat.SUMINISTRO);
+        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + golliat.SUMINISTRO);
     }
 
     @Test
     public void crearNaveCienciaSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         PuertoEstelar puerto;
+        NaveCiencia nave;
 
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
@@ -375,15 +379,16 @@ public class JugadorTest {
         unJugador.crearCreadorDeUnidadesTerrestres();
 
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas();
-        puerto.crearNaveCiencia();
+        nave = puerto.crearNaveCiencia();
 
-        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + NaveCiencia.SUMINISTRO);
+        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + nave.SUMINISTRO);
     }
 
     @Test
     public void crearEspectroSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         PuertoEstelar puerto;
+        Espectro espectro;
 
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
@@ -392,15 +397,16 @@ public class JugadorTest {
         unJugador.crearCreadorDeUnidadesTerrestres();
 
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas();
-        puerto.crearEspectro();
+        espectro = puerto.crearEspectro();
 
-        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + Espectro.SUMINISTRO);
+        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + espectro.SUMINISTRO);
     }
 
     @Test
     public void crearNaveTransporteSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         PuertoEstelar puerto;
+        NaveTransporteTerran nave;
 
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
@@ -409,22 +415,58 @@ public class JugadorTest {
         unJugador.crearCreadorDeUnidadesTerrestres();
 
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas();
-        puerto.crearEspectro();
+        nave = puerto.crearNaveTransporte();
 
-        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + NaveTransporteTerran.SUMINISTRO);
+        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + nave.SUMINISTRO);
     }
 
     @Test
     public void agregarUnidadAgregaUnaUnidadAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Barraca barraca;
+
         unJugador.sumarGasVespeno(999);
         unJugador.sumarMinerales(999);
-
         unJugador.crearAdicionalDeSuministro();
         barraca = (Barraca) unJugador.crearCreadorDeSoldados();
         barraca.crearMarine();
 
         Assert.assertEquals(unJugador.cantidadDeUnidades(), 1);
+    }
+
+    @Test
+    public void destruirUnaUnidadRestaPoblacionAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        Barraca barraca;
+        Marine marine;
+
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
+        unJugador.crearAdicionalDeSuministro();
+        barraca = (Barraca) unJugador.crearCreadorDeSoldados();
+        marine = barraca.crearMarine();
+
+        Assert.assertEquals(unJugador.cantidadDeUnidades(), 1);
+        Assert.assertEquals(unJugador.obtenerPoblacion(),  marine.SUMINISTRO);
+
+        marine.destruir();
+
+        Assert.assertEquals(unJugador.cantidadDeUnidades(), 0);
+        Assert.assertEquals(unJugador.obtenerPoblacion(), 0);
+    }
+
+    @Test
+    public void destruirUnAdicionalDeSuministrosRestaPoblacionPeroNoEliminaUnidades() throws ExcepcionRecursosInsuficientes, ExcepcionEstadoMuerto {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        DepositoSuministro deposito;
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
+
+        deposito = (DepositoSuministro) unJugador.crearAdicionalDeSuministro();
+
+        deposito.recibirDanyo(DepositoSuministro.VIDA_INICIAL + 1);
+
+        Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 0);
+        Assert.assertEquals(unJugador.capacidadDePoblacion(), 0);
     }
 }

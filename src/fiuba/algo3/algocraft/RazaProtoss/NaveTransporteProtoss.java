@@ -4,7 +4,6 @@ import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
 public class NaveTransporteProtoss extends NaveTransporte {
-    public static final int SUMINISTRO = 2;
     public static final int VIDA_INICIAL = 125;
     public static final int ESCUDO_INICIAL = 60;
     public static final int VISION = 8;
@@ -17,7 +16,8 @@ public class NaveTransporteProtoss extends NaveTransporte {
     
     
     public NaveTransporteProtoss(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        propietario.agregarUnidad(this, SUMINISTRO);
+        this.SUMINISTRO = 2;
+        propietario.agregarUnidad(this);
         this.propietario = propietario;
         this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         /*this.danyo = new Danyo(0, 0);*/

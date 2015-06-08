@@ -129,17 +129,28 @@ public class Jugador {
         return this.poblacion;
     }
 
-    public void agregarUnidad(Unidad unidad, int suministro) throws ExcepcionNoHaySuministrosDisponibles {
-        int total = this.poblacion += suministro;
+    public void agregarUnidad(Unidad unidad) throws ExcepcionNoHaySuministrosDisponibles {
+        int total = this.poblacion += unidad.SUMINISTRO;
         if (total > this.capacidadDePoblacion)
             throw new ExcepcionNoHaySuministrosDisponibles();
-        else {
-            this.poblacion = total;
-            this.unidades.add(unidad);
-        }
+        else if (this.unidades.add(unidad))
+                this.poblacion = total;
     }
 
     public int cantidadDeUnidades() {
         return this.unidades.size();
+    }
+
+    public void eliminarUnidad(Unidad unidad) {
+        if ((this.unidades).remove(unidad))
+            this.poblacion -= unidad.SUMINISTRO;
+    }
+
+    public void eliminarConstruccion(Construccion construccion) {
+        (this.construcciones).remove(construccion);
+    }
+
+    public void decrementarPoblacion(int cantidad) {
+        this.capacidadDePoblacion -= cantidad;
     }
 }

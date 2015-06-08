@@ -4,7 +4,6 @@ import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
 public class AltoTemplario extends UnidadTerrestre {
-    public static final int SUMINISTRO = 2;
     public static final int VIDA_INICIAL = 40;
     public static final int ESCUDO_INICIAL = 40;
     public static final int VISION = 7;
@@ -14,10 +13,10 @@ public class AltoTemplario extends UnidadTerrestre {
     public static int COSTO_MINERAL = 50;
     public static int COSTO_GAS = 150;
     public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAS);
-    
 
     public AltoTemplario(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        propietario.agregarUnidad(this, SUMINISTRO);
+        this.SUMINISTRO = 2;
+        propietario.agregarUnidad(this);
         this.propietario = propietario;
         this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         /*this.danyo = new Danyo(6, 6);*/

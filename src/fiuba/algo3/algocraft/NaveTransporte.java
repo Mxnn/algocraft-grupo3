@@ -19,6 +19,13 @@ public abstract class NaveTransporte extends UnidadVoladora {
             throw new ExcepcionNaveDeTransporteLlena();
     }
 
+    public void destruir() {
+        for (UnidadTerrestre u : unidades) {
+            u.destruir();
+        }
+
+    }
+
     public int cantidadDeUnidades() {
         return this.unidades.size();
     }
