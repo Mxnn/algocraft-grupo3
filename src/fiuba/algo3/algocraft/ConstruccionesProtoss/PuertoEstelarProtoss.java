@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft.ConstruccionesProtoss;
 
+import fiuba.algo3.algocraft.Costo;
 import fiuba.algo3.algocraft.CreadorDeUnidadesAereas;
 import fiuba.algo3.algocraft.Jugador;
 import fiuba.algo3.algocraft.TipoDeConstruccion;
@@ -10,6 +11,11 @@ import fiuba.algo3.algocraft.RazaProtoss.Scout;
 
 
 public class PuertoEstelarProtoss extends CreadorDeUnidadesAereas{
+    public static int COSTO_MINERAL= 150;
+    public static int COSTO_GAZ = 150;
+    public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAZ);
+    
+    
 	public PuertoEstelarProtoss(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas{
         if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_SOLDADOS))
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
@@ -17,7 +23,7 @@ public class PuertoEstelarProtoss extends CreadorDeUnidadesAereas{
         this.vida = 600;
         //escudo = 600
         this.tiempoDeConstruccion = 10;
-        //Costo = 150M / 150G
+
 	}
         
     public TipoDeConstruccion obtenerTipoDeConstruccion() {

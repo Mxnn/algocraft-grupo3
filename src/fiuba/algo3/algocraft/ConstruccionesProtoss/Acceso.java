@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft.ConstruccionesProtoss;
 
 
+import fiuba.algo3.algocraft.Costo;
 import fiuba.algo3.algocraft.CreadorDeSoldados;
 import fiuba.algo3.algocraft.Jugador;
 import fiuba.algo3.algocraft.TipoDeConstruccion;
@@ -10,12 +11,18 @@ import fiuba.algo3.algocraft.RazaProtoss.Dragon;
 
 
 public class Acceso extends CreadorDeSoldados {
+	
+    public static int COSTO_MINERAL= 150;
+    public static int COSTO_GAZ = 0;
+    public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAZ);
+    
+    
 	public Acceso(Jugador propietario){
 		this.propietario = propietario;
         this.vida = 500;
         //escudo = 500
         this.tiempoDeConstruccion = 8;
-        //Costo = 150M
+
 	}
         
     public TipoDeConstruccion obtenerTipoDeConstruccion() {
