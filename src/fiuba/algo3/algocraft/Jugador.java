@@ -44,6 +44,7 @@ public class Jugador {
 
     //Deberia crear la construccion en un lugar del mapa (coordenadas) y el jugador tiene que tener acceso al mapa (lo usa)
 	public Interactuable crearExtractorGas() throws ExcepcionRecursosInsuficientes {
+
 		ExtractorGas unExtractorGas = raza.crearExtractorGas(this);
 		construcciones.add(unExtractorGas);
 

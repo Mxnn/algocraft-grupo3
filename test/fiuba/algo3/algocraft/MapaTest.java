@@ -13,9 +13,11 @@ public class MapaTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro();
 		Interactuable marine = new Marine(unJugador);
-		mapa.ubicarElementoEnParcela(0, 0, marine);
+        Coordenada coordenada = new Coordenada(0,0);
 
-		Assert.assertSame(marine, mapa.devolverElementoEnParcela(0, 0));
+		mapa.ubicarElementoEnParcela(coordenada, marine);
+
+		Assert.assertSame(marine, mapa.devolverElementoEnParcela(coordenada));
 	}
 
     @Test
@@ -24,8 +26,9 @@ public class MapaTest {
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro();
         Interactuable golliat = new Golliat(unJugador);
+        Coordenada coordenada = new Coordenada(0,0);
 
-        mapa.ubicarElementoEnParcela(0, 0, golliat);
+        mapa.ubicarElementoEnParcela(coordenada, golliat);
     }
 
     @Test
@@ -34,9 +37,11 @@ public class MapaTest {
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro();
         Interactuable espectro = new Espectro(unJugador);
-        mapa.ubicarElementoEnParcela(0, 0, espectro);
+        Coordenada coordenada = new Coordenada(0,0);
 
-        Assert.assertSame(espectro, mapa.devolverElementoEnParcela(0,0));
+        mapa.ubicarElementoEnParcela(coordenada, espectro);
+
+        Assert.assertSame(espectro, mapa.devolverElementoEnParcela(coordenada));
     }
 
     @Test
@@ -47,7 +52,7 @@ public class MapaTest {
 
         for (int i = 0; i < alturaDelMapa; i++) {
             for (int j = 0; j < anchoDelMapa; j++) {
-                Assert.assertNull(mapa.devolverElementoEnParcela(i, j));
+                Assert.assertNull(mapa.devolverElementoEnParcela(new Coordenada(i, j)));
             }
         }
     }
@@ -56,6 +61,6 @@ public class MapaTest {
     public void consultarElElementoEnUnaCoordenadaFueraDelMapaLanzaExcepcion() throws ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa {
         Mapa mapa = new Mapa(2, 10, 10);
 
-        Assert.assertNull(mapa.devolverElementoEnParcela(11, 10));
+        Assert.assertNull(mapa.devolverElementoEnParcela(new Coordenada(11, 10)));
     }
 }
