@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.ConstruccionesProtoss.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 
 public class Protoss implements Raza {
     private static Protoss INSTANCIA = null;
@@ -20,27 +21,62 @@ public class Protoss implements Raza {
         return INSTANCIA;
     }
 
-	public ExtractorGas crearExtractorGas(Jugador propietario) {
+    public boolean recursosInsuficientes(Jugador propietario, Costo costo){
+
+    return((propietario.obtenerGasVespeno()<costo.getCostoGas()) || (propietario.obtenerMineral()<costo.getCostoMineral()));
+   
+    }
+
+    public void restarCosto(Jugador propietario, Costo costo){
+    	propietario.sumarGasVespeno(-(costo.getCostoGas()));
+    	propietario.sumarMinerales(-(costo.getCostoMineral()));
+    }
+    
+	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+        if (recursosInsuficientes(propietario,Asimilador.COSTO)) 
+            throw new ExcepcionRecursosInsuficientes();
+		
+        restarCosto(propietario,Asimilador.COSTO);
 		return new Asimilador(propietario);
 	}
 
-	public ExtractorMineral crearExtractorMineral(Jugador propietario) {
+	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+        if (recursosInsuficientes(propietario,NexoMineral.COSTO)) 
+            throw new ExcepcionRecursosInsuficientes();
+		
+        restarCosto(propietario,NexoMineral.COSTO);
 		return new NexoMineral(propietario);
 	}
 
-    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) {
+    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+        if (recursosInsuficientes(propietario,Pilon.COSTO)) 
+            throw new ExcepcionRecursosInsuficientes();
+		
+        restarCosto(propietario,Pilon.COSTO);
         return new Pilon(propietario);
     }
 
-    public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) {
+    public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+        if (recursosInsuficientes(propietario,Acceso.COSTO)) 
+            throw new ExcepcionRecursosInsuficientes();
+		
+        restarCosto(propietario,Acceso.COSTO);
         return new Acceso(propietario);
     }
 
-    public CreadorDeUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas{
-        return new ArchivosTemplarios(propietario);
+    public CreadorDeUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes{
+        if (recursosInsuficientes(propietario, ArchivosTemplarios.COSTO)) 
+            throw new ExcepcionRecursosInsuficientes();
+		
+        restarCosto(propietario, ArchivosTemplarios.COSTO);
+    	return new ArchivosTemplarios(propietario);
     }
 
-    public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas{
-        return new PuertoEstelarProtoss(propietario);
+    public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes{
+        if (recursosInsuficientes(propietario,PuertoEstelarProtoss.COSTO)) 
+            throw new ExcepcionRecursosInsuficientes();
+		
+        restarCosto(propietario,PuertoEstelarProtoss.COSTO);
+    	return new PuertoEstelarProtoss(propietario);
     }
 }

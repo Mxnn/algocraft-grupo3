@@ -1,12 +1,12 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.ConstruccionesProtoss.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 
 import fiuba.algo3.algocraft.RazaTerran.*;
-import fiuba.algo3.algocraft.RazaTerran.NaveTransporteTerran;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -100,15 +100,6 @@ public class JugadorTest {
 
         Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 3);
     }
-   
-    @Test(expected = ExcepcionRecursosInsuficientes.class)
-    public void crearExtractorDeGasLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
-    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-
-        unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
-        unJugador.crearExtractorGas();
-    }
-  
     @Test
     public void sePuedeSumarGazVespeno() throws ExcepcionRecursosInsuficientes {
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
@@ -118,6 +109,15 @@ public class JugadorTest {
     	Assert.assertEquals(unJugador.obtenerGasVespeno(), Jugador.GAS_VESPENO_INICIAL + RECURSOS_SUFFICIENTES);
     }
     
+    @Test(expected = ExcepcionRecursosInsuficientes.class)
+    public void crearExtractorDeGasLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+
+        unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
+        unJugador.crearExtractorGas();
+    }
+  
+
     
     @Test
     public void crearExtractorDeGasRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes {
@@ -225,6 +225,143 @@ public class JugadorTest {
 
     	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Barraca.COSTO.getCostoMineral() - Fabrica.COSTO.getCostoMineral() - PuertoEstelar.COSTO.getCostoMineral());
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @Test(expected = ExcepcionRecursosInsuficientes.class)
+    public void crearExtractorDeGasParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+
+        unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
+        unJugador.crearExtractorGas();
+    }
+  
+
+    
+    @Test
+    public void crearExtractorDeGasParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+
+    	unJugador.crearExtractorGas();
+
+    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - Asimilador.COSTO.getCostoMineral());
+    }
+    @Test
+    public void crearExtractorDeMineralParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+
+    	unJugador.crearExtractorMineral();
+
+    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL -  NexoMineral.COSTO.getCostoMineral());
+    }
+
+    @Test(expected = ExcepcionRecursosInsuficientes.class)
+    public void crearExtractorDeMineralesParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+
+        unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
+        unJugador.crearExtractorMineral();
+    }
+    
+    
+    @Test
+    public void crearAdicionalDeSuministrosParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+
+    	unJugador.crearAdicionalDeSuministro();
+
+    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - Pilon.COSTO.getCostoMineral());
+    }
+    
+    @Test(expected = ExcepcionRecursosInsuficientes.class)
+    public void crearAdicionalDeSuministrosParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+
+        unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
+        unJugador.crearAdicionalDeSuministro();
+    }
+    
+
+    @Test(expected = ExcepcionRecursosInsuficientes.class)
+    public void crearCreadorDeSoldadosParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+
+        unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
+        unJugador.crearCreadorDeSoldados();
+    }
+    
+    @Test
+    public void crearCreadorDeSoldadosParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+
+    	unJugador.crearCreadorDeSoldados();
+
+    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - Acceso.COSTO.getCostoMineral());
+    }
+
+    
+    
+    @Test(expected = ExcepcionRecursosInsuficientes.class)
+    public void crearCreadorDeUnidadesAereasParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+    	unJugador.crearCreadorDeSoldados();  //construction requirida para crear el creador de unidades terrestres   
+        unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL + Acceso.COSTO.getCostoMineral());
+        unJugador.crearCreadorDeUnidadesAereas();
+    }
+    
+    @Test
+    public void crearCreadorDeUnidadesAreasParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
+      	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);     
+    	unJugador.crearCreadorDeSoldados();   //construction requirida para crear el creador de unidades terrestres    
+ 
+  
+    	unJugador.crearCreadorDeUnidadesAereas();
+
+    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Acceso.COSTO.getCostoMineral() - PuertoEstelarProtoss.COSTO.getCostoMineral());
+    }
+
+    @Test(expected = ExcepcionRecursosInsuficientes.class)
+    public void crearCreadorDeUnidadesTerrestresParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL + Acceso.COSTO.getCostoMineral() + ArchivosTemplarios.COSTO.getCostoMineral());
+        unJugador.sumarGasVespeno(-Jugador.GAS_VESPENO_INICIAL + PuertoEstelarProtoss.COSTO.getCostoGas());
+        unJugador.crearCreadorDeSoldados();  //construction requirida para crear el creador de unidades terrestres   
+        unJugador.crearCreadorDeUnidadesAereas();
+        unJugador.crearCreadorDeUnidadesTerrestres();
+       
+    }
+    
+    @Test
+    public void crearCreadorDeUnidadesTerrestresParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
+      	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);     
+    	unJugador.crearCreadorDeSoldados();   //construction requirida para crear el creador de unidades terrestres    
+    	unJugador.crearCreadorDeUnidadesAereas();
+    	unJugador.crearCreadorDeUnidadesTerrestres();
+    	
+
+
+    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Acceso.COSTO.getCostoMineral() - ArchivosTemplarios.COSTO.getCostoMineral() - PuertoEstelarProtoss.COSTO.getCostoMineral());
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     @Test
     public void tieneConstruccionDeTipoDevuelveFalseSiNoSeCreoNada() throws ExcepcionRecursosInsuficientes {

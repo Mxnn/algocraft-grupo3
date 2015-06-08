@@ -13,6 +13,8 @@ public class ArchivosTemplariosTest {
 	@Test
 	public void crearAltoTemplariotCreaUnAltoTemplario() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
+      	unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.crearAdicionalDeSuministro();
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesAereas();
@@ -24,6 +26,8 @@ public class ArchivosTemplariosTest {
 	@Test
     public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
+      	unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.crearCreadorDeSoldados();
         unJugador.crearCreadorDeUnidadesAereas();
         ArchivosTemplarios archivo = new ArchivosTemplarios(unJugador);
