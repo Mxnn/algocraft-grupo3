@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft;
 
-public abstract class Unidad implements Interactuable {
+public abstract class Unidad extends Interactuable {
     protected Jugador propietario;
     protected int vida; //Va a ser vida
     protected int vision;

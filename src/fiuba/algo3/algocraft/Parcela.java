@@ -13,22 +13,14 @@ public abstract class Parcela {
 	public boolean estaVacia(){
 		return (this.elemento == null);
 	}
-
-	public void guardarElemento(Interactuable elemento) throws ExcepcionElementoNoAdmitidoEnParcela {
+	
+	public void setElemento(Interactuable elemento){
 		if (this.estaVacia()) {
-			elemento.guardarEnParcela(this);
+			this.elemento = elemento;
 		}
 	}
 
-    public abstract void guardarElemento(ConstruccionParaUnidades construccionUnidades) throws ExcepcionElementoNoAdmitidoEnParcela;
-    //en el juego los extractores solo pueden ir sobre volcanes o minas
-    public abstract void guardarElemento(ExtractorGas extractor) throws ExcepcionElementoNoAdmitidoEnParcela;
-    
-    public abstract void guardarElemento(ExtractorMineral extractor) throws ExcepcionElementoNoAdmitidoEnParcela;
-    
-    public abstract void guardarElemento(Unidad unidad) throws ExcepcionElementoNoAdmitidoEnParcela;
-
-    public abstract void guardarElemento(UnidadVoladora unidadVoladora) throws ExcepcionElementoNoAdmitidoEnParcela;
+	public abstract void guardarElemento(Interactuable elemento) throws ExcepcionElementoNoAdmitidoEnParcela ;
 	
 	public Interactuable devolverElemento(){
 		return this.elemento;

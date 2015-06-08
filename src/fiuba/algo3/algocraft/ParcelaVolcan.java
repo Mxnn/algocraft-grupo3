@@ -9,24 +9,9 @@ public class ParcelaVolcan extends Parcela {
             ((ExtractorGas) (this.elemento)).absorberGasVespeno();
         }
     }
+    
+    public void guardarElemento(Interactuable elemento) throws ExcepcionElementoNoAdmitidoEnParcela {
+        elemento.guardarEnParcela(this);
+    }
 
-    public void guardarElemento(UnidadVoladora unidadVoladora) throws ExcepcionElementoNoAdmitidoEnParcela {
-        throw new ExcepcionElementoNoAdmitidoEnParcela();
-    }
-
-    public void guardarElemento(Unidad unidad) throws ExcepcionElementoNoAdmitidoEnParcela {
-        throw new ExcepcionElementoNoAdmitidoEnParcela();
-    }
-    
-    public void guardarElemento(ConstruccionParaUnidades construccion) throws ExcepcionElementoNoAdmitidoEnParcela{
-    	throw new ExcepcionElementoNoAdmitidoEnParcela();
-    }
-    
-    public void guardarElemento(ExtractorGas refineria){
-    	this.elemento = refineria;
-    }
-    
-    public void guardarElemento(ExtractorMineral mina) throws ExcepcionElementoNoAdmitidoEnParcela{
-    	throw new ExcepcionElementoNoAdmitidoEnParcela(); 
-    }
 }

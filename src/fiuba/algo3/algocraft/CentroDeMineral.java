@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+
 public class CentroDeMineral extends ExtractorMineral{
     public static int COSTO_MINERAL= 50;
     public static int COSTO_GAZ = 0;
@@ -15,4 +17,5 @@ public class CentroDeMineral extends ExtractorMineral{
     public TipoDeConstruccion obtenerTipoDeConstruccion() {
         return TipoDeConstruccion.EXTRACTOR_MINERAL;
     }
+    
 }

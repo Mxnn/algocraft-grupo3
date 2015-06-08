@@ -9,24 +9,9 @@ public class ParcelaMineral extends Parcela {
             ((ExtractorMineral) (this.elemento)).recolectarMinerales();
         }
     }
-
-    public void guardarElemento(UnidadVoladora unidadVoladora) throws ExcepcionElementoNoAdmitidoEnParcela {
-        throw new ExcepcionElementoNoAdmitidoEnParcela();
-    }
-
-    public void guardarElemento(Unidad unidad) throws ExcepcionElementoNoAdmitidoEnParcela {
-        throw new ExcepcionElementoNoAdmitidoEnParcela();
-    }
-
-    public void guardarElemento(ConstruccionParaUnidades construccion) throws ExcepcionElementoNoAdmitidoEnParcela{
-    	throw new ExcepcionElementoNoAdmitidoEnParcela();
-    }
     
-    public void guardarElemento(ExtractorMineral mina){
-    	this.elemento = mina;
+    public void guardarElemento(Interactuable elemento) throws ExcepcionElementoNoAdmitidoEnParcela {
+        elemento.guardarEnParcela(this);
     }
-    
-    public void guardarElemento(ExtractorGas refineria) throws ExcepcionElementoNoAdmitidoEnParcela{
-    	throw new ExcepcionElementoNoAdmitidoEnParcela(); 
-    }
+
 }
