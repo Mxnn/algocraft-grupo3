@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNaveDeTransporteLlena;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
@@ -38,5 +39,25 @@ public class NaveTransporteTerranTest {
         }
 
         nave.insertarUnidad(new Marine(unJugador));
+    }
+
+    @Test
+    public void destruirNaveDestruyeTodasLasUnidadesQueHayEnSuInterior() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        unJugador.sumarMinerales(999);
+        unJugador.sumarGasVespeno(999);
+        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro();
+        unJugador.crearAdicionalDeSuministro();
+        NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
+
+        for (int i = 1; i <= 4; i++) {
+            nave.insertarUnidad(new Golliat(unJugador));
+        }
+
+        nave.recibirDanyo(NaveTransporteTerran.VIDA_INICIAL + 1);
+
+        Assert.assertEquals(unJugador.cantidadDeUnidades(), 0);
+        Assert.assertEquals(unJugador.obtenerPoblacion(), 0);
     }
 }

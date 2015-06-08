@@ -23,7 +23,7 @@ public abstract class NaveTransporte extends UnidadVoladora {
         for (UnidadTerrestre u : unidades) {
             u.destruir();
         }
-
+        super.destruir();
     }
 
     public int cantidadDeUnidades() {
