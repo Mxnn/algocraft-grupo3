@@ -15,7 +15,7 @@ public class Golliat extends UnidadTerrestre {
     public static final int TIEMPO_DE_CONSTRUCCION = 6;
 
     public Golliat(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        propietario.incrementarPoblacion(SUMINISTRO);
+        propietario.agregarUnidad(this, SUMINISTRO);
         this.propietario = propietario;
         this.estado = new Estado(VIDA_INICIAL);
         /*this.danyo = new Danyo(10, 12);*/

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public abstract class NaveTransporte extends UnidadVoladora {
     protected int lugaresOcupados;
     protected int capacidad;
-    protected ArrayList<UnidadTerrestre> unidades;
+    protected ArrayList<UnidadTerrestre> unidades = new ArrayList<UnidadTerrestre>();
 
     public void meterUnidad(UnidadTerrestre unidad) throws ExcepcionNaveDeTransporteLlena {
         int lugaresTotalesOcupadas = lugaresOcupados + unidad.obtenerCupoDeTransporte();

@@ -13,11 +13,11 @@ public class Zealot extends UnidadTerrestre {
 	
     public static int COSTO_MINERAL = 100;
     public static int COSTO_GAS = 0;
-    public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAS);
+    public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
 
 	    public Zealot(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-            propietario.incrementarPoblacion(SUMINISTRO);
+            propietario.agregarUnidad(this, SUMINISTRO);
             this.propietario = propietario;
             this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
             /*this.danyo = new Danyo(20, 20);*/

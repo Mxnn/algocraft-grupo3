@@ -14,9 +14,11 @@ public abstract class Interactuable {
             (this.estado).recibirDanyo(cantidad);
         }
         catch (ExcepcionEstadoMuerto e) {
-            //Matarlo (sacarlo de la parcela, sacarlo de la lista de unidades, sumar poblacion)
+            //this.matarInteractuable();
         }
     }
+
+    //public abstract void matarInteractuable();
 
     public void guardarEnParcela(Parcela parcela) throws ExcepcionElementoNoAdmitidoEnParcela{
     	parcela.guardarElemento(this);

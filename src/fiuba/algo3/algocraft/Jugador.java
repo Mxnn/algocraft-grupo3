@@ -17,6 +17,7 @@ public class Jugador {
     private Color color;
     private Raza raza;
     private ArrayList<Construccion> construcciones = new ArrayList<Construccion>();
+    private ArrayList<Unidad> unidades = new ArrayList<Unidad>();
     private int gasVespeno;
     private int mineral;
     private int capacidadDePoblacion;
@@ -124,15 +125,21 @@ public class Jugador {
         return false;
     }
 
-    public void incrementarPoblacion(int cantidad) throws ExcepcionNoHaySuministrosDisponibles {
-        int total = this.poblacion += cantidad;
-        if (total > this.capacidadDePoblacion)
-            throw new ExcepcionNoHaySuministrosDisponibles();
-        else
-            this.poblacion = total;
-    }
-
     public int obtenerPoblacion() {
         return this.poblacion;
+    }
+
+    public void agregarUnidad(Unidad unidad, int suministro) throws ExcepcionNoHaySuministrosDisponibles {
+        int total = this.poblacion += suministro;
+        if (total > this.capacidadDePoblacion)
+            throw new ExcepcionNoHaySuministrosDisponibles();
+        else {
+            this.poblacion = total;
+            this.unidades.add(unidad);
+        }
+    }
+
+    public int cantidadDeUnidades() {
+        return this.unidades.size();
     }
 }

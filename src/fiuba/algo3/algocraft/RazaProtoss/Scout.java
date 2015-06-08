@@ -10,13 +10,13 @@ public class Scout extends UnidadVoladora {
     public static final int VISION = 7;
     public static final int TIEMPO_DE_CONSTRUCCION = 9;
 
-    public static int COSTO_MINERAL= 300;
+    public static int COSTO_MINERAL = 300;
     public static int COSTO_GAS = 150;
-    public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAS);
+    public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
     
     public Scout(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        propietario.incrementarPoblacion(SUMINISTRO);
+        propietario.agregarUnidad(this, SUMINISTRO);
         this.propietario = propietario;
         this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         /*this.danyo = new Danyo(20, 20);*/

@@ -18,7 +18,7 @@ public class NaveCiencia extends UnidadVoladora {
 
 
     public NaveCiencia(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        propietario.incrementarPoblacion(SUMINISTRO);
+        propietario.agregarUnidad(this, SUMINISTRO);
         this.propietario = propietario;
         this.estado = new Estado(VIDA_INICIAL);
         /*this.danyo = new Danyo(0, 0);*/

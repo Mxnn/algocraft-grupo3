@@ -10,7 +10,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class JugadorTest {
-    public static int RECURSOS_SUFFICIENTES= 1000;
+    public static int RECURSOS_SUFFICIENTES = 1000;
 	@Test
 	public void alCrearExtractorGasSeAgregaLaConstruccionEnElArrayDelJugador() throws ExcepcionRecursosInsuficientes {
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
@@ -414,5 +414,17 @@ public class JugadorTest {
         Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + NaveTransporteTerran.SUMINISTRO);
     }
 
-    //Los demas tambien tienen que hacer lo mismo
+    @Test
+    public void agregarUnidadAgregaUnaUnidadAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles {
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        Barraca barraca;
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
+
+        unJugador.crearAdicionalDeSuministro();
+        barraca = (Barraca) unJugador.crearCreadorDeSoldados();
+        barraca.crearMarine();
+
+        Assert.assertEquals(unJugador.cantidadDeUnidades(), 1);
+    }
 }

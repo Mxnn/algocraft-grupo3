@@ -14,7 +14,7 @@ public class Espectro extends UnidadVoladora {
     public static final int TIEMPO_DE_CONSTRUCCION = 8;
 
     public Espectro(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        propietario.incrementarPoblacion(SUMINISTRO);
+        propietario.agregarUnidad(this, SUMINISTRO);
         this.propietario = propietario;
         this.estado = new Estado(VIDA_INICIAL);
         /*this.danyo = new Danyo(20, 8);*/

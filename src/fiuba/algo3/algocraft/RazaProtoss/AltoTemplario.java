@@ -17,7 +17,7 @@ public class AltoTemplario extends UnidadTerrestre {
     
 
     public AltoTemplario(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        propietario.incrementarPoblacion(SUMINISTRO);
+        propietario.agregarUnidad(this, SUMINISTRO);
         this.propietario = propietario;
         this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         /*this.danyo = new Danyo(6, 6);*/

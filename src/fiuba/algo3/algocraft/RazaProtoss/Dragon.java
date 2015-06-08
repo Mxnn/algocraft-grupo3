@@ -13,11 +13,11 @@ public class Dragon extends UnidadTerrestre {
 
     public static int COSTO_MINERAL = 125;
     public static int COSTO_GAS = 50;
-    public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAS);
+    public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
 
     public Dragon(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        propietario.incrementarPoblacion(SUMINISTRO);
+        propietario.agregarUnidad(this, SUMINISTRO);
         this.propietario = propietario;
         this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         /*this.danyo = new Danyo(20, 20);*/

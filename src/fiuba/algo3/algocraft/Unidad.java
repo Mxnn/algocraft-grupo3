@@ -6,7 +6,7 @@ public abstract class Unidad extends Interactuable {
     protected RangoAtaque rangoAtaque;
     protected Coordenada posicion;
 
-    /*protected Danyo danyo; //INTERFAZ ATACANTE
-    protected Costo costo; //Interfaz ObjetoCostoso ? -> se encargaria de restar plata de todos lados
-    */
+    /*public void matarInteractuable() {
+        propietario.matarUnidad(this);
+    }*/
 }

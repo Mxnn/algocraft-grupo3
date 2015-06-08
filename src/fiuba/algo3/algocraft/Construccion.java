@@ -3,9 +3,6 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 
 public abstract class Construccion extends Interactuable {
-    //Agregar vidaMaxima (la vida se restaria cada vez que es golpeado)
-
-
 
     public abstract TipoDeConstruccion obtenerTipoDeConstruccion();
 

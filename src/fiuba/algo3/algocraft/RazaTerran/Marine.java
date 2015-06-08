@@ -7,7 +7,7 @@ public class Marine extends UnidadTerrestre {
     public static int COSTO_MINERAL = 50;
     public static int COSTO_GAS = 0;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
-    
+
     public static final int SUMINISTRO = 1;
     public static final int VIDA_INICIAL = 40;
     public static final int VISION = 7;
@@ -15,7 +15,7 @@ public class Marine extends UnidadTerrestre {
     public static final int TIEMPO_DE_CONSTRUCCION = 3;
 
     public Marine(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        propietario.incrementarPoblacion(SUMINISTRO);
+        propietario.agregarUnidad(this, SUMINISTRO);
         this.propietario = propietario;
         this.estado = new Estado(VIDA_INICIAL);
         /*this.danyo = new Danyo(6, 6);*/
