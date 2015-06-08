@@ -77,7 +77,11 @@ public class Terran implements Raza {
     	return new Fabrica(propietario);
     }
 
-    public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas {
-        return new PuertoEstelar(propietario);
+    public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
+        if (recursosInsuficientes(propietario,PuertoEstelar.COSTO)) 
+            throw new ExcepcionRecursosInsuficientes();
+		
+        restarCosto(propietario,PuertoEstelar.COSTO);
+    	return new PuertoEstelar(propietario);
     }
 }

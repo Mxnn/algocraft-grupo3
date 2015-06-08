@@ -7,6 +7,11 @@ import fiuba.algo3.algocraft.RazaTerran.NaveCiencia;
 import fiuba.algo3.algocraft.RazaTerran.NaveTransporte;
 
 public class PuertoEstelar extends CreadorDeUnidadesAereas {
+	
+    public static int COSTO_MINERAL= 150;
+    public static int COSTO_GAZ = 100;
+    public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAZ);
+    
     public PuertoEstelar(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas{
         if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES))
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
@@ -14,7 +19,7 @@ public class PuertoEstelar extends CreadorDeUnidadesAereas {
         this.propietario = propietario;
         this.vida = 1300;
         this.tiempoDeConstruccion = 10;
-        //Costo = 150M/100G
+
     }
 
     public TipoDeConstruccion obtenerTipoDeConstruccion() {
