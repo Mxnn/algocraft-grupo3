@@ -4,7 +4,7 @@ import fiuba.algo3.algocraft.ConstruccionesProtoss.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 
-public class Protoss implements Raza {
+public class Protoss extends Raza {
     private static Protoss INSTANCIA = null;
 
     private Protoss() { }
@@ -21,16 +21,7 @@ public class Protoss implements Raza {
         return INSTANCIA;
     }
 
-    public boolean recursosInsuficientes(Jugador propietario, Costo costo){
-
-    return((propietario.obtenerGasVespeno()<costo.getCostoGas()) || (propietario.obtenerMineral()<costo.getCostoMineral()));
-   
-    }
-
-    public void restarCosto(Jugador propietario, Costo costo){
-    	propietario.sumarGasVespeno(-(costo.getCostoGas()));
-    	propietario.sumarMinerales(-(costo.getCostoMineral()));
-    }
+ 
     
 	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,Asimilador.COSTO)) 

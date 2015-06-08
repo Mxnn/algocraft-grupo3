@@ -3,17 +3,41 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 
-public interface Raza {
+public abstract class Raza {
 
-    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes;
+	
+	   public boolean recursosInsuficientes(Jugador propietario, Costo costo){
 
-	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes;
+		    return((propietario.obtenerGasVespeno()<costo.getCostoGas()) || (propietario.obtenerMineral()<costo.getCostoMineral()));
+		   
+	   }
 
-	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes;
+	   public void restarCosto(Jugador propietario, Costo costo){
+		    	propietario.sumarGasVespeno(-(costo.getCostoGas()));
+		    	propietario.sumarMinerales(-(costo.getCostoMineral()));
+	   }
+		    
+    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+		return null;
+	}
 
-    public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) throws ExcepcionRecursosInsuficientes;
+	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+		return null;
+	}
 
-    public CreadorDeUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes;
+	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+		return null;
+	}
 
-    public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes;
+    public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+		return null;
+	}
+
+    public CreadorDeUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
+		return null;
+	}
+
+    public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
+		return null;
+	}
 }

@@ -3,7 +3,7 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 
-public class Terran implements Raza {
+public class Terran extends Raza {
     private static Terran INSTANCIA = null;
 
     private Terran() { }
@@ -21,16 +21,7 @@ public class Terran implements Raza {
         return INSTANCIA;
     }
 
-    public boolean recursosInsuficientes(Jugador propietario, Costo costo){
-
-    return((propietario.obtenerGasVespeno()<costo.getCostoGas()) || (propietario.obtenerMineral()<costo.getCostoMineral()));
-   
-    }
-
-    public void restarCosto(Jugador propietario, Costo costo){
-    	propietario.sumarGasVespeno(-(costo.getCostoGas()));
-    	propietario.sumarMinerales(-(costo.getCostoMineral()));
-    }
+ 
     
 	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,Refineria.COSTO)) 
