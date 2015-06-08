@@ -1,10 +1,8 @@
 package fiuba.algo3.algocraft;
 
 public abstract class Unidad extends Interactuable {
-    protected Jugador propietario;
-    protected int vida; //Va a ser vida
+
     protected int vision;
-    protected int tiempoDeConstruccion;
     protected RangoAtaque rangoAtaque;
     protected int cupoDeTransporte;
     protected Coordenada posicion;

@@ -4,6 +4,9 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 
 public abstract class Interactuable {
 	
+	protected Jugador propietario;
+	protected int vida;
+	protected int tiempoDeConstruccion;
 	
     public void guardarEnParcela(Parcela parcela) throws ExcepcionElementoNoAdmitidoEnParcela{
     	parcela.guardarElemento(this);
