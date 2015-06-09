@@ -34,6 +34,7 @@ public class Mapa {
     	     for (int y = 0; y < this.columnas; y++){
     	    	 Coordenada coordenada = new Coordenada(x,y);
     			 Parcela parcela = new ParcelaTierra();
+    			 parcela.ubicarEnCoordenada(coordenada);
     	    	 this.tablero.put(coordenada,parcela);
     	     }
     	}
@@ -107,6 +108,18 @@ public class Mapa {
 		
 	}
 	
-    
-    
+//	public Coordenada devolverCoordenadaDeElemento(Interactuable elemento) throws ExcepcionElementoNoUbicado{
+//		for (HashMap.Entry<Coordenada, Parcela> parCoordenadaParcela : tablero.entrySet()) {
+//			Parcela parcela = parCoordenadaParcela.getValue();
+//			if (parcela.devolverElemento() == elemento)
+//				return parCoordenadaParcela.getKey(); 
+//		}
+//		throw new ExcepcionElementoNoUbicado();
+//	}
+//	
+//	public int distanciaEntreDosElementos(Interactuable elem1, Interactuable elem2) throws ExcepcionElementoNoUbicado{
+//		Coordenada coord1 = this.devolverCoordenadaDeElemento(elem1);
+//		Coordenada coord2 = this.devolverCoordenadaDeElemento(elem2);
+//		return coord1.distanciaConCoordenada(coord2);
+//	}
 }

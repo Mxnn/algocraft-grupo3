@@ -5,10 +5,19 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 
 public abstract class Parcela {
 	
+	protected Coordenada coordenada;
 	protected Interactuable elemento;
 
     public Parcela() {
         this.elemento = null;
+    }
+    
+    public void ubicarEnCoordenada(Coordenada coordenada){
+    	this.coordenada = coordenada;
+    }
+    
+    public Coordenada getCoordenada(){
+    	return this.coordenada;
     }
 	
 	public boolean estaVacia(){

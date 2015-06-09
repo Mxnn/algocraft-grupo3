@@ -56,6 +56,20 @@ public class MapaTest {
             }
         }
     }
+    
+    @Test
+    public void elMapaDaCoordenadasAParcelas() throws ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa {
+        int alturaDelMapa = 10;
+        int anchoDelMapa = 10;
+        Mapa mapa = new Mapa(2, alturaDelMapa, anchoDelMapa);
+
+        for (int i = 0; i < alturaDelMapa; i++) {
+            for (int j = 0; j < anchoDelMapa; j++) {
+            	Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(i, j));
+                Assert.assertEquals(parcela.getCoordenada(),new Coordenada(i, j) );
+            }
+        }
+    }
 
     @Test(expected = ExcepcionCoordenadaFueraDelMapa.class)
     public void consultarElElementoEnUnaCoordenadaFueraDelMapaLanzaExcepcion() throws ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa {
@@ -104,5 +118,7 @@ public class MapaTest {
    // public void llamandoElMetodoMoverSeGuardaElItinerarioEnLaUnidad(){
     
    // }
+    
+    
     
 }
