@@ -9,7 +9,7 @@ public class Danyo {
         this.danyoTierra = danyoTierra;
     }
 
-    public int obtenerDanyoDeAtaqueAlAire() {
+    public int obtenerDanyoDeAtaqueEnAire() {
         return this.danyoAire;
     }
 
