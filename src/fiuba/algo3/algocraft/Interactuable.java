@@ -19,7 +19,10 @@ public abstract class Interactuable {
             this.destruir();
         }
     }
-
+    public void setParcela(Parcela parcela){
+    	this.parcela = parcela;
+    }
+    
     public abstract void destruir();
     
     public abstract void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada;
