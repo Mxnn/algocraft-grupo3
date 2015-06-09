@@ -34,13 +34,11 @@ public class NaveCiencia extends UnidadMagica {
     public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
     }
+    protected  int seleccionarDanyo(Danyo danyo){
+    	return danyo.obtenerDanyoDeAtaqueEnAire();
+    }
     
-    public void recibirAtaque(UnidadAgresora agresor, int distancia) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
-    	RangoAtaque rango = agresor.obtenerRangoAtaque();
-    	Danyo danyo = agresor.obtenerDanyo();
-    	if(rango.obtenerRangoDeAtaqueAlAire() < distancia){
-    		throw new ExcepcionEnemigoFueraDeAlcance();
-    	}
-    	this.recibirDanyo(danyo.obtenerDanyoDeAtaqueEnAire());
+    protected int seleccionarRango(RangoAtaque rango){
+    	return rango.obtenerRangoDeAtaqueAlAire();
     }
 }

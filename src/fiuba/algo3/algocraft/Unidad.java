@@ -34,4 +34,12 @@ public abstract class Unidad extends Interactuable {
     public void guardarEnParcela(ParcelaVolcan parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
+    
+    protected  int seleccionarDanyo(Danyo danyo){
+    	return danyo.obtenerDanyoDeAtaqueEnTierra();
+    }
+    
+    protected int seleccionarRango(RangoAtaque rango){
+    	return rango.obtenerRangoDeAtaqueEnTierra();
+    }
 }

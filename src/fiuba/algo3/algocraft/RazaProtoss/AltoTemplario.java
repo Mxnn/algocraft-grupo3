@@ -30,12 +30,4 @@ public class AltoTemplario extends UnidadMagica {
         this.parcelaUbicacion = parcela;
     }
     
-    public void recibirAtaque(UnidadAgresora agresor, int distancia) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
-    	RangoAtaque rango = agresor.obtenerRangoAtaque();
-    	Danyo danyo = agresor.obtenerDanyo();
-    	if(rango.obtenerRangoDeAtaqueEnTierra() < distancia){
-    		throw new ExcepcionEnemigoFueraDeAlcance();
-    	}
-    	this.recibirDanyo(danyo.obtenerDanyoDeAtaqueEnTierra());
-    }
 }

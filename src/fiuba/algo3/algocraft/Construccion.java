@@ -30,13 +30,12 @@ public abstract class Construccion extends Interactuable {
         (this.propietario).eliminarConstruccion(this);
     }
     
-    public void recibirAtaque(UnidadAgresora agresor, int distancia) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
-    	RangoAtaque rango = agresor.obtenerRangoAtaque();
-    	Danyo danyo = agresor.obtenerDanyo();
-    	if(rango.obtenerRangoDeAtaqueEnTierra() < distancia){
-    		throw new ExcepcionEnemigoFueraDeAlcance();
-    	}
-    	this.recibirDanyo(danyo.obtenerDanyoDeAtaqueEnTierra());
+    protected  int seleccionarDanyo(Danyo danyo){
+    	return danyo.obtenerDanyoDeAtaqueEnTierra();
+    }
+    
+    protected int seleccionarRango(RangoAtaque rango){
+    	return rango.obtenerRangoDeAtaqueEnTierra();
     }
     
     
