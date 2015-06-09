@@ -106,6 +106,13 @@ public class Mapa {
 		laUnidad.itinerario = elItinerario;
 		
 	}
+	
+	public static int distanciaEntreCoordenadas(Coordenada coord1, Coordenada coord2){
+		int distX = Math.abs(coord1.getX() - coord2.getX());
+		int distY = Math.abs(coord1.getY() - coord2.getY());
+		return Math.max(distX, distY);
+		
+	}
     
     
 }
