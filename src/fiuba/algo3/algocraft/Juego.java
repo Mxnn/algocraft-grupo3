@@ -77,15 +77,43 @@ public class Juego {
     }
     
 
-	public void moverUnidad(Coordenada desde, Coordenada hasta) throws ExcepcionCoordenadaFueraDelMapa{
-	//	if (this.devolverElementoEnParcela(desde) != Unidad.class) 
-	//			throw new ExcepcionNoEsUnaUnidad();
-		
+    public void moverUnidad(Coordenada desde, Coordenada hasta) throws ExcepcionCoordenadaFueraDelMapa{
+
 		this.mapa.calcularItinerario(desde, hasta);
 		this.UnidadesQueDebenMoverEnElTurno.add((Unidad) this.mapa.devolverElementoEnParcela(desde)) ;
 		
 			
 		
 	}
+
+	public void tareaDelTurnoMoverLasUnidades() throws ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada{
+    	while (!this.UnidadesQueDebenMoverEnElTurno.isEmpty()){
+    		if (this.tareaDelTurnoMoverUnidad(this.UnidadesQueDebenMoverEnElTurno.getFirst()))
+    			this.reinscribirLaUnidad();
+    		
+    		this.UnidadesQueDebenMoverEnElTurno.removeFirst();
+    		
+    	}
+    	this.UnidadesQueDebenMoverEnElTurno = this.UnidadesQueDebenMoverEnElProximoTurno;
+    	this.UnidadesQueDebenMoverEnElProximoTurno.clear();
+    }
+
+	private void reinscribirLaUnidad() {
+		this.UnidadesQueDebenMoverEnElProximoTurno.add(this.UnidadesQueDebenMoverEnElTurno.getFirst());
+		
+	}
+
+	private boolean tareaDelTurnoMoverUnidad(Unidad unidadAMover) throws ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
+
+		Parcela parcelaPartida = this.mapa.obtenerParcelaEnCoordenada(unidadAMover.itinerario.getFirst());
+		parcelaPartida.vaciarParcela();
+		unidadAMover.itinerario.removeFirst();
+		Parcela parcelaDestinacion = this.mapa.obtenerParcelaEnCoordenada(unidadAMover.itinerario.getFirst());
+		parcelaDestinacion.guardarElemento(unidadAMover);
+		
+		boolean hayQueMoverEnElProximoTurno = (unidadAMover.itinerario.size()>1);
+		return hayQueMoverEnElProximoTurno;
+	}
+
 
 }

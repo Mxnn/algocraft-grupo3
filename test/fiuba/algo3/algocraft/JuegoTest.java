@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.*;
+import fiuba.algo3.algocraft.RazaTerran.Marine;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -57,22 +58,43 @@ public class JuegoTest {
         juego.crearJugador("Carlos", Color.VERDE, Terran.getInstance());
     }
 
-    /*@Test
+    @Test
     public void llamandoAMoverUnidadSeAgregaUnaUnidadEnLaListUnidadAMoverEnElTurno() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNoHaySuministrosDisponibles, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
     	Juego elJuego = new Juego();
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        unJugador.crearAdicionalDeSuministro(elJuego.mapa, new Coordenada(1, 1));
+        unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
+    	
+    	unJugador.crearAdicionalDeSuministro(elJuego.mapa, new Coordenada(1, 1));
 
-        unJugador.crearCreadorDeSoldados();
-        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesTerrestres();
-        Marine marine = barraca.crearMarine();
     	Coordenada desde = new Coordenada(3,3);
     	Coordenada hasta = new Coordenada (6,6);
-    	elJuego.mapa.ubicarElementoEnParcela(desde, marine);
+    	
+
+    	elJuego.mapa.ubicarElementoEnParcela(desde,new Marine(unJugador, elJuego.mapa.obtenerParcelaEnCoordenada(desde)));
  
     	elJuego.moverUnidad(desde, hasta);
     	
     	Assert.assertEquals(elJuego.UnidadesQueDebenMoverEnElTurno.size(),1);
-    }*/
+    }
+    
+    @Test
+    public void unaUnidadSeMueveSiEsEnLaListDeUnidadesAMover() throws ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles{
+    	Juego elJuego = new Juego();
+    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
+        unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
+   	  	unJugador.crearAdicionalDeSuministro(elJuego.mapa, new Coordenada(1, 1));
+    	Coordenada desde = new Coordenada(2,2);
+    	Coordenada hasta = new Coordenada (3,2);
+    	elJuego.mapa.ubicarElementoEnParcela(desde,new Marine(unJugador, elJuego.mapa.obtenerParcelaEnCoordenada(desde)));
+    	elJuego.moverUnidad(desde, hasta);
+    	
+    	elJuego.tareaDelTurnoMoverLasUnidades();
+    	System.out.println(elJuego.mapa.obtenerParcelaEnCoordenada(desde).elemento);
+    	Assert.assertTrue(elJuego.mapa.obtenerParcelaEnCoordenada(desde).estaVacia());
+
+    }
+
 
 }
