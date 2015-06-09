@@ -9,6 +9,7 @@ public abstract class Interactuable {
 	protected Jugador propietario;
 	protected Estado estado;
 	protected int tiempoDeConstruccion;
+	protected Parcela parcela;
 
     public void recibirDanyo(int cantidad) throws ExcepcionEstadoMuerto {
         try {
