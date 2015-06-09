@@ -6,7 +6,7 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoNoAtacable;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
-public class Zealot extends UnidadTerrestre implements Agresor {
+public class Zealot extends UnidadTerrestre {
     public static final int VIDA_INICIAL = 100;
     public static final int ESCUDO_INICIAL = 60;
     public static final int CUPO_TRANSPORTE = 2;
@@ -31,19 +31,19 @@ public class Zealot extends UnidadTerrestre implements Agresor {
         this.parcela = parcela;
 	}
 	
-	public void atacar(UnidadTerrestre enemigo) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto {
-		this.estaEnRango(this.parcela, enemigo, (this.rangoAtaque).obtenerRangoDeAtaqueEnTierra());
-		enemigo.recibirDanyo(danyo.obtenerDanyoDeAtaqueEnTierra());
-	}
-	
-	public void atacar(UnidadVoladora enemigo) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
-		throw new ExcepcionEnemigoNoAtacable();
-	}
-	
-	public void atacar(Construccion enemigo) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
-		this.estaEnRango(this.parcela, enemigo, (this.rangoAtaque).obtenerRangoDeAtaqueEnTierra());
-		enemigo.recibirDanyo(danyo.obtenerDanyoDeAtaqueEnTierra());
-	}
+//	public void atacar(UnidadTerrestre enemigo) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto {
+//		this.estaEnRango(this.parcela, enemigo, (this.rangoAtaque).obtenerRangoDeAtaqueEnTierra());
+//		enemigo.recibirDanyo(danyo.obtenerDanyoDeAtaqueEnTierra());
+//	}
+//	
+//	public void atacar(UnidadVoladora enemigo) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
+//		throw new ExcepcionEnemigoNoAtacable();
+//	}
+//	
+//	public void atacar(Construccion enemigo) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
+//		this.estaEnRango(this.parcela, enemigo, (this.rangoAtaque).obtenerRangoDeAtaqueEnTierra());
+//		enemigo.recibirDanyo(danyo.obtenerDanyoDeAtaqueEnTierra());
+//	}
 }
 
 
