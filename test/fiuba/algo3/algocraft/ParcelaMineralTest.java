@@ -3,8 +3,8 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.RazaTerran.Espectro;
 import fiuba.algo3.algocraft.RazaTerran.Marine;
-import org.junit.Assert;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class ParcelaMineralTest {
@@ -13,7 +13,7 @@ public class ParcelaMineralTest {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-        Parcela parcela = new ParcelaMineral();
+        Parcela parcela = new ParcelaMineral(new Coordenada(0,0));
         Interactuable unidad = new Marine(unJugador);
 
         parcela.guardarElemento(unidad);
@@ -24,7 +24,7 @@ public class ParcelaMineralTest {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-        Parcela parcela = new ParcelaMineral();
+        Parcela parcela = new ParcelaMineral(new Coordenada(0,0));
         Interactuable unidad = new Espectro(unJugador);
 
         parcela.guardarElemento(unidad);
@@ -32,7 +32,7 @@ public class ParcelaMineralTest {
 
     @Test
     public void guardarElementoGuardaElElementoSiEsDeTipoExtractorMineral() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
-    	Parcela parcela = new ParcelaMineral();
+    	Parcela parcela = new ParcelaMineral(new Coordenada(0,0));
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
     	Interactuable extractorMineral = new CentroDeMineral(unJugador);
 
@@ -43,7 +43,7 @@ public class ParcelaMineralTest {
     
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
     public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractorDeGas() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
-        Parcela parcela = new ParcelaMineral();
+        Parcela parcela = new ParcelaMineral(new Coordenada(0,0));
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
         Interactuable construccion = new Refineria(unJugador);
 
@@ -52,7 +52,7 @@ public class ParcelaMineralTest {
     
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
     public void guardarElementoLanzaExcepcionSiElElementoEsUnaConstruccionParaUnidades() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
-        Parcela parcela = new ParcelaMineral();
+        Parcela parcela = new ParcelaMineral(new Coordenada(0,0));
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
         Interactuable construccion = new Barraca(unJugador);
 
@@ -62,7 +62,7 @@ public class ParcelaMineralTest {
     @Test
     public void darMineralesSumaMineralesAlJugadorSiEnLaParcelaHayUnExtractorDeMineral() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        ParcelaMineral parcela = new ParcelaMineral();
+        ParcelaMineral parcela = new ParcelaMineral(new Coordenada(0,0));
 
         parcela.guardarElemento(unJugadorPropietario.crearExtractorMineral());
         parcela.darMinerales();

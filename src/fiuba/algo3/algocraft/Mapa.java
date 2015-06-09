@@ -33,8 +33,7 @@ public class Mapa {
     	for (int x = 0; x < this.filas; x++){
     	     for (int y = 0; y < this.columnas; y++){
     	    	 Coordenada coordenada = new Coordenada(x,y);
-    			 Parcela parcela = new ParcelaTierra();
-    			 parcela.ubicarEnCoordenada(coordenada);
+    			 Parcela parcela = new ParcelaTierra(coordenada);
     	    	 this.tablero.put(coordenada,parcela);
     	     }
     	}

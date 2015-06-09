@@ -13,7 +13,7 @@ public class ParcelaEspacioTest {
         Mapa mapa = new Mapa (2, 5 ,5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(4, 4));
-        Parcela parcela = new ParcelaEspacio();
+        Parcela parcela = new ParcelaEspacio(new Coordenada(0,0));
         Interactuable unidad = new Marine(unJugador);
 
         parcela.guardarElemento(unidad);
@@ -24,7 +24,7 @@ public class ParcelaEspacioTest {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
-        Parcela parcela = new ParcelaEspacio();
+        Parcela parcela = new ParcelaEspacio(new Coordenada(0,0));
         Interactuable unidadVoladora = new Espectro(unJugador);
 
         parcela.guardarElemento(unidadVoladora);
@@ -34,7 +34,7 @@ public class ParcelaEspacioTest {
     
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
     public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractorDeMineral() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
-        Parcela parcela = new ParcelaEspacio();
+        Parcela parcela = new ParcelaEspacio(new Coordenada(0,0));
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
         Interactuable extractor = new CentroDeMineral(unJugador);
 
@@ -43,7 +43,7 @@ public class ParcelaEspacioTest {
 
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
     public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractorDeGas() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
-        Parcela parcela = new ParcelaEspacio();
+        Parcela parcela = new ParcelaEspacio(new Coordenada(0,0));
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
         Interactuable extractor = new Refineria(unJugador);
 
@@ -52,7 +52,7 @@ public class ParcelaEspacioTest {
     
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
     public void guardarElementoLanzaExcepcionSiElElementoEsUnaConstruccion() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
-        Parcela parcela = new ParcelaEspacio();
+        Parcela parcela = new ParcelaEspacio(new Coordenada(0,0));
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
          Interactuable construccion = new Barraca(unJugador);
 

@@ -10,7 +10,7 @@ public class ParcelaTierraTest {
 
     @Test
     public void parcelaEmpiezaVacia(){
-        Parcela parcela = new ParcelaTierra();
+        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
 
         Assert.assertTrue(parcela.estaVacia());
     }
@@ -21,7 +21,7 @@ public class ParcelaTierraTest {
         Coordenada coordenada = new Coordenada(3, 3);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, coordenada);
-        Parcela parcela = new ParcelaTierra();
+        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
         Interactuable marine = new Marine(unJugador);
         parcela.guardarElemento(marine);
 
@@ -33,7 +33,7 @@ public class ParcelaTierraTest {
         Mapa mapa = new Mapa(2, 5, 5);
         Coordenada coordenada = new Coordenada(3, 3);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        Parcela parcela = new ParcelaTierra();
+        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
         unJugador.crearAdicionalDeSuministro(mapa, coordenada);
         Interactuable marine = new Marine(unJugador);
         parcela.guardarElemento(marine);
@@ -47,7 +47,7 @@ public class ParcelaTierraTest {
         Coordenada coordenada = new Coordenada(3, 3);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, coordenada);
-        Parcela parcela = new ParcelaTierra();
+        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
         Interactuable marine = new Marine(unJugador);
         Interactuable golliat = new Golliat(unJugador);
 
@@ -61,7 +61,7 @@ public class ParcelaTierraTest {
         Coordenada coordenada = new Coordenada(3, 3);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, coordenada);
-    	Parcela parcela = new ParcelaTierra();
+    	Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
     	Interactuable espectro = new Espectro(unJugador);
 
     	parcela.guardarElemento(espectro);
@@ -73,7 +73,7 @@ public class ParcelaTierraTest {
     public void parcelaGuardaConstruccion() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa {
         Mapa mapa = new Mapa(2, 5, 5);
         Coordenada coordenada = new Coordenada(3, 3);
-        Parcela parcela = new ParcelaTierra();
+        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, coordenada);
     	Interactuable construccion = new Barraca(unJugador);
@@ -85,7 +85,7 @@ public class ParcelaTierraTest {
     
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
     public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractor() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
-        Parcela parcela = new ParcelaTierra();
+        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
         Interactuable construccion = new CentroDeMineral(unJugador);
 

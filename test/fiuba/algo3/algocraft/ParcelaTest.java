@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.RazaTerran.Marine;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,7 +13,7 @@ public class ParcelaTest {
         Coordenada coordenada = new Coordenada(3, 3);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, coordenada);
-        Parcela parcela = new ParcelaTierra();
+        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
         Interactuable marine = new Marine(unJugador);
 
         parcela.guardarElemento(marine);
