@@ -6,7 +6,8 @@ public class CentroDeMineral extends ExtractorMineral{
     public static int COSTO_GAS = 0;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
 
-	public CentroDeMineral(Jugador propietario) {
+	public CentroDeMineral(Jugador propietario, Parcela parcela) {
+        this.parcela = parcela;
         this.propietario = propietario;
         this.tiempoDeConstruccion = 4;
         this.estado = new Estado(VIDA_INICIAL);

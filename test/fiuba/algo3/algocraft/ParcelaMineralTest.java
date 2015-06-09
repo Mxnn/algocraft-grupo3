@@ -34,7 +34,7 @@ public class ParcelaMineralTest {
     public void guardarElementoGuardaElElementoSiEsDeTipoExtractorMineral() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	Parcela parcela = new ParcelaMineral(new Coordenada(0,0));
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
-    	Interactuable extractorMineral = new CentroDeMineral(unJugador);
+    	Interactuable extractorMineral = new CentroDeMineral(unJugador, parcela);
 
     	parcela.guardarElemento(extractorMineral);
 
@@ -62,11 +62,12 @@ public class ParcelaMineralTest {
     @Test
     public void darMineralesSumaMineralesAlJugadorSiEnLaParcelaHayUnExtractorDeMineral() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        ParcelaMineral parcela = new ParcelaMineral(new Coordenada(0,0));
+        Coordenada ubicacionMineral = new Coordenada(1, 1);
+        ParcelaMineral parcela = new ParcelaMineral(ubicacionMineral);
 
-        parcela.guardarElemento(unJugadorPropietario.crearExtractorMineral());
+        parcela.guardarElemento(new CentroDeMineral(unJugadorPropietario, parcela));
         parcela.darMinerales();
 
-        Assert.assertEquals(unJugadorPropietario.obtenerMineral(), Jugador.MINERAL_INICIAL - CentroDeMineral.COSTO.getCostoMineral() + 10);
+        Assert.assertEquals(unJugadorPropietario.obtenerMineral(), Jugador.MINERAL_INICIAL + 10);
     }
 }

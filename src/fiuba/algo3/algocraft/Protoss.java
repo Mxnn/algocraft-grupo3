@@ -31,12 +31,12 @@ public class Protoss extends Raza {
 		return new Asimilador(propietario, parcela);
 	}
 
-	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+	public ExtractorMineral crearExtractorMineral(Jugador propietario, Parcela parcela) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,NexoMineral.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
 		
         restarCosto(propietario,NexoMineral.COSTO);
-		return new NexoMineral(propietario);
+		return new NexoMineral(propietario, parcela);
 	}
 
     public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario, Parcela parcela) throws ExcepcionRecursosInsuficientes {

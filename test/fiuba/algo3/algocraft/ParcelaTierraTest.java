@@ -87,7 +87,7 @@ public class ParcelaTierraTest {
     public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractor() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
-        Interactuable construccion = new CentroDeMineral(unJugador);
+        Interactuable construccion = new CentroDeMineral(unJugador, parcela);
 
         parcela.guardarElemento(construccion);
     }

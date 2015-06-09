@@ -25,7 +25,7 @@ public abstract class Raza {
 		return null;
 	}
 
-	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+	public ExtractorMineral crearExtractorMineral(Jugador propietario, Parcela parcela) throws ExcepcionRecursosInsuficientes {
 		return null;
 	}
 

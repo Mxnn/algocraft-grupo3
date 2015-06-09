@@ -9,7 +9,8 @@ public class NexoMineral  extends ExtractorMineral {
     public static int COSTO_GAS = 0;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
-    public NexoMineral(Jugador propietario) {
+    public NexoMineral(Jugador propietario, Parcela parcela) {
+        this.parcela = parcela;
         this.propietario = propietario;
         this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         this.tiempoDeConstruccion = 4;

@@ -19,7 +19,7 @@ public class RefineriaTest {
     @Test
     public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        ExtractorGas refineria = new Refineria(unJugadorPropietario);
+        ExtractorGas refineria = new Refineria(unJugadorPropietario, new ParcelaVolcan(new Coordenada(1,1)));
 
         Assert.assertEquals(refineria.obtenerTipoDeConstruccion(), TipoDeConstruccion.EXTRACTOR_GAS);
     }

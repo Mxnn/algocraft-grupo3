@@ -49,8 +49,9 @@ public class Jugador {
         return unExtractorGas;
 	}
 
-	public Interactuable crearExtractorMineral() throws ExcepcionRecursosInsuficientes {
-		ExtractorMineral unExtractorMineral = raza.crearExtractorMineral(this);
+	public Interactuable crearExtractorMineral(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa {
+        Parcela parcela = mapa.obtenerParcelaEnCoordenada(coordenada);
+		ExtractorMineral unExtractorMineral = raza.crearExtractorMineral(this, parcela);
 		construcciones.add(unExtractorMineral);
 
         return unExtractorMineral;

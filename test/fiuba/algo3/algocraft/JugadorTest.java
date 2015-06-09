@@ -21,9 +21,12 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void alCrearExtractorMineralSeAgregaLaConstruccionEnElArrayDelJugador() throws ExcepcionRecursosInsuficientes {
+	public void alCrearExtractorMineralSeAgregaLaConstruccionEnElArrayDelJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa {
+        Mapa mapa = new Mapa(2, 20, 20);
+        Coordenada ubicacionMineral = new Coordenada(1, 1);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        unJugador.crearExtractorMineral();
+        mapa.insertarParcela(new ParcelaMineral(ubicacionMineral));
+        unJugador.crearExtractorMineral(mapa, ubicacionMineral);
 
         Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
     }
@@ -135,20 +138,26 @@ public class JugadorTest {
     	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - Refineria.COSTO.getCostoMineral());
     }
     @Test
-    public void crearExtractorDeMineralRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes {
+    public void crearExtractorDeMineralRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa {
+        Mapa mapa = new Mapa(2, 20, 20);
+        Coordenada ubicacionMineral = new Coordenada(1, 1);
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
-    	unJugador.crearExtractorMineral();
+        mapa.insertarParcela(new ParcelaMineral(ubicacionMineral));
+    	unJugador.crearExtractorMineral(mapa, ubicacionMineral);
 
     	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - CentroDeMineral.COSTO.getCostoMineral());
     }
 
     @Test(expected = ExcepcionRecursosInsuficientes.class)
-    public void crearExtractorDeMineralesLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
-    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+    public void crearExtractorDeMineralesLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido {
+        Mapa mapa = new Mapa(2, 20, 20);
+        Coordenada ubicacionMineral = new Coordenada(1, 1);
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
         unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
-        unJugador.crearExtractorMineral();
+        mapa.insertarParcela(new ParcelaMineral(ubicacionMineral));
+        unJugador.crearExtractorMineral(mapa, ubicacionMineral);
     }
     
     
@@ -269,20 +278,26 @@ public class JugadorTest {
     	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - Asimilador.COSTO.getCostoMineral());
     }
     @Test
-    public void crearExtractorDeMineralParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes {
-    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+    public void crearExtractorDeMineralParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido {
+        Mapa mapa = new Mapa(2, 20, 20);
+        Coordenada ubicacionMineral = new Coordenada(1, 1);
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 
-    	unJugador.crearExtractorMineral();
+        mapa.insertarParcela(new ParcelaMineral(ubicacionMineral));
+    	unJugador.crearExtractorMineral(mapa, ubicacionMineral);
 
     	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL -  NexoMineral.COSTO.getCostoMineral());
     }
 
     @Test(expected = ExcepcionRecursosInsuficientes.class)
-    public void crearExtractorDeMineralesParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
-    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+    public void crearExtractorDeMineralesParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa {
+        Mapa mapa = new Mapa(2, 20, 20);
+        Coordenada ubicacionMineral = new Coordenada(1, 1);
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 
+        mapa.insertarParcela(new ParcelaMineral(ubicacionMineral));
         unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
-        unJugador.crearExtractorMineral();
+        unJugador.crearExtractorMineral(mapa, ubicacionMineral);
     }
     
     
@@ -416,10 +431,13 @@ public class JugadorTest {
     }
 
     @Test
-    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElExtractorMineral() throws ExcepcionRecursosInsuficientes{
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElExtractorMineral() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa {
+        Mapa mapa = new Mapa(2, 20, 20);
+        Coordenada ubicacionMineral = new Coordenada(1, 1);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
-        unJugador.crearExtractorMineral();
+        mapa.insertarParcela(new ParcelaMineral(ubicacionMineral));
+        unJugador.crearExtractorMineral(mapa, ubicacionMineral);
 
         Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_MINERAL));
     }

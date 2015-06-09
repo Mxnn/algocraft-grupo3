@@ -8,7 +8,8 @@ public class CentroDeMineralTest {
     @Test
     public void unCentroDeMineralRecolectaMineralesYSeLosSumaAlJugadorPropietario() {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        ExtractorMineral centroDeMineral = new CentroDeMineral(unJugadorPropietario);
+        ParcelaMineral parcela = new ParcelaMineral(new Coordenada(1, 1));
+        ExtractorMineral centroDeMineral = new CentroDeMineral(unJugadorPropietario, parcela);
 
         centroDeMineral.recolectarMinerales();
 
@@ -18,7 +19,8 @@ public class CentroDeMineralTest {
     @Test
     public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        ExtractorMineral centroDeMineral = new CentroDeMineral(unJugadorPropietario);
+        ParcelaMineral parcela = new ParcelaMineral(new Coordenada(1, 1));
+        ExtractorMineral centroDeMineral = new CentroDeMineral(unJugadorPropietario, parcela);
 
         Assert.assertEquals(centroDeMineral.obtenerTipoDeConstruccion(), TipoDeConstruccion.EXTRACTOR_MINERAL);
     }
