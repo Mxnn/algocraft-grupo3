@@ -9,7 +9,7 @@ public class DepositoSuministro extends AdicionalSuministros {
     
     public DepositoSuministro(Jugador propietario, Parcela parcela) {
         this.propietario = propietario;
-        this.parcelaUbicacion = parcela;
+        this.parcela = parcela;
         this.estado = new Estado(VIDA_INICIAL);
         this.tiempoDeConstruccion = 6;
         this.CANTIDAD_DE_SUMINISTROS_ADICIONALES = 5;

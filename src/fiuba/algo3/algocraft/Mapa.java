@@ -3,7 +3,6 @@ import fiuba.algo3.algocraft.Excepciones.*;
 
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 
 public class Mapa {
     private static final int NUMERO_DE_BASES_MAXIMO = 4;
@@ -22,6 +21,10 @@ public class Mapa {
         this.llenarMapaConParcelasDeTierra();
     }
 
+    public void insertarParcela(Parcela parcela) {
+        this.tablero.put(parcela.getCoordenada(), parcela);
+    }
+
     private void validarNumeroDeBases(int numero) throws ExcepcionNumeroDeBasesInvalido {
         if (numero >= 2 && numero <= NUMERO_DE_BASES_MAXIMO)
             this.numeroDeBases = numero;
@@ -34,11 +37,11 @@ public class Mapa {
     	     for (int y = 0; y < this.columnas; y++){
     	    	 Coordenada coordenada = new Coordenada(x,y);
     			 Parcela parcela = new ParcelaTierra(coordenada);
-    	    	 this.tablero.put(coordenada,parcela);
+    	    	 this.tablero.put(coordenada, parcela);
     	     }
     	}
     }
-    
+
     public void ubicarElementoEnParcela(Coordenada coordenada, Interactuable elemento) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada {
         if (this.coordenadaExiste(coordenada)) {
             Parcela parcela = this.tablero.get(coordenada);

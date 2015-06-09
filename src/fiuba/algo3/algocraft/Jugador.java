@@ -40,8 +40,9 @@ public class Jugador {
         return this.color;
     }
 
-	public Interactuable crearExtractorGas() throws ExcepcionRecursosInsuficientes {
-        ExtractorGas unExtractorGas = raza.crearExtractorGas(this);
+	public Interactuable crearExtractorGas(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa {
+        Parcela parcela = mapa.obtenerParcelaEnCoordenada(coordenada);
+        ExtractorGas unExtractorGas = raza.crearExtractorGas(this, parcela);
 
 		construcciones.add(unExtractorGas);
 

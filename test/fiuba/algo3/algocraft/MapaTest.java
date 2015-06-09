@@ -119,11 +119,15 @@ public class MapaTest {
     	  Assert.assertNotNull(golliat.itinerario);
     	  
     }
-   // @Test
-   // public void llamandoElMetodoMoverSeGuardaElItinerarioEnLaUnidad(){
-    
-   // }
-    
-    
-    
+
+    @Test
+    public void insertarParcelaInsertaParcelaEnElMapa() throws ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa {
+        Mapa mapa = new Mapa(2, 20, 20);
+        ParcelaVolcan parcela = new ParcelaVolcan(new Coordenada(1, 1));
+
+        mapa.insertarParcela(parcela);
+
+        Assert.assertSame(mapa.obtenerParcelaEnCoordenada(new Coordenada(1, 1)), parcela);
+
+    }
 }

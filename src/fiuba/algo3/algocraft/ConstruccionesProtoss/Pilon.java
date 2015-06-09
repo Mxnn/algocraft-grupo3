@@ -10,7 +10,8 @@ public class Pilon extends AdicionalSuministros {
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
     
-    public Pilon(Jugador propietario) {
+    public Pilon(Jugador propietario, Parcela parcela) {
+        this.parcela = parcela;
         this.propietario = propietario;
         this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         this.tiempoDeConstruccion = 5;

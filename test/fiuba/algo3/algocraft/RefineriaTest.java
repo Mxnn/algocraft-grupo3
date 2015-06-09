@@ -7,8 +7,9 @@ import org.junit.Test;
 public class RefineriaTest {
     @Test
     public void unaRefineriaAbsorbeGasVespenoYSeLoSumaAlJugadorPropietario() {
+        ParcelaVolcan parcela = new ParcelaVolcan(new Coordenada(0, 0));
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        ExtractorGas refineria = new Refineria(unJugadorPropietario);
+        ExtractorGas refineria = new Refineria(unJugadorPropietario, parcela);
 
         refineria.absorberGasVespeno();
 

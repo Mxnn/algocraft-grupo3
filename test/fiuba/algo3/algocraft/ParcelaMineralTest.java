@@ -45,7 +45,7 @@ public class ParcelaMineralTest {
     public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractorDeGas() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         Parcela parcela = new ParcelaMineral(new Coordenada(0,0));
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
-        Interactuable construccion = new Refineria(unJugador);
+        Interactuable construccion = new Refineria(unJugador, parcela);
 
         parcela.guardarElemento(construccion);
     }

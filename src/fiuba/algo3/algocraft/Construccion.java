@@ -8,8 +8,6 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 
 public abstract class Construccion extends Interactuable {
 
-    protected Parcela parcelaUbicacion;
-
     public abstract TipoDeConstruccion obtenerTipoDeConstruccion();
 
 	public void guardarEnParcela(ParcelaTierra parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {

@@ -10,9 +10,12 @@ import org.junit.Test;
 public class JugadorTest {
     public static int RECURSOS_SUFFICIENTES = 1000;
 	@Test
-	public void alCrearExtractorGasSeAgregaLaConstruccionEnElArrayDelJugador() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa {
-		Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-		unJugador.crearExtractorGas();
+	public void alCrearExtractorGasSeAgregaLaConstruccionEnElArrayDelJugador() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido {
+		Mapa mapa = new Mapa (2, 20, 20);
+        Coordenada ubicacionVolcan = new Coordenada(1, 1);
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        mapa.insertarParcela(new ParcelaVolcan(ubicacionVolcan));
+		unJugador.crearExtractorGas(mapa, ubicacionVolcan);
 		
 		Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
 	}
@@ -108,20 +111,26 @@ public class JugadorTest {
     }
     
     @Test(expected = ExcepcionRecursosInsuficientes.class)
-    public void crearExtractorDeGasLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionCoordenadaFueraDelMapa {
-    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+    public void crearExtractorDeGasLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido {
+        Mapa mapa = new Mapa (2, 20, 20);
+        Coordenada ubicacionVolcan = new Coordenada(1, 1);
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
+        mapa.insertarParcela(new ParcelaVolcan(ubicacionVolcan));
         unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
-        unJugador.crearExtractorGas();
+        unJugador.crearExtractorGas(mapa, ubicacionVolcan);
     }
   
 
     
     @Test
-    public void crearExtractorDeGasRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa {
-    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+    public void crearExtractorDeGasRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido {
+        Mapa mapa = new Mapa (2, 20, 20);
+        Coordenada ubicacionVolcan = new Coordenada(1, 1);
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
-    	unJugador.crearExtractorGas();
+        mapa.insertarParcela(new ParcelaVolcan(ubicacionVolcan));
+    	unJugador.crearExtractorGas(mapa, ubicacionVolcan);
 
     	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - Refineria.COSTO.getCostoMineral());
     }
@@ -235,20 +244,27 @@ public class JugadorTest {
     
     
     @Test(expected = ExcepcionRecursosInsuficientes.class)
-    public void crearExtractorDeGasParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionCoordenadaFueraDelMapa {
-    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+    public void crearExtractorDeGasParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido {
+        Mapa mapa = new Mapa (2, 20, 20);
+        Coordenada ubicacionVolcan = new Coordenada(1, 1);
 
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+
+        mapa.insertarParcela(new ParcelaVolcan(ubicacionVolcan));
         unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL);
-        unJugador.crearExtractorGas();
+        unJugador.crearExtractorGas(mapa, ubicacionVolcan);
     }
   
 
     
     @Test
-    public void crearExtractorDeGasParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa {
-    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+    public void crearExtractorDeGasParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido {
+        Mapa mapa = new Mapa (2, 20, 20);
+        Coordenada ubicacionVolcan = new Coordenada(1, 1);
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 
-    	unJugador.crearExtractorGas();
+        mapa.insertarParcela(new ParcelaVolcan(ubicacionVolcan));
+    	unJugador.crearExtractorGas(mapa, ubicacionVolcan);
 
     	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - Asimilador.COSTO.getCostoMineral());
     }
@@ -388,10 +404,13 @@ public class JugadorTest {
     }
 
     @Test
-    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElExtractorGas() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa {
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElExtractorGas() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido {
+        Mapa mapa = new Mapa (2, 20, 20);
+        Coordenada ubicacionVolcan = new Coordenada(1, 1);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        mapa.insertarParcela(new ParcelaVolcan(ubicacionVolcan));
 
-        unJugador.crearExtractorGas();
+        unJugador.crearExtractorGas(mapa, ubicacionVolcan);
 
         Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_GAS));
     }

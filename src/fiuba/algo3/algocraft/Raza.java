@@ -21,7 +21,7 @@ public abstract class Raza {
 		return null;
 	}
 
-	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+	public ExtractorGas crearExtractorGas(Jugador propietario, Parcela parcela) throws ExcepcionRecursosInsuficientes {
 		return null;
 	}
 
