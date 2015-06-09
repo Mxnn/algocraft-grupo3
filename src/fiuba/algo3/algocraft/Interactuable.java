@@ -22,7 +22,14 @@ public abstract class Interactuable {
         }
     }
     
-//    public abstract void recibirAtaque(Agresor agresor) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto;
+    public abstract void recibirAtaque(UnidadAgresora agresor, int distancia) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto;
+    
+//    public boolean estoyEnRangoDeAtaque(int rango){
+//		int distancia = (enemigo.getParcela()).devolverDistanciaConParcela(miParcela);
+//		if (rango < distancia)
+//			throw new ExcepcionEnemigoFueraDeAlcance();
+//    }
+    
     
     public void setParcela(Parcela parcela){
     	this.parcela = parcela;

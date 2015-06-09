@@ -2,6 +2,9 @@ package fiuba.algo3.algocraft.RazaTerran;
 
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoNoAtacable;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 
@@ -27,5 +30,14 @@ public class Espectro extends UnidadAgresora {
     }
     public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
+    }
+    
+    public void recibirAtaque(UnidadAgresora agresor, int distancia) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
+    	RangoAtaque rango = agresor.obtenerRangoAtaque();
+    	Danyo danyo = agresor.obtenerDanyo();
+    	if(rango.obtenerRangoDeAtaqueAlAire() < distancia){
+    		throw new ExcepcionEnemigoFueraDeAlcance();
+    	}
+    	this.recibirDanyo(danyo.obtenerDanyoDeAtaqueEnAire());
     }
 }

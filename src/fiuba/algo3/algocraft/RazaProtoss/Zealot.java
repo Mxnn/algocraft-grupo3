@@ -31,19 +31,14 @@ public class Zealot extends UnidadAgresora {
         this.parcela = parcela;
 	}
 	
-//	public void atacar(UnidadTerrestre enemigo) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto {
-//		this.estaEnRango(this.parcela, enemigo, (this.rangoAtaque).obtenerRangoDeAtaqueEnTierra());
-//		enemigo.recibirDanyo(danyo.obtenerDanyoDeAtaqueEnTierra());
-//	}
-//	
-//	public void atacar(UnidadVoladora enemigo) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
-//		throw new ExcepcionEnemigoNoAtacable();
-//	}
-//	
-//	public void atacar(Construccion enemigo) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
-//		this.estaEnRango(this.parcela, enemigo, (this.rangoAtaque).obtenerRangoDeAtaqueEnTierra());
-//		enemigo.recibirDanyo(danyo.obtenerDanyoDeAtaqueEnTierra());
-//	}
+	public void recibirAtaque(UnidadAgresora agresor, int distancia) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
+    	RangoAtaque rango = agresor.obtenerRangoAtaque();
+    	Danyo danyo = agresor.obtenerDanyo();
+    	if(rango.obtenerRangoDeAtaqueEnTierra() < distancia){
+    		throw new ExcepcionEnemigoFueraDeAlcance();
+    	}
+    	this.recibirDanyo(danyo.obtenerDanyoDeAtaqueEnTierra());
+    }
 }
 
 
