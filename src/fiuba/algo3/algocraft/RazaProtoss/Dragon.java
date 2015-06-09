@@ -15,7 +15,7 @@ public class Dragon extends UnidadTerrestre {
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
 
-    public Dragon(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
+    public Dragon(Jugador propietario, Parcela parcela) throws ExcepcionNoHaySuministrosDisponibles {
         this.SUMINISTRO = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
@@ -25,5 +25,6 @@ public class Dragon extends UnidadTerrestre {
         this.cupoDeTransporte = CUPO_TRANSPORTE;
         this.rangoAtaque = new RangoAtaque(4, 0);
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
+        this.parcela = parcela;
     }
 }

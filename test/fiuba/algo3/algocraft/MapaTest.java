@@ -13,7 +13,8 @@ public class MapaTest {
         Coordenada coordenada = new Coordenada(3, 3);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, coordenada);
-		Interactuable marine = new Marine(unJugador);
+        Parcela parcela = new ParcelaTierra(new Coordenada(1,1));
+		Interactuable marine = new Marine(unJugador, parcela);
 
 		mapa.ubicarElementoEnParcela(new Coordenada(0,0), marine);
 
@@ -25,7 +26,8 @@ public class MapaTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
-        Interactuable golliat = new Golliat(unJugador);
+        Parcela parcela = new ParcelaTierra(new Coordenada(1,1));
+        Interactuable golliat = new Golliat(unJugador, parcela);
         Coordenada coordenada = new Coordenada(0,0);
 
         mapa.ubicarElementoEnParcela(coordenada, golliat);
@@ -36,7 +38,8 @@ public class MapaTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
-        Interactuable espectro = new Espectro(unJugador);
+        Parcela parcela = new ParcelaTierra(new Coordenada(1,1));
+        Interactuable espectro = new Espectro(unJugador, parcela);
         Coordenada coordenada = new Coordenada(0,0);
 
         mapa.ubicarElementoEnParcela(coordenada, espectro);
@@ -85,7 +88,8 @@ public class MapaTest {
         Coordenada coordenada = new Coordenada(5, 5);
 
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(2, 2));
-        Interactuable golliat = new Golliat(unJugador);
+        Parcela parcela = new ParcelaTierra(new Coordenada(1,1));
+        Interactuable golliat = new Golliat(unJugador, parcela);
         mapa.ubicarElementoEnParcela(coordenada, golliat);
 
         Assert.assertEquals(mapa.obtenerParcelaEnCoordenada(coordenada).devolverElemento(), golliat);
@@ -106,7 +110,8 @@ public class MapaTest {
           Coordenada desde = new Coordenada(5, 5);
           Coordenada hasta = new Coordenada(8, 8);         
           unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(2, 2));
-          Unidad golliat = new Golliat(unJugador);
+          Parcela parcela = new ParcelaTierra(new Coordenada(1,1));
+          Unidad golliat = new Golliat(unJugador, parcela);
           mapa.ubicarElementoEnParcela(desde, golliat);
           
     	  mapa.calcularItinerario(desde, hasta);

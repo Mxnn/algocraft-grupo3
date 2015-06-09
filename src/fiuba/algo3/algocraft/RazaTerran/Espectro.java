@@ -12,7 +12,7 @@ public class Espectro extends UnidadVoladora {
     public static final int VISION = 7;
     public static final int TIEMPO_DE_CONSTRUCCION = 8;
 
-    public Espectro(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
+    public Espectro(Jugador propietario, Parcela parcela) throws ExcepcionNoHaySuministrosDisponibles {
         this.SUMINISTRO = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
@@ -21,5 +21,6 @@ public class Espectro extends UnidadVoladora {
         this.vision = VISION;
         this.rangoAtaque = new RangoAtaque(5, 0);
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
+        this.parcela = parcela;
     }
 }

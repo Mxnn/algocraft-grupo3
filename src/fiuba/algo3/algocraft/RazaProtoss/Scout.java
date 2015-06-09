@@ -14,7 +14,7 @@ public class Scout extends UnidadVoladora {
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
     
-    public Scout(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
+    public Scout(Jugador propietario, Parcela parcela) throws ExcepcionNoHaySuministrosDisponibles {
         this.SUMINISTRO = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
@@ -23,5 +23,6 @@ public class Scout extends UnidadVoladora {
         this.vision = VISION;
         this.rangoAtaque = new RangoAtaque(4, 4);
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
+        this.parcela = parcela;
     }
 }

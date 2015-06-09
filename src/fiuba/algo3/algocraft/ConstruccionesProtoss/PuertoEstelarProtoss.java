@@ -29,11 +29,11 @@ public class PuertoEstelarProtoss extends CreadorDeUnidadesAereas{
     }
     
     public Scout crearScout() throws ExcepcionNoHaySuministrosDisponibles {
-        return new Scout(this.propietario);
+        return new Scout(this.propietario, parcela);
     }
     
     public NaveTransporteProtoss crearNaveTransporte() throws ExcepcionNoHaySuministrosDisponibles {
-        return new NaveTransporteProtoss(this.propietario);
+        return new NaveTransporteProtoss(this.propietario, parcela);
     }
  }
 

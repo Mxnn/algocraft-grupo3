@@ -14,7 +14,7 @@ public class ParcelaMineralTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         Parcela parcela = new ParcelaMineral(new Coordenada(0,0));
-        Interactuable unidad = new Marine(unJugador);
+        Interactuable unidad = new Marine(unJugador, parcela);
 
         parcela.guardarElemento(unidad);
     }
@@ -25,7 +25,7 @@ public class ParcelaMineralTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         Parcela parcela = new ParcelaMineral(new Coordenada(0,0));
-        Interactuable unidad = new Espectro(unJugador);
+        Interactuable unidad = new Espectro(unJugador, parcela);
 
         parcela.guardarElemento(unidad);
     }

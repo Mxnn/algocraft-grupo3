@@ -7,6 +7,7 @@ public abstract class Unidad extends Interactuable {
 
     protected int vision;
     protected RangoAtaque rangoAtaque;
+    protected Danyo danyo; //lo pongo aca porque rango tmb estaba
     protected LinkedList<Coordenada> itinerario = new LinkedList<Coordenada>();
     //protected Coordenada posicion;
     public int SUMINISTRO;

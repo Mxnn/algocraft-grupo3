@@ -13,7 +13,7 @@ public class Golliat extends UnidadTerrestre {
     public static final int CUPO_TRANSPORTE = 2;
     public static final int TIEMPO_DE_CONSTRUCCION = 6;
 
-    public Golliat(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
+    public Golliat(Jugador propietario, Parcela parcela) throws ExcepcionNoHaySuministrosDisponibles {
         this.SUMINISTRO = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
@@ -23,5 +23,6 @@ public class Golliat extends UnidadTerrestre {
         this.cupoDeTransporte = CUPO_TRANSPORTE;
         this.rangoAtaque = new RangoAtaque(5, 6);
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
+        this.parcela = parcela;
     }
 }

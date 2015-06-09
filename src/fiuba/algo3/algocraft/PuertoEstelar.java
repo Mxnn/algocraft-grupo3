@@ -28,14 +28,14 @@ public class PuertoEstelar extends CreadorDeUnidadesAereas {
     }
 
     public Espectro crearEspectro() throws ExcepcionNoHaySuministrosDisponibles {
-        return new Espectro(this.propietario);
+        return new Espectro(this.propietario, parcela);
     }
 
     public NaveTransporteTerran crearNaveTransporte() throws ExcepcionNoHaySuministrosDisponibles {
-        return new NaveTransporteTerran(this.propietario);
+        return new NaveTransporteTerran(this.propietario, parcela);
     }
 
     public NaveCiencia crearNaveCiencia() throws ExcepcionNoHaySuministrosDisponibles {
-        return new NaveCiencia(this.propietario);
+        return new NaveCiencia(this.propietario, parcela);
     }
 }

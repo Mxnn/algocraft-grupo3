@@ -29,6 +29,6 @@ public class ArchivosTemplarios extends CreadorDeUnidadesTerrestres {
     }
 
     public AltoTemplario crearAltoTemplario() throws ExcepcionNoHaySuministrosDisponibles {
-        return new AltoTemplario(this.propietario);
+        return new AltoTemplario(this.propietario, parcela);
     }
 }

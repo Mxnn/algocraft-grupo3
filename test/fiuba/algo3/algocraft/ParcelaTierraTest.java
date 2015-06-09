@@ -22,7 +22,7 @@ public class ParcelaTierraTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, coordenada);
         Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
-        Interactuable marine = new Marine(unJugador);
+        Interactuable marine = new Marine(unJugador, parcela);
         parcela.guardarElemento(marine);
 
         Assert.assertSame(marine, parcela.devolverElemento());
@@ -35,7 +35,7 @@ public class ParcelaTierraTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
         unJugador.crearAdicionalDeSuministro(mapa, coordenada);
-        Interactuable marine = new Marine(unJugador);
+        Interactuable marine = new Marine(unJugador, parcela);
         parcela.guardarElemento(marine);
 
         Assert.assertFalse(parcela.estaVacia());
@@ -48,8 +48,8 @@ public class ParcelaTierraTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, coordenada);
         Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
-        Interactuable marine = new Marine(unJugador);
-        Interactuable golliat = new Golliat(unJugador);
+        Interactuable marine = new Marine(unJugador, parcela);
+        Interactuable golliat = new Golliat(unJugador, new ParcelaTierra(new Coordenada(1,1)));
 
         parcela.guardarElemento(marine);
         parcela.guardarElemento(golliat);
@@ -62,7 +62,7 @@ public class ParcelaTierraTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, coordenada);
     	Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
-    	Interactuable espectro = new Espectro(unJugador);
+    	Interactuable espectro = new Espectro(unJugador, parcela);
 
     	parcela.guardarElemento(espectro);
 

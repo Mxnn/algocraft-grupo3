@@ -7,8 +7,6 @@ public abstract class Parcela {
 	
 	protected Coordenada coordenada;
 	protected Interactuable elemento;
-
-    
     
     public void ubicarEnCoordenada(Coordenada coordenada){
     	this.coordenada = coordenada;
