@@ -4,7 +4,7 @@ import fiuba.algo3.algocraft.Excepciones.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
+
 
 public class Juego {
     //EL CODIGO COMENTADO ES EL CODIGO PARA EL SINGLETON DE LA CLASE (NECESITO "LIMPIAR" EL OBJETO CLASE PARA BORRAR LOS USUARIOS "INSCRIPTOS")
@@ -13,9 +13,16 @@ public class Juego {
     private static int MAXIMO_NUMERO_DE_JUGADORES = 2;
 
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
-    private List tareasDelTurno = new LinkedList();
+    public Mapa mapa ;
+    public LinkedList<Unidad> UnidadesQueDebenMoverEnElTurno = new LinkedList<Unidad>();
+    public LinkedList<Unidad> UnidadesQueDebenMoverEnElProximoTurno = new LinkedList<Unidad>();
+    
+    public Juego() throws ExcepcionNumeroDeBasesInvalido { 
+    	mapa = new Mapa (2,5,5); 
+    }
+
     /*
-    private Juego() { }
+ 
 
     private synchronized static void createInstance() {
         if (INSTANCIA == null) {
@@ -68,4 +75,17 @@ public class Juego {
         }
         return false;
     }
+    
+
+	public void moverUnidad(Coordenada desde, Coordenada hasta) throws ExcepcionCoordenadaFueraDelMapa{
+	//	if (this.devolverElementoEnParcela(desde) != Unidad.class) 
+	//			throw new ExcepcionNoEsUnaUnidad();
+		
+		this.mapa.calcularItinerario(desde, hasta);
+		this.UnidadesQueDebenMoverEnElTurno.add((Unidad) this.mapa.devolverElementoEnParcela(desde)) ;
+		
+			
+		
+	}
+
 }
