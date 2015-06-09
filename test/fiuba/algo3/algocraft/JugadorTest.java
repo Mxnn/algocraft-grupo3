@@ -645,4 +645,15 @@ public class JugadorTest {
         Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 0);
         Assert.assertEquals(unJugador.capacidadDePoblacion(), 0);
     }
+
+    @Test
+    public void crearAdicionalSuministrosUbicaALaConstruccionEnElMapa() throws ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes {
+        Mapa mapa = new Mapa(2, 5, 5);
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        DepositoSuministro deposito;
+
+        deposito = (DepositoSuministro) unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
+
+        Assert.assertSame(deposito, mapa.devolverElementoEnParcela(new Coordenada(1, 1)));
+    }
 }

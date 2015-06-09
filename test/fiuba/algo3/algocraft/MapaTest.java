@@ -128,6 +128,5 @@ public class MapaTest {
         mapa.insertarParcela(parcela);
 
         Assert.assertSame(mapa.obtenerParcelaEnCoordenada(new Coordenada(1, 1)), parcela);
-
     }
 }
