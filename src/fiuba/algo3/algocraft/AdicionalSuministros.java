@@ -5,7 +5,7 @@ public abstract class AdicionalSuministros extends Construccion {
 
     public void destruir() {
         (this.propietario).decrementarPoblacion(this.CANTIDAD_DE_SUMINISTROS_ADICIONALES);
-        (this.parcela).vaciarParcela();
+        (this.parcelaUbicacion).vaciarParcela();
         super.destruir();
     }
 }

@@ -34,7 +34,7 @@ public class ParcelaVolcanTest {
     public void guardarExtractorGasGuardaCorrectamente() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         Parcela parcela = new ParcelaVolcan(new Coordenada(0,0));
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
-        Interactuable extractor = new Refineria(unJugador, parcela);
+        Interactuable extractor = new Refineria(unJugador);
 
         parcela.guardarElemento(extractor);
 
@@ -45,7 +45,7 @@ public class ParcelaVolcanTest {
     public void guardarElementoLanzaExcepcionSiElElementoEsUnExtractorDeMineral() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         Parcela parcela = new ParcelaVolcan(new Coordenada(0,0));
         Jugador unJugador = new Jugador("Juan", Color.AZUL, Terran.getInstance());
-        Interactuable extractor = new CentroDeMineral(unJugador, parcela);
+        Interactuable extractor = new CentroDeMineral(unJugador);
 
         parcela.guardarElemento(extractor);
     }
@@ -64,7 +64,7 @@ public class ParcelaVolcanTest {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         ParcelaVolcan parcela = new ParcelaVolcan(new Coordenada(0,0));
 
-        parcela.guardarElemento(new Refineria(unJugadorPropietario, parcela));
+        parcela.guardarElemento(new Refineria(unJugadorPropietario));
         parcela.despedirGas();
 
         Assert.assertEquals(unJugadorPropietario.obtenerGasVespeno(), Jugador.GAS_VESPENO_INICIAL + 10);

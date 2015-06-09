@@ -9,7 +9,7 @@ import org.junit.Assert;
 
 public class AccesoTest {
     @Test
-    public void crearZealotCreaUnZealot() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
+    public void crearZealotCreaUnZealot() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1 ,1));
@@ -19,7 +19,7 @@ public class AccesoTest {
     }
     
     @Test
-    public void crearDragonCreaUnDragon() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
+    public void crearDragonCreaUnDragon() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
@@ -29,7 +29,7 @@ public class AccesoTest {
     }
 
     @Test
-    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido {
+    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));

@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class BarracaTest {
     @Test
-    public void crearMarineCreaUnMarine() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
+    public void crearMarineCreaUnMarine() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
@@ -17,7 +17,7 @@ public class BarracaTest {
     }
 
     @Test
-    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa {
+    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));

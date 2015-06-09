@@ -27,7 +27,7 @@ public class AltoTemplario extends UnidadMagica {
         this.cupoDeTransporte = CUPO_TRANSPORTE;
 
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
-        this.parcela = parcela;
+        this.parcelaUbicacion = parcela;
     }
     
     public void recibirAtaque(UnidadAgresora agresor, int distancia) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{

@@ -27,10 +27,10 @@ public class Acceso extends CreadorDeSoldados {
         return TipoDeConstruccion.CREADOR_DE_SOLDADOS;
     }
     public Zealot crearZealot() throws ExcepcionNoHaySuministrosDisponibles {
-        return new Zealot(this.propietario, parcela);
+        return new Zealot(this.propietario, this.parcelaUbicacion);
     }
     public Dragon crearDragon() throws ExcepcionNoHaySuministrosDisponibles {
-        return new Dragon(this.propietario, parcela);
+        return new Dragon(this.propietario, this.parcelaUbicacion);
     }
 }
 

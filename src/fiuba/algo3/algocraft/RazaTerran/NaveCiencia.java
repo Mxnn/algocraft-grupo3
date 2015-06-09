@@ -29,7 +29,7 @@ public class NaveCiencia extends UnidadMagica {
         this.vision = VISION;
  
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
-        this.parcela = parcela;
+        this.parcelaUbicacion = parcela;
     }
     public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);

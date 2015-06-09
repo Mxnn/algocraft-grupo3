@@ -11,7 +11,7 @@ public abstract class Interactuable {
 	protected Jugador propietario;
 	protected Estado estado;
 	protected int tiempoDeConstruccion;
-	protected Parcela parcela;
+	protected Parcela parcelaUbicacion;
 
     public void recibirDanyo(int cantidad) throws ExcepcionEstadoMuerto {
         try {
@@ -32,14 +32,14 @@ public abstract class Interactuable {
     
     
     public void setParcela(Parcela parcela){
-    	this.parcela = parcela;
+    	this.parcelaUbicacion = parcela;
     }
     
     public Parcela getParcela(){
-    	return this.parcela;
+    	return this.parcelaUbicacion;
     }
     
-    public int obtenerVida(){
+    public int obtenerVida() {
     	return estado.obtenerVida();
     }
     

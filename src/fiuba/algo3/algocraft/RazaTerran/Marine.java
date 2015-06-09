@@ -26,7 +26,7 @@ public class Marine extends UnidadAgresora {
         this.cupoDeTransporte = CUPO_TRANSPORTE;
         this.rangoAtaque = new RangoAtaque(4, 4);
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
-        this.parcela = parcela;
+        this.parcelaUbicacion = parcela;
     }
     public void recibirAtaque(UnidadAgresora agresor, int distancia) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
     	RangoAtaque rango = agresor.obtenerRangoAtaque();

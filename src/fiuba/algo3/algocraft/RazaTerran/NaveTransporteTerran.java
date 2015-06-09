@@ -26,6 +26,6 @@ public class NaveTransporteTerran extends NaveTransporte {
 
         this.capacidad = CAPACIDAD;
         this.lugaresOcupados = 0;
-        this.parcela = parcela;
+        this.parcelaUbicacion = parcela;
     }
 }

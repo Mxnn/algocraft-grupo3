@@ -23,30 +23,30 @@ public class Terran extends Raza {
 
  
     
-	public ExtractorGas crearExtractorGas(Jugador propietario,  Parcela parcela) throws ExcepcionRecursosInsuficientes {
+	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario, Refineria.COSTO))
             throw new ExcepcionRecursosInsuficientes();
 		
         restarCosto(propietario, Refineria.COSTO);
-		return new Refineria(propietario, parcela);
+		return new Refineria(propietario);
 	}
 
 
-	public ExtractorMineral crearExtractorMineral(Jugador propietario, Parcela parcela) throws ExcepcionRecursosInsuficientes {
+	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,CentroDeMineral.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
 		
         restarCosto(propietario,CentroDeMineral.COSTO);
-		return new CentroDeMineral(propietario, parcela);
+		return new CentroDeMineral(propietario);
 	}
 
-    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario, Parcela parcela) throws ExcepcionRecursosInsuficientes {
+    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,DepositoSuministro.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
 		
         restarCosto(propietario,DepositoSuministro.COSTO);
         
-        return new DepositoSuministro(propietario, parcela);
+        return new DepositoSuministro(propietario);
     }
 
     public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) throws ExcepcionRecursosInsuficientes {

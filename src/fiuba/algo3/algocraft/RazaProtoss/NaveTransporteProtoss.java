@@ -1,9 +1,6 @@
 package fiuba.algo3.algocraft.RazaProtoss;
 
 import fiuba.algo3.algocraft.*;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoNoAtacable;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
 public class NaveTransporteProtoss extends NaveTransporte {
@@ -28,7 +25,7 @@ public class NaveTransporteProtoss extends NaveTransporte {
 
         this.capacidad = CAPACIDAD;
         this.lugaresOcupados = 0;
-        this.parcela = parcela;
+        this.parcelaUbicacion = parcela;
     }
     
 }

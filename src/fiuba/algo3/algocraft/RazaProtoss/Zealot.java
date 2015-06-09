@@ -28,7 +28,7 @@ public class Zealot extends UnidadAgresora {
         this.rangoAtaque = new RangoAtaque(0, 1);
         this.cupoDeTransporte = CUPO_TRANSPORTE;
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
-        this.parcela = parcela;
+        this.parcelaUbicacion = parcela;
 	}
 	
 	public void recibirAtaque(UnidadAgresora agresor, int distancia) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{

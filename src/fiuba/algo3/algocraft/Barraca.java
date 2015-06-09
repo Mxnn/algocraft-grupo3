@@ -14,7 +14,6 @@ public class Barraca extends CreadorDeSoldados {
         this.propietario = propietario;
         this.estado = new Estado(VIDA_INICIAL);
         this.tiempoDeConstruccion = 12;
-
     }
 
     public TipoDeConstruccion obtenerTipoDeConstruccion() {
@@ -22,6 +21,6 @@ public class Barraca extends CreadorDeSoldados {
     }
 
     public Marine crearMarine() throws ExcepcionNoHaySuministrosDisponibles {
-        return new Marine(this.propietario, parcela);
+        return new Marine(this.propietario, this.parcelaUbicacion);
     }
 }

@@ -14,7 +14,7 @@ public abstract class UnidadAgresora extends Unidad {
 	}
     
     private int calcularDistanciaDeEnemigo(Parcela parcelaEnemigo){
-    	return ((this.parcela).devolverDistanciaConParcela(parcelaEnemigo));
+    	return ((this.parcelaUbicacion).devolverDistanciaConParcela(parcelaEnemigo));
     }
     
     public RangoAtaque obtenerRangoAtaque(){

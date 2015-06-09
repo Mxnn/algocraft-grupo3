@@ -7,9 +7,8 @@ import org.junit.Test;
 public class RefineriaTest {
     @Test
     public void unaRefineriaAbsorbeGasVespenoYSeLoSumaAlJugadorPropietario() {
-        ParcelaVolcan parcela = new ParcelaVolcan(new Coordenada(0, 0));
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        ExtractorGas refineria = new Refineria(unJugadorPropietario, parcela);
+        ExtractorGas refineria = new Refineria(unJugadorPropietario);
 
         refineria.absorberGasVespeno();
 
@@ -19,7 +18,7 @@ public class RefineriaTest {
     @Test
     public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        ExtractorGas refineria = new Refineria(unJugadorPropietario, new ParcelaVolcan(new Coordenada(1,1)));
+        ExtractorGas refineria = new Refineria(unJugadorPropietario);
 
         Assert.assertEquals(refineria.obtenerTipoDeConstruccion(), TipoDeConstruccion.EXTRACTOR_GAS);
     }

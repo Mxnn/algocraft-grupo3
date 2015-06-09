@@ -11,8 +11,7 @@ public class NexoMineralTest {
 	@Test
     public void unNexoMineralRecolectaMineralesYSeLosSumaAlJugadorPropietario() {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
-        ParcelaMineral parcela = new ParcelaMineral(new Coordenada(1, 1));
-        ExtractorMineral nexoMineral = new NexoMineral(unJugadorPropietario, parcela);
+        ExtractorMineral nexoMineral = new NexoMineral(unJugadorPropietario);
 
         nexoMineral.recolectarMinerales();
 
@@ -22,8 +21,7 @@ public class NexoMineralTest {
     @Test
     public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
-        ParcelaMineral parcela = new ParcelaMineral(new Coordenada(1, 1));
-        ExtractorMineral nexoMineral = new NexoMineral(unJugadorPropietario, parcela);
+        ExtractorMineral nexoMineral = new NexoMineral(unJugadorPropietario);
         
         Assert.assertEquals(nexoMineral.obtenerTipoDeConstruccion(), TipoDeConstruccion.EXTRACTOR_MINERAL);
     }

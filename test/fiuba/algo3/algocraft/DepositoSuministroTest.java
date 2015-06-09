@@ -9,11 +9,8 @@ import org.junit.Test;
 public class DepositoSuministroTest {
     @Test
     public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa {
-        Mapa mapa = new Mapa(2, 5, 5);
-        Coordenada coordenada = new Coordenada(3, 3);
-        Parcela parcela = mapa.obtenerParcelaEnCoordenada(coordenada);
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        DepositoSuministro deposito = new DepositoSuministro(unJugadorPropietario, parcela);
+        DepositoSuministro deposito = new DepositoSuministro(unJugadorPropietario);
 
         Assert.assertEquals(deposito.obtenerTipoDeConstruccion(), TipoDeConstruccion.ADICIONAL_SUMINISTROS);
     }

@@ -26,7 +26,7 @@ public class Espectro extends UnidadAgresora {
         this.vision = VISION;
         this.rangoAtaque = new RangoAtaque(5, 5);
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
-        this.parcela = parcela;
+        this.parcelaUbicacion = parcela;
     }
     public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);

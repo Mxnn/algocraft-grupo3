@@ -10,9 +10,8 @@ public class PilonTest {
 
 	@Test
     public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas {
-        ParcelaTierra parcela = new ParcelaTierra(new Coordenada(0, 0));
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
-        Pilon pilon = new Pilon(unJugadorPropietario, parcela);
+        Pilon pilon = new Pilon(unJugadorPropietario);
 
         Assert.assertEquals(pilon.obtenerTipoDeConstruccion(), TipoDeConstruccion.ADICIONAL_SUMINISTROS);
     }

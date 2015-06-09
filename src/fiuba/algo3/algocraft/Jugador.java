@@ -40,49 +40,55 @@ public class Jugador {
         return this.color;
     }
 
-	public Interactuable crearExtractorGas(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa {
-        Parcela parcela = mapa.obtenerParcelaEnCoordenada(coordenada);
-        ExtractorGas unExtractorGas = raza.crearExtractorGas(this, parcela);
+	public Interactuable crearExtractorGas(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
+        ExtractorGas unExtractorGas = raza.crearExtractorGas(this);
 
+        mapa.ubicarElementoEnParcela(coordenada, unExtractorGas);
 		construcciones.add(unExtractorGas);
 
         return unExtractorGas;
 	}
 
-	public Interactuable crearExtractorMineral(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa {
-        Parcela parcela = mapa.obtenerParcelaEnCoordenada(coordenada);
-		ExtractorMineral unExtractorMineral = raza.crearExtractorMineral(this, parcela);
+	public Interactuable crearExtractorMineral(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
+		ExtractorMineral unExtractorMineral = raza.crearExtractorMineral(this);
+
+        mapa.ubicarElementoEnParcela(coordenada, unExtractorMineral);
 		construcciones.add(unExtractorMineral);
 
         return unExtractorMineral;
 	}
 
-    public Interactuable crearAdicionalDeSuministro(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada {
-        Parcela parcela = mapa.obtenerParcelaEnCoordenada(coordenada);
-        AdicionalSuministros adicionalSuministros = raza.crearAdicionalDeSuministros(this, parcela);
+    public Interactuable crearAdicionalDeSuministro(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela {
+        AdicionalSuministros adicionalSuministros = raza.crearAdicionalDeSuministros(this);
 
-        parcela.setElemento(adicionalSuministros);
+        mapa.ubicarElementoEnParcela(coordenada, adicionalSuministros);
         construcciones.add(adicionalSuministros);
 
         return adicionalSuministros;
     }
 
-    public Interactuable crearCreadorDeSoldados() throws ExcepcionRecursosInsuficientes {
+    public Interactuable crearCreadorDeSoldados(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
         CreadorDeSoldados creadorDeSoldados = raza.crearCreadorDeSoldados(this);
+
+        mapa.ubicarElementoEnParcela(coordenada, creadorDeSoldados);
         construcciones.add(creadorDeSoldados);
 
         return creadorDeSoldados;
     }
 
-    public Interactuable crearCreadorDeUnidadesTerrestres() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
+    public Interactuable crearCreadorDeUnidadesTerrestres(Mapa mapa, Coordenada coordenada) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
         CreadorDeUnidadesTerrestres creadorDeUnidadesTerrestres = raza.crearCreadorDeUnidadesTerrestres(this);
+
+        mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesTerrestres);
         construcciones.add(creadorDeUnidadesTerrestres);
 
         return creadorDeUnidadesTerrestres;
     }
 
-    public Interactuable crearCreadorDeUnidadesAereas() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
+    public Interactuable crearCreadorDeUnidadesAereas(Mapa mapa, Coordenada coordenada) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
         CreadorDeUnidadesAereas creadorDeUnidadesAereas = raza.crearCreadorDeUnidadesAereas(this);
+
+        mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesAereas);
         construcciones.add(creadorDeUnidadesAereas);
 
         return creadorDeUnidadesAereas;

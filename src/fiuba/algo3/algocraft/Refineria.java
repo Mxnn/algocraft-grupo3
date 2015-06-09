@@ -8,8 +8,7 @@ public class Refineria extends ExtractorGas {
     public static int COSTO_GAS = 0;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
-    public Refineria(Jugador propietario, Parcela parcela) {
-        this.parcela = parcela;
+    public Refineria(Jugador propietario) {
         this.propietario = propietario;
         this.estado = new Estado(VIDA_INICIAL);
         this.tiempoDeConstruccion = 6;

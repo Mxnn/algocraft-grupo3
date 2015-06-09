@@ -11,8 +11,7 @@ public class Asimilador  extends ExtractorGas {
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
     
-    public Asimilador(Jugador propietario, Parcela parcela) {
-        this.parcela = parcela;
+    public Asimilador(Jugador propietario) {
         this.propietario = propietario;
         this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         this.tiempoDeConstruccion = 6;

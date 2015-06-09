@@ -23,28 +23,28 @@ public class Protoss extends Raza {
 
  
     
-	public ExtractorGas crearExtractorGas(Jugador propietario, Parcela parcela) throws ExcepcionRecursosInsuficientes {
+	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,Asimilador.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
 		
         restarCosto(propietario,Asimilador.COSTO);
-		return new Asimilador(propietario, parcela);
+		return new Asimilador(propietario);
 	}
 
-	public ExtractorMineral crearExtractorMineral(Jugador propietario, Parcela parcela) throws ExcepcionRecursosInsuficientes {
+	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,NexoMineral.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
 		
         restarCosto(propietario,NexoMineral.COSTO);
-		return new NexoMineral(propietario, parcela);
+		return new NexoMineral(propietario);
 	}
 
-    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario, Parcela parcela) throws ExcepcionRecursosInsuficientes {
+    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,Pilon.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
 		
         restarCosto(propietario, Pilon.COSTO);
-        return new Pilon(propietario, parcela);
+        return new Pilon(propietario);
     }
 
     public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) throws ExcepcionRecursosInsuficientes {
