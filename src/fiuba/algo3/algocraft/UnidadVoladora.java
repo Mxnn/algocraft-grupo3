@@ -23,7 +23,7 @@ public class UnidadVoladora extends Unidad {
         throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
     
-    public void recibirAtaque(Agresor agresor) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
-    	agresor.atacar(this);
-    }
+//    public void recibirAtaque(Agresor agresor) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
+//    	agresor.atacar(this);
+//    }
 }

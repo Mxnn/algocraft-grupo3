@@ -22,7 +22,7 @@ public abstract class Interactuable {
         }
     }
     
-    public abstract void recibirAtaque(Agresor agresor) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto;
+//    public abstract void recibirAtaque(Agresor agresor) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto;
     
     public void setParcela(Parcela parcela){
     	this.parcela = parcela;

@@ -32,7 +32,7 @@ public abstract class Construccion extends Interactuable {
         (this.propietario).eliminarConstruccion(this);
     }
     
-    public void recibirAtaque(Agresor agresor) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
-    	agresor.atacar(this);
-    }
+//    public void recibirAtaque(Agresor agresor) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
+//    	agresor.atacar(this);
+//    }
 }

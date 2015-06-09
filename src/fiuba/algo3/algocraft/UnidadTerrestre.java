@@ -27,7 +27,7 @@ public abstract class UnidadTerrestre extends Unidad {
 
     public int obtenerCupoDeTransporte() { return this.cupoDeTransporte; }
     
-    public void recibirAtaque(Agresor agresor) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
-    	agresor.atacar(this);
-    }
+//    public void recibirAtaque(Agresor agresor) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
+//    	agresor.atacar(this);
+//    }
 }
