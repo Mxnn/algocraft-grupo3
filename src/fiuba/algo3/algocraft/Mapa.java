@@ -46,6 +46,7 @@ public class Mapa {
         if (this.coordenadaExiste(coordenada)) {
             Parcela parcela = this.tablero.get(coordenada);
             parcela.guardarElemento(elemento);
+            elemento.setParcela(parcela);
         }
         else
             throw new ExcepcionCoordenadaFueraDelMapa();
