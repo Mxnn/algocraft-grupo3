@@ -1,4 +1,7 @@
 package fiuba.algo3.algocraft;
+
+import fiuba.algo3.algocraft.Excepciones.ExcepcionCoordenadaFueraDelMapa;
+
 public class Coordenada {
 	private int x;
 	private int y;
@@ -15,6 +18,14 @@ public class Coordenada {
 	public int getX(){
 		return this.x;
 	}
+	
+	public int distanciaConCoordenada(Coordenada otra){
+		int distX = Math.abs(this.getX() - otra.getX());
+		int distY = Math.abs(this.getY() - otra.getY());
+		return Math.max(distX, distY);
+			
+	}
+	
 	
     @Override
     public boolean equals(Object otro) 

@@ -35,5 +35,40 @@ public class CoordenadaTest {
 		hash.put(coordenada1,"coord(1,2)");
 		Assert.assertTrue("coord(1,2)" == hash.get(coordenada2));
 	}
+	
+    @Test
+    public void distanciaConCoordenadaDevuelveDistanciaDeAlgoAIzquierda(){
+    	Coordenada coord1 = new Coordenada(3,3);
+    	Coordenada coord2 = new Coordenada(0,2);
+    	Assert.assertEquals(coord1.distanciaConCoordenada(coord2), 3);
+    }
+    
+    @Test
+    public void distanciaConCoordenadaDevuelveDistanciaDeAlgoADerecha(){
+    	Coordenada coord1 = new Coordenada(3,3);
+    	Coordenada coord2 = new Coordenada(5,3);
+    	Assert.assertEquals(coord1.distanciaConCoordenada(coord2), 2);
+    }
+    
+    @Test
+    public void distanciaConCoordenadaDevuelveDistanciaDeAlgoArriba(){
+    	Coordenada coord1 = new Coordenada(3,3);
+    	Coordenada coord2 = new Coordenada(3,1);
+    	Assert.assertEquals(coord1.distanciaConCoordenada(coord2), 2);
+    }
+    
+    @Test
+    public void distanciaConCoordenadaDevuelveDistanciaDeAlgoAbajo(){
+    	Coordenada coord1 = new Coordenada(3,3);
+    	Coordenada coord2 = new Coordenada(3,7);
+    	Assert.assertEquals(coord1.distanciaConCoordenada(coord2), 4);
+    }
+    
+    @Test
+    public void distanciaConCoordenadaCuandoSonIgualesDaCero(){
+    	Coordenada coord1 = new Coordenada(3,3);
+    	Coordenada coord2 = new Coordenada(3,3);
+    	Assert.assertEquals(coord1.distanciaConCoordenada(coord2), 0);
+    }
 
 }
