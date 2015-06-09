@@ -5,7 +5,7 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 
-public class Scout extends Unidad {
+public class Scout extends UnidadAgresora {
     public static final int VIDA_INICIAL = 150;
     public static final int ESCUDO_INICIAL = 100;
     public static final int VISION = 7;
@@ -21,7 +21,7 @@ public class Scout extends Unidad {
         propietario.agregarUnidad(this);
         this.propietario = propietario;
         this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
-        /*this.danyo = new Danyo(20, 20);*/
+        this.danyo = new Danyo(14, 8);
         this.vision = VISION;
         this.rangoAtaque = new RangoAtaque(4, 4);
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;

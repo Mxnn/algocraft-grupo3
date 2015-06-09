@@ -3,7 +3,7 @@ package fiuba.algo3.algocraft.RazaTerran;
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
-public class Golliat extends Unidad {
+public class Golliat extends UnidadAgresora {
     public static int COSTO_MINERAL = 100;
     public static int COSTO_GAS = 50;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
@@ -18,7 +18,7 @@ public class Golliat extends Unidad {
         propietario.agregarUnidad(this);
         this.propietario = propietario;
         this.estado = new Estado(VIDA_INICIAL);
-        /*this.danyo = new Danyo(10, 12);*/
+        this.danyo = new Danyo(10, 12);
         this.vision = VISION;
         this.cupoDeTransporte = CUPO_TRANSPORTE;
         this.rangoAtaque = new RangoAtaque(5, 6);

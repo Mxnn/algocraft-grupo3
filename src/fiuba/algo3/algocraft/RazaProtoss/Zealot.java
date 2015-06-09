@@ -6,7 +6,7 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoNoAtacable;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
-public class Zealot extends Unidad {
+public class Zealot extends UnidadAgresora {
     public static final int VIDA_INICIAL = 100;
     public static final int ESCUDO_INICIAL = 60;
     public static final int CUPO_TRANSPORTE = 2;

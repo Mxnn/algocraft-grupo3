@@ -5,7 +5,7 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 
-public class Espectro extends Unidad {
+public class Espectro extends UnidadAgresora {
     public static int COSTO_MINERAL = 150;
     public static int COSTO_GAS = 100;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
@@ -19,9 +19,9 @@ public class Espectro extends Unidad {
         propietario.agregarUnidad(this);
         this.propietario = propietario;
         this.estado = new Estado(VIDA_INICIAL);
-        /*this.danyo = new Danyo(20, 8);*/
+        this.danyo = new Danyo(20, 8);
         this.vision = VISION;
-        this.rangoAtaque = new RangoAtaque(5, 0);
+        this.rangoAtaque = new RangoAtaque(5, 5);
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
         this.parcela = parcela;
     }

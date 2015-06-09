@@ -3,7 +3,7 @@ package fiuba.algo3.algocraft.RazaTerran;
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
-public class Marine extends Unidad {
+public class Marine extends UnidadAgresora {
     public static int COSTO_MINERAL = 50;
     public static int COSTO_GAS = 0;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
@@ -18,10 +18,10 @@ public class Marine extends Unidad {
         propietario.agregarUnidad(this);
         this.propietario = propietario;
         this.estado = new Estado(VIDA_INICIAL);
-        /*this.danyo = new Danyo(6, 6);*/
+        this.danyo = new Danyo(6, 6);
         this.vision = VISION;
         this.cupoDeTransporte = CUPO_TRANSPORTE;
-        this.rangoAtaque = new RangoAtaque(4, 0);
+        this.rangoAtaque = new RangoAtaque(4, 4);
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
         this.parcela = parcela;
     }
