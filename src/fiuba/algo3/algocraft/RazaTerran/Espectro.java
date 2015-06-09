@@ -1,9 +1,11 @@
 package fiuba.algo3.algocraft.RazaTerran;
 
 import fiuba.algo3.algocraft.*;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 
-public class Espectro extends UnidadVoladora {
+public class Espectro extends Unidad {
     public static int COSTO_MINERAL = 150;
     public static int COSTO_GAS = 100;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
@@ -22,5 +24,8 @@ public class Espectro extends UnidadVoladora {
         this.rangoAtaque = new RangoAtaque(5, 0);
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
         this.parcela = parcela;
+    }
+    public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
+    	parcela.setElemento(this);
     }
 }

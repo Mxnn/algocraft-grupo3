@@ -3,7 +3,7 @@ package fiuba.algo3.algocraft.RazaProtoss;
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
-public class AltoTemplario extends UnidadTerrestre {
+public class AltoTemplario extends Unidad {
     public static final int VIDA_INICIAL = 40;
     public static final int ESCUDO_INICIAL = 40;
     public static final int VISION = 7;

@@ -3,7 +3,7 @@ package fiuba.algo3.algocraft.RazaProtoss;
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
-public class Dragon extends UnidadTerrestre {
+public class Dragon extends Unidad {
     public static final int VIDA_INICIAL = 100;
     public static final int ESCUDO_INICIAL = 80;
     public static final int VISION = 8;

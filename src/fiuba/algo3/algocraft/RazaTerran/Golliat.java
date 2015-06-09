@@ -3,7 +3,7 @@ package fiuba.algo3.algocraft.RazaTerran;
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
-public class Golliat extends UnidadTerrestre {
+public class Golliat extends Unidad {
     public static int COSTO_MINERAL = 100;
     public static int COSTO_GAS = 50;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);

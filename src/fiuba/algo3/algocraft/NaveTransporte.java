@@ -1,15 +1,17 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNaveDeTransporteLlena;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 
 import java.util.ArrayList;
 
-public abstract class NaveTransporte extends UnidadVoladora {
+public abstract class NaveTransporte extends Unidad {
     protected int lugaresOcupados;
     protected int capacidad;
-    protected ArrayList<UnidadTerrestre> unidades = new ArrayList<UnidadTerrestre>();
+    protected ArrayList<Unidad> unidades = new ArrayList<Unidad>();
 
-    public void insertarUnidad(UnidadTerrestre unidad) throws ExcepcionNaveDeTransporteLlena {
+    public void insertarUnidad(Unidad unidad) throws ExcepcionNaveDeTransporteLlena {
         int lugaresTotalesOcupadas = lugaresOcupados + unidad.obtenerCupoDeTransporte();
         if (lugaresTotalesOcupadas <= capacidad) {
             lugaresOcupados = lugaresTotalesOcupadas;
@@ -20,7 +22,7 @@ public abstract class NaveTransporte extends UnidadVoladora {
     }
 
     public void destruir() {
-        for (UnidadTerrestre u : unidades) {
+        for (Unidad u : unidades) {
             u.destruir();
         }
         super.destruir();
@@ -28,5 +30,8 @@ public abstract class NaveTransporte extends UnidadVoladora {
 
     public int cantidadDeUnidades() {
         return this.unidades.size();
+    }
+    public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
+    	parcela.setElemento(this);
     }
 }

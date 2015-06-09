@@ -1,9 +1,11 @@
 package fiuba.algo3.algocraft.RazaProtoss;
 
 import fiuba.algo3.algocraft.*;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 
-public class Scout extends UnidadVoladora {
+public class Scout extends Unidad {
     public static final int VIDA_INICIAL = 150;
     public static final int ESCUDO_INICIAL = 100;
     public static final int VISION = 7;
@@ -24,5 +26,8 @@ public class Scout extends UnidadVoladora {
         this.rangoAtaque = new RangoAtaque(4, 4);
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
         this.parcela = parcela;
+    }
+    public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
+    	parcela.setElemento(this);
     }
 }
