@@ -23,6 +23,10 @@ public abstract class Interactuable {
     	this.parcela = parcela;
     }
     
+    public Parcela getParcela(){
+    	return this.parcela;
+    }
+    
     public abstract void destruir();
     
     public abstract void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada;
