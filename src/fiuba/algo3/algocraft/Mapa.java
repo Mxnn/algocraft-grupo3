@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.Excepciones.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -152,6 +153,31 @@ public class Mapa {
 		
 	}
 
+	public void ubicarCercaDeParceala(Parcela parcela, Interactuable elemento) throws ExcepcionNoHayLugarDisponible{
+		Boolean elementoUbicado = false;
+        ArrayList<Coordenada> coordenadasVecinas = ((parcela).getCoordenada()).obtenerCoordenadasVecinas();
+		while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+            try {
+                this.ubicarElementoEnParcela(coordenadasVecinas.get(0), elemento);
+            }
+            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionParcelaOcupada e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            elementoUbicado = true;
+        }
+		if (coordenadasVecinas.size() <= 0)
+          throw new ExcepcionNoHayLugarDisponible();
+
+	}
 	
 	
 //	public Coordenada devolverCoordenadaDeElemento(Interactuable elemento) throws ExcepcionElementoNoUbicado{

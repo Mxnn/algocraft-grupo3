@@ -3,7 +3,7 @@ package fiuba.algo3.algocraft.RazaProtoss;
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.*;
 
-public class AltoTemplario extends UnidadMagica implements Alucinable {
+public class AltoTemplario extends UnidadMagica /*implements Alucinable*/ {
     public static final int VIDA_INICIAL = 40;
     public static final int ESCUDO_INICIAL = 40;
     public static final int VISION = 7;
@@ -33,12 +33,23 @@ public class AltoTemplario extends UnidadMagica implements Alucinable {
         this.energia = ENERGIA_INICIAL;
     }
 
-    public void alucinacion(Alucinable unidadCopiada) throws ExcepcionUnidadEnemiga, ExcepcionNoHaySuministrosDisponibles {
-        if (!(this.propietario).equals(unidadCopiada.obtenerPropietario()))
-            throw new ExcepcionUnidadEnemiga();
-    }
+//    public void alucinacion(Alucinable unidadCopiada) throws ExcepcionUnidadEnemiga, ExcepcionNoHaySuministrosDisponibles {
+//        if (!(this.propietario).equals(unidadCopiada.obtenerPropietario()))
+//            throw new ExcepcionUnidadEnemiga();
+//    }
 
-    public Alucinable crearAlucinacion() throws ExcepcionNoHaySuministrosDisponibles {
-        return new AltoTemplario(this.propietario);
+//    public Alucinable crearAlucinacion() throws ExcepcionNoHaySuministrosDisponibles {
+//        return new AltoTemplario(this.propietario);
+//    }
+    
+    public void crearAlucinacion(UnidadAgresora unidadAClonar, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible {
+        if (!(this.propietario).equals(unidadAClonar.obtenerPropietario()))
+            throw new ExcepcionUnidadEnemiga();
+        //chequear que sea agresor
+        Clon clon = new Clon(unidadAClonar, this.propietario);
+        mapa.ubicarCercaDeParceala(unidadAClonar.getParcela(), clon);
+        Clon clon2 = new Clon(unidadAClonar, this.propietario);
+        mapa.ubicarCercaDeParceala(unidadAClonar.getParcela(), clon2); 
     }
+    
 }

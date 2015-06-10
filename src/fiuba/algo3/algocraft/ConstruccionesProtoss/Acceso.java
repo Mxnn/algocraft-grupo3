@@ -29,59 +29,61 @@ public class Acceso extends CreadorDeSoldados {
         return TipoDeConstruccion.CREADOR_DE_SOLDADOS;
     }
     public Zealot crearZealot(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
-        Boolean elementoUbicado = false;
-        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
+//        Boolean elementoUbicado = false;
+//        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
         Zealot zealot = new Zealot(this.propietario);
-        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
-            try {
-                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), zealot);
-            }
-            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            catch (ExcepcionParcelaOcupada e) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            elementoUbicado = true;
-        }
-
-        if (coordenadasVecinas.size() <= 0)
-            throw new ExcepcionNoHayLugarDisponible();
+        mapa.ubicarCercaDeParceala(parcelaUbicacion, zealot);
+//        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+//            try {
+//                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), zealot);
+//            }
+//            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            catch (ExcepcionParcelaOcupada e) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            elementoUbicado = true;
+//        }
+//
+//        if (coordenadasVecinas.size() <= 0)
+//            throw new ExcepcionNoHayLugarDisponible();
 
         return zealot;
     }
 
     public Dragon crearDragon(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
-        Boolean elementoUbicado = false;
-        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
+//        Boolean elementoUbicado = false;
+//        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
         Dragon dragon = new Dragon(this.propietario);
-        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
-            try {
-                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), dragon);
-            }
-            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            catch (ExcepcionParcelaOcupada e) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            elementoUbicado = true;
-        }
-
-        if (coordenadasVecinas.size() <= 0)
-            throw new ExcepcionNoHayLugarDisponible();
+        mapa.ubicarCercaDeParceala(parcelaUbicacion, dragon);
+//        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+//            try {
+//                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), dragon);
+//            }
+//            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            catch (ExcepcionParcelaOcupada e) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            elementoUbicado = true;
+//        }
+//
+//        if (coordenadasVecinas.size() <= 0)
+//            throw new ExcepcionNoHayLugarDisponible();
 
         return dragon;
     }

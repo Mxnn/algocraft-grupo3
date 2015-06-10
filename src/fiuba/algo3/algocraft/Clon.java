@@ -25,17 +25,6 @@ public class Clon extends UnidadAgresora {
 		return original.seleccionarRango(rango);
 	}
 
-//	public void recibirDanyo(int cantidad) throws ExcepcionEstadoMuerto {
-//        try {
-//            (this.estado).recibirDanyo(cantidad);
-//            if(((EstadoProtoss) this.estado).obtenerEscudo() == 0){
-//            	this.destruir();
-//            }
-//        }
-//        catch (ExcepcionEstadoMuerto e) {
-//            this.destruir();
-//        }
-//    }
 
 	@Override
 	public void guardarEnParcela(ParcelaEspacio parcela)throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {

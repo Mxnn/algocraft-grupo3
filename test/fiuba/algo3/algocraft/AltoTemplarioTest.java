@@ -33,6 +33,6 @@ public class AltoTemplarioTest {
         archivo = (ArchivosTemplarios) jugador2.crearCreadorDeUnidadesAereas(mapa, new Coordenada (19, 18));
         altoTemplario = archivo.crearAltoTemplario(mapa);
 
-        altoTemplario.alucinacion(zealot);
+        altoTemplario.crearAlucinacion(zealot, mapa);
     }
 }

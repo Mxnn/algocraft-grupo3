@@ -23,30 +23,31 @@ public class Barraca extends CreadorDeSoldados {
     }
 
     public Marine crearMarine(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
-        Boolean elementoUbicado = false;
-        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
+//        Boolean elementoUbicado = false;
+//        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
         Marine marine = new Marine(this.propietario);
-        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
-            try {
-                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), marine);
-            }
-            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            catch (ExcepcionParcelaOcupada e) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            elementoUbicado = true;
-        }
-
-        if (coordenadasVecinas.size() <= 0)
-            throw new ExcepcionNoHayLugarDisponible();
+        mapa.ubicarCercaDeParceala(parcelaUbicacion, marine);
+//        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+//            try {
+//                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), marine);
+//            }
+//            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            catch (ExcepcionParcelaOcupada e) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            elementoUbicado = true;
+//        }
+//
+//        if (coordenadasVecinas.size() <= 0)
+//            throw new ExcepcionNoHayLugarDisponible();
 
         return marine;
     }

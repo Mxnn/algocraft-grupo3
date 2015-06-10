@@ -3,7 +3,7 @@ package fiuba.algo3.algocraft.RazaProtoss;
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
-public class Zealot extends UnidadAgresora implements Alucinable {
+public class Zealot extends UnidadAgresora /*implements Alucinable*/ {
     public static final int VIDA_INICIAL = 100;
     public static final int ESCUDO_INICIAL = 60;
     public static final int CUPO_TRANSPORTE = 2;
@@ -27,9 +27,9 @@ public class Zealot extends UnidadAgresora implements Alucinable {
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
 	}
 
-    public Alucinable crearAlucinacion() throws ExcepcionNoHaySuministrosDisponibles, CloneNotSupportedException {
-        return new AltoTemplario(this.propietario);
-    }
+//    public Alucinable crearAlucinacion() throws ExcepcionNoHaySuministrosDisponibles, CloneNotSupportedException {
+//        return new AltoTemplario(this.propietario);
+//    }
 }
 
 
