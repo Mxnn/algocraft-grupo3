@@ -20,7 +20,9 @@ public abstract class NaveTransporte extends Unidad {
         if (lugaresTotalesOcupadas <= capacidad) {
             lugaresOcupados = lugaresTotalesOcupadas;
             unidades.add(unidad);
-
+            Parcela parcela = unidad.getParcela();
+            if (parcela != null) //Fix medio triste
+                parcela.vaciarParcela();
         }
         else
             throw new ExcepcionNaveDeTransporteLlena();

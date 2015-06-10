@@ -22,7 +22,7 @@ public abstract class Interactuable {
         }
     }
     
-    public  void recibirAtaque(UnidadAgresora agresor, int distancia) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
+    public void recibirAtaque(UnidadAgresora agresor, int distancia) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
     	RangoAtaque rango = agresor.obtenerRangoAtaque();
     	Danyo danyo = agresor.obtenerDanyo();
     	if(this.seleccionarRango(rango) < distancia){

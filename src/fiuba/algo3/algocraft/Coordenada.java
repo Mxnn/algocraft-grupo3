@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionCoordenadaFueraDelMapa;
+import java.util.ArrayList;
 
 public class Coordenada {
 	private int x;
@@ -26,7 +26,17 @@ public class Coordenada {
 			
 	}
 	
-	
+	public ArrayList<Coordenada> obtenerCoordenadasVecinas() {
+        ArrayList<Coordenada> coordenadasVecinas = new ArrayList<Coordenada>();
+
+        for (int x = this.x - 1; x <= this.x + 1 ; x++)
+            for (int y = this.y - 1; y <= this.y + 1 ; y++) {
+                coordenadasVecinas.add(new Coordenada(x, y));
+            }
+
+        return coordenadasVecinas;
+    }
+
     @Override
     public boolean equals(Object otro) 
     {

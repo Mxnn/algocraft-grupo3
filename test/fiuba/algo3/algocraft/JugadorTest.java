@@ -519,7 +519,7 @@ public class JugadorTest {
     }
 
     @Test
-     public void crearGolliatSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
+     public void crearGolliatSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Mapa mapa = new Mapa(2, 5, 5);
         Fabrica fabrica;
@@ -531,7 +531,7 @@ public class JugadorTest {
         unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
 
         fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 3));
-        golliat = fabrica.crearGolliat();
+        golliat = fabrica.crearGolliat(mapa);
 
         Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + golliat.SUMINISTRO);
     }

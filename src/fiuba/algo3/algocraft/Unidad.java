@@ -6,11 +6,10 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 
 public abstract class Unidad extends Interactuable {
-	protected int cupoDeTransporte; //por ahora esto lo dejo aca
+	protected int cupoDeTransporte;
     protected int vision;
 
     protected LinkedList<Coordenada> itinerario = new LinkedList<Coordenada>();
-    //protected Coordenada posicion;
     public int SUMINISTRO;
     
     public void destruir() {
