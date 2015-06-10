@@ -42,14 +42,14 @@ public class AltoTemplario extends UnidadMagica /*implements Alucinable*/ {
 //        return new AltoTemplario(this.propietario);
 //    }
     
-    public void crearAlucinacion(UnidadAgresora unidadAClonar, Mapa mapa) throws ExcepcionUnidadEnemiga {
+    public void crearAlucinacion(UnidadAgresora unidadAClonar, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible {
         if (!(this.propietario).equals(unidadAClonar.obtenerPropietario()))
             throw new ExcepcionUnidadEnemiga();
         //chequear que sea agresor
         Clon clon = new Clon(unidadAClonar, this.propietario);
+        mapa.ubicarCercaDeParceala(unidadAClonar.getParcela(), clon);
         Clon clon2 = new Clon(unidadAClonar, this.propietario);
-        //falta que sea ubicado en el mapa
-        
+        mapa.ubicarCercaDeParceala(unidadAClonar.getParcela(), clon2); 
     }
     
 }
