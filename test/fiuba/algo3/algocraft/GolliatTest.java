@@ -27,8 +27,11 @@ public class GolliatTest {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora golliat = new Golliat(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable marine = new Marine(unJugador2, new ParcelaTierra(new Coordenada(1,0)));
+	     UnidadAgresora golliat = new Golliat(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), golliat);
+	     
+	     Interactuable marine = new Marine(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
 	     golliat.atacar(marine);
 	     
 	     assertEquals(marine.obtenerVida(), 40-12);
@@ -41,8 +44,12 @@ public class GolliatTest {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora golliat = new Golliat(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable espectro = new Espectro(unJugador2, new ParcelaTierra(new Coordenada(1,0)));
+	     UnidadAgresora golliat = new Golliat(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), golliat);
+	     
+	     Interactuable espectro = new Espectro(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
+
 	     golliat.atacar(espectro);
 	     
 	     assertEquals(espectro.obtenerVida(), 120-10);
@@ -53,11 +60,15 @@ public class GolliatTest {
 	public void atacarFueraDeRangoEnTierraLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela {
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
-		 Mapa mapa = new Mapa(2, 7, 7);
+		 Mapa mapa = new Mapa(2, 8, 8);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora golliat = new Golliat(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable marine = new Marine(unJugador2, new ParcelaTierra(new Coordenada(7,0)));
+	     UnidadAgresora golliat = new Golliat(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), golliat);
+	     
+	     Interactuable marine = new Marine(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(7,0), marine);
+
 	     golliat.atacar(marine);
 	     
 	}
@@ -69,8 +80,12 @@ public class GolliatTest {
 		 Mapa mapa = new Mapa(2, 7, 7);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora golliat = new Golliat(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable espectro = new Espectro(unJugador2, new ParcelaTierra(new Coordenada(0,6)));
+	     UnidadAgresora golliat = new Golliat(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), golliat);
+	     
+	     Interactuable espectro = new Espectro(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,6), espectro);
+
 	     golliat.atacar(espectro);
 	     
 	}
@@ -81,7 +96,8 @@ public class GolliatTest {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora golliat = new Golliat(unJugador, new ParcelaTierra(new Coordenada(0,0)));
+	     UnidadAgresora golliat = new Golliat(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), golliat);
 	     Interactuable barraca = new Barraca(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
 	     golliat.atacar(barraca);

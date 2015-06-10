@@ -27,8 +27,10 @@ public class ScoutTest {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora scout = new Scout(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable marine = new Marine(unJugador2, new ParcelaTierra(new Coordenada(1,0)));
+	     UnidadAgresora scout = new Scout(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), scout);
+	     Interactuable marine = new Marine(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
 	     scout.atacar(marine);
 	     
 	     assertEquals(marine.obtenerVida(), 40-8);
@@ -41,8 +43,11 @@ public class ScoutTest {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora scout = new Scout(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable espectro = new Espectro(unJugador2, new ParcelaTierra(new Coordenada(1,0)));
+	     UnidadAgresora scout = new Scout(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), scout);
+	     
+	     Interactuable espectro = new Espectro(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
 	     scout.atacar(espectro);
 	     
 	     assertEquals(espectro.obtenerVida(), 120-14);
@@ -53,11 +58,14 @@ public class ScoutTest {
 	public void atacarFueraDeRangoEnTierraLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela {
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
-		 Mapa mapa = new Mapa(2, 5, 5);
+		 Mapa mapa = new Mapa(2, 6, 6);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora scout = new Scout(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable marine = new Marine(unJugador2, new ParcelaTierra(new Coordenada(5,0)));
+	     UnidadAgresora scout = new Scout(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), scout);
+	     
+	     Interactuable marine = new Marine(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(5,0), marine);
 	     scout.atacar(marine);
 	     
 	}
@@ -66,11 +74,15 @@ public class ScoutTest {
 	public void atacarFueraDeRangoEnAireLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela {
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
-		 Mapa mapa = new Mapa(2, 5, 5);
+		 Mapa mapa = new Mapa(2, 6, 6);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora scout = new Scout(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable espectro = new Espectro(unJugador2, new ParcelaTierra(new Coordenada(0,5)));
+	     UnidadAgresora scout = new Scout(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), scout);
+	     
+	     Interactuable espectro = new Espectro(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,5), espectro);
+	     
 	     scout.atacar(espectro);
 	     
 	}
@@ -81,7 +93,9 @@ public class ScoutTest {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora scout = new Scout(unJugador, new ParcelaTierra(new Coordenada(0,0)));
+	     UnidadAgresora scout = new Scout(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), scout);
+	     
 	     Interactuable barraca = new Barraca(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
 	     scout.atacar(barraca);

@@ -26,8 +26,11 @@ public class EspectroTest {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora espectro = new Espectro(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable marine = new Marine(unJugador2, new ParcelaTierra(new Coordenada(1,0)));
+	     UnidadAgresora espectro = new Espectro(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), espectro);
+	     
+	     Interactuable marine = new Marine(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
 	     espectro.atacar(marine);
 	     
 	     assertEquals(marine.obtenerVida(), 40-8);
@@ -40,8 +43,11 @@ public class EspectroTest {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora espectro = new Espectro(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable espectro2 = new Espectro(unJugador2, new ParcelaTierra(new Coordenada(1,0)));
+	     UnidadAgresora espectro = new Espectro(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), espectro);
+	     
+	     Interactuable espectro2 = new Espectro(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro2);
 	     espectro.atacar(espectro2);
 	     
 	     assertEquals(espectro2.obtenerVida(), 120-20);
@@ -52,11 +58,15 @@ public class EspectroTest {
 	public void atacarFueraDeRangoEnTierraLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela {
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
-		 Mapa mapa = new Mapa(2, 7, 7);
+		 Mapa mapa = new Mapa(2, 8, 8);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora espectro = new Espectro(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable marine = new Marine(unJugador2, new ParcelaTierra(new Coordenada(7,0)));
+	     UnidadAgresora espectro = new Espectro(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), espectro);
+	     
+	     Interactuable marine = new Marine(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(7,0), marine);
+
 	     espectro.atacar(marine);
 	     
 	}
@@ -68,8 +78,11 @@ public class EspectroTest {
 		 Mapa mapa = new Mapa(2, 7, 7);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora espectro = new Espectro(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable espectro2 = new Espectro(unJugador2, new ParcelaTierra(new Coordenada(0,6)));
+	     UnidadAgresora espectro = new Espectro(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), espectro);
+	     
+	     Interactuable espectro2 = new Espectro(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(6,0), espectro2);
 	     espectro.atacar(espectro2);
 	     
 	}
@@ -80,7 +93,9 @@ public class EspectroTest {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora espectro = new Espectro(unJugador, new ParcelaTierra(new Coordenada(0,0)));
+	     UnidadAgresora espectro = new Espectro(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), espectro);
+	     
 	     Interactuable barraca = new Barraca(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
 	     espectro.atacar(barraca);

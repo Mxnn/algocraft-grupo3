@@ -16,9 +16,9 @@ public class NaveTransporteProtossTest {
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
-        NaveTransporteProtoss nave = new NaveTransporteProtoss(unJugador, parcela);
-        nave.insertarUnidad(new Dragon(unJugador, new ParcelaTierra(new Coordenada(1,0))));
+//        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
+        NaveTransporteProtoss nave = new NaveTransporteProtoss(unJugador);
+        nave.insertarUnidad(new Dragon(unJugador));
 
         Assert.assertEquals(nave.cantidadDeUnidades(), 1);
     }
@@ -32,14 +32,14 @@ public class NaveTransporteProtossTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(2, 2));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
-        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
-        NaveTransporteProtoss nave = new NaveTransporteProtoss(unJugador, parcela);
+//        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
+        NaveTransporteProtoss nave = new NaveTransporteProtoss(unJugador);
 
         for (int i = 1; i <= 4; i++) {
-            nave.insertarUnidad(new Dragon(unJugador, new ParcelaTierra(new Coordenada(1,0))));
+            nave.insertarUnidad(new Dragon(unJugador));
         }
 
-        nave.insertarUnidad(new Marine(unJugador,new ParcelaTierra(new Coordenada(0,1))));
+        nave.insertarUnidad(new Marine(unJugador));
     }
 
     @Test
@@ -51,11 +51,11 @@ public class NaveTransporteProtossTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(2, 2));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
-        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
-        NaveTransporteProtoss nave = new NaveTransporteProtoss(unJugador, parcela);
+//        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
+        NaveTransporteProtoss nave = new NaveTransporteProtoss(unJugador);
 
         for (int i = 1; i <= 2; i++) {
-            nave.insertarUnidad(new Dragon(unJugador, new ParcelaTierra(new Coordenada(i,i-1))));
+            nave.insertarUnidad(new Dragon(unJugador));
         }
 
         nave.recibirDanyo(NaveTransporteProtoss.VIDA_INICIAL + NaveTransporteProtoss.ESCUDO_INICIAL + 1);

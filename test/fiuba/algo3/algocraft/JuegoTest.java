@@ -71,7 +71,7 @@ public class JuegoTest {
     	Coordenada hasta = new Coordenada (6,6);
     	
 
-    	elJuego.mapa.ubicarElementoEnParcela(desde,new Marine(unJugador, elJuego.mapa.obtenerParcelaEnCoordenada(desde)));
+    	elJuego.mapa.ubicarElementoEnParcela(desde,new Marine(unJugador));
  
     	elJuego.moverUnidad(desde, hasta);
     	
@@ -87,7 +87,7 @@ public class JuegoTest {
    	  	unJugador.crearAdicionalDeSuministro(elJuego.mapa, new Coordenada(1, 1));
     	Coordenada desde = new Coordenada(2,2);
     	Coordenada hasta = new Coordenada (3,2);
-    	elJuego.mapa.ubicarElementoEnParcela(desde,new Marine(unJugador, elJuego.mapa.obtenerParcelaEnCoordenada(desde)));
+    	elJuego.mapa.ubicarElementoEnParcela(desde,new Marine(unJugador));
     	elJuego.moverUnidad(desde, hasta);
     	
     	elJuego.tareaDelTurnoMoverLasUnidades();

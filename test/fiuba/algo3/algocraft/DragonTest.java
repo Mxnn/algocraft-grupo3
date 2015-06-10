@@ -28,8 +28,12 @@ public class DragonTest {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora dragon = new Dragon(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable marine = new Marine(unJugador2, new ParcelaTierra(new Coordenada(1,0)));
+	     UnidadAgresora dragon = new Dragon(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), dragon);
+	     
+	     Interactuable marine = new Marine(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
+	     
 	     dragon.atacar(marine);
 	     
 	     assertEquals(marine.obtenerVida(), 40-20);
@@ -42,8 +46,12 @@ public class DragonTest {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora dragon = new Dragon(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable espectro = new Espectro(unJugador2, new ParcelaTierra(new Coordenada(1,0)));
+	     UnidadAgresora dragon = new Dragon(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), dragon);
+	     
+	     Interactuable espectro = new Espectro(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
+	     
 	     dragon.atacar(espectro);
 	     
 	     assertEquals(espectro.obtenerVida(), 120-20);
@@ -54,11 +62,15 @@ public class DragonTest {
 	public void atacarFueraDeRangoLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela {
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
-		 Mapa mapa = new Mapa(2, 5, 5);
+		 Mapa mapa = new Mapa(2, 6, 6);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora dragon = new Dragon(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable marine = new Marine(unJugador2, new ParcelaTierra(new Coordenada(5,0)));
+	     UnidadAgresora dragon = new Dragon(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), dragon);
+	     
+	     Interactuable marine = new Marine(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(5,0), marine);
+	     
 	     dragon.atacar(marine);
 	     
 	}
@@ -69,7 +81,9 @@ public class DragonTest {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora dragon = new Dragon(unJugador, new ParcelaTierra(new Coordenada(0,0)));
+	     UnidadAgresora dragon = new Dragon(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), dragon);
+	     
 	     Interactuable barraca = new Barraca(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
 	     dragon.atacar(barraca);

@@ -16,10 +16,10 @@ public class NaveTransporteTerranTest {
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
-        NaveTransporteTerran nave = new NaveTransporteTerran(unJugador, parcela);
+//        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
+        NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
 
-        nave.insertarUnidad(new Marine(unJugador, new ParcelaTierra(new Coordenada(1,0))));
+        nave.insertarUnidad(new Marine(unJugador));
 
         Assert.assertEquals(nave.cantidadDeUnidades(), 1);
     }
@@ -33,14 +33,14 @@ public class NaveTransporteTerranTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 2));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 3));
-        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
-        NaveTransporteTerran nave = new NaveTransporteTerran(unJugador, parcela);
+//        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
+        NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
 
         for (int i = 1; i <= 4; i++) {
-            nave.insertarUnidad(new Golliat(unJugador, new ParcelaTierra(new Coordenada(1,0))));
+            nave.insertarUnidad(new Golliat(unJugador));
         }
 
-        nave.insertarUnidad(new Marine(unJugador, new ParcelaTierra(new Coordenada(0,1))));
+        nave.insertarUnidad(new Marine(unJugador));
     }
 
     @Test
@@ -52,11 +52,11 @@ public class NaveTransporteTerranTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 2));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 3));
-        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
-        NaveTransporteTerran nave = new NaveTransporteTerran(unJugador, parcela);
+//        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
+        NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
 
         for (int i = 1; i <= 4; i++) {
-            nave.insertarUnidad(new Golliat(unJugador, new ParcelaTierra(new Coordenada(2,2))));
+            nave.insertarUnidad(new Golliat(unJugador));
         }
 
         nave.recibirDanyo(NaveTransporteTerran.VIDA_INICIAL + 1);
