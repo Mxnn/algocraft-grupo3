@@ -10,13 +10,12 @@ import org.junit.Test;
 
 public class NaveTransporteTerranTest {
     @Test
-    public void insertarUnidadInsertaLaUnidadEnLaNave() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
+    public void insertarUnidadInsertaLaUnidadEnLaNave() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-//        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
         NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
 
         nave.insertarUnidad(new Marine(unJugador));
@@ -25,7 +24,7 @@ public class NaveTransporteTerranTest {
     }
 
     @Test(expected = ExcepcionNaveDeTransporteLlena.class)
-    public void insertarUnidadLanzaExcepcionSiLaNaveEstaLlena() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
+    public void insertarUnidadLanzaExcepcionSiLaNaveEstaLlena() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.sumarMinerales(999);
@@ -33,7 +32,6 @@ public class NaveTransporteTerranTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 2));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 3));
-//        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
         NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
 
         for (int i = 1; i <= 4; i++) {
@@ -44,7 +42,7 @@ public class NaveTransporteTerranTest {
     }
 
     @Test
-    public void destruirNaveDestruyeTodasLasUnidadesQueHayEnSuInterior() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
+    public void destruirNaveDestruyeTodasLasUnidadesQueHayEnSuInterior() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.sumarMinerales(999);
@@ -52,7 +50,6 @@ public class NaveTransporteTerranTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 2));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 3));
-//        Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
         NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
 
         for (int i = 1; i <= 4; i++) {
