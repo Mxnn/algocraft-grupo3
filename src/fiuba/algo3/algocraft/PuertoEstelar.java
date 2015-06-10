@@ -29,88 +29,91 @@ public class PuertoEstelar extends CreadorDeUnidadesAereas {
     }
 
     public Espectro crearEspectro(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
-        Boolean elementoUbicado = false;
-        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
+//        Boolean elementoUbicado = false;
+//        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
         Espectro espectro = new Espectro(this.propietario);
-        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
-            try {
-                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), espectro);
-            }
-            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            catch (ExcepcionParcelaOcupada e) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            elementoUbicado = true;
-        }
-
-        if (coordenadasVecinas.size() <= 0)
-            throw new ExcepcionNoHayLugarDisponible();
+        mapa.ubicarCercaDeParceala(parcelaUbicacion, espectro);
+//        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+//            try {
+//                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), espectro);
+//            }
+//            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            catch (ExcepcionParcelaOcupada e) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            elementoUbicado = true;
+//        }
+//
+//        if (coordenadasVecinas.size() <= 0)
+//            throw new ExcepcionNoHayLugarDisponible();
 
         return espectro;
     }
 
     public NaveTransporteTerran crearNaveTransporte(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
-        Boolean elementoUbicado = false;
-        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
+//        Boolean elementoUbicado = false;
+//        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
         NaveTransporteTerran nave = new NaveTransporteTerran(this.propietario);
-        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
-            try {
-                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), nave);
-            }
-            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            catch (ExcepcionParcelaOcupada e) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            elementoUbicado = true;
-        }
-
-        if (coordenadasVecinas.size() <= 0)
-            throw new ExcepcionNoHayLugarDisponible();
+        mapa.ubicarCercaDeParceala(parcelaUbicacion, nave);
+//        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+//            try {
+//                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), nave);
+//            }
+//            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            catch (ExcepcionParcelaOcupada e) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            elementoUbicado = true;
+//        }
+//
+//        if (coordenadasVecinas.size() <= 0)
+//            throw new ExcepcionNoHayLugarDisponible();
 
         return nave;
     }
 
     public NaveCiencia crearNaveCiencia(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
-        Boolean elementoUbicado = false;
-        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
+//        Boolean elementoUbicado = false;
+//        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
         NaveCiencia nave = new NaveCiencia(this.propietario);
-        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
-            try {
-                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), nave);
-            }
-            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            catch (ExcepcionParcelaOcupada e) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
-                coordenadasVecinas.remove(0);
-                continue;
-            }
-            elementoUbicado = true;
-        }
-
-        if (coordenadasVecinas.size() <= 0)
-            throw new ExcepcionNoHayLugarDisponible();
+        mapa.ubicarCercaDeParceala(parcelaUbicacion, nave);
+//        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+//            try {
+//                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), nave);
+//            }
+//            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            catch (ExcepcionParcelaOcupada e) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+//                coordenadasVecinas.remove(0);
+//                continue;
+//            }
+//            elementoUbicado = true;
+//        }
+//
+//        if (coordenadasVecinas.size() <= 0)
+//            throw new ExcepcionNoHayLugarDisponible();
 
         return nave;
     }
