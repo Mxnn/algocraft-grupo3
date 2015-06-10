@@ -14,7 +14,7 @@ public class NaveTransporteTerran extends NaveTransporte {
     public static final int TIEMPO_DE_CONSTRUCCION = 7;
     public static final int CAPACIDAD = 8;
 
-    public NaveTransporteTerran(Jugador propietario, Parcela parcela) throws ExcepcionNoHaySuministrosDisponibles {
+    public NaveTransporteTerran(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
         this.SUMINISTRO = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
@@ -26,6 +26,6 @@ public class NaveTransporteTerran extends NaveTransporte {
 
         this.capacidad = CAPACIDAD;
         this.lugaresOcupados = 0;
-        this.parcelaUbicacion = parcela;
+      
     }
 }

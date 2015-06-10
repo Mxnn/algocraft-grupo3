@@ -16,7 +16,7 @@ public class Marine extends UnidadAgresora {
     public static final int CUPO_TRANSPORTE = 1;
     public static final int TIEMPO_DE_CONSTRUCCION = 3;
 
-    public Marine(Jugador propietario, Parcela parcela) throws ExcepcionNoHaySuministrosDisponibles {
+    public Marine(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
         this.SUMINISTRO = 1;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
@@ -26,7 +26,6 @@ public class Marine extends UnidadAgresora {
         this.cupoDeTransporte = CUPO_TRANSPORTE;
         this.rangoAtaque = new RangoAtaque(4, 4);
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
-        this.parcelaUbicacion = parcela;
     }
 
 }

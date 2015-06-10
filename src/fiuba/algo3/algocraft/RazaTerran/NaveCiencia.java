@@ -20,7 +20,7 @@ public class NaveCiencia extends UnidadMagica {
     public static final int ENERGIA_INICIAL = 50;
     public static final int REGENERACION_ENERGIA = 10;*/
 
-    public NaveCiencia(Jugador propietario, Parcela parcela) throws ExcepcionNoHaySuministrosDisponibles {
+    public NaveCiencia(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
         this.SUMINISTRO = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
@@ -29,7 +29,6 @@ public class NaveCiencia extends UnidadMagica {
         this.vision = VISION;
  
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
-        this.parcelaUbicacion = parcela;
     }
     public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
