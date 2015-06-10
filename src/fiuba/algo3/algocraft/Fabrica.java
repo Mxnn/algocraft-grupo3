@@ -25,6 +25,6 @@ public class Fabrica extends CreadorDeUnidadesTerrestres {
     }
 
     public Golliat crearGolliat() throws ExcepcionNoHaySuministrosDisponibles {
-        return new Golliat(this.propietario, this.parcelaUbicacion);
+        return new Golliat(this.propietario);
     }
 }

@@ -21,6 +21,6 @@ public class Barraca extends CreadorDeSoldados {
     }
 
     public Marine crearMarine() throws ExcepcionNoHaySuministrosDisponibles {
-        return new Marine(this.propietario, this.parcelaUbicacion);
+        return new Marine(this.propietario);
     }
 }
