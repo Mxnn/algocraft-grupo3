@@ -37,6 +37,11 @@ public abstract class Construccion extends Interactuable {
     protected int seleccionarRango(RangoAtaque rango){
     	return rango.obtenerRangoDeAtaqueEnTierra();
     }
+
+	public void collectarRecursos() {
+		
+		
+	}
     
     
 }

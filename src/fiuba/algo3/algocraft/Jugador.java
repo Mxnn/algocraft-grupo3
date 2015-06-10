@@ -162,4 +162,11 @@ public class Jugador {
     public void decrementarPoblacion(int cantidad) {
         this.capacidadDePoblacion -= cantidad;
     }
+
+	public void tareaDelTurnoGenerarRecursos() {
+        for (int i = 0; i < this.construcciones.size(); i++) {
+            this.construcciones.get(i).collectarRecursos();
+        }
+		
+	}
 }

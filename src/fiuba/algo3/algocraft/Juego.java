@@ -12,7 +12,8 @@ public class Juego {
     private static int LONGITUD_MINIMA_PARA_EL_NOMBRE = 4;
     private static int MAXIMO_NUMERO_DE_JUGADORES = 2;
 
-    private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+
+    public ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
     public Mapa mapa ;
     public LinkedList<Unidad> UnidadesQueDebenMoverEnElTurno = new LinkedList<Unidad>();
     public LinkedList<Unidad> UnidadesQueDebenMoverEnElProximoTurno = new LinkedList<Unidad>();
@@ -113,6 +114,13 @@ public class Juego {
 		
 		boolean hayQueMoverEnElProximoTurno = (unidadAMover.itinerario.size()>1);
 		return hayQueMoverEnElProximoTurno;
+	}
+
+	public void tareaDelTurnoGenerarRecursos() {
+        for (int i = 0; i < this.jugadores.size(); i++) {
+            this.jugadores.get(i).tareaDelTurnoGenerarRecursos();
+        }
+		
 	}
 
 

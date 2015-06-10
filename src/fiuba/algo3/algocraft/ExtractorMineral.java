@@ -4,9 +4,9 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 
 public abstract class ExtractorMineral extends Construccion {
-    private static final int CANTIDAD_DE_MINERALES_RECOLECTADOS_POR_TURNO = 10;
+    public static final int CANTIDAD_DE_MINERALES_RECOLECTADOS_POR_TURNO = 10;
 
-    public void recolectarMinerales() {
+    public void collectarRecursos() {
         (this.propietario).sumarMinerales(CANTIDAD_DE_MINERALES_RECOLECTADOS_POR_TURNO);
     }
 
@@ -17,5 +17,7 @@ public abstract class ExtractorMineral extends Construccion {
     public void guardarEnParcela(ParcelaMineral parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
     }
+    
+ 
     
 }
