@@ -1,6 +1,8 @@
 package fiuba.algo3.algocraft;
+import java.util.ArrayList;
 import java.util.HashMap;
 
+import fiuba.algo3.algocraft.Excepciones.ExcepcionNumeroDeBasesInvalido;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -33,7 +35,7 @@ public class CoordenadaTest {
 		Coordenada coordenada2 = new Coordenada(1,2);
 		HashMap<Coordenada, String> hash = new HashMap<Coordenada, String>();
 		hash.put(coordenada1,"coord(1,2)");
-		Assert.assertTrue("coord(1,2)" == hash.get(coordenada2));
+		Assert.assertTrue("coord(1,2)".equals(hash.get(coordenada2)));
 	}
 	
     @Test
@@ -71,4 +73,20 @@ public class CoordenadaTest {
     	Assert.assertEquals(coord1.distanciaConCoordenada(coord2), 0);
     }
 
+    @Test
+    public void obtenerCoordenadasVecinasDevuelveLas8CoordenadasVecinasEnUnArray() throws ExcepcionNumeroDeBasesInvalido {
+        Coordenada coord = new Coordenada(3, 3);
+
+        ArrayList<Coordenada> lista = coord.obtenerCoordenadasVecinas();
+
+        Assert.assertEquals(lista.size(), 8);
+        Assert.assertTrue(lista.contains(new Coordenada(2, 2)));
+        Assert.assertTrue(lista.contains(new Coordenada(2, 3)));
+        Assert.assertTrue(lista.contains(new Coordenada(2, 4)));
+        Assert.assertTrue(lista.contains(new Coordenada(3, 2)));
+        Assert.assertTrue(lista.contains(new Coordenada(3, 4)));
+        Assert.assertTrue(lista.contains(new Coordenada(4, 2)));
+        Assert.assertTrue(lista.contains(new Coordenada(4, 3)));
+        Assert.assertTrue(lista.contains(new Coordenada(4, 4)));
+    }
 }

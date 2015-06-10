@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.ConstruccionesProtoss.Acceso;
+import fiuba.algo3.algocraft.ConstruccionesProtoss.PuertoEstelarProtoss;
 import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.RazaProtoss.Dragon;
 import fiuba.algo3.algocraft.RazaProtoss.NaveTransporteProtoss;
@@ -105,5 +107,53 @@ public class NaveTransporteProtossTest {
         NaveTransporteProtoss nave2 = new NaveTransporteProtoss(unJugador);
 
         nave.insertarUnidad(nave2);
+    }
+
+    @Test
+    public void sacarUnidadLaDepositaAlrededorDeLaNave() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHayLugarDisponible {
+        Mapa mapa = new Mapa(2, 10, 10);
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        unJugador.sumarMinerales(999);
+        unJugador.sumarGasVespeno(999);
+
+        Coordenada ubicacionDragon = new Coordenada(6, 6); //(Primera coordenada vecina posible)
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 4));
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(4, 4));
+        Acceso acceso = (Acceso) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
+        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(8, 8));
+        NaveTransporteProtoss nave = puerto.crearNaveTransporte(mapa); //Se crea en (7,7)
+        Dragon dragon = acceso.crearDragon(mapa); //Se crea en (6, 6)
+
+        nave.insertarUnidad(dragon);
+        nave.sacarUnidad(mapa, dragon);
+
+        Assert.assertSame(mapa.obtenerParcelaEnCoordenada(ubicacionDragon).devolverElemento(), dragon);
+    }
+
+    @Test(expected = ExcepcionNoHayLugarDisponible.class)
+    public void sacarUnidadLanzaExcepcionSiLasParcelasASuAlrededorNoLaPuedenDepositar() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHayLugarDisponible {
+        Mapa mapa = new Mapa(2, 10, 10);
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        unJugador.sumarMinerales(999);
+        unJugador.sumarGasVespeno(999);
+
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 4));
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(4, 4));
+        Acceso acceso = (Acceso) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
+        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(8, 8));
+        NaveTransporteProtoss nave = puerto.crearNaveTransporte(mapa); //Se crea en (7,7)
+        Dragon dragon = acceso.crearDragon(mapa);
+
+        nave.insertarUnidad(dragon);
+
+        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(6, 6)));
+        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(6, 7)));
+        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(6, 8)));
+        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(7, 6)));
+        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(7, 8)));
+        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(8, 6)));
+        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(8, 7)));
+
+        nave.sacarUnidad(mapa, dragon);
     }
 }

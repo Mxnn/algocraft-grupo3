@@ -31,6 +31,9 @@ public class Coordenada {
 
         for (int x = this.x - 1; x <= this.x + 1 ; x++)
             for (int y = this.y - 1; y <= this.y + 1 ; y++) {
+                if (x == this.x && y == this.y)
+                    continue;
+
                 coordenadasVecinas.add(new Coordenada(x, y));
             }
 

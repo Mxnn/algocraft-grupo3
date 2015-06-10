@@ -50,4 +50,12 @@ public abstract class NaveTransporte extends Unidad {
     protected int seleccionarRango(RangoAtaque rango){
     	return rango.obtenerRangoDeAtaqueAlAire();
     }
+
+    public void sacarUnidad(Mapa mapa, Unidad unidad) throws ExcepcionNoHayLugarDisponible {
+        int index = unidades.indexOf(unidad);
+        Unidad unidadSacada = unidades.get(index);
+        unidades.remove(unidad);
+
+        mapa.ubicarCercaDeParceala(this.parcelaUbicacion, unidadSacada);
+    }
 }
