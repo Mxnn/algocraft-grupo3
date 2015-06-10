@@ -1,10 +1,11 @@
 package fiuba.algo3.algocraft.ConstruccionesProtoss;
 
 import fiuba.algo3.algocraft.*;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.RazaProtoss.NaveTransporteProtoss;
 import fiuba.algo3.algocraft.RazaProtoss.Scout;
+
+import java.util.ArrayList;
 
 
 public class PuertoEstelarProtoss extends CreadorDeUnidadesTerrestres {
@@ -28,11 +29,61 @@ public class PuertoEstelarProtoss extends CreadorDeUnidadesTerrestres {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES;
     }
     
-    public Scout crearScout() throws ExcepcionNoHaySuministrosDisponibles {
-        return new Scout(this.propietario);
+    public Scout crearScout(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
+        Boolean elementoUbicado = false;
+        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
+        Scout scout = new Scout(this.propietario);
+        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+            try {
+                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), scout);
+            }
+            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionParcelaOcupada e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            elementoUbicado = true;
+        }
+
+        if (coordenadasVecinas.size() <= 0)
+            throw new ExcepcionNoHayLugarDisponible();
+
+        return scout;
     }
     
-    public NaveTransporteProtoss crearNaveTransporte() throws ExcepcionNoHaySuministrosDisponibles {
-        return new NaveTransporteProtoss(this.propietario);
+    public NaveTransporteProtoss crearNaveTransporte(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
+        Boolean elementoUbicado = false;
+        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
+        NaveTransporteProtoss nave = new NaveTransporteProtoss(this.propietario);
+        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+            try {
+                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), nave);
+            }
+            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionParcelaOcupada e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            elementoUbicado = true;
+        }
+
+        if (coordenadasVecinas.size() <= 0)
+            throw new ExcepcionNoHayLugarDisponible();
+
+        return nave;
     }
 }

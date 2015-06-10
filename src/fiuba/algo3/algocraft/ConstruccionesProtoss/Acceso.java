@@ -2,9 +2,11 @@ package fiuba.algo3.algocraft.ConstruccionesProtoss;
 
 
 import fiuba.algo3.algocraft.*;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.RazaProtoss.Zealot;
 import fiuba.algo3.algocraft.RazaProtoss.Dragon;
+
+import java.util.ArrayList;
 
 
 public class Acceso extends CreadorDeSoldados {
@@ -26,11 +28,62 @@ public class Acceso extends CreadorDeSoldados {
     public TipoDeConstruccion obtenerTipoDeConstruccion() {
         return TipoDeConstruccion.CREADOR_DE_SOLDADOS;
     }
-    public Zealot crearZealot() throws ExcepcionNoHaySuministrosDisponibles {
-        return new Zealot(this.propietario);
+    public Zealot crearZealot(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
+        Boolean elementoUbicado = false;
+        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
+        Zealot zealot = new Zealot(this.propietario);
+        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+            try {
+                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), zealot);
+            }
+            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionParcelaOcupada e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            elementoUbicado = true;
+        }
+
+        if (coordenadasVecinas.size() <= 0)
+            throw new ExcepcionNoHayLugarDisponible();
+
+        return zealot;
     }
-    public Dragon crearDragon() throws ExcepcionNoHaySuministrosDisponibles {
-        return new Dragon(this.propietario);
+
+    public Dragon crearDragon(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
+        Boolean elementoUbicado = false;
+        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
+        Dragon dragon = new Dragon(this.propietario);
+        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+            try {
+                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), dragon);
+            }
+            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionParcelaOcupada e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            elementoUbicado = true;
+        }
+
+        if (coordenadasVecinas.size() <= 0)
+            throw new ExcepcionNoHayLugarDisponible();
+
+        return dragon;
     }
 }
 

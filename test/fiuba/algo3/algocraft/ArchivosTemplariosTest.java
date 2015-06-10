@@ -9,7 +9,7 @@ import fiuba.algo3.algocraft.ConstruccionesProtoss.ArchivosTemplarios;
 public class ArchivosTemplariosTest {
 
 	@Test
-	public void crearAltoTemplariotCreaUnAltoTemplario() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
+	public void crearAltoTemplariotCreaUnAltoTemplario() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
@@ -17,10 +17,9 @@ public class ArchivosTemplariosTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada (1, 1));
         unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
         unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 1));
-        unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 3));
-        ArchivosTemplarios archivo = new ArchivosTemplarios(unJugador);
+        ArchivosTemplarios archivo = (ArchivosTemplarios) unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 3));
 
-        Assert.assertNotNull(archivo.crearAltoTemplario());
+        Assert.assertNotNull(archivo.crearAltoTemplario(mapa));
     }
 	
 	@Test

@@ -1,10 +1,11 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.RazaTerran.Espectro;
 import fiuba.algo3.algocraft.RazaTerran.NaveCiencia;
 import fiuba.algo3.algocraft.RazaTerran.NaveTransporteTerran;
+
+import java.util.ArrayList;
 
 public class PuertoEstelar extends CreadorDeUnidadesAereas {
 
@@ -27,15 +28,90 @@ public class PuertoEstelar extends CreadorDeUnidadesAereas {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS;
     }
 
-    public Espectro crearEspectro() throws ExcepcionNoHaySuministrosDisponibles {
-        return new Espectro(this.propietario);
+    public Espectro crearEspectro(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
+        Boolean elementoUbicado = false;
+        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
+        Espectro espectro = new Espectro(this.propietario);
+        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+            try {
+                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), espectro);
+            }
+            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionParcelaOcupada e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            elementoUbicado = true;
+        }
+
+        if (coordenadasVecinas.size() <= 0)
+            throw new ExcepcionNoHayLugarDisponible();
+
+        return espectro;
     }
 
-    public NaveTransporteTerran crearNaveTransporte() throws ExcepcionNoHaySuministrosDisponibles {
-        return new NaveTransporteTerran(this.propietario);
+    public NaveTransporteTerran crearNaveTransporte(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
+        Boolean elementoUbicado = false;
+        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
+        NaveTransporteTerran nave = new NaveTransporteTerran(this.propietario);
+        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+            try {
+                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), nave);
+            }
+            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionParcelaOcupada e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            elementoUbicado = true;
+        }
+
+        if (coordenadasVecinas.size() <= 0)
+            throw new ExcepcionNoHayLugarDisponible();
+
+        return nave;
     }
 
-    public NaveCiencia crearNaveCiencia() throws ExcepcionNoHaySuministrosDisponibles {
-        return new NaveCiencia(this.propietario);
+    public NaveCiencia crearNaveCiencia(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
+        Boolean elementoUbicado = false;
+        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
+        NaveCiencia nave = new NaveCiencia(this.propietario);
+        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+            try {
+                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), nave);
+            }
+            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionParcelaOcupada e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            elementoUbicado = true;
+        }
+
+        if (coordenadasVecinas.size() <= 0)
+            throw new ExcepcionNoHayLugarDisponible();
+
+        return nave;
     }
 }

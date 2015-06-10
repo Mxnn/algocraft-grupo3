@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class AltoTemplarioTest {
     @Test(expected = ExcepcionUnidadEnemiga.class)
-    public void alucionacionLanzaExcpecionSiLaUnidadNoEsPropia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionUnidadEnemiga, CloneNotSupportedException {
+    public void alucionacionLanzaExcpecionSiLaUnidadNoEsPropia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionUnidadEnemiga, CloneNotSupportedException, ExcepcionNoHayLugarDisponible {
         Mapa mapa = new Mapa(2, 20, 20);
         Jugador jugador1 = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         Jugador jugador2 = new Jugador("Pablo", Color.AZUL, Protoss.getInstance());
@@ -25,13 +25,13 @@ public class AltoTemplarioTest {
 
         jugador1.crearAdicionalDeSuministro(mapa, new Coordenada(2, 2));
         acceso = (Acceso) jugador1.crearCreadorDeSoldados(mapa, new Coordenada(1, 2));
-        zealot = acceso.crearZealot();
+        zealot = acceso.crearZealot(mapa);
 
         jugador2.crearAdicionalDeSuministro(mapa, new Coordenada(18, 18));
         jugador2.crearCreadorDeSoldados(mapa, new Coordenada(19, 19));
         jugador2.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada (18, 19));
         archivo = (ArchivosTemplarios) jugador2.crearCreadorDeUnidadesAereas(mapa, new Coordenada (19, 18));
-        altoTemplario = archivo.crearAltoTemplario();
+        altoTemplario = archivo.crearAltoTemplario(mapa);
 
         altoTemplario.alucinacion(zealot);
     }

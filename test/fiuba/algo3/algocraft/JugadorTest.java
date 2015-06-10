@@ -493,18 +493,18 @@ public class JugadorTest {
     }
 
     @Test(expected = ExcepcionNoHaySuministrosDisponibles.class)
-    public void crearUnidadSinSuministrosLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
+    public void crearUnidadSinSuministrosLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHayLugarDisponible {
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Barraca barraca;
 
         unJugador.sumarMinerales(250);
         barraca = (Barraca) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
-        barraca.crearMarine();
+        barraca.crearMarine(mapa);
     }
 
     @Test
-    public void crearMarineSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
+    public void crearMarineSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Barraca barraca;
@@ -513,7 +513,7 @@ public class JugadorTest {
         unJugador.sumarMinerales(250);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         barraca = (Barraca) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
-        marine = barraca.crearMarine();
+        marine = barraca.crearMarine(mapa);
 
         Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + marine.SUMINISTRO);
     }
@@ -537,7 +537,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void crearNaveCienciaSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
+    public void crearNaveCienciaSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         PuertoEstelar puerto;
@@ -550,13 +550,13 @@ public class JugadorTest {
         unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 3));
 
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 4));
-        nave = puerto.crearNaveCiencia();
+        nave = puerto.crearNaveCiencia(mapa);
 
         Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + nave.SUMINISTRO);
     }
 
     @Test
-    public void crearEspectroSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
+    public void crearEspectroSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         PuertoEstelar puerto;
@@ -569,13 +569,13 @@ public class JugadorTest {
         unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 3));
 
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 4));
-        espectro = puerto.crearEspectro();
+        espectro = puerto.crearEspectro(mapa);
 
         Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + espectro.SUMINISTRO);
     }
 
     @Test
-    public void crearNaveTransporteSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
+    public void crearNaveTransporteSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         PuertoEstelar puerto;
@@ -588,13 +588,13 @@ public class JugadorTest {
         unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 4));
 
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 3));
-        nave = puerto.crearNaveTransporte();
+        nave = puerto.crearNaveTransporte(mapa);
 
         Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + nave.SUMINISTRO);
     }
 
     @Test
-    public void agregarUnidadAgregaUnaUnidadAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
+    public void agregarUnidadAgregaUnaUnidadAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Barraca barraca;
@@ -603,13 +603,13 @@ public class JugadorTest {
         unJugador.sumarMinerales(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         barraca = (Barraca) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
-        barraca.crearMarine();
+        barraca.crearMarine(mapa);
 
         Assert.assertEquals(unJugador.cantidadDeUnidades(), 1);
     }
 
     @Test
-    public void destruirUnaUnidadRestaPoblacionAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela {
+    public void destruirUnaUnidadRestaPoblacionAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Barraca barraca;
@@ -619,7 +619,7 @@ public class JugadorTest {
         unJugador.sumarMinerales(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         barraca = (Barraca) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
-        marine = barraca.crearMarine();
+        marine = barraca.crearMarine(mapa);
 
         Assert.assertEquals(unJugador.cantidadDeUnidades(), 1);
         Assert.assertEquals(unJugador.obtenerPoblacion(),  marine.SUMINISTRO);

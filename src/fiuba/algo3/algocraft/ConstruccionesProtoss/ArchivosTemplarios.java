@@ -1,9 +1,10 @@
 package fiuba.algo3.algocraft.ConstruccionesProtoss;
 
 import fiuba.algo3.algocraft.*;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.RazaProtoss.AltoTemplario;
+
+import java.util.ArrayList;
 
 public class ArchivosTemplarios extends CreadorDeUnidadesAereas {
 
@@ -28,7 +29,32 @@ public class ArchivosTemplarios extends CreadorDeUnidadesAereas {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS;
     }
 
-    public AltoTemplario crearAltoTemplario() throws ExcepcionNoHaySuministrosDisponibles {
-        return new AltoTemplario(this.propietario);
+    public AltoTemplario crearAltoTemplario(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
+        Boolean elementoUbicado = false;
+        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
+        AltoTemplario altoTemplario = new AltoTemplario(this.propietario);
+        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
+            try {
+                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), altoTemplario);
+            }
+            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionParcelaOcupada e) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+                coordenadasVecinas.remove(0);
+                continue;
+            }
+            elementoUbicado = true;
+        }
+
+        if (coordenadasVecinas.size() <= 0)
+            throw new ExcepcionNoHayLugarDisponible();
+
+        return altoTemplario;
     }
 }
