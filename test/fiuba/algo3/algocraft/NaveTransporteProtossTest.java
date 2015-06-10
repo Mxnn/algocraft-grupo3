@@ -3,6 +3,7 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.RazaProtoss.Dragon;
 import fiuba.algo3.algocraft.RazaProtoss.NaveTransporteProtoss;
+import fiuba.algo3.algocraft.RazaProtoss.Scout;
 import fiuba.algo3.algocraft.RazaTerran.Marine;
 
 import org.junit.Assert;
@@ -10,7 +11,7 @@ import org.junit.Test;
 
 public class NaveTransporteProtossTest {
     @Test
-    public void insertarUnidadInsertaLaUnidadEnLaNave() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga {
+    public void insertarUnidadInsertaLaUnidadEnLaNave() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.sumarMinerales(999);
@@ -23,7 +24,7 @@ public class NaveTransporteProtossTest {
     }
 
     @Test(expected = ExcepcionNaveDeTransporteLlena.class)
-    public void insertarUnidadLanzaExcepcionSiLaNaveEstaLlena() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga {
+    public void insertarUnidadLanzaExcepcionSiLaNaveEstaLlena() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         unJugador.sumarMinerales(999);
@@ -41,7 +42,7 @@ public class NaveTransporteProtossTest {
     }
 
     @Test
-    public void destruirNaveDestruyeTodasLasUnidadesQueHayEnSuInterior() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga {
+    public void destruirNaveDestruyeTodasLasUnidadesQueHayEnSuInterior() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         unJugador.sumarMinerales(999);
@@ -62,7 +63,7 @@ public class NaveTransporteProtossTest {
     }
 
     @Test(expected = ExcepcionUnidadEnemiga.class)
-    public void ingresarUnaUnidadEnemigaEnLaNaveLanzaExcepcion() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga {
+    public void ingresarUnaUnidadEnemigaEnLaNaveLanzaExcepcion() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         Jugador unJugador2 = new Jugador("Juan", Color.ROJO, Terran.getInstance());
@@ -76,5 +77,33 @@ public class NaveTransporteProtossTest {
         NaveTransporteProtoss nave = new NaveTransporteProtoss(unJugador);
 
         nave.insertarUnidad(new Dragon(unJugador2));
+    }
+
+    @Test(expected = ExcepcionNoEsUnidadTerrestre.class)
+    public void ingresarUnScoutLanzaExcepcion() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionConstruccionesRequeridasNoCreadas {
+        Mapa mapa = new Mapa(2, 5, 5);
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        unJugador.sumarMinerales(999);
+        unJugador.sumarGasVespeno(999);
+
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(4, 4));
+        NaveTransporteProtoss nave = new NaveTransporteProtoss(unJugador);
+        Scout scout = new Scout(unJugador);
+
+        nave.insertarUnidad(scout);
+    }
+
+    @Test(expected = ExcepcionNoEsUnidadTerrestre.class)
+    public void ingresarUnaNaveTransporteLanzaExcepcion() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionConstruccionesRequeridasNoCreadas {
+        Mapa mapa = new Mapa(2, 5, 5);
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        unJugador.sumarMinerales(999);
+        unJugador.sumarGasVespeno(999);
+
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(4, 4));
+        NaveTransporteProtoss nave = new NaveTransporteProtoss(unJugador);
+        NaveTransporteProtoss nave2 = new NaveTransporteProtoss(unJugador);
+
+        nave.insertarUnidad(nave2);
     }
 }
