@@ -56,18 +56,18 @@ public class Protoss extends Raza {
     }
 
     public CreadorDeUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes{
-        if (recursosInsuficientes(propietario, ArchivosTemplarios.COSTO)) 
+        if (recursosInsuficientes(propietario, PuertoEstelarProtoss.COSTO))
             throw new ExcepcionRecursosInsuficientes();
-		
-        restarCosto(propietario, ArchivosTemplarios.COSTO);
-    	return new ArchivosTemplarios(propietario);
+
+        restarCosto(propietario,PuertoEstelarProtoss.COSTO);
+        return new PuertoEstelarProtoss(propietario);
     }
 
     public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes{
-        if (recursosInsuficientes(propietario,PuertoEstelarProtoss.COSTO)) 
+        if (recursosInsuficientes(propietario, ArchivosTemplarios.COSTO))
             throw new ExcepcionRecursosInsuficientes();
-		
-        restarCosto(propietario,PuertoEstelarProtoss.COSTO);
-    	return new PuertoEstelarProtoss(propietario);
+
+        restarCosto(propietario, ArchivosTemplarios.COSTO);
+        return new ArchivosTemplarios(propietario);
     }
 }

@@ -1,7 +1,6 @@
 package fiuba.algo3.algocraft;
 
 import java.util.LinkedList;
-import java.util.List;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
@@ -35,11 +34,15 @@ public abstract class Unidad extends Interactuable {
         throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
     
-    protected  int seleccionarDanyo(Danyo danyo){
+    protected int seleccionarDanyo(Danyo danyo){
     	return danyo.obtenerDanyoDeAtaqueEnTierra();
     }
     
     protected int seleccionarRango(RangoAtaque rango){
     	return rango.obtenerRangoDeAtaqueEnTierra();
+    }
+
+    public Jugador obtenerPropietario() {
+        return this.propietario;
     }
 }

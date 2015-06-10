@@ -1,9 +1,6 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoNoAtacable;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNaveDeTransporteLlena;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 
@@ -34,11 +31,12 @@ public abstract class NaveTransporte extends Unidad {
     public int cantidadDeUnidades() {
         return this.unidades.size();
     }
+
     public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
     }
     
-    protected  int seleccionarDanyo(Danyo danyo){
+    protected int seleccionarDanyo(Danyo danyo){
     	return danyo.obtenerDanyoDeAtaqueEnAire();
     }
     

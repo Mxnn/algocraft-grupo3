@@ -7,7 +7,7 @@ import fiuba.algo3.algocraft.RazaProtoss.NaveTransporteProtoss;
 import fiuba.algo3.algocraft.RazaProtoss.Scout;
 
 
-public class PuertoEstelarProtoss extends CreadorDeUnidadesAereas{
+public class PuertoEstelarProtoss extends CreadorDeUnidadesTerrestres {
     private static final int VIDA_INICIAL = 600;
     private static final int ESCUDO_INICIAL = 600;
     public static int COSTO_MINERAL = 150;
@@ -25,7 +25,7 @@ public class PuertoEstelarProtoss extends CreadorDeUnidadesAereas{
 	}
         
     public TipoDeConstruccion obtenerTipoDeConstruccion() {
-        return TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS;
+        return TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES;
     }
     
     public Scout crearScout() throws ExcepcionNoHaySuministrosDisponibles {
@@ -35,7 +35,4 @@ public class PuertoEstelarProtoss extends CreadorDeUnidadesAereas{
     public NaveTransporteProtoss crearNaveTransporte() throws ExcepcionNoHaySuministrosDisponibles {
         return new NaveTransporteProtoss(this.propietario);
     }
- }
-
-
-
+}

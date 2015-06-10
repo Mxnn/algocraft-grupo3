@@ -1,17 +1,16 @@
 package fiuba.algo3.algocraft.RazaProtoss;
 
 import fiuba.algo3.algocraft.*;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoNoAtacable;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.Excepciones.*;
 
-public class AltoTemplario extends UnidadMagica {
+public class AltoTemplario extends UnidadMagica implements Alucinable {
     public static final int VIDA_INICIAL = 40;
     public static final int ESCUDO_INICIAL = 40;
     public static final int VISION = 7;
     public static final int CUPO_TRANSPORTE = 2;
     public static final int TIEMPO_DE_CONSTRUCCION = 7;
+    /*public final int VIDA_UNIDAD_ALUCINADA = 0;
+    public final int CANTIDAD_ALUCINACIONES = 2;*/
 
     public static int COSTO_MINERAL = 50;
     public static int COSTO_GAS = 150;
@@ -28,6 +27,18 @@ public class AltoTemplario extends UnidadMagica {
 
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
 
+        this.ENERGIA_INICIAL = 50;
+        this.REGENERACION_ENERGIA = 15;
+        this.energiaMaxima = 200;
+        this.energia = ENERGIA_INICIAL;
     }
-    
+
+    public void alucinacion(Alucinable unidadCopiada) throws ExcepcionUnidadEnemiga, ExcepcionNoHaySuministrosDisponibles {
+        if (!(this.propietario).equals(unidadCopiada.obtenerPropietario()))
+            throw new ExcepcionUnidadEnemiga();
+    }
+
+    public Alucinable crearAlucinacion() throws ExcepcionNoHaySuministrosDisponibles {
+        return new AltoTemplario(this.propietario);
+    }
 }

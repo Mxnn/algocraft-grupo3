@@ -44,7 +44,7 @@ public class PuertoEstelarProtossTest {
 	        unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
 	        PuertoEstelarProtoss puerto = new PuertoEstelarProtoss(unJugador);
 
-	        Assert.assertEquals(puerto.obtenerTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS);
+	        Assert.assertEquals(puerto.obtenerTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES);
 	    }
 
 }

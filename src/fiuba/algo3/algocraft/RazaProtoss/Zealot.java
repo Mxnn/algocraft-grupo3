@@ -1,12 +1,9 @@
 package fiuba.algo3.algocraft.RazaProtoss;
 
 import fiuba.algo3.algocraft.*;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoNoAtacable;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
-public class Zealot extends UnidadAgresora {
+public class Zealot extends UnidadAgresora implements Alucinable {
     public static final int VIDA_INICIAL = 100;
     public static final int ESCUDO_INICIAL = 60;
     public static final int CUPO_TRANSPORTE = 2;
@@ -28,10 +25,11 @@ public class Zealot extends UnidadAgresora {
         this.rangoAtaque = new RangoAtaque(0, 1);
         this.cupoDeTransporte = CUPO_TRANSPORTE;
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
-        
 	}
-	
-	
+
+    public Alucinable crearAlucinacion() throws ExcepcionNoHaySuministrosDisponibles, CloneNotSupportedException {
+        return new AltoTemplario(this.propietario);
+    }
 }
 
 

@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class JugadorTest {
     public static int RECURSOS_SUFFICIENTES = 1000;
-	/*@Test
+	@Test
 	public void alCrearExtractorGasSeAgregaLaConstruccionEnElArrayDelJugador() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
 		Mapa mapa = new Mapa (2, 20, 20);
         Coordenada ubicacionVolcan = new Coordenada(1, 1);
@@ -342,17 +342,17 @@ public class JugadorTest {
     }
     
     @Test
-    public void crearCreadorDeUnidadesAreasParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
+    public void crearCreadorDeUnidadesAereasParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
       	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);     
     	unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));   //construction requirida para crear el creador de unidades terrestres
- 
+        unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 1));
   
     	unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 3));
 
-    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Acceso.COSTO.getCostoMineral() - PuertoEstelarProtoss.COSTO.getCostoMineral());
+    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Acceso.COSTO.getCostoMineral() - ArchivosTemplarios.COSTO.getCostoMineral() - PuertoEstelarProtoss.COSTO.getCostoMineral());
     }
 
     @Test(expected = ExcepcionRecursosInsuficientes.class)
@@ -375,8 +375,8 @@ public class JugadorTest {
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
       	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);     
     	unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));   //construction requirida para crear el creador de unidades terrestres
-    	unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 4));
-    	unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 3));
+        unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 3));
+        unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 4));
 
     	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Acceso.COSTO.getCostoMineral() - ArchivosTemplarios.COSTO.getCostoMineral() - PuertoEstelarProtoss.COSTO.getCostoMineral());
     }
@@ -655,9 +655,5 @@ public class JugadorTest {
         deposito = (DepositoSuministro) unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
 
         Assert.assertSame(deposito, mapa.devolverElementoEnParcela(new Coordenada(1, 1)));
-    }*/
-    @Test
-    public void trueEsTrue() {
-        Assert.assertTrue(true);
     }
 }

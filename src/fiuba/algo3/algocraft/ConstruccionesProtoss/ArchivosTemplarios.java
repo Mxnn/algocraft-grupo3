@@ -5,17 +5,17 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCrea
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.RazaProtoss.AltoTemplario;
 
-public class ArchivosTemplarios extends CreadorDeUnidadesTerrestres {
+public class ArchivosTemplarios extends CreadorDeUnidadesAereas {
 
     private static final int VIDA_INICIAL = 500;
     private static final int ESCUDO_INICIAL = 500;
     public static int COSTO_MINERAL= 150;
     public static int COSTO_GAZ = 200;
-    public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAZ);
+    public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAZ);
     
     
     public ArchivosTemplarios(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas {
-        if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS))
+        if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES))
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
 
         this.propietario = propietario;
@@ -25,7 +25,7 @@ public class ArchivosTemplarios extends CreadorDeUnidadesTerrestres {
     }
 
     public TipoDeConstruccion obtenerTipoDeConstruccion() {
-        return TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES;
+        return TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS;
     }
 
     public AltoTemplario crearAltoTemplario() throws ExcepcionNoHaySuministrosDisponibles {
