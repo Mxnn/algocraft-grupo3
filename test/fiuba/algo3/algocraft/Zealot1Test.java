@@ -27,8 +27,10 @@ public class Zealot1Test {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora zealot = new Zealot(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable marine = new Marine(unJugador2, new ParcelaTierra(new Coordenada(1,0)));
+	     UnidadAgresora zealot = new Zealot(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0) , zealot);
+	     Interactuable marine = new Marine(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(1,0) , marine);
 	     zealot.atacar(marine);
 	     
 	     assertEquals(marine.obtenerVida(), 40-8);
@@ -41,8 +43,11 @@ public class Zealot1Test {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora zealot = new Zealot(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable espectro = new Espectro(unJugador2, new ParcelaTierra(new Coordenada(1,0)));
+	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(2, 1));
+	     UnidadAgresora zealot = new Zealot(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0) , zealot);
+	     Interactuable espectro = new Espectro(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
 	     zealot.atacar(espectro);
 	     
 	}
@@ -54,8 +59,10 @@ public class Zealot1Test {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora zealot = new Zealot(unJugador, new ParcelaTierra(new Coordenada(0,0)));
-	     Interactuable marine = new Marine(unJugador2, new ParcelaTierra(new Coordenada(2,0)));
+	     UnidadAgresora zealot = new Zealot(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0) , zealot);
+	     Interactuable marine = new Marine(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(2,0) , marine);
 	     zealot.atacar(marine);
 	     
 	}
@@ -66,7 +73,8 @@ public class Zealot1Test {
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     UnidadAgresora zealot = new Zealot(unJugador, new ParcelaTierra(new Coordenada(0,0)));
+	     UnidadAgresora zealot = new Zealot(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada(0,0) , zealot);
 	     Interactuable barraca = new Barraca(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
 	     zealot.atacar(barraca);
