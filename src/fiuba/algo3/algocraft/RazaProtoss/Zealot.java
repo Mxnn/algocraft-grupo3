@@ -18,7 +18,7 @@ public class Zealot extends UnidadAgresora {
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
 
-	public Zealot(Jugador propietario, Parcela parcela) throws ExcepcionNoHaySuministrosDisponibles {
+	public Zealot(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
         this.SUMINISTRO = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
@@ -28,7 +28,7 @@ public class Zealot extends UnidadAgresora {
         this.rangoAtaque = new RangoAtaque(0, 1);
         this.cupoDeTransporte = CUPO_TRANSPORTE;
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
-        this.parcelaUbicacion = parcela;
+        
 	}
 	
 	

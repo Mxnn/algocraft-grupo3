@@ -17,7 +17,7 @@ public class AltoTemplario extends UnidadMagica {
     public static int COSTO_GAS = 150;
     public static Costo COSTO = new Costo(COSTO_MINERAL,COSTO_GAS);
 
-    public AltoTemplario(Jugador propietario, Parcela parcela) throws ExcepcionNoHaySuministrosDisponibles {
+    public AltoTemplario(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
         this.SUMINISTRO = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
@@ -27,7 +27,7 @@ public class AltoTemplario extends UnidadMagica {
         this.cupoDeTransporte = CUPO_TRANSPORTE;
 
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
-        this.parcelaUbicacion = parcela;
+
     }
     
 }

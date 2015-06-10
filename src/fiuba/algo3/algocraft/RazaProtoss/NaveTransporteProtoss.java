@@ -15,7 +15,7 @@ public class NaveTransporteProtoss extends NaveTransporte {
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
     
-    public NaveTransporteProtoss(Jugador propietario, Parcela parcela) throws ExcepcionNoHaySuministrosDisponibles {
+    public NaveTransporteProtoss(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
         this.SUMINISTRO = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
@@ -25,7 +25,7 @@ public class NaveTransporteProtoss extends NaveTransporte {
 
         this.capacidad = CAPACIDAD;
         this.lugaresOcupados = 0;
-        this.parcelaUbicacion = parcela;
+        
     }
     
 }
