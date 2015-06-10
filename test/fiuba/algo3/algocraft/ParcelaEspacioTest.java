@@ -14,7 +14,7 @@ public class ParcelaEspacioTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(4, 4));
         Parcela parcela = new ParcelaEspacio(new Coordenada(0,0));
-        Interactuable unidad = new Marine(unJugador, parcela);
+        Interactuable unidad = new Marine(unJugador);
 
         parcela.guardarElemento(unidad);
     }
@@ -25,7 +25,7 @@ public class ParcelaEspacioTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         Parcela parcela = new ParcelaEspacio(new Coordenada(0,0));
-        Interactuable unidadVoladora = new Espectro(unJugador, parcela);
+        Interactuable unidadVoladora = new Espectro(unJugador);
 
         parcela.guardarElemento(unidadVoladora);
 
