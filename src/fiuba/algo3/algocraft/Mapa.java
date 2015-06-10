@@ -75,19 +75,84 @@ public class Mapa {
         }
     }
 
-	public void calcularItinerario(Coordenada desde, Coordenada hasta) { 
-		//metodo a mejorar , no se evite edificios y quisas las coordenadas no existen en el tablero
-		 
+	public void calcularItinerario(Coordenada desde, Coordenada hasta) throws ExcepcionCoordenadaFueraDelMapa { 
+		
 		LinkedList<Coordenada> elItinerario = new LinkedList<Coordenada>();
 		
-		elItinerario.add(desde); // la unidad se teleporta , tenemos que hacer un mejor calcul de itinerario
-		elItinerario.add(hasta);
+		/*int auxX = desde.getX();
+		int auxY = desde.getY();
+		
+	 	int hastaX = hasta.getX();
+		int hastaY= hasta.getY();
+		elItinerario.add(new Coordenada(auxX,auxY));
+		
+		while ((auxX!=hasta.getX())||(auxY!=hasta.getY())){
+			System.out.println("avant llego auxX=");
+			System.out.println(auxX);
+			System.out.println("nollego");
+			System.out.println("auxX=");
+			System.out.println(auxX);
+			System.out.println("hastaX=");
+			System.out.println(hasta.getX());
+			if (auxX!=hasta.getX()){
+				int direccion;
+				if (auxX<hastaX){
+					direccion = 1;
+				}else{
+					direccion = -1;
+				}
+				
+				System.out.println(direccion);	
+				
+				while ((this.devolverElementoEnParcela(new Coordenada(auxX+ direccion, auxY))==null) && (auxX!=hastaX)){
+					auxX = auxX + direccion;
+					elItinerario.add(new Coordenada(auxX,auxY));
+					System.out.println("x");
+					System.out.println("auxX=");
+					System.out.println(auxX);
+				}
+				System.out.println("apres while auxX=");
+				System.out.println(auxX);
+			}
+			System.out.println("apres while et sorti if auxX=");
+			System.out.println(auxX);
+			
+			if(auxY!=hasta.getY()){
+			
+				int direccion;
+				if (auxY<hastaY){
+					direccion = 1;
+				}else{
+					direccion = -1;
+				}
+				
+				System.out.println(direccion);
+				
+				while ((this.devolverElementoEnParcela(new Coordenada(auxX, direccion+ auxY))==null)&& (auxY!=hastaY)){
+					auxY=auxY + direccion;
+					elItinerario.add(new Coordenada(auxX,auxY));
+					System.out.println("y");
+				}
+				
+			}
+			
+			System.out.println("a while auxX=");
+			System.out.println(auxX);
+		}*/
+		
 		Parcela ParcelaPartida = this.tablero.get(desde);
 		Unidad laUnidad = (Unidad) ParcelaPartida.elemento;
 		laUnidad.itinerario = elItinerario;
+		
+		elItinerario.clear();
+		elItinerario.add(desde); // la unidad se teleporta , tenemos que hacer un mejor calcul de itinerario
+		elItinerario.add(hasta);
 
+		laUnidad.itinerario = elItinerario;
 		
 	}
+
+	
 	
 //	public Coordenada devolverCoordenadaDeElemento(Interactuable elemento) throws ExcepcionElementoNoUbicado{
 //		for (HashMap.Entry<Coordenada, Parcela> parCoordenadaParcela : tablero.entrySet()) {
