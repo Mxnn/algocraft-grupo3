@@ -14,7 +14,7 @@ public class ParcelaVolcanTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Parcela parcela = new ParcelaVolcan(new Coordenada(0,0));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
-        Interactuable unidad = new Marine(unJugador, parcela);
+        Interactuable unidad = new Marine(unJugador);
 
         parcela.guardarElemento(unidad);
     }
@@ -25,7 +25,7 @@ public class ParcelaVolcanTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Parcela parcela = new ParcelaVolcan(new Coordenada(0,0));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(2 ,2));
-        Interactuable unidad = new Espectro(unJugador, parcela);
+        Interactuable unidad = new Espectro(unJugador);
 
         parcela.guardarElemento(unidad);
     }
