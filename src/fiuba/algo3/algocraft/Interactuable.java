@@ -48,6 +48,12 @@ public abstract class Interactuable {
     	return estado.obtenerVida();
     }
     
+    public Estado obtenerEstado(){
+    	return this.estado;
+    }
+    
+    
+    
     public abstract void destruir();
     
     public abstract void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada;
