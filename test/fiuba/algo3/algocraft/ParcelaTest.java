@@ -14,7 +14,7 @@ public class ParcelaTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.crearAdicionalDeSuministro(mapa, coordenada);
         Parcela parcela = new ParcelaTierra(new Coordenada(0,0));
-        Interactuable marine = new Marine(unJugador, parcela);
+        Interactuable marine = new Marine(unJugador);
 
         parcela.guardarElemento(marine);
         Assert.assertSame(marine, parcela.devolverElemento());
