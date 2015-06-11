@@ -33,7 +33,7 @@ public class EspectroTest {
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
 	     espectro.atacar(marine);
 	     
-	     assertEquals(marine.obtenerVida(), 40-8);
+	     assertEquals(marine.getVida(), 40-8);
 	}
 	
 	@Test
@@ -50,7 +50,7 @@ public class EspectroTest {
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro2);
 	     espectro.atacar(espectro2);
 	     
-	     assertEquals(espectro2.obtenerVida(), 120-20);
+	     assertEquals(espectro2.getVida(), 120-20);
 	     
 	}
 	
@@ -100,7 +100,7 @@ public class EspectroTest {
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
 	     espectro.atacar(barraca);
 	     
-	     assertEquals(barraca.obtenerVida(), 1000-8);
+	     assertEquals(barraca.getVida(), 1000-8);
 	}
 
 }

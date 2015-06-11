@@ -34,7 +34,7 @@ public class MarineTest {
 	     
 	     marine.atacar(marine2);
 	     
-	     assertEquals(marine2.obtenerVida(), 40-6);
+	     assertEquals(marine2.getVida(), 40-6);
 	}
 	
 	@Test
@@ -51,7 +51,7 @@ public class MarineTest {
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
 	     marine.atacar(espectro);
 	     
-	     assertEquals(espectro.obtenerVida(), 120-6);
+	     assertEquals(espectro.getVida(), 120-6);
 	     
 	}
 	
@@ -85,6 +85,6 @@ public class MarineTest {
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
 	     marine.atacar(barraca);
 	     
-	     assertEquals(barraca.obtenerVida(), 1000-6);
+	     assertEquals(barraca.getVida(), 1000-6);
 	}
 }

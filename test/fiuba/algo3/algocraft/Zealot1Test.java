@@ -33,7 +33,7 @@ public class Zealot1Test {
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0) , marine);
 	     zealot.atacar(marine);
 	     
-	     assertEquals(marine.obtenerVida(), 40-8);
+	     assertEquals(marine.getVida(), 40-8);
 	}
 	
 	@Test(expected = ExcepcionEnemigoFueraDeAlcance.class)
@@ -79,7 +79,7 @@ public class Zealot1Test {
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
 	     zealot.atacar(barraca);
 	     
-	     assertEquals(barraca.obtenerVida(), 1000-8);
+	     assertEquals(barraca.getVida(), 1000-8);
 	}
 
 }

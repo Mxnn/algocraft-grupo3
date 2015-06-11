@@ -33,7 +33,7 @@ public class ScoutTest {
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
 	     scout.atacar(marine);
 	     
-	     assertEquals(marine.obtenerVida(), 40-8);
+	     assertEquals(marine.getVida(), 40-8);
 	}
 	
 	@Test
@@ -50,7 +50,7 @@ public class ScoutTest {
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
 	     scout.atacar(espectro);
 	     
-	     assertEquals(espectro.obtenerVida(), 120-14);
+	     assertEquals(espectro.getVida(), 120-14);
 	     
 	}
 	
@@ -100,7 +100,7 @@ public class ScoutTest {
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
 	     scout.atacar(barraca);
 	     
-	     assertEquals(barraca.obtenerVida(), 1000-8);
+	     assertEquals(barraca.getVida(), 1000-8);
 	}
 
 }

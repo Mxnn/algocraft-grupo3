@@ -34,7 +34,7 @@ public class GolliatTest {
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
 	     golliat.atacar(marine);
 	     
-	     assertEquals(marine.obtenerVida(), 40-12);
+	     assertEquals(marine.getVida(), 40-12);
 	}
 	
 	@Test
@@ -52,7 +52,7 @@ public class GolliatTest {
 
 	     golliat.atacar(espectro);
 	     
-	     assertEquals(espectro.obtenerVida(), 120-10);
+	     assertEquals(espectro.getVida(), 120-10);
 	     
 	}
 	
@@ -102,7 +102,7 @@ public class GolliatTest {
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
 	     golliat.atacar(barraca);
 	     
-	     assertEquals(barraca.obtenerVida(), 1000-12);
+	     assertEquals(barraca.getVida(), 1000-12);
 	}
 
 }

@@ -73,7 +73,7 @@ public class ClonTest {
 		
 		clon.atacar(marine);
 		
-		assertEquals(marine.obtenerVida(),40);
+		assertEquals(marine.getVida(),40);
 	}
 	
 	

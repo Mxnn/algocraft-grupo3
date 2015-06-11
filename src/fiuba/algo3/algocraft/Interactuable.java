@@ -44,7 +44,7 @@ public abstract class Interactuable {
     	return this.parcelaUbicacion;
     }
     
-    public int obtenerVida() {
+    public int getVida() {
     	return estado.obtenerVida();
     }
     

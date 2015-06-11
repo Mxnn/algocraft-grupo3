@@ -36,7 +36,7 @@ public class DragonTest {
 	     
 	     dragon.atacar(marine);
 	     
-	     assertEquals(marine.obtenerVida(), 40-20);
+	     assertEquals(marine.getVida(), 40-20);
 	}
 	
 	@Test
@@ -54,7 +54,7 @@ public class DragonTest {
 	     
 	     dragon.atacar(espectro);
 	     
-	     assertEquals(espectro.obtenerVida(), 120-20);
+	     assertEquals(espectro.getVida(), 120-20);
 	     
 	}
 	
@@ -88,7 +88,7 @@ public class DragonTest {
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
 	     dragon.atacar(barraca);
 	     
-	     assertEquals(barraca.obtenerVida(), 1000-20);
+	     assertEquals(barraca.getVida(), 1000-20);
 	}
 
 
