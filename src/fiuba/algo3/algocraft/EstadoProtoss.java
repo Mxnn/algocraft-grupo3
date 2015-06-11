@@ -10,7 +10,7 @@ public class EstadoProtoss extends Estado {
         this.escudo = escudo;
     }
 
-    public int obtenerEscudo() {
+    public int getEscudo() {
         return this.escudo;
     }
 

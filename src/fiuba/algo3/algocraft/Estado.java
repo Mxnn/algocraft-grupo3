@@ -17,7 +17,7 @@ public class Estado {
             throw new ExcepcionEstadoMuerto();
     }
 
-    public int obtenerVida() {
+    public int getVida() {
         return this.vida;
     }
 }

@@ -8,7 +8,7 @@ public class Clon extends UnidadAgresora {
 		private UnidadAgresora original;
 	
 	public Clon(UnidadAgresora aClonar, Jugador propietario){
-		this.estado =  new EstadoProtoss(0, ((EstadoProtoss) aClonar.obtenerEstado()).obtenerEscudo());
+		this.estado =  new EstadoProtoss(0, ((EstadoProtoss) aClonar.getEstado()).getEscudo());
 		this.rangoAtaque = aClonar.obtenerRangoAtaque();
 		this.danyo = new Danyo(0,0);
 		this.cupoDeTransporte = aClonar.obtenerCupoDeTransporte();

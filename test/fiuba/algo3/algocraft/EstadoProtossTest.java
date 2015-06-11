@@ -14,8 +14,8 @@ public class EstadoProtossTest {
 
         estado.recibirDanyo(danyoHecho);
 
-        Assert.assertEquals(estado.obtenerVida(), vidaInicial);
-        Assert.assertEquals(estado.obtenerEscudo(), escudoInicial - danyoHecho);
+        Assert.assertEquals(estado.getVida(), vidaInicial);
+        Assert.assertEquals(estado.getEscudo(), escudoInicial - danyoHecho);
     }
 
     @Test
@@ -27,8 +27,8 @@ public class EstadoProtossTest {
 
         estado.recibirDanyo(danyoHecho);
 
-        Assert.assertEquals(estado.obtenerVida(), vidaInicial + escudoInicial - danyoHecho );
-        Assert.assertEquals(estado.obtenerEscudo(), 0);
+        Assert.assertEquals(estado.getVida(), vidaInicial + escudoInicial - danyoHecho );
+        Assert.assertEquals(estado.getEscudo(), 0);
     }
 
     @Test(expected = ExcepcionEstadoMuerto.class)

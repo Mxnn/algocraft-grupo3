@@ -45,10 +45,10 @@ public abstract class Interactuable {
     }
     
     public int getVida() {
-    	return estado.obtenerVida();
+    	return estado.getVida();
     }
     
-    public Estado obtenerEstado(){
+    public Estado getEstado(){
     	return this.estado;
     }
     

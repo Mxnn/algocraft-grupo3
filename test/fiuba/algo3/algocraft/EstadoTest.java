@@ -13,7 +13,7 @@ public class EstadoTest {
 
         estado.recibirDanyo(danyoHecho);
 
-        Assert.assertEquals(estado.obtenerVida(), vidaInicial - danyoHecho);
+        Assert.assertEquals(estado.getVida(), vidaInicial - danyoHecho);
     }
 
     @Test(expected = ExcepcionEstadoMuerto.class)
