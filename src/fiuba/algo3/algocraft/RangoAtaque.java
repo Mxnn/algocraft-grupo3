@@ -9,11 +9,11 @@ public class RangoAtaque {
         this.rangoTierra = rangoTierra;
     }
 
-    public int obtenerRangoDeAtaqueAlAire() {
+    public int getRangoDeAtaqueEnAire() {
         return this.rangoAire;
     }
 
-    public int obtenerRangoDeAtaqueEnTierra() {
+    public int getRangoDeAtaqueEnTierra() {
         return this.rangoTierra;
     }
 }

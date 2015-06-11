@@ -9,11 +9,11 @@ public class Danyo {
         this.danyoTierra = danyoTierra;
     }
 
-    public int obtenerDanyoDeAtaqueEnAire() {
+    public int getDanyoDeAtaqueEnAire() {
         return this.danyoAire;
     }
 
-    public int obtenerDanyoDeAtaqueEnTierra() {
+    public int getDanyoDeAtaqueEnTierra() {
         return this.danyoTierra;
     }
 }

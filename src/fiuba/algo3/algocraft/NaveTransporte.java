@@ -44,11 +44,11 @@ public abstract class NaveTransporte extends Unidad {
     }
     
     protected int seleccionarDanyo(Danyo danyo){
-    	return danyo.obtenerDanyoDeAtaqueEnAire();
+    	return danyo.getDanyoDeAtaqueEnAire();
     }
     
     protected int seleccionarRango(RangoAtaque rango){
-    	return rango.obtenerRangoDeAtaqueAlAire();
+    	return rango.getRangoDeAtaqueEnAire();
     }
 
     public void sacarUnidad(Mapa mapa, Unidad unidad) throws ExcepcionNoHayLugarDisponible {

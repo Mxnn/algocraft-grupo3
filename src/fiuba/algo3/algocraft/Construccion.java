@@ -31,11 +31,11 @@ public abstract class Construccion extends Interactuable {
     }
     
     protected  int seleccionarDanyo(Danyo danyo){
-    	return danyo.obtenerDanyoDeAtaqueEnTierra();
+    	return danyo.getDanyoDeAtaqueEnTierra();
     }
     
     protected int seleccionarRango(RangoAtaque rango){
-    	return rango.obtenerRangoDeAtaqueEnTierra();
+    	return rango.getRangoDeAtaqueEnTierra();
     }
 
 	public void collectarRecursos() {

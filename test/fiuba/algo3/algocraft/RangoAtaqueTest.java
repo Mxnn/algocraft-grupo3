@@ -8,13 +8,13 @@ public class RangoAtaqueTest {
     public void obtenerRangoDeAtaqueAlAireDevuelveElRangoDeAtaqueAlAire() {
         RangoAtaque rango = new RangoAtaque(5, 6);
 
-        Assert.assertEquals(rango.obtenerRangoDeAtaqueAlAire(), 5);
+        Assert.assertEquals(rango.getRangoDeAtaqueEnAire(), 5);
     }
 
     @Test
     public void obtenerRangoDeAtaqueEnTierraDevuelveElRangoDeAtaqueEnTierra() {
         RangoAtaque rango = new RangoAtaque(5, 6);
 
-        Assert.assertEquals(rango.obtenerRangoDeAtaqueEnTierra(), 6);
+        Assert.assertEquals(rango.getRangoDeAtaqueEnTierra(), 6);
     }
 }

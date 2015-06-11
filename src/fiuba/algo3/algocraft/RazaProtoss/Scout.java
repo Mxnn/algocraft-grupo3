@@ -35,10 +35,10 @@ public class Scout extends UnidadAgresora {
     }
     
     protected  int seleccionarDanyo(Danyo danyo){
-    	return danyo.obtenerDanyoDeAtaqueEnAire();
+    	return danyo.getDanyoDeAtaqueEnAire();
     }
     
     protected int seleccionarRango(RangoAtaque rango){
-    	return rango.obtenerRangoDeAtaqueAlAire();
+    	return rango.getRangoDeAtaqueEnAire();
     }
 }
