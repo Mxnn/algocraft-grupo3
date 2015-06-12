@@ -13,6 +13,7 @@ Juego sigue siendo el responsable de validar la longitud del nombre del Jugador 
 Sería bueno que las pruebas de integración esten diferenciadas de pruebas unitarias
 
 Utilizar accesores a métodos (ej: no es correcto que los métodos incrementarCapacidadDePoblacion() / decrementarPoblacion() de Jugador sean público ya que rompe el encapsulamiento)
+  (Ya hice los de incrementar y decrementar pero puede haber mas como por ej: sumarMinerales/Gas y restarMinerales/Gas)
 
 Por qué es necesario que Barraca.crearMarine() reciba por parámetro el objeto Mapa?
 
