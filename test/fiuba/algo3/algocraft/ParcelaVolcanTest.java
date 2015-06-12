@@ -70,6 +70,6 @@ public class ParcelaVolcanTest {
         parcela.guardarElemento(new Refineria(unJugadorPropietario));
         parcela.despedirGas();
 
-        Assert.assertEquals(unJugadorPropietario.obtenerGasVespeno(), Jugador.GAS_VESPENO_INICIAL + 10);
+        Assert.assertEquals(unJugadorPropietario.getGasVespeno(), Jugador.GAS_VESPENO_INICIAL + 10);
     }
 }

@@ -15,7 +15,7 @@ public abstract class Unidad extends Interactuable {
     public void destruir() {
         (this.propietario).eliminarUnidad(this);
     }
-    public int obtenerCupoDeTransporte() { return this.cupoDeTransporte; }
+    public int getCupoDeTransporte() { return this.cupoDeTransporte; }
     
     public void guardarEnParcela(ParcelaTierra parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         parcela.setElemento(this);
@@ -41,7 +41,7 @@ public abstract class Unidad extends Interactuable {
     	return rango.getRangoDeAtaqueEnTierra();
     }
 
-    public Jugador obtenerPropietario() {
+    public Jugador getPropietario() {
         return this.propietario;
     }
 }

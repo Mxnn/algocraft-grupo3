@@ -14,14 +14,6 @@ public abstract class ExtractorGas extends Construccion {
     	throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
     
-//    public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela {
-//    	throw new ExcepcionElementoNoAdmitidoEnParcela();
-//    }
-    
-//    public void guardarEnParcela(ParcelaMineral parcela) throws ExcepcionElementoNoAdmitidoEnParcela {
-//        throw new ExcepcionElementoNoAdmitidoEnParcela();
-//    }
-    
     public void guardarEnParcela(ParcelaVolcan parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
     }

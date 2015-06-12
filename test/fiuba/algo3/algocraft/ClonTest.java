@@ -29,7 +29,7 @@ public class ClonTest {
 		
 		clon.recibirDanyo(80);
 		
-		assertEquals(unJugador.cantidadDeUnidades(),1); //se espera una porque se murio el clon epro el dragon sigue
+		assertEquals(unJugador.getCantidadDeUnidades(),1); //se espera una porque se murio el clon epro el dragon sigue
 	}
 	@Test
 	public void clonTieneEscudoCorrecto() throws ExcepcionEstadoMuerto, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido{

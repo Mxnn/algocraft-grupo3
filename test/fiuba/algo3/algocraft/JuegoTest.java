@@ -24,7 +24,7 @@ public class JuegoTest {
         juego.crearJugador("Juan", Color.ROJO, Terran.getInstance());
         juego.crearJugador("Pedro", Color.VERDE, Protoss.getInstance());
 
-        Assert.assertEquals(juego.cantidadDeJugadores(), 2);
+        Assert.assertEquals(juego.getCantidadDeJugadores(), 2);
     }
 
     @Test(expected = ExcepcionNombreEnUso.class)
@@ -113,7 +113,7 @@ public class JuegoTest {
     
 
     	elJuego.tareaDelTurnoGenerarRecursos();
-    	Assert.assertEquals(unJugador.obtenerGasVespeno(), Jugador.GAS_VESPENO_INICIAL - Refineria.COSTO.getCostoGas() +ExtractorGas.CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO);
+    	Assert.assertEquals(unJugador.getGasVespeno(), Jugador.GAS_VESPENO_INICIAL - Refineria.COSTO.getCostoGas() +ExtractorGas.CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO);
 
         
     }

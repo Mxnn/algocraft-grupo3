@@ -28,7 +28,7 @@ public class BarracaTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         Barraca barraca = new Barraca(unJugador);
 
-        Assert.assertEquals(barraca.obtenerTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_SOLDADOS);
+        Assert.assertEquals(barraca.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_SOLDADOS);
     }
 
     @Test

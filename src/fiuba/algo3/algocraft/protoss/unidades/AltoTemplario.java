@@ -36,7 +36,7 @@ public class AltoTemplario extends UnidadMagica /*implements Alucinable*/ {
     }
 
 //    public void alucinacion(Alucinable unidadCopiada) throws ExcepcionUnidadEnemiga, ExcepcionNoHaySuministrosDisponibles {
-//        if (!(this.propietario).equals(unidadCopiada.obtenerPropietario()))
+//        if (!(this.propietario).equals(unidadCopiada.getPropietario()))
 //            throw new ExcepcionUnidadEnemiga();
 //    }
 
@@ -45,7 +45,7 @@ public class AltoTemplario extends UnidadMagica /*implements Alucinable*/ {
 //    }
     
     public void crearAlucinacion(UnidadAgresora unidadAClonar, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible {
-        if (!(this.propietario).equals(unidadAClonar.obtenerPropietario()))
+        if (!(this.propietario).equals(unidadAClonar.getPropietario()))
             throw new ExcepcionUnidadEnemiga();
         //chequear que sea agresor
         Clon clon = new Clon(unidadAClonar, this.propietario);

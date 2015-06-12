@@ -26,8 +26,6 @@ public class Protoss extends Raza {
         return INSTANCIA;
     }
 
- 
-    
 	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,Asimilador.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();

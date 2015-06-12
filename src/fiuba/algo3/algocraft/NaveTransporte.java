@@ -10,13 +10,13 @@ public abstract class NaveTransporte extends Unidad {
     protected ArrayList<Unidad> unidades = new ArrayList<Unidad>();
 
     public void insertarUnidad(Unidad unidad) throws ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre {
-        if (!unidad.obtenerPropietario().equals(this.propietario))
+        if (!unidad.getPropietario().equals(this.propietario))
             throw new ExcepcionUnidadEnemiga();
 
-        if (unidad.obtenerCupoDeTransporte() == 0)
+        if (unidad.getCupoDeTransporte() == 0)
             throw new ExcepcionNoEsUnidadTerrestre();
 
-        int lugaresTotalesOcupadas = lugaresOcupados + unidad.obtenerCupoDeTransporte();
+        int lugaresTotalesOcupadas = lugaresOcupados + unidad.getCupoDeTransporte();
         if (lugaresTotalesOcupadas <= capacidad) {
             lugaresOcupados = lugaresTotalesOcupadas;
             unidades.add(unidad);

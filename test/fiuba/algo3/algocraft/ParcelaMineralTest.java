@@ -71,6 +71,6 @@ public class ParcelaMineralTest {
         parcela.guardarElemento(new CentroDeMineral(unJugadorPropietario));
         parcela.darMinerales();
 
-        Assert.assertEquals(unJugadorPropietario.obtenerMineral(), Jugador.MINERAL_INICIAL + 10);
+        Assert.assertEquals(unJugadorPropietario.getMinerales(), Jugador.MINERAL_INICIAL + 10);
     }
 }

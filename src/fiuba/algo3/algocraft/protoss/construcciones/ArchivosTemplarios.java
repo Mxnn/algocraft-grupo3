@@ -25,36 +25,13 @@ public class ArchivosTemplarios extends CreadorDeUnidadesAereas {
 
     }
 
-    public TipoDeConstruccion obtenerTipoDeConstruccion() {
+    public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS;
     }
 
     public AltoTemplario crearAltoTemplario(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
-//        Boolean elementoUbicado = false;
-//        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
         AltoTemplario altoTemplario = new AltoTemplario(this.propietario);
         mapa.ubicarCercaDeParceala(parcelaUbicacion, altoTemplario);
-//        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
-//            try {
-//                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), altoTemplario);
-//            }
-//            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-//                coordenadasVecinas.remove(0);
-//                continue;
-//            }
-//            catch (ExcepcionParcelaOcupada e) {
-//                coordenadasVecinas.remove(0);
-//                continue;
-//            }
-//            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
-//                coordenadasVecinas.remove(0);
-//                continue;
-//            }
-//            elementoUbicado = true;
-//        }
-//
-//        if (coordenadasVecinas.size() <= 0)
-//            throw new ExcepcionNoHayLugarDisponible();
 
         return altoTemplario;
     }

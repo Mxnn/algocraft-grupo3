@@ -26,36 +26,13 @@ public class Fabrica extends CreadorDeUnidadesTerrestres {
         this.tiempoDeConstruccion = 12;
     }
 
-    public TipoDeConstruccion obtenerTipoDeConstruccion() {
+    public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES;
     }
 
     public Golliat crearGolliat(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
-//        Boolean elementoUbicado = false;
-//        ArrayList<Coordenada> coordenadasVecinas = ((this.parcelaUbicacion).getCoordenada()).obtenerCoordenadasVecinas();
         Golliat golliat = new Golliat(this.propietario);
         mapa.ubicarCercaDeParceala(parcelaUbicacion, golliat);
-//        while (!elementoUbicado && coordenadasVecinas.size() > 0) {
-//            try {
-//                mapa.ubicarElementoEnParcela(coordenadasVecinas.get(0), golliat);
-//            }
-//            catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-//                coordenadasVecinas.remove(0);
-//                continue;
-//            }
-//            catch (ExcepcionParcelaOcupada e) {
-//                coordenadasVecinas.remove(0);
-//                continue;
-//            }
-//            catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
-//                coordenadasVecinas.remove(0);
-//                continue;
-//            }
-//            elementoUbicado = true;
-//        }
-//
-//        if (coordenadasVecinas.size() <= 0)
-//            throw new ExcepcionNoHayLugarDisponible();
 
         return golliat;
     }

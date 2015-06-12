@@ -27,8 +27,6 @@ public class Terran extends Raza {
         return INSTANCIA;
     }
 
- 
-    
 	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario, Refineria.COSTO))
             throw new ExcepcionRecursosInsuficientes();

@@ -56,13 +56,13 @@ public class Juego {
         jugadores.add(nuevoJugador);
     }
 
-    public int cantidadDeJugadores() {
+    public int getCantidadDeJugadores() {
         return jugadores.size();
     }
 
     private boolean elNombreEstaEnUso(String nombre) {
         for (Jugador jugador : jugadores) {
-            if ( (jugador.obtenerNombre()).equals(nombre) ) {
+            if ( (jugador.getNombre()).equals(nombre) ) {
                return true;
             }
         }
@@ -71,7 +71,7 @@ public class Juego {
 
     private boolean elColorEstaEnUso(Color color) {
         for (Jugador jugador : jugadores) {
-            if (jugador.obtenerColor() == color) {
+            if (jugador.getColor() == color) {
                 return true;
             }
         }
@@ -113,15 +113,12 @@ public class Juego {
 		Parcela parcelaDestinacion = this.mapa.obtenerParcelaEnCoordenada(unidadAMover.itinerario.getFirst());
 		parcelaDestinacion.guardarElemento(unidadAMover);
 		
-		boolean hayQueMoverEnElProximoTurno = (unidadAMover.itinerario.size()>1);
-		return hayQueMoverEnElProximoTurno;
+		return (unidadAMover.itinerario.size() > 1);
 	}
 
 	public void tareaDelTurnoGenerarRecursos() {
-        for (int i = 0; i < this.jugadores.size(); i++) {
-            this.jugadores.get(i).tareaDelTurnoGenerarRecursos();
-        }
-		
+        for (Jugador j : this.jugadores)
+            j.tareaDelTurnoGenerarRecursos();
 	}
 
 

@@ -21,7 +21,7 @@ public class DepositoSuministro extends AdicionalSuministros {
         propietario.incrementarCapacidadDePoblacion(this.CANTIDAD_DE_SUMINISTROS_ADICIONALES);
     }
 
-    public TipoDeConstruccion obtenerTipoDeConstruccion() {
+    public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.ADICIONAL_SUMINISTROS;
     }
 }

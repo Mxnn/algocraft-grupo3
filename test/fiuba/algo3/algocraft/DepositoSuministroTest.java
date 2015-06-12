@@ -14,6 +14,6 @@ public class DepositoSuministroTest {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         DepositoSuministro deposito = new DepositoSuministro(unJugadorPropietario);
 
-        Assert.assertEquals(deposito.obtenerTipoDeConstruccion(), TipoDeConstruccion.ADICIONAL_SUMINISTROS);
+        Assert.assertEquals(deposito.getTipoDeConstruccion(), TipoDeConstruccion.ADICIONAL_SUMINISTROS);
     }
 }

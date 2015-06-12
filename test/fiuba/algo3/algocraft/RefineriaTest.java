@@ -14,7 +14,7 @@ public class RefineriaTest {
 
         refineria.collectarRecursos();
 
-        Assert.assertEquals(unJugadorPropietario.obtenerGasVespeno(), Jugador.GAS_VESPENO_INICIAL + 10);
+        Assert.assertEquals(unJugadorPropietario.getGasVespeno(), Jugador.GAS_VESPENO_INICIAL + 10);
     }
 
     @Test
@@ -22,6 +22,6 @@ public class RefineriaTest {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         ExtractorGas refineria = new Refineria(unJugadorPropietario);
 
-        Assert.assertEquals(refineria.obtenerTipoDeConstruccion(), TipoDeConstruccion.EXTRACTOR_GAS);
+        Assert.assertEquals(refineria.getTipoDeConstruccion(), TipoDeConstruccion.EXTRACTOR_GAS);
     }
 }

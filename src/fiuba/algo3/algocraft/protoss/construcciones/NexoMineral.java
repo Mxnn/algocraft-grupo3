@@ -15,7 +15,7 @@ public class NexoMineral  extends ExtractorMineral {
         this.tiempoDeConstruccion = 4;
     }
 
-    public TipoDeConstruccion obtenerTipoDeConstruccion() {
+    public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.EXTRACTOR_MINERAL;
     }
 }

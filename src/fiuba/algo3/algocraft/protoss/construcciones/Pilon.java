@@ -19,7 +19,7 @@ public class Pilon extends AdicionalSuministros {
 
     }
 
-    public TipoDeConstruccion obtenerTipoDeConstruccion() {
+    public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.ADICIONAL_SUMINISTROS;
     }
 }

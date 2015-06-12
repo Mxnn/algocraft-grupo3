@@ -17,11 +17,11 @@ public abstract class UnidadAgresora extends Unidad {
     	return ((this.parcelaUbicacion).devolverDistanciaConParcela(parcelaEnemigo));
     }
     
-    public RangoAtaque obtenerRangoAtaque(){
+    public RangoAtaque getRangoAtaque(){
     	return this.rangoAtaque;
     }
     
-    public Danyo obtenerDanyo(){
+    public Danyo getDanyo(){
     	return this.danyo;
     }
 

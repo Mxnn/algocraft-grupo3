@@ -8,7 +8,7 @@ public abstract class Raza {
 	
 	   public boolean recursosInsuficientes(Jugador propietario, Costo costo){
 
-		    return((propietario.obtenerGasVespeno()<costo.getCostoGas()) || (propietario.obtenerMineral()<costo.getCostoMineral()));
+		    return((propietario.getGasVespeno()<costo.getCostoGas()) || (propietario.getMinerales()<costo.getCostoMineral()));
 		   
 	   }
 

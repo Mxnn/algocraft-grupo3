@@ -23,8 +23,8 @@ public abstract class Interactuable {
     }
     
     public void recibirAtaque(UnidadAgresora agresor, int distancia) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
-    	RangoAtaque rango = agresor.obtenerRangoAtaque();
-    	Danyo danyo = agresor.obtenerDanyo();
+    	RangoAtaque rango = agresor.getRangoAtaque();
+    	Danyo danyo = agresor.getDanyo();
     	if(this.seleccionarRango(rango) < distancia){
     		throw new ExcepcionEnemigoFueraDeAlcance();
     	}
@@ -51,9 +51,7 @@ public abstract class Interactuable {
     public Vitalidad getVitalidad(){
     	return this.vitalidad;
     }
-    
-    
-    
+
     public abstract void destruir();
     
     public abstract void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada;

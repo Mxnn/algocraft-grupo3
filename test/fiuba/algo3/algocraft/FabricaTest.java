@@ -29,7 +29,7 @@ public class FabricaTest {
         unJugador.crearCreadorDeSoldados(mapa, new Coordenada(1, 1));
         Fabrica fabrica = new Fabrica(unJugador);
 
-        Assert.assertEquals(fabrica.obtenerTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES);
+        Assert.assertEquals(fabrica.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES);
     }
 
     @Test

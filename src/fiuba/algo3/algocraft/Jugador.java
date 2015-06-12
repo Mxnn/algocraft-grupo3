@@ -32,11 +32,11 @@ public class Jugador {
         this.poblacion = POBLACION_INICIAL;
     }
 
-    public String obtenerNombre() {
+    public String getNombre() {
         return this.nombre;
     }
 
-    public Color obtenerColor() {
+    public Color getColor() {
         return this.color;
     }
 
@@ -102,7 +102,7 @@ public class Jugador {
         this.gasVespeno = this.gasVespeno +  cantidad;
     }
 
-    public int obtenerGasVespeno() {
+    public int getGasVespeno() {
         return this.gasVespeno;
     }
 
@@ -110,7 +110,7 @@ public class Jugador {
         this.mineral = this.mineral+ cantidad;
     }
 
-    public int obtenerMineral() {
+    public int getMinerales() {
         return this.mineral;
     }
 
@@ -121,20 +121,20 @@ public class Jugador {
             this.capacidadDePoblacion += cantidad;
     }
 
-    public int capacidadDePoblacion() {
+    public int getCapacidadDePoblacion() {
         return this.capacidadDePoblacion;
     }
 
     public boolean tieneConstruccionDeTipo(TipoDeConstruccion tipo) {
         for (Construccion c : construcciones) {
-            if (c.obtenerTipoDeConstruccion() == tipo)
+            if (c.getTipoDeConstruccion() == tipo)
                 return true;
         }
 
         return false;
     }
 
-    public int obtenerPoblacion() {
+    public int getPoblacion() {
         return this.poblacion;
     }
 
@@ -146,7 +146,7 @@ public class Jugador {
                 this.poblacion = total;
     }
 
-    public int cantidadDeUnidades() {
+    public int getCantidadDeUnidades() {
         return this.unidades.size();
     }
 
@@ -164,9 +164,8 @@ public class Jugador {
     }
 
 	public void tareaDelTurnoGenerarRecursos() {
-        for (int i = 0; i < this.construcciones.size(); i++) {
-            this.construcciones.get(i).collectarRecursos();
-        }
+        for (Construccion c: this.construcciones)
+            c.collectarRecursos();
 		
 	}
 }

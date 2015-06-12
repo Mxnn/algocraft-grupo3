@@ -60,8 +60,8 @@ public class NaveTransporteProtossTest {
 
         nave.recibirDanyo(NaveTransporteProtoss.VIDA_INICIAL + NaveTransporteProtoss.ESCUDO_INICIAL + 1);
 
-        Assert.assertEquals(unJugador.cantidadDeUnidades(), 0);
-        Assert.assertEquals(unJugador.obtenerPoblacion(), 0);
+        Assert.assertEquals(unJugador.getCantidadDeUnidades(), 0);
+        Assert.assertEquals(unJugador.getPoblacion(), 0);
     }
 
     @Test(expected = ExcepcionUnidadEnemiga.class)

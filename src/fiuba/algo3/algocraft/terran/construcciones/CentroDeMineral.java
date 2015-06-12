@@ -18,7 +18,7 @@ public class CentroDeMineral extends ExtractorMineral{
         this.vitalidad = new Vitalidad(VIDA_INICIAL);
     }
 
-    public TipoDeConstruccion obtenerTipoDeConstruccion() {
+    public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.EXTRACTOR_MINERAL;
     }
     

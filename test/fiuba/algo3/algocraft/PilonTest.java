@@ -13,6 +13,6 @@ public class PilonTest {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         Pilon pilon = new Pilon(unJugadorPropietario);
 
-        Assert.assertEquals(pilon.obtenerTipoDeConstruccion(), TipoDeConstruccion.ADICIONAL_SUMINISTROS);
+        Assert.assertEquals(pilon.getTipoDeConstruccion(), TipoDeConstruccion.ADICIONAL_SUMINISTROS);
     }
 }

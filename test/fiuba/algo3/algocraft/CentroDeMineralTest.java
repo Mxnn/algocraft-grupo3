@@ -14,7 +14,7 @@ public class CentroDeMineralTest {
 
         centroDeMineral.collectarRecursos();
 
-        Assert.assertEquals(unJugadorPropietario.obtenerMineral(), Jugador.MINERAL_INICIAL + 10);
+        Assert.assertEquals(unJugadorPropietario.getMinerales(), Jugador.MINERAL_INICIAL + 10);
     }
 
     @Test
@@ -22,6 +22,6 @@ public class CentroDeMineralTest {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         ExtractorMineral centroDeMineral = new CentroDeMineral(unJugadorPropietario);
 
-        Assert.assertEquals(centroDeMineral.obtenerTipoDeConstruccion(), TipoDeConstruccion.EXTRACTOR_MINERAL);
+        Assert.assertEquals(centroDeMineral.getTipoDeConstruccion(), TipoDeConstruccion.EXTRACTOR_MINERAL);
     }
 }

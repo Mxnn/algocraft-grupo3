@@ -18,7 +18,7 @@ public class Asimilador  extends ExtractorGas {
 
     }
 
-    public TipoDeConstruccion obtenerTipoDeConstruccion() {
+    public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.EXTRACTOR_GAS;
     }
 }

@@ -34,6 +34,6 @@ public class ArchivosTemplariosTest {
         unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 3));
         ArchivosTemplarios archivo = new ArchivosTemplarios(unJugador);
 
-        Assert.assertEquals(archivo.obtenerTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS);
+        Assert.assertEquals(archivo.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS);
     }
 }

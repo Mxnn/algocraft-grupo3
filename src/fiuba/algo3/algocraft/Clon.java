@@ -8,9 +8,9 @@ public class Clon extends UnidadAgresora {
 	
 	public Clon(UnidadAgresora aClonar, Jugador propietario){
 		this.vitalidad =  new VitalidadProtoss(0, ((VitalidadProtoss) aClonar.getVitalidad()).getEscudo());
-		this.rangoAtaque = aClonar.obtenerRangoAtaque();
+		this.rangoAtaque = aClonar.getRangoAtaque();
 		this.danyo = new Danyo(0,0);
-		this.cupoDeTransporte = aClonar.obtenerCupoDeTransporte();
+		this.cupoDeTransporte = aClonar.getCupoDeTransporte();
 		this.propietario = propietario;
 	}
 

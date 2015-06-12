@@ -36,21 +36,21 @@ public class JugadorTest {
     public void elJugadorEmpiezaConLaCantidadDeMineralesInicial() {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
-        Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL);
+        Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL);
     }
 
     @Test
     public void elJugadorEmpiezaConLaCantidadDeGasVespenoInicial() {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
-        Assert.assertEquals(unJugador.obtenerGasVespeno(), Jugador.GAS_VESPENO_INICIAL);
+        Assert.assertEquals(unJugador.getGasVespeno(), Jugador.GAS_VESPENO_INICIAL);
     }
 
     @Test
     public void elJugadorComienzaConLaCapacidadDePoblacionInicial() {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
-        Assert.assertEquals(unJugador.capacidadDePoblacion(), Jugador.CAPACIDAD_DE_POBLACION_INICIAL);
+        Assert.assertEquals(unJugador.getCapacidadDePoblacion(), Jugador.CAPACIDAD_DE_POBLACION_INICIAL);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class JugadorTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
 
         Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
-        Assert.assertEquals(unJugador.capacidadDePoblacion(), 5);
+        Assert.assertEquals(unJugador.getCapacidadDePoblacion(), 5);
     }
 
     @Test
@@ -70,7 +70,7 @@ public class JugadorTest {
 
         unJugador.incrementarCapacidadDePoblacion(205);
 
-        Assert.assertEquals(unJugador.capacidadDePoblacion(), Jugador.CAPACIDAD_DE_POBLACION_MAXIMA);
+        Assert.assertEquals(unJugador.getCapacidadDePoblacion(), Jugador.CAPACIDAD_DE_POBLACION_MAXIMA);
     }
 
     @Test
@@ -114,7 +114,7 @@ public class JugadorTest {
 
     	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
 
-    	Assert.assertEquals(unJugador.obtenerGasVespeno(), Jugador.GAS_VESPENO_INICIAL + RECURSOS_SUFFICIENTES);
+    	Assert.assertEquals(unJugador.getGasVespeno(), Jugador.GAS_VESPENO_INICIAL + RECURSOS_SUFFICIENTES);
     }
     
     @Test(expected = ExcepcionRecursosInsuficientes.class)
@@ -137,7 +137,7 @@ public class JugadorTest {
         mapa.insertarParcela(new ParcelaVolcan(ubicacionVolcan));
     	unJugador.crearExtractorGas(mapa, ubicacionVolcan);
 
-    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - Refineria.COSTO.getCostoMineral());
+    	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL - Refineria.COSTO.getCostoMineral());
     }
     @Test
     public void crearExtractorDeMineralRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
@@ -148,7 +148,7 @@ public class JugadorTest {
         mapa.insertarParcela(new ParcelaMineral(ubicacionMineral));
     	unJugador.crearExtractorMineral(mapa, ubicacionMineral);
 
-    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - CentroDeMineral.COSTO.getCostoMineral());
+    	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL - CentroDeMineral.COSTO.getCostoMineral());
     }
 
     @Test(expected = ExcepcionRecursosInsuficientes.class)
@@ -169,7 +169,7 @@ public class JugadorTest {
 
     	unJugador.crearAdicionalDeSuministro(mapa, new Coordenada (1, 1));
 
-    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - DepositoSuministro.COSTO.getCostoMineral());
+    	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL - DepositoSuministro.COSTO.getCostoMineral());
     }
     
     @Test(expected = ExcepcionRecursosInsuficientes.class)
@@ -197,7 +197,7 @@ public class JugadorTest {
 
     	unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
 
-    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - Barraca.COSTO.getCostoMineral());
+    	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL - Barraca.COSTO.getCostoMineral());
     }
 
     @Test(expected = ExcepcionRecursosInsuficientes.class)
@@ -219,7 +219,7 @@ public class JugadorTest {
   
     	unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 3));
 
-    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Barraca.COSTO.getCostoMineral() - Fabrica.COSTO.getCostoMineral());
+    	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Barraca.COSTO.getCostoMineral() - Fabrica.COSTO.getCostoMineral());
     }
 
     @Test(expected = ExcepcionRecursosInsuficientes.class)
@@ -245,7 +245,7 @@ public class JugadorTest {
     	
     	unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 3));
 
-    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Barraca.COSTO.getCostoMineral() - Fabrica.COSTO.getCostoMineral() - PuertoEstelar.COSTO.getCostoMineral());
+    	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Barraca.COSTO.getCostoMineral() - Fabrica.COSTO.getCostoMineral() - PuertoEstelar.COSTO.getCostoMineral());
     }
 
     @Test(expected = ExcepcionRecursosInsuficientes.class)
@@ -269,7 +269,7 @@ public class JugadorTest {
         mapa.insertarParcela(new ParcelaVolcan(ubicacionVolcan));
     	unJugador.crearExtractorGas(mapa, ubicacionVolcan);
 
-    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - Asimilador.COSTO.getCostoMineral());
+    	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL - Asimilador.COSTO.getCostoMineral());
     }
     @Test
     public void crearExtractorDeMineralParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
@@ -280,7 +280,7 @@ public class JugadorTest {
         mapa.insertarParcela(new ParcelaMineral(ubicacionMineral));
     	unJugador.crearExtractorMineral(mapa, ubicacionMineral);
 
-    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL -  NexoMineral.COSTO.getCostoMineral());
+    	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL -  NexoMineral.COSTO.getCostoMineral());
     }
 
     @Test(expected = ExcepcionRecursosInsuficientes.class)
@@ -301,7 +301,7 @@ public class JugadorTest {
 
     	unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
 
-    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - Pilon.COSTO.getCostoMineral());
+    	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL - Pilon.COSTO.getCostoMineral());
     }
     
     @Test(expected = ExcepcionRecursosInsuficientes.class)
@@ -329,7 +329,7 @@ public class JugadorTest {
 
     	unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
 
-    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL - Acceso.COSTO.getCostoMineral());
+    	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL - Acceso.COSTO.getCostoMineral());
     }
 
     @Test(expected = ExcepcionRecursosInsuficientes.class)
@@ -353,7 +353,7 @@ public class JugadorTest {
   
     	unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 3));
 
-    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Acceso.COSTO.getCostoMineral() - ArchivosTemplarios.COSTO.getCostoMineral() - PuertoEstelarProtoss.COSTO.getCostoMineral());
+    	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Acceso.COSTO.getCostoMineral() - ArchivosTemplarios.COSTO.getCostoMineral() - PuertoEstelarProtoss.COSTO.getCostoMineral());
     }
 
     @Test(expected = ExcepcionRecursosInsuficientes.class)
@@ -379,7 +379,7 @@ public class JugadorTest {
         unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 3));
         unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 4));
 
-    	Assert.assertEquals(unJugador.obtenerMineral(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Acceso.COSTO.getCostoMineral() - ArchivosTemplarios.COSTO.getCostoMineral() - PuertoEstelarProtoss.COSTO.getCostoMineral());
+    	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Acceso.COSTO.getCostoMineral() - ArchivosTemplarios.COSTO.getCostoMineral() - PuertoEstelarProtoss.COSTO.getCostoMineral());
     }
     
     @Test
@@ -490,7 +490,7 @@ public class JugadorTest {
     public void elJugadorComienzaConPoblacionInicialCorrecta() {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
-        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL);
+        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL);
     }
 
     @Test(expected = ExcepcionNoHaySuministrosDisponibles.class)
@@ -516,7 +516,7 @@ public class JugadorTest {
         barraca = (Barraca) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
         marine = barraca.crearMarine(mapa);
 
-        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + marine.SUMINISTRO);
+        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + marine.SUMINISTRO);
     }
 
     @Test
@@ -534,7 +534,7 @@ public class JugadorTest {
         fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 3));
         golliat = fabrica.crearGolliat(mapa);
 
-        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + golliat.SUMINISTRO);
+        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + golliat.SUMINISTRO);
     }
 
     @Test
@@ -553,7 +553,7 @@ public class JugadorTest {
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 4));
         nave = puerto.crearNaveCiencia(mapa);
 
-        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + nave.SUMINISTRO);
+        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + nave.SUMINISTRO);
     }
 
     @Test
@@ -572,7 +572,7 @@ public class JugadorTest {
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 4));
         espectro = puerto.crearEspectro(mapa);
 
-        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + espectro.SUMINISTRO);
+        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + espectro.SUMINISTRO);
     }
 
     @Test
@@ -591,7 +591,7 @@ public class JugadorTest {
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 3));
         nave = puerto.crearNaveTransporte(mapa);
 
-        Assert.assertEquals(unJugador.obtenerPoblacion(), Jugador.POBLACION_INICIAL + nave.SUMINISTRO);
+        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + nave.SUMINISTRO);
     }
 
     @Test
@@ -606,7 +606,7 @@ public class JugadorTest {
         barraca = (Barraca) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
         barraca.crearMarine(mapa);
 
-        Assert.assertEquals(unJugador.cantidadDeUnidades(), 1);
+        Assert.assertEquals(unJugador.getCantidadDeUnidades(), 1);
     }
 
     @Test
@@ -622,13 +622,13 @@ public class JugadorTest {
         barraca = (Barraca) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
         marine = barraca.crearMarine(mapa);
 
-        Assert.assertEquals(unJugador.cantidadDeUnidades(), 1);
-        Assert.assertEquals(unJugador.obtenerPoblacion(),  marine.SUMINISTRO);
+        Assert.assertEquals(unJugador.getCantidadDeUnidades(), 1);
+        Assert.assertEquals(unJugador.getPoblacion(),  marine.SUMINISTRO);
 
         marine.destruir();
 
-        Assert.assertEquals(unJugador.cantidadDeUnidades(), 0);
-        Assert.assertEquals(unJugador.obtenerPoblacion(), 0);
+        Assert.assertEquals(unJugador.getCantidadDeUnidades(), 0);
+        Assert.assertEquals(unJugador.getPoblacion(), 0);
     }
 
     @Test
@@ -644,7 +644,7 @@ public class JugadorTest {
         deposito.recibirDanyo(DepositoSuministro.VIDA_INICIAL + 1);
 
         Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 0);
-        Assert.assertEquals(unJugador.capacidadDePoblacion(), 0);
+        Assert.assertEquals(unJugador.getCapacidadDePoblacion(), 0);
     }
 
     @Test

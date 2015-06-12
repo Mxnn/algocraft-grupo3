@@ -5,7 +5,7 @@ import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 
 public abstract class Construccion extends Interactuable {
 
-    public abstract TipoDeConstruccion obtenerTipoDeConstruccion();
+    public abstract TipoDeConstruccion getTipoDeConstruccion();
 
 	public void guardarEnParcela(ParcelaTierra parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         parcela.setElemento(this);

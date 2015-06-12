@@ -40,6 +40,6 @@ public class AccesoTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         Acceso acceso = new Acceso(unJugador);
 
-        Assert.assertEquals(acceso.obtenerTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_SOLDADOS);
+        Assert.assertEquals(acceso.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_SOLDADOS);
     }
 }
