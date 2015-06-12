@@ -1,8 +1,8 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.ConstruccionesProtoss.Acceso;
-import fiuba.algo3.algocraft.ConstruccionesProtoss.ArchivosTemplarios;
 import fiuba.algo3.algocraft.Excepciones.*;
+import fiuba.algo3.algocraft.protoss.construcciones.Acceso;
+import fiuba.algo3.algocraft.protoss.construcciones.ArchivosTemplarios;
 import fiuba.algo3.algocraft.protoss.unidades.AltoTemplario;
 import fiuba.algo3.algocraft.protoss.unidades.Zealot;
 

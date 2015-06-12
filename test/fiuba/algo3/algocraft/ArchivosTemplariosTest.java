@@ -1,10 +1,10 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.*;
+import fiuba.algo3.algocraft.protoss.construcciones.ArchivosTemplarios;
+
 import org.junit.Assert;
 import org.junit.Test;
-
-import fiuba.algo3.algocraft.ConstruccionesProtoss.ArchivosTemplarios;
 
 public class ArchivosTemplariosTest {
 

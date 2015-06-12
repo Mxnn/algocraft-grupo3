@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.ConstruccionesProtoss;
+package fiuba.algo3.algocraft.protoss.construcciones;
 
 
 import fiuba.algo3.algocraft.*;

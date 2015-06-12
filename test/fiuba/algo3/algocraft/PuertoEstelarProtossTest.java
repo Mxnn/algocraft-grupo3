@@ -1,10 +1,10 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.*;
+import fiuba.algo3.algocraft.protoss.construcciones.PuertoEstelarProtoss;
+
 import org.junit.Assert;
 import org.junit.Test;
-
-import fiuba.algo3.algocraft.ConstruccionesProtoss.PuertoEstelarProtoss;
 
 public class PuertoEstelarProtossTest {
 

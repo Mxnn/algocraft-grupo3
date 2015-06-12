@@ -3,6 +3,12 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.ConstruccionesProtoss.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.protoss.construcciones.Acceso;
+import fiuba.algo3.algocraft.protoss.construcciones.ArchivosTemplarios;
+import fiuba.algo3.algocraft.protoss.construcciones.Asimilador;
+import fiuba.algo3.algocraft.protoss.construcciones.NexoMineral;
+import fiuba.algo3.algocraft.protoss.construcciones.Pilon;
+import fiuba.algo3.algocraft.protoss.construcciones.PuertoEstelarProtoss;
 
 public class Protoss extends Raza {
     private static Protoss INSTANCIA = null;

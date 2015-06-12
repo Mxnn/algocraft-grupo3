@@ -1,10 +1,9 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.*;
+import fiuba.algo3.algocraft.protoss.construcciones.Acceso;
+
 import org.junit.Test;
-
-import fiuba.algo3.algocraft.ConstruccionesProtoss.Acceso;
-
 import org.junit.Assert;
 
 public class AccesoTest {
