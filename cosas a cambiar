@@ -8,8 +8,6 @@ Qué diferencia hay entre TipoDeConstruccion.CREADOR_DE_SOLDADOS y TipoDeConstru
 
 Se sigue usando directamente los atributos protegidos de Interactuable al inicializar cada construcción
 
-Getters y setters deben seguir la convención getXXX y setXXX donde XXX es el nombre del atributo (ej: Unidad.obtenerPropietario())
-
 Juego sigue siendo el responsable de validar la longitud del nombre del Jugador (Juego.crearJugador())
 
 Sería bueno que las pruebas de integración esten diferenciadas de pruebas unitarias
