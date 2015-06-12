@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.RazaProtoss;
+package fiuba.algo3.algocraft.protoss.unidades;
 
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;

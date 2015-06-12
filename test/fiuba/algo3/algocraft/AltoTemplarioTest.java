@@ -3,8 +3,9 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.ConstruccionesProtoss.Acceso;
 import fiuba.algo3.algocraft.ConstruccionesProtoss.ArchivosTemplarios;
 import fiuba.algo3.algocraft.Excepciones.*;
-import fiuba.algo3.algocraft.RazaProtoss.AltoTemplario;
-import fiuba.algo3.algocraft.RazaProtoss.Zealot;
+import fiuba.algo3.algocraft.protoss.unidades.AltoTemplario;
+import fiuba.algo3.algocraft.protoss.unidades.Zealot;
+
 import org.junit.Test;
 
 public class AltoTemplarioTest {

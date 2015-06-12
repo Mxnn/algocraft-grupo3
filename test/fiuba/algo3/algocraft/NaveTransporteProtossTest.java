@@ -3,9 +3,9 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.ConstruccionesProtoss.Acceso;
 import fiuba.algo3.algocraft.ConstruccionesProtoss.PuertoEstelarProtoss;
 import fiuba.algo3.algocraft.Excepciones.*;
-import fiuba.algo3.algocraft.RazaProtoss.Dragon;
-import fiuba.algo3.algocraft.RazaProtoss.NaveTransporteProtoss;
-import fiuba.algo3.algocraft.RazaProtoss.Scout;
+import fiuba.algo3.algocraft.protoss.unidades.Dragon;
+import fiuba.algo3.algocraft.protoss.unidades.NaveTransporteProtoss;
+import fiuba.algo3.algocraft.protoss.unidades.Scout;
 import fiuba.algo3.algocraft.terran.unidades.Marine;
 
 import org.junit.Assert;

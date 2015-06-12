@@ -3,8 +3,8 @@ package fiuba.algo3.algocraft.ConstruccionesProtoss;
 
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.*;
-import fiuba.algo3.algocraft.RazaProtoss.Zealot;
-import fiuba.algo3.algocraft.RazaProtoss.Dragon;
+import fiuba.algo3.algocraft.protoss.unidades.Dragon;
+import fiuba.algo3.algocraft.protoss.unidades.Zealot;
 
 import java.util.ArrayList;
 

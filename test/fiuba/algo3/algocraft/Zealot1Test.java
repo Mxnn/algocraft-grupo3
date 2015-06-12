@@ -2,7 +2,6 @@ package fiuba.algo3.algocraft;
 
 import static org.junit.Assert.*;
 
-
 import org.junit.Test;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionCoordenadaFueraDelMapa;
@@ -14,7 +13,7 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
-import fiuba.algo3.algocraft.RazaProtoss.Zealot;
+import fiuba.algo3.algocraft.protoss.unidades.Zealot;
 import fiuba.algo3.algocraft.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.terran.unidades.Marine;

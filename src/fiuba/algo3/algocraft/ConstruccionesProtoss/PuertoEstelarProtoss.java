@@ -2,8 +2,8 @@ package fiuba.algo3.algocraft.ConstruccionesProtoss;
 
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.*;
-import fiuba.algo3.algocraft.RazaProtoss.NaveTransporteProtoss;
-import fiuba.algo3.algocraft.RazaProtoss.Scout;
+import fiuba.algo3.algocraft.protoss.unidades.NaveTransporteProtoss;
+import fiuba.algo3.algocraft.protoss.unidades.Scout;
 
 import java.util.ArrayList;
 

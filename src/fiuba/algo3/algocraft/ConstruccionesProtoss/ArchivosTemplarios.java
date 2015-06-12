@@ -2,7 +2,7 @@ package fiuba.algo3.algocraft.ConstruccionesProtoss;
 
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.*;
-import fiuba.algo3.algocraft.RazaProtoss.AltoTemplario;
+import fiuba.algo3.algocraft.protoss.unidades.AltoTemplario;
 
 import java.util.ArrayList;
 
