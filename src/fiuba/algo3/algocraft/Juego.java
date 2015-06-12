@@ -76,9 +76,10 @@ public class Juego {
     
 
     public void moverUnidad(Coordenada desde, Coordenada hasta) throws ExcepcionCoordenadaFueraDelMapa{
+    	Unidad unidadAMover = (Unidad) this.mapa.devolverElementoEnParcela(desde);
+    	unidadAMover.calcularItinerario(this.mapa,desde,hasta);
 
-		this.mapa.calcularItinerario(desde, hasta);
-		this.UnidadesQueDebenMoverEnElTurno.add((Unidad) this.mapa.devolverElementoEnParcela(desde)) ;
+		this.UnidadesQueDebenMoverEnElTurno.add(unidadAMover) ;
 		
 			
 		

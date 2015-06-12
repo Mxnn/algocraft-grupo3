@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.terran.construcciones.Refineria;
+import fiuba.algo3.algocraft.terran.unidades.Golliat;
 import fiuba.algo3.algocraft.terran.unidades.Marine;
 
 import org.junit.Assert;
@@ -53,6 +54,22 @@ public class JuegoTest {
     }
 
     @Test
+    public void llamandoElMetodoCalcularItinerarioSeHaceUnaListaDeParcelaEnLaUnidad() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto {
+          Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+          Mapa mapa = new Mapa(2, 10, 10);
+          Coordenada desde = new Coordenada(5, 5);
+          Coordenada hasta = new Coordenada(8, 8);         
+          unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(2, 2));
+          Unidad golliat = new Golliat(unJugador);
+          mapa.ubicarElementoEnParcela(desde, golliat);
+          
+    	  golliat.calcularItinerario(mapa, desde, hasta);
+    	  
+    	  Assert.assertNotNull(golliat.itinerario);
+    	  
+    }
+    
+    @Test
     public void llamandoAMoverUnidadSeAgregaUnaUnidadEnLaListUnidadAMoverEnElTurno() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNoHaySuministrosDisponibles, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNombreCorto {
     	Juego elJuego = new Juego();
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
@@ -62,7 +79,7 @@ public class JuegoTest {
     	unJugador.crearAdicionalDeSuministro(elJuego.mapa, new Coordenada(1, 1));
 
     	Coordenada desde = new Coordenada(3,3);
-    	Coordenada hasta = new Coordenada (6,6);
+    	Coordenada hasta = new Coordenada (4,3);
     	
 
     	elJuego.mapa.ubicarElementoEnParcela(desde,new Marine(unJugador));

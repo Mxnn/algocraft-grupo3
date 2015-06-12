@@ -24,5 +24,10 @@ public class Marine extends UnidadAgresora {
         this.rangoAtaque = new RangoAtaque(4, 4);
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
     }
+    
+	public boolean destinacionPermitida(Parcela parcelaDestinacion) {
+
+		return (parcelaDestinacion.getClass() == ParcelaTierra.class);
+	}
 
 }

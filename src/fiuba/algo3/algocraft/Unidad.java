@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft;
 
 import java.util.LinkedList;
 
+import fiuba.algo3.algocraft.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 
@@ -46,4 +47,89 @@ public abstract class Unidad extends Interactuable {
     }
 
     public int getSuministro() { return this.suministro; }
+	public void calcularItinerario(Mapa mapa, Coordenada desde, Coordenada hasta) {
+		
+			
+			LinkedList<Coordenada> elItinerario = new LinkedList<Coordenada>();
+			
+			/*int auxX = desde.getX();
+			int auxY = desde.getY();
+			
+		 	int hastaX = hasta.getX();
+			int hastaY= hasta.getY();
+			elItinerario.add(new Coordenada(auxX,auxY));
+			
+			while ((auxX!=hasta.getX())||(auxY!=hasta.getY())){
+				System.out.println("avant llego auxX=");
+				System.out.println(auxX);
+				System.out.println("nollego");
+				System.out.println("auxX=");
+				System.out.println(auxX);
+				System.out.println("hastaX=");
+				System.out.println(hasta.getX());
+				if (auxX!=hasta.getX()){
+					int direccion;
+					if (auxX<hastaX){
+						direccion = 1;
+					}else{
+						direccion = -1;
+					}
+					
+					System.out.println(direccion);	
+					
+					while ((this.devolverElementoEnParcela(new Coordenada(auxX+ direccion, auxY))==null) && (auxX!=hastaX)){
+						auxX = auxX + direccion;
+						elItinerario.add(new Coordenada(auxX,auxY));
+						System.out.println("x");
+						System.out.println("auxX=");
+						System.out.println(auxX);
+					}
+					System.out.println("apres while auxX=");
+					System.out.println(auxX);
+				}
+				System.out.println("apres while et sorti if auxX=");
+				System.out.println(auxX);
+				
+				if(auxY!=hasta.getY()){
+				
+					int direccion;
+					if (auxY<hastaY){
+						direccion = 1;
+					}else{
+						direccion = -1;
+					}
+					
+					System.out.println(direccion);
+					
+					while ((this.devolverElementoEnParcela(new Coordenada(auxX, direccion+ auxY))==null)&& (auxY!=hastaY)){
+						auxY=auxY + direccion;
+						elItinerario.add(new Coordenada(auxX,auxY));
+						System.out.println("y");
+					}
+					
+				}
+				
+				System.out.println("a while auxX=");
+				System.out.println(auxX);
+			}*/
+			
+			Parcela parcelaDestinacion = mapa.getTablero().get(hasta);
+			if (this.destinacionPermitida(parcelaDestinacion)){
+				
+				this.itinerario.clear();
+				this.itinerario.add(desde); // la unidad se teleporta , tenemos que hacer un mejor calcul de itinerario
+				this.itinerario.add(hasta);
+
+				
+			}
+			
+
+			
+		
+		
+	}
+	public boolean destinacionPermitida(Parcela parcelaDestinacion) {
+
+		return true;
+	}
 }

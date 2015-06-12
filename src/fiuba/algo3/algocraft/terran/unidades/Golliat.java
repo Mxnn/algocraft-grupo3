@@ -25,4 +25,9 @@ public class Golliat extends UnidadAgresora {
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
     }
     
+	public boolean destinacionPermitida(Parcela parcelaDestinacion) {
+
+		return (parcelaDestinacion.getClass() == ParcelaTierra.class);
+	}
+    
 }

@@ -39,4 +39,9 @@ public class Scout extends UnidadAgresora {
     protected int seleccionarRango(RangoAtaque rango){
     	return rango.getRangoDeAtaqueEnAire();
     }
+    
+	public boolean destinacionPermitida(Parcela parcelaDestinacion) {
+
+		return (parcelaDestinacion.getClass() == ParcelaTierra.class);
+	}
 }
