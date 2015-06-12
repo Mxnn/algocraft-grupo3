@@ -26,7 +26,7 @@ public class Mapa {
     }
 
     private void validarNumeroDeBases(int numero) throws ExcepcionNumeroDeBasesInvalido {
-        if (numero >= 2 && numero <= NUMERO_DE_BASES_MAXIMO)
+        if (numero < 2 || numero > NUMERO_DE_BASES_MAXIMO)
             throw new ExcepcionNumeroDeBasesInvalido();
     }
 
