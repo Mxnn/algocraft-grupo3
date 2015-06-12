@@ -8,8 +8,6 @@ Qué diferencia hay entre TipoDeConstruccion.CREADOR_DE_SOLDADOS y TipoDeConstru
 
 Se sigue usando directamente los atributos protegidos de Interactuable al inicializar cada construcción
 
-Juego sigue siendo el responsable de validar la longitud del nombre del Jugador (Juego.crearJugador())
-
 Sería bueno que las pruebas de integración esten diferenciadas de pruebas unitarias
 
 Utilizar accesores a métodos (ej: no es correcto que los métodos incrementarCapacidadDePoblacion() / decrementarPoblacion() de Jugador sean público ya que rompe el encapsulamiento)

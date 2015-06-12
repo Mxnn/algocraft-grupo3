@@ -5,6 +5,7 @@ import fiuba.algo3.algocraft.excepciones.*;
 import java.util.ArrayList;
 
 public class Jugador {
+    private final int LONGITUD_MINIMA_PARA_EL_NOMBRE = 4;
     static final int GAS_VESPENO_INICIAL = 0;
     static final int MINERAL_INICIAL = 200;
     static final int CAPACIDAD_DE_POBLACION_MAXIMA = 200;
@@ -19,7 +20,10 @@ public class Jugador {
     private int gasVespeno;
     private int mineral;
     
-    public Jugador(String nombre, Color color, Raza raza) {
+    public Jugador(String nombre, Color color, Raza raza) throws ExcepcionNombreCorto {
+        if (nombre.length() < this.LONGITUD_MINIMA_PARA_EL_NOMBRE)
+            throw new ExcepcionNombreCorto();
+
         this.nombre = nombre;
         this.color = color;
         this.raza = raza;

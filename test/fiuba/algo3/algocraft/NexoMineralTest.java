@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.excepciones.ExcepcionNombreCorto;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ import fiuba.algo3.algocraft.protoss.construcciones.NexoMineral;
 public class NexoMineralTest {
 
 	@Test
-    public void unNexoMineralRecolectaMineralesYSeLosSumaAlJugadorPropietario() {
+    public void unNexoMineralRecolectaMineralesYSeLosSumaAlJugadorPropietario() throws ExcepcionNombreCorto {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         ExtractorMineral nexoMineral = new NexoMineral(unJugadorPropietario);
 
@@ -19,7 +20,7 @@ public class NexoMineralTest {
     }
 
     @Test
-    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas {
+    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNombreCorto {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         ExtractorMineral nexoMineral = new NexoMineral(unJugadorPropietario);
         

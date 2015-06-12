@@ -43,13 +43,6 @@ public class JuegoTest {
         juego.crearJugador("Pedro", Color.ROJO, Protoss.getInstance());
     }
 
-    @Test(expected = ExcepcionNombreCorto.class)
-     public void crearJugadorConNombreConMenosDe4LetrasLanzaExcepcion() throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNumeroDeBasesInvalido {
-        Juego juego = new Juego();
-
-        juego.crearJugador("TRE", Color.ROJO, Terran.getInstance());
-    }
-
     @Test(expected = ExcepcionAlcanzadoElMaximoCupoDeJugadores.class)
     public void crearTresJugadoresLanzaExcepcion() throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNumeroDeBasesInvalido {
         Juego juego = new Juego();
@@ -60,7 +53,7 @@ public class JuegoTest {
     }
 
     @Test
-    public void llamandoAMoverUnidadSeAgregaUnaUnidadEnLaListUnidadAMoverEnElTurno() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNoHaySuministrosDisponibles, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas {
+    public void llamandoAMoverUnidadSeAgregaUnaUnidadEnLaListUnidadAMoverEnElTurno() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNoHaySuministrosDisponibles, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNombreCorto {
     	Juego elJuego = new Juego();
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
@@ -80,7 +73,7 @@ public class JuegoTest {
     }
     
     @Test
-    public void unaUnidadSeMueveSiEsEnLaListDeUnidadesAMover() throws ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles{
+    public void unaUnidadSeMueveSiEsEnLaListDeUnidadesAMover() throws ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionNombreCorto {
     	Juego elJuego = new Juego();
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
@@ -98,7 +91,7 @@ public class JuegoTest {
     }
 
     @Test
-    public void losEdificiosExtrorasGenerenRecursosCadaTurnoConElMetodoTareaDelTurnoGenerarRecursos() throws ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada{
+    public void losEdificiosExtrorasGenerenRecursosCadaTurnoConElMetodoTareaDelTurnoGenerarRecursos() throws ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNombreCorto {
     	Juego elJuego = new Juego();
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
     	Jugador unOtroJugador = new Jugador("Maria", Color.AMARILLO, Terran.getInstance());
@@ -114,8 +107,6 @@ public class JuegoTest {
 
     	elJuego.tareaDelTurnoGenerarRecursos();
     	Assert.assertEquals(unJugador.getGasVespeno(), Jugador.GAS_VESPENO_INICIAL - Refineria.COSTO.getCostoGas() +ExtractorGas.CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO);
-
-        
     }
 
 }

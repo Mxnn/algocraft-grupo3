@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.terran.construcciones.Refineria;
 
 import org.junit.Assert;
@@ -8,7 +9,7 @@ import org.junit.Test;
 
 public class RefineriaTest {
     @Test
-    public void unaRefineriaAbsorbeGasVespenoYSeLoSumaAlJugadorPropietario() {
+    public void unaRefineriaAbsorbeGasVespenoYSeLoSumaAlJugadorPropietario() throws ExcepcionNombreCorto {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         ExtractorGas refineria = new Refineria(unJugadorPropietario);
 
@@ -18,7 +19,7 @@ public class RefineriaTest {
     }
 
     @Test
-    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas {
+    public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNombreCorto {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         ExtractorGas refineria = new Refineria(unJugadorPropietario);
 
