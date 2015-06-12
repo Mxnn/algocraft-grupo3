@@ -9,6 +9,11 @@ import fiuba.algo3.algocraft.terran.construcciones.DepositoSuministro;
 import fiuba.algo3.algocraft.terran.construcciones.Fabrica;
 import fiuba.algo3.algocraft.terran.construcciones.PuertoEstelar;
 import fiuba.algo3.algocraft.terran.construcciones.Refineria;
+import fiuba.algo3.algocraft.terran.unidades.Espectro;
+import fiuba.algo3.algocraft.terran.unidades.Golliat;
+import fiuba.algo3.algocraft.terran.unidades.Marine;
+import fiuba.algo3.algocraft.terran.unidades.NaveCiencia;
+import fiuba.algo3.algocraft.terran.unidades.NaveTransporteTerran;
 
 import org.junit.Assert;
 import org.junit.Test;

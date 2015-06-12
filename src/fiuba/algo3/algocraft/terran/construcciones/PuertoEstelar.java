@@ -7,9 +7,9 @@ import fiuba.algo3.algocraft.Jugador;
 import fiuba.algo3.algocraft.Mapa;
 import fiuba.algo3.algocraft.TipoDeConstruccion;
 import fiuba.algo3.algocraft.Excepciones.*;
-import fiuba.algo3.algocraft.RazaTerran.Espectro;
-import fiuba.algo3.algocraft.RazaTerran.NaveCiencia;
-import fiuba.algo3.algocraft.RazaTerran.NaveTransporteTerran;
+import fiuba.algo3.algocraft.terran.unidades.Espectro;
+import fiuba.algo3.algocraft.terran.unidades.NaveCiencia;
+import fiuba.algo3.algocraft.terran.unidades.NaveTransporteTerran;
 
 import java.util.ArrayList;
 

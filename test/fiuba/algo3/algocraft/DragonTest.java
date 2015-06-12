@@ -15,9 +15,9 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.RazaProtoss.Dragon;
 import fiuba.algo3.algocraft.RazaProtoss.Zealot;
-import fiuba.algo3.algocraft.RazaTerran.Espectro;
-import fiuba.algo3.algocraft.RazaTerran.Marine;
 import fiuba.algo3.algocraft.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.terran.unidades.Espectro;
+import fiuba.algo3.algocraft.terran.unidades.Marine;
 
 public class DragonTest {
 

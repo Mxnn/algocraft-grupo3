@@ -1,7 +1,7 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.*;
-import fiuba.algo3.algocraft.RazaTerran.Marine;
+import fiuba.algo3.algocraft.terran.unidades.Marine;
 
 import org.junit.Assert;
 import org.junit.Test;

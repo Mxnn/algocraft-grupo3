@@ -1,11 +1,11 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.*;
-import fiuba.algo3.algocraft.RazaTerran.Espectro;
-import fiuba.algo3.algocraft.RazaTerran.Marine;
 import fiuba.algo3.algocraft.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.terran.construcciones.CentroDeMineral;
 import fiuba.algo3.algocraft.terran.construcciones.Refineria;
+import fiuba.algo3.algocraft.terran.unidades.Espectro;
+import fiuba.algo3.algocraft.terran.unidades.Marine;
 
 import org.junit.Assert;
 import org.junit.Test;

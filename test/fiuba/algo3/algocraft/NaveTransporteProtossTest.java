@@ -6,7 +6,7 @@ import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.RazaProtoss.Dragon;
 import fiuba.algo3.algocraft.RazaProtoss.NaveTransporteProtoss;
 import fiuba.algo3.algocraft.RazaProtoss.Scout;
-import fiuba.algo3.algocraft.RazaTerran.Marine;
+import fiuba.algo3.algocraft.terran.unidades.Marine;
 
 import org.junit.Assert;
 import org.junit.Test;

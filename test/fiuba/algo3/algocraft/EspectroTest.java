@@ -13,10 +13,10 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
-import fiuba.algo3.algocraft.RazaTerran.Espectro;
-import fiuba.algo3.algocraft.RazaTerran.Golliat;
-import fiuba.algo3.algocraft.RazaTerran.Marine;
 import fiuba.algo3.algocraft.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.terran.unidades.Espectro;
+import fiuba.algo3.algocraft.terran.unidades.Golliat;
+import fiuba.algo3.algocraft.terran.unidades.Marine;
 
 public class EspectroTest {
 

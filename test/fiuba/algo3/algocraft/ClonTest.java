@@ -14,7 +14,7 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.RazaProtoss.Dragon;
-import fiuba.algo3.algocraft.RazaTerran.Marine;
+import fiuba.algo3.algocraft.terran.unidades.Marine;
 
 public class ClonTest {
 

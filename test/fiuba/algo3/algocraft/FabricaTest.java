@@ -1,8 +1,8 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.*;
-import fiuba.algo3.algocraft.RazaTerran.Golliat;
 import fiuba.algo3.algocraft.terran.construcciones.Fabrica;
+import fiuba.algo3.algocraft.terran.unidades.Golliat;
 
 import org.junit.Assert;
 import org.junit.Test;

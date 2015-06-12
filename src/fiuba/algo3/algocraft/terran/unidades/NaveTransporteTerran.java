@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.RazaTerran;
+package fiuba.algo3.algocraft.terran.unidades;
 
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;

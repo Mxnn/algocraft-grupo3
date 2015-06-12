@@ -7,7 +7,7 @@ import fiuba.algo3.algocraft.Jugador;
 import fiuba.algo3.algocraft.Mapa;
 import fiuba.algo3.algocraft.TipoDeConstruccion;
 import fiuba.algo3.algocraft.Excepciones.*;
-import fiuba.algo3.algocraft.RazaTerran.Golliat;
+import fiuba.algo3.algocraft.terran.unidades.Golliat;
 
 import java.util.ArrayList;
 
