@@ -13,15 +13,28 @@ public class Juego {
     private static int MAXIMO_NUMERO_DE_JUGADORES = 2;
 
 
-    public ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
-    public Mapa mapa ;
-    public LinkedList<Unidad> UnidadesQueDebenMoverEnElTurno = new LinkedList<Unidad>();
-    public LinkedList<Unidad> UnidadesQueDebenMoverEnElProximoTurno = new LinkedList<Unidad>();
+    private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+    private Mapa mapa ;
+    private LinkedList<Unidad> UnidadesQueDebenMoverEnElTurno = new LinkedList<Unidad>();
+    private LinkedList<Unidad> UnidadesQueDebenMoverEnElProximoTurno = new LinkedList<Unidad>();
     
     public Juego() throws ExcepcionNumeroDeBasesInvalido { 
     	mapa = new Mapa (2,5,5); 
     }
 
+    public ArrayList<Jugador> getJugadores(){
+    	return this.jugadores;
+    }
+    public Mapa getMapa(){
+    	return this.mapa;
+    }
+    public LinkedList<Unidad> getListDeUnidadesQueDebenMoverEnElTurno(){
+    	 return this.UnidadesQueDebenMoverEnElTurno;
+    }
+    
+    public LinkedList<Unidad> getListDeUnidadesQueDebenMoverEnElProximoTurno(){
+   	 return this.UnidadesQueDebenMoverEnElProximoTurno;
+   }
     /*
  
 

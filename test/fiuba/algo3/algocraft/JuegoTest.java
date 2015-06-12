@@ -76,17 +76,17 @@ public class JuegoTest {
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
     	
-    	unJugador.crearAdicionalDeSuministro(elJuego.mapa, new Coordenada(1, 1));
+    	unJugador.crearAdicionalDeSuministro(elJuego.getMapa(), new Coordenada(1, 1));
 
     	Coordenada desde = new Coordenada(3,3);
     	Coordenada hasta = new Coordenada (4,3);
     	
 
-    	elJuego.mapa.ubicarElementoEnParcela(desde,new Marine(unJugador));
+    	elJuego.getMapa().ubicarElementoEnParcela(desde,new Marine(unJugador));
  
     	elJuego.moverUnidad(desde, hasta);
     	
-    	Assert.assertEquals(elJuego.UnidadesQueDebenMoverEnElTurno.size(),1);
+    	Assert.assertEquals(elJuego.getListDeUnidadesQueDebenMoverEnElTurno().size(),1);
     }
     
     @Test
@@ -95,15 +95,15 @@ public class JuegoTest {
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
-   	  	unJugador.crearAdicionalDeSuministro(elJuego.mapa, new Coordenada(1, 1));
+   	  	unJugador.crearAdicionalDeSuministro(elJuego.getMapa(), new Coordenada(1, 1));
     	Coordenada desde = new Coordenada(2,2);
     	Coordenada hasta = new Coordenada (3,2);
-    	elJuego.mapa.ubicarElementoEnParcela(desde,new Marine(unJugador));
+    	elJuego.getMapa().ubicarElementoEnParcela(desde,new Marine(unJugador));
     	elJuego.moverUnidad(desde, hasta);
     	
     	elJuego.tareaDelTurnoMoverLasUnidades();
-    	System.out.println(elJuego.mapa.obtenerParcelaEnCoordenada(desde).elemento);
-    	Assert.assertTrue(elJuego.mapa.obtenerParcelaEnCoordenada(desde).estaVacia());
+    	System.out.println(elJuego.getMapa().obtenerParcelaEnCoordenada(desde).elemento);
+    	Assert.assertTrue(elJuego.getMapa().obtenerParcelaEnCoordenada(desde).estaVacia());
 
     }
 
@@ -112,8 +112,8 @@ public class JuegoTest {
     	Juego elJuego = new Juego();
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
     	Jugador unOtroJugador = new Jugador("Maria", Color.AMARILLO, Terran.getInstance());
-    	elJuego.jugadores.add(unJugador);
-    	elJuego.jugadores.add(unOtroJugador);
+    	elJuego.getJugadores().add(unJugador);
+    	elJuego.getJugadores().add(unOtroJugador);
     	
         Mapa mapa = new Mapa (2, 20, 20);
         Coordenada ubicacionVolcan = new Coordenada(1, 1);
