@@ -2,10 +2,10 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 
-public class EstadoProtoss extends Estado {
+public class VitalidadProtoss extends Vitalidad {
     private int escudo;
 
-    public EstadoProtoss(int vida, int escudo) {
+    public VitalidadProtoss(int vida, int escudo) {
         super(vida);
         this.escudo = escudo;
     }

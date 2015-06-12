@@ -9,13 +9,13 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 public abstract class Interactuable {
 	
 	protected Jugador propietario;
-	protected Estado estado;
+	protected Vitalidad vitalidad;
 	protected int tiempoDeConstruccion;
 	protected Parcela parcelaUbicacion;
 
     public void recibirDanyo(int cantidad) throws ExcepcionEstadoMuerto {
         try {
-            (this.estado).recibirDanyo(cantidad);
+            (this.vitalidad).recibirDanyo(cantidad);
         }
         catch (ExcepcionEstadoMuerto e) {
             this.destruir();
@@ -45,11 +45,11 @@ public abstract class Interactuable {
     }
     
     public int getVida() {
-    	return estado.getVida();
+    	return vitalidad.getVida();
     }
     
-    public Estado getEstado(){
-    	return this.estado;
+    public Vitalidad getVitalidad(){
+    	return this.vitalidad;
     }
     
     

@@ -19,7 +19,7 @@ public class Zealot extends UnidadAgresora /*implements Alucinable*/ {
         this.SUMINISTRO = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
-        this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
+        this.vitalidad = new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         this.danyo = new Danyo(0, 8);
         this.vision = VISION;
         this.rangoAtaque = new RangoAtaque(0, 1);

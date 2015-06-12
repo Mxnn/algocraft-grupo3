@@ -18,7 +18,7 @@ public class Acceso extends CreadorDeSoldados {
     
 	public Acceso(Jugador propietario){
 		this.propietario = propietario;
-        this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
+        this.vitalidad = new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         this.tiempoDeConstruccion = 8;
 
 	}

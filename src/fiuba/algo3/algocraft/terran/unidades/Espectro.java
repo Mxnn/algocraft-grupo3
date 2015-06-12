@@ -2,9 +2,6 @@ package fiuba.algo3.algocraft.terran.unidades;
 
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoNoAtacable;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
 
@@ -21,7 +18,7 @@ public class Espectro extends UnidadAgresora {
         this.SUMINISTRO = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
-        this.estado = new Estado(VIDA_INICIAL);
+        this.vitalidad = new Vitalidad(VIDA_INICIAL);
         this.danyo = new Danyo(20, 8);
         this.vision = VISION;
         this.rangoAtaque = new RangoAtaque(5, 5);

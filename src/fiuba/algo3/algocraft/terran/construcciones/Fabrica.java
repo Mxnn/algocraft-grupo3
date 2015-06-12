@@ -2,7 +2,7 @@ package fiuba.algo3.algocraft.terran.construcciones;
 
 import fiuba.algo3.algocraft.Costo;
 import fiuba.algo3.algocraft.CreadorDeUnidadesTerrestres;
-import fiuba.algo3.algocraft.Estado;
+import fiuba.algo3.algocraft.Vitalidad;
 import fiuba.algo3.algocraft.Jugador;
 import fiuba.algo3.algocraft.Mapa;
 import fiuba.algo3.algocraft.TipoDeConstruccion;
@@ -20,7 +20,7 @@ public class Fabrica extends CreadorDeUnidadesTerrestres {
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
 
         this.propietario = propietario;
-        this.estado = new Estado(VIDA_INICIAL);
+        this.vitalidad = new Vitalidad(VIDA_INICIAL);
         this.tiempoDeConstruccion = 12;
     }
 

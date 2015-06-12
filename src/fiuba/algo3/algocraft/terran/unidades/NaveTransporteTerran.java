@@ -18,7 +18,7 @@ public class NaveTransporteTerran extends NaveTransporte {
         this.SUMINISTRO = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
-        this.estado = new Estado(VIDA_INICIAL);
+        this.vitalidad = new Vitalidad(VIDA_INICIAL);
 
         this.vision = VISION;
 

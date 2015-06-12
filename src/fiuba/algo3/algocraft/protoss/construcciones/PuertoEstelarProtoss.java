@@ -18,7 +18,7 @@ public class PuertoEstelarProtoss extends CreadorDeUnidadesTerrestres {
         if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_SOLDADOS))
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
 		this.propietario = propietario;
-        this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
+        this.vitalidad = new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         this.tiempoDeConstruccion = 10;
 
 	}

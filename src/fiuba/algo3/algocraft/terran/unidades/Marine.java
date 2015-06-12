@@ -1,9 +1,6 @@
 package fiuba.algo3.algocraft.terran.unidades;
 
 import fiuba.algo3.algocraft.*;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoNoAtacable;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
 
 public class Marine extends UnidadAgresora {
@@ -20,7 +17,7 @@ public class Marine extends UnidadAgresora {
         this.SUMINISTRO = 1;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
-        this.estado = new Estado(VIDA_INICIAL);
+        this.vitalidad = new Vitalidad(VIDA_INICIAL);
         this.danyo = new Danyo(6, 6);
         this.vision = VISION;
         this.cupoDeTransporte = CUPO_TRANSPORTE;

@@ -2,10 +2,10 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 
-public class Estado {
+public class Vitalidad {
     protected int vida;
 
-    public Estado(int vida) {
+    public Vitalidad(int vida) {
         this.vida = vida;
     }
 

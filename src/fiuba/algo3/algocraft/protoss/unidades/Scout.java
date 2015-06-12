@@ -20,7 +20,7 @@ public class Scout extends UnidadAgresora {
         this.SUMINISTRO = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
-        this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
+        this.vitalidad = new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         this.danyo = new Danyo(14, 8);
         this.vision = VISION;
         this.rangoAtaque = new RangoAtaque(4, 4);

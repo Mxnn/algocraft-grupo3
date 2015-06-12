@@ -4,24 +4,24 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class EstadoTest {
+public class VitalidadTest {
     @Test
     public void recibirDanyoRestaElDanyoDelEstado() throws ExcepcionEstadoMuerto {
         int vidaInicial = 200;
         int danyoHecho = 50;
-        Estado estado = new Estado(vidaInicial);
+        Vitalidad vitalidad = new Vitalidad(vidaInicial);
 
-        estado.recibirDanyo(danyoHecho);
+        vitalidad.recibirDanyo(danyoHecho);
 
-        Assert.assertEquals(estado.getVida(), vidaInicial - danyoHecho);
+        Assert.assertEquals(vitalidad.getVida(), vidaInicial - danyoHecho);
     }
 
     @Test(expected = ExcepcionEstadoMuerto.class)
     public void siElDanyoRecibidoEsMayorALaVidaDelEstadoLanzaExcepcion() throws ExcepcionEstadoMuerto {
         int vidaInicial = 200;
         int danyoHecho = 250;
-        Estado estado = new Estado(vidaInicial);
+        Vitalidad vitalidad = new Vitalidad(vidaInicial);
 
-        estado.recibirDanyo(danyoHecho);
+        vitalidad.recibirDanyo(danyoHecho);
     }
 }

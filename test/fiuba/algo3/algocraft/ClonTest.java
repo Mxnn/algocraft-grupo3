@@ -40,7 +40,7 @@ public class ClonTest {
 		
 		UnidadAgresora clon = new Clon(dragon, unJugador);
 		
-		assertEquals(80,((EstadoProtoss) clon.getEstado()).getEscudo()); 
+		assertEquals(80,((VitalidadProtoss) clon.getVitalidad()).getEscudo());
 	}
 	@Test
 	public void clonTieneCeroVida() throws ExcepcionEstadoMuerto, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido{
@@ -51,7 +51,7 @@ public class ClonTest {
 		
 		UnidadAgresora clon = new Clon(dragon, unJugador);
 		
-		assertEquals(0,clon.getEstado().getVida()); 
+		assertEquals(0,clon.getVitalidad().getVida());
 	}
 	
 	@Test

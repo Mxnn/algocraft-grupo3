@@ -4,13 +4,13 @@ import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class EstadoProtossTest {
+public class VitalidadProtossTest {
     @Test
     public void recibirDanyoRestaElDanyoPrimeroDelEscudo() throws ExcepcionEstadoMuerto {
         int vidaInicial = 200;
         int escudoInicial = 100;
         int danyoHecho = 50;
-        EstadoProtoss estado = new EstadoProtoss(vidaInicial, escudoInicial);
+        VitalidadProtoss estado = new VitalidadProtoss(vidaInicial, escudoInicial);
 
         estado.recibirDanyo(danyoHecho);
 
@@ -23,7 +23,7 @@ public class EstadoProtossTest {
         int vidaInicial = 200;
         int escudoInicial = 100;
         int danyoHecho = 150;
-        EstadoProtoss estado = new EstadoProtoss(vidaInicial, escudoInicial);
+        VitalidadProtoss estado = new VitalidadProtoss(vidaInicial, escudoInicial);
 
         estado.recibirDanyo(danyoHecho);
 
@@ -36,7 +36,7 @@ public class EstadoProtossTest {
         int vidaInicial = 200;
         int escudoInicial = 100;
         int danyoHecho = 350;
-        EstadoProtoss estado = new EstadoProtoss(vidaInicial, escudoInicial);
+        VitalidadProtoss estado = new VitalidadProtoss(vidaInicial, escudoInicial);
 
         estado.recibirDanyo(danyoHecho);
     }

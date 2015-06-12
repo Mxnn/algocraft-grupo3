@@ -12,7 +12,7 @@ public class Pilon extends AdicionalSuministros {
     
     public Pilon(Jugador propietario) {
         this.propietario = propietario;
-        this.estado = new EstadoProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
+        this.vitalidad = new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
         this.tiempoDeConstruccion = 5;
         this.CANTIDAD_DE_SUMINISTROS_ADICIONALES = 5;
         propietario.incrementarCapacidadDePoblacion(this.CANTIDAD_DE_SUMINISTROS_ADICIONALES);
