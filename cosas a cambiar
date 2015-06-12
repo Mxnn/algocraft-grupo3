@@ -14,13 +14,9 @@ Sería bueno que las pruebas de integración esten diferenciadas de pruebas unit
 
 Utilizar accesores a métodos (ej: no es correcto que los métodos incrementarCapacidadDePoblacion() / decrementarPoblacion() de Jugador sean público ya que rompe el encapsulamiento)
 
-Evitar usar atributos para valores calculables (ej: Jugador.capacidadDePoblacion)
-
 Por qué es necesario que Barraca.crearMarine() reciba por parámetro el objeto Mapa?
 
 Clase abstracta CreadorDeSoldados no define ningún método ni atributo, podría ser interfaz (o ser directamente eliminada?)
-
-Nombres de variables empiezan siempre en minúsculas (ej: Mapa.calcularItinerario() -> ParcelaPartida)
 
 No debería ser Mapa quien calcule el itinerario para mover una unidad entre 2 puntos
 
