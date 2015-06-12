@@ -36,21 +36,21 @@ public class PuertoEstelar extends CreadorDeUnidadesAereas {
 
     public Espectro crearEspectro(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
         Espectro espectro = new Espectro(this.propietario);
-        mapa.ubicarCercaDeParceala(parcelaUbicacion, espectro);
+        mapa.ubicarCercaDeParcela(parcelaUbicacion, espectro);
 
         return espectro;
     }
 
     public NaveTransporteTerran crearNaveTransporte(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
         NaveTransporteTerran nave = new NaveTransporteTerran(this.propietario);
-        mapa.ubicarCercaDeParceala(parcelaUbicacion, nave);
+        mapa.ubicarCercaDeParcela(parcelaUbicacion, nave);
 
         return nave;
     }
 
     public NaveCiencia crearNaveCiencia(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
         NaveCiencia nave = new NaveCiencia(this.propietario);
-        mapa.ubicarCercaDeParceala(parcelaUbicacion, nave);
+        mapa.ubicarCercaDeParcela(parcelaUbicacion, nave);
 
         return nave;
     }

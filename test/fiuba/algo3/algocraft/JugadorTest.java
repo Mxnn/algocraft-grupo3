@@ -65,15 +65,6 @@ public class JugadorTest {
     }
 
     @Test
-    public void incrementarCapacidadDePoblacionNoSumaMasDeLaPoblacionMaxima() {
-        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-
-        unJugador.incrementarCapacidadDePoblacion(205);
-
-        Assert.assertEquals(unJugador.getCapacidadDePoblacion(), Jugador.CAPACIDAD_DE_POBLACION_MAXIMA);
-    }
-
-    @Test
     public void creadorDeSoldadosCreaEdificioCreadorDeSoldados() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
@@ -516,7 +507,7 @@ public class JugadorTest {
         barraca = (Barraca) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
         marine = barraca.crearMarine(mapa);
 
-        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + marine.SUMINISTRO);
+        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + marine.getSuministro());
     }
 
     @Test
@@ -534,7 +525,7 @@ public class JugadorTest {
         fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 3));
         golliat = fabrica.crearGolliat(mapa);
 
-        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + golliat.SUMINISTRO);
+        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + golliat.getSuministro());
     }
 
     @Test
@@ -553,7 +544,7 @@ public class JugadorTest {
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 4));
         nave = puerto.crearNaveCiencia(mapa);
 
-        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + nave.SUMINISTRO);
+        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + nave.getSuministro());
     }
 
     @Test
@@ -572,7 +563,7 @@ public class JugadorTest {
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 4));
         espectro = puerto.crearEspectro(mapa);
 
-        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + espectro.SUMINISTRO);
+        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + espectro.getSuministro());
     }
 
     @Test
@@ -591,7 +582,7 @@ public class JugadorTest {
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 3));
         nave = puerto.crearNaveTransporte(mapa);
 
-        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + nave.SUMINISTRO);
+        Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + nave.getSuministro());
     }
 
     @Test
@@ -623,7 +614,7 @@ public class JugadorTest {
         marine = barraca.crearMarine(mapa);
 
         Assert.assertEquals(unJugador.getCantidadDeUnidades(), 1);
-        Assert.assertEquals(unJugador.getPoblacion(),  marine.SUMINISTRO);
+        Assert.assertEquals(unJugador.getPoblacion(), marine.getSuministro());
 
         marine.destruir();
 

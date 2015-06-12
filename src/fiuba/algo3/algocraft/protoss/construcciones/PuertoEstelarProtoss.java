@@ -31,14 +31,14 @@ public class PuertoEstelarProtoss extends CreadorDeUnidadesTerrestres {
     
     public Scout crearScout(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
         Scout scout = new Scout(this.propietario);
-        mapa.ubicarCercaDeParceala(parcelaUbicacion, scout);
+        mapa.ubicarCercaDeParcela(parcelaUbicacion, scout);
 
         return scout;
     }
     
     public NaveTransporteProtoss crearNaveTransporte(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
         NaveTransporteProtoss nave = new NaveTransporteProtoss(this.propietario);
-        mapa.ubicarCercaDeParceala(parcelaUbicacion, nave);
+        mapa.ubicarCercaDeParcela(parcelaUbicacion, nave);
 
         return nave;
     }

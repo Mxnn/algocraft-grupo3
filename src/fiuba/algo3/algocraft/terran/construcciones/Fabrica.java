@@ -32,7 +32,7 @@ public class Fabrica extends CreadorDeUnidadesTerrestres {
 
     public Golliat crearGolliat(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
         Golliat golliat = new Golliat(this.propietario);
-        mapa.ubicarCercaDeParceala(parcelaUbicacion, golliat);
+        mapa.ubicarCercaDeParcela(parcelaUbicacion, golliat);
 
         return golliat;
     }

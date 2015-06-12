@@ -56,6 +56,6 @@ public abstract class NaveTransporte extends Unidad {
         Unidad unidadSacada = unidades.get(index);
         unidades.remove(unidad);
 
-        mapa.ubicarCercaDeParceala(this.parcelaUbicacion, unidadSacada);
+        mapa.ubicarCercaDeParcela(this.parcelaUbicacion, unidadSacada);
     }
 }

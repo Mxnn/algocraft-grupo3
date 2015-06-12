@@ -31,7 +31,7 @@ public class ArchivosTemplarios extends CreadorDeUnidadesAereas {
 
     public AltoTemplario crearAltoTemplario(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
         AltoTemplario altoTemplario = new AltoTemplario(this.propietario);
-        mapa.ubicarCercaDeParceala(parcelaUbicacion, altoTemplario);
+        mapa.ubicarCercaDeParcela(parcelaUbicacion, altoTemplario);
 
         return altoTemplario;
     }

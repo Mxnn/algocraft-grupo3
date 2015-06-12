@@ -30,14 +30,14 @@ public class Acceso extends CreadorDeSoldados {
 
     public Zealot crearZealot(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
         Zealot zealot = new Zealot(this.propietario);
-        mapa.ubicarCercaDeParceala(parcelaUbicacion, zealot);
+        mapa.ubicarCercaDeParcela(parcelaUbicacion, zealot);
 
         return zealot;
     }
 
     public Dragon crearDragon(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
         Dragon dragon = new Dragon(this.propietario);
-        mapa.ubicarCercaDeParceala(parcelaUbicacion, dragon);
+        mapa.ubicarCercaDeParcela(parcelaUbicacion, dragon);
 
         return dragon;
     }

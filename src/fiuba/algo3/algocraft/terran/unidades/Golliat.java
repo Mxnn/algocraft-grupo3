@@ -14,7 +14,7 @@ public class Golliat extends UnidadAgresora {
     public static final int TIEMPO_DE_CONSTRUCCION = 6;
 
     public Golliat(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        this.SUMINISTRO = 2;
+        this.suministro = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
         this.vitalidad = new Vitalidad(VIDA_INICIAL);

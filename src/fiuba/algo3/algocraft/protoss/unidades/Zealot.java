@@ -16,7 +16,7 @@ public class Zealot extends UnidadAgresora /*implements Alucinable*/ {
     
 
 	public Zealot(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        this.SUMINISTRO = 2;
+        this.suministro = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
         this.vitalidad = new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
@@ -26,10 +26,6 @@ public class Zealot extends UnidadAgresora /*implements Alucinable*/ {
         this.cupoDeTransporte = CUPO_TRANSPORTE;
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
 	}
-
-//    public Alucinable crearAlucinacion() throws ExcepcionNoHaySuministrosDisponibles, CloneNotSupportedException {
-//        return new AltoTemplario(this.propietario);
-//    }
 }
 
 

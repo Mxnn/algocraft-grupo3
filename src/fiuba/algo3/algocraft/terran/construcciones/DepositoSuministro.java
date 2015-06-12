@@ -17,8 +17,7 @@ public class DepositoSuministro extends AdicionalSuministros {
         this.propietario = propietario;
         this.vitalidad = new Vitalidad(VIDA_INICIAL);
         this.tiempoDeConstruccion = 6;
-        this.CANTIDAD_DE_SUMINISTROS_ADICIONALES = 5;
-        propietario.incrementarCapacidadDePoblacion(this.CANTIDAD_DE_SUMINISTROS_ADICIONALES);
+        this.suministrosAdicionales = 5;
     }
 
     public TipoDeConstruccion getTipoDeConstruccion() {

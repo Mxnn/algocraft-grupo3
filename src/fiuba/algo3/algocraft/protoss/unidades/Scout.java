@@ -17,7 +17,7 @@ public class Scout extends UnidadAgresora {
     
     
     public Scout(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        this.SUMINISTRO = 2;
+        this.suministro = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
         this.vitalidad = new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
@@ -27,6 +27,7 @@ public class Scout extends UnidadAgresora {
         this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
         
     }
+
     public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
     }

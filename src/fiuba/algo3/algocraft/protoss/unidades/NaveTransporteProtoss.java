@@ -16,7 +16,7 @@ public class NaveTransporteProtoss extends NaveTransporte {
     
     
     public NaveTransporteProtoss(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        this.SUMINISTRO = 2;
+        this.suministro = 2;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
         this.vitalidad = new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL);

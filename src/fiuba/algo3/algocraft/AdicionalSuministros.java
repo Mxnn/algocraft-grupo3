@@ -1,11 +1,9 @@
 package fiuba.algo3.algocraft;
 
 public abstract class AdicionalSuministros extends Construccion {
-    protected int CANTIDAD_DE_SUMINISTROS_ADICIONALES;
+    protected int suministrosAdicionales;
 
-    public void destruir() {
-        (this.propietario).decrementarPoblacion(this.CANTIDAD_DE_SUMINISTROS_ADICIONALES);
-        (this.parcelaUbicacion).vaciarParcela();
-        super.destruir();
+    public int getCantidadDeSuministrosAdicionales() {
+        return this.suministrosAdicionales;
     }
 }

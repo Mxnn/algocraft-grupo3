@@ -8,7 +8,6 @@ import java.util.LinkedList;
 public class Mapa {
     private static final int NUMERO_DE_BASES_MAXIMO = 4;
 
-    private int numeroDeBases;
     private int columnas;
     private int filas;
     private HashMap<Coordenada, Parcela> tablero;
@@ -28,8 +27,6 @@ public class Mapa {
 
     private void validarNumeroDeBases(int numero) throws ExcepcionNumeroDeBasesInvalido {
         if (numero >= 2 && numero <= NUMERO_DE_BASES_MAXIMO)
-            this.numeroDeBases = numero;
-        else
             throw new ExcepcionNumeroDeBasesInvalido();
     }
 
@@ -141,8 +138,8 @@ public class Mapa {
 			System.out.println(auxX);
 		}*/
 		
-		Parcela ParcelaPartida = this.tablero.get(desde);
-		Unidad laUnidad = (Unidad) ParcelaPartida.elemento;
+		Parcela parcelaPartida = this.tablero.get(desde);
+		Unidad laUnidad = (Unidad) parcelaPartida.elemento;
 		laUnidad.itinerario = elItinerario;
 		
 		elItinerario.clear();
@@ -153,7 +150,7 @@ public class Mapa {
 		
 	}
 
-	public void ubicarCercaDeParceala(Parcela parcela, Interactuable elemento) throws ExcepcionNoHayLugarDisponible{
+	public void ubicarCercaDeParcela(Parcela parcela, Interactuable elemento) throws ExcepcionNoHayLugarDisponible{
 		Boolean elementoUbicado = false;
         ArrayList<Coordenada> coordenadasVecinas = ((parcela).getCoordenada()).obtenerCoordenadasVecinas();
 		while (!elementoUbicado && coordenadasVecinas.size() > 0) {

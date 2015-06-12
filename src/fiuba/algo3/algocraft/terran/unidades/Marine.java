@@ -14,7 +14,7 @@ public class Marine extends UnidadAgresora {
     public static final int TIEMPO_DE_CONSTRUCCION = 3;
 
     public Marine(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        this.SUMINISTRO = 1;
+        this.suministro = 1;
         propietario.agregarUnidad(this);
         this.propietario = propietario;
         this.vitalidad = new Vitalidad(VIDA_INICIAL);

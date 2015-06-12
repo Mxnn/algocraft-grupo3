@@ -18,9 +18,6 @@ public class Jugador {
     private ArrayList<Unidad> unidades = new ArrayList<Unidad>();
     private int gasVespeno;
     private int mineral;
-    private int capacidadDePoblacion;
-    private int poblacion;
-    
     
     public Jugador(String nombre, Color color, Raza raza) {
         this.nombre = nombre;
@@ -28,8 +25,6 @@ public class Jugador {
         this.raza = raza;
         this.gasVespeno = GAS_VESPENO_INICIAL;
         this.mineral = MINERAL_INICIAL;
-        this.capacidadDePoblacion = CAPACIDAD_DE_POBLACION_INICIAL;
-        this.poblacion = POBLACION_INICIAL;
     }
 
     public String getNombre() {
@@ -99,7 +94,7 @@ public class Jugador {
 	}
 
     public void sumarGasVespeno(int cantidad) {
-        this.gasVespeno = this.gasVespeno +  cantidad;
+        this.gasVespeno = this.gasVespeno + cantidad;
     }
 
     public int getGasVespeno() {
@@ -114,15 +109,19 @@ public class Jugador {
         return this.mineral;
     }
 
-    public void incrementarCapacidadDePoblacion(int cantidad) {
-        if ( (this.capacidadDePoblacion + cantidad) > CAPACIDAD_DE_POBLACION_MAXIMA)
-            this.capacidadDePoblacion = CAPACIDAD_DE_POBLACION_MAXIMA;
-        else
-            this.capacidadDePoblacion += cantidad;
-    }
-
     public int getCapacidadDePoblacion() {
-        return this.capacidadDePoblacion;
+        int cantidad = 0;
+        for (Construccion c: this.construcciones) {
+            if (c.getTipoDeConstruccion() == TipoDeConstruccion.ADICIONAL_SUMINISTROS)
+                cantidad += ( (AdicionalSuministros) c).getCantidadDeSuministrosAdicionales();
+        }
+
+        if (cantidad < CAPACIDAD_DE_POBLACION_INICIAL)
+            return CAPACIDAD_DE_POBLACION_INICIAL;
+        else if (cantidad > CAPACIDAD_DE_POBLACION_MAXIMA)
+            return CAPACIDAD_DE_POBLACION_MAXIMA;
+        else
+            return cantidad;
     }
 
     public boolean tieneConstruccionDeTipo(TipoDeConstruccion tipo) {
@@ -135,15 +134,20 @@ public class Jugador {
     }
 
     public int getPoblacion() {
-        return this.poblacion;
+        int cantidad = 0;
+        for (Unidad u: this.unidades) {
+            cantidad += u.getSuministro();
+        }
+
+        return cantidad;
     }
 
     public void agregarUnidad(Unidad unidad) throws ExcepcionNoHaySuministrosDisponibles {
-        int total = this.poblacion += unidad.SUMINISTRO;
-        if (total > this.capacidadDePoblacion)
+        int total = this.getPoblacion() + unidad.getSuministro();
+        if (total > this.getCapacidadDePoblacion())
             throw new ExcepcionNoHaySuministrosDisponibles();
-        else if (this.unidades.add(unidad))
-                this.poblacion = total;
+        else
+            this.unidades.add(unidad);
     }
 
     public int getCantidadDeUnidades() {
@@ -151,16 +155,11 @@ public class Jugador {
     }
 
     public void eliminarUnidad(Unidad unidad) {
-        if ((this.unidades).remove(unidad))
-            this.poblacion -= unidad.SUMINISTRO;
+        (this.unidades).remove(unidad);
     }
 
     public void eliminarConstruccion(Construccion construccion) {
         (this.construcciones).remove(construccion);
-    }
-
-    public void decrementarPoblacion(int cantidad) {
-        this.capacidadDePoblacion -= cantidad;
     }
 
 	public void tareaDelTurnoGenerarRecursos() {

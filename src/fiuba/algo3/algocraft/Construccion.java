@@ -25,6 +25,7 @@ public abstract class Construccion extends Interactuable {
 
     public void destruir() {
         (this.propietario).eliminarConstruccion(this);
+        (this.parcelaUbicacion).vaciarParcela();
     }
     
     protected  int seleccionarDanyo(Danyo danyo){

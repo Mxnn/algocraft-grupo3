@@ -29,7 +29,7 @@ public class Barraca extends CreadorDeSoldados {
 
     public Marine crearMarine(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
         Marine marine = new Marine(this.propietario);
-        mapa.ubicarCercaDeParceala(parcelaUbicacion, marine);
+        mapa.ubicarCercaDeParcela(parcelaUbicacion, marine);
 
         return marine;
     }

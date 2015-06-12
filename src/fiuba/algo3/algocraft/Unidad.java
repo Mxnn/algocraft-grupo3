@@ -8,9 +8,9 @@ import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 public abstract class Unidad extends Interactuable {
 	protected int cupoDeTransporte;
     protected int vision;
+    protected int suministro;
 
     protected LinkedList<Coordenada> itinerario = new LinkedList<Coordenada>();
-    public int SUMINISTRO;
     
     public void destruir() {
         (this.propietario).eliminarUnidad(this);
@@ -44,4 +44,6 @@ public abstract class Unidad extends Interactuable {
     public Jugador getPropietario() {
         return this.propietario;
     }
+
+    public int getSuministro() { return this.suministro; }
 }
