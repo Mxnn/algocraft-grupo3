@@ -4,8 +4,6 @@ import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.protoss.unidades.AltoTemplario;
 
-import java.util.ArrayList;
-
 public class ArchivosTemplarios extends CreadorDeUnidadesAereas {
 
     private static final int VIDA_INICIAL = 500;

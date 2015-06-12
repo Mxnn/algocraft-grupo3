@@ -5,8 +5,6 @@ import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.protoss.unidades.NaveTransporteProtoss;
 import fiuba.algo3.algocraft.protoss.unidades.Scout;
 
-import java.util.ArrayList;
-
 
 public class PuertoEstelarProtoss extends CreadorDeUnidadesTerrestres {
     private static final int VIDA_INICIAL = 600;

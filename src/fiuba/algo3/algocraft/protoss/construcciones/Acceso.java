@@ -6,8 +6,6 @@ import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.protoss.unidades.Dragon;
 import fiuba.algo3.algocraft.protoss.unidades.Zealot;
 
-import java.util.ArrayList;
-
 
 public class Acceso extends CreadorDeSoldados {
 

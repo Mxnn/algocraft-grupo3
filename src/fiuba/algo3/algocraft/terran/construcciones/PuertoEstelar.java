@@ -11,8 +11,6 @@ import fiuba.algo3.algocraft.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.terran.unidades.NaveCiencia;
 import fiuba.algo3.algocraft.terran.unidades.NaveTransporteTerran;
 
-import java.util.ArrayList;
-
 public class PuertoEstelar extends CreadorDeUnidadesAereas {
 
     private static final int VIDA_INICIAL = 1300;

@@ -9,8 +9,6 @@ import fiuba.algo3.algocraft.TipoDeConstruccion;
 import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.terran.unidades.Marine;
 
-import java.util.ArrayList;
-
 public class Barraca extends CreadorDeSoldados {
 
     private static final int VIDA_INICIAL = 1000;

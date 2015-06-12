@@ -9,8 +9,6 @@ import fiuba.algo3.algocraft.TipoDeConstruccion;
 import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.terran.unidades.Golliat;
 
-import java.util.ArrayList;
-
 public class Fabrica extends CreadorDeUnidadesTerrestres {
     private static final int VIDA_INICIAL = 1250;
     public static int COSTO_MINERAL = 200;
