@@ -1,5 +1,5 @@
 package fiuba.algo3.algocraft;
-import fiuba.algo3.algocraft.Excepciones.*;
+import fiuba.algo3.algocraft.excepciones.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;

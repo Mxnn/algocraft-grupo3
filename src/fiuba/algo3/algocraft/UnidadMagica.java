@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnergiaInsuficiente;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEnergiaInsuficiente;
 
 public abstract class UnidadMagica extends Unidad {
     public int ENERGIA_INICIAL;

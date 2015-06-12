@@ -2,8 +2,8 @@ package fiuba.algo3.algocraft;
 
 import java.util.LinkedList;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 
 public abstract class Unidad extends Interactuable {
 	protected int cupoDeTransporte;

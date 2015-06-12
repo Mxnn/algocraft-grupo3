@@ -4,15 +4,15 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionCoordenadaFueraDelMapa;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoNoAtacable;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNumeroDeBasesInvalido;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.excepciones.ExcepcionCoordenadaFueraDelMapa;
+import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoNoAtacable;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
+import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.excepciones.ExcepcionNumeroDeBasesInvalido;
+import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.protoss.unidades.Dragon;
 import fiuba.algo3.algocraft.terran.unidades.Marine;
 

@@ -1,7 +1,9 @@
 package fiuba.algo3.algocraft.protoss.unidades;
 
 import fiuba.algo3.algocraft.*;
-import fiuba.algo3.algocraft.Excepciones.*;
+import fiuba.algo3.algocraft.excepciones.ExcepcionNoHayLugarDisponible;
+import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.excepciones.ExcepcionUnidadEnemiga;
 
 public class AltoTemplario extends UnidadMagica /*implements Alucinable*/ {
     public static final int VIDA_INICIAL = 40;

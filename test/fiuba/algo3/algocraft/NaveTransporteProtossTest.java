@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.*;
+import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.protoss.construcciones.Acceso;
 import fiuba.algo3.algocraft.protoss.construcciones.PuertoEstelarProtoss;
 import fiuba.algo3.algocraft.protoss.unidades.Dragon;

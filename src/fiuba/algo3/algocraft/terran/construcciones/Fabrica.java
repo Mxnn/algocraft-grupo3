@@ -6,7 +6,9 @@ import fiuba.algo3.algocraft.Vitalidad;
 import fiuba.algo3.algocraft.Jugador;
 import fiuba.algo3.algocraft.Mapa;
 import fiuba.algo3.algocraft.TipoDeConstruccion;
-import fiuba.algo3.algocraft.Excepciones.*;
+import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.excepciones.ExcepcionNoHayLugarDisponible;
+import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.terran.unidades.Golliat;
 
 public class Fabrica extends CreadorDeUnidadesTerrestres {

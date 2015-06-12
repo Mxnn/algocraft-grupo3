@@ -1,8 +1,8 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoNoAtacable;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoNoAtacable;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 
 public abstract class UnidadAgresora extends Unidad {
     protected RangoAtaque rangoAtaque;

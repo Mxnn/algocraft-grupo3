@@ -2,7 +2,8 @@ package fiuba.algo3.algocraft;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNumeroDeBasesInvalido;
+import fiuba.algo3.algocraft.excepciones.ExcepcionNumeroDeBasesInvalido;
+
 import org.junit.Assert;
 import org.junit.Test;
 

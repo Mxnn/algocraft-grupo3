@@ -1,23 +1,9 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.*;
-import fiuba.algo3.algocraft.protoss.construcciones.Acceso;
-import fiuba.algo3.algocraft.protoss.construcciones.ArchivosTemplarios;
-import fiuba.algo3.algocraft.protoss.construcciones.Asimilador;
-import fiuba.algo3.algocraft.protoss.construcciones.NexoMineral;
-import fiuba.algo3.algocraft.protoss.construcciones.Pilon;
-import fiuba.algo3.algocraft.protoss.construcciones.PuertoEstelarProtoss;
-import fiuba.algo3.algocraft.terran.construcciones.Barraca;
-import fiuba.algo3.algocraft.terran.construcciones.CentroDeMineral;
-import fiuba.algo3.algocraft.terran.construcciones.DepositoSuministro;
-import fiuba.algo3.algocraft.terran.construcciones.Fabrica;
-import fiuba.algo3.algocraft.terran.construcciones.PuertoEstelar;
-import fiuba.algo3.algocraft.terran.construcciones.Refineria;
-import fiuba.algo3.algocraft.terran.unidades.Espectro;
-import fiuba.algo3.algocraft.terran.unidades.Golliat;
-import fiuba.algo3.algocraft.terran.unidades.Marine;
-import fiuba.algo3.algocraft.terran.unidades.NaveCiencia;
-import fiuba.algo3.algocraft.terran.unidades.NaveTransporteTerran;
+import fiuba.algo3.algocraft.excepciones.*;
+import fiuba.algo3.algocraft.protoss.construcciones.*;
+import fiuba.algo3.algocraft.terran.construcciones.*;
+import fiuba.algo3.algocraft.terran.unidades.*;
 
 import org.junit.Assert;
 import org.junit.Test;

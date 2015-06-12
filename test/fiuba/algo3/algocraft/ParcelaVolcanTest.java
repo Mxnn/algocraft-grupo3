@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.*;
+import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.terran.construcciones.CentroDeMineral;
 import fiuba.algo3.algocraft.terran.construcciones.Refineria;

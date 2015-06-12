@@ -1,10 +1,10 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.ExcepcionElementoNoAdmitidoEnParcela;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEnemigoNoAtacable;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoNoAtacable;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
+import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 
 public abstract class Interactuable {
 	

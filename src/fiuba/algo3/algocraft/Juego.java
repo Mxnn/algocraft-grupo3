@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.*;
+import fiuba.algo3.algocraft.excepciones.*;
+import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

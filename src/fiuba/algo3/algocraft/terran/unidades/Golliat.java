@@ -1,7 +1,7 @@
 package fiuba.algo3.algocraft.terran.unidades;
 
 import fiuba.algo3.algocraft.*;
-import fiuba.algo3.algocraft.Excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 
 public class Golliat extends UnidadAgresora {
     public static int COSTO_MINERAL = 100;

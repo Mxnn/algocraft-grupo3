@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft;
 
-import fiuba.algo3.algocraft.Excepciones.*;
+import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.terran.unidades.Golliat;
 import fiuba.algo3.algocraft.terran.unidades.Marine;
