@@ -2,6 +2,12 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.terran.construcciones.CentroDeMineral;
+import fiuba.algo3.algocraft.terran.construcciones.DepositoSuministro;
+import fiuba.algo3.algocraft.terran.construcciones.Fabrica;
+import fiuba.algo3.algocraft.terran.construcciones.PuertoEstelar;
+import fiuba.algo3.algocraft.terran.construcciones.Refineria;
 
 public class Terran extends Raza {
     private static Terran INSTANCIA = null;

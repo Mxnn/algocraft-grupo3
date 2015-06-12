@@ -3,6 +3,8 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.Excepciones.ExcepcionNumeroDeBasesInvalido;
+import fiuba.algo3.algocraft.terran.construcciones.DepositoSuministro;
+
 import org.junit.Assert;
 import org.junit.Test;
 

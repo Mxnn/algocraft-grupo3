@@ -1,6 +1,8 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.terran.construcciones.CentroDeMineral;
+
 import org.junit.Assert;
 import org.junit.Test;
 

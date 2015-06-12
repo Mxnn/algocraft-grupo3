@@ -17,6 +17,7 @@ import fiuba.algo3.algocraft.RazaProtoss.Scout;
 import fiuba.algo3.algocraft.RazaTerran.Espectro;
 import fiuba.algo3.algocraft.RazaTerran.Golliat;
 import fiuba.algo3.algocraft.RazaTerran.Marine;
+import fiuba.algo3.algocraft.terran.construcciones.Barraca;
 
 public class GolliatTest {
 

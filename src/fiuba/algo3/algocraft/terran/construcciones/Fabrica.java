@@ -1,5 +1,11 @@
-package fiuba.algo3.algocraft;
+package fiuba.algo3.algocraft.terran.construcciones;
 
+import fiuba.algo3.algocraft.Costo;
+import fiuba.algo3.algocraft.CreadorDeUnidadesTerrestres;
+import fiuba.algo3.algocraft.Estado;
+import fiuba.algo3.algocraft.Jugador;
+import fiuba.algo3.algocraft.Mapa;
+import fiuba.algo3.algocraft.TipoDeConstruccion;
 import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.RazaTerran.Golliat;
 

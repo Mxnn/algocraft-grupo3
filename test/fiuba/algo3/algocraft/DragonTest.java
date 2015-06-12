@@ -17,6 +17,7 @@ import fiuba.algo3.algocraft.RazaProtoss.Dragon;
 import fiuba.algo3.algocraft.RazaProtoss.Zealot;
 import fiuba.algo3.algocraft.RazaTerran.Espectro;
 import fiuba.algo3.algocraft.RazaTerran.Marine;
+import fiuba.algo3.algocraft.terran.construcciones.Barraca;
 
 public class DragonTest {
 

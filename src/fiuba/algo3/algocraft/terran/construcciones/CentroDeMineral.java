@@ -1,4 +1,10 @@
-package fiuba.algo3.algocraft;
+package fiuba.algo3.algocraft.terran.construcciones;
+
+import fiuba.algo3.algocraft.Costo;
+import fiuba.algo3.algocraft.Estado;
+import fiuba.algo3.algocraft.ExtractorMineral;
+import fiuba.algo3.algocraft.Jugador;
+import fiuba.algo3.algocraft.TipoDeConstruccion;
 
 public class CentroDeMineral extends ExtractorMineral{
     private static final int VIDA_INICIAL = 500;

@@ -2,6 +2,8 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.Excepciones.*;
 import fiuba.algo3.algocraft.RazaTerran.*;
+import fiuba.algo3.algocraft.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.terran.construcciones.CentroDeMineral;
 
 import org.junit.Assert;
 import org.junit.Test;
