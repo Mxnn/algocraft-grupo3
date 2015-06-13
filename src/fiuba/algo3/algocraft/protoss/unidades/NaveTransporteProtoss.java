@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft.protoss.unidades;
 
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.juego.Jugador;
 
 public class NaveTransporteProtoss extends NaveTransporte {
     public static final int VIDA_INICIAL = 125;

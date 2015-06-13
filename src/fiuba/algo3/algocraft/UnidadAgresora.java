@@ -4,6 +4,7 @@ import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoNoAtacable;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Parcela;
 
 public abstract class UnidadAgresora extends Unidad {

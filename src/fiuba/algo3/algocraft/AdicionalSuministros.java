@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.juego.Jugador;
+
 public abstract class AdicionalSuministros extends Construccion {
     protected int suministrosAdicionales;
 

@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.*;
+import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.Parcela;
 import fiuba.algo3.algocraft.mapa.ParcelaEspacio;

@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.protoss.construcciones.Acceso;
 import fiuba.algo3.algocraft.protoss.construcciones.ArchivosTemplarios;
 import fiuba.algo3.algocraft.protoss.construcciones.Asimilador;

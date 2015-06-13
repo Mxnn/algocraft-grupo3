@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.juego.Jugador;
 
 public abstract class Raza {
 

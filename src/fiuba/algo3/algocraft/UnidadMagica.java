@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnergiaInsuficiente;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.juego.Jugador;
 
 public abstract class UnidadMagica extends Unidad {
     protected int regeneracionEnergia;

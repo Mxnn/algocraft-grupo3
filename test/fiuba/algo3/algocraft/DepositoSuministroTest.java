@@ -4,6 +4,8 @@ import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCrea
 import fiuba.algo3.algocraft.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNumeroDeBasesInvalido;
+import fiuba.algo3.algocraft.juego.Color;
+import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.terran.construcciones.DepositoSuministro;
 
 import org.junit.Assert;
