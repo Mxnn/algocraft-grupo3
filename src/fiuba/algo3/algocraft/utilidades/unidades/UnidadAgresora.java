@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft.utilidades.unidades;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoNoAtacable;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEnergiaInsuficiente;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.juego.Jugador;
@@ -38,5 +39,9 @@ public abstract class UnidadAgresora extends Unidad {
     public Danyo getDanyo() {
     	return this.danyo;
     }
+    
+    public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
+		ataque.atacar(this);
+	}
 
 }

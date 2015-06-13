@@ -20,4 +20,8 @@ public class Vitalidad {
     public int getVida() {
         return this.vida;
     }
+    
+    public void recibirEmp() throws ExcepcionEstadoMuerto{
+    	
+    }
 }

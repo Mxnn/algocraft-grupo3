@@ -1,6 +1,9 @@
 package fiuba.algo3.algocraft.utilidades.construcciones;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEnergiaInsuficiente;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.ParcelaEspacio;
@@ -9,6 +12,7 @@ import fiuba.algo3.algocraft.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.Vitalidad;
+import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
 import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
 
@@ -48,10 +52,17 @@ public abstract class Construccion extends Interactuable {
     public int seleccionarRango(RangoAtaque rango){
     	return rango.getRangoDeAtaqueEnTierra();
     }
+    
+
+    
 
 	public void collectarRecursos() {
 		
 		
+	}
+	
+	public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
+		ataque.atacar(this);
 	}
     
     

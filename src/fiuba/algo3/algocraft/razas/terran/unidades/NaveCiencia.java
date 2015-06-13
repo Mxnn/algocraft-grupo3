@@ -1,12 +1,19 @@
 package fiuba.algo3.algocraft.razas.terran.unidades;
 
+import java.util.ArrayList;
+
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.juego.Jugador;
+import fiuba.algo3.algocraft.mapa.Parcela;
 import fiuba.algo3.algocraft.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.utilidades.Costo;
+import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.Vitalidad;
+import fiuba.algo3.algocraft.utilidades.unidades.AtaqueEMP;
 import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
 import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
 import fiuba.algo3.algocraft.utilidades.unidades.UnidadMagica;
@@ -40,5 +47,15 @@ public class NaveCiencia extends UnidadMagica {
     
     public int seleccionarRango(RangoAtaque rango){
     	return rango.getRangoDeAtaqueEnAire();
+    }
+    
+    public void lanzarEMP(ArrayList<Parcela> listaParcelas) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
+    	for (int i = 0; i < listaParcelas.size(); i++) {
+    		Parcela parcela = listaParcelas.get(i);
+			if(!parcela.estaVacia()){
+				Interactuable enemigo = parcela.devolverElemento();
+				enemigo.recibirAtaque(new AtaqueEMP());
+			}
+		}
     }
 }

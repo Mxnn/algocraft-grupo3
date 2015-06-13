@@ -23,4 +23,8 @@ public class VitalidadProtoss extends Vitalidad {
             super.recibirDanyo(restaAEscudo * (-1));
         }
     }
+    
+    public void recibirEmp() throws ExcepcionEstadoMuerto{
+    	this.recibirDanyo(this.getEscudo());
+    }
 }

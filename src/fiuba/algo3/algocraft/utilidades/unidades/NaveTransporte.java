@@ -61,6 +61,10 @@ public abstract class NaveTransporte extends Unidad {
     public int seleccionarRango(RangoAtaque rango){
     	return rango.getRangoDeAtaqueEnAire();
     }
+    
+    public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
+		ataque.atacar(this);
+	}
 
     public void sacarUnidad(Mapa mapa, Unidad unidad) throws ExcepcionNoHayLugarDisponible {
         int index = unidades.indexOf(unidad);
@@ -69,4 +73,5 @@ public abstract class NaveTransporte extends Unidad {
 
         mapa.ubicarCercaDeParcela(this.parcelaUbicacion, unidadSacada);
     }
+    
 }
