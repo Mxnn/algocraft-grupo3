@@ -1,7 +1,5 @@
 COSAS A CAMBIAR
 
-Qué diferencia hay entre TipoDeConstruccion.CREADOR_DE_SOLDADOS y TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES?
-
 Sería bueno que las pruebas de integración esten diferenciadas de pruebas unitarias
 
 Utilizar accesores a métodos (ej: no es correcto que los métodos incrementarCapacidadDePoblacion() / decrementarPoblacion() de Jugador sean público ya que rompe el encapsulamiento)
