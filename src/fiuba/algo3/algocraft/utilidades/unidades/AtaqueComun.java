@@ -21,8 +21,8 @@ public class AtaqueComun extends Ataque {
     		throw new ExcepcionEnemigoFueraDeAlcance();
     	}
     	enemigo.recibirDanyo(enemigo.seleccionarDanyo(this.danyo));
-		
 	}
+	
 	@Override
 	public void atacar(Construccion enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
     	this.danyar(enemigo);
