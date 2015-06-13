@@ -14,8 +14,8 @@ public class PuertoEstelarProtossTest {
             Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 	        unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
 	      	unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
-	        unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
-	        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(3, 3));
+	        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+	        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(3, 3));
 
 	        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1,1));
 
@@ -29,8 +29,8 @@ public class PuertoEstelarProtossTest {
 	        unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
 	      	unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);     
 	    	
-	    	unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
-            PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(3, 3));
+	    	unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+            PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(3, 3));
 
             unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
 
@@ -41,10 +41,10 @@ public class PuertoEstelarProtossTest {
 	     public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
             Mapa mapa = new Mapa(2, 5, 5);
             Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
-	        unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
+	        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
 	        PuertoEstelarProtoss puerto = new PuertoEstelarProtoss(unJugador);
 
-	        Assert.assertEquals(puerto.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES);
+	        Assert.assertEquals(puerto.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_AVANZADAS);
 	    }
 
 }

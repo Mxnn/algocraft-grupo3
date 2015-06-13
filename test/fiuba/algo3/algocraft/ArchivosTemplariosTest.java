@@ -15,9 +15,9 @@ public class ArchivosTemplariosTest {
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
       	unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada (1, 1));
-        unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
-        unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 1));
-        ArchivosTemplarios archivo = (ArchivosTemplarios) unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 3));
+        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 1));
+        ArchivosTemplarios archivo = (ArchivosTemplarios) unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 3));
 
         Assert.assertNotNull(archivo.crearAltoTemplario(mapa));
     }
@@ -29,11 +29,11 @@ public class ArchivosTemplariosTest {
 
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
       	unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
-        unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
-        unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 1));
-        unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 3));
+        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 1));
+        unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 3));
         ArchivosTemplarios archivo = new ArchivosTemplarios(unJugador);
 
-        Assert.assertEquals(archivo.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS);
+        Assert.assertEquals(archivo.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_MAGICAS);
     }
 }

@@ -19,12 +19,12 @@ public class ArchivosTemplarios extends Construccion {
     public ArchivosTemplarios(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas {
         super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION);
 
-        if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES))
+        if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_AVANZADAS))
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
     }
 
     public TipoDeConstruccion getTipoDeConstruccion() {
-        return TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS;
+        return TipoDeConstruccion.CREADOR_DE_UNIDADES_MAGICAS;
     }
 
     public AltoTemplario crearAltoTemplario(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {

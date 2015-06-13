@@ -18,7 +18,7 @@ public class Barraca extends Construccion {
     }
 
     public TipoDeConstruccion getTipoDeConstruccion() {
-        return TipoDeConstruccion.CREADOR_DE_SOLDADOS;
+        return TipoDeConstruccion.CREADOR_DE_UNIDADES_BASICAS;
     }
 
     public Marine crearMarine(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {

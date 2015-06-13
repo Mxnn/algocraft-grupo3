@@ -19,12 +19,12 @@ public class PuertoEstelar extends Construccion {
     public PuertoEstelar(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas {
         super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION);
 
-        if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES))
+        if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_AVANZADAS))
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
     }
 
     public TipoDeConstruccion getTipoDeConstruccion() {
-        return TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS;
+        return TipoDeConstruccion.CREADOR_DE_UNIDADES_MAGICAS;
     }
 
     public Espectro crearEspectro(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {

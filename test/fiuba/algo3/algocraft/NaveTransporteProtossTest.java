@@ -119,8 +119,8 @@ public class NaveTransporteProtossTest {
         Coordenada ubicacionDragon = new Coordenada(6, 6); //(Primera coordenada vecina posible)
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 4));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(4, 4));
-        Acceso acceso = (Acceso) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
-        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(8, 8));
+        Acceso acceso = (Acceso) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(8, 8));
         NaveTransporteProtoss nave = puerto.crearNaveTransporte(mapa); //Se crea en (7,7)
         Dragon dragon = acceso.crearDragon(mapa); //Se crea en (6, 6)
 
@@ -139,8 +139,8 @@ public class NaveTransporteProtossTest {
 
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 4));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(4, 4));
-        Acceso acceso = (Acceso) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
-        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(8, 8));
+        Acceso acceso = (Acceso) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(8, 8));
         NaveTransporteProtoss nave = puerto.crearNaveTransporte(mapa); //Se crea en (7,7)
         Dragon dragon = acceso.crearDragon(mapa);
 

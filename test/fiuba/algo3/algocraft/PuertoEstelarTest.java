@@ -14,9 +14,9 @@ public class PuertoEstelarTest {
 
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
-        unJugador.crearCreadorDeSoldados(mapa, new Coordenada(1, 1));
-        unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(1, 2));
-        PuertoEstelar puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 2));
+        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(1, 1));
+        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(1, 2));
+        PuertoEstelar puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 2));
 
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 3));
 
@@ -30,9 +30,9 @@ public class PuertoEstelarTest {
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
         
-        unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
-        unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 1));
-        PuertoEstelar puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 3));
+        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 1));
+        PuertoEstelar puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 3));
 
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
 
@@ -45,9 +45,9 @@ public class PuertoEstelarTest {
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
-        unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 1));
-        unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(1, 2));
-        PuertoEstelar puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesAereas(mapa, new Coordenada(2, 2));
+        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 1));
+        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(1, 2));
+        PuertoEstelar puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 2));
 
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
 
@@ -61,10 +61,10 @@ public class PuertoEstelarTest {
 
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
-        unJugador.crearCreadorDeSoldados(mapa, new Coordenada(1, 1));
-        unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(2, 1));
+        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(1, 1));
+        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 1));
         PuertoEstelar puerto = new PuertoEstelar(unJugador);
 
-        Assert.assertEquals(puerto.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_AEREAS);
+        Assert.assertEquals(puerto.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_MAGICAS);
     }
 }

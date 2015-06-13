@@ -21,12 +21,12 @@ public class PuertoEstelarProtoss extends Construccion {
 	public PuertoEstelarProtoss(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas {
         super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION);
 
-        if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_SOLDADOS))
+        if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_BASICAS))
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
 	}
         
     public TipoDeConstruccion getTipoDeConstruccion() {
-        return TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES;
+        return TipoDeConstruccion.CREADOR_DE_UNIDADES_AVANZADAS;
     }
     
     public Scout crearScout(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {

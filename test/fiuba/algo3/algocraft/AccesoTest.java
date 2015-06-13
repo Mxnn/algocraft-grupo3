@@ -15,7 +15,7 @@ public class AccesoTest {
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1 ,1));
-        Acceso acceso = (Acceso) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
+        Acceso acceso = (Acceso) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
 
         Assert.assertNotNull(acceso.crearZealot(mapa));
     }
@@ -28,7 +28,7 @@ public class AccesoTest {
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-        Acceso acceso = (Acceso) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
+        Acceso acceso = (Acceso) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
 
         Assert.assertNotNull(acceso.crearDragon(mapa));
     }
@@ -40,6 +40,6 @@ public class AccesoTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         Acceso acceso = new Acceso(unJugador);
 
-        Assert.assertEquals(acceso.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_SOLDADOS);
+        Assert.assertEquals(acceso.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_BASICAS);
     }
 }

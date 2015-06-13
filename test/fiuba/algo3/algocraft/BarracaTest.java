@@ -16,7 +16,7 @@ public class BarracaTest {
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
-        Barraca barraca = (Barraca) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(3, 2));
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(3, 2));
 
         Assert.assertNotNull(barraca.crearMarine(mapa));
     }
@@ -28,7 +28,7 @@ public class BarracaTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         Barraca barraca = new Barraca(unJugador);
 
-        Assert.assertEquals(barraca.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_SOLDADOS);
+        Assert.assertEquals(barraca.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_BASICAS);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class BarracaTest {
         unJugador.sumarMinerales(700);
         unJugador.sumarGasVespeno(700);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-        Barraca barraca = (Barraca) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
 
 
         Marine marine = barraca.crearMarine(mapa);
@@ -65,7 +65,7 @@ public class BarracaTest {
         unJugador.sumarMinerales(700);
         unJugador.sumarGasVespeno(700);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-        Barraca barraca = (Barraca) unJugador.crearCreadorDeSoldados(mapa, new Coordenada(3, 3));
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(3, 3));
 
         barraca.crearMarine(mapa);
     }

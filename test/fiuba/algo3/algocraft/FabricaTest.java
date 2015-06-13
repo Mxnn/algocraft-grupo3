@@ -16,8 +16,8 @@ public class FabricaTest {
         unJugador.sumarMinerales(700);
         unJugador.sumarGasVespeno(700);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-        unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
-        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(3, 3));
+        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(3, 3));
 
         Assert.assertNotNull(fabrica.crearGolliat(mapa));
     }
@@ -26,10 +26,10 @@ public class FabricaTest {
     public void obtenerTipoDeConstruccionDevuelveElTipoDeConstruccionCorrecto() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        unJugador.crearCreadorDeSoldados(mapa, new Coordenada(1, 1));
+        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(1, 1));
         Fabrica fabrica = new Fabrica(unJugador);
 
-        Assert.assertEquals(fabrica.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES);
+        Assert.assertEquals(fabrica.getTipoDeConstruccion(), TipoDeConstruccion.CREADOR_DE_UNIDADES_AVANZADAS);
     }
 
     @Test
@@ -40,8 +40,8 @@ public class FabricaTest {
         unJugador.sumarMinerales(700);
         unJugador.sumarGasVespeno(700);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-        unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
-        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(3, 3));
+        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(3, 3));
 
         Golliat golliat = fabrica.crearGolliat(mapa);
 
@@ -65,8 +65,8 @@ public class FabricaTest {
         unJugador.sumarMinerales(700);
         unJugador.sumarGasVespeno(700);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-        unJugador.crearCreadorDeSoldados(mapa, new Coordenada(2, 2));
-        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesTerrestres(mapa, new Coordenada(3, 3));
+        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(3, 3));
 
         fabrica.crearGolliat(mapa);
     }
