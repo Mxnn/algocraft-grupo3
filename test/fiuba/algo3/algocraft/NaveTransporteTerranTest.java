@@ -1,6 +1,8 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.*;
+import fiuba.algo3.algocraft.mapa.Coordenada;
+import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.terran.unidades.Golliat;
 import fiuba.algo3.algocraft.terran.unidades.Marine;

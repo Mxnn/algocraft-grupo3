@@ -2,6 +2,10 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.mapa.ParcelaEspacio;
+import fiuba.algo3.algocraft.mapa.ParcelaMineral;
+import fiuba.algo3.algocraft.mapa.ParcelaTierra;
+import fiuba.algo3.algocraft.mapa.ParcelaVolcan;
 
 public abstract class Construccion extends Interactuable {
 

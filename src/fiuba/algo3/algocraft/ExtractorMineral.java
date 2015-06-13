@@ -2,6 +2,8 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.mapa.ParcelaMineral;
+import fiuba.algo3.algocraft.mapa.ParcelaTierra;
 
 public abstract class ExtractorMineral extends Construccion {
 

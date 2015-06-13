@@ -4,6 +4,7 @@ import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.excepciones.ExcepcionUnidadEnemiga;
+import fiuba.algo3.algocraft.mapa.Mapa;
 
 public class AltoTemplario extends UnidadMagica {
 

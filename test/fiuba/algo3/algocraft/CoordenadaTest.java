@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionNumeroDeBasesInvalido;
 
+import fiuba.algo3.algocraft.mapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Test;
 

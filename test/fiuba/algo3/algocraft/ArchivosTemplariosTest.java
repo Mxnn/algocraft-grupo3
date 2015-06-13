@@ -1,6 +1,8 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.*;
+import fiuba.algo3.algocraft.mapa.Coordenada;
+import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.protoss.construcciones.ArchivosTemplarios;
 
 import org.junit.Assert;
@@ -14,7 +16,7 @@ public class ArchivosTemplariosTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         unJugador.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
       	unJugador.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
-        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada (1, 1));
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
         unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 1));
         ArchivosTemplarios archivo = (ArchivosTemplarios) unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 3));

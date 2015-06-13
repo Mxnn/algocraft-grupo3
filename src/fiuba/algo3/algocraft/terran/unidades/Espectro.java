@@ -4,6 +4,7 @@ import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.mapa.ParcelaEspacio;
 
 public class Espectro extends UnidadAgresora {
     public static int COSTO_MINERAL = 150;

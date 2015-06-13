@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft;
+package fiuba.algo3.algocraft.mapa;
 
 import java.util.ArrayList;
 

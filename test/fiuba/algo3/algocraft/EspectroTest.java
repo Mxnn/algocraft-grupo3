@@ -3,6 +3,8 @@ package fiuba.algo3.algocraft;
 import static org.junit.Assert.*;
 
 import fiuba.algo3.algocraft.excepciones.*;
+import fiuba.algo3.algocraft.mapa.Coordenada;
+import fiuba.algo3.algocraft.mapa.Mapa;
 import org.junit.Test;
 
 import fiuba.algo3.algocraft.terran.construcciones.Barraca;

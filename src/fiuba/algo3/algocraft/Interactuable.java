@@ -5,6 +5,7 @@ import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoNoAtacable;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.mapa.*;
 
 public abstract class Interactuable {
 	

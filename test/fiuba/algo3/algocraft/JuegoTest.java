@@ -1,6 +1,9 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.*;
+import fiuba.algo3.algocraft.mapa.Coordenada;
+import fiuba.algo3.algocraft.mapa.Mapa;
+import fiuba.algo3.algocraft.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.terran.construcciones.Refineria;
 import fiuba.algo3.algocraft.terran.unidades.Golliat;
 import fiuba.algo3.algocraft.terran.unidades.Marine;
@@ -102,7 +105,7 @@ public class JuegoTest {
     	elJuego.moverUnidad(desde, hasta);
     	
     	elJuego.tareaDelTurnoMoverLasUnidades();
-    	System.out.println(elJuego.getMapa().obtenerParcelaEnCoordenada(desde).elemento);
+
     	Assert.assertTrue(elJuego.getMapa().obtenerParcelaEnCoordenada(desde).estaVacia());
 
     }

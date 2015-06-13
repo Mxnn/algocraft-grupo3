@@ -1,6 +1,9 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.*;
+import fiuba.algo3.algocraft.mapa.Coordenada;
+import fiuba.algo3.algocraft.mapa.Mapa;
+import fiuba.algo3.algocraft.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.terran.unidades.Marine;
 
