@@ -5,11 +5,11 @@ import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
-import fiuba.algo3.algocraft.protoss.Protoss;
-import fiuba.algo3.algocraft.protoss.construcciones.Acceso;
-import fiuba.algo3.algocraft.protoss.construcciones.ArchivosTemplarios;
-import fiuba.algo3.algocraft.protoss.unidades.AltoTemplario;
-import fiuba.algo3.algocraft.protoss.unidades.Zealot;
+import fiuba.algo3.algocraft.razas.protoss.Protoss;
+import fiuba.algo3.algocraft.razas.protoss.construcciones.Acceso;
+import fiuba.algo3.algocraft.razas.protoss.construcciones.ArchivosTemplarios;
+import fiuba.algo3.algocraft.razas.protoss.unidades.AltoTemplario;
+import fiuba.algo3.algocraft.razas.protoss.unidades.Zealot;
 
 import org.junit.Test;
 

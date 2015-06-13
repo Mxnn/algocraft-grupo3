@@ -7,11 +7,11 @@ import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.mapa.ParcelaVolcan;
-import fiuba.algo3.algocraft.protoss.Protoss;
-import fiuba.algo3.algocraft.protoss.construcciones.*;
-import fiuba.algo3.algocraft.terran.Terran;
-import fiuba.algo3.algocraft.terran.construcciones.*;
-import fiuba.algo3.algocraft.terran.unidades.*;
+import fiuba.algo3.algocraft.razas.protoss.Protoss;
+import fiuba.algo3.algocraft.razas.protoss.construcciones.*;
+import fiuba.algo3.algocraft.razas.terran.Terran;
+import fiuba.algo3.algocraft.razas.terran.construcciones.*;
+import fiuba.algo3.algocraft.razas.terran.unidades.*;
 
 import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 import org.junit.Assert;

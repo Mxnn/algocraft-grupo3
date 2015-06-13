@@ -5,12 +5,12 @@ import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
-import fiuba.algo3.algocraft.terran.Terran;
-import fiuba.algo3.algocraft.terran.unidades.Espectro;
-import fiuba.algo3.algocraft.terran.unidades.Golliat;
-import fiuba.algo3.algocraft.terran.unidades.Marine;
-import fiuba.algo3.algocraft.terran.unidades.NaveCiencia;
-import fiuba.algo3.algocraft.terran.unidades.NaveTransporteTerran;
+import fiuba.algo3.algocraft.razas.terran.Terran;
+import fiuba.algo3.algocraft.razas.terran.unidades.Espectro;
+import fiuba.algo3.algocraft.razas.terran.unidades.Golliat;
+import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
+import fiuba.algo3.algocraft.razas.terran.unidades.NaveCiencia;
+import fiuba.algo3.algocraft.razas.terran.unidades.NaveTransporteTerran;
 
 import org.junit.Assert;
 import org.junit.Test;

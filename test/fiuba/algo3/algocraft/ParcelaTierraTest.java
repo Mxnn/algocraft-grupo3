@@ -7,12 +7,12 @@ import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.Parcela;
 import fiuba.algo3.algocraft.mapa.ParcelaTierra;
-import fiuba.algo3.algocraft.terran.Terran;
-import fiuba.algo3.algocraft.terran.construcciones.Barraca;
-import fiuba.algo3.algocraft.terran.construcciones.CentroDeMineral;
-import fiuba.algo3.algocraft.terran.unidades.Espectro;
-import fiuba.algo3.algocraft.terran.unidades.Golliat;
-import fiuba.algo3.algocraft.terran.unidades.Marine;
+import fiuba.algo3.algocraft.razas.terran.Terran;
+import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.razas.terran.construcciones.CentroDeMineral;
+import fiuba.algo3.algocraft.razas.terran.unidades.Espectro;
+import fiuba.algo3.algocraft.razas.terran.unidades.Golliat;
+import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
 
 import fiuba.algo3.algocraft.utilidades.Interactuable;
 import org.junit.Assert;

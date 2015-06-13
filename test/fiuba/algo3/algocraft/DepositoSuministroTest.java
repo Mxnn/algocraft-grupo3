@@ -6,8 +6,8 @@ import fiuba.algo3.algocraft.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
-import fiuba.algo3.algocraft.terran.Terran;
-import fiuba.algo3.algocraft.terran.construcciones.DepositoSuministro;
+import fiuba.algo3.algocraft.razas.terran.Terran;
+import fiuba.algo3.algocraft.razas.terran.construcciones.DepositoSuministro;
 
 import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 import org.junit.Assert;

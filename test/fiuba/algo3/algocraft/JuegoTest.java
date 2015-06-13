@@ -7,11 +7,11 @@ import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.ParcelaVolcan;
-import fiuba.algo3.algocraft.protoss.Protoss;
-import fiuba.algo3.algocraft.terran.Terran;
-import fiuba.algo3.algocraft.terran.construcciones.Refineria;
-import fiuba.algo3.algocraft.terran.unidades.Golliat;
-import fiuba.algo3.algocraft.terran.unidades.Marine;
+import fiuba.algo3.algocraft.razas.protoss.Protoss;
+import fiuba.algo3.algocraft.razas.terran.Terran;
+import fiuba.algo3.algocraft.razas.terran.construcciones.Refineria;
+import fiuba.algo3.algocraft.razas.terran.unidades.Golliat;
+import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
 
 import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.utilidades.unidades.Unidad;

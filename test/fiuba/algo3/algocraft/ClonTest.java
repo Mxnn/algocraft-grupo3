@@ -7,16 +7,16 @@ import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
-import fiuba.algo3.algocraft.protoss.Protoss;
-import fiuba.algo3.algocraft.terran.Terran;
+import fiuba.algo3.algocraft.razas.protoss.Protoss;
+import fiuba.algo3.algocraft.razas.terran.Terran;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.utilidades.unidades.Clon;
 import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;
 import org.junit.Test;
 
-import fiuba.algo3.algocraft.protoss.unidades.Dragon;
-import fiuba.algo3.algocraft.terran.unidades.Marine;
+import fiuba.algo3.algocraft.razas.protoss.unidades.Dragon;
+import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
 
 public class ClonTest {
 
