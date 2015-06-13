@@ -20,8 +20,8 @@ public class Juego {
 
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
     private Mapa mapa ;
-    private LinkedList<Unidad> UnidadesQueDebenMoverEnElTurno = new LinkedList<Unidad>();
-    private LinkedList<Unidad> UnidadesQueDebenMoverEnElProximoTurno = new LinkedList<Unidad>();
+    private LinkedList<Unidad> unidadesQueDebenMoverEnElTurno = new LinkedList<Unidad>();
+    private LinkedList<Unidad> unidadesQueDebenMoverEnElProximoTurno = new LinkedList<Unidad>();
     
     public Juego() throws ExcepcionNumeroDeBasesInvalido { 
     	mapa = new Mapa (2,5,5); 
@@ -34,11 +34,11 @@ public class Juego {
     	return this.mapa;
     }
     public LinkedList<Unidad> getListDeUnidadesQueDebenMoverEnElTurno(){
-    	 return this.UnidadesQueDebenMoverEnElTurno;
+    	 return this.unidadesQueDebenMoverEnElTurno;
     }
     
     public LinkedList<Unidad> getListDeUnidadesQueDebenMoverEnElProximoTurno(){
-   	    return this.UnidadesQueDebenMoverEnElProximoTurno;
+   	    return this.unidadesQueDebenMoverEnElProximoTurno;
     }
     /*
  
@@ -97,26 +97,26 @@ public class Juego {
     	Unidad unidadAMover = (Unidad) this.mapa.devolverElementoEnParcela(desde);
     	unidadAMover.calcularItinerario(this.mapa,desde,hasta);
 
-		this.UnidadesQueDebenMoverEnElTurno.add(unidadAMover) ;
+		this.unidadesQueDebenMoverEnElTurno.add(unidadAMover) ;
 		
 			
 		
 	}
 
 	public void tareaDelTurnoMoverLasUnidades() throws ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada{
-    	while (!this.UnidadesQueDebenMoverEnElTurno.isEmpty()){
-    		if (this.tareaDelTurnoMoverUnidad(this.UnidadesQueDebenMoverEnElTurno.getFirst()))
+    	while (!this.unidadesQueDebenMoverEnElTurno.isEmpty()){
+    		if (this.tareaDelTurnoMoverUnidad(this.unidadesQueDebenMoverEnElTurno.getFirst()))
     			this.reinscribirLaUnidad();
     		
-    		this.UnidadesQueDebenMoverEnElTurno.removeFirst();
+    		this.unidadesQueDebenMoverEnElTurno.removeFirst();
     		
     	}
-    	this.UnidadesQueDebenMoverEnElTurno = this.UnidadesQueDebenMoverEnElProximoTurno;
-    	this.UnidadesQueDebenMoverEnElProximoTurno.clear();
+    	this.unidadesQueDebenMoverEnElTurno = this.unidadesQueDebenMoverEnElProximoTurno;
+    	this.unidadesQueDebenMoverEnElProximoTurno.clear();
     }
 
 	private void reinscribirLaUnidad() {
-		this.UnidadesQueDebenMoverEnElProximoTurno.add(this.UnidadesQueDebenMoverEnElTurno.getFirst());
+		this.unidadesQueDebenMoverEnElProximoTurno.add(this.unidadesQueDebenMoverEnElTurno.getFirst());
 		
 	}
 
