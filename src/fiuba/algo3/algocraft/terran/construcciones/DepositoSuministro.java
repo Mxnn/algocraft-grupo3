@@ -1,10 +1,10 @@
 package fiuba.algo3.algocraft.terran.construcciones;
 
-import fiuba.algo3.algocraft.AdicionalSuministros;
+import fiuba.algo3.algocraft.utilidades.unidades.AdicionalSuministros;
 import fiuba.algo3.algocraft.utilidades.Costo;
 import fiuba.algo3.algocraft.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.juego.Jugador;
-import fiuba.algo3.algocraft.TipoDeConstruccion;
+import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 
 public class DepositoSuministro extends AdicionalSuministros {
 

@@ -3,6 +3,8 @@ package fiuba.algo3.algocraft;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
+import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorMineral;
+import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,10 +1,12 @@
 package fiuba.algo3.algocraft.protoss.unidades;
 
-import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.utilidades.Costo;
 import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
+import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
+import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
+import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;
 
 public class Dragon extends UnidadAgresora {
     public static final int VIDA_INICIAL = 100;

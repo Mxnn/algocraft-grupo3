@@ -6,6 +6,8 @@ import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.terran.construcciones.CentroDeMineral;
 
+import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorMineral;
+import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 import org.junit.Assert;
 import org.junit.Test;
 

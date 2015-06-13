@@ -1,5 +1,6 @@
-package fiuba.algo3.algocraft;
+package fiuba.algo3.algocraft.utilidades.unidades;
 
+import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.utilidades.Vitalidad;
 

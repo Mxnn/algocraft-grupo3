@@ -1,8 +1,8 @@
 package fiuba.algo3.algocraft.utilidades;
 
-import fiuba.algo3.algocraft.Danyo;
-import fiuba.algo3.algocraft.RangoAtaque;
-import fiuba.algo3.algocraft.UnidadAgresora;
+import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
+import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
+import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoNoAtacable;

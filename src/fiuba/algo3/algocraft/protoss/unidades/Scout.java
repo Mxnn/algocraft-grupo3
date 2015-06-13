@@ -1,6 +1,5 @@
 package fiuba.algo3.algocraft.protoss.unidades;
 
-import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
@@ -10,6 +9,9 @@ import fiuba.algo3.algocraft.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.utilidades.Costo;
 import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
+import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
+import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
+import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;
 
 public class Scout extends UnidadAgresora {
 

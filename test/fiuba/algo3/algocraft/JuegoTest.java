@@ -11,6 +11,8 @@ import fiuba.algo3.algocraft.terran.construcciones.Refineria;
 import fiuba.algo3.algocraft.terran.unidades.Golliat;
 import fiuba.algo3.algocraft.terran.unidades.Marine;
 
+import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;
+import fiuba.algo3.algocraft.utilidades.unidades.Unidad;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -71,7 +73,7 @@ public class JuegoTest {
           
     	  golliat.calcularItinerario(mapa, desde, hasta);
     	  
-    	  Assert.assertNotNull(golliat.itinerario);
+    	  Assert.assertNotNull(golliat.getItinerario());
     	  
     }
     
@@ -128,7 +130,7 @@ public class JuegoTest {
     
 
     	elJuego.tareaDelTurnoGenerarRecursos();
-    	Assert.assertEquals(jugadorUno.getGasVespeno(), Jugador.GAS_VESPENO_INICIAL - Refineria.COSTO.getCostoGas() +ExtractorGas.CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO);
+    	Assert.assertEquals(jugadorUno.getGasVespeno(), Jugador.GAS_VESPENO_INICIAL - Refineria.COSTO.getCostoGas() + ExtractorGas.CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO);
     }
 
 }

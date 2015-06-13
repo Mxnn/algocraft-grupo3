@@ -9,6 +9,10 @@ import fiuba.algo3.algocraft.protoss.construcciones.Asimilador;
 import fiuba.algo3.algocraft.protoss.construcciones.NexoMineral;
 import fiuba.algo3.algocraft.protoss.construcciones.Pilon;
 import fiuba.algo3.algocraft.protoss.construcciones.PuertoEstelarProtoss;
+import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
+import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;
+import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorMineral;
+import fiuba.algo3.algocraft.utilidades.unidades.AdicionalSuministros;
 
 public class Protoss extends Raza {
     private static Protoss INSTANCIA = null;

@@ -4,6 +4,10 @@ import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCrea
 import fiuba.algo3.algocraft.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.utilidades.Costo;
+import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
+import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;
+import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorMineral;
+import fiuba.algo3.algocraft.utilidades.unidades.AdicionalSuministros;
 
 public abstract class Raza {
 

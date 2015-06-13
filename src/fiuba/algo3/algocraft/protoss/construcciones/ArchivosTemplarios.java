@@ -1,6 +1,5 @@
 package fiuba.algo3.algocraft.protoss.construcciones;
 
-import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
@@ -9,6 +8,8 @@ import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.protoss.unidades.AltoTemplario;
 import fiuba.algo3.algocraft.utilidades.Costo;
 import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
+import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
+import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 
 public class ArchivosTemplarios extends Construccion {
 

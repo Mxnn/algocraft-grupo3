@@ -11,6 +11,7 @@ import fiuba.algo3.algocraft.protoss.construcciones.*;
 import fiuba.algo3.algocraft.terran.construcciones.*;
 import fiuba.algo3.algocraft.terran.unidades.*;
 
+import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 import org.junit.Assert;
 import org.junit.Test;
 

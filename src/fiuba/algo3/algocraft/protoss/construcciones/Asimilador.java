@@ -1,9 +1,10 @@
 package fiuba.algo3.algocraft.protoss.construcciones;
 
-import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.utilidades.Costo;
 import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
+import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;
+import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 
 public class Asimilador  extends ExtractorGas {
 

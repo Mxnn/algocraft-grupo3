@@ -9,6 +9,10 @@ import fiuba.algo3.algocraft.terran.construcciones.DepositoSuministro;
 import fiuba.algo3.algocraft.terran.construcciones.Fabrica;
 import fiuba.algo3.algocraft.terran.construcciones.PuertoEstelar;
 import fiuba.algo3.algocraft.terran.construcciones.Refineria;
+import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
+import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;
+import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorMineral;
+import fiuba.algo3.algocraft.utilidades.unidades.AdicionalSuministros;
 
 public class Terran extends Raza {
     private static Terran INSTANCIA = null;

@@ -5,6 +5,12 @@ import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
+import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
+import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;
+import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorMineral;
+import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
+import fiuba.algo3.algocraft.utilidades.unidades.AdicionalSuministros;
+import fiuba.algo3.algocraft.utilidades.unidades.Unidad;
 
 import java.util.ArrayList;
 

@@ -9,6 +9,7 @@ import fiuba.algo3.algocraft.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.terran.construcciones.Fabrica;
 import fiuba.algo3.algocraft.terran.unidades.Golliat;
 
+import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 import org.junit.Assert;
 import org.junit.Test;
 

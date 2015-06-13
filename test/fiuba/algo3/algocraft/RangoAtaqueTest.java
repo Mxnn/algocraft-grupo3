@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft.mapa;
 
-import fiuba.algo3.algocraft.ExtractorGas;
+import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;

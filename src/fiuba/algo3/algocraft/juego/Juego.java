@@ -1,7 +1,7 @@
 package fiuba.algo3.algocraft.juego;
 
 import fiuba.algo3.algocraft.Raza;
-import fiuba.algo3.algocraft.Unidad;
+import fiuba.algo3.algocraft.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.mapa.Coordenada;

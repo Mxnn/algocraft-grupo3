@@ -1,6 +1,5 @@
 package fiuba.algo3.algocraft.terran.construcciones;
 
-import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
@@ -11,6 +10,8 @@ import fiuba.algo3.algocraft.terran.unidades.NaveCiencia;
 import fiuba.algo3.algocraft.terran.unidades.NaveTransporteTerran;
 import fiuba.algo3.algocraft.utilidades.Costo;
 import fiuba.algo3.algocraft.utilidades.Vitalidad;
+import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
+import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 
 public class PuertoEstelar extends Construccion {
 
