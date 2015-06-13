@@ -2,6 +2,8 @@ package fiuba.algo3.algocraft.protoss.construcciones;
 
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.juego.Jugador;
+import fiuba.algo3.algocraft.utilidades.Costo;
+import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
 
 public class NexoMineral  extends ExtractorMineral {
 

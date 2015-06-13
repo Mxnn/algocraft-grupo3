@@ -9,6 +9,8 @@ import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.terran.unidades.NaveCiencia;
 import fiuba.algo3.algocraft.terran.unidades.NaveTransporteTerran;
+import fiuba.algo3.algocraft.utilidades.Costo;
+import fiuba.algo3.algocraft.utilidades.Vitalidad;
 
 public class PuertoEstelar extends Construccion {
 

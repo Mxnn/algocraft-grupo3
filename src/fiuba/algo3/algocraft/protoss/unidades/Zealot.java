@@ -5,6 +5,8 @@ import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Parcela;
 import fiuba.algo3.algocraft.mapa.ParcelaTierra;
+import fiuba.algo3.algocraft.utilidades.Costo;
+import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
 
 public class Zealot extends UnidadAgresora /*implements Alucinable*/ {
     public static final int VIDA_INICIAL = 100;

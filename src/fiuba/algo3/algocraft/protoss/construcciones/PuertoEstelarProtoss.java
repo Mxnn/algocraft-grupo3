@@ -8,6 +8,8 @@ import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.protoss.unidades.NaveTransporteProtoss;
 import fiuba.algo3.algocraft.protoss.unidades.Scout;
+import fiuba.algo3.algocraft.utilidades.Costo;
+import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
 
 
 public class PuertoEstelarProtoss extends Construccion {

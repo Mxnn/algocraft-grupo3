@@ -8,6 +8,8 @@ import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Parcela;
 import fiuba.algo3.algocraft.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.mapa.ParcelaTierra;
+import fiuba.algo3.algocraft.utilidades.Costo;
+import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
 
 public class Scout extends UnidadAgresora {
 

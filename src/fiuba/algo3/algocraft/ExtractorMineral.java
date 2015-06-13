@@ -5,6 +5,7 @@ import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.mapa.ParcelaTierra;
+import fiuba.algo3.algocraft.utilidades.Vitalidad;
 
 public abstract class ExtractorMineral extends Construccion {
 

@@ -7,6 +7,7 @@ import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
+import fiuba.algo3.algocraft.utilidades.Interactuable;
 import org.junit.Test;
 
 import fiuba.algo3.algocraft.protoss.unidades.Scout;

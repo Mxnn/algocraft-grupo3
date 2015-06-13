@@ -9,6 +9,7 @@ import fiuba.algo3.algocraft.mapa.Parcela;
 import fiuba.algo3.algocraft.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.terran.unidades.Marine;
 
+import fiuba.algo3.algocraft.utilidades.Interactuable;
 import org.junit.Assert;
 import org.junit.Test;
 

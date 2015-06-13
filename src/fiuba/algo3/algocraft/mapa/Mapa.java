@@ -1,5 +1,5 @@
 package fiuba.algo3.algocraft.mapa;
-import fiuba.algo3.algocraft.Interactuable;
+import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.excepciones.*;
 
 import java.util.ArrayList;

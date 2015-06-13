@@ -13,6 +13,7 @@ import fiuba.algo3.algocraft.terran.construcciones.Refineria;
 import fiuba.algo3.algocraft.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.terran.unidades.Marine;
 
+import fiuba.algo3.algocraft.utilidades.Interactuable;
 import org.junit.Test;
 import org.junit.Assert;
 

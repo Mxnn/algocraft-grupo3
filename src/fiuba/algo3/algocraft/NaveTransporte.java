@@ -5,6 +5,7 @@ import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.Parcela;
 import fiuba.algo3.algocraft.mapa.ParcelaEspacio;
+import fiuba.algo3.algocraft.utilidades.Vitalidad;
 
 import java.util.ArrayList;
 

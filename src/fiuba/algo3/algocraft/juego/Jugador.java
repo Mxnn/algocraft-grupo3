@@ -4,6 +4,7 @@ import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
+import fiuba.algo3.algocraft.utilidades.Interactuable;
 
 import java.util.ArrayList;
 

@@ -3,6 +3,8 @@ package fiuba.algo3.algocraft.terran.unidades;
 import fiuba.algo3.algocraft.*;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.juego.Jugador;
+import fiuba.algo3.algocraft.utilidades.Costo;
+import fiuba.algo3.algocraft.utilidades.Vitalidad;
 
 public class NaveTransporteTerran extends NaveTransporte {
 

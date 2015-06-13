@@ -7,6 +7,8 @@ import fiuba.algo3.algocraft.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.mapa.ParcelaVolcan;
+import fiuba.algo3.algocraft.utilidades.Interactuable;
+import fiuba.algo3.algocraft.utilidades.Vitalidad;
 
 public abstract class Construccion extends Interactuable {
 

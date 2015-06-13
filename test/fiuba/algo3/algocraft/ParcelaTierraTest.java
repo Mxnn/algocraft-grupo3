@@ -13,6 +13,7 @@ import fiuba.algo3.algocraft.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.terran.unidades.Golliat;
 import fiuba.algo3.algocraft.terran.unidades.Marine;
 
+import fiuba.algo3.algocraft.utilidades.Interactuable;
 import org.junit.Assert;
 import org.junit.Test;
 
