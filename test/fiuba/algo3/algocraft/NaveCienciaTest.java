@@ -20,6 +20,7 @@ import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.*;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.razas.protoss.construcciones.Pilon;
+import fiuba.algo3.algocraft.razas.protoss.unidades.AltoTemplario;
 import fiuba.algo3.algocraft.razas.protoss.unidades.Dragon;
 import fiuba.algo3.algocraft.razas.terran.Terran;
 import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
@@ -28,6 +29,7 @@ import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.utilidades.unidades.AtaqueEMP;
+import fiuba.algo3.algocraft.utilidades.unidades.UnidadMagica;
 
 public class NaveCienciaTest {
 
@@ -76,6 +78,54 @@ public class NaveCienciaTest {
 	     naveCiencia.lanzarEMP(listaParcelas);
 	     
 	     assertEquals(300, ((VitalidadProtoss)pilon.getVitalidad()).getEscudo());
+	}
+	
+	@Test
+	public void noQuitaEscudoAUnidadMagicaProtoss() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
+		 Mapa mapa = new Mapa(2, 5, 5);
+	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+	     
+	     Interactuable templario = new AltoTemplario(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada (1,1), templario);
+	     NaveCiencia naveCiencia = new NaveCiencia(unJugador2);
+	     
+	     
+	     for (int i = 0; i < 6; i++) 
+	    	 naveCiencia.regenerarEnergia();
+	     
+	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
+	     
+	     naveCiencia.lanzarEMP(listaParcelas);
+	     
+	     assertEquals(40, ((VitalidadProtoss)templario.getVitalidad()).getEscudo());
+	}
+	
+	@Test
+	public void quitaEnergiaAUnidadMagicaProtoss() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
+		 Mapa mapa = new Mapa(2, 5, 5);
+	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+	     
+	     UnidadMagica templario = new AltoTemplario(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada (1,1), templario);
+	     NaveCiencia naveCiencia = new NaveCiencia(unJugador2);
+	     
+	     
+	     for (int i = 0; i < 6; i++) 
+	    	 naveCiencia.regenerarEnergia();
+	     
+	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
+	     
+	     naveCiencia.lanzarEMP(listaParcelas);
+	     
+	     assertEquals(0, (templario.getEnergia()));
 	}
 
 }
