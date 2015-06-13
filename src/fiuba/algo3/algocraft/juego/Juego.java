@@ -3,7 +3,6 @@ package fiuba.algo3.algocraft.juego;
 import fiuba.algo3.algocraft.razas.Raza;
 import fiuba.algo3.algocraft.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.excepciones.*;
-import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.Parcela;
@@ -93,7 +92,7 @@ public class Juego {
     }
     
 
-    public void moverUnidad(Coordenada desde, Coordenada hasta) throws ExcepcionCoordenadaFueraDelMapa{
+    public void moverUnidad(Coordenada desde, Coordenada hasta) throws ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela{
     	Unidad unidadAMover = (Unidad) this.mapa.devolverElementoEnParcela(desde);
     	unidadAMover.calcularItinerario(this.mapa,desde,hasta);
 

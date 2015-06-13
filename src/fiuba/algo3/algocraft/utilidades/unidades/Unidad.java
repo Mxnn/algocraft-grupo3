@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.excepciones.ExcepcionUnidadEnemiga;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.*;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
@@ -64,7 +65,7 @@ public abstract class Unidad extends Interactuable {
 
     public int getSuministro() { return this.suministro; }
 
-	public void calcularItinerario(Mapa mapa, Coordenada desde, Coordenada hasta) {
+	public void calcularItinerario(Mapa mapa, Coordenada desde, Coordenada hasta) throws ExcepcionElementoNoAdmitidoEnParcela {
 		/*LinkedList<Coordenada> elItinerario = new LinkedList<Coordenada>();
 
 		int auxX = desde.getX();
@@ -129,11 +130,12 @@ public abstract class Unidad extends Interactuable {
 		}*/
 
 		Parcela parcelaDestinacion = mapa.getTablero().get(hasta);
-		if (this.destinacionPermitida(parcelaDestinacion)){
+		if (!this.destinacionPermitida(parcelaDestinacion))
+			throw new ExcepcionElementoNoAdmitidoEnParcela();
 			this.itinerario.clear();
 			this.itinerario.add(desde); // la unidad se teleporta , tenemos que hacer un mejor calcul de itinerario
 			this.itinerario.add(hasta);
-		}
+		
 	}
 
 	public boolean destinacionPermitida(Parcela parcelaDestinacion) {
