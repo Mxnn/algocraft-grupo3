@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft;
+package fiuba.algo3.algocraft.protoss;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.excepciones.ExcepcionRecursosInsuficientes;
@@ -9,6 +9,7 @@ import fiuba.algo3.algocraft.protoss.construcciones.Asimilador;
 import fiuba.algo3.algocraft.protoss.construcciones.NexoMineral;
 import fiuba.algo3.algocraft.protoss.construcciones.Pilon;
 import fiuba.algo3.algocraft.protoss.construcciones.PuertoEstelarProtoss;
+import fiuba.algo3.algocraft.razas.Raza;
 import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorMineral;

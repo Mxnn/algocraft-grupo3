@@ -5,6 +5,7 @@ import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
+import fiuba.algo3.algocraft.terran.Terran;
 import fiuba.algo3.algocraft.terran.construcciones.PuertoEstelar;
 
 import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;

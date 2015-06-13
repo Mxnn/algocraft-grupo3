@@ -4,6 +4,7 @@ import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCrea
 import fiuba.algo3.algocraft.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
+import fiuba.algo3.algocraft.terran.Terran;
 import fiuba.algo3.algocraft.terran.construcciones.Refineria;
 
 import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;

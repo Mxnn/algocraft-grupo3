@@ -5,6 +5,7 @@ import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
+import fiuba.algo3.algocraft.terran.Terran;
 import fiuba.algo3.algocraft.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.terran.unidades.Golliat;
 import fiuba.algo3.algocraft.terran.unidades.Marine;

@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft;
+package fiuba.algo3.algocraft.razas;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.excepciones.ExcepcionRecursosInsuficientes;

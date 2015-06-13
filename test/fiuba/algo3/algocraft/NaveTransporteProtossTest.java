@@ -6,11 +6,13 @@ import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.ParcelaVolcan;
+import fiuba.algo3.algocraft.protoss.Protoss;
 import fiuba.algo3.algocraft.protoss.construcciones.Acceso;
 import fiuba.algo3.algocraft.protoss.construcciones.PuertoEstelarProtoss;
 import fiuba.algo3.algocraft.protoss.unidades.Dragon;
 import fiuba.algo3.algocraft.protoss.unidades.NaveTransporteProtoss;
 import fiuba.algo3.algocraft.protoss.unidades.Scout;
+import fiuba.algo3.algocraft.terran.Terran;
 import fiuba.algo3.algocraft.terran.unidades.Marine;
 
 import org.junit.Assert;
