@@ -41,11 +41,11 @@ public abstract class Construccion extends Interactuable {
         (this.parcelaUbicacion).vaciarParcela();
     }
     
-    protected  int seleccionarDanyo(Danyo danyo){
+    public  int seleccionarDanyo(Danyo danyo){
     	return danyo.getDanyoDeAtaqueEnTierra();
     }
     
-    protected int seleccionarRango(RangoAtaque rango){
+    public int seleccionarRango(RangoAtaque rango){
     	return rango.getRangoDeAtaqueEnTierra();
     }
 

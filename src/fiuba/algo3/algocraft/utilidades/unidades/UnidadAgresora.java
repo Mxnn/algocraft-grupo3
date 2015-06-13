@@ -13,15 +13,18 @@ public abstract class UnidadAgresora extends Unidad {
     protected RangoAtaque rangoAtaque;
     protected Danyo danyo;
 
+
     public UnidadAgresora(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, RangoAtaque rangoAtaque, Danyo danyo) throws ExcepcionNoHaySuministrosDisponibles {
         super(propietario, vitalidad, tiempoDeConstruccion, cupoDeTransporte, vision, suministro);
         this.rangoAtaque = rangoAtaque;
         this.danyo = danyo;
+
     }
 
     public void atacar(Interactuable enemigo) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto {
 		int distancia = calcularDistanciaDeEnemigo(enemigo.getParcela());
-    	enemigo.recibirAtaque(this, distancia);
+		AtaqueComun ataque = new AtaqueComun(rangoAtaque, danyo,distancia);
+    	enemigo.recibirAtaque(ataque);
 	}
     
     private int calcularDistanciaDeEnemigo(Parcela parcelaEnemigo) {

@@ -15,12 +15,12 @@ public class Clon extends UnidadAgresora {
 	}
 
 	@Override
-	protected int seleccionarDanyo(Danyo danyo) {
+	public int seleccionarDanyo(Danyo danyo) {
 		return original.seleccionarDanyo(danyo);
 	}
 
 	@Override
-	protected int seleccionarRango(RangoAtaque rango) {
+	public int seleccionarRango(RangoAtaque rango) {
 		return original.seleccionarRango(rango);
 	}
 

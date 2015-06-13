@@ -54,11 +54,11 @@ public abstract class NaveTransporte extends Unidad {
     	parcela.setElemento(this);
     }
     
-    protected int seleccionarDanyo(Danyo danyo){
+    public int seleccionarDanyo(Danyo danyo){
     	return danyo.getDanyoDeAtaqueEnAire();
     }
     
-    protected int seleccionarRango(RangoAtaque rango){
+    public int seleccionarRango(RangoAtaque rango){
     	return rango.getRangoDeAtaqueEnAire();
     }
 
