@@ -108,22 +108,21 @@ public class JuegoTest {
     }
 
     @Test
-    public void losEdificiosExtrorasGenerenRecursosCadaTurnoConElMetodoTareaDelTurnoGenerarRecursos() throws ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNombreCorto {
+    public void losEdificiosExtrorasGenerenRecursosCadaTurnoConElMetodoTareaDelTurnoGenerarRecursos() throws ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
     	Juego elJuego = new Juego();
-    	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-    	Jugador unOtroJugador = new Jugador("Maria", Color.AMARILLO, Terran.getInstance());
-    	elJuego.getJugadores().add(unJugador);
-    	elJuego.getJugadores().add(unOtroJugador);
+        elJuego.crearJugador("Juan", Color.ROJO, Terran.getInstance());
+    	elJuego.crearJugador("Maria", Color.AMARILLO, Terran.getInstance());
+    	Jugador jugadorUno = elJuego.getJugadores().get(0);
     	
         Mapa mapa = new Mapa (2, 20, 20);
         Coordenada ubicacionVolcan = new Coordenada(1, 1);
       
         mapa.insertarParcela(new ParcelaVolcan(ubicacionVolcan));
-        unJugador.crearExtractorGas(mapa, ubicacionVolcan);
+        jugadorUno.crearExtractorGas(mapa, ubicacionVolcan);
     
 
     	elJuego.tareaDelTurnoGenerarRecursos();
-    	Assert.assertEquals(unJugador.getGasVespeno(), Jugador.GAS_VESPENO_INICIAL - Refineria.COSTO.getCostoGas() +ExtractorGas.CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO);
+    	Assert.assertEquals(jugadorUno.getGasVespeno(), Jugador.GAS_VESPENO_INICIAL - Refineria.COSTO.getCostoGas() +ExtractorGas.CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO);
     }
 
 }
