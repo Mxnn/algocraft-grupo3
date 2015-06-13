@@ -13,19 +13,10 @@ public class NaveTransporteTerran extends NaveTransporte {
     public static final int VISION = 8;
     public static final int TIEMPO_DE_CONSTRUCCION = 7;
     public static final int CAPACIDAD = 8;
+    public static final int CUPO_DE_TRANSPORTE = 0;
+    public static final int SUMINISTRO = 2;
 
     public NaveTransporteTerran(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        this.suministro = 2;
-        propietario.agregarUnidad(this);
-        this.propietario = propietario;
-        this.vitalidad = new Vitalidad(VIDA_INICIAL);
-
-        this.vision = VISION;
-
-        this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
-
-        this.capacidad = CAPACIDAD;
-        this.lugaresOcupados = 0;
-      
+        super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, CAPACIDAD);
     }
 }

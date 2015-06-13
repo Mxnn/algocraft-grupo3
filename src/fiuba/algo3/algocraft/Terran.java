@@ -53,7 +53,7 @@ public class Terran extends Raza {
         return new DepositoSuministro(propietario);
     }
 
-    public CreadorDeSoldados crearCreadorDeSoldados(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+    public Construccion crearCreadorDeSoldados(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,Barraca.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
 		
@@ -61,7 +61,7 @@ public class Terran extends Raza {
         return new Barraca(propietario);
     }
 
-    public CreadorDeUnidadesTerrestres crearCreadorDeUnidadesTerrestres(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
+    public Construccion crearCreadorDeUnidadesTerrestres(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,Fabrica.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
 		
@@ -69,7 +69,7 @@ public class Terran extends Raza {
     	return new Fabrica(propietario);
     }
 
-    public CreadorDeUnidadesAereas crearCreadorDeUnidadesAereas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
+    public Construccion crearCreadorDeUnidadesAereas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,PuertoEstelar.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
 		

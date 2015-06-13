@@ -13,17 +13,15 @@ public class Espectro extends UnidadAgresora {
     public static final int VIDA_INICIAL = 120;
     public static final int VISION = 7;
     public static final int TIEMPO_DE_CONSTRUCCION = 8;
+    public static final int CUPO_DE_TRANSPORTE = 0;
+    public static final int SUMINISTRO = 2;
+    public static final int DANYO_AIRE = 20;
+    public static final int DANYO_TIERRA = 8;
+    public static final int RANGO_AIRE = 5;
+    public static final int RANGO_TIERRA = 5;
 
     public Espectro(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        this.suministro = 2;
-        propietario.agregarUnidad(this);
-        this.propietario = propietario;
-        this.vitalidad = new Vitalidad(VIDA_INICIAL);
-        this.danyo = new Danyo(20, 8);
-        this.vision = VISION;
-        this.rangoAtaque = new RangoAtaque(5, 5);
-        this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
-        
+        super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, new RangoAtaque(RANGO_AIRE, RANGO_TIERRA), new Danyo(DANYO_AIRE, DANYO_TIERRA));
     }
     public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);

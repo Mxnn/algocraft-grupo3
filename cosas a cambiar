@@ -1,12 +1,6 @@
 COSAS A CAMBIAR
 
-Abstracciones CreadorDeSoldados, CreadorDeUnidadesAereas y CreadorDeUnidadesTerrestres no parece que vaya a funcionar sin preguntar de alguna forma de que raza es el jugador
-
-Nombres de clases deben ser representativos (ej: Estado habla más de la implementación del patrón que de su rol en el modelo)
-
 Qué diferencia hay entre TipoDeConstruccion.CREADOR_DE_SOLDADOS y TipoDeConstruccion.CREADOR_DE_UNIDADES_TERRESTRES?
-
-Se sigue usando directamente los atributos protegidos de Interactuable al inicializar cada construcción
 
 Sería bueno que las pruebas de integración esten diferenciadas de pruebas unitarias
 

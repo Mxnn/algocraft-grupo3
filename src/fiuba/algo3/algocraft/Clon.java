@@ -1,17 +1,14 @@
 package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 
 public class Clon extends UnidadAgresora {
-		private UnidadAgresora original;
+	private UnidadAgresora original;
 	
-	public Clon(UnidadAgresora aClonar, Jugador propietario){
-		this.vitalidad =  new VitalidadProtoss(0, ((VitalidadProtoss) aClonar.getVitalidad()).getEscudo());
-		this.rangoAtaque = aClonar.getRangoAtaque();
-		this.danyo = new Danyo(0,0);
-		this.cupoDeTransporte = aClonar.getCupoDeTransporte();
-		this.propietario = propietario;
+	public Clon (UnidadAgresora aClonar, Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
+        super(propietario, new VitalidadProtoss(0, ((VitalidadProtoss) aClonar.getVitalidad()).getEscudo()), 0, aClonar.getCupoDeTransporte(), aClonar.getVision(), 0, aClonar.getRangoAtaque(), new Danyo(0, 0));
 	}
 
 	@Override

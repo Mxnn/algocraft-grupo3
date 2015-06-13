@@ -8,24 +8,17 @@ public class NaveTransporteProtoss extends NaveTransporte {
     public static final int ESCUDO_INICIAL = 60;
     public static final int VISION = 8;
     public static final int TIEMPO_DE_CONSTRUCCION = 8;
+    public static final int CUPO_DE_TRANSPORTE = 0;
     public static final int CAPACIDAD = 8;
-	
+    public static final int SUMINISTRO = 2;
+
     public static int COSTO_MINERAL = 200;
     public static int COSTO_GAS = 0;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
     
     public NaveTransporteProtoss(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        this.suministro = 2;
-        propietario.agregarUnidad(this);
-        this.propietario = propietario;
-        this.vitalidad = new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL);
-        this.vision = VISION;
-        this.tiempoDeConstruccion = TIEMPO_DE_CONSTRUCCION;
-
-        this.capacidad = CAPACIDAD;
-        this.lugaresOcupados = 0;
-        
+        super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, CAPACIDAD);
     }
     
 }

@@ -19,9 +19,9 @@ public class ClonTest {
 		
 		UnidadAgresora clon = new Clon(dragon, unJugador);
 		
-		clon.recibirDanyo(80);
+		clon.recibirDanyo(Dragon.VIDA_INICIAL);
 		
-		assertEquals(unJugador.getCantidadDeUnidades(),1); //se espera una porque se murio el clon epro el dragon sigue
+		assertEquals(unJugador.getCantidadDeUnidades(), 1); //se espera una porque se murio el clon pero el dragon sigue
 	}
 	@Test
 	public void clonTieneEscudoCorrecto() throws ExcepcionEstadoMuerto, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto {

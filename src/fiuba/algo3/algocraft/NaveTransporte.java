@@ -9,6 +9,12 @@ public abstract class NaveTransporte extends Unidad {
     protected int capacidad;
     protected ArrayList<Unidad> unidades = new ArrayList<Unidad>();
 
+    public NaveTransporte(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, int capacidad) throws ExcepcionNoHaySuministrosDisponibles {
+        super(propietario, vitalidad, tiempoDeConstruccion, cupoDeTransporte, vision, suministro);
+        this.lugaresOcupados = 0;
+        this.capacidad = capacidad;
+    }
+
     public void insertarUnidad(Unidad unidad) throws ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre {
         if (!unidad.getPropietario().equals(this.propietario))
             throw new ExcepcionUnidadEnemiga();

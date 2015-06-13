@@ -12,6 +12,14 @@ public abstract class Interactuable {
 	protected Vitalidad vitalidad;
 	protected int tiempoDeConstruccion;
 	protected Parcela parcelaUbicacion;
+    //protected int turnosDeConstruccion;
+
+    public Interactuable (Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion) {
+        this.propietario = propietario;
+        this.vitalidad = vitalidad;
+        this.tiempoDeConstruccion = tiempoDeConstruccion;
+        //this.turnosDeConstruccion = 0;
+    }
 
     public void recibirDanyo(int cantidad) throws ExcepcionEstadoMuerto {
         try {
@@ -61,6 +69,4 @@ public abstract class Interactuable {
     public abstract void guardarEnParcela(ParcelaVolcan parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada;
 
     public abstract void guardarEnParcela(ParcelaTierra parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada;
-
-
 }

@@ -6,6 +6,10 @@ import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 public abstract class ExtractorGas extends Construccion {
     public static final int CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO = 10;
 
+    public ExtractorGas(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion) {
+        super(propietario, vitalidad, tiempoDeConstruccion);
+    }
+
     public void collectarRecursos() {
         (this.propietario).sumarGasVespeno(CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO);
     }

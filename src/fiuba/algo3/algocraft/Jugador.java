@@ -67,7 +67,7 @@ public class Jugador {
     }
 
     public Interactuable crearCreadorDeSoldados(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
-        CreadorDeSoldados creadorDeSoldados = raza.crearCreadorDeSoldados(this);
+        Construccion creadorDeSoldados = raza.crearCreadorDeSoldados(this);
 
         mapa.ubicarElementoEnParcela(coordenada, creadorDeSoldados);
         construcciones.add(creadorDeSoldados);
@@ -76,7 +76,7 @@ public class Jugador {
     }
 
     public Interactuable crearCreadorDeUnidadesTerrestres(Mapa mapa, Coordenada coordenada) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
-        CreadorDeUnidadesTerrestres creadorDeUnidadesTerrestres = raza.crearCreadorDeUnidadesTerrestres(this);
+        Construccion creadorDeUnidadesTerrestres = raza.crearCreadorDeUnidadesTerrestres(this);
 
         mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesTerrestres);
         construcciones.add(creadorDeUnidadesTerrestres);
@@ -85,7 +85,7 @@ public class Jugador {
     }
 
     public Interactuable crearCreadorDeUnidadesAereas(Mapa mapa, Coordenada coordenada) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
-        CreadorDeUnidadesAereas creadorDeUnidadesAereas = raza.crearCreadorDeUnidadesAereas(this);
+        Construccion creadorDeUnidadesAereas = raza.crearCreadorDeUnidadesAereas(this);
 
         mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesAereas);
         construcciones.add(creadorDeUnidadesAereas);
@@ -171,4 +171,12 @@ public class Jugador {
             c.collectarRecursos();
 		
 	}
+
+    /*public ArrayList<Construccion> getConstrucciones() {
+        return this.construcciones;
+    }
+
+    public ArrayList<Unidad> getUnidades() {
+        return this.unidades;
+    }*/
 }
