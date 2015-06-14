@@ -2,7 +2,6 @@ package fiuba.algo3.algocraft.utilidades.unidades;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoNoAtacable;
-import fiuba.algo3.algocraft.excepciones.ExcepcionEnergiaInsuficiente;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.juego.Jugador;
@@ -14,12 +13,10 @@ public abstract class UnidadAgresora extends Unidad {
     protected RangoAtaque rangoAtaque;
     protected Danyo danyo;
 
-
     public UnidadAgresora(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, RangoAtaque rangoAtaque, Danyo danyo) throws ExcepcionNoHaySuministrosDisponibles {
         super(propietario, vitalidad, tiempoDeConstruccion, cupoDeTransporte, vision, suministro);
         this.rangoAtaque = rangoAtaque;
         this.danyo = danyo;
-
     }
 
     public void atacar(Interactuable enemigo) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto {
@@ -43,5 +40,4 @@ public abstract class UnidadAgresora extends Unidad {
     public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
 		ataque.atacar(this);
 	}
-
 }

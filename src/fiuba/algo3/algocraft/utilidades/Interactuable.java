@@ -3,11 +3,8 @@ package fiuba.algo3.algocraft.utilidades;
 import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
 import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
-import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoNoAtacable;
-import fiuba.algo3.algocraft.excepciones.ExcepcionEnergiaInsuficiente;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.juego.Jugador;
@@ -51,8 +48,7 @@ public abstract class Interactuable {
     public abstract int seleccionarDanyo(Danyo danyo);
     
     public abstract int seleccionarRango(RangoAtaque rango);
-    
-    
+
     public void setParcela(Parcela parcela){
     	this.parcelaUbicacion = parcela;
     }
@@ -79,5 +75,18 @@ public abstract class Interactuable {
 
     public abstract void guardarEnParcela(ParcelaTierra parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada;
 
-	
+    public void tareaDeEntreTurno() {
+        if (this.estaCreado())
+            this.vivir();
+        else
+            this.tiempoDeConstruccion--;
+    }
+
+    public boolean estaCreado() {
+        return (this.tiempoDeConstruccion == 0);
+    }
+
+    public void vivir() {
+        (this.vitalidad).regenerar();
+    }
 }

@@ -24,4 +24,8 @@ public class Vitalidad {
     public void recibirEmp() throws ExcepcionEstadoMuerto{
     	
     }
+
+    public void regenerar() {
+
+    }
 }

@@ -2,8 +2,8 @@ package fiuba.algo3.algocraft.utilidades.construcciones;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.excepciones.ExcepcionEnergiaInsuficiente;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
+
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.ParcelaEspacio;
@@ -45,25 +45,19 @@ public abstract class Construccion extends Interactuable {
         (this.parcelaUbicacion).vaciarParcela();
     }
     
-    public  int seleccionarDanyo(Danyo danyo){
+    public int seleccionarDanyo(Danyo danyo){
     	return danyo.getDanyoDeAtaqueEnTierra();
     }
-    
+
     public int seleccionarRango(RangoAtaque rango){
     	return rango.getRangoDeAtaqueEnTierra();
     }
-    
-
-    
 
 	public void collectarRecursos() {
-		
-		
+
 	}
-	
-	public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
-		ataque.atacar(this);
-	}
-    
-    
+
+    public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
+        ataque.atacar(this);
+    }
 }

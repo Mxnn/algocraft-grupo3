@@ -19,14 +19,6 @@ public abstract class UnidadMagica extends Unidad {
         this.regeneracionEnergia = regeneracionEnergia;
     }
 
-    public void regenerarEnergia() {
-        int total = this.energia + this.regeneracionEnergia;
-        if (total > this.energiaMaxima)
-            this.energia = this.energiaMaxima;
-        else
-            this.energia = total;
-    }
-
     public void gastarEnergia(int cantidad) throws ExcepcionEnergiaInsuficiente {
         int total = this.energia - cantidad;
         if (total < 0)
@@ -46,4 +38,17 @@ public abstract class UnidadMagica extends Unidad {
     public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
 		ataque.atacar(this);
 	}
+
+    public void vivir() {
+        this.regenerarEnergia();
+        (this.vitalidad).regenerar();
+    }
+
+    public void regenerarEnergia() {
+        int total = this.energia + this.regeneracionEnergia;
+        if (total > this.energiaMaxima)
+            this.energia = this.energiaMaxima;
+        else
+            this.energia = total;
+    }
 }

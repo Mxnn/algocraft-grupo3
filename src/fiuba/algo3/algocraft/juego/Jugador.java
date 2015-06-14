@@ -179,14 +179,17 @@ public class Jugador {
 	public void tareaDelTurnoGenerarRecursos() {
         for (Construccion c: this.construcciones)
             c.collectarRecursos();
-		
 	}
 
-    /*public ArrayList<Construccion> getConstrucciones() {
+    public ArrayList<Construccion> getConstrucciones() {
         return this.construcciones;
     }
 
     public ArrayList<Unidad> getUnidades() {
         return this.unidades;
-    }*/
+    }
+
+    public void terminarTurno(SistemaDeTurnos sistema) {
+        sistema.pasarTurno();
+    }
 }

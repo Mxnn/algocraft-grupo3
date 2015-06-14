@@ -8,12 +8,11 @@ import fiuba.algo3.algocraft.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.utilidades.Vitalidad;
 
 public abstract class ExtractorMineral extends Construccion {
+    public static final int CANTIDAD_DE_MINERALES_RECOLECTADOS_POR_TURNO = 10;
 
     public ExtractorMineral(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion) {
         super(propietario, vitalidad, tiempoDeConstruccion);
     }
-
-    public static final int CANTIDAD_DE_MINERALES_RECOLECTADOS_POR_TURNO = 10;
 
     public void collectarRecursos() {
         (this.propietario).sumarMinerales(CANTIDAD_DE_MINERALES_RECOLECTADOS_POR_TURNO);
@@ -27,6 +26,8 @@ public abstract class ExtractorMineral extends Construccion {
     	parcela.setElemento(this);
     }
     
- 
+    public void vivir() {
+        this.collectarRecursos();
+    }
     
 }

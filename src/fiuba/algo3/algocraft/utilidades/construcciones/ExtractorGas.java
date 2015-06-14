@@ -25,6 +25,8 @@ public abstract class ExtractorGas extends Construccion {
     public void guardarEnParcela(ParcelaVolcan parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
     }
-    
 
+    public void vivir() {
+        this.collectarRecursos();
+    }
 }

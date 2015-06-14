@@ -10,7 +10,7 @@ import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
 import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
 import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;
 
-public class Zealot extends UnidadAgresora /*implements Alucinable*/ {
+public class Zealot extends UnidadAgresora {
     public static final int VIDA_INICIAL = 100;
     public static final int ESCUDO_INICIAL = 60;
     public static final int VISION = 7;

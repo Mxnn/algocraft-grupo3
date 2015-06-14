@@ -40,5 +40,4 @@ public class AltoTemplario extends UnidadMagica {
         Clon clon2 = new Clon(unidadAClonar, this.propietario);
         mapa.ubicarCercaDeParcela(unidadAClonar.getParcela(), clon2);
     }
-    
 }

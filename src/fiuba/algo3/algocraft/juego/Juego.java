@@ -18,20 +18,24 @@ public class Juego {
 
 
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
-    private Mapa mapa ;
+    private Mapa mapa;
+    private SistemaDeTurnos sistemaDeTurnos;
     private LinkedList<Unidad> unidadesQueDebenMoverEnElTurno = new LinkedList<Unidad>();
     private LinkedList<Unidad> unidadesQueDebenMoverEnElProximoTurno = new LinkedList<Unidad>();
     
     public Juego() throws ExcepcionNumeroDeBasesInvalido { 
-    	mapa = new Mapa (2,5,5); 
+    	this.mapa = new Mapa (2,5,5);
+        this.sistemaDeTurnos = new SistemaDeTurnos(this.jugadores);
     }
 
     public ArrayList<Jugador> getJugadores(){
     	return this.jugadores;
     }
+
     public Mapa getMapa(){
     	return this.mapa;
     }
+
     public LinkedList<Unidad> getListDeUnidadesQueDebenMoverEnElTurno(){
     	 return this.unidadesQueDebenMoverEnElTurno;
     }
@@ -90,16 +94,12 @@ public class Juego {
         }
         return false;
     }
-    
 
     public void moverUnidad(Coordenada desde, Coordenada hasta) throws ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela{
     	Unidad unidadAMover = (Unidad) this.mapa.devolverElementoEnParcela(desde);
     	unidadAMover.calcularItinerario(this.mapa,desde,hasta);
 
 		this.unidadesQueDebenMoverEnElTurno.add(unidadAMover) ;
-		
-			
-		
 	}
 
 	public void tareaDelTurnoMoverLasUnidades() throws ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada{
@@ -116,7 +116,6 @@ public class Juego {
 
 	private void reinscribirLaUnidad() {
 		this.unidadesQueDebenMoverEnElProximoTurno.add(this.unidadesQueDebenMoverEnElTurno.getFirst());
-		
 	}
 
 	private boolean tareaDelTurnoMoverUnidad(Unidad unidadAMover) throws ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
@@ -134,6 +133,4 @@ public class Juego {
         for (Jugador j : this.jugadores)
             j.tareaDelTurnoGenerarRecursos();
 	}
-
-
 }
