@@ -21,4 +21,10 @@ public class ParcelaVolcan extends Parcela {
         elemento.guardarEnParcela(this);
     }
 
+    
+	public boolean noEsVolcanNiMineral() {
+
+		return false;
+	}
+	
 }

@@ -14,4 +14,7 @@ public class ParcelaEspacio extends Parcela {
         elemento.guardarEnParcela(this);
     }
 
+	public boolean noEsEspacio(){
+		return false;
+	}
 }

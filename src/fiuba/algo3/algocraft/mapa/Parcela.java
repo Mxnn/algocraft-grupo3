@@ -43,4 +43,14 @@ public abstract class Parcela {
 	public Interactuable devolverElemento(){
 		return this.elemento;
 	}
+
+	public boolean noEsVolcanNiMineral() {
+
+		return true;
+	}
+
+	public boolean noEsEspacio() {
+	
+		return true;
+	}
 }

@@ -49,6 +49,6 @@ public class Scout extends UnidadAgresora {
     
 	public boolean destinacionPermitida(Parcela parcelaDestinacion) {
 
-		return (parcelaDestinacion.getClass() == ParcelaTierra.class);
+		return parcelaDestinacion.noEsEspacio();
 	}
 }

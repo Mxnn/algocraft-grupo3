@@ -133,15 +133,23 @@ public abstract class Unidad extends Interactuable {
 		if (!this.destinacionPermitida(parcelaDestinacion))
 			throw new ExcepcionElementoNoAdmitidoEnParcela();
 		
+		if (!parcelaDestinacion.noEsVolcanNiMineral())
+			throw new ExcepcionElementoNoAdmitidoEnParcela();
+		
+		this.itinerario.clear();
+		this.itinerario.add(desde);
+		
+		Coordenada aux = desde;
+		
 		
 			this.itinerario.clear();
 			this.itinerario.add(desde); // la unidad se teleporta , tenemos que hacer un mejor calcul de itinerario
 			this.itinerario.add(hasta);
-		
+	
 	}
 
-	public boolean destinacionPermitida(Parcela parcelaDestinacion) {
-		return (parcelaDestinacion.getClass() == ParcelaTierra.class)||(parcelaDestinacion.getClass() == ParcelaEspacio.class);
+	public boolean destinacionPermitida(Parcela parcelaDestinacion) { // para tratar el problema que un terrien no puede ir en Espacio
+		return true;
 	}
 
     public LinkedList<Coordenada> getItinerario() {
@@ -149,7 +157,6 @@ public abstract class Unidad extends Interactuable {
     }
 
 	public void clearItinerario() {
-		this.itinerario=null; //quisas mejorar borrando el itinerario 
-		
+		this.itinerario.clear(); 
 	}
 }
