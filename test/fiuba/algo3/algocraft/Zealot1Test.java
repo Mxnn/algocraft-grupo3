@@ -1,7 +1,6 @@
 package fiuba.algo3.algocraft;
 
 import static org.junit.Assert.*;
-
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
@@ -10,7 +9,9 @@ import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.razas.terran.Terran;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
+import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;
+
 import org.junit.Test;
 
 import fiuba.algo3.algocraft.razas.protoss.unidades.Zealot;
@@ -31,7 +32,9 @@ public class Zealot1Test {
 	    mapa.ubicarElementoEnParcela(new Coordenada(0,0) , zealot);
 	    Interactuable marine = new Marine(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,0) , marine);
-	    zealot.atacar(marine);
+	    Ataque ataque = zealot.atacar(marine);
+	    
+	    ataque.ejecutarAtaque();
 	     
 	    assertEquals(marine.getVida(), 40-8);
 	}
@@ -49,7 +52,9 @@ public class Zealot1Test {
 	    Interactuable espectro = new Espectro(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
 
-        zealot.atacar(espectro);
+	    Ataque ataque = zealot.atacar(espectro);
+	    
+	    ataque.ejecutarAtaque();
 	}
 	
 	@Test(expected = ExcepcionEnemigoFueraDeAlcance.class)
@@ -64,7 +69,9 @@ public class Zealot1Test {
 	    Interactuable marine = new Marine(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(2,0) , marine);
 
-        zealot.atacar(marine);
+	    Ataque ataque = zealot.atacar(marine);
+	    
+	    ataque.ejecutarAtaque();
 	}
 
 	@Test
@@ -78,7 +85,10 @@ public class Zealot1Test {
 	    mapa.ubicarElementoEnParcela(new Coordenada(0,0) , zealot);
 	    Interactuable barraca = new Barraca(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
-	    zealot.atacar(barraca);
+	    Ataque ataque = zealot.atacar(barraca);
+	    
+	    
+	    ataque.ejecutarAtaque();
 	     
 	    assertEquals(barraca.getVida(), 1000-8);
 	}

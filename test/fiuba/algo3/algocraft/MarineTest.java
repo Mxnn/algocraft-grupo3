@@ -1,7 +1,6 @@
 package fiuba.algo3.algocraft;
 
 import static org.junit.Assert.*;
-
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
@@ -9,7 +8,9 @@ import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.razas.terran.Terran;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
+import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;
+
 import org.junit.Test;
 
 import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
@@ -31,7 +32,8 @@ public class MarineTest {
 	     Interactuable marine2 = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine2);
 	     
-	     marine.atacar(marine2);
+	     Ataque ataque = marine.atacar(marine2);
+	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(marine2.getVida(), 40-6);
 	}
@@ -48,7 +50,9 @@ public class MarineTest {
 	     
 	     Interactuable espectro = new Espectro(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
-	     marine.atacar(espectro);
+	     Ataque ataque = marine.atacar(espectro);
+	     
+	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(espectro.getVida(), 120-6);
 	     
@@ -67,7 +71,9 @@ public class MarineTest {
 	     Interactuable marine2 = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(5,0), marine2);
 	    
-	     marine.atacar(marine2);
+	     Ataque ataque = marine.atacar(marine2);
+	     
+	     ataque.ejecutarAtaque();
 	     
 	}
 	@Test
@@ -82,7 +88,9 @@ public class MarineTest {
 	     
 	     Interactuable barraca = new Barraca(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
-	     marine.atacar(barraca);
+	     Ataque ataque = marine.atacar(barraca);
+	     
+	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(barraca.getVida(), 1000-6);
 	}

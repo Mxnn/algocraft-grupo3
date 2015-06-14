@@ -28,4 +28,11 @@ public class AtaqueTormentaPsionica extends Ataque {
 
 	}
 
+	@Override
+	public void ejecutarAtaque() throws ExcepcionEstadoMuerto,
+			ExcepcionEnemigoFueraDeAlcance {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

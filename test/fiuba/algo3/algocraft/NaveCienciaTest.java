@@ -53,7 +53,8 @@ public class NaveCienciaTest {
 	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
 	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
-	     naveCiencia.lanzarEMP(listaParcelas);
+	     Ataque ataque = naveCiencia.lanzarEMP(listaParcelas);
+	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(0, ((VitalidadProtoss)dragon.getVitalidad()).getEscudo());
 	}
@@ -73,7 +74,8 @@ public class NaveCienciaTest {
 	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
 	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
-	     naveCiencia.lanzarEMP(listaParcelas);
+	     Ataque ataque = naveCiencia.lanzarEMP(listaParcelas);
+	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(0, ((VitalidadProtoss)dragon.getVitalidad()).getEscudo());
 	}
@@ -97,7 +99,8 @@ public class NaveCienciaTest {
 	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
 	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
-	     naveCiencia.lanzarEMP(listaParcelas);
+	     Ataque ataque = naveCiencia.lanzarEMP(listaParcelas);
+	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(300, ((VitalidadProtoss)pilon.getVitalidad()).getEscudo());
 	}
@@ -121,7 +124,8 @@ public class NaveCienciaTest {
 	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
 	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
-	     naveCiencia.lanzarEMP(listaParcelas);
+	     Ataque ataque = naveCiencia.lanzarEMP(listaParcelas);
+	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(40, ((VitalidadProtoss)templario.getVitalidad()).getEscudo());
 	}
@@ -145,7 +149,8 @@ public class NaveCienciaTest {
 	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
 	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
-	     naveCiencia.lanzarEMP(listaParcelas);
+	     Ataque ataque = naveCiencia.lanzarEMP(listaParcelas);
+	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(0, (templario.getEnergia()));
 	}
@@ -169,9 +174,35 @@ public class NaveCienciaTest {
 	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
 	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
-	     naveCiencia.lanzarEMP(listaParcelas);
+	     Ataque ataque = naveCiencia.lanzarEMP(listaParcelas);
+	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(0, (nave2.getEnergia()));
 	}
+	
+//	@Test
+//	public void quitaEnergiaARadioConUnidadesMagicas() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente {
+//		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+//		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
+//		 Mapa mapa = new Mapa(2, 5, 5);
+//	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+//	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+//	     
+//	     UnidadMagica templario = new AltoTemplario(unJugador);
+//	     mapa.ubicarElementoEnParcela(new Coordenada (1,1), templario);
+//	     NaveCiencia naveCiencia = new NaveCiencia(unJugador2);
+//	     
+//	     
+//	     for (int i = 0; i < 6; i++) 
+//	    	 naveCiencia.regenerarEnergia();
+//	     
+//	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+//	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
+//	     
+//	     Ataque ataque = naveCiencia.lanzarEMP(listaParcelas);
+//	     ataque.ejecutarAtaque();
+//	     
+//	     assertEquals(0, (templario.getEnergia()));
+//	}
 
 }

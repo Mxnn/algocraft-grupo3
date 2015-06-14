@@ -19,10 +19,11 @@ public abstract class UnidadAgresora extends Unidad {
         this.danyo = danyo;
     }
 
-    public void atacar(Interactuable enemigo) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto {
+    public AtaqueComun atacar(Interactuable enemigo) throws ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto {
 		int distancia = calcularDistanciaDeEnemigo(enemigo.getParcela());
-		AtaqueComun ataque = new AtaqueComun(rangoAtaque, danyo,distancia);
-    	enemigo.recibirAtaque(ataque);
+		AtaqueComun ataque = new AtaqueComun(enemigo, rangoAtaque, danyo,distancia);
+//    	enemigo.recibirAtaque(ataque);
+		return ataque;
 	}
     
     private int calcularDistanciaDeEnemigo(Parcela parcelaEnemigo) {

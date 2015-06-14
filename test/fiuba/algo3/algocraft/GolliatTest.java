@@ -1,7 +1,6 @@
 package fiuba.algo3.algocraft;
 
 import static org.junit.Assert.*;
-
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
@@ -9,7 +8,9 @@ import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.razas.terran.Terran;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
+import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;
+
 import org.junit.Test;
 
 import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
@@ -31,7 +32,9 @@ public class GolliatTest {
 	     
 	     Interactuable marine = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
-	     golliat.atacar(marine);
+	     
+	     Ataque ataque =  golliat.atacar(marine);
+	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(marine.getVida(), 40-12);
 	}
@@ -49,7 +52,8 @@ public class GolliatTest {
 	     Interactuable espectro = new Espectro(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
 
-	     golliat.atacar(espectro);
+	     Ataque ataque = golliat.atacar(espectro);
+	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(espectro.getVida(), 120-10);
 	     
@@ -68,7 +72,8 @@ public class GolliatTest {
 	     Interactuable marine = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(7,0), marine);
 
-	     golliat.atacar(marine);
+	     Ataque ataque = golliat.atacar(marine);
+	     ataque.ejecutarAtaque();
 	     
 	}
 	
@@ -85,7 +90,8 @@ public class GolliatTest {
 	    Interactuable espectro = new Espectro(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(0,6), espectro);
 
-        golliat.atacar(espectro);
+	    Ataque ataque = golliat.atacar(espectro);
+	     ataque.ejecutarAtaque();
 	}
 
 	@Test
@@ -99,7 +105,9 @@ public class GolliatTest {
 	     mapa.ubicarElementoEnParcela(new Coordenada(0,0), golliat);
 	     Interactuable barraca = new Barraca(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
-	     golliat.atacar(barraca);
+	     
+	     Ataque ataque = golliat.atacar(barraca);
+	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(barraca.getVida(), 1000-12);
 	}

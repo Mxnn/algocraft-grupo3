@@ -1,6 +1,9 @@
 package fiuba.algo3.algocraft;
 
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -19,6 +22,7 @@ import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
+import fiuba.algo3.algocraft.mapa.Parcela;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.razas.protoss.unidades.Dragon;
 import fiuba.algo3.algocraft.razas.terran.Terran;
@@ -42,7 +46,10 @@ public class AtaqueEMPTest {
 	     Interactuable dragon = new Dragon(unJugador);
 //	     Interactuable marine = new Marine(unJugador2);
 	     
-	     Ataque emp = new AtaqueEMP();
+	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+//	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
+	     
+	     Ataque emp = new AtaqueEMP(listaParcelas);
 	     
 	     dragon.recibirAtaque(emp);
 	     
@@ -57,7 +64,10 @@ public class AtaqueEMPTest {
 	     
 	     Interactuable dragon = new Dragon(unJugador);
 	     
-	     Ataque emp = new AtaqueEMP();
+	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+
+	     
+	     Ataque emp = new AtaqueEMP(listaParcelas);
 	     
 	     dragon.recibirAtaque(emp);
 	     

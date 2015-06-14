@@ -6,14 +6,20 @@ import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
 
 public class AtaqueComun extends Ataque {
+	protected Interactuable enemigo;
 	private RangoAtaque rango;
 	private Danyo danyo;
 	private int distancia;
 	
-	public AtaqueComun(RangoAtaque rango, Danyo danyo, int distancia){
+	public AtaqueComun(Interactuable enemigo, RangoAtaque rango, Danyo danyo, int distancia){
 		this.rango = rango;
 		this.danyo = danyo;
 		this.distancia = distancia;
+		this.enemigo = enemigo;
+	}
+	
+	public void ejecutarAtaque() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
+		(this.enemigo).recibirAtaque(this);
 	}
 	
 	private void danyar(Interactuable enemigo) throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{

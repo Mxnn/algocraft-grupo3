@@ -1,7 +1,6 @@
 package fiuba.algo3.algocraft;
 
 import static org.junit.Assert.*;
-
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
@@ -10,7 +9,9 @@ import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.razas.terran.Terran;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
+import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;
+
 import org.junit.Test;
 
 import fiuba.algo3.algocraft.razas.protoss.unidades.Dragon;
@@ -34,7 +35,9 @@ public class DragonTest {
 	     Interactuable marine = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
 	     
-	     dragon.atacar(marine);
+	     Ataque ataque = dragon.atacar(marine);
+	     
+	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(marine.getVida(), 40-20);
 	}
@@ -52,7 +55,9 @@ public class DragonTest {
 	     Interactuable espectro = new Espectro(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
 	     
-	     dragon.atacar(espectro);
+	     Ataque ataque = dragon.atacar(espectro);
+	     
+	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(espectro.getVida(), 120-20);
 	     
@@ -71,7 +76,9 @@ public class DragonTest {
 	     Interactuable marine = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(5,0), marine);
 	     
-	     dragon.atacar(marine);
+	     Ataque ataque = dragon.atacar(marine);
+	     
+	     ataque.ejecutarAtaque();
 	     
 	}
 	@Test
@@ -86,8 +93,9 @@ public class DragonTest {
 	     
 	     Interactuable barraca = new Barraca(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
-	     dragon.atacar(barraca);
-	     
+	     Ataque ataque = dragon.atacar(barraca);
+	     ataque.ejecutarAtaque();
+
 	     assertEquals(barraca.getVida(), 1000-20);
 	}
 

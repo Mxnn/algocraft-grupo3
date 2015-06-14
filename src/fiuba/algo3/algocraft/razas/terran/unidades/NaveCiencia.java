@@ -52,14 +52,15 @@ public class NaveCiencia extends UnidadMagica {
     	return rango.getRangoDeAtaqueEnAire();
     }
     
-    public void lanzarEMP(ArrayList<Parcela> listaParcelas) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente{
+    public AtaqueEMP lanzarEMP(ArrayList<Parcela> listaParcelas) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente{
     	this.gastarEnergia(COSTO_ENERGIA_EMP);
-    	for (int i = 0; i < listaParcelas.size(); i++) {
-    		Parcela parcela = listaParcelas.get(i);
-			if(!parcela.estaVacia()){
-				Interactuable enemigo = parcela.devolverElemento();
-				enemigo.recibirAtaque(new AtaqueEMP());
-			}
-		}
+//    	for (int i = 0; i < listaParcelas.size(); i++) {
+//    		Parcela parcela = listaParcelas.get(i);
+//			if(!parcela.estaVacia()){
+//				Interactuable enemigo = parcela.devolverElemento();
+//				enemigo.recibirAtaque(new AtaqueEMP());
+//			}
+		return new AtaqueEMP(listaParcelas);
     }
+    
 }
