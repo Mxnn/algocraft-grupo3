@@ -189,7 +189,7 @@ public class Jugador {
         return this.unidades;
     }
 
-    public void terminarTurno(SistemaDeTurnos sistema) {
-        sistema.pasarTurno();
+    public void terminarTurno(SistemaDeTurnos sistema) throws ExcepcionNoEsElTurnoDelJugador {
+        sistema.pasarTurno(this);
     }
 }

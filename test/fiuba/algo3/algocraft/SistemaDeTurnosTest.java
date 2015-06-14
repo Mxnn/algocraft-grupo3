@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft;
 
+import fiuba.algo3.algocraft.excepciones.ExcepcionNoEsElTurnoDelJugador;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
@@ -25,7 +26,7 @@ public class SistemaDeTurnosTest {
     }
 
     @Test
-    public void pasarTurnoHaceQueJuegueElOtroJugador() throws ExcepcionNombreCorto {
+    public void pasarTurnoHaceQueJuegueElOtroJugador() throws ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador {
         ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
         Jugador juan = new Jugador("Juan", Color.AZUL, Terran.getInstance());
         Jugador pedro = new Jugador("Pedro", Color.ROJO, Protoss.getInstance());
@@ -33,8 +34,20 @@ public class SistemaDeTurnosTest {
         jugadores.add(pedro);
         SistemaDeTurnos sistema = new SistemaDeTurnos(jugadores);
 
-        sistema.pasarTurno();
+        sistema.pasarTurno(juan);
 
         Assert.assertSame(pedro, sistema.getJugadorQueJuega());
+    }
+
+    @Test(expected = ExcepcionNoEsElTurnoDelJugador.class)
+    public void pasarTurnoLanzaExcepcionSiElQuePasaElTurnoNoEsElJugadorQueDebeJugar() throws ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador {
+        ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+        Jugador juan = new Jugador("Juan", Color.AZUL, Terran.getInstance());
+        Jugador pedro = new Jugador("Pedro", Color.ROJO, Protoss.getInstance());
+        jugadores.add(juan);
+        jugadores.add(pedro);
+        SistemaDeTurnos sistema = new SistemaDeTurnos(jugadores);
+
+        sistema.pasarTurno(pedro);
     }
 }

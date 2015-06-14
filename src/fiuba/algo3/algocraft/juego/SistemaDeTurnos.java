@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft.juego;
 
+import fiuba.algo3.algocraft.excepciones.ExcepcionNoEsElTurnoDelJugador;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
 
 import java.util.ArrayList;
@@ -21,14 +22,16 @@ public class SistemaDeTurnos {
         return this.jugadorQueJuega;
     }
 
-    public void pasarTurno() {
+    public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador {
+        if (!jugador.equals(this.jugadorQueJuega))
+            throw new ExcepcionNoEsElTurnoDelJugador();
+
         if (this.turno < (this.jugadores.size() - 1))
             this.turno++;
         else
             this.turno = 0;
 
         this.jugadorQueJuega = this.jugadores.get(this.turno);
-
         this.tareasDeEntreturno();
     }
 
