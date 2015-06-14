@@ -119,18 +119,31 @@ public class Juego {
 	}
 
 	private boolean tareaDelTurnoMoverUnidad(Unidad unidadAMover) throws ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
+	
 
-		Parcela parcelaPartida = this.mapa.obtenerParcelaEnCoordenada(unidadAMover.getItinerario().getFirst());
-		parcelaPartida.vaciarParcela();
-		unidadAMover.getItinerario().removeFirst();
-		Parcela parcelaDestinacion = this.mapa.obtenerParcelaEnCoordenada(unidadAMover.getItinerario().getFirst());
-		parcelaDestinacion.guardarElemento(unidadAMover);
-		
+		this.tareaDelTurnoMoverUnidadSubFunction(unidadAMover);	
 		return (unidadAMover.getItinerario().size() > 1);
 	}
 
+	
+	private void tareaDelTurnoMoverUnidadSubFunction(Unidad unidadAMover) throws ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
+		Parcela parcelaProxima = this.mapa.obtenerParcelaEnCoordenada(unidadAMover.getItinerario().get(1));
+		if (parcelaProxima.devolverElemento()!=null){
+			unidadAMover.clearItinerario();
+			
+		}else{
+			Parcela parcelaPartida = this.mapa.obtenerParcelaEnCoordenada(unidadAMover.getItinerario().getFirst());
+			parcelaPartida.vaciarParcela();
+			unidadAMover.getItinerario().removeFirst();
+			parcelaProxima.guardarElemento(unidadAMover);
+		}
+		
+	}
+
+	
+	
 	public void tareaDelTurnoGenerarRecursos() {
-        for (Jugador j : this.jugadores)
-            j.tareaDelTurnoGenerarRecursos();
+        for (Jugador cadaJugador : this.jugadores)
+        	cadaJugador.tareaDelTurnoGenerarRecursos();
 	}
 }

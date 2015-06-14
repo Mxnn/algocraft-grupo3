@@ -132,6 +132,8 @@ public abstract class Unidad extends Interactuable {
 		Parcela parcelaDestinacion = mapa.getTablero().get(hasta);
 		if (!this.destinacionPermitida(parcelaDestinacion))
 			throw new ExcepcionElementoNoAdmitidoEnParcela();
+		
+		
 			this.itinerario.clear();
 			this.itinerario.add(desde); // la unidad se teleporta , tenemos que hacer un mejor calcul de itinerario
 			this.itinerario.add(hasta);
@@ -139,10 +141,15 @@ public abstract class Unidad extends Interactuable {
 	}
 
 	public boolean destinacionPermitida(Parcela parcelaDestinacion) {
-		return true;
+		return (parcelaDestinacion.getClass() == ParcelaTierra.class)||(parcelaDestinacion.getClass() == ParcelaEspacio.class);
 	}
 
     public LinkedList<Coordenada> getItinerario() {
         return this.itinerario;
     }
+
+	public void clearItinerario() {
+		this.itinerario=null; //quisas mejorar borrando el itinerario 
+		
+	}
 }
