@@ -9,6 +9,7 @@ import org.junit.Test;
 import fiuba.algo3.algocraft.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEnergiaInsuficiente;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNombreCorto;
@@ -34,7 +35,7 @@ import fiuba.algo3.algocraft.utilidades.unidades.UnidadMagica;
 public class NaveCienciaTest {
 
 	@Test
-	public void quitaEscudoAProtoss() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+	public void quitaEscudoAProtoss() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente {
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
 		 Mapa mapa = new Mapa(2, 5, 5);
@@ -56,8 +57,29 @@ public class NaveCienciaTest {
 	     
 	     assertEquals(0, ((VitalidadProtoss)dragon.getVitalidad()).getEscudo());
 	}
+	
+	@Test(expected = ExcepcionEnergiaInsuficiente.class)
+	public void lanzaExcepcionSiEnergiaInsuficiente() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente {
+		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
+		 Mapa mapa = new Mapa(2, 5, 5);
+	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+	     
+	     Interactuable dragon = new Dragon(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada (1,1), dragon);
+	     NaveCiencia naveCiencia = new NaveCiencia(unJugador2);
+	     
+	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
+	     
+	     naveCiencia.lanzarEMP(listaParcelas);
+	     
+	     assertEquals(0, ((VitalidadProtoss)dragon.getVitalidad()).getEscudo());
+	}
+	
 	@Test
-	public void noQuitaEscudoAConstruccionProtoss() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+	public void noQuitaEscudoAConstruccionProtoss() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente {
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
 		 Mapa mapa = new Mapa(2, 5, 5);
@@ -81,7 +103,7 @@ public class NaveCienciaTest {
 	}
 	
 	@Test
-	public void noQuitaEscudoAUnidadMagicaProtoss() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+	public void noQuitaEscudoAUnidadMagicaProtoss() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente {
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
 		 Mapa mapa = new Mapa(2, 5, 5);
@@ -105,7 +127,7 @@ public class NaveCienciaTest {
 	}
 	
 	@Test
-	public void quitaEnergiaAUnidadMagicaProtoss() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+	public void quitaEnergiaAUnidadMagicaProtoss() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente {
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
 		 Mapa mapa = new Mapa(2, 5, 5);
@@ -126,6 +148,30 @@ public class NaveCienciaTest {
 	     naveCiencia.lanzarEMP(listaParcelas);
 	     
 	     assertEquals(0, (templario.getEnergia()));
+	}
+	
+	@Test
+	public void quitaEnergiaAUnidadMagicaTerran() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente {
+		Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
+		 Mapa mapa = new Mapa(2, 5, 5);
+	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+	     
+	     UnidadMagica nave2 = new NaveCiencia(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada (1,1), nave2);
+	     NaveCiencia naveCiencia = new NaveCiencia(unJugador2);
+	     
+	     
+	     for (int i = 0; i < 6; i++) 
+	    	 naveCiencia.regenerarEnergia();
+	     
+	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
+	     
+	     naveCiencia.lanzarEMP(listaParcelas);
+	     
+	     assertEquals(0, (nave2.getEnergia()));
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEnergiaInsuficiente;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
@@ -32,6 +33,8 @@ public class NaveCiencia extends UnidadMagica {
     public static final int ENERGIA_MAXIMA = 200;
     public static final int ENERGIA_INICIAL = 50;
     public static final int REGENERACION_ENERGIA = 10;
+    public static final int COSTO_ENERGIA_EMP = 100;
+    public static final int COSTO_ENERGIA_RADIACION = 75;
 
     public NaveCiencia(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
         super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, ENERGIA_MAXIMA, ENERGIA_INICIAL, REGENERACION_ENERGIA);
@@ -49,7 +52,8 @@ public class NaveCiencia extends UnidadMagica {
     	return rango.getRangoDeAtaqueEnAire();
     }
     
-    public void lanzarEMP(ArrayList<Parcela> listaParcelas) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
+    public void lanzarEMP(ArrayList<Parcela> listaParcelas) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente{
+    	this.gastarEnergia(COSTO_ENERGIA_EMP);
     	for (int i = 0; i < listaParcelas.size(); i++) {
     		Parcela parcela = listaParcelas.get(i);
 			if(!parcela.estaVacia()){
