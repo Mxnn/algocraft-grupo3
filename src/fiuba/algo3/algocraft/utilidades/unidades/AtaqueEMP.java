@@ -12,11 +12,12 @@ import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
 
 public class AtaqueEMP extends Ataque {
-	
+	public static final int TURNOS_DE_DURACION = 1;
 	private ArrayList<Parcela> listaParcelas;
 	
 	public AtaqueEMP(ArrayList<Parcela> listaParcelas){
 		this.listaParcelas = listaParcelas;
+		this.duracionDeAtaque = TURNOS_DE_DURACION;
 
 	}
 
@@ -42,6 +43,7 @@ public class AtaqueEMP extends Ataque {
 
 	@Override
 	public void ejecutarAtaque() throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
+		this.cantidadDeAtaques += 1;
 		for (int i = 0; i < this.listaParcelas.size(); i++) {
     		Parcela parcela = (this.listaParcelas).get(i);
 			if(!parcela.estaVacia()){
@@ -51,11 +53,11 @@ public class AtaqueEMP extends Ataque {
 		}
 	}
 
-	@Override
-	public boolean descartarAtaque() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
+//	public boolean descartarAtaque() {
+//		// TODO Auto-generated method stub
+//		return false;
+//	}
 
 
 

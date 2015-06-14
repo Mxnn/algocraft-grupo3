@@ -6,6 +6,7 @@ import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
 
 public class AtaqueComun extends Ataque {
+	public static final int TURNOS_DE_DURACION = 1;
 	protected Interactuable enemigo;
 	private RangoAtaque rango;
 	private Danyo danyo;
@@ -16,9 +17,11 @@ public class AtaqueComun extends Ataque {
 		this.danyo = danyo;
 		this.distancia = distancia;
 		this.enemigo = enemigo;
+		this.duracionDeAtaque = TURNOS_DE_DURACION;
 	}
 	
 	public void ejecutarAtaque() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
+		this.cantidadDeAtaques += 1;
 		(this.enemigo).recibirAtaque(this);
 	}
 	
@@ -46,11 +49,11 @@ public class AtaqueComun extends Ataque {
     	this.danyar(enemigo);
 	}
 
-	@Override
-	public boolean descartarAtaque() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
+//	public boolean descartarAtaque() {
+//		// TODO Auto-generated method stub
+//		return false;
+//	}
 	
 
 }

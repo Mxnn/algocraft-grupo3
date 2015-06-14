@@ -76,7 +76,7 @@ public class AtaqueEMPTest {
 	}
 	
 	@Test
-	public void noHaceNadaATerran() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionNoHaySuministrosDisponibles {
+	public void noHaceNadaATerran() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
 //		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
 		 Mapa mapa = new Mapa(2, 5, 5);
@@ -85,7 +85,35 @@ public class AtaqueEMPTest {
 	     
 //	     Interactuable dragon = new Dragon(unJugador);
 	     Interactuable marine = new Marine(unJugador2);
+	     
+	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+
+	     
+	     Ataque emp = new AtaqueEMP(listaParcelas);
+	     
+	     marine.recibirAtaque(emp);
+	     
+	     
 	     assertEquals(40, (marine.getVitalidad()).getVida());
+	     
+	}
+	
+	@Test
+	public void despuesDeUnAtaqueEsDescartable() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
+		 Mapa mapa = new Mapa(2, 5, 5);
+	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+	     Interactuable marine = new Marine(unJugador2);
+	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), marine);
+	     
+	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada(1,1)));
+	     
+	     Ataque emp = new AtaqueEMP(listaParcelas);
+	     
+	     emp.ejecutarAtaque();
+	     
+	     assertTrue(emp.esDescartable());
 	     
 	}
 
