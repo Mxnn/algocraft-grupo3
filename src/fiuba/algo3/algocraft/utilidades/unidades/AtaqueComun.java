@@ -29,7 +29,7 @@ public class AtaqueComun extends Ataque {
     	enemigo.recibirDanyo(enemigo.seleccionarDanyo(this.danyo));
 	}
 	
-	@Override
+	
 	public void atacar(Construccion enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
     	this.danyar(enemigo);
 	}
@@ -44,6 +44,12 @@ public class AtaqueComun extends Ataque {
 	
 	public void atacar(NaveTransporte enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
     	this.danyar(enemigo);
+	}
+
+	@Override
+	public boolean descartarAtaque() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 

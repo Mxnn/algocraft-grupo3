@@ -15,7 +15,7 @@ import org.junit.Test;
 
 public class AltoTemplarioTest {
     @Test(expected = ExcepcionUnidadEnemiga.class)
-    public void alucionacionLanzaExcpecionSiLaUnidadNoEsPropia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionUnidadEnemiga, CloneNotSupportedException, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto {
+    public void alucionacionLanzaExcpecionSiLaUnidadNoEsPropia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionUnidadEnemiga, CloneNotSupportedException, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionEnergiaInsuficiente {
         Mapa mapa = new Mapa(2, 20, 20);
         Jugador jugador1 = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         Jugador jugador2 = new Jugador("Pablo", Color.AZUL, Protoss.getInstance());
@@ -38,6 +38,8 @@ public class AltoTemplarioTest {
         jugador2.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(18, 19));
         archivo = (ArchivosTemplarios) jugador2.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(19, 18));
         altoTemplario = archivo.crearAltoTemplario(mapa);
+        for (int i = 0; i < 6; i++) 
+        	altoTemplario.regenerarEnergia();
 
         altoTemplario.crearAlucinacion(zealot, mapa);
     }

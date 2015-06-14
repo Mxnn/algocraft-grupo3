@@ -20,7 +20,6 @@ public class AtaqueEMP extends Ataque {
 
 	}
 
-	@Override
 	public void atacar(UnidadAgresora enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance{
 		(enemigo.getVitalidad()).recibirEmp();
 	}
@@ -50,6 +49,12 @@ public class AtaqueEMP extends Ataque {
 				enemigo.recibirAtaque(this);
 			}
 		}
+	}
+
+	@Override
+	public boolean descartarAtaque() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 

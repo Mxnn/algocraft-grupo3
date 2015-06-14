@@ -11,6 +11,7 @@ import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
 
 public abstract class Ataque {	
 	public abstract void ejecutarAtaque() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance;
+	public abstract boolean descartarAtaque();
 	
 	public abstract void atacar(Construccion enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance;
 	public abstract void atacar(UnidadAgresora enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance;

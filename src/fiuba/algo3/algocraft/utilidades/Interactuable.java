@@ -45,6 +45,10 @@ public abstract class Interactuable {
     
     public abstract void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance;
     
+//    public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
+//    	ataque.atacar(this);
+//    }
+    
     public abstract int seleccionarDanyo(Danyo danyo);
     
     public abstract int seleccionarRango(RangoAtaque rango);
