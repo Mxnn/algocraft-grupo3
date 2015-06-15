@@ -16,7 +16,8 @@ public abstract class Unidad extends Interactuable {
     protected int vision;
     protected int suministro;
     protected LinkedList<Coordenada> itinerario = new LinkedList<Coordenada>();
-
+    protected Coordenada coordenada;
+    protected Coordenada coordenadaDestinacion;
     public Unidad(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro) throws ExcepcionNoHaySuministrosDisponibles {
         super(propietario, vitalidad, tiempoDeConstruccion);
         this.cupoDeTransporte = cupoDeTransporte;
@@ -158,5 +159,15 @@ public abstract class Unidad extends Interactuable {
 
 	public void clearItinerario() {
 		this.itinerario.clear(); 
+	}
+	
+    public void vivir(Mapa mapa) {
+        (this.vitalidad).regenerar();
+        this.mover(mapa);
+    }
+
+	private void mover(Mapa mapa) {
+
+		
 	}
 }

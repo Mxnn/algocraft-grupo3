@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft.juego;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoEsElTurnoDelJugador;
+import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
 
 import java.util.ArrayList;
@@ -9,12 +10,13 @@ public class SistemaDeTurnos {
     private ArrayList<Jugador> jugadores;
     private Jugador jugadorQueJuega;
     private int turno;
-
-    public SistemaDeTurnos(ArrayList<Jugador> jugadores) {
+    private Mapa mapa;
+    public SistemaDeTurnos(ArrayList<Jugador> jugadores, Mapa mapa) {
         this.jugadores = jugadores;
         if (jugadores.size() > 0) {
             jugadorQueJuega = jugadores.get(0);
             this.turno = 0;
+            this.mapa = mapa;
         }
     }
 
@@ -42,7 +44,7 @@ public class SistemaDeTurnos {
             interactuables.addAll(j.getUnidades());
 
             for (Interactuable i: interactuables) {
-                i.tareaDeEntreTurno();
+                i.tareaDeEntreTurno(this.mapa);
             }
         }
     }

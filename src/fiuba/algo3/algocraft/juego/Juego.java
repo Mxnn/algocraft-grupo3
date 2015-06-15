@@ -25,7 +25,7 @@ public class Juego {
     
     public Juego() throws ExcepcionNumeroDeBasesInvalido { 
     	this.mapa = new Mapa (2,5,5);
-        this.sistemaDeTurnos = new SistemaDeTurnos(this.jugadores);
+        this.sistemaDeTurnos = new SistemaDeTurnos(this.jugadores,this.mapa);
     }
 
     public ArrayList<Jugador> getJugadores(){

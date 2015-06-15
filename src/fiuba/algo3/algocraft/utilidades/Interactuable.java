@@ -79,9 +79,9 @@ public abstract class Interactuable {
 
     public abstract void guardarEnParcela(ParcelaTierra parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada;
 
-    public void tareaDeEntreTurno() {
+    public void tareaDeEntreTurno(Mapa mapa) {
         if (this.estaCreado())
-            this.vivir();
+            this.vivir(mapa);
         else
             this.tiempoDeConstruccion--;
     }
@@ -90,7 +90,7 @@ public abstract class Interactuable {
         return (this.tiempoDeConstruccion == 0);
     }
 
-    public void vivir() {
+    public void vivir(Mapa mapa) {
         (this.vitalidad).regenerar();
     }
 }
