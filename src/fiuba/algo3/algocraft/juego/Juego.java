@@ -12,8 +12,6 @@ import java.util.LinkedList;
 
 
 public class Juego {
-    //EL CODIGO COMENTADO ES EL CODIGO PARA EL SINGLETON DE LA CLASE (NECESITO "LIMPIAR" EL OBJETO CLASE PARA BORRAR LOS USUARIOS "INSCRIPTOS")
-    //private static Juego INSTANCIA = null;
     private static int MAXIMO_NUMERO_DE_JUGADORES = 2;
 
 
@@ -43,20 +41,6 @@ public class Juego {
     public LinkedList<Unidad> getListDeUnidadesQueDebenMoverEnElProximoTurno(){
    	    return this.unidadesQueDebenMoverEnElProximoTurno;
     }
-    /*
- 
-
-    private synchronized static void createInstance() {
-        if (INSTANCIA == null) {
-            INSTANCIA = new Juego();
-        }
-    }
-    public static Juego getInstance() {
-        if (INSTANCIA == null)
-            createInstance();
-
-        return INSTANCIA;
-    }*/
 
     public void crearJugador(String nombre, Color color, Raza raza) throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreCorto {
         if (jugadores.size() == MAXIMO_NUMERO_DE_JUGADORES)
@@ -143,18 +127,12 @@ public class Juego {
 		if (parcelaProxima.devolverElemento()!=null){
 			unidadAMover.clearItinerario();
 			
-		}else{
+		} else {
 			Parcela parcelaPartida = this.mapa.obtenerParcelaEnCoordenada(unidadAMover.getItinerario().getFirst());
 			parcelaPartida.vaciarParcela();
 			unidadAMover.getItinerario().removeFirst();
 			parcelaProxima.guardarElemento(unidadAMover);
 		}
-		
-	}
-
-	public void tareaDelTurnoGenerarRecursos() {
-        for (Jugador cadaJugador : this.jugadores)
-        	cadaJugador.tareaDelTurnoGenerarRecursos();
 	}
 
     public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador {

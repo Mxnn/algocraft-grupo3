@@ -53,10 +53,6 @@ public abstract class Construccion extends Interactuable {
     	return rango.getRangoDeAtaqueEnTierra();
     }
 
-	public void collectarRecursos() {
-
-	}
-
     public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
         ataque.atacar(this);
     }

@@ -18,7 +18,7 @@ public class CentroDeMineralTest {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         ExtractorMineral centroDeMineral = new CentroDeMineral(unJugadorPropietario);
 
-        centroDeMineral.collectarRecursos();
+        centroDeMineral.recolectarRecursos();
 
         Assert.assertEquals(unJugadorPropietario.getMinerales(), Jugador.MINERAL_INICIAL + 10);
     }

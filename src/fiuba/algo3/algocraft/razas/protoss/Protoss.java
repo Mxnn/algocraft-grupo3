@@ -56,7 +56,7 @@ public class Protoss extends Raza {
         return new Pilon(propietario);
     }
 
-    public Construccion crearCreadorDeSoldados(Jugador propietario) throws ExcepcionRecursosInsuficientes {
+    public Construccion crearCreadorDeUnidadesBasicas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,Acceso.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
 		
@@ -64,7 +64,7 @@ public class Protoss extends Raza {
         return new Acceso(propietario);
     }
 
-    public Construccion crearCreadorDeUnidadesTerrestres(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes{
+    public Construccion crearCreadorDeUnidadesAvanzadas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes{
         if (recursosInsuficientes(propietario, PuertoEstelarProtoss.COSTO))
             throw new ExcepcionRecursosInsuficientes();
 
@@ -72,7 +72,7 @@ public class Protoss extends Raza {
         return new PuertoEstelarProtoss(propietario);
     }
 
-    public Construccion crearCreadorDeUnidadesAereas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes{
+    public Construccion crearCreadorDeUnidadesMagicas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes{
         if (recursosInsuficientes(propietario, ArchivosTemplarios.COSTO))
             throw new ExcepcionRecursosInsuficientes();
 

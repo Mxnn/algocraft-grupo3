@@ -13,7 +13,7 @@ public class ParcelaMineral extends Parcela {
 
     public void darMinerales() {
         if (!this.estaVacia()) {
-            ((ExtractorMineral) (this.elemento)).collectarRecursos();
+            ((ExtractorMineral) (this.elemento)).recolectarRecursos();
         }
     }
     

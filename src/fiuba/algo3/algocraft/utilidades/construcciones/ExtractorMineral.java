@@ -14,7 +14,7 @@ public abstract class ExtractorMineral extends Construccion {
         super(propietario, vitalidad, tiempoDeConstruccion);
     }
 
-    public void collectarRecursos() {
+    public void recolectarRecursos() {
         (this.propietario).sumarMinerales(CANTIDAD_DE_MINERALES_RECOLECTADOS_POR_TURNO);
     }
 
@@ -27,7 +27,7 @@ public abstract class ExtractorMineral extends Construccion {
     }
     
     public void vivir() {
-        this.collectarRecursos();
+        this.recolectarRecursos();
     }
     
 }

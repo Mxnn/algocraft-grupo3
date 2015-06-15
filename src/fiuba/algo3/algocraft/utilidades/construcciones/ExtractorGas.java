@@ -14,7 +14,7 @@ public abstract class ExtractorGas extends Construccion {
         super(propietario, vitalidad, tiempoDeConstruccion);
     }
 
-    public void collectarRecursos() {
+    public void recolectarRecursos() {
         (this.propietario).sumarGasVespeno(CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO);
     }
 
@@ -27,6 +27,6 @@ public abstract class ExtractorGas extends Construccion {
     }
 
     public void vivir() {
-        this.collectarRecursos();
+        this.recolectarRecursos();
     }
 }

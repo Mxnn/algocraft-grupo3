@@ -77,7 +77,7 @@ public class Jugador {
     }
 
     public Interactuable crearCreadorDeUnidadesBasicas(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
-        Construccion creadorDeSoldados = raza.crearCreadorDeSoldados(this);
+        Construccion creadorDeSoldados = raza.crearCreadorDeUnidadesBasicas(this);
 
         mapa.ubicarElementoEnParcela(coordenada, creadorDeSoldados);
         construcciones.add(creadorDeSoldados);
@@ -86,7 +86,7 @@ public class Jugador {
     }
 
     public Interactuable crearCreadorDeUnidadesAvanzadas(Mapa mapa, Coordenada coordenada) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
-        Construccion creadorDeUnidadesTerrestres = raza.crearCreadorDeUnidadesTerrestres(this);
+        Construccion creadorDeUnidadesTerrestres = raza.crearCreadorDeUnidadesAvanzadas(this);
 
         mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesTerrestres);
         construcciones.add(creadorDeUnidadesTerrestres);
@@ -95,7 +95,7 @@ public class Jugador {
     }
 
     public Interactuable crearCreadorDeUnidadesMagicas(Mapa mapa, Coordenada coordenada) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
-        Construccion creadorDeUnidadesAereas = raza.crearCreadorDeUnidadesAereas(this);
+        Construccion creadorDeUnidadesAereas = raza.crearCreadorDeUnidadesMagicas(this);
 
         mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesAereas);
         construcciones.add(creadorDeUnidadesAereas);
@@ -175,11 +175,6 @@ public class Jugador {
     public void eliminarConstruccion(Construccion construccion) {
         (this.construcciones).remove(construccion);
     }
-
-	public void tareaDelTurnoGenerarRecursos() {
-        for (Construccion c: this.construcciones)
-            c.collectarRecursos();
-	}
 
     public ArrayList<Construccion> getConstrucciones() {
         return this.construcciones;

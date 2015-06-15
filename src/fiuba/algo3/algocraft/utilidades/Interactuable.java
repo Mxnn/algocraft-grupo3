@@ -16,13 +16,11 @@ public abstract class Interactuable {
 	protected Vitalidad vitalidad;
 	protected int tiempoDeConstruccion;
 	protected Parcela parcelaUbicacion;
-    //protected int turnosDeConstruccion;
 
     public Interactuable (Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion) {
         this.propietario = propietario;
         this.vitalidad = vitalidad;
         this.tiempoDeConstruccion = tiempoDeConstruccion;
-        //this.turnosDeConstruccion = 0;
     }
 
     public void recibirDanyo(int cantidad) throws ExcepcionEstadoMuerto {

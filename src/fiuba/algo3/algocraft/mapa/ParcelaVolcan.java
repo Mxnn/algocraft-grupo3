@@ -13,7 +13,7 @@ public class ParcelaVolcan extends Parcela {
 
     public void despedirGas() {
         if (!this.estaVacia()) {
-            ((ExtractorGas) (this.elemento)).collectarRecursos();
+            ((ExtractorGas) (this.elemento)).recolectarRecursos();
         }
     }
     

@@ -19,7 +19,7 @@ public class NexoMineralTest {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         ExtractorMineral nexoMineral = new NexoMineral(unJugadorPropietario);
 
-        nexoMineral.collectarRecursos();
+        nexoMineral.recolectarRecursos();
 
         Assert.assertEquals(unJugadorPropietario.getMinerales(), Jugador.MINERAL_INICIAL + 10);
     }

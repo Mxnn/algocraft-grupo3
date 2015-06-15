@@ -19,7 +19,7 @@ public class AsimiladorTest {
         Jugador unJugadorPropietario = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         ExtractorGas asimilador = new Asimilador(unJugadorPropietario);
 
-        asimilador.collectarRecursos();
+        asimilador.recolectarRecursos();
         Assert.assertEquals(unJugadorPropietario.getGasVespeno(), Jugador.GAS_VESPENO_INICIAL + 10);
     }
 
