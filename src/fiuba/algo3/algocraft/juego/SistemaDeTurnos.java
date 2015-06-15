@@ -9,15 +9,15 @@ import java.util.ArrayList;
 public class SistemaDeTurnos {
     private ArrayList<Jugador> jugadores;
     private Jugador jugadorQueJuega;
-    private int turno;
+    private int turno = 0;
     private Mapa mapa;
+
     public SistemaDeTurnos(ArrayList<Jugador> jugadores, Mapa mapa) {
         this.jugadores = jugadores;
-        if (jugadores.size() > 0) {
+        if (jugadores.size() > 0) 
             jugadorQueJuega = jugadores.get(0);
-            this.turno = 0;
-            this.mapa = mapa;
-        }
+
+        this.mapa = mapa;
     }
 
     public Jugador getJugadorQueJuega() {
@@ -25,6 +25,9 @@ public class SistemaDeTurnos {
     }
 
     public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador {
+        if (this.jugadorQueJuega == null && this.jugadores.size() > 0)
+            this.jugadorQueJuega = this.jugadores.get(0);
+
         if (!jugador.equals(this.jugadorQueJuega))
             throw new ExcepcionNoEsElTurnoDelJugador();
 

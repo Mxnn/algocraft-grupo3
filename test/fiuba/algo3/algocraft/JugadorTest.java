@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Color;
+import fiuba.algo3.algocraft.juego.Juego;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
@@ -14,6 +15,7 @@ import fiuba.algo3.algocraft.razas.terran.construcciones.*;
 import fiuba.algo3.algocraft.razas.terran.unidades.*;
 
 import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
+import fiuba.algo3.algocraft.utilidades.unidades.AdicionalSuministros;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -74,7 +76,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void creadorDeSoldadosCreaEdificioCreadorDeSoldados() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void creadorDeUnidadesBasicasCreaEdificioCreadorDeSoldados() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
@@ -84,26 +86,45 @@ public class JugadorTest {
     }
 
     @Test
-    public void creadorDeUnidadesTerrestresCreaEdificioCreadorDeUnidadesTerrestres() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void creadorDeUnidadesAvanzadasCreaEdificioCreadorDeUnidadesAvanzadas() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
-        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
+
         unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
 
         Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 2);
     }
 
     @Test
-    public void creadorDeUnidadesAereasCreaEdificioCreadorDeUniadesAereas() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void creadorDeUnidadesMagicasCreaEdificioCreadorDeUniadesAereas() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
-  
-        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
-        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        //Se pasan los turnos necesarios
+        while (!fabrica.estaCreado())
+            unJugador.terminarTurno(juego);
+
         unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 4));
 
         Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 3);
@@ -210,38 +231,69 @@ public class JugadorTest {
     }
     
     @Test
-    public void crearCreadorDeUnidadesAvanzadasRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void crearCreadorDeUnidadesAvanzadasRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
       	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);     
-    	unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));   //construction requirida para crear el creador de unidades terrestres
-  
-    	unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 3));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 4));
 
     	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Barraca.COSTO.getCostoMineral() - Fabrica.COSTO.getCostoMineral());
     }
 
     @Test(expected = ExcepcionRecursosInsuficientes.class)
-    public void crearCreadorDeUnidadesMagicasLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void crearCreadorDeUnidadesMagicasLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL + Barraca.COSTO.getCostoMineral() + Fabrica.COSTO.getCostoMineral());
         unJugador.sumarGasVespeno(-Jugador.GAS_VESPENO_INICIAL + Fabrica.COSTO.getCostoGas());
 
-        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));  //construction requirida para crear el creador de unidades terrestres
-    	unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 4));
-        unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 3));
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        //Se pasan los turnos necesarios
+        while (!fabrica.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 4));
     }
     
     @Test
-    public void crearCreadorDeUnidadesMagicasRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void crearCreadorDeUnidadesMagicasRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
-      	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);     
-    	unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));   //construction requirida para crear el creador de unidades terrestres
-    	unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 4));
+      	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
+
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 4));
+
+        //Se pasan los turnos necesarios
+        while (!fabrica.estaCreado())
+            unJugador.terminarTurno(juego);
     	
     	unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 3));
 
@@ -333,50 +385,95 @@ public class JugadorTest {
     }
 
     @Test(expected = ExcepcionRecursosInsuficientes.class)
-    public void crearCreadorDeUnidadesMagicasParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void crearCreadorDeUnidadesMagicasParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        juego.agregarJugador(unJugador);
 
-    	unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));  //construction requirida para crear el creador de unidades terrestres
+        Acceso acceso = (Acceso) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!acceso.estaCreado())
+            unJugador.terminarTurno(juego);
+
         unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL + Acceso.COSTO.getCostoMineral());
-        unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 2));
+        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 2));
     }
     
     @Test
-    public void crearCreadorDeUnidadesMagicasParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void crearCreadorDeUnidadesMagicasParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        juego.agregarJugador(unJugador);
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
-      	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);     
-    	unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));   //construction requirida para crear el creador de unidades terrestres
-        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 1));
+      	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
+
+        Acceso acceso = (Acceso) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!acceso.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        //Se pasan los turnos necesarios
+        while (!puerto.estaCreado())
+            unJugador.terminarTurno(juego);
   
-    	unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 3));
+    	unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 4));
 
     	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Acceso.COSTO.getCostoMineral() - ArchivosTemplarios.COSTO.getCostoMineral() - PuertoEstelarProtoss.COSTO.getCostoMineral());
     }
 
     @Test(expected = ExcepcionRecursosInsuficientes.class)
-    public void crearCreadorDeUnidadesAvanzadasParaProtossLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void crearCreadorDeUnidadesAvanzadasParaProtossLanzaExcepcionSiNoHayRecursos() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        juego.agregarJugador(unJugador);
 
         unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL + Acceso.COSTO.getCostoMineral() + ArchivosTemplarios.COSTO.getCostoMineral());
         unJugador.sumarGasVespeno(-Jugador.GAS_VESPENO_INICIAL + PuertoEstelarProtoss.COSTO.getCostoGas());
-        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));  //construction requirida para crear el creador de unidades terrestres
+
+        Acceso acceso = (Acceso) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!acceso.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        //Se pasan los turnos necesarios
+        while (!puerto.estaCreado())
+            unJugador.terminarTurno(juego);
+
         unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 4));
-        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
     }
     
     @Test
-    public void crearCreadorDeUnidadesAvanzadasParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void crearCreadorDeUnidadesAvanzadasParaProtossRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        juego.agregarJugador(unJugador);
 
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
-      	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);     
-    	unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));   //construction requirida para crear el creador de unidades terrestres
-        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+      	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
+
+        Acceso acceso = (Acceso) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!acceso.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        //Se pasan los turnos necesarios
+        while (!puerto.estaCreado())
+            unJugador.terminarTurno(juego);
+
         unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 4));
 
     	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL + RECURSOS_SUFFICIENTES - Acceso.COSTO.getCostoMineral() - ArchivosTemplarios.COSTO.getCostoMineral() - PuertoEstelarProtoss.COSTO.getCostoMineral());
@@ -395,73 +492,119 @@ public class JugadorTest {
     }
 
     @Test
-    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElAdicionalDeSuministros() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto {
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElAdicionalDeSuministros() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
+        Juego juego = new Juego();
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         Mapa mapa = new Mapa(2, 5, 5);
 
-        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
+        AdicionalSuministros adicional = (AdicionalSuministros) unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
+
+        while(!adicional.estaCreado())
+            unJugador.terminarTurno(juego);
 
         Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.ADICIONAL_SUMINISTROS));
     }
 
     @Test
-    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElExtractorGas() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNombreCorto {
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElExtractorGas() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Coordenada ubicacionVolcan = new Coordenada(1, 1);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         mapa.insertarParcela(new ParcelaVolcan(ubicacionVolcan));
 
-        unJugador.crearExtractorGas(mapa, ubicacionVolcan);
+        Refineria refineria = (Refineria) unJugador.crearExtractorGas(mapa, ubicacionVolcan);
+
+        while (!refineria.estaCreado())
+            unJugador.terminarTurno(juego);
 
         Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_GAS));
     }
 
     @Test
-    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElExtractorMineral() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNombreCorto {
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElExtractorMineral() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa(2, 20, 20);
         Coordenada ubicacionMineral = new Coordenada(1, 1);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
 
         mapa.insertarParcela(new ParcelaMineral(ubicacionMineral));
-        unJugador.crearExtractorMineral(mapa, ubicacionMineral);
+        CentroDeMineral centro = (CentroDeMineral) unJugador.crearExtractorMineral(mapa, ubicacionMineral);
+
+        while(!centro.estaCreado())
+            unJugador.terminarTurno(juego);
 
         Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_MINERAL));
     }
 
     @Test
-    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElCreadorDeSoldados() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElCreadorDeSoldados() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
 
-        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        while(!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
 
         Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_BASICAS));
     }
 
     @Test
-    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElCreadorDeUnidadesTerrestres() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElCreadorDeUnidadesTerrestres() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
-        
-        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
-        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        //Se pasan los turnos necesarios
+        while (!fabrica.estaCreado())
+            unJugador.terminarTurno(juego);
 
         Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_AVANZADAS));
     }
 
     @Test
-    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElCreadorDeUnidadesAereas() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void tieneConstruccionDeTipoExtractorGasDevuelveTrueSiSeCreoElCreadorDeUnidadesAereas() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
 
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
-        
-        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
-        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
-        unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 4));
+
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        //Se pasan los turnos necesarios
+        while (!fabrica.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        PuertoEstelar puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 4));
+
+        while(!puerto.estaCreado())
+            unJugador.terminarTurno(juego);
 
         Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_MAGICAS));
     }
@@ -477,9 +620,11 @@ public class JugadorTest {
     }
 
     @Test(expected = ExcepcionConstruccionesRequeridasNoCreadas.class)
-    public void jugadorCreaCreadorDeUnidadesMagicasSinTenerCreadorDeUnidadesTerrestresLanzaExcepcion() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void jugadorCreaCreadorDeUnidadesMagicasSinTenerCreadorDeUnidadesTerrestresLanzaExcepcion() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
         
@@ -494,34 +639,49 @@ public class JugadorTest {
     }
 
     @Test(expected = ExcepcionNoHaySuministrosDisponibles.class)
-    public void crearUnidadSinSuministrosLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto {
+    public void crearUnidadSinSuministrosLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        Barraca barraca;
+        juego.agregarJugador(unJugador);
 
         unJugador.sumarMinerales(250);
-        barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
+
         barraca.crearMarine(mapa);
     }
 
     @Test
-    public void crearMarineSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto {
+    public void crearMarineSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         Barraca barraca;
         Marine marine;
 
         unJugador.sumarMinerales(250);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
+
         marine = barraca.crearMarine(mapa);
 
         Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + marine.getSuministro());
     }
 
     @Test
-     public void crearGolliatSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto {
+     public void crearGolliatSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         Mapa mapa = new Mapa(2, 5, 5);
         Fabrica fabrica;
         Golliat golliat;
@@ -529,90 +689,159 @@ public class JugadorTest {
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
 
         fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        //Se pasan los turnos necesarios
+        while (!fabrica.estaCreado())
+            unJugador.terminarTurno(juego);
+
         golliat = fabrica.crearGolliat(mapa);
 
         Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + golliat.getSuministro());
     }
 
     @Test
-    public void crearNaveCienciaSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto {
+    public void crearNaveCienciaSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         PuertoEstelar puerto;
         NaveCiencia nave;
 
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
-        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        //Se pasan los turnos necesarios
+        while (!fabrica.estaCreado())
+            unJugador.terminarTurno(juego);
 
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 4));
+
+        //Se pasan los turnos necesarios
+        while (!puerto.estaCreado())
+            unJugador.terminarTurno(juego);
+
         nave = puerto.crearNaveCiencia(mapa);
 
         Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + nave.getSuministro());
     }
 
     @Test
-    public void crearEspectroSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto {
+    public void crearEspectroSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         PuertoEstelar puerto;
         Espectro espectro;
 
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
-        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        //Se pasan los turnos necesarios
+        while (!fabrica.estaCreado())
+            unJugador.terminarTurno(juego);
 
         puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 4));
+
+        //Se pasan los turnos necesarios
+        while (!puerto.estaCreado())
+            unJugador.terminarTurno(juego);
+
         espectro = puerto.crearEspectro(mapa);
 
         Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + espectro.getSuministro());
     }
 
     @Test
-    public void crearNaveTransporteSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto {
+    public void crearNaveTransporteSumaPoblacionCorrectaAlJugador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         PuertoEstelar puerto;
         NaveTransporteTerran nave;
 
         unJugador.sumarMinerales(RECURSOS_SUFFICIENTES);
         unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
-        unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
-        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 4));
 
-        puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 3));
+        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
+
+        //Se pasan los turnos necesarios
+        while (!fabrica.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 4));
+
+        //Se pasan los turnos necesarios
+        while (!puerto.estaCreado())
+            unJugador.terminarTurno(juego);
+
         nave = puerto.crearNaveTransporte(mapa);
 
         Assert.assertEquals(unJugador.getPoblacion(), Jugador.POBLACION_INICIAL + nave.getSuministro());
     }
 
     @Test
-    public void agregarUnidadAgregaUnaUnidadAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto {
+    public void agregarUnidadAgregaUnaUnidadAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         Barraca barraca;
 
         unJugador.sumarGasVespeno(999);
         unJugador.sumarMinerales(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
+
         barraca.crearMarine(mapa);
 
         Assert.assertEquals(unJugador.getCantidadDeUnidades(), 1);
     }
 
     @Test
-    public void destruirUnaUnidadRestaPoblacionAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto {
+    public void destruirUnaUnidadRestaPoblacionAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         Barraca barraca;
         Marine marine;
 
@@ -620,6 +849,11 @@ public class JugadorTest {
         unJugador.sumarMinerales(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        //Se pasan los turnos necesarios
+        while (!barraca.estaCreado())
+            unJugador.terminarTurno(juego);
+
         marine = barraca.crearMarine(mapa);
 
         Assert.assertEquals(unJugador.getCantidadDeUnidades(), 1);
@@ -661,5 +895,34 @@ public class JugadorTest {
     @Test(expected = ExcepcionNombreCorto.class)
     public void crearJugadorConNombreConMenosDe4LetrasLanzaExcepcion() throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNumeroDeBasesInvalido {
         new Jugador("tre", Color.ROJO, Terran.getInstance());
+    }
+
+    @Test
+    public void jugadorTieneConstruccionDeTipoDevuelveFalseSiLaConstruccionNoEstaCreada() throws ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes, ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido {
+        Mapa mapa = new Mapa(2, 5, 5);
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
+
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
+
+        Assert.assertFalse(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.ADICIONAL_SUMINISTROS));
+    }
+
+    @Test
+    public void jugadorTieneConstruccionDeTipoDevuelveTrueSiSePasaronLosTurnosNecesariosParaLaCreacionDeLaConstruccion() throws ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes, ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
+        Mapa mapa = new Mapa(2, 5, 5);
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
+
+        DepositoSuministro deposito = (DepositoSuministro) unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
+
+        while(!deposito.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        Assert.assertTrue(unJugador.tieneConstruccionDeTipo(TipoDeConstruccion.ADICIONAL_SUMINISTROS));
     }
 }

@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft.razas.terran.construcciones;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEntidadEnConstruccion;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.juego.Jugador;
@@ -30,7 +31,10 @@ public class Fabrica extends Construccion {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_AVANZADAS;
     }
 
-    public Golliat crearGolliat(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
+    public Golliat crearGolliat(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
+        if (!this.estaCreado())
+            throw new ExcepcionEntidadEnConstruccion();
+
         Golliat golliat = new Golliat(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, golliat);
 

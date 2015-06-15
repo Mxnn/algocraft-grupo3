@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft.razas.terran.construcciones;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEntidadEnConstruccion;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.juego.Jugador;
@@ -32,21 +33,30 @@ public class PuertoEstelar extends Construccion {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_MAGICAS;
     }
 
-    public Espectro crearEspectro(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
+    public Espectro crearEspectro(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
+        if (!this.estaCreado())
+            throw new ExcepcionEntidadEnConstruccion();
+
         Espectro espectro = new Espectro(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, espectro);
 
         return espectro;
     }
 
-    public NaveTransporteTerran crearNaveTransporte(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
+    public NaveTransporteTerran crearNaveTransporte(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
+        if (!this.estaCreado())
+            throw new ExcepcionEntidadEnConstruccion();
+
         NaveTransporteTerran nave = new NaveTransporteTerran(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, nave);
 
         return nave;
     }
 
-    public NaveCiencia crearNaveCiencia(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
+    public NaveCiencia crearNaveCiencia(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
+        if (!this.estaCreado())
+            throw new ExcepcionEntidadEnConstruccion();
+
         NaveCiencia nave = new NaveCiencia(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, nave);
 

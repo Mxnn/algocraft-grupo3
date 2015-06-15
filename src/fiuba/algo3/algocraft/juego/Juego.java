@@ -70,7 +70,20 @@ public class Juego {
 
         Jugador nuevoJugador = new Jugador(nombre, color, raza);
 
-        jugadores.add(nuevoJugador);
+        this.jugadores.add(nuevoJugador);
+    }
+
+    public void agregarJugador(Jugador unJugador) throws ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso {
+        if (jugadores.size() == MAXIMO_NUMERO_DE_JUGADORES)
+            throw new ExcepcionAlcanzadoElMaximoCupoDeJugadores();
+
+        if (this.elNombreEstaEnUso(unJugador.getNombre()))
+            throw new ExcepcionNombreEnUso();
+
+        if (this.elColorEstaEnUso(unJugador.getColor()))
+            throw new ExcepcionColorEnUso();
+
+        this.jugadores.add(unJugador);
     }
 
     public int getCantidadDeJugadores() {
@@ -119,9 +132,8 @@ public class Juego {
 	}
 
 	private boolean tareaDelTurnoMoverUnidad(Unidad unidadAMover) throws ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
-	
+		this.tareaDelTurnoMoverUnidadSubFunction(unidadAMover);
 
-		this.tareaDelTurnoMoverUnidadSubFunction(unidadAMover);	
 		return (unidadAMover.getItinerario().size() > 1);
 	}
 
@@ -140,10 +152,12 @@ public class Juego {
 		
 	}
 
-	
-	
 	public void tareaDelTurnoGenerarRecursos() {
         for (Jugador cadaJugador : this.jugadores)
         	cadaJugador.tareaDelTurnoGenerarRecursos();
 	}
+
+    public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador {
+        sistemaDeTurnos.pasarTurno(jugador);
+    }
 }

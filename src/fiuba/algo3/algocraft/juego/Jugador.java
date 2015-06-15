@@ -140,7 +140,7 @@ public class Jugador {
 
     public boolean tieneConstruccionDeTipo(TipoDeConstruccion tipo) {
         for (Construccion c : construcciones) {
-            if (c.getTipoDeConstruccion() == tipo)
+            if (c.getTipoDeConstruccion() == tipo && c.estaCreado())
                 return true;
         }
 
@@ -189,7 +189,7 @@ public class Jugador {
         return this.unidades;
     }
 
-    public void terminarTurno(SistemaDeTurnos sistema) throws ExcepcionNoEsElTurnoDelJugador {
-        sistema.pasarTurno(this);
+    public void terminarTurno(Juego juego) throws ExcepcionNoEsElTurnoDelJugador {
+        juego.pasarTurno(this);
     }
 }

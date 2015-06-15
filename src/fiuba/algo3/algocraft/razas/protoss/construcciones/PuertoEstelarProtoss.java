@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft.razas.protoss.construcciones;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEntidadEnConstruccion;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.juego.Jugador;
@@ -34,14 +35,20 @@ public class PuertoEstelarProtoss extends Construccion {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_AVANZADAS;
     }
     
-    public Scout crearScout(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
+    public Scout crearScout(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
+        if (!this.estaCreado())
+            throw new ExcepcionEntidadEnConstruccion();
+
         Scout scout = new Scout(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, scout);
 
         return scout;
     }
     
-    public NaveTransporteProtoss crearNaveTransporte(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible {
+    public NaveTransporteProtoss crearNaveTransporte(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
+        if (!this.estaCreado())
+            throw new ExcepcionEntidadEnConstruccion();
+
         NaveTransporteProtoss nave = new NaveTransporteProtoss(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, nave);
 

@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Color;
+import fiuba.algo3.algocraft.juego.Juego;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
@@ -117,9 +118,11 @@ public class NaveTransporteProtossTest {
     }
 
     @Test
-    public void sacarUnidadLaDepositaAlrededorDeLaNave() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto {
+    public void sacarUnidadLaDepositaAlrededorDeLaNave() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa(2, 10, 10);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        juego.agregarJugador(unJugador);
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
 
@@ -127,9 +130,22 @@ public class NaveTransporteProtossTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 4));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(4, 4));
         Acceso acceso = (Acceso) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
+
+        while(!acceso.estaCreado())
+            unJugador.terminarTurno(juego);
+
         PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(8, 8));
+
+        //Se pasan los turnos necesarios
+        while(!puerto.estaCreado())
+            unJugador.terminarTurno(juego);
+
         NaveTransporteProtoss nave = puerto.crearNaveTransporte(mapa); //Se crea en (7,7)
         Dragon dragon = acceso.crearDragon(mapa); //Se crea en (6, 6)
+
+        //Se pasan los turnos necesarios
+        while(!dragon.estaCreado() || !nave.estaCreado())
+            unJugador.terminarTurno(juego);
 
         nave.insertarUnidad(dragon);
         nave.sacarUnidad(mapa, dragon);
@@ -138,18 +154,35 @@ public class NaveTransporteProtossTest {
     }
 
     @Test(expected = ExcepcionNoHayLugarDisponible.class)
-    public void sacarUnidadLanzaExcepcionSiLasParcelasASuAlrededorNoLaPuedenDepositar() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto {
+    public void sacarUnidadLanzaExcepcionSiLasParcelasASuAlrededorNoLaPuedenDepositar() throws ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionNaveDeTransporteLlena, ExcepcionEstadoMuerto, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
+        Juego juego = new Juego();
         Mapa mapa = new Mapa(2, 10, 10);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        juego.agregarJugador(unJugador);
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
 
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 4));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(4, 4));
         Acceso acceso = (Acceso) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));
-        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(8, 8));
-        NaveTransporteProtoss nave = puerto.crearNaveTransporte(mapa); //Se crea en (7,7)
+
+        //Se pasan los turnos necesarios
+        while(!acceso.estaCreado())
+            unJugador.terminarTurno(juego);
+
         Dragon dragon = acceso.crearDragon(mapa);
+
+        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(8, 8));
+
+        //Se pasan los turnos necesarios
+        while(!puerto.estaCreado())
+            unJugador.terminarTurno(juego);
+
+        NaveTransporteProtoss nave = puerto.crearNaveTransporte(mapa); //Se crea en (7,7)
+
+        //Se pasan los turnos necesarios
+        while(!dragon.estaCreado() || !nave.estaCreado())
+            unJugador.terminarTurno(juego);
 
         nave.insertarUnidad(dragon);
 

@@ -134,5 +134,4 @@ public class JuegoTest {
     	elJuego.tareaDelTurnoGenerarRecursos();
     	Assert.assertEquals(jugadorUno.getGasVespeno(), Jugador.GAS_VESPENO_INICIAL - Refineria.COSTO.getCostoGas() + ExtractorGas.CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO);
     }
-
 }
