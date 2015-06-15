@@ -24,7 +24,7 @@ public class AtaqueComun extends Ataque {
 		this.cantidadDeAtaques += 1;
 		(this.enemigo).recibirAtaque(this);
 	}
-	
+	//nombre pedorro, cambiar
 	private void danyar(Interactuable enemigo) throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
 		if(enemigo.seleccionarRango(this.rango) < distancia){
     		throw new ExcepcionEnemigoFueraDeAlcance();
@@ -36,6 +36,10 @@ public class AtaqueComun extends Ataque {
 	public void atacar(Construccion enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
     	this.danyar(enemigo);
 	}
+	
+//	public void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+//	this.danyar(enemigo);
+//}
 	
 	public void atacar(UnidadAgresora enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
     	this.danyar(enemigo);

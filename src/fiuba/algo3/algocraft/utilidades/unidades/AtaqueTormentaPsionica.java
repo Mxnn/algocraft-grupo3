@@ -21,7 +21,10 @@ public class AtaqueTormentaPsionica extends Ataque {
 	
 	public void atacar(Construccion enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
 	}
-
+	
+//	public void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
+//		enemigo.recibirDanyo(DANYO_POR_TURNO);
+//	}
 	
 	public void atacar(UnidadAgresora enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
 		enemigo.recibirDanyo(DANYO_POR_TURNO);

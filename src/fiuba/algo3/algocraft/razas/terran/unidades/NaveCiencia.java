@@ -9,12 +9,14 @@ import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.juego.Jugador;
+import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.Parcela;
 import fiuba.algo3.algocraft.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.utilidades.Costo;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.utilidades.unidades.AtaqueEMP;
+import fiuba.algo3.algocraft.utilidades.unidades.AtaqueRadiacion;
 import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
 import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
 import fiuba.algo3.algocraft.utilidades.unidades.UnidadMagica;
@@ -61,6 +63,11 @@ public class NaveCiencia extends UnidadMagica {
 //				enemigo.recibirAtaque(new AtaqueEMP());
 //			}
 		return new AtaqueEMP(listaParcelas);
+    }
+    
+    public AtaqueRadiacion lanzarRadiacion(Interactuable enemigo, Mapa mapa) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente{
+    	this.gastarEnergia(COSTO_ENERGIA_RADIACION);
+		return new AtaqueRadiacion(enemigo, mapa);
     }
     
 }

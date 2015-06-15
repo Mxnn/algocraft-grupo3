@@ -28,7 +28,13 @@ public class AtaqueEMP extends Ataque {
 	public void atacar(Construccion enemigo) throws ExcepcionEstadoMuerto{
 	}
 	
-	public void atacar(UnidadMagica enemigo){
+//	public void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance{
+//		(enemigo.getVitalidad()).recibirEmp();
+//		this.vaciarMagia(enemigo);
+//	}
+	
+	public void atacar(UnidadMagica enemigo) throws ExcepcionEstadoMuerto{
+		(enemigo.getVitalidad()).recibirEmp();
 		this.vaciarMagia(enemigo);
 	}
 	
@@ -38,8 +44,10 @@ public class AtaqueEMP extends Ataque {
 	
 	private void vaciarMagia(UnidadMagica enemigo){
 //		enemigo.gastarEnergia(enemigo.getEnergia());
+		
 		enemigo.recibirEmp();
 	}
+	
 
 	@Override
 	public void ejecutarAtaque() throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
