@@ -13,8 +13,10 @@ public class Vitalidad {
         int vidaRestada = this.vida - cantidad;
         if (vidaRestada > 0)
             this.vida = vidaRestada;
-        else
+        else{
+        	this.vida = 0;
             throw new ExcepcionEstadoMuerto();
+        }
     }
 
     public int getVida() {

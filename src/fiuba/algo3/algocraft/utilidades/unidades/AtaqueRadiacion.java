@@ -54,7 +54,7 @@ public class AtaqueRadiacion extends Ataque {
 	
 	@Override
 	public boolean esDescartable(){
-		return (enemigo.getVida() == 0);
+		return (enemigo.getVida() <= 0);
 	}
 
 }
