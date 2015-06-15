@@ -81,7 +81,8 @@ public class Mapa {
     	ArrayList<Coordenada> coordenadasVecinas = ((parcela).getCoordenada()).obtenerCoordenadasVecinas();
     	ArrayList<Parcela> parcelas = new ArrayList<Parcela>();
     	for (int i = 0; i < coordenadasVecinas.size(); i++) {
-    		parcelas.add(this.obtenerParcelaEnCoordenada((coordenadasVecinas).get(i)));
+    		if(this.coordenadaExiste((coordenadasVecinas).get(i)))
+    			parcelas.add(this.obtenerParcelaEnCoordenada((coordenadasVecinas).get(i)));
     	}
     	parcelas.add(parcela);
     	return parcelas;

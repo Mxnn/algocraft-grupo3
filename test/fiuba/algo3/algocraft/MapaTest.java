@@ -137,6 +137,19 @@ public class MapaTest {
     	}
     	
     	Assert.assertTrue(parcela.containsAll(esperadas) && esperadas.containsAll(parcela));
+    }
+    
+    @Test
+    public void devolverParcelasEnRadioUnoDevuelveParcelasDelMapaEnCasoDeSerBorde() throws ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa{
+    	Mapa mapa = new Mapa(2, 3, 3);
     	
+    	ArrayList<Parcela> parcela = mapa.devolverParcelasEnRadioUno(mapa.obtenerParcelaEnCoordenada(new Coordenada(2,2)));
+    	ArrayList<Parcela> esperadas = new ArrayList<Parcela>();
+    	for (int x = 1; x < 3; x++){
+    		for(int y = 1; y<3; y++){
+    			esperadas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y)));
+    		}
+    	}
+    	Assert.assertTrue(parcela.containsAll(esperadas) && esperadas.containsAll(parcela));
     }
 }
