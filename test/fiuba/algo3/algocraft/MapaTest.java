@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft;
 
+import java.util.ArrayList;
+
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
@@ -11,8 +13,8 @@ import fiuba.algo3.algocraft.razas.terran.Terran;
 import fiuba.algo3.algocraft.razas.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.razas.terran.unidades.Golliat;
 import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
-
 import fiuba.algo3.algocraft.utilidades.Interactuable;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -120,5 +122,21 @@ public class MapaTest {
         mapa.insertarParcela(parcela);
 
         Assert.assertSame(mapa.obtenerParcelaEnCoordenada(new Coordenada(1, 1)), parcela);
+    }
+    
+    @Test
+    public void devolverParcelasEnRadioUnoDevuelveParcelasCorrectas() throws ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa{
+    	Mapa mapa = new Mapa(2, 3, 3);
+    	
+    	ArrayList<Parcela> parcela = mapa.devolverParcelasEnRadioUno(mapa.obtenerParcelaEnCoordenada(new Coordenada(1,1)));
+    	ArrayList<Parcela> esperadas = new ArrayList<Parcela>();
+    	for (int x = 0; x < 3; x++){
+    		for(int y = 0; y<3; y++){
+    			esperadas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y)));
+    		}
+    	}
+    	
+    	Assert.assertTrue(parcela.containsAll(esperadas) && esperadas.containsAll(parcela));
+    	
     }
 }

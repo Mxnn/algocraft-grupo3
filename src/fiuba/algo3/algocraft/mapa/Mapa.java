@@ -77,7 +77,16 @@ public class Mapa {
     }
 
 	
-
+    public ArrayList<Parcela> devolverParcelasEnRadioUno(Parcela parcela) throws ExcepcionCoordenadaFueraDelMapa{
+    	ArrayList<Coordenada> coordenadasVecinas = ((parcela).getCoordenada()).obtenerCoordenadasVecinas();
+    	ArrayList<Parcela> parcelas = new ArrayList<Parcela>();
+    	for (int i = 0; i < coordenadasVecinas.size(); i++) {
+    		parcelas.add(this.obtenerParcelaEnCoordenada((coordenadasVecinas).get(i)));
+    	}
+    	parcelas.add(parcela);
+    	return parcelas;
+    }
+    
 	public void ubicarCercaDeParcela(Parcela parcela, Interactuable elemento) throws ExcepcionNoHayLugarDisponible{
 		Boolean elementoUbicado = false;
         ArrayList<Coordenada> coordenadasVecinas = ((parcela).getCoordenada()).obtenerCoordenadasVecinas();
