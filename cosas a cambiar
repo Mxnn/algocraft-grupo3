@@ -16,3 +16,16 @@ Faltan tests de integración de creación de unidades
 
 Movimiento de unidades no implementado
 Transporte de unidades no está implementado
+
+TESTS
+3) Unidades de tierra no pueden atacar a unidades de aire y visceversa en todas las combinaciones, cuando corresponda.
+          creo que esta esto ya, para cada agresor intenta atacar todas las posibilidades
+4) Se verifica unidad por unidad, que ataque en el rango correspondiente.
+          idem 3)
+5) Naves de transporte soportan su capacidad. Se debe probar que se sube unidades, desde un punto A , se pasa por espacio y se bajan del otro lado tierra B.
+6) Perder unidades en batalla disminuye la población, construirlas suma.
+7) No se pueden construir más unidades que el límite de población, ni que el límite máximo de población (200). Verificar que construir “más casas” no sigue subiendo el límite de 200.
+8) Simular, jugar y ganar/perder una partida
+9) Verificar recuperación del escudo protoss con el paso de los turnos.
+10) Unidades terrestres no pueden pasar por espacios aéreos.
+          esto ya esta en las pruebas de parcelas, aunque podriamos hacerlo para c/unidad
