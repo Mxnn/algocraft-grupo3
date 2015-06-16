@@ -2,9 +2,11 @@ package fiuba.algo3.algocraft.utilidades.unidades;
 
 import java.util.LinkedList;
 
+import fiuba.algo3.algocraft.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.excepciones.ExcepcionUnidadEnemiga;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.*;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
@@ -17,7 +19,6 @@ public abstract class Unidad extends Interactuable {
     protected LinkedList<Coordenada> itinerario = new LinkedList<Coordenada>();
     protected Coordenada coordenada;
     protected Coordenada coordenadaDestinacion;
-
     public Unidad(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro) throws ExcepcionNoHaySuministrosDisponibles {
         super(propietario, vitalidad, tiempoDeConstruccion);
         this.cupoDeTransporte = cupoDeTransporte;
@@ -26,6 +27,14 @@ public abstract class Unidad extends Interactuable {
         propietario.agregarUnidad(this);
     }
 
+    public Coordenada getCoordenada(){
+    	return this.coordenada;
+    }
+    
+    public void setCoordenadaDestinacion(Coordenada unaCoordenada){
+    	this.coordenadaDestinacion = unaCoordenada;
+    }
+    
     public int getVision() {
         return this.vision;
     }
@@ -163,11 +172,29 @@ public abstract class Unidad extends Interactuable {
 	
     public void vivir(Mapa mapa) {
         (this.vitalidad).regenerar();
-        //this.mover();
+        this.mover(mapa);
     }
 
-	private void mover() {
+	private void mover(Mapa mapa) {
+		if (this.coordenada != null) {
+			Coordenada coordenadaSiguiente = this.coordenada.calcularCoordenadaSiguiente(this.coordenadaDestinacion);
+			if (!this.coordenada.equals(coordenadaSiguiente)) {
 
-		
+				try {
+
+					mapa.obtenerParcelaEnCoordenada(coordenadaSiguiente).guardarElemento(this);
+					mapa.obtenerParcelaEnCoordenada(this.coordenada).vaciarParcela();
+				} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+					this.coordenadaDestinacion = this.coordenada;
+				} catch (ExcepcionParcelaOcupada e) {
+					this.coordenadaDestinacion = this.coordenada;
+				} catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+					this.coordenadaDestinacion = this.coordenada;
+				}
+			}
+
+		}
 	}
+
+
 }

@@ -4,10 +4,13 @@ import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Juego;
 import fiuba.algo3.algocraft.juego.Jugador;
+import fiuba.algo3.algocraft.juego.SistemaDeTurnos;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.razas.terran.Terran;
+import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.razas.terran.construcciones.DepositoSuministro;
 import fiuba.algo3.algocraft.razas.terran.unidades.Golliat;
 import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
 import fiuba.algo3.algocraft.utilidades.unidades.Unidad;
@@ -101,4 +104,43 @@ public class JuegoTest {
 
     	Assert.assertTrue(elJuego.getMapa().obtenerParcelaEnCoordenada(desde).estaVacia());
     }
+    
+   /* @Test
+    public void cadaTurnoSeMueveLasUnidadesQueDebenMover() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreCorto, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionRecursosInsuficientes, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion{
+    	Juego elJuego= new Juego();
+        elJuego.crearJugador("Juan", Color.ROJO, Terran.getInstance());
+    	Jugador jugadorUno = elJuego.getJugadores().get(0);
+ 
+        jugadorUno.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
+        jugadorUno.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
+        
+    	Coordenada coordPartida;
+    	Coordenada coordDeDestinacion = new Coordenada (2,4);
+        Mapa mapa=elJuego.getMapa();
+        SistemaDeTurnos sistema = new SistemaDeTurnos(elJuego.getJugadores(),mapa);
+        DepositoSuministro adicional = (DepositoSuministro) jugadorUno.crearAdicionalDeSuministro(mapa, new Coordenada(1,1));
+    	
+        while (!adicional.estaCreado())
+        	jugadorUno.terminarTurno(elJuego);
+        
+        Barraca barraca = (Barraca) jugadorUno.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(3,3));
+        
+        while (!barraca.estaCreado())
+        	jugadorUno.terminarTurno(elJuego);
+    
+        Marine marine = barraca.crearMarine(mapa);
+        
+        coordPartida = marine.getCoordenada();
+        marine.setCoordenadaDestinacion(coordDeDestinacion);
+      //  mapa.obtenerParcelaEnCoordenada(coordPartida).guardarElemento(marine);
+
+        
+
+
+        sistema.pasarTurno(jugadorUno);    
+        sistema.pasarTurno(jugadorUno);    
+        sistema.pasarTurno(jugadorUno);    
+        
+        Assert.assertTrue(marine.getCoordenada()!=coordPartida);
+    }*/
 }
