@@ -11,7 +11,7 @@ import fiuba.algo3.algocraft.mapa.Parcela;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
 
-public abstract class Ataque {	
+public abstract class Ataque{	
 	protected int duracionDeAtaque;
 	protected int cantidadDeAtaques;
 	protected Parcela target;

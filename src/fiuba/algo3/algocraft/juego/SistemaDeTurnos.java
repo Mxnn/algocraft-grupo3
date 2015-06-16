@@ -1,5 +1,8 @@
 package fiuba.algo3.algocraft.juego;
 
+import fiuba.algo3.algocraft.excepciones.ExcepcionCoordenadaFueraDelMapa;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoEsElTurnoDelJugador;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
@@ -25,7 +28,7 @@ public class SistemaDeTurnos {
         return this.jugadorQueJuega;
     }
 
-    public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador {
+    public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
         if (this.jugadorQueJuega == null && this.jugadores.size() > 0)
             this.jugadorQueJuega = this.jugadores.get(0);
 
@@ -41,7 +44,7 @@ public class SistemaDeTurnos {
         this.tareasDeEntreturno();
     }
 
-    private void tareasDeEntreturno() {
+    private void tareasDeEntreturno() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
         for (Jugador j: this.jugadores) {
             ArrayList<Interactuable> interactuables = new ArrayList<Interactuable>();
             ArrayList<Ataque> ataques = new ArrayList<Ataque>();
@@ -50,6 +53,9 @@ public class SistemaDeTurnos {
             interactuables.addAll(j.getUnidades());
 
             for (Interactuable i: interactuables) {
+                i.tareaDeEntreTurno(this.mapa);
+            }
+            for (Ataque i: ataques) {
                 i.tareaDeEntreTurno(this.mapa);
             }
         }

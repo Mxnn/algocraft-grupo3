@@ -231,7 +231,7 @@ public class Juego {
 		}
 	}
 
-    public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador {
+    public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
         sistemaDeTurnos.pasarTurno(jugador);
     }
 }
