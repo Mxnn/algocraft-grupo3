@@ -82,7 +82,7 @@ public abstract class Unidad extends Interactuable {
     	
     }
 
-	
+
 	
     public void vivir(Mapa mapa) {
         (this.vitalidad).regenerar();

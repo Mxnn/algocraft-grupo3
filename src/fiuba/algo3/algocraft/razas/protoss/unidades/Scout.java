@@ -46,8 +46,5 @@ public class Scout extends UnidadAgresora {
     	return rango.getRangoDeAtaqueEnAire();
     }
     
-	public boolean destinacionPermitida(Parcela parcelaDestinacion) {
 
-		return parcelaDestinacion.noEsEspacio();
-	}
 }

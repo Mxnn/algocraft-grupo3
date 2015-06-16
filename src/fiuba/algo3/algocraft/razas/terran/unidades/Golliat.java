@@ -29,9 +29,6 @@ public class Golliat extends UnidadAgresora {
         super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, new RangoAtaque(RANGO_AIRE, RANGO_TIERRA), new Danyo(DANYO_AIRE, DANYO_TIERRA));
     }
     
-	public boolean destinacionPermitida(Parcela parcelaDestinacion) {
 
-		return parcelaDestinacion.noEsEspacio();
-	}
     
 }

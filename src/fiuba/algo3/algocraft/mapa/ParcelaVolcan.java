@@ -22,9 +22,5 @@ public class ParcelaVolcan extends Parcela {
     }
 
     
-	public boolean noEsVolcanNiMineral() {
-
-		return false;
-	}
 	
 }
