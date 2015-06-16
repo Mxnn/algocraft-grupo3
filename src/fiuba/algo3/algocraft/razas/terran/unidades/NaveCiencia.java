@@ -49,26 +49,23 @@ public class NaveCiencia extends UnidadMagica {
     	return rango.getRangoDeAtaqueEnAire();
     }
     
-    public AtaqueEMP lanzarEMP(ArrayList<Parcela> listaParcelas) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion {
+    public AtaqueEMP lanzarEMP(Parcela target) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion {
     	if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
 
         this.gastarEnergia(COSTO_ENERGIA_EMP);
-//    	for (int i = 0; i < listaParcelas.size(); i++) {
-//    		Parcela parcela = listaParcelas.get(i);
-//			if(!parcela.estaVacia()){
-//				Interactuable enemigo = parcela.devolverElemento();
-//				enemigo.recibirAtaque(new AtaqueEMP());
-//			}
-		return new AtaqueEMP(listaParcelas);
+        
+        (this.propietario).agregarAtaque(new AtaqueEMP(target));
+		return new AtaqueEMP(target);
     }
     
-    public AtaqueRadiacion lanzarRadiacion(Interactuable enemigo, Mapa mapa) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion {
+    public AtaqueRadiacion lanzarRadiacion(Parcela target) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion {
         if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
 
         this.gastarEnergia(COSTO_ENERGIA_RADIACION);
-		return new AtaqueRadiacion(enemigo, mapa);
+        (this.propietario).agregarAtaque(new AtaqueRadiacion(target));
+		return new AtaqueRadiacion(target);
     }
     
 }

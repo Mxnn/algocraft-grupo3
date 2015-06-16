@@ -10,6 +10,7 @@ import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorMineral;
 import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 import fiuba.algo3.algocraft.utilidades.unidades.AdicionalSuministros;
+import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.utilidades.unidades.Unidad;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class Jugador {
     private Raza raza;
     private ArrayList<Construccion> construcciones = new ArrayList<Construccion>();
     private ArrayList<Unidad> unidades = new ArrayList<Unidad>();
+    private ArrayList<Ataque> ataques = new ArrayList<Ataque>();
     private int gasVespeno;
     private int mineral;
     
@@ -163,6 +165,10 @@ public class Jugador {
         else
             this.unidades.add(unidad);
     }
+    
+    public void agregarAtaque(Ataque ataque){
+    	this.ataques.add(ataque);
+    }
 
     public int getCantidadDeUnidades() {
         return this.unidades.size();
@@ -182,6 +188,9 @@ public class Jugador {
 
     public ArrayList<Unidad> getUnidades() {
         return this.unidades;
+    }
+    public ArrayList<Ataque> getAtaques() {
+        return this.ataques;
     }
 
     public void terminarTurno(Juego juego) throws ExcepcionNoEsElTurnoDelJugador {

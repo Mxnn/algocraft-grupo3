@@ -15,24 +15,23 @@ public class AtaqueRadiacion extends Ataque {
 	private Interactuable enemigo;
 	public static final int DANYO_POR_TURNO = 15;
 	
-	public AtaqueRadiacion(Interactuable enemigo, Mapa mapa){
-		this.mapa = mapa;
-		this.enemigo = enemigo;
+	public AtaqueRadiacion(Parcela target){
+		super(target);
+//		this.mapa = mapa;
+//		this.target = target;
+		this.enemigo = target.devolverElemento();
 	}
 	@Override
 	//hacer refactor aca para poder meter mas cosas en ataque
-	public void ejecutarAtaque() throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
-//		this.cantidadDeAtaques += 1;
-//		ArrayList<Parcela> listaParcelas = mapa.devolverParcelasEnRadioUno(enemigo.getParcela());
-		this.refreshParcelas();
-		super.ejecutarAtaque();
-//		for (int i = 0; i < listaParcelas.size(); i++) {
-//    		Parcela parcela = (listaParcelas).get(i);
-//			if(!parcela.estaVacia()){
-//				Interactuable enemigo = parcela.devolverElemento();
-//				enemigo.recibirAtaque(this);
-//			}
-//		}
+//	public void ejecutarAtaque() throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
+//		this.refreshParcelas();
+//		super.ejecutarAtaque();
+//	}
+	
+	public void tareaDeEntreTurno(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
+		this.listaParcelas = new ArrayList<Parcela>();
+		(this.listaParcelas).addAll(mapa.devolverParcelasEnRadioUno(enemigo.getParcela()));
+		super.tareaDeEntreTurno(mapa);
 	}
 	
 	private void refreshParcelas() throws ExcepcionCoordenadaFueraDelMapa{

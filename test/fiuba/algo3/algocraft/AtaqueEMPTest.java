@@ -44,14 +44,16 @@ public class AtaqueEMPTest {
 //	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
 	     
 	     Interactuable dragon = new Dragon(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada (1,1), dragon);
 //	     Interactuable marine = new Marine(unJugador2);
 	     
-	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+//	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
 //	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
-	     Ataque emp = new AtaqueEMP(listaParcelas);
+	     Ataque emp = new AtaqueEMP(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
+	     emp.tareaDeEntreTurno(mapa);
 	     
-	     dragon.recibirAtaque(emp);
+//	     dragon.recibirAtaque(emp);
 	     
 	     assertEquals(0, ((VitalidadProtoss)dragon.getVitalidad()).getEscudo());
 	     
@@ -63,13 +65,13 @@ public class AtaqueEMPTest {
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     
 	     Interactuable dragon = new Dragon(unJugador);
-	     
-	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+	     mapa.ubicarElementoEnParcela(new Coordenada (1,1), dragon);
+//	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
 
 	     
-	     Ataque emp = new AtaqueEMP(listaParcelas);
+	     Ataque emp = new AtaqueEMP(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
-	     dragon.recibirAtaque(emp);
+	     emp.tareaDeEntreTurno(mapa);
 	     
 	     assertEquals(100, (dragon.getVitalidad()).getVida());
 	     
@@ -85,13 +87,14 @@ public class AtaqueEMPTest {
 	     
 //	     Interactuable dragon = new Dragon(unJugador);
 	     Interactuable marine = new Marine(unJugador2);
-	     
-	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+	     mapa.ubicarElementoEnParcela(new Coordenada (1,1), marine);
+
+//	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
 
 	     
-	     Ataque emp = new AtaqueEMP(listaParcelas);
+	     Ataque emp = new AtaqueEMP(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
-	     marine.recibirAtaque(emp);
+	     emp.tareaDeEntreTurno(mapa);
 	     
 	     
 	     assertEquals(40, (marine.getVitalidad()).getVida());
@@ -106,12 +109,14 @@ public class AtaqueEMPTest {
 	     Interactuable marine = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), marine);
 	     
-	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
-	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada(1,1)));
+//	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+//	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada(1,1)));
 	     
-	     Ataque emp = new AtaqueEMP(listaParcelas);
+	     Ataque emp = new AtaqueEMP(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
-	     emp.ejecutarAtaque();
+	     emp.tareaDeEntreTurno(mapa);
+	     
+//	     emp.ejecutarAtaque();
 	     emp.esDescartable();
 	     assertTrue(emp.esDescartable());
 	     

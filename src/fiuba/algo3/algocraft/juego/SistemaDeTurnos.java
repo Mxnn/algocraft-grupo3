@@ -3,6 +3,7 @@ package fiuba.algo3.algocraft.juego;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoEsElTurnoDelJugador;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
+import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
 
 import java.util.ArrayList;
 
@@ -43,6 +44,8 @@ public class SistemaDeTurnos {
     private void tareasDeEntreturno() {
         for (Jugador j: this.jugadores) {
             ArrayList<Interactuable> interactuables = new ArrayList<Interactuable>();
+            ArrayList<Ataque> ataques = new ArrayList<Ataque>();
+            ataques.addAll(j.getAtaques());
             interactuables.addAll(j.getConstrucciones());
             interactuables.addAll(j.getUnidades());
 

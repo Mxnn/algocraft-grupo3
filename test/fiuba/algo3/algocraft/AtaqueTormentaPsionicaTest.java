@@ -38,14 +38,14 @@ public class AtaqueTormentaPsionicaTest {
 	     Interactuable marine = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), marine);
 	     
-	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
-	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada(1,1)));
+//	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+//	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada(1,1)));
 	     
-	     Ataque tormenta = new AtaqueTormentaPsionica(listaParcelas);
+	     Ataque tormenta = new AtaqueTormentaPsionica(marine.getParcela());
 	     
-	     tormenta.ejecutarAtaque();
+	     tormenta.tareaDeEntreTurno(mapa);
 	     
-	     tormenta.ejecutarAtaque();
+	     tormenta.tareaDeEntreTurno(mapa);
 	     
 	     assertTrue(tormenta.esDescartable());
 	     
@@ -59,12 +59,12 @@ public class AtaqueTormentaPsionicaTest {
 	     Interactuable marine = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), marine);
 	     
-	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
-	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada(1,1)));
+//	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+//	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada(1,1)));
 	     
-	     Ataque tormenta = new AtaqueTormentaPsionica(listaParcelas);
+	     Ataque tormenta = new AtaqueTormentaPsionica(marine.getParcela());
 	     
-	     tormenta.ejecutarAtaque();
+	     tormenta.tareaDeEntreTurno(mapa);
 	     
 	     assertFalse(tormenta.esDescartable());
 	     
@@ -80,12 +80,12 @@ public class AtaqueTormentaPsionicaTest {
 	     Interactuable golliat = new Golliat(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), golliat);
 	     
-	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
-	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada(1,1)));
+//	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+//	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada(1,1)));
 	     
-	     Ataque tormenta = new AtaqueTormentaPsionica(listaParcelas);
+	     Ataque tormenta = new AtaqueTormentaPsionica(golliat.getParcela());
 	     
-	     tormenta.ejecutarAtaque();
+	     tormenta.tareaDeEntreTurno(mapa);
 	     
 	     assertEquals((golliat.getVitalidad()).getVida(), 125-50);     
 	}
@@ -100,13 +100,14 @@ public class AtaqueTormentaPsionicaTest {
 	     Interactuable golliat = new Golliat(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), golliat);
 	     
-	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
-	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada(1,1)));
+//	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
+//	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada(1,1)));
 	     
-	     Ataque tormenta = new AtaqueTormentaPsionica(listaParcelas);
+	     Ataque tormenta = new AtaqueTormentaPsionica(golliat.getParcela());
 	     
-	     tormenta.ejecutarAtaque();
-	     tormenta.ejecutarAtaque();
+	     tormenta.tareaDeEntreTurno(mapa);
+	     tormenta.tareaDeEntreTurno(mapa);
+
 	     
 	     assertEquals((golliat.getVitalidad()).getVida(), 125-100); 
 	}

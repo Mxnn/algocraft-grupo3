@@ -15,13 +15,13 @@ public class AtaqueComun extends Ataque {
 	private Danyo danyo;
 	private int distancia;
 	
-	public AtaqueComun(Parcela parcela, RangoAtaque rango, Danyo danyo, int distancia){
-		super();
+	public AtaqueComun(Parcela target, RangoAtaque rango, Danyo danyo, int distancia){
+		super(target);
 		this.rango = rango;
 		this.danyo = danyo;
 		this.distancia = distancia;
 		//this.enemigo = enemigo;
-		(this.listaParcelas).add(parcela);
+		(this.listaParcelas).add(target);
 		this.duracionDeAtaque = TURNOS_DE_DURACION;
 	}
 	

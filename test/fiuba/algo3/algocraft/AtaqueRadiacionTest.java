@@ -42,9 +42,9 @@ public class AtaqueRadiacionTest {
 	     Interactuable dragon = new Dragon(unJugador);
 	     mapa.ubicarElementoEnParcela(new Coordenada (1,1), dragon);	  
 	     
-	     Ataque radiacion = new AtaqueRadiacion(dragon, mapa);
+	     Ataque radiacion = new AtaqueRadiacion(dragon.getParcela());
 	     
-	     radiacion.ejecutarAtaque();
+	     radiacion.tareaDeEntreTurno(mapa);
 	     
 	     assertEquals(80-15, ((VitalidadProtoss)dragon.getVitalidad()).getEscudo());
 	     
@@ -59,10 +59,10 @@ public class AtaqueRadiacionTest {
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), marine);
 	  
 	     
-	     Ataque radiacion = new AtaqueRadiacion(marine, mapa);
+	     Ataque radiacion = new AtaqueRadiacion(marine.getParcela());
 	     
 	     while(marine.getVida() > 0)
-	    	 radiacion.ejecutarAtaque();
+	    	 radiacion.tareaDeEntreTurno(mapa);
 	     
 	     assertTrue(radiacion.esDescartable());
 	}
@@ -78,57 +78,57 @@ public class AtaqueRadiacionTest {
 	     Interactuable marine3 = new Marine(unJugador2);
 //	     Interactuable marine4 = new Marine(unJugador2);
 	     boolean ataque = true;
-	     Ataque radiacion = new AtaqueRadiacion(marine, mapa);
+	     Ataque radiacion = new AtaqueRadiacion(marine.getParcela());
 	     
 	     mapa.ubicarElementoEnParcela(new Coordenada(2,1), marine2);
-	     radiacion.ejecutarAtaque();
+	     radiacion.tareaDeEntreTurno(mapa);
 	     ataque = (marine2.getVida() == 40-15);
 	     
 	     mapa.ubicarElementoEnParcela(new Coordenada(3,2), marine2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,2), marine3);
-	     radiacion.ejecutarAtaque();
+	     radiacion.tareaDeEntreTurno(mapa);
 	     ataque = (marine2.getVida() == 40-15);
 	     ataque = (marine3.getVida() == 40-15);
 	     
-	     radiacion.ejecutarAtaque();
+	     radiacion.tareaDeEntreTurno(mapa);
 	     ataque = (marine2.getVida() == 40-15);
 	     ataque = (marine3.getVida() == 40-15-15);	 
 	     
 	     assertTrue(ataque);
 	}
-	
-	public void danyaALosQueEstanARangoUnoDelAfectadoCuandoSeMueve() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
-		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
-		 Mapa mapa = new Mapa(2, 6, 6);
-	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     Interactuable marine = new Marine(unJugador2);
-	     
-	     Interactuable marine2 = new Marine(unJugador2);
-	     Interactuable marine3 = new Marine(unJugador2);
-	     boolean vidaCorrecta = true;
-	     
-	     mapa.ubicarElementoEnParcela(new Coordenada(6,6), marine);
-	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), marine3);
-	     mapa.ubicarElementoEnParcela(new Coordenada(3,3), marine2);
-	     
-	     Ataque radiacion = new AtaqueRadiacion(marine, mapa);
-	     
-	     radiacion.ejecutarAtaque();
-	     vidaCorrecta = (marine2.getVida() == 40);
-	     vidaCorrecta = (marine3.getVida() == 40);
-	     
-	     mapa.ubicarElementoEnParcela(new Coordenada(2,1), marine);
-	     radiacion.ejecutarAtaque();
-	     vidaCorrecta = (marine2.getVida() == 40-15);
-	     
-	     
-	     mapa.ubicarElementoEnParcela(new Coordenada(4,3), marine);
-	     radiacion.ejecutarAtaque();
-	     vidaCorrecta = (marine2.getVida() == 40-15);
-	     vidaCorrecta = (marine3.getVida() == 40-15);
-	     
-	     assertTrue(vidaCorrecta);
-	}
+//	@Test
+//	public void danyaALosQueEstanARangoUnoDelAfectadoCuandoSeMueve() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+//		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
+//		 Mapa mapa = new Mapa(2, 6, 6);
+//	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+//	     Interactuable marine = new Marine(unJugador2);
+//	     
+//	     Interactuable marine2 = new Marine(unJugador2);
+//	     Interactuable marine3 = new Marine(unJugador2);
+//	     boolean vidaCorrecta = true;
+//	     
+//	     mapa.ubicarElementoEnParcela(new Coordenada(6,6), marine);
+//	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), marine3);
+//	     mapa.ubicarElementoEnParcela(new Coordenada(3,3), marine2);
+//	     
+//	     Ataque radiacion = new AtaqueRadiacion(marine.getParcela());
+//	     
+//	     radiacion.tareaDeEntreTurno(mapa);
+//	     vidaCorrecta = (marine2.getVida() == 40);
+//	     vidaCorrecta = (marine3.getVida() == 40);
+//	     
+//	     mapa.ubicarElementoEnParcela(new Coordenada(2,1), marine);
+//	     radiacion.tareaDeEntreTurno(mapa);
+//	     vidaCorrecta = (marine2.getVida() == 40-15);
+//	     
+//	     
+//	     mapa.ubicarElementoEnParcela(new Coordenada(4,3), marine);
+//	     radiacion.tareaDeEntreTurno(mapa);
+//	     vidaCorrecta = (marine2.getVida() == 40-15);
+//	     vidaCorrecta = (marine3.getVida() == 40-15);
+//	     
+//	     assertTrue(vidaCorrecta);
+//	}
 
 
 }
