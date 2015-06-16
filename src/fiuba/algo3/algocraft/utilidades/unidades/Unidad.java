@@ -18,7 +18,6 @@ public abstract class Unidad extends Interactuable {
     protected int vision;
     protected int suministro;
     protected LinkedList<Coordenada> itinerario = new LinkedList<Coordenada>();
-    protected Coordenada coordenada;
     protected Coordenada coordenadaDestinacion;
     public Unidad(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro) throws ExcepcionNoHaySuministrosDisponibles {
         super(propietario, vitalidad, tiempoDeConstruccion);
@@ -28,9 +27,7 @@ public abstract class Unidad extends Interactuable {
         propietario.agregarUnidad(this);
     }
 
-    public Coordenada getCoordenada(){
-    	return this.coordenada;
-    }
+
     
     public void setCoordenadaDestinacion(Coordenada unaCoordenada){
     	this.coordenadaDestinacion = unaCoordenada;
@@ -187,25 +184,31 @@ public abstract class Unidad extends Interactuable {
     }
 
 	private void mover(Mapa mapa) {
-		if (this.coordenada != null) {
-			Coordenada coordenadaSiguiente = this.coordenada.calcularCoordenadaSiguiente(this.coordenadaDestinacion);
-			if (!this.coordenada.equals(coordenadaSiguiente)) {
+		if (this.parcelaUbicacion != null) {
+			Coordenada coordenadaActual = this.parcelaUbicacion.getCoordenada();
+			if (coordenadaActual != null && this.coordenadaDestinacion != null) {
+				Coordenada coordenadaSiguiente = coordenadaActual
+						.calcularCoordenadaSiguiente(this.coordenadaDestinacion);
+				if (!coordenadaActual.equals(coordenadaSiguiente)) {
 
-				try {
+					try {
+						Parcela nuevaParcelaActual = mapa
+								.obtenerParcelaEnCoordenada(coordenadaSiguiente);
+						nuevaParcelaActual.guardarElemento(this);
+						this.parcelaUbicacion.vaciarParcela();
+						this.setParcela(nuevaParcelaActual);
 
-					mapa.obtenerParcelaEnCoordenada(coordenadaSiguiente).guardarElemento(this);
-					mapa.obtenerParcelaEnCoordenada(this.coordenada).vaciarParcela();
-				} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-					this.coordenadaDestinacion = this.coordenada;
-				} catch (ExcepcionParcelaOcupada e) {
-					this.coordenadaDestinacion = this.coordenada;
-				} catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
-					this.coordenadaDestinacion = this.coordenada;
+					} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+						this.coordenadaDestinacion = coordenadaActual;
+					} catch (ExcepcionParcelaOcupada e) {
+						this.coordenadaDestinacion = coordenadaActual;
+					} catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+						this.coordenadaDestinacion = coordenadaActual;
+					}
 				}
-			}
 
+			}
 		}
 	}
-
 
 }

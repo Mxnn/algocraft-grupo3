@@ -105,7 +105,7 @@ public class JuegoTest {
     	Assert.assertTrue(elJuego.getMapa().obtenerParcelaEnCoordenada(desde).estaVacia());
     }
     
-   /* @Test
+    @Test
     public void cadaTurnoSeMueveLasUnidadesQueDebenMover() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreCorto, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionRecursosInsuficientes, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion{
     	Juego elJuego= new Juego();
         elJuego.crearJugador("Juan", Color.ROJO, Terran.getInstance());
@@ -115,7 +115,7 @@ public class JuegoTest {
         jugadorUno.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
         
     	Coordenada coordPartida;
-    	Coordenada coordDeDestinacion = new Coordenada (2,4);
+    	Coordenada coordDeDestinacion = new Coordenada (2,5);
         Mapa mapa=elJuego.getMapa();
         SistemaDeTurnos sistema = new SistemaDeTurnos(elJuego.getJugadores(),mapa);
         DepositoSuministro adicional = (DepositoSuministro) jugadorUno.crearAdicionalDeSuministro(mapa, new Coordenada(1,1));
@@ -130,17 +130,18 @@ public class JuegoTest {
     
         Marine marine = barraca.crearMarine(mapa);
         
-        coordPartida = marine.getCoordenada();
+        coordPartida = marine.getParcela().getCoordenada();
         marine.setCoordenadaDestinacion(coordDeDestinacion);
       //  mapa.obtenerParcelaEnCoordenada(coordPartida).guardarElemento(marine);
 
-        
+        while (!marine.estaCreado())
+        	jugadorUno.terminarTurno(elJuego);
 
 
         sistema.pasarTurno(jugadorUno);    
         sistema.pasarTurno(jugadorUno);    
         sistema.pasarTurno(jugadorUno);    
         
-        Assert.assertTrue(marine.getCoordenada()!=coordPartida);
-    }*/
+        Assert.assertTrue(marine.getParcela().getCoordenada()!=coordPartida);
+    }
 }
