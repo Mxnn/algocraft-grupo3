@@ -137,4 +137,47 @@ public class IntegradoresTest {
          
          Assert.assertTrue(OKEnergia && OKEscudo);
     }
+    
+    @Test
+    public void escenarioNaveCienciaQuitaEscudoYMagiaAOTraNaveCienciaYRestaSuMagia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente{
+    	 Juego juego = new Juego();
+    	 Mapa mapa = juego.getMapa();
+         Jugador jTerran = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+         Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
+         juego.agregarJugador(jTerran);
+         juego.agregarJugador(jProtoss);
+         this.crearTodasLasConstrucciones(jTerran, jProtoss, mapa, juego);
+         
+         PuertoEstelar puertoT = (PuertoEstelar) mapa.devolverElementoEnParcela(new Coordenada(3,3));
+         Acceso acceso = (Acceso) mapa.devolverElementoEnParcela(new Coordenada(18,18));
+         NaveCiencia naveCiencia = puertoT.crearNaveCiencia(mapa);
+         NaveCiencia naveCiencia2 = puertoT.crearNaveCiencia(mapa);
+         jTerran.terminarTurno(juego);
+         
+         Dragon dragon = acceso.crearDragon(mapa);
+         jProtoss.terminarTurno(juego);
+         
+         this.esperarUnidad(naveCiencia, jTerran, jProtoss, juego);
+         this.esperarUnidad(naveCiencia2, jTerran, jProtoss, juego);
+         
+         this.esperarUnidad(dragon, jTerran, jProtoss, juego);
+         
+         while((naveCiencia.getEnergia() <100)){
+        	 jTerran.terminarTurno(juego);
+        	 jProtoss.terminarTurno(juego);
+         }
+         int energiaInicial = naveCiencia.getEnergia();
+         //cuando este mover esto hay que cambiarlo por mover
+         mapa.ubicarCercaDeParcela(dragon.getParcela(), naveCiencia2);
+         
+         
+         naveCiencia.lanzarEMP(dragon.getParcela());
+         boolean OKEnergia = (naveCiencia.getEnergia() == energiaInicial - NaveCiencia.COSTO_ENERGIA_EMP);
+         
+         jTerran.terminarTurno(juego);
+         boolean OKMagia  = (naveCiencia2.getEnergia() == 0);
+         boolean OKEscudo = (((VitalidadProtoss) dragon.getVitalidad()).getEscudo() == 0);
+         
+         Assert.assertTrue(OKEnergia && OKEscudo && OKMagia);
+    }
 }
