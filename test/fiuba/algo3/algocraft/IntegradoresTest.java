@@ -13,6 +13,8 @@ import fiuba.algo3.algocraft.razas.terran.Terran;
 import fiuba.algo3.algocraft.razas.terran.construcciones.*;
 import fiuba.algo3.algocraft.razas.terran.unidades.*;
 import fiuba.algo3.algocraft.utilidades.*;
+import fiuba.algo3.algocraft.utilidades.unidades.Clon;
+import fiuba.algo3.algocraft.utilidades.unidades.UnidadMagica;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -88,6 +90,17 @@ public class IntegradoresTest {
 		}
 	}
 	
+	public void esperarEnergiaUnidad(UnidadMagica unidad,Jugador jugador1, Jugador jugador2, Juego juego) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa{
+		int energia = unidad.getEnergia();
+		boolean cambio = true;
+		while(cambio){
+			jugador1.terminarTurno(juego);
+			jugador2.terminarTurno(juego);
+			cambio = !(energia == unidad.getEnergia());
+			energia = unidad.getEnergia();
+        }
+	}
+	
 	
     @Test
     public void pruebaIntegracion1() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
@@ -122,10 +135,11 @@ public class IntegradoresTest {
          
          this.esperarUnidad(dragon, jTerran, jProtoss, juego);
          
-         while((naveCiencia.getEnergia() <100)){
-        	 jTerran.terminarTurno(juego);
-        	 jProtoss.terminarTurno(juego);
-         }
+//         while((naveCiencia.getEnergia() <100)){
+//        	 jTerran.terminarTurno(juego);
+//        	 jProtoss.terminarTurno(juego);
+//         }
+         this.esperarEnergiaUnidad(naveCiencia, jTerran, jProtoss, juego);
          int energiaInicial = naveCiencia.getEnergia();
          
          naveCiencia.lanzarEMP(dragon.getParcela());
@@ -162,10 +176,12 @@ public class IntegradoresTest {
          
          this.esperarUnidad(dragon, jTerran, jProtoss, juego);
          
-         while((naveCiencia.getEnergia() <100)){
-        	 jTerran.terminarTurno(juego);
-        	 jProtoss.terminarTurno(juego);
-         }
+         this.esperarEnergiaUnidad(naveCiencia, jTerran, jProtoss, juego);
+         
+//         while((naveCiencia.getEnergia() <100)){
+//        	 jTerran.terminarTurno(juego);
+//        	 jProtoss.terminarTurno(juego);
+//         }
          int energiaInicial = naveCiencia.getEnergia();
          //cuando este mover esto hay que cambiarlo por mover
          mapa.ubicarCercaDeParcela(dragon.getParcela(), naveCiencia2);
@@ -179,5 +195,152 @@ public class IntegradoresTest {
          boolean OKEscudo = (((VitalidadProtoss) dragon.getVitalidad()).getEscudo() == 0);
          
          Assert.assertTrue(OKEnergia && OKEscudo && OKMagia);
+    }
+    
+    @Test
+    public void escenarioNaveCienciaNoQuitaEscudoNiMagiaCuandoErraYRestaSuMagia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente{
+    	 Juego juego = new Juego();
+    	 Mapa mapa = juego.getMapa();
+         Jugador jTerran = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+         Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
+         juego.agregarJugador(jTerran);
+         juego.agregarJugador(jProtoss);
+         this.crearTodasLasConstrucciones(jTerran, jProtoss, mapa, juego);
+         
+         PuertoEstelar puertoT = (PuertoEstelar) mapa.devolverElementoEnParcela(new Coordenada(3,3));
+         Acceso acceso = (Acceso) mapa.devolverElementoEnParcela(new Coordenada(18,18));
+         NaveCiencia naveCiencia = puertoT.crearNaveCiencia(mapa);
+         NaveCiencia naveCiencia2 = puertoT.crearNaveCiencia(mapa);
+         jTerran.terminarTurno(juego);
+         
+         Dragon dragon = acceso.crearDragon(mapa);
+         jProtoss.terminarTurno(juego);
+         
+         this.esperarUnidad(naveCiencia, jTerran, jProtoss, juego);
+         this.esperarUnidad(naveCiencia2, jTerran, jProtoss, juego);
+         
+         this.esperarUnidad(dragon, jTerran, jProtoss, juego);
+         this.esperarEnergiaUnidad(naveCiencia, jTerran, jProtoss, juego);
+//         while((naveCiencia.getEnergia() <100)){
+//        	 jTerran.terminarTurno(juego);
+//        	 jProtoss.terminarTurno(juego);
+//         }
+         int energiaInicial = naveCiencia.getEnergia();
+        
+         
+         naveCiencia.lanzarEMP(mapa.obtenerParcelaEnCoordenada(new Coordenada(9,9)));
+         boolean OKEnergia = (naveCiencia.getEnergia() == energiaInicial - NaveCiencia.COSTO_ENERGIA_EMP);
+         
+         jTerran.terminarTurno(juego);
+         boolean OKMagia  = (naveCiencia2.getEnergia() == 0);
+         boolean OKEscudo = (((VitalidadProtoss) dragon.getVitalidad()).getEscudo() == 0);
+         
+         Assert.assertTrue(OKEnergia && !OKEscudo && !OKMagia);
+    }
+    
+    @Test
+    public void escenarioTemplarioLanzaSusAtaquesBienYSusClonesMuerenConEMP() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionUnidadEnemiga, ExcepcionEnemigoNoAtacable{
+    	 Juego juego = new Juego();
+    	 Mapa mapa = juego.getMapa();
+         Jugador jTerran = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+         Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
+         juego.agregarJugador(jTerran);
+         juego.agregarJugador(jProtoss);
+         this.crearTodasLasConstrucciones(jTerran, jProtoss, mapa, juego);
+         
+         PuertoEstelar puertoT = (PuertoEstelar) mapa.devolverElementoEnParcela(new Coordenada(3,3));
+         Acceso acceso = (Acceso) mapa.devolverElementoEnParcela(new Coordenada(18,18));
+         ArchivosTemplarios archivos = (ArchivosTemplarios) mapa.devolverElementoEnParcela(new Coordenada(16,16));
+         Barraca barraca = (Barraca) mapa.devolverElementoEnParcela(new Coordenada(1,1));
+         
+         NaveCiencia naveCiencia = puertoT.crearNaveCiencia(mapa);
+         NaveCiencia naveCiencia2 = puertoT.crearNaveCiencia(mapa);
+         Marine marine = barraca.crearMarine(mapa);
+         jTerran.terminarTurno(juego);
+         
+         Dragon dragon = acceso.crearDragon(mapa);
+         AltoTemplario templario = archivos.crearAltoTemplario(mapa);
+         jProtoss.terminarTurno(juego);
+         
+         this.esperarUnidad(naveCiencia, jTerran, jProtoss, juego);
+         this.esperarUnidad(naveCiencia2, jTerran, jProtoss, juego);
+         this.esperarUnidad(marine, jTerran, jProtoss, juego);
+         
+         this.esperarUnidad(dragon, jTerran, jProtoss, juego);
+         
+         this.esperarUnidad(templario, jTerran, jProtoss, juego);
+         
+         //cambiar por mover
+         mapa.ubicarElementoEnParcela(new Coordenada(9,9), marine);
+         mapa.ubicarCercaDeParcela(marine.getParcela(), naveCiencia2);
+         
+         this.esperarEnergiaUnidad(templario, jTerran, jProtoss, juego);
+         
+         jTerran.terminarTurno(juego);
+         
+         int vidaPrevioAtaque = naveCiencia2.getVida();
+         templario.lanzarTormentaPsionica(marine.getParcela());
+         
+         jProtoss.terminarTurno(juego);
+         
+         boolean OKMarineMuerto = marine.getVida() == 0;
+         boolean OKVidaNaveCiencia = naveCiencia2.getVida() == (vidaPrevioAtaque - 50);
+         vidaPrevioAtaque = naveCiencia2.getVida();
+         Assert.assertTrue(OKMarineMuerto && OKVidaNaveCiencia);
+         jTerran.terminarTurno(juego);
+         
+         boolean OKVidaNaveCiencia2doTurno = naveCiencia2.getVida() == (vidaPrevioAtaque - 50);
+         Assert.assertTrue(OKVidaNaveCiencia2doTurno);
+         
+         jProtoss.terminarTurno(juego);
+         
+         this.esperarEnergiaUnidad(templario, jTerran, jProtoss, juego);
+         
+         jTerran.terminarTurno(juego);
+         
+         //cambiar por mover
+         mapa.ubicarElementoEnParcela(new Coordenada(13,13), dragon);
+         
+         
+         templario.crearAlucinacion(dragon, mapa);
+         
+         jProtoss.terminarTurno(juego);
+         
+         mapa.ubicarElementoEnParcela(new Coordenada(14,12), naveCiencia2);
+         jTerran.terminarTurno(juego);
+         
+         Clon clon1 = (Clon) mapa.devolverElementoEnParcela(new Coordenada(12,12));
+         Clon clon2 = (Clon) mapa.devolverElementoEnParcela(new Coordenada(12,13));
+         
+         
+         vidaPrevioAtaque = naveCiencia2.getVida();
+         clon1.atacar(naveCiencia2.getParcela());
+         
+         Assert.assertTrue(naveCiencia2.getVida() == vidaPrevioAtaque);
+         
+         jProtoss.terminarTurno(juego);
+         
+         this.esperarEnergiaUnidad(naveCiencia2, jTerran, jProtoss, juego);
+         
+         int unidadesPrevioAtaque = jProtoss.getCantidadDeUnidades();
+         
+         naveCiencia.lanzarEMP(dragon.getParcela());
+         
+//         jTerran.terminarTurno(juego);
+         
+         
+//         Assert.assertTrue(((VitalidadProtoss)clon1.getVitalidad()).getEscudo() == 0);
+//         Assert.assertTrue(((VitalidadProtoss)clon2.getVitalidad()).getEscudo() == 0);
+         
+         
+         
+//         Assert.assertTrue(jProtoss.getCantidadDeUnidades() == unidadesPrevioAtaque - 2);
+
+
+         
+         
+
+         
+
     }
 }

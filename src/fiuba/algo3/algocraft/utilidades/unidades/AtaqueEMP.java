@@ -15,11 +15,9 @@ import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
 
 public class AtaqueEMP extends Ataque {
 	public static final int TURNOS_DE_DURACION = 1;
-//	private ArrayList<Parcela> listaParcelas;
 	
 	public AtaqueEMP(Parcela target){
 		super(target);
-//		this.listaParcelas = listaParcelas;
 		this.duracionDeAtaque = TURNOS_DE_DURACION;
 
 	}

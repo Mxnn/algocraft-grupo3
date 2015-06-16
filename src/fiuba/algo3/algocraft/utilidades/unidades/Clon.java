@@ -12,6 +12,7 @@ public class Clon extends UnidadAgresora {
 	
 	public Clon (UnidadAgresora aClonar, Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
         super(propietario, new VitalidadProtoss(0, ((VitalidadProtoss) aClonar.getVitalidad()).getEscudo()), 0, aClonar.getCupoDeTransporte(), aClonar.getVision(), 0, aClonar.getRangoAtaque(), new Danyo(0, 0));
+        this.tiempoDeConstruccion = 0;
 	}
 
 	@Override

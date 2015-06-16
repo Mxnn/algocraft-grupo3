@@ -18,7 +18,7 @@ public class VitalidadProtoss extends Vitalidad {
 
     public void recibirDanyo(int cantidad) throws ExcepcionEstadoMuerto {
         int restaAEscudo = this.escudo - cantidad;
-        if (restaAEscudo >= 0)
+        if (restaAEscudo > 0)
             this.escudo = restaAEscudo;
         else {
             this.escudo = 0;
