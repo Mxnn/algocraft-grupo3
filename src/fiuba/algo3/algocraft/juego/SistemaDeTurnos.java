@@ -45,9 +45,9 @@ public class SistemaDeTurnos {
     }
 
     private void tareasDeEntreturno() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
-        for (Jugador j: this.jugadores) {
+    	ArrayList<Ataque> ataques = new ArrayList<Ataque>();
+    	for (Jugador j: this.jugadores) {
             ArrayList<Interactuable> interactuables = new ArrayList<Interactuable>();
-            ArrayList<Ataque> ataques = new ArrayList<Ataque>();
             ataques.addAll(j.getAtaques());
             interactuables.addAll(j.getConstrucciones());
             interactuables.addAll(j.getUnidades());
@@ -55,9 +55,13 @@ public class SistemaDeTurnos {
             for (Interactuable i: interactuables) {
                 i.tareaDeEntreTurno(this.mapa);
             }
-            for (Ataque i: ataques) {
-                i.tareaDeEntreTurno(this.mapa);
-            }
+//            for (Ataque i: ataques) {
+//                i.tareaDeEntreTurno(this.mapa);
+//            }
+        }
+        
+        for (Ataque i: ataques) {
+            i.tareaDeEntreTurno(this.mapa);
         }
     }
 }

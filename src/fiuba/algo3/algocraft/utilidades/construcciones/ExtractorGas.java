@@ -3,6 +3,7 @@ package fiuba.algo3.algocraft.utilidades.construcciones;
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.juego.Jugador;
+import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.utilidades.Vitalidad;
@@ -26,7 +27,8 @@ public abstract class ExtractorGas extends Construccion {
     	parcela.setElemento(this);
     }
 
-    public void vivir() {
+    @Override
+    public void vivir(Mapa mapa) {
         this.recolectarRecursos();
     }
 }

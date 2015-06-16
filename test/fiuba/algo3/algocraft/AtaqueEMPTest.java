@@ -50,7 +50,8 @@ public class AtaqueEMPTest {
 //	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
 //	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
-	     Ataque emp = new AtaqueEMP(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
+//	     Ataque emp = new AtaqueEMP(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
+	     Ataque emp = new AtaqueEMP(dragon.getParcela());
 	     emp.tareaDeEntreTurno(mapa);
 	     
 //	     dragon.recibirAtaque(emp);
