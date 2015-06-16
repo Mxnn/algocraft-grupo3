@@ -2,10 +2,7 @@ package fiuba.algo3.algocraft.razas.protoss.unidades;
 
 import java.util.ArrayList;
 
-import fiuba.algo3.algocraft.excepciones.ExcepcionEnergiaInsuficiente;
-import fiuba.algo3.algocraft.excepciones.ExcepcionNoHayLugarDisponible;
-import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
-import fiuba.algo3.algocraft.excepciones.ExcepcionUnidadEnemiga;
+import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.Parcela;
@@ -39,8 +36,11 @@ public class AltoTemplario extends UnidadMagica {
         super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, ENERGIA_MAXIMA, ENERGIA_INICIAL, REGENERACION_ENERGIA);
     }
     
-    public void crearAlucinacion(UnidadAgresora unidadAClonar, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionEnergiaInsuficiente {
-    	this.gastarEnergia(COSTO_ENERGIA_ALUCINACION);
+    public void crearAlucinacion(UnidadAgresora unidadAClonar, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion {
+        if (!this.estaCreado())
+            throw new ExcepcionEntidadEnConstruccion();
+
+        this.gastarEnergia(COSTO_ENERGIA_ALUCINACION);
     	if (!(this.propietario).equals(unidadAClonar.getPropietario()))
             throw new ExcepcionUnidadEnemiga();
         //chequear que sea agresor

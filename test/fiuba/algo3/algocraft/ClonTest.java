@@ -57,7 +57,7 @@ public class ClonTest {
 	}
 	
 	@Test
-	public void elDanyoDelAtaqueEsCero() throws ExcepcionEstadoMuerto, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionNombreCorto {
+	public void elDanyoDelAtaqueEsCero() throws ExcepcionEstadoMuerto, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion {
 		Mapa mapa = new Mapa(2, 6, 6);
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 	    unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));

@@ -2,12 +2,7 @@ package fiuba.algo3.algocraft.razas.terran.unidades;
 
 import java.util.ArrayList;
 
-import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
-import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.excepciones.ExcepcionEnergiaInsuficiente;
-import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
-import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.Parcela;
@@ -54,8 +49,11 @@ public class NaveCiencia extends UnidadMagica {
     	return rango.getRangoDeAtaqueEnAire();
     }
     
-    public AtaqueEMP lanzarEMP(ArrayList<Parcela> listaParcelas) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente{
-    	this.gastarEnergia(COSTO_ENERGIA_EMP);
+    public AtaqueEMP lanzarEMP(ArrayList<Parcela> listaParcelas) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion {
+    	if (!this.estaCreado())
+            throw new ExcepcionEntidadEnConstruccion();
+
+        this.gastarEnergia(COSTO_ENERGIA_EMP);
 //    	for (int i = 0; i < listaParcelas.size(); i++) {
 //    		Parcela parcela = listaParcelas.get(i);
 //			if(!parcela.estaVacia()){
@@ -65,8 +63,11 @@ public class NaveCiencia extends UnidadMagica {
 		return new AtaqueEMP(listaParcelas);
     }
     
-    public AtaqueRadiacion lanzarRadiacion(Interactuable enemigo, Mapa mapa) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente{
-    	this.gastarEnergia(COSTO_ENERGIA_RADIACION);
+    public AtaqueRadiacion lanzarRadiacion(Interactuable enemigo, Mapa mapa) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion {
+        if (!this.estaCreado())
+            throw new ExcepcionEntidadEnConstruccion();
+
+        this.gastarEnergia(COSTO_ENERGIA_RADIACION);
 		return new AtaqueRadiacion(enemigo, mapa);
     }
     

@@ -20,7 +20,10 @@ public abstract class NaveTransporte extends Unidad {
         this.capacidad = capacidad;
     }
 
-    public void insertarUnidad(Unidad unidad) throws ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre {
+    public void insertarUnidad(Unidad unidad) throws ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionEntidadEnConstruccion {
+        if (!this.estaCreado())
+            throw new ExcepcionEntidadEnConstruccion();
+
         if (!unidad.getPropietario().equals(this.propietario))
             throw new ExcepcionUnidadEnemiga();
 
@@ -66,7 +69,10 @@ public abstract class NaveTransporte extends Unidad {
 		ataque.atacar(this);
 	}
 
-    public void sacarUnidad(Mapa mapa, Unidad unidad) throws ExcepcionNoHayLugarDisponible {
+    public void sacarUnidad(Mapa mapa, Unidad unidad) throws ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
+        if (!this.estaCreado())
+            throw new ExcepcionEntidadEnConstruccion();
+
         int index = unidades.indexOf(unidad);
         Unidad unidadSacada = unidades.get(index);
         unidades.remove(unidad);

@@ -37,7 +37,7 @@ public class VistaJuego {
 				
 		 }
 		 
-		/* int columnasOpciones = CANTIDAD_DE_OPCIONES;
+		 /*int columnasOpciones = CANTIDAD_DE_OPCIONES;
 		 int filasOpciones = 1;
 		 
 		 JPanel panelDeOpciones = new JPanel();
@@ -52,7 +52,7 @@ public class VistaJuego {
 		 }*/
 		 
 		 
-		 
+
 		 JButton button = new JButton();
 		 button.setSize(20,20);
 		 button.setText("Button Crear deposito de Sumnistro");

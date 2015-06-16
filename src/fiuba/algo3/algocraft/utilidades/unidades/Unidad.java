@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
-import fiuba.algo3.algocraft.excepciones.ExcepcionUnidadEnemiga;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.*;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
@@ -18,6 +17,7 @@ public abstract class Unidad extends Interactuable {
     protected LinkedList<Coordenada> itinerario = new LinkedList<Coordenada>();
     protected Coordenada coordenada;
     protected Coordenada coordenadaDestinacion;
+
     public Unidad(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro) throws ExcepcionNoHaySuministrosDisponibles {
         super(propietario, vitalidad, tiempoDeConstruccion);
         this.cupoDeTransporte = cupoDeTransporte;
@@ -163,10 +163,10 @@ public abstract class Unidad extends Interactuable {
 	
     public void vivir(Mapa mapa) {
         (this.vitalidad).regenerar();
-        this.mover(mapa);
+        //this.mover();
     }
 
-	private void mover(Mapa mapa) {
+	private void mover() {
 
 		
 	}
