@@ -33,6 +33,7 @@ public abstract class UnidadMagica extends Unidad {
     }
     
     public void recibirEmp(){
+    	super.recibirEmp();
     	this.energia = 0;
     }
     

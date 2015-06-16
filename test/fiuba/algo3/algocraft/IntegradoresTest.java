@@ -326,21 +326,15 @@ public class IntegradoresTest {
          
          naveCiencia.lanzarEMP(dragon.getParcela());
          
-//         jTerran.terminarTurno(juego);
+         jTerran.terminarTurno(juego);
          
          
-//         Assert.assertTrue(((VitalidadProtoss)clon1.getVitalidad()).getEscudo() == 0);
-//         Assert.assertTrue(((VitalidadProtoss)clon2.getVitalidad()).getEscudo() == 0);
+         Assert.assertTrue(((VitalidadProtoss)clon1.getVitalidad()).getEscudo() == 0);
+         Assert.assertTrue(((VitalidadProtoss)clon2.getVitalidad()).getEscudo() == 0);
          
          
          
-//         Assert.assertTrue(jProtoss.getCantidadDeUnidades() == unidadesPrevioAtaque - 2);
-
-
-         
-         
-
-         
+         Assert.assertTrue(jProtoss.getCantidadDeUnidades() == unidadesPrevioAtaque - 2);
 
     }
 }

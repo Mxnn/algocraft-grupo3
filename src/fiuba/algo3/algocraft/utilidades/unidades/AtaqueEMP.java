@@ -28,33 +28,35 @@ public class AtaqueEMP extends Ataque {
 		super.tareaDeEntreTurno(mapa);
 	}
 	
-	public void atacar(UnidadAgresora enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance{
-		(enemigo.getVitalidad()).recibirEmp();
-	}
+//	public void atacar(UnidadAgresora enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance{
+////		(enemigo.getVitalidad()).recibirEmp();
+//		enemigo.recibirEmp();
+//	}
 	
 	public void atacar(Construccion enemigo) throws ExcepcionEstadoMuerto{
 	}
 	
-//	public void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance{
-//		(enemigo.getVitalidad()).recibirEmp();
-//		this.vaciarMagia(enemigo);
-//	}
-	
-	public void atacar(UnidadMagica enemigo) throws ExcepcionEstadoMuerto{
-		(enemigo.getVitalidad()).recibirEmp();
-		this.vaciarMagia(enemigo);
-	}
-	
-	public void atacar(NaveTransporte enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance{
-		(enemigo.getVitalidad()).recibirEmp();
-	}
-	
-	private void vaciarMagia(UnidadMagica enemigo){
-//		enemigo.gastarEnergia(enemigo.getEnergia());
-		
+	public void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance{
 		enemigo.recibirEmp();
 	}
 	
+//	public void atacar(UnidadMagica enemigo) throws ExcepcionEstadoMuerto{
+////		(enemigo.getVitalidad()).recibirEmp();
+////		this.vaciarMagia(enemigo);
+//		enemigo.recibirEmp();
+//	}
+	
+//	public void atacar(NaveTransporte enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance{
+////		(enemigo.getVitalidad()).recibirEmp();
+//		enemigo.recibirEmp();
+//	}
+	
+//	private void vaciarMagia(UnidadMagica enemigo){
+////		enemigo.gastarEnergia(enemigo.getEnergia());
+//		
+//		enemigo.recibirEmp();
+//	}
+//	
 
 //	@Override
 //	public void ejecutarAtaque() throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
@@ -75,5 +77,5 @@ public class AtaqueEMP extends Ataque {
 //	}
 
 
-
 }
+

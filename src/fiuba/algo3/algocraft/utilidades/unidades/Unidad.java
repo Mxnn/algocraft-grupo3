@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.excepciones.ExcepcionUnidadEnemiga;
@@ -74,6 +75,16 @@ public abstract class Unidad extends Interactuable {
     }
 
     public int getSuministro() { return this.suministro; }
+    
+    public void recibirEmp(){
+    	try{
+    		(this.vitalidad).recibirEmp();
+    	}
+        catch (ExcepcionEstadoMuerto e) {
+            this.destruir();
+        }
+    	
+    }
 
 	public void calcularItinerario(Mapa mapa, Coordenada desde, Coordenada hasta) throws ExcepcionElementoNoAdmitidoEnParcela {
 		/*LinkedList<Coordenada> elItinerario = new LinkedList<Coordenada>();

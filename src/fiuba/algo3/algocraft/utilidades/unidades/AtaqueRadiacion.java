@@ -43,19 +43,24 @@ public class AtaqueRadiacion extends Ataque {
 	}
 
 	@Override
-	public void atacar(UnidadAgresora enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
+	public void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
 		enemigo.recibirDanyo(DANYO_POR_TURNO);
 	}
 
-	@Override
-	public void atacar(UnidadMagica enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
-		enemigo.recibirDanyo(DANYO_POR_TURNO);
-	}
-
-	@Override
-	public void atacar(NaveTransporte enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
-		enemigo.recibirDanyo(DANYO_POR_TURNO);
-	}
+//	@Override
+//	public void atacar(UnidadAgresora enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
+//		enemigo.recibirDanyo(DANYO_POR_TURNO);
+//	}
+//
+//	@Override
+//	public void atacar(UnidadMagica enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
+//		enemigo.recibirDanyo(DANYO_POR_TURNO);
+//	}
+//
+//	@Override
+//	public void atacar(NaveTransporte enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
+//		enemigo.recibirDanyo(DANYO_POR_TURNO);
+//	}
 	
 	@Override
 	public boolean esDescartable(){

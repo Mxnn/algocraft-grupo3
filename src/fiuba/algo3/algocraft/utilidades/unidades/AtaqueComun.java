@@ -20,15 +20,11 @@ public class AtaqueComun extends Ataque {
 		this.rango = rango;
 		this.danyo = danyo;
 		this.distancia = distancia;
-		//this.enemigo = enemigo;
 		(this.listaParcelas).add(target);
 		this.duracionDeAtaque = TURNOS_DE_DURACION;
 	}
 	
-//	public void ejecutarAtaque() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
-//		this.cantidadDeAtaques += 1;
-//		(this.enemigo).recibirAtaque(this);
-//	}
+
 	//nombre pedorro, cambiar
 	private void danyar(Interactuable enemigo) throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
 		if(enemigo.seleccionarRango(this.rango) < distancia){
@@ -42,27 +38,23 @@ public class AtaqueComun extends Ataque {
     	this.danyar(enemigo);
 	}
 	
-//	public void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
-//	this.danyar(enemigo);
-//}
+	public void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+	this.danyar(enemigo);
+}
 	
-	public void atacar(UnidadAgresora enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
-    	this.danyar(enemigo);
-	}
-	
-	public void atacar(UnidadMagica enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
-    	this.danyar(enemigo);
-	}
-	
-	public void atacar(NaveTransporte enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
-    	this.danyar(enemigo);
-	}
-
-	
-//	public boolean descartarAtaque() {
-//		// TODO Auto-generated method stub
-//		return false;
+//	public void atacar(UnidadAgresora enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+//    	this.danyar(enemigo);
 //	}
+//	
+//	public void atacar(UnidadMagica enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+//    	this.danyar(enemigo);
+//	}
+//	
+//	public void atacar(NaveTransporte enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+//    	this.danyar(enemigo);
+//	}
+
+
 	
 
 }
