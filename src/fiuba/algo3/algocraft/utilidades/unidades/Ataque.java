@@ -23,7 +23,8 @@ public abstract class Ataque{
 	}
 	
 	public void tareaDeEntreTurno(Mapa mapa) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa{
-		ejecutarAtaque();
+		if(!esDescartable())
+			ejecutarAtaque();
 	}
 	
 	public void ejecutarAtaque() throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
