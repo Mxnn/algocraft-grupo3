@@ -6,7 +6,6 @@ import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Parcela;
 import fiuba.algo3.algocraft.mapa.ParcelaEspacio;
-import fiuba.algo3.algocraft.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.utilidades.Costo;
 import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
@@ -38,11 +37,11 @@ public class Scout extends UnidadAgresora {
     public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
     }
-    
+
     public  int seleccionarDanyo(Danyo danyo){
     	return danyo.getDanyoDeAtaqueEnAire();
     }
-    
+
     public int seleccionarRango(RangoAtaque rango){
     	return rango.getRangoDeAtaqueEnAire();
     }

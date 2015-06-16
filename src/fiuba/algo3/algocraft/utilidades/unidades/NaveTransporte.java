@@ -56,11 +56,11 @@ public abstract class NaveTransporte extends Unidad {
     public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
     }
-    
+
     public int seleccionarDanyo(Danyo danyo){
     	return danyo.getDanyoDeAtaqueEnAire();
     }
-    
+
     public int seleccionarRango(RangoAtaque rango){
     	return rango.getRangoDeAtaqueEnAire();
     }

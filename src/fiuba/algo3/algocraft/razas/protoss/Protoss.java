@@ -25,6 +25,7 @@ public class Protoss extends Raza {
             INSTANCIA = new Protoss();
         }
     }
+
     public static Protoss getInstance() {
         if (INSTANCIA == null)
             createInstance();
@@ -33,7 +34,7 @@ public class Protoss extends Raza {
     }
 
 	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario,Asimilador.COSTO)) 
+        if (recursosInsuficientes(propietario, Asimilador.COSTO))
             throw new ExcepcionRecursosInsuficientes();
 		
         restarCosto(propietario,Asimilador.COSTO);
@@ -41,7 +42,7 @@ public class Protoss extends Raza {
 	}
 
 	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario,NexoMineral.COSTO)) 
+        if (recursosInsuficientes(propietario, NexoMineral.COSTO))
             throw new ExcepcionRecursosInsuficientes();
 		
         restarCosto(propietario,NexoMineral.COSTO);
@@ -49,7 +50,7 @@ public class Protoss extends Raza {
 	}
 
     public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario,Pilon.COSTO)) 
+        if (recursosInsuficientes(propietario, Pilon.COSTO))
             throw new ExcepcionRecursosInsuficientes();
 		
         restarCosto(propietario, Pilon.COSTO);
@@ -57,7 +58,7 @@ public class Protoss extends Raza {
     }
 
     public Construccion crearCreadorDeUnidadesBasicas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario,Acceso.COSTO)) 
+        if (recursosInsuficientes(propietario, Acceso.COSTO))
             throw new ExcepcionRecursosInsuficientes();
 		
         restarCosto(propietario,Acceso.COSTO);

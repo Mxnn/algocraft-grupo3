@@ -1,14 +1,10 @@
 package fiuba.algo3.algocraft.razas.terran.unidades;
 
-import java.util.ArrayList;
-
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Jugador;
-import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.Parcela;
 import fiuba.algo3.algocraft.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.utilidades.Costo;
-import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.utilidades.unidades.AtaqueEMP;
 import fiuba.algo3.algocraft.utilidades.unidades.AtaqueRadiacion;
@@ -44,7 +40,7 @@ public class NaveCiencia extends UnidadMagica {
     public int seleccionarDanyo(Danyo danyo){
     	return danyo.getDanyoDeAtaqueEnAire();
     }
-    
+
     public int seleccionarRango(RangoAtaque rango){
     	return rango.getRangoDeAtaqueEnAire();
     }

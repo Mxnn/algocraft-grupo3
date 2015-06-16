@@ -11,17 +11,14 @@ import fiuba.algo3.algocraft.utilidades.unidades.AdicionalSuministros;
 
 public abstract class Raza {
 
-	
-	   public boolean recursosInsuficientes(Jugador propietario, Costo costo){
+    public boolean recursosInsuficientes(Jugador propietario, Costo costo) {
+	    return((propietario.getGasVespeno()<costo.getCostoGas()) || (propietario.getMinerales()<costo.getCostoMineral()));
+	}
 
-		    return((propietario.getGasVespeno()<costo.getCostoGas()) || (propietario.getMinerales()<costo.getCostoMineral()));
-		   
-	   }
-
-	   public void restarCosto(Jugador propietario, Costo costo){
-		    	propietario.sumarGasVespeno(-(costo.getCostoGas()));
-		    	propietario.sumarMinerales(-(costo.getCostoMineral()));
-	   }
+	public void restarCosto(Jugador propietario, Costo costo) {
+		propietario.sumarGasVespeno(-(costo.getCostoGas()));
+	   	propietario.sumarMinerales(-(costo.getCostoMineral()));
+	}
 		    
     public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
 		return null;

@@ -5,6 +5,7 @@ import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 public class VitalidadProtoss extends Vitalidad {
     private int escudo;
     private int escudoMaximo;
+    private int REGENERACION_POR_TURNO = 10;
 
     public VitalidadProtoss(int vida, int escudo) {
         super(vida);
@@ -31,11 +32,10 @@ public class VitalidadProtoss extends Vitalidad {
     }
 
     public void regenerar() {
-        /*int total = this.escudo + cantidad;
+        int total = this.escudo + this.REGENERACION_POR_TURNO;
         if (total > this.escudoMaximo)
             this.escudo = this.escudoMaximo;
         else
-            this.escudo = total;*/
-        this.escudo = this.escudoMaximo;
+            this.escudo = total;
     }
 }
