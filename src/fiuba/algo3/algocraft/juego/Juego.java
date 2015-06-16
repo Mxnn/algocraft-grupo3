@@ -188,48 +188,7 @@ public class Juego {
         return false;
     }
 
-    public void moverUnidad(Coordenada desde, Coordenada hasta) throws ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela{
-    	Unidad unidadAMover = (Unidad) this.mapa.devolverElementoEnParcela(desde);
-    	unidadAMover.calcularItinerario(this.mapa,desde,hasta);
-
-		this.unidadesQueDebenMoverEnElTurno.add(unidadAMover) ;
-	}
-
-	public void tareaDelTurnoMoverLasUnidades() throws ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada{
-    	while (!this.unidadesQueDebenMoverEnElTurno.isEmpty()){
-    		if (this.tareaDelTurnoMoverUnidad(this.unidadesQueDebenMoverEnElTurno.getFirst()))
-    			this.reinscribirLaUnidad();
-    		
-    		this.unidadesQueDebenMoverEnElTurno.removeFirst();
-    		
-    	}
-    	this.unidadesQueDebenMoverEnElTurno = this.unidadesQueDebenMoverEnElProximoTurno;
-    	this.unidadesQueDebenMoverEnElProximoTurno.clear();
-    }
-
-	private void reinscribirLaUnidad() {
-		this.unidadesQueDebenMoverEnElProximoTurno.add(this.unidadesQueDebenMoverEnElTurno.getFirst());
-	}
-
-	private boolean tareaDelTurnoMoverUnidad(Unidad unidadAMover) throws ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
-		this.tareaDelTurnoMoverUnidadSubFunction(unidadAMover);
-
-		return (unidadAMover.getItinerario().size() > 1);
-	}
-
-	
-	private void tareaDelTurnoMoverUnidadSubFunction(Unidad unidadAMover) throws ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
-		Parcela parcelaProxima = this.mapa.obtenerParcelaEnCoordenada(unidadAMover.getItinerario().get(1));
-		if (parcelaProxima.devolverElemento()!=null){
-			unidadAMover.clearItinerario();
-			
-		} else {
-			Parcela parcelaPartida = this.mapa.obtenerParcelaEnCoordenada(unidadAMover.getItinerario().getFirst());
-			parcelaPartida.vaciarParcela();
-			unidadAMover.getItinerario().removeFirst();
-			parcelaProxima.guardarElemento(unidadAMover);
-		}
-	}
+  
 
     public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
         sistemaDeTurnos.pasarTurno(jugador);
