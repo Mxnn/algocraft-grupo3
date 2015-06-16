@@ -35,7 +35,7 @@ public class DragonTest {
 	     Interactuable marine = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
 	     
-	     Ataque ataque = dragon.atacar(marine);
+	     Ataque ataque = dragon.atacar(marine.getParcela());
 	     
 	     ataque.ejecutarAtaque();
 	     
@@ -55,7 +55,7 @@ public class DragonTest {
 	     Interactuable espectro = new Espectro(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
 	     
-	     Ataque ataque = dragon.atacar(espectro);
+	     Ataque ataque = dragon.atacar(espectro.getParcela());
 	     
 	     ataque.ejecutarAtaque();
 	     
@@ -76,7 +76,7 @@ public class DragonTest {
 	     Interactuable marine = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(5,0), marine);
 	     
-	     Ataque ataque = dragon.atacar(marine);
+	     Ataque ataque = dragon.atacar(marine.getParcela());
 	     
 	     ataque.ejecutarAtaque();
 	     
@@ -93,7 +93,7 @@ public class DragonTest {
 	     
 	     Interactuable barraca = new Barraca(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
-	     Ataque ataque = dragon.atacar(barraca);
+	     Ataque ataque = dragon.atacar(barraca.getParcela());
 	     ataque.ejecutarAtaque();
 
 	     assertEquals(barraca.getVida(), 1000-20);

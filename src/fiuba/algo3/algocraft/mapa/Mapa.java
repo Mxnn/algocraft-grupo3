@@ -24,6 +24,13 @@ public class Mapa {
     public HashMap<Coordenada,Parcela> getTablero(){
     	return this.tablero;
     }
+    
+    public int getFilas(){
+    	return this.filas;
+    }
+    public int getColumnas(){
+    	return this.columnas;
+    }
     public void insertarParcela(Parcela parcela) {
         this.tablero.put(parcela.getCoordenada(), parcela);
     }

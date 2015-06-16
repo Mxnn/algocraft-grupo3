@@ -112,7 +112,7 @@ public class AtaqueEMPTest {
 	     Ataque emp = new AtaqueEMP(listaParcelas);
 	     
 	     emp.ejecutarAtaque();
-	     
+	     emp.esDescartable();
 	     assertTrue(emp.esDescartable());
 	     
 	}

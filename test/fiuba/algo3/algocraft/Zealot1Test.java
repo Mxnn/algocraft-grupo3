@@ -32,7 +32,7 @@ public class Zealot1Test {
 	    mapa.ubicarElementoEnParcela(new Coordenada(0,0) , zealot);
 	    Interactuable marine = new Marine(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,0) , marine);
-	    Ataque ataque = zealot.atacar(marine);
+	    Ataque ataque = zealot.atacar(marine.getParcela());
 	    
 	    ataque.ejecutarAtaque();
 	     
@@ -52,7 +52,7 @@ public class Zealot1Test {
 	    Interactuable espectro = new Espectro(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
 
-	    Ataque ataque = zealot.atacar(espectro);
+	    Ataque ataque = zealot.atacar(espectro.getParcela());
 	    
 	    ataque.ejecutarAtaque();
 	}
@@ -69,7 +69,7 @@ public class Zealot1Test {
 	    Interactuable marine = new Marine(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(2,0) , marine);
 
-	    Ataque ataque = zealot.atacar(marine);
+	    Ataque ataque = zealot.atacar(marine.getParcela());
 	    
 	    ataque.ejecutarAtaque();
 	}
@@ -85,7 +85,7 @@ public class Zealot1Test {
 	    mapa.ubicarElementoEnParcela(new Coordenada(0,0) , zealot);
 	    Interactuable barraca = new Barraca(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
-	    Ataque ataque = zealot.atacar(barraca);
+	    Ataque ataque = zealot.atacar(barraca.getParcela());
 	    
 	    
 	    ataque.ejecutarAtaque();

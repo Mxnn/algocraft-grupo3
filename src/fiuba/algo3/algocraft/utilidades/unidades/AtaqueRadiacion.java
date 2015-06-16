@@ -23,14 +23,20 @@ public class AtaqueRadiacion extends Ataque {
 	//hacer refactor aca para poder meter mas cosas en ataque
 	public void ejecutarAtaque() throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
 //		this.cantidadDeAtaques += 1;
-		ArrayList<Parcela> listaParcelas = mapa.devolverParcelasEnRadioUno(enemigo.getParcela());
-		for (int i = 0; i < listaParcelas.size(); i++) {
-    		Parcela parcela = (listaParcelas).get(i);
-			if(!parcela.estaVacia()){
-				Interactuable enemigo = parcela.devolverElemento();
-				enemigo.recibirAtaque(this);
-			}
-		}
+//		ArrayList<Parcela> listaParcelas = mapa.devolverParcelasEnRadioUno(enemigo.getParcela());
+		this.refreshParcelas();
+		super.ejecutarAtaque();
+//		for (int i = 0; i < listaParcelas.size(); i++) {
+//    		Parcela parcela = (listaParcelas).get(i);
+//			if(!parcela.estaVacia()){
+//				Interactuable enemigo = parcela.devolverElemento();
+//				enemigo.recibirAtaque(this);
+//			}
+//		}
+	}
+	
+	private void refreshParcelas() throws ExcepcionCoordenadaFueraDelMapa{
+		this.listaParcelas = mapa.devolverParcelasEnRadioUno(enemigo.getParcela());
 	}
 
 	@Override

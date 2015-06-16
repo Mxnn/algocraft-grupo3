@@ -32,7 +32,7 @@ public class ScoutTest {
 	    mapa.ubicarElementoEnParcela(new Coordenada(0,0), scout);
 	    Interactuable marine = new Marine(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
-	    Ataque ataque = scout.atacar(marine);
+	    Ataque ataque = scout.atacar(marine.getParcela());
 	    
 	    ataque.ejecutarAtaque();
 
@@ -51,7 +51,7 @@ public class ScoutTest {
 
 	    Interactuable espectro = new Espectro(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
-	    Ataque ataque = scout.atacar(espectro);
+	    Ataque ataque = scout.atacar(espectro.getParcela());
 	    
 	    ataque.ejecutarAtaque();
 	     
@@ -70,7 +70,7 @@ public class ScoutTest {
 	     
 	    Interactuable marine = new Marine(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(5,0), marine);
-	    Ataque ataque = scout.atacar(marine);
+	    Ataque ataque = scout.atacar(marine.getParcela());
 	    
 	    ataque.ejecutarAtaque();
 	}
@@ -88,7 +88,7 @@ public class ScoutTest {
 	    Interactuable espectro = new Espectro(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(0,5), espectro);
 	     
-	    Ataque ataque = scout.atacar(espectro);
+	    Ataque ataque = scout.atacar(espectro.getParcela());
 	    
 	    ataque.ejecutarAtaque();
 	}
@@ -104,7 +104,7 @@ public class ScoutTest {
 
 	    Interactuable barraca = new Barraca(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
-	    Ataque ataque = scout.atacar(barraca);
+	    Ataque ataque = scout.atacar(barraca.getParcela());
 	    
 	    ataque.ejecutarAtaque();
 	     

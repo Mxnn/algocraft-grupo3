@@ -13,8 +13,23 @@ import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
 public abstract class Ataque {	
 	protected int duracionDeAtaque;
 	protected int cantidadDeAtaques;
+	protected ArrayList<Parcela> listaParcelas;
+
+	public Ataque(){
+		this.listaParcelas = new ArrayList<Parcela>();
+	}
 	
-	public abstract void ejecutarAtaque() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa;
+//	public abstract void ejecutarAtaque() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa;
+	public void ejecutarAtaque() throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
+		this.cantidadDeAtaques += 1;
+		for (int i = 0; i < this.listaParcelas.size(); i++) {
+    		Parcela parcela = (this.listaParcelas).get(i);
+			if(!parcela.estaVacia()){
+				Interactuable enemigo = parcela.devolverElemento();
+				enemigo.recibirAtaque(this);
+			}
+		}
+	}
 	
 	public boolean esDescartable(){
 		return ((this.duracionDeAtaque - this.cantidadDeAtaques) == 0);

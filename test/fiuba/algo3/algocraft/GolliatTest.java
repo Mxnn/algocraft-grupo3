@@ -33,7 +33,7 @@ public class GolliatTest {
 	     Interactuable marine = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
 	     
-	     Ataque ataque =  golliat.atacar(marine);
+	     Ataque ataque =  golliat.atacar(marine.getParcela());
 	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(marine.getVida(), 40-12);
@@ -52,7 +52,7 @@ public class GolliatTest {
 	     Interactuable espectro = new Espectro(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
 
-	     Ataque ataque = golliat.atacar(espectro);
+	     Ataque ataque = golliat.atacar(espectro.getParcela());
 	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(espectro.getVida(), 120-10);
@@ -72,7 +72,7 @@ public class GolliatTest {
 	     Interactuable marine = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(7,0), marine);
 
-	     Ataque ataque = golliat.atacar(marine);
+	     Ataque ataque = golliat.atacar(marine.getParcela());
 	     ataque.ejecutarAtaque();
 	     
 	}
@@ -90,7 +90,7 @@ public class GolliatTest {
 	    Interactuable espectro = new Espectro(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(0,6), espectro);
 
-	    Ataque ataque = golliat.atacar(espectro);
+	    Ataque ataque = golliat.atacar(espectro.getParcela());
 	     ataque.ejecutarAtaque();
 	}
 
@@ -106,7 +106,7 @@ public class GolliatTest {
 	     Interactuable barraca = new Barraca(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
 	     
-	     Ataque ataque = golliat.atacar(barraca);
+	     Ataque ataque = golliat.atacar(barraca.getParcela());
 	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(barraca.getVida(), 1000-12);

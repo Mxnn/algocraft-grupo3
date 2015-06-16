@@ -32,7 +32,7 @@ public class MarineTest {
 	     Interactuable marine2 = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine2);
 	     
-	     Ataque ataque = marine.atacar(marine2);
+	     Ataque ataque = marine.atacar(marine2.getParcela());
 	     ataque.ejecutarAtaque();
 	     
 	     assertEquals(marine2.getVida(), 40-6);
@@ -50,7 +50,7 @@ public class MarineTest {
 	     
 	     Interactuable espectro = new Espectro(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
-	     Ataque ataque = marine.atacar(espectro);
+	     Ataque ataque = marine.atacar(espectro.getParcela());
 	     
 	     ataque.ejecutarAtaque();
 	     
@@ -71,7 +71,7 @@ public class MarineTest {
 	     Interactuable marine2 = new Marine(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(5,0), marine2);
 	    
-	     Ataque ataque = marine.atacar(marine2);
+	     Ataque ataque = marine.atacar(marine2.getParcela());
 	     
 	     ataque.ejecutarAtaque();
 	     
@@ -88,7 +88,7 @@ public class MarineTest {
 	     
 	     Interactuable barraca = new Barraca(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
-	     Ataque ataque = marine.atacar(barraca);
+	     Ataque ataque = marine.atacar(barraca.getParcela());
 	     
 	     ataque.ejecutarAtaque();
 	     

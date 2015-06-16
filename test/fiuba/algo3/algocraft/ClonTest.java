@@ -73,7 +73,7 @@ public class ClonTest {
 		Interactuable marine = new Marine(unJugador2);
 		mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
 		
-		clon.atacar(marine);
+		clon.atacar(marine.getParcela());
 		
 		assertEquals(marine.getVida(),40);
 	}

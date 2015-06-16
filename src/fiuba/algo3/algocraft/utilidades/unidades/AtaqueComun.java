@@ -1,29 +1,34 @@
 package fiuba.algo3.algocraft.utilidades.unidades;
 
+import java.util.ArrayList;
+
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
+import fiuba.algo3.algocraft.mapa.Parcela;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
 
 public class AtaqueComun extends Ataque {
 	public static final int TURNOS_DE_DURACION = 1;
-	protected Interactuable enemigo;
+//	protected Interactuable enemigo;
 	private RangoAtaque rango;
 	private Danyo danyo;
 	private int distancia;
 	
-	public AtaqueComun(Interactuable enemigo, RangoAtaque rango, Danyo danyo, int distancia){
+	public AtaqueComun(Parcela parcela, RangoAtaque rango, Danyo danyo, int distancia){
+		super();
 		this.rango = rango;
 		this.danyo = danyo;
 		this.distancia = distancia;
-		this.enemigo = enemigo;
+		//this.enemigo = enemigo;
+		(this.listaParcelas).add(parcela);
 		this.duracionDeAtaque = TURNOS_DE_DURACION;
 	}
 	
-	public void ejecutarAtaque() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
-		this.cantidadDeAtaques += 1;
-		(this.enemigo).recibirAtaque(this);
-	}
+//	public void ejecutarAtaque() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
+//		this.cantidadDeAtaques += 1;
+//		(this.enemigo).recibirAtaque(this);
+//	}
 	//nombre pedorro, cambiar
 	private void danyar(Interactuable enemigo) throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
 		if(enemigo.seleccionarRango(this.rango) < distancia){

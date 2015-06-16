@@ -31,7 +31,7 @@ public class EspectroTest {
 
 	    Interactuable marine = new Marine(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
-	    Ataque ataque = espectro.atacar(marine);
+	    Ataque ataque = espectro.atacar(marine.getParcela());
 	    
 	    ataque.ejecutarAtaque();
 	     
@@ -50,7 +50,7 @@ public class EspectroTest {
 
 	    Interactuable espectro2 = new Espectro(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro2);
-	    Ataque ataque = espectro.atacar(espectro2);
+	    Ataque ataque = espectro.atacar(espectro2.getParcela());
 	    
 	    ataque.ejecutarAtaque();
 	     
@@ -70,7 +70,7 @@ public class EspectroTest {
 	    Interactuable marine = new Marine(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(7,0), marine);
 
-	    Ataque ataque = espectro.atacar(marine);
+	    Ataque ataque = espectro.atacar(marine.getParcela());
 	    
 	    ataque.ejecutarAtaque();
 	}
@@ -88,7 +88,7 @@ public class EspectroTest {
 	    Interactuable espectro2 = new Espectro(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(6,0), espectro2);
 
-	    Ataque ataque = espectro.atacar(espectro2);
+	    Ataque ataque = espectro.atacar(espectro2.getParcela());
 	    
 	    ataque.ejecutarAtaque();
 	}
@@ -105,7 +105,7 @@ public class EspectroTest {
 	     
 	    Interactuable barraca = new Barraca(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
-	    Ataque ataque = espectro.atacar(barraca);
+	    Ataque ataque = espectro.atacar(barraca.getParcela());
 	    
 	    ataque.ejecutarAtaque();
 	     
