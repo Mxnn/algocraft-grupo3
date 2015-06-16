@@ -61,4 +61,29 @@ public class Coordenada {
 	    return hash;
 	}
 
+	public Coordenada calcularCoordenadaSiguiente( Coordenada coordenadaDeDestinacion) {
+		Coordenada coordenadaSiguiente = new Coordenada(coordenadaDeDestinacion.getX()-this.getX(),coordenadaDeDestinacion.getY()-this.getY());
+		if (!coordenadaSiguiente.equals(new Coordenada(0,0))){
+
+			if(Math.abs(coordenadaSiguiente.getX())>Math.abs(coordenadaSiguiente.getY())){
+				int direccion =this.darDireccion(coordenadaSiguiente.getX());
+				coordenadaSiguiente= new Coordenada(this.x+direccion,this.y);
+			}else{
+				int direccion =this.darDireccion(coordenadaSiguiente.getY());
+				coordenadaSiguiente= new Coordenada(this.x,this.y+direccion);
+			}
+		}
+		return coordenadaSiguiente;
+	}
+
+
+
+	private int darDireccion(int x) {
+		if(x>0){
+			return 1;
+		}else{
+			return -1;
+		}
+	}
+
 }

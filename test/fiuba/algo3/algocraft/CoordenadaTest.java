@@ -91,4 +91,14 @@ public class CoordenadaTest {
         Assert.assertTrue(lista.contains(new Coordenada(4, 3)));
         Assert.assertTrue(lista.contains(new Coordenada(4, 4)));
     }
+    
+    @Test
+    public void llamandoACalcularCoordenadaSiguienteSePuedeConseguirLaCoordenadaVecinaMasCercaDeLaDestinacion(){
+    	Coordenada coordenadaPartida = new Coordenada(2,2);
+    	Coordenada coordenadaDeDestinacion = new Coordenada(2,5);
+
+    	Coordenada coordenadaSiguiente=coordenadaPartida.calcularCoordenadaSiguiente(coordenadaDeDestinacion);
+    	
+    	Assert.assertTrue(coordenadaSiguiente.equals(new Coordenada(2,3)));
+    }
 }
