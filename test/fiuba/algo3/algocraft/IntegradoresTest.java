@@ -21,7 +21,7 @@ import org.junit.Test;
 
 public class IntegradoresTest {
 	
-	public void crearTodasLasConstrucciones(Jugador jTerran, Jugador jProtoss, Mapa mapa, Juego juego)  throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas{
+	private void crearTodasLasConstrucciones(Jugador jTerran, Jugador jProtoss, Mapa mapa, Juego juego)  throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas{
 
         Interactuable gasT = jTerran.crearExtractorGas(mapa, new Coordenada(0,0));
         Interactuable mineralT = jTerran.crearExtractorMineral(mapa, new Coordenada(0,1));
@@ -83,14 +83,14 @@ public class IntegradoresTest {
         
 	}
 	
-	public void esperarUnidad(Interactuable unidad, Jugador jugador1, Jugador jugador2, Juego juego) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa{
+	private void esperarUnidad(Interactuable unidad, Jugador jugador1, Jugador jugador2, Juego juego) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa{
 		while(!unidad.estaCreado()){
 			jugador1.terminarTurno(juego);
 			jugador2.terminarTurno(juego);
 		}
 	}
 	
-	public void esperarEnergiaUnidad(UnidadMagica unidad,Jugador jugador1, Jugador jugador2, Juego juego) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa{
+	private void esperarEnergiaUnidad(UnidadMagica unidad,Jugador jugador1, Jugador jugador2, Juego juego) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa{
 		int energia = unidad.getEnergia();
 		boolean cambio = true;
 		while(cambio){
@@ -100,18 +100,6 @@ public class IntegradoresTest {
 			energia = unidad.getEnergia();
         }
 	}
-	
-	
-    @Test
-    public void pruebaIntegracion1() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
-        Juego juego = new Juego();
-        Jugador jTerran = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
-        juego.agregarJugador(jTerran);
-        juego.agregarJugador(jProtoss);
-
-        Assert.assertTrue(true);
-    }
     
     @Test
     public void escenarioNaveCienciaQuitaEscudoYRestaSuMagia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente{
@@ -337,4 +325,60 @@ public class IntegradoresTest {
          Assert.assertTrue(jProtoss.getCantidadDeUnidades() == unidadesPrevioAtaque - 2);
 
     }
+
+    /*@Test
+    public void transportarConLaNaveDeTransporteLosTransportaBien() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEnemigoFueraDeAlcance, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionEstadoMuerto, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionEntidadEnConstruccion, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoEsUnidadTerrestre, ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionUnidadYaSeEncuentraEnLaNave {
+        Juego juego = new Juego();
+        Mapa mapa = juego.getMapa();
+        Jugador jTerran = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
+        juego.agregarJugador(jTerran);
+        juego.agregarJugador(jProtoss);
+        this.crearTodasLasConstrucciones(jTerran, jProtoss, mapa, juego);
+
+        jTerran.crearAdicionalDeSuministro(mapa, new Coordenada(4, 5));
+
+        PuertoEstelar puertoT = (PuertoEstelar) mapa.devolverElementoEnParcela(new Coordenada(3,3));
+        Barraca barraca = (Barraca) mapa.devolverElementoEnParcela(new Coordenada(1,1));
+
+        NaveTransporteTerran nave = puertoT.crearNaveTransporte(mapa);
+        this.esperarUnidad(nave, jTerran, jProtoss, juego);
+        System.out.println(nave.getParcela().getCoordenada().getX());
+        System.out.println(nave.getParcela().getCoordenada().getY());
+
+        Marine marine1 = barraca.crearMarine(mapa);
+        this.esperarUnidad(marine1, jTerran, jProtoss, juego);
+        nave.insertarUnidad(marine1);
+
+        Marine marine2 = barraca.crearMarine(mapa);
+        this.esperarUnidad(marine2, jTerran, jProtoss, juego);
+        nave.insertarUnidad(marine2);
+
+        Marine marine3 = barraca.crearMarine(mapa);
+        this.esperarUnidad(marine3, jTerran, jProtoss, juego);
+        nave.insertarUnidad(marine3);
+
+        Marine marine4 = barraca.crearMarine(mapa);
+        this.esperarUnidad(marine4, jTerran, jProtoss, juego);
+        nave.insertarUnidad(marine4);
+
+        Coordenada destinoNave = new Coordenada(18, 3);
+        nave.setCoordenadaDestinacion(destinoNave);
+
+        while((nave.getParcela().getCoordenada()).equals(destinoNave)) {
+            jTerran.terminarTurno(juego);
+            jProtoss.terminarTurno(juego);
+        }
+
+        nave.sacarUnidad(mapa, marine1);
+        nave.sacarUnidad(mapa, marine2);
+        nave.sacarUnidad(mapa, marine3);
+        nave.sacarUnidad(mapa, marine4);
+
+
+        Assert.assertEquals(marine1.getParcela().getCoordenada(), new Coordenada(17, 2));
+        Assert.assertEquals(marine2.getParcela().getCoordenada(), new Coordenada(17, 3));
+        Assert.assertEquals(marine3.getParcela().getCoordenada(), new Coordenada(17, 4));
+        Assert.assertEquals(marine4.getParcela().getCoordenada(), new Coordenada(18, 1));
+    }*/
 }

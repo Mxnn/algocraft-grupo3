@@ -20,12 +20,15 @@ public abstract class NaveTransporte extends Unidad {
         this.capacidad = capacidad;
     }
 
-    public void insertarUnidad(Unidad unidad) throws ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionEntidadEnConstruccion {
+    public void insertarUnidad(Unidad unidad) throws ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionEntidadEnConstruccion, ExcepcionUnidadYaSeEncuentraEnLaNave {
         if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
 
         if (!unidad.getPropietario().equals(this.propietario))
             throw new ExcepcionUnidadEnemiga();
+
+        if(this.unidades.contains(unidad))
+            throw new ExcepcionUnidadYaSeEncuentraEnLaNave();
 
         if (unidad.getCupoDeTransporte() == 0)
             throw new ExcepcionNoEsUnidadTerrestre();

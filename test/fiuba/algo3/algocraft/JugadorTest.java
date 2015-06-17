@@ -76,7 +76,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void creadorDeUnidadesBasicasCreaEdificioCreadorDeSoldados() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void creadorDeUnidadesBasicasCreaEdificioCreadorDeUnidadesBasicas() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
@@ -105,7 +105,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void creadorDeUnidadesMagicasCreaEdificioCreadorDeUniadesAereas() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+    public void creadorDeUnidadesMagicasCreaEdificioCreadorDeUniadesMagicas() throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
         Juego juego = new Juego();
         Mapa mapa = new Mapa (2, 20, 20);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
@@ -130,7 +130,7 @@ public class JugadorTest {
         Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 3);
     }
     @Test
-    public void sePuedeSumarGazVespeno() throws ExcepcionRecursosInsuficientes, ExcepcionNombreCorto {
+    public void sePuedeSumarGasVespeno() throws ExcepcionRecursosInsuficientes, ExcepcionNombreCorto {
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 
     	unJugador.sumarGasVespeno(RECURSOS_SUFFICIENTES);
@@ -160,6 +160,7 @@ public class JugadorTest {
 
     	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL - Refineria.COSTO.getCostoMineral());
     }
+
     @Test
     public void crearExtractorDeMineralRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNombreCorto {
         Mapa mapa = new Mapa(2, 20, 20);
