@@ -18,11 +18,12 @@ import org.junit.Test;
 import fiuba.algo3.algocraft.razas.protoss.unidades.Scout;
 import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.razas.terran.unidades.Espectro;
+import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
 
 public class ScoutTest {
 
-	/*@Test
-	public void atacarRestaVidaATerrestre() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
+	@Test
+	public void atacarRestaVidaATerrestre() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
 	    Juego juego = new Juego();
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
@@ -31,6 +32,10 @@ public class ScoutTest {
 		Mapa mapa = new Mapa(2, 5, 5);
 	    unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	    unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+	    for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
 	    UnidadAgresora scout = new Scout(unJugador);
         while(!scout.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -47,14 +52,14 @@ public class ScoutTest {
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
         unJugador2.terminarTurno(juego);
 
-	    Ataque ataque = scout.atacar(marine);
-	    ataque.ejecutarAtaque();
+	    scout.atacar(marine.getParcela());
+        unJugador.terminarTurno(juego);
 
 	    assertEquals(marine.getVida(), 40-8);
-	}*/
+	}
 
-	/*@Test
-	public void atacarRestaVidaAVolador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
+	@Test
+	public void atacarRestaVidaAVolador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
 		Juego juego = new Juego();
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
@@ -63,6 +68,10 @@ public class ScoutTest {
 		Mapa mapa = new Mapa(2, 5, 5);
 	    unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	    unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+	    for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
 	    UnidadAgresora scout = new Scout(unJugador);
         while(!scout.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -79,14 +88,14 @@ public class ScoutTest {
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
         unJugador2.terminarTurno(juego);
 
-	    Ataque ataque = scout.atacar(espectro);
-	    ataque.ejecutarAtaque();
+	    scout.atacar(espectro.getParcela());
+        unJugador.terminarTurno(juego);
 
 	    assertEquals(espectro.getVida(), 120-14);
-	}*/
+	}
 
-	/*@Test(expected = ExcepcionEnemigoFueraDeAlcance.class)
-	public void atacarFueraDeRangoEnTierraLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
+	@Test(expected = ExcepcionEnemigoFueraDeAlcance.class)
+	public void atacarFueraDeRangoEnTierraLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
 		Juego juego = new Juego();
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 	    Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
@@ -95,6 +104,10 @@ public class ScoutTest {
 		Mapa mapa = new Mapa(2, 6, 6);
 	    unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	    unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+	    for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
 	    UnidadAgresora scout = new Scout(unJugador);
         while(!scout.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -111,9 +124,9 @@ public class ScoutTest {
 	    mapa.ubicarElementoEnParcela(new Coordenada(5,0), marine);
         unJugador2.terminarTurno(juego);
 
-	    Ataque ataque = scout.atacar(marine);
-	    ataque.ejecutarAtaque();
-	}*/
+	    scout.atacar(marine.getParcela());
+        unJugador.terminarTurno(juego);
+	}
 
     @Test(expected = ExcepcionEnemigoFueraDeAlcance.class)
     public void atacarFueraDeRangoEnAireLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {

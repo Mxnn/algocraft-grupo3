@@ -12,6 +12,7 @@ import fiuba.algo3.algocraft.razas.protoss.construcciones.PuertoEstelarProtoss;
 import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.razas.terran.construcciones.Fabrica;
 import fiuba.algo3.algocraft.razas.terran.construcciones.PuertoEstelar;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,37 +21,43 @@ import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.*;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.razas.protoss.unidades.AltoTemplario;
+import fiuba.algo3.algocraft.razas.protoss.unidades.Dragon;
 import fiuba.algo3.algocraft.razas.terran.Terran;
 import fiuba.algo3.algocraft.razas.terran.unidades.NaveCiencia;
+import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.utilidades.unidades.UnidadMagica;
 
 public class NaveCienciaTest {
 
-	/*@Test
-	public void quitaEscudoAProtoss() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion {
-		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
-		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
-		 Mapa mapa = new Mapa(2, 5, 5);
-	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
-	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	     
-	     Interactuable dragon = new Dragon(unJugador);
-	     mapa.ubicarElementoEnParcela(new Coordenada (1,1), dragon);
-	     NaveCiencia naveCiencia = new NaveCiencia(unJugador2);
-	     
-	     
-	     for (int i = 0; i < 6; i++) 
-	    	 naveCiencia.regenerarEnergia();
-	     
-	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
-	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
-	     
-	     Ataque ataque = naveCiencia.lanzarEMP(listaParcelas);
-	     ataque.ejecutarAtaque();
-	     
-	     assertEquals(0, ((VitalidadProtoss)dragon.getVitalidad()).getEscudo());
-	}*/
+//	@Test
+//	public void quitaEscudoAProtoss() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion {
+//		Juego juego = new Juego();
+//		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+//		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
+//		 juego.agregarJugador(unJugador2);
+//		 juego.agregarJugador(unJugador);
+//		 Mapa mapa = new Mapa(2, 5, 5);
+//	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+//	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+//	     for(int i= 0; i<=7; i++){
+//	        	
+//	    	 unJugador.terminarTurno(juego);
+//	    	 unJugador2.terminarTurno(juego);
+//	        }
+//	     Interactuable dragon = new Dragon(unJugador);
+//	     mapa.ubicarElementoEnParcela(new Coordenada (1,1), dragon);
+//	     NaveCiencia naveCiencia = new NaveCiencia(unJugador2);
+//	     
+//	     
+//	     for (int i = 0; i < 6; i++) 
+//	    	 naveCiencia.regenerarEnergia();	   
+//	     
+//	     naveCiencia.lanzarEMP(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
+//	     unJugador.terminarTurno(juego);
+//	     
+//	     assertEquals(0, ((VitalidadProtoss) dragon.getVitalidad()).getEscudo());
+//	}
 	
 	@Test(expected = ExcepcionEnergiaInsuficiente.class)
 	public void lanzarEMPlanzaExcepcionSiEnergiaInsuficiente() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHayLugarDisponible {
