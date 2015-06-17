@@ -559,56 +559,12 @@ public class IntegradoresTest {
          
          jTerran.terminarTurno(juego);
          
-//         Dragon dragon = ((Acceso) basicasP).crearDragon(mapa);
-//         mapa.ubicarElementoEnParcela(new Coordenada(2,2), dragon);	
-//         Dragon dragon2 = ((Acceso) basicasP).crearDragon(mapa);
-//         mapa.ubicarElementoEnParcela(new Coordenada(1,1), dragon2);
-//         Dragon dragon3 = ((Acceso) basicasP).crearDragon(mapa);
-//         mapa.ubicarElementoEnParcela(new Coordenada(1,2), dragon3);
-//         Dragon dragon4 = ((Acceso) basicasP).crearDragon(mapa);
-//         mapa.ubicarElementoEnParcela(new Coordenada(2,1), dragon4);
-         
          jProtoss.terminarTurno(juego);
          
-         
-//         this.esperarUnidad(dragon4, jTerran, jProtoss, juego);
-         
-         
-//         dragon.moverHasta(new Coordenada(1,18));
-//         
-//         while(dragon.getParcela().getCoordenada() != new Coordenada(1,18)){
-//        	 jTerran.terminarTurno(juego);
-//           	 jProtoss.terminarTurno(juego);
-//         }
-         //cambiar por mover
-//        mapa.ubicarElementoEnParcela(new Coordenada(2,2), dragon);	
-//        mapa.ubicarElementoEnParcela(new Coordenada(1,1), dragon2);
-//        mapa.ubicarElementoEnParcela(new Coordenada(1,2), dragon3);
-//        mapa.ubicarElementoEnParcela(new Coordenada(2,1), dragon4);
          
          jTerran.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(5,5));
          //le quedan solo 50
          Assert.assertTrue(jTerran.esPerdedor());
-//         Interactuable mineralT = jTerran.crearExtractorMineral(mapa, new Coordenada(0,1));
-//
-//         
-//         while(!mineralT.estaCreado()){
-//        	 jTerran.terminarTurno(juego);
-//        	 jProtoss.terminarTurno(juego);
-//         }
-//
-//         Assert.assertTrue(jTerran.getMinerales()<50);
-//    	 int x = 6;
-//    	 int y = 6;
-//         while(!jTerran.esPerdedor()){
-//        	 dragon.atacar(mineralT.getParcela());
-//        	 jTerran.terminarTurno(juego);
-//        	 jProtoss.terminarTurno(juego);
-//        	 if(jTerran.getMinerales() >= 150)
-//        		 jTerran.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(x,y));
-//        	 x++;
-//        	 y++;
-//         }
 
     }
 }
