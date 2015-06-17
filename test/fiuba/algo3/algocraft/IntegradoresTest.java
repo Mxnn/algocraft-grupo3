@@ -460,17 +460,28 @@ public class IntegradoresTest {
           	 jProtoss.terminarTurno(juego);
         }
         
-        for(int i=0; i<200; i++){
+        for(int i=0; i<198; i++){
         	new Marine(jTerran);
         }
 //        for(int i=0; i<5; i++){
 //        	Marine marine = ((Barraca)basicasT).crearMarine(mapa);
 //        	marine.moverHasta(new Coordenada(1,1));
 //        }
+        Marine marine = ((Barraca)basicasT).crearMarine(mapa);
+        Marine marine2 = ((Barraca)basicasT).crearMarine(mapa);
+        this.esperarUnidad(marine, jTerran, jProtoss, juego);
+        this.esperarUnidad(marine2, jTerran, jProtoss, juego);
         
         Assert.assertTrue(jTerran.getPoblacion() == 200);
         
-        new Marine(jTerran);
-
+        while(marine2.getVida()>0){
+        	marine.atacar(marine2.getParcela());
+        	jTerran.terminarTurno(juego);
+         	jProtoss.terminarTurno(juego);
+        }
+        Assert.assertTrue(jTerran.getPoblacion() == 199);
+        
+        ((Barraca)basicasT).crearMarine(mapa);
+        ((Barraca)basicasT).crearMarine(mapa);
     } 
 }
