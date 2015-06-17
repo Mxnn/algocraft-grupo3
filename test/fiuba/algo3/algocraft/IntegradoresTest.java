@@ -347,11 +347,11 @@ public class IntegradoresTest {
         this.crearTodasLasConstrucciones(jTerran, jProtoss, mapa, juego);
 
         jTerran.crearAdicionalDeSuministro(mapa, new Coordenada(4, 5));
-        jTerran.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(9,7));
+        jTerran.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(13,13));
         
        
         
-        PuertoEstelar puertoT = (PuertoEstelar) mapa.devolverElementoEnParcela(new Coordenada(9,7));
+        PuertoEstelar puertoT = (PuertoEstelar) mapa.devolverElementoEnParcela(new Coordenada(13,13));
         Barraca barraca = (Barraca) mapa.devolverElementoEnParcela(new Coordenada(1,1));
 
         this.esperarUnidad(puertoT, jTerran, jProtoss, juego);
@@ -394,17 +394,20 @@ public class IntegradoresTest {
         Assert.assertTrue(nave.getParcela().getCoordenada().equals(destinoNave));
 
         
-//
-//        nave.sacarUnidad(mapa, marine1);
-//        nave.sacarUnidad(mapa, marine2);
-//        nave.sacarUnidad(mapa, marine3);
-//        nave.sacarUnidad(mapa, marine4);
-//
-//
-//        Assert.assertEquals(marine1.getParcela().getCoordenada(), new Coordenada(17, 2));
-//        Assert.assertEquals(marine2.getParcela().getCoordenada(), new Coordenada(17, 3));
-//        Assert.assertEquals(marine3.getParcela().getCoordenada(), new Coordenada(17, 4));
-//        Assert.assertEquals(marine4.getParcela().getCoordenada(), new Coordenada(18, 1));
+
+          nave.sacarUnidad(mapa, marine1);
+        nave.sacarUnidad(mapa, marine2);
+        nave.sacarUnidad(mapa, marine3);
+        nave.sacarUnidad(mapa, marine4);
+        
+        System.out.println(marine1.getParcela().getCoordenada().getX());
+        System.out.println(marine1.getParcela().getCoordenada().getY());
+
+
+       Assert.assertEquals(marine1.getParcela().getCoordenada(), new Coordenada(destinoNave.getX()-1, destinoNave.getY()-1));
+        Assert.assertEquals(marine2.getParcela().getCoordenada(), new Coordenada(destinoNave.getX()-1, destinoNave.getY()));
+        Assert.assertEquals(marine3.getParcela().getCoordenada(), new Coordenada(destinoNave.getX()-1, destinoNave.getY()+1));
+        Assert.assertEquals(marine4.getParcela().getCoordenada(), new Coordenada(destinoNave.getX(), destinoNave.getY()-1));
     }
     @Test
     public void seLlegaAlTopeDePoblacion()throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente{
