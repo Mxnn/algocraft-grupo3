@@ -365,8 +365,7 @@ public class IntegradoresTest {
         this.esperarUnidad(marine4, jTerran, jProtoss, juego);
         nave.insertarUnidad(marine4);
 
-        Coordenada destinoNave = new Coordenada(18, 3);
-        nave.setCoordenadaDestinacion(destinoNave);
+        
         
         // nave no esta rodeada
         ArrayList<Parcela> parcelas = mapa.devolverParcelasEnRadioUno(nave.getParcela());
@@ -376,12 +375,17 @@ public class IntegradoresTest {
     			Assert.assertTrue(parcela.estaVacia());
 			
 			}
-		
+        
+        Coordenada destinoNave = new Coordenada(3, 2);
+        nave.setCoordenadaDestinacion(destinoNave);
  
-//        while(!(nave.getParcela().getCoordenada()).equals(destinoNave)) {
-//            jTerran.terminarTurno(juego);
-//            jProtoss.terminarTurno(juego);
-//        }
+        while(!(nave.getParcela().getCoordenada()).equals(destinoNave)) {
+            jTerran.terminarTurno(juego);
+            jProtoss.terminarTurno(juego);
+        }
+        
+        Assert.assertTrue((nave.getParcela().getCoordenada() == destinoNave));
+        
 //
 //        nave.sacarUnidad(mapa, marine1);
 //        nave.sacarUnidad(mapa, marine2);
