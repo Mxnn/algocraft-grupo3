@@ -2,8 +2,6 @@ package fiuba.algo3.algocraft.razas.terran.unidades;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.juego.Jugador;
-import fiuba.algo3.algocraft.mapa.Parcela;
-import fiuba.algo3.algocraft.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.utilidades.Costo;
 import fiuba.algo3.algocraft.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
@@ -28,7 +26,4 @@ public class Golliat extends UnidadAgresora {
     public Golliat(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
         super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, new RangoAtaque(RANGO_AIRE, RANGO_TIERRA), new Danyo(DANYO_AIRE, DANYO_TIERRA));
     }
-    
-
-    
 }

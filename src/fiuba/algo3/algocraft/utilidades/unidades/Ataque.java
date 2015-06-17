@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import fiuba.algo3.algocraft.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.excepciones.ExcepcionEnergiaInsuficiente;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.Parcela;
@@ -41,13 +40,8 @@ public abstract class Ataque{
 	public boolean esDescartable(){
 		return ((this.duracionDeAtaque - this.cantidadDeAtaques) == 0);
 	}
-//	public void destruir() {
-//        (this.propietario).eliminarUnidad(this);
-//    }
-	public abstract void atacar(Construccion enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance;
-	public abstract void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance;
-//	public abstract void atacar(UnidadAgresora enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance;
-//	public abstract void atacar(UnidadMagica enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance;
-//	public abstract void atacar(NaveTransporte enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance;
 
+	public abstract void atacar(Construccion enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance;
+
+    public abstract void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance;
 }

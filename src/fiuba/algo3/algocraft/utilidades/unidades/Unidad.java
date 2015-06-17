@@ -1,13 +1,10 @@
 package fiuba.algo3.algocraft.utilidades.unidades;
 
-import java.util.LinkedList;
-
 import fiuba.algo3.algocraft.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.excepciones.ExcepcionParcelaOcupada;
-import fiuba.algo3.algocraft.excepciones.ExcepcionUnidadEnemiga;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.*;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
@@ -18,6 +15,7 @@ public abstract class Unidad extends Interactuable {
     protected int vision;
     protected int suministro;
     protected Coordenada coordenadaDestinacion;
+
     public Unidad(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro) throws ExcepcionNoHaySuministrosDisponibles {
         super(propietario, vitalidad, tiempoDeConstruccion);
         this.cupoDeTransporte = cupoDeTransporte;
@@ -26,8 +24,6 @@ public abstract class Unidad extends Interactuable {
         propietario.agregarUnidad(this);
     }
 
-
-    
     public void setCoordenadaDestinacion(Coordenada unaCoordenada){
     	this.coordenadaDestinacion = unaCoordenada;
     }
@@ -73,17 +69,14 @@ public abstract class Unidad extends Interactuable {
     public int getSuministro() { return this.suministro; }
     
     public void recibirEmp(){
-    	try{
+    	try {
     		(this.vitalidad).recibirEmp();
     	}
         catch (ExcepcionEstadoMuerto e) {
             this.destruir();
         }
-    	
     }
 
-
-	
     public void vivir(Mapa mapa) {
         (this.vitalidad).regenerar();
         this.mover(mapa);

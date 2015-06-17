@@ -55,9 +55,6 @@ public class SistemaDeTurnos {
             for (Interactuable i: interactuables) {
                 i.tareaDeEntreTurno(this.mapa);
             }
-//            for (Ataque i: ataques) {
-//                i.tareaDeEntreTurno(this.mapa);
-//            }
         }
         
         for (Ataque i: ataques) {

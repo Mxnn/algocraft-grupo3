@@ -28,9 +28,11 @@ public class Mapa {
     public int getFilas(){
     	return this.filas;
     }
+
     public int getColumnas(){
     	return this.columnas;
     }
+
     public void insertarParcela(Parcela parcela) {
         this.tablero.put(parcela.getCoordenada(), parcela);
     }
@@ -48,33 +50,7 @@ public class Mapa {
     	    	 this.tablero.put(coordenada, parcela);
     	     }
     	}
-    	///lo pongo aca despues vemos si se saca
-//    	this.crearBases();
     }
-    
-//    private void crearBases(){
-//    	Coordenada coordenada1 = new Coordenada(0,0);
-//    	Parcela volcan1 = new ParcelaVolcan(coordenada1);
-//    	this.tablero.put(coordenada1, volcan1);
-//    	ArrayList<Coordenada> coordenadas1 = coordenada1.obtenerCoordenadasVecinas();
-//    	for (int i = 0; i < coordenadas1.size(); i++) {
-//    		Coordenada coordenada = (coordenadas1).get(i);
-//    		if(this.coordenadaExiste(coordenada))
-//    			this.tablero.put(coordenada, new ParcelaMineral(coordenada));	
-//    	}
-//    	
-//    	Coordenada coordenada2 = new Coordenada(this.filas-1,this.columnas-1);
-//    	Parcela volcan2 = new ParcelaVolcan(coordenada2);
-//    	this.tablero.put(coordenada2, volcan2);
-//    	ArrayList<Coordenada> coordenadas2 = coordenada2.obtenerCoordenadasVecinas();
-//    	for (int i = 0; i < coordenadas2.size(); i++) {
-//    		Coordenada coordenada = (coordenadas2).get(i);
-//    		if(this.coordenadaExiste(coordenada))
-//    			this.tablero.put(coordenada, new ParcelaMineral(coordenada));	
-//    	}
-    	
-//    }
-    
 
     public void ubicarElementoEnParcela(Coordenada coordenada, Interactuable elemento) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada {
         if (this.coordenadaExiste(coordenada)) {
@@ -146,20 +122,4 @@ public class Mapa {
           throw new ExcepcionNoHayLugarDisponible();
 
 	}
-	
-	
-//	public Coordenada devolverCoordenadaDeElemento(Interactuable elemento) throws ExcepcionElementoNoUbicado{
-//		for (HashMap.Entry<Coordenada, Parcela> parCoordenadaParcela : tablero.entrySet()) {
-//			Parcela parcela = parCoordenadaParcela.getValue();
-//			if (parcela.devolverElemento() == elemento)
-//				return parCoordenadaParcela.getKey(); 
-//		}
-//		throw new ExcepcionElementoNoUbicado();
-//	}
-//	
-//	public int distanciaEntreDosElementos(Interactuable elem1, Interactuable elem2) throws ExcepcionElementoNoUbicado{
-//		Coordenada coord1 = this.devolverCoordenadaDeElemento(elem1);
-//		Coordenada coord2 = this.devolverCoordenadaDeElemento(elem2);
-//		return coord1.distanciaConCoordenada(coord2);
-//	}
 }

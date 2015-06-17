@@ -9,8 +9,8 @@ public class ParcelaTierra extends Parcela {
         this.elemento = null;
         this.coordenada = coordenada;
     }
+
     public void guardarElemento(Interactuable elemento) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         elemento.guardarEnParcela(this);
     }
-    
 }
