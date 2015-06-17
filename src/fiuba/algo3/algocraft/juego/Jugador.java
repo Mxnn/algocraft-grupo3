@@ -196,6 +196,13 @@ public class Jugador {
     }
 
     public void terminarTurno(Juego juego) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
-        juego.pasarTurno(this);
+    	juego.pasarTurno(this);
+    }
+    
+    public boolean esPerdedor(){
+    	boolean tieneGas = this.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_GAS);
+    	boolean tieneMineral = this.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_MINERAL); 
+    	return(this.mineral<100 && !tieneMineral);
+
     }
 }

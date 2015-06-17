@@ -188,9 +188,14 @@ public class Juego {
         return false;
     }
 
-  
+  private void finJuego(Jugador perdedor){
+//	  System.out.println(perdedor.getNombre());
+	  //fin del juego
+  }
 
     public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
         sistemaDeTurnos.pasarTurno(jugador);
+        if(jugador.esPerdedor())
+        	this.finJuego(jugador);
     }
 }
