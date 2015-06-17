@@ -484,4 +484,131 @@ public class IntegradoresTest {
         ((Barraca)basicasT).crearMarine(mapa);
         ((Barraca)basicasT).crearMarine(mapa);
     } 
+    @Test
+    public void escenarioJugadorPierdeSiNoPuedeObtenerMasSuministros() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionUnidadEnemiga {
+    	 Juego juego = new Juego();
+    	 Mapa mapa = juego.getMapa();
+         Jugador jTerran = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+         Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
+         juego.agregarJugador(jTerran);
+         juego.agregarJugador(jProtoss);
+
+         Interactuable gasP = jProtoss.crearExtractorGas(mapa, new Coordenada(19,19));
+         Interactuable mineralP = jProtoss.crearExtractorMineral(mapa, new Coordenada(19,18));
+         jTerran.terminarTurno(juego);
+         jProtoss.terminarTurno(juego);
+         
+         while(!gasP.estaCreado() ||  !mineralP.estaCreado()){
+        	 jTerran.terminarTurno(juego);
+        	 jProtoss.terminarTurno(juego);
+         }
+         while ((jProtoss.getGasVespeno() <= 2000)&&(jProtoss.getMinerales()<=4000)){
+           	 jTerran.terminarTurno(juego);
+           	 jProtoss.terminarTurno(juego);
+            }
+         
+         jTerran.terminarTurno(juego);
+         Interactuable basicasP = jProtoss.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(18,18));
+         jProtoss.terminarTurno(juego);
+         
+         while( !basicasP.estaCreado()){
+        	 jTerran.terminarTurno(juego);
+        	 jProtoss.terminarTurno(juego);
+         }
+         
+         
+         jTerran.terminarTurno(juego);
+         Interactuable avanzadasP = jProtoss.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(17,17));
+         jProtoss.terminarTurno(juego);
+         
+         while(!avanzadasP.estaCreado()){
+        	 jTerran.terminarTurno(juego);
+        	 jProtoss.terminarTurno(juego);
+         }
+         
+         
+         jTerran.terminarTurno(juego);
+         Interactuable magicasP = jProtoss.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(16,16));
+         jProtoss.terminarTurno(juego);
+         
+         while( !magicasP.estaCreado()){
+        	 jTerran.terminarTurno(juego);
+        	 jProtoss.terminarTurno(juego);
+         }
+         
+         
+         jTerran.terminarTurno(juego);
+         Interactuable suministrosP = jProtoss.crearAdicionalDeSuministro(mapa, new Coordenada(15,15));
+         jProtoss.terminarTurno(juego);
+         
+         while( !suministrosP.estaCreado()){
+           	 jTerran.terminarTurno(juego);
+           	 jProtoss.terminarTurno(juego);
+            }
+         jTerran.terminarTurno(juego);
+         Interactuable suministrosP2 = jProtoss.crearAdicionalDeSuministro(mapa, new Coordenada(14,14));
+         jProtoss.terminarTurno(juego);
+         
+         while( !suministrosP2.estaCreado()){
+           	 jTerran.terminarTurno(juego);
+           	 jProtoss.terminarTurno(juego);
+            }
+
+         Acceso acceso = (Acceso) mapa.devolverElementoEnParcela(new Coordenada(18,18));
+         ArchivosTemplarios archivos = (ArchivosTemplarios) mapa.devolverElementoEnParcela(new Coordenada(16,16));
+         
+         jTerran.terminarTurno(juego);
+         
+//         Dragon dragon = ((Acceso) basicasP).crearDragon(mapa);
+//         mapa.ubicarElementoEnParcela(new Coordenada(2,2), dragon);	
+//         Dragon dragon2 = ((Acceso) basicasP).crearDragon(mapa);
+//         mapa.ubicarElementoEnParcela(new Coordenada(1,1), dragon2);
+//         Dragon dragon3 = ((Acceso) basicasP).crearDragon(mapa);
+//         mapa.ubicarElementoEnParcela(new Coordenada(1,2), dragon3);
+//         Dragon dragon4 = ((Acceso) basicasP).crearDragon(mapa);
+//         mapa.ubicarElementoEnParcela(new Coordenada(2,1), dragon4);
+         
+         jProtoss.terminarTurno(juego);
+         
+         
+//         this.esperarUnidad(dragon4, jTerran, jProtoss, juego);
+         
+         
+//         dragon.moverHasta(new Coordenada(1,18));
+//         
+//         while(dragon.getParcela().getCoordenada() != new Coordenada(1,18)){
+//        	 jTerran.terminarTurno(juego);
+//           	 jProtoss.terminarTurno(juego);
+//         }
+         //cambiar por mover
+//        mapa.ubicarElementoEnParcela(new Coordenada(2,2), dragon);	
+//        mapa.ubicarElementoEnParcela(new Coordenada(1,1), dragon2);
+//        mapa.ubicarElementoEnParcela(new Coordenada(1,2), dragon3);
+//        mapa.ubicarElementoEnParcela(new Coordenada(2,1), dragon4);
+         
+         jTerran.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(5,5));
+         //le quedan solo 50
+         Assert.assertTrue(jTerran.esPerdedor());
+//         Interactuable mineralT = jTerran.crearExtractorMineral(mapa, new Coordenada(0,1));
+//
+//         
+//         while(!mineralT.estaCreado()){
+//        	 jTerran.terminarTurno(juego);
+//        	 jProtoss.terminarTurno(juego);
+//         }
+//
+//         Assert.assertTrue(jTerran.getMinerales()<50);
+//    	 int x = 6;
+//    	 int y = 6;
+//         while(!jTerran.esPerdedor()){
+//        	 dragon.atacar(mineralT.getParcela());
+//        	 jTerran.terminarTurno(juego);
+//        	 jProtoss.terminarTurno(juego);
+//        	 if(jTerran.getMinerales() >= 150)
+//        		 jTerran.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(x,y));
+//        	 x++;
+//        	 y++;
+//         }
+
+    }
 }
