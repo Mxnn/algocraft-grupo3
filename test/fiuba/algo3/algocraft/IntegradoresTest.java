@@ -346,8 +346,8 @@ public class IntegradoresTest {
 
         NaveTransporteTerran nave = puertoT.crearNaveTransporte(mapa);
         this.esperarUnidad(nave, jTerran, jProtoss, juego);
-        System.out.println(nave.getParcela().getCoordenada().getX());
-        System.out.println(nave.getParcela().getCoordenada().getY());
+//        System.out.println(nave.getParcela().getCoordenada().getX());
+//        System.out.println(nave.getParcela().getCoordenada().getY());
 
         Marine marine1 = barraca.crearMarine(mapa);
         this.esperarUnidad(marine1, jTerran, jProtoss, juego);
@@ -376,15 +376,17 @@ public class IntegradoresTest {
 			
 			}
         
-        Coordenada destinoNave = new Coordenada(3, 2);
+        Coordenada destinoNave = new Coordenada(1, 3);
         nave.setCoordenadaDestinacion(destinoNave);
- 
-        while(!(nave.getParcela().getCoordenada()).equals(destinoNave)) {
-            jTerran.terminarTurno(juego);
-            jProtoss.terminarTurno(juego);
-        }
         
-        Assert.assertTrue((nave.getParcela().getCoordenada() == destinoNave));
+        jTerran.terminarTurno(juego);
+ 
+//        while(!(nave.getParcela().getCoordenada()).equals(destinoNave)) {
+//            jTerran.terminarTurno(juego);
+//            jProtoss.terminarTurno(juego);
+//        }
+        
+//        Assert.assertTrue((nave.getParcela().getCoordenada() == destinoNave));
         
 //
 //        nave.sacarUnidad(mapa, marine1);
@@ -398,4 +400,48 @@ public class IntegradoresTest {
 //        Assert.assertEquals(marine3.getParcela().getCoordenada(), new Coordenada(17, 4));
 //        Assert.assertEquals(marine4.getParcela().getCoordenada(), new Coordenada(18, 1));
     }
+    @Test
+    public void seLlegaAlTopeDePoblacion()throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente{
+    	Juego juego = new Juego();
+    	Mapa mapa = juego.getMapa();
+        Jugador jTerran = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
+        juego.agregarJugador(jTerran);
+        juego.agregarJugador(jProtoss);
+        
+        Interactuable gasT = jTerran.crearExtractorGas(mapa, new Coordenada(0,0));
+        Interactuable mineralT = jTerran.crearExtractorMineral(mapa, new Coordenada(0,1));
+        while(!gasT.estaCreado() || !mineralT.estaCreado()){
+          	 jTerran.terminarTurno(juego);
+          	 jProtoss.terminarTurno(juego);
+           }
+        
+        while(jTerran.getMinerales() <= 10000){
+        	jTerran.terminarTurno(juego);
+         	 jProtoss.terminarTurno(juego);
+        }
+        System.out.println(jTerran.getCapacidadDePoblacion());
+        for(int i=1; i<19; i++){
+        	jTerran.crearAdicionalDeSuministro(mapa, new Coordenada(i,i));
+        }
+        System.out.println(jTerran.getCapacidadDePoblacion());
+        for(int i=16; i==0; i--){
+        	jTerran.crearAdicionalDeSuministro(mapa, new Coordenada(i,i+3));
+        }
+        System.out.println(jTerran.getCapacidadDePoblacion());
+        for(int i=15; i==0; i--){
+        	jTerran.crearAdicionalDeSuministro(mapa, new Coordenada(i,i+4));
+        }
+        
+        System.out.println(jTerran.getCapacidadDePoblacion());
+        
+        for(int i= 0; i<=6; i++){
+        	jTerran.terminarTurno(juego);
+       	 	jProtoss.terminarTurno(juego);
+        }
+        jTerran.terminarTurno(juego);
+        System.out.println(jTerran.getCapacidadDePoblacion());
+        
+ 
+    } 
 }
