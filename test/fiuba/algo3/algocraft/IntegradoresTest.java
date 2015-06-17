@@ -126,10 +126,6 @@ public class IntegradoresTest {
          
          this.esperarUnidad(dragon, jTerran, jProtoss, juego);
          
-//         while((naveCiencia.getEnergia() <100)){
-//        	 jTerran.terminarTurno(juego);
-//        	 jProtoss.terminarTurno(juego);
-//         }
          this.esperarEnergiaUnidad(naveCiencia, jTerran, jProtoss, juego);
          int energiaInicial = naveCiencia.getEnergia();
          
@@ -217,10 +213,7 @@ public class IntegradoresTest {
          
          this.esperarUnidad(dragon, jTerran, jProtoss, juego);
          this.esperarEnergiaUnidad(naveCiencia, jTerran, jProtoss, juego);
-//         while((naveCiencia.getEnergia() <100)){
-//        	 jTerran.terminarTurno(juego);
-//        	 jProtoss.terminarTurno(juego);
-//         }
+
          int energiaInicial = naveCiencia.getEnergia();
         
          
@@ -265,24 +258,23 @@ public class IntegradoresTest {
          this.esperarUnidad(dragon, jTerran, jProtoss, juego);
          
          this.esperarUnidad(templario, jTerran, jProtoss, juego);
-         
-         //cambiar por mover
-         mapa.ubicarElementoEnParcela(new Coordenada(9,9), marine);
-         mapa.ubicarCercaDeParcela(marine.getParcela(), naveCiencia2);
+    
          
          this.esperarEnergiaUnidad(templario, jTerran, jProtoss, juego);
          
          jTerran.terminarTurno(juego);
          
          int vidaPrevioAtaque = naveCiencia2.getVida();
-         templario.lanzarTormentaPsionica(marine.getParcela());
+
+         templario.lanzarTormentaPsionica(naveCiencia2.getParcela());
          
          jProtoss.terminarTurno(juego);
          
-         boolean OKMarineMuerto = marine.getVida() == 0;
+
          boolean OKVidaNaveCiencia = naveCiencia2.getVida() == (vidaPrevioAtaque - 50);
          vidaPrevioAtaque = naveCiencia2.getVida();
-         Assert.assertTrue(OKMarineMuerto && OKVidaNaveCiencia);
+
+         Assert.assertTrue(OKVidaNaveCiencia);
          jTerran.terminarTurno(juego);
          
          boolean OKVidaNaveCiencia2doTurno = naveCiencia2.getVida() == (vidaPrevioAtaque - 50);
