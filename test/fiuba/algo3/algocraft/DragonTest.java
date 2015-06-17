@@ -52,9 +52,9 @@ public class DragonTest {
             unJugador.terminarTurno(juego);
         }
         unJugador2.terminarTurno(juego);
-        Ataque ataque = dragon.atacar(marine.getParcela());
+        dragon.atacar(marine.getParcela());
 
-        ataque.ejecutarAtaque();
+        unJugador.terminarTurno(juego);
 
         assertEquals(marine.getVida(), 40-20);
     }
@@ -87,9 +87,10 @@ public class DragonTest {
         }
         mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
         unJugador2.terminarTurno(juego);
-        Ataque ataque = dragon.atacar(espectro.getParcela());
+        dragon.atacar(espectro.getParcela());
 
-        ataque.ejecutarAtaque();
+        unJugador.terminarTurno(juego);
+
 
         assertEquals(espectro.getVida(), 120-20);
     }
@@ -122,9 +123,9 @@ public class DragonTest {
             unJugador.terminarTurno(juego);
         }
         unJugador2.terminarTurno(juego);
-        Ataque ataque = dragon.atacar(marine.getParcela());
+        dragon.atacar(marine.getParcela());
 
-        ataque.ejecutarAtaque();
+        unJugador.terminarTurno(juego);
     }
     @Test
     public void atacarRestaVidaAConstruccion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
@@ -149,8 +150,8 @@ public class DragonTest {
 
         Interactuable barraca = new Barraca(unJugador2);
         mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
-        Ataque ataque = dragon.atacar(barraca.getParcela());
-        ataque.ejecutarAtaque();
+        dragon.atacar(barraca.getParcela());
+        unJugador.terminarTurno(juego);
 
         assertEquals(barraca.getVida(), 1000-20);
     }

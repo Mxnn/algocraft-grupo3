@@ -17,11 +17,11 @@ public abstract class UnidadAgresora extends Unidad {
         this.danyo = danyo;
     }
 
-    public AtaqueComun atacar(Parcela parcela) throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto {
+    public void atacar(Parcela parcela) throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto {
 		int distancia = calcularDistanciaDeEnemigo(parcela);
 		AtaqueComun ataque = new AtaqueComun(parcela, rangoAtaque, danyo, distancia);
 		this.propietario.agregarAtaque(ataque);
-		return new AtaqueComun(parcela, rangoAtaque, danyo, distancia);
+//		return new AtaqueComun(parcela, rangoAtaque, danyo, distancia);
 	}
     
     private int calcularDistanciaDeEnemigo(Parcela parcelaEnemigo) {

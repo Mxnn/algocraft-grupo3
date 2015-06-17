@@ -53,9 +53,10 @@ public class Zealot1Test {
         mapa.ubicarElementoEnParcela(new Coordenada(1,0) , marine);
         unJugador2.terminarTurno(juego);
 
-        Ataque ataque = zealot.atacar(marine.getParcela());
-        ataque.ejecutarAtaque();
-
+        zealot.atacar(marine.getParcela());
+//        ataque.ejecutarAtaque();
+        unJugador.terminarTurno(juego);
+        
         assertEquals(marine.getVida(), 40-8);
     }
 
@@ -90,9 +91,9 @@ public class Zealot1Test {
         mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
 
         unJugador2.terminarTurno(juego);
-        Ataque ataque = zealot.atacar(espectro.getParcela());
-
-        ataque.ejecutarAtaque();
+        zealot.atacar(espectro.getParcela());
+        unJugador.terminarTurno(juego);
+//        ataque.ejecutarAtaque();
     }
 
     @Test(expected = ExcepcionEnemigoFueraDeAlcance.class)
@@ -125,9 +126,9 @@ public class Zealot1Test {
         mapa.ubicarElementoEnParcela(new Coordenada(2,0) , marine);
         unJugador2.terminarTurno(juego);
 
-        Ataque ataque = zealot.atacar(marine.getParcela());
-
-        ataque.ejecutarAtaque();
+        zealot.atacar(marine.getParcela());
+        unJugador.terminarTurno(juego);
+//        ataque.ejecutarAtaque();
     }
 
     @Test
@@ -164,8 +165,9 @@ public class Zealot1Test {
         }
         unJugador2.terminarTurno(juego);
 
-        Ataque ataque = zealot.atacar(barraca.getParcela());
-        ataque.ejecutarAtaque();
+        zealot.atacar(barraca.getParcela());
+        unJugador.terminarTurno(juego);
+//        ataque.ejecutarAtaque();
 
         assertEquals(barraca.getVida(), 1000-8);
     }

@@ -56,8 +56,8 @@ public class MarineTest {
 
         Marine marineJugador2 = barracaJugador2.crearMarine(mapa);
 
-        Ataque ataque = marine.atacar(marineJugador2.getParcela());
-        ataque.ejecutarAtaque();
+        marine.atacar(marineJugador2.getParcela());
+        unJugador2.terminarTurno(juego);
 
         assertEquals(marineJugador2.getVida(), 40-6);
     }
@@ -111,9 +111,9 @@ public class MarineTest {
         Espectro espectro = puerto.crearEspectro(mapa);
         unJugador2.terminarTurno(juego);
 
-        Ataque ataque = marine.atacar(espectro.getParcela());
-        ataque.ejecutarAtaque();
-
+        marine.atacar(espectro.getParcela());
+        
+        unJugador.terminarTurno(juego);
         assertEquals(espectro.getVida(), 120-6);
     }
 
@@ -152,8 +152,8 @@ public class MarineTest {
         }
         unJugador2.terminarTurno(juego);
 
-        Ataque ataque = marine.atacar(barracaJugador2.getParcela());
-        ataque.ejecutarAtaque();
+        marine.atacar(barracaJugador2.getParcela());
+        unJugador.terminarTurno(juego);
     }
     @Test
     public void atacarRestaVidaAConstruccion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHayLugarDisponible {
@@ -191,8 +191,8 @@ public class MarineTest {
 
         unJugador2.terminarTurno(juego);
 
-        Ataque ataque = marine.atacar(barracaJugador2.getParcela());
-        ataque.ejecutarAtaque();
+        marine.atacar(barracaJugador2.getParcela());
+        unJugador.terminarTurno(juego);
 
         assertEquals(barracaJugador2.getVida(), 1000-6);
     }

@@ -50,9 +50,8 @@ public class AltoTemplario extends UnidadMagica {
         mapa.ubicarCercaDeParcela(unidadAClonar.getParcela(), clon2);
     }
     
-    public Ataque lanzarTormentaPsionica(Parcela target) throws ExcepcionEnergiaInsuficiente{
+    public void lanzarTormentaPsionica(Parcela target) throws ExcepcionEnergiaInsuficiente{
     	this.gastarEnergia(COSTO_ENERGIA_TORMENTA);
     	(this.propietario).agregarAtaque(new AtaqueTormentaPsionica(target));
-		return new AtaqueTormentaPsionica(target);
     }
 }

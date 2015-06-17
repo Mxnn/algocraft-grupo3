@@ -53,9 +53,8 @@ public class GolliatTest {
         mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
         unJugador2.terminarTurno(juego);
 
-        Ataque ataque =  golliat.atacar(marine.getParcela());
-        ataque.ejecutarAtaque();
-
+        golliat.atacar(marine.getParcela());
+        unJugador.terminarTurno(juego);
         assertEquals(marine.getVida(), 40-12);
     }
 
@@ -118,9 +117,9 @@ public class GolliatTest {
         Espectro espectro = puerto.crearEspectro(mapa);
         unJugador2.terminarTurno(juego);
 
-        Ataque ataque = golliat.atacar(espectro.getParcela());
-        ataque.ejecutarAtaque();
-
+        golliat.atacar(espectro.getParcela());
+        unJugador.terminarTurno(juego);
+        
         assertEquals(espectro.getVida(), 120-10);
     }
 
@@ -174,8 +173,8 @@ public class GolliatTest {
             unJugador.terminarTurno(juego);
         }
 
-        Ataque ataque = golliat.atacar(marine.getParcela());
-        ataque.ejecutarAtaque();
+        golliat.atacar(marine.getParcela());
+        unJugador2.terminarTurno(juego);
     }
 
     @Test(expected = ExcepcionEnemigoFueraDeAlcance.class)
@@ -213,8 +212,8 @@ public class GolliatTest {
         mapa.ubicarElementoEnParcela(new Coordenada(12,  12), espectro);
         unJugador2.terminarTurno(juego);
 
-        Ataque ataque = golliat.atacar(espectro.getParcela());
-        ataque.ejecutarAtaque();
+        golliat.atacar(espectro.getParcela());
+        unJugador.terminarTurno(juego);
     }
 
     @Test
@@ -265,8 +264,8 @@ public class GolliatTest {
 
         unJugador2.terminarTurno(juego);
 
-        Ataque ataque = golliat.atacar(barracaJugador2.getParcela());
-        ataque.ejecutarAtaque();
+        golliat.atacar(barracaJugador2.getParcela());
+        unJugador.terminarTurno(juego);
 
         assertEquals(barracaJugador2.getVida(), 1000-12);
     }

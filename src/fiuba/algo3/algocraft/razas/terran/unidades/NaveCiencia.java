@@ -45,23 +45,21 @@ public class NaveCiencia extends UnidadMagica {
     	return rango.getRangoDeAtaqueEnAire();
     }
     
-    public AtaqueEMP lanzarEMP(Parcela target) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion {
+    public void lanzarEMP(Parcela target) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion {
     	if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
 
         this.gastarEnergia(COSTO_ENERGIA_EMP);
         
         (this.propietario).agregarAtaque(new AtaqueEMP(target));
-		return new AtaqueEMP(target);
     }
     
-    public AtaqueRadiacion lanzarRadiacion(Parcela target) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion {
+    public void lanzarRadiacion(Parcela target) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion {
         if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
 
         this.gastarEnergia(COSTO_ENERGIA_RADIACION);
         (this.propietario).agregarAtaque(new AtaqueRadiacion(target));
-		return new AtaqueRadiacion(target);
     }
     
 }

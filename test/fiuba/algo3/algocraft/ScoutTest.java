@@ -145,9 +145,9 @@ public class ScoutTest {
         mapa.ubicarElementoEnParcela(new Coordenada(0,5), espectro);
         unJugador2.terminarTurno(juego);
 
-        Ataque ataque = scout.atacar(espectro.getParcela());
-
-        ataque.ejecutarAtaque();
+        scout.atacar(espectro.getParcela());
+        unJugador.terminarTurno(juego);
+//        ataque.ejecutarAtaque();
     }
 
 //	@Test

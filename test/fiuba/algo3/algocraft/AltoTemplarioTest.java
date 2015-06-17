@@ -189,8 +189,8 @@ public class AltoTemplarioTest {
 	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
 	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
-	     Ataque ataque = templario.lanzarTormentaPsionica(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
-	     ataque.tareaDeEntreTurno(mapa);
+	     templario.lanzarTormentaPsionica(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
+    	 unJugador.terminarTurno(juego);
     }
     
 }

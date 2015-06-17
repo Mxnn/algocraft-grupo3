@@ -85,8 +85,8 @@ public class NaveCienciaTest {
 //	    ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
 //	    listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
-	    Ataque ataque = naveCiencia.lanzarEMP(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
-	    ataque.ejecutarAtaque();
+	    naveCiencia.lanzarEMP(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
+        unJugador.terminarTurno(juego);
 	}
 	
 	/*@Test

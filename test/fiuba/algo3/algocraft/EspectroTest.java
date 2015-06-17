@@ -51,9 +51,10 @@ public class EspectroTest {
         mapa.ubicarElementoEnParcela(new Coordenada(1,0), marine);
 
         unJugador2.terminarTurno(juego);
-        Ataque ataque = espectro.atacar(marine.getParcela());
+        espectro.atacar(marine.getParcela());
 
-        ataque.ejecutarAtaque();
+        unJugador.terminarTurno(juego);
+
 
         assertEquals(marine.getVida(), 40-8);
     }
@@ -89,8 +90,8 @@ public class EspectroTest {
 
         unJugador2.terminarTurno(juego);
 
-        Ataque ataque = espectro.atacar(espectro2.getParcela());
-        ataque.ejecutarAtaque();
+        espectro.atacar(espectro2.getParcela());
+        unJugador.terminarTurno(juego);
 
         assertEquals(espectro2.getVida(), 120-20);
     }
@@ -125,9 +126,9 @@ public class EspectroTest {
         mapa.ubicarElementoEnParcela(new Coordenada(7,0), marine);
 
         unJugador2.terminarTurno(juego);
-        Ataque ataque = espectro.atacar(marine.getParcela());
+        espectro.atacar(marine.getParcela());
 
-        ataque.ejecutarAtaque();
+        unJugador.terminarTurno(juego);
     }
 
     @Test(expected = ExcepcionEnemigoFueraDeAlcance.class)
@@ -159,9 +160,9 @@ public class EspectroTest {
             unJugador.terminarTurno(juego);
         }
         unJugador2.terminarTurno(juego);
-        Ataque ataque = espectro.atacar(espectro2.getParcela());
+       espectro.atacar(espectro2.getParcela());
 
-        ataque.ejecutarAtaque();
+       unJugador.terminarTurno(juego);
     }
 
     @Test
@@ -189,9 +190,9 @@ public class EspectroTest {
         mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
 
         unJugador2.terminarTurno(juego);
-        Ataque ataque = espectro.atacar(barraca.getParcela());
+        espectro.atacar(barraca.getParcela());
 
-        ataque.ejecutarAtaque();
+        unJugador.terminarTurno(juego);
 
         assertEquals(barraca.getVida(), 1000-8);
     }
