@@ -339,13 +339,21 @@ public class IntegradoresTest {
         juego.agregarJugador(jProtoss);
         
         
-        jTerran.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
-        jTerran.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
-        
-        jProtoss.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
-        jProtoss.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
         this.crearTodasLasConstrucciones(jTerran, jProtoss, mapa, juego);
 
+        
+
+        while(jTerran.getMinerales() <= 10000){
+        	jTerran.terminarTurno(juego);
+         	 jProtoss.terminarTurno(juego);
+        
+        }
+        
+        while(jTerran.getGasVespeno() <= 10000){
+        	jTerran.terminarTurno(juego);
+         	 jProtoss.terminarTurno(juego);
+        }
+        
         jTerran.crearAdicionalDeSuministro(mapa, new Coordenada(4, 5));
         jTerran.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(13,13));
         
