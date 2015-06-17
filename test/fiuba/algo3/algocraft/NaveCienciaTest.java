@@ -25,39 +25,70 @@ import fiuba.algo3.algocraft.razas.protoss.unidades.Dragon;
 import fiuba.algo3.algocraft.razas.terran.Terran;
 import fiuba.algo3.algocraft.razas.terran.unidades.NaveCiencia;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
+import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.utilidades.unidades.UnidadMagica;
 
 public class NaveCienciaTest {
+	//ya esta en los tests de integracion
+	@Test
+	public void quitaEscudoAProtoss() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion, ExcepcionNoEsElTurnoDelJugador, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHayLugarDisponible {
+		Juego juego = new Juego();
+		Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Protoss.getInstance());
+		 juego.agregarJugador(unJugador);
+		 juego.agregarJugador(unJugador2);
+		 Mapa mapa = new Mapa(2, 10, 10);
+		 unJugador.sumarMinerales(999);
+	     unJugador.sumarGasVespeno(999);
+	     unJugador2.sumarMinerales(999);
+	     unJugador2.sumarGasVespeno(999);
+	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+	     for(int i= 0; i<=7; i++){
+	        	
+	    	 unJugador.terminarTurno(juego);
+	    	 unJugador2.terminarTurno(juego);
+	        }
+	        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(7, 7));
+	        while(!barraca.estaCreado()) {
+	            unJugador.terminarTurno(juego);
+	            unJugador2.terminarTurno(juego);
+	        }
 
-//	@Test
-//	public void quitaEscudoAProtoss() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion {
-//		Juego juego = new Juego();
-//		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
-//		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
-//		 juego.agregarJugador(unJugador2);
-//		 juego.agregarJugador(unJugador);
-//		 Mapa mapa = new Mapa(2, 5, 5);
-//	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
-//	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-//	     for(int i= 0; i<=7; i++){
-//	        	
-//	    	 unJugador.terminarTurno(juego);
-//	    	 unJugador2.terminarTurno(juego);
-//	        }
-//	     Interactuable dragon = new Dragon(unJugador);
-//	     mapa.ubicarElementoEnParcela(new Coordenada (1,1), dragon);
-//	     NaveCiencia naveCiencia = new NaveCiencia(unJugador2);
+	        Fabrica fabrica = (Fabrica) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(8, 8));
+	        while(!fabrica.estaCreado()) {
+	            unJugador.terminarTurno(juego);
+	            unJugador2.terminarTurno(juego);
+	        }
+
+	        PuertoEstelar puerto = (PuertoEstelar) unJugador.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(3, 6));
+	        while(!puerto.estaCreado()) {
+	            unJugador.terminarTurno(juego);
+	            unJugador2.terminarTurno(juego);
+	        }
+	     Interactuable dragon = new Dragon(unJugador);
+	     mapa.ubicarElementoEnParcela(new Coordenada (1,1), dragon);
+
+	     NaveCiencia naveCiencia = puerto.crearNaveCiencia(mapa);
+	     
+	     while(!naveCiencia.estaCreado()) {
+	            unJugador.terminarTurno(juego);
+	            unJugador2.terminarTurno(juego);
+	        }
 //	     
 //	     
-//	     for (int i = 0; i < 6; i++) 
-//	    	 naveCiencia.regenerarEnergia();	   
+	     for (int i = 0; i < 6; i++) 
+	    	 naveCiencia.regenerarEnergia();	   
 //	     
-//	     naveCiencia.lanzarEMP(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
-//	     unJugador.terminarTurno(juego);
+	     naveCiencia.lanzarEMP(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 //	     
-//	     assertEquals(0, ((VitalidadProtoss) dragon.getVitalidad()).getEscudo());
-//	}
+	     unJugador.terminarTurno(juego);
+//	     
+	   
+//	     
+	     assertEquals(0, ((VitalidadProtoss) dragon.getVitalidad()).getEscudo());
+	}
 	
 	@Test(expected = ExcepcionEnergiaInsuficiente.class)
 	public void lanzarEMPlanzaExcepcionSiEnergiaInsuficiente() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHayLugarDisponible {
@@ -88,9 +119,6 @@ public class NaveCienciaTest {
         while(!naveCiencia.estaCreado()) {
             unJugador.terminarTurno(juego);
         }
-	     
-//	    ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
-//	    listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
 	    naveCiencia.lanzarEMP(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
         unJugador.terminarTurno(juego);
