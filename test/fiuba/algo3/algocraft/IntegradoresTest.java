@@ -409,7 +409,7 @@ public class IntegradoresTest {
         Assert.assertEquals(marine3.getParcela().getCoordenada(), new Coordenada(destinoNave.getX()-1, destinoNave.getY()+1));
         Assert.assertEquals(marine4.getParcela().getCoordenada(), new Coordenada(destinoNave.getX(), destinoNave.getY()-1));
     }
-    @Test
+    @Test(expected = ExcepcionNoHaySuministrosDisponibles.class)
     public void seLlegaAlTopeDePoblacion()throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente{
     	Juego juego = new Juego();
     	Mapa mapa = juego.getMapa();
@@ -425,32 +425,44 @@ public class IntegradoresTest {
           	 jProtoss.terminarTurno(juego);
            }
         
-        while(jTerran.getMinerales() <= 10000){
+        while(jTerran.getMinerales() <= 100000){
         	jTerran.terminarTurno(juego);
          	 jProtoss.terminarTurno(juego);
         }
-        System.out.println(jTerran.getCapacidadDePoblacion());
         for(int i=1; i<19; i++){
         	jTerran.crearAdicionalDeSuministro(mapa, new Coordenada(i,i));
         }
-        System.out.println(jTerran.getCapacidadDePoblacion());
-        for(int i=16; i==0; i--){
+        for(int i=16; i>0; i--){
         	jTerran.crearAdicionalDeSuministro(mapa, new Coordenada(i,i+3));
         }
-        System.out.println(jTerran.getCapacidadDePoblacion());
-        for(int i=15; i==0; i--){
+        for(int i=15; i>0; i--){
         	jTerran.crearAdicionalDeSuministro(mapa, new Coordenada(i,i+4));
         }
-        
-        System.out.println(jTerran.getCapacidadDePoblacion());
-        
+
         for(int i= 0; i<=6; i++){
         	jTerran.terminarTurno(juego);
        	 	jProtoss.terminarTurno(juego);
         }
-        jTerran.terminarTurno(juego);
-        System.out.println(jTerran.getCapacidadDePoblacion());
+
+        Assert.assertTrue(jTerran.getCapacidadDePoblacion() == 200);
         
- 
+        Interactuable basicasT = jTerran.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(12,11));
+        while(!basicasT.estaCreado()){
+          	 jTerran.terminarTurno(juego);
+          	 jProtoss.terminarTurno(juego);
+        }
+        
+        for(int i=0; i<200; i++){
+        	new Marine(jTerran);
+        }
+//        for(int i=0; i<5; i++){
+//        	Marine marine = ((Barraca)basicasT).crearMarine(mapa);
+//        	marine.moverHasta(new Coordenada(1,1));
+//        }
+        
+        Assert.assertTrue(jTerran.getPoblacion() == 200);
+        
+        new Marine(jTerran);
+
     } 
 }
