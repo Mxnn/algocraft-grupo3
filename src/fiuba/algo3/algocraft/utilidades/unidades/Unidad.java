@@ -98,11 +98,11 @@ public abstract class Unidad extends Interactuable {
 						this.setParcela(nuevaParcelaActual);
 
 					} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-						this.coordenadaDestinacion = coordenadaActual;
+						this.coordenadaDestinacion = null;
 					} catch (ExcepcionParcelaOcupada e) {
-						this.coordenadaDestinacion = coordenadaActual;
+						this.coordenadaDestinacion = null;
 					} catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
-						this.coordenadaDestinacion = coordenadaActual;
+						this.coordenadaDestinacion = null;
 					}
 				}
 
