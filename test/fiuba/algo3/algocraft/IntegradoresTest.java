@@ -337,17 +337,30 @@ public class IntegradoresTest {
         Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
         juego.agregarJugador(jTerran);
         juego.agregarJugador(jProtoss);
+        
+        
+        jTerran.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
+        jTerran.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
+        
+        jProtoss.sumarMinerales(JugadorTest.RECURSOS_SUFFICIENTES);
+        jProtoss.sumarGasVespeno(JugadorTest.RECURSOS_SUFFICIENTES);
         this.crearTodasLasConstrucciones(jTerran, jProtoss, mapa, juego);
 
         jTerran.crearAdicionalDeSuministro(mapa, new Coordenada(4, 5));
-
-        PuertoEstelar puertoT = (PuertoEstelar) mapa.devolverElementoEnParcela(new Coordenada(3,3));
+        jTerran.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(9,7));
+        
+       
+        
+        PuertoEstelar puertoT = (PuertoEstelar) mapa.devolverElementoEnParcela(new Coordenada(9,7));
         Barraca barraca = (Barraca) mapa.devolverElementoEnParcela(new Coordenada(1,1));
 
+        this.esperarUnidad(puertoT, jTerran, jProtoss, juego);
+        
         NaveTransporteTerran nave = puertoT.crearNaveTransporte(mapa);
         this.esperarUnidad(nave, jTerran, jProtoss, juego);
-//        System.out.println(nave.getParcela().getCoordenada().getX());
-//        System.out.println(nave.getParcela().getCoordenada().getY());
+        
+        System.out.println(nave.getParcela().getCoordenada().getX());
+        System.out.println(nave.getParcela().getCoordenada().getY());
 
         Marine marine1 = barraca.crearMarine(mapa);
         this.esperarUnidad(marine1, jTerran, jProtoss, juego);
@@ -366,27 +379,20 @@ public class IntegradoresTest {
         nave.insertarUnidad(marine4);
 
         
-        
-        // nave no esta rodeada
-        ArrayList<Parcela> parcelas = mapa.devolverParcelasEnRadioUno(nave.getParcela());
-        for (int i = 0; i < parcelas.size(); i++) {
-    		Parcela parcela = (parcelas).get(i);
-    		if (parcela.estaVacia())
-    			Assert.assertTrue(parcela.estaVacia());
-			
-			}
-        
-        Coordenada destinoNave = new Coordenada(1, 3);
+       
+        Coordenada destinoNave = new Coordenada(8,10);
         nave.setCoordenadaDestinacion(destinoNave);
-        
-        jTerran.terminarTurno(juego);
  
-//        while(!(nave.getParcela().getCoordenada()).equals(destinoNave)) {
-//            jTerran.terminarTurno(juego);
-//            jProtoss.terminarTurno(juego);
-//        }
+        while(!(nave.getParcela().getCoordenada()).equals(destinoNave)) {
+            jTerran.terminarTurno(juego);
+            jProtoss.terminarTurno(juego);
+                
+        }
         
-//        Assert.assertTrue((nave.getParcela().getCoordenada() == destinoNave));
+        System.out.println(nave.getParcela().getCoordenada().getX());
+        System.out.println(nave.getParcela().getCoordenada().getY());
+        Assert.assertTrue(nave.getParcela().getCoordenada().equals(destinoNave));
+
         
 //
 //        nave.sacarUnidad(mapa, marine1);
