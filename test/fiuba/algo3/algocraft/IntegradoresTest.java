@@ -266,19 +266,21 @@ public class IntegradoresTest {
          
          int vidaPrevioAtaque = naveCiencia2.getVida();
 
-         templario.lanzarTormentaPsionica(naveCiencia2.getParcela());
+         templario.lanzarTormentaPsionica(puertoT.getParcela());
          
          jProtoss.terminarTurno(juego);
          
 
-         boolean OKVidaNaveCiencia = naveCiencia2.getVida() == (vidaPrevioAtaque - 50);
+         boolean OKVidaNaveCiencia2 = naveCiencia2.getVida() == (vidaPrevioAtaque - 50);
+         boolean OKVidaNaveCiencia = naveCiencia.getVida() == (vidaPrevioAtaque - 50);
          vidaPrevioAtaque = naveCiencia2.getVida();
 
-         Assert.assertTrue(OKVidaNaveCiencia);
+         Assert.assertTrue(OKVidaNaveCiencia && OKVidaNaveCiencia2);
          jTerran.terminarTurno(juego);
          
-         boolean OKVidaNaveCiencia2doTurno = naveCiencia2.getVida() == (vidaPrevioAtaque - 50);
-         Assert.assertTrue(OKVidaNaveCiencia2doTurno);
+         boolean OKVidaNaveCiencia2doTurno = naveCiencia.getVida() == (vidaPrevioAtaque - 50);
+         boolean OKVidaNaveCiencia22doTurno = naveCiencia2.getVida() == (vidaPrevioAtaque - 50);
+         Assert.assertTrue(OKVidaNaveCiencia2doTurno && OKVidaNaveCiencia22doTurno);
          
          jProtoss.terminarTurno(juego);
          
