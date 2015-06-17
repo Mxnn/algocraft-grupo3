@@ -24,7 +24,7 @@ public abstract class Unidad extends Interactuable {
         propietario.agregarUnidad(this);
     }
 
-    public void setCoordenadaDestinacion(Coordenada unaCoordenada){
+    public void moverHasta(Coordenada unaCoordenada){
     	this.coordenadaDestinacion = unaCoordenada;
     }
     

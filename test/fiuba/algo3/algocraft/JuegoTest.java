@@ -80,7 +80,7 @@ public class JuegoTest {
         Marine marine = barraca.crearMarine(mapa);
         
         coordPartida = marine.getParcela().getCoordenada();
-        marine.setCoordenadaDestinacion(coordDeDestinacion);
+        marine.moverHasta(coordDeDestinacion);
       //  mapa.obtenerParcelaEnCoordenada(coordPartida).guardarElemento(marine);
 
         while (!marine.estaCreado())

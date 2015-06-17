@@ -381,7 +381,7 @@ public class IntegradoresTest {
         
        
         Coordenada destinoNave = new Coordenada(8,10);
-        nave.setCoordenadaDestinacion(destinoNave);
+        nave.moverHasta(destinoNave);
  
         while(!(nave.getParcela().getCoordenada()).equals(destinoNave)) {
             jTerran.terminarTurno(juego);
