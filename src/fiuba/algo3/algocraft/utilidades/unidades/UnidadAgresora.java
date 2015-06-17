@@ -19,6 +19,8 @@ public abstract class UnidadAgresora extends Unidad {
 
     public AtaqueComun atacar(Parcela parcela) throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto {
 		int distancia = calcularDistanciaDeEnemigo(parcela);
+		AtaqueComun ataque = new AtaqueComun(parcela, rangoAtaque, danyo, distancia);
+		this.propietario.agregarAtaque(ataque);
 		return new AtaqueComun(parcela, rangoAtaque, danyo, distancia);
 	}
     
