@@ -65,11 +65,15 @@ public class JugadorTest {
     }
 
     @Test
-    public void crearDepositoDeSuministrosAumentaPoblacionDelJugadorEn5YSumaConstruccionesAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto {
-        Mapa mapa = new Mapa(2, 5, 5);
+    public void crearDepositoDeSuministrosAumentaPoblacionDelJugadorEn5YSumaConstruccionesAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso {
+        Juego juego = new Juego();
+    	Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-
+        juego.agregarJugador(unJugador);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        }
 
         Assert.assertEquals(unJugador.cantidadDeConstrucciones(), 1);
         Assert.assertEquals(unJugador.getCapacidadDePoblacion(), 5);

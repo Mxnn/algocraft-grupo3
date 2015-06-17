@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft;
 
+import static org.junit.Assert.*;
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Juego;
@@ -15,6 +16,7 @@ import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;
 import org.junit.Test;
 
 import fiuba.algo3.algocraft.razas.protoss.unidades.Scout;
+import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.razas.terran.unidades.Espectro;
 
 public class ScoutTest {
@@ -123,6 +125,10 @@ public class ScoutTest {
         Mapa mapa = new Mapa(2, 6, 6);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         UnidadAgresora scout = new Scout(unJugador);
         while(!scout.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -144,35 +150,39 @@ public class ScoutTest {
         ataque.ejecutarAtaque();
     }
 
-	/*@Test
-	public void atacarRestaVidaAConstruccion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoNoAtacable, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
-		Juego juego = new Juego();
-        Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
-		Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
-        juego.agregarJugador(unJugador);
-        juego.agregarJugador(unJugador2);
-		Mapa mapa = new Mapa(2, 5, 5);
-	    unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
-	    unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-	    UnidadAgresora scout = new Scout(unJugador);
-        while(!scout.estaCreado()) {
-            unJugador.terminarTurno(juego);
-            unJugador2.terminarTurno(juego);
-        }
-	    mapa.ubicarElementoEnParcela(new Coordenada(0,0), scout);
-        unJugador.terminarTurno(juego);
-
-	    Interactuable barraca = new Barraca(unJugador2);
-        while(!barraca.estaCreado()) {
-            unJugador2.terminarTurno(juego);
-            unJugador.terminarTurno(juego);
-        }
-	    mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
-        unJugador2.terminarTurno(juego);
-
-	    Ataque ataque = scout.atacar(barraca);
-	    ataque.ejecutarAtaque();
-
-	    assertEquals(barraca.getVida(), 1000-8);
-	}*/
+//	@Test
+//	public void atacarRestaVidaAConstruccion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador {
+//		Juego juego = new Juego();
+//        Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+//		Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
+//        juego.agregarJugador(unJugador);
+//        juego.agregarJugador(unJugador2);
+//		Mapa mapa = new Mapa(2, 5, 5);
+//	    unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+//	    unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+//	    for(int i= 0; i<=7; i++){
+//        	unJugador.terminarTurno(juego);
+//        	unJugador2.terminarTurno(juego);
+//        }
+//	    UnidadAgresora scout = new Scout(unJugador);
+//        while(!scout.estaCreado()) {
+//            unJugador.terminarTurno(juego);
+//            unJugador2.terminarTurno(juego);
+//        }
+//	    mapa.ubicarElementoEnParcela(new Coordenada(0,0), scout);
+//        unJugador.terminarTurno(juego);
+//
+//	    Interactuable barraca = new Barraca(unJugador2);
+//        while(!barraca.estaCreado()) {
+//            unJugador2.terminarTurno(juego);
+//            unJugador.terminarTurno(juego);
+//        }
+//	    mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
+//        unJugador2.terminarTurno(juego);
+//
+//	    Ataque ataque = scout.atacar(barraca.getParcela());
+//	    ataque.ejecutarAtaque();
+//
+//	    assertEquals(barraca.getVida(), 1000-8);
+//	}
 }

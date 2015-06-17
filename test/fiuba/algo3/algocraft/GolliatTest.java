@@ -33,6 +33,10 @@ public class GolliatTest {
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         UnidadAgresora golliat = new Golliat(unJugador);
         while(!golliat.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -69,6 +73,10 @@ public class GolliatTest {
         unJugador2.sumarGasVespeno(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(3, 2));
         while(!barraca.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -130,7 +138,10 @@ public class GolliatTest {
         unJugador2.sumarGasVespeno(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(3, 2));
         while(!barraca.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -177,6 +188,14 @@ public class GolliatTest {
         Mapa mapa = juego.getMapa();
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         UnidadAgresora golliat = new Golliat(unJugador);
         while(!golliat.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -212,6 +231,10 @@ public class GolliatTest {
         unJugador2.sumarGasVespeno(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(3, 2));
 
         while(!barraca.estaCreado()) {

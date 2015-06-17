@@ -39,6 +39,10 @@ public class AltoTemplarioTest {
         jugador2.sumarGasVespeno(999);
 
         jugador1.crearAdicionalDeSuministro(mapa, new Coordenada(2, 2));
+        for(int i= 0; i<=7; i++){
+        	jugador1.terminarTurno(juego);
+        	jugador2.terminarTurno(juego);
+        }
         acceso = (Acceso) jugador1.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(1, 2));
 
         //Se pasan los turnos necesarios
@@ -51,6 +55,11 @@ public class AltoTemplarioTest {
         jugador1.terminarTurno(juego); //Le pasa el turno al segundo jugador
 
         jugador2.crearAdicionalDeSuministro(mapa, new Coordenada(18, 18));
+        for(int i= 0; i<=7; i++){
+        	jugador2.terminarTurno(juego);
+        	jugador1.terminarTurno(juego);
+        	
+        }
         Acceso acceso2 = (Acceso) jugador2.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(19, 19));
 
         //Se pasan los turnos necesarios
@@ -108,6 +117,10 @@ public class AltoTemplarioTest {
         jugador2.sumarGasVespeno(999);
 
         jugador1.crearAdicionalDeSuministro(mapa, new Coordenada(2, 2));
+        for(int i= 0; i<=7; i++){
+        	jugador1.terminarTurno(juego);
+        	jugador2.terminarTurno(juego);
+        }
         acceso = (Acceso) jugador1.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(1, 2));
 
         //Se pasan los turnos necesarios
@@ -120,6 +133,11 @@ public class AltoTemplarioTest {
         jugador1.terminarTurno(juego); //Le pasa el turno al segundo jugador
 
         jugador2.crearAdicionalDeSuministro(mapa, new Coordenada(18, 18));
+        for(int i= 0; i<=7; i++){
+        	jugador2.terminarTurno(juego);
+        	jugador1.terminarTurno(juego);
+        	
+        }
         Acceso acceso2 = (Acceso) jugador2.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(19, 19));
 
         //Se pasan los turnos necesarios
@@ -156,11 +174,16 @@ public class AltoTemplarioTest {
     }
     
     @Test(expected = ExcepcionEnergiaInsuficiente.class)
-    public void tormentaPsionicaLanzaExcpecionSiNoAlcanazaLaEnergia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionUnidadEnemiga, CloneNotSupportedException, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionEnergiaInsuficiente, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+    public void tormentaPsionicaLanzaExcpecionSiNoAlcanazaLaEnergia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionUnidadEnemiga, CloneNotSupportedException, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionEnergiaInsuficiente, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador {
+    	Juego juego = new Juego();
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+    	juego.agregarJugador(unJugador);
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
-	     
+	     for(int i= 0; i<=7; i++){
+	        	
+	    	 unJugador.terminarTurno(juego);
+	        }
 	     AltoTemplario templario = new AltoTemplario(unJugador);
 	     
 	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();

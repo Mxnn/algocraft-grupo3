@@ -30,6 +30,11 @@ public class EspectroTest {
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
+        
         UnidadAgresora espectro = new Espectro(unJugador);
         while(!espectro.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -63,6 +68,10 @@ public class EspectroTest {
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         UnidadAgresora espectro = new Espectro(unJugador);
         while(!espectro.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -96,6 +105,10 @@ public class EspectroTest {
         Mapa mapa = new Mapa(2, 8, 8);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         UnidadAgresora espectro = new Espectro(unJugador);
         while(!espectro.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -127,6 +140,10 @@ public class EspectroTest {
         Mapa mapa = new Mapa(2, 7, 7);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         UnidadAgresora espectro = new Espectro(unJugador);
         while(!espectro.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -157,6 +174,10 @@ public class EspectroTest {
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         UnidadAgresora espectro = new Espectro(unJugador);
         mapa.ubicarElementoEnParcela(new Coordenada(0,0), espectro);
         while(!espectro.estaCreado()) {

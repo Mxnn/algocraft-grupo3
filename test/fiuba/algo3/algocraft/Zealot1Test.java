@@ -33,6 +33,10 @@ public class Zealot1Test {
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         UnidadAgresora zealot = new Zealot(unJugador);
         while(!zealot.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -66,6 +70,10 @@ public class Zealot1Test {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(2, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         UnidadAgresora zealot = new Zealot(unJugador);
         while(!zealot.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -97,6 +105,10 @@ public class Zealot1Test {
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         UnidadAgresora zealot = new Zealot(unJugador);
         while(!zealot.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -129,6 +141,10 @@ public class Zealot1Test {
         unJugador.sumarGasVespeno(999);
         unJugador.sumarMinerales(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         Acceso acceso = (Acceso) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(4, 4));
         while(!acceso.estaCreado()) {
             unJugador.terminarTurno(juego);

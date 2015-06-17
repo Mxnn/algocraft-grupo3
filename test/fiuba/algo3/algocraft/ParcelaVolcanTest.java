@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft;
 
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Color;
+import fiuba.algo3.algocraft.juego.Juego;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
@@ -13,29 +14,40 @@ import fiuba.algo3.algocraft.razas.terran.construcciones.CentroDeMineral;
 import fiuba.algo3.algocraft.razas.terran.construcciones.Refineria;
 import fiuba.algo3.algocraft.razas.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
-
 import fiuba.algo3.algocraft.utilidades.Interactuable;
+
 import org.junit.Test;
 import org.junit.Assert;
 
 public class ParcelaVolcanTest {
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
-    public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadDeTierra() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
-        Mapa mapa = new Mapa(2, 5, 5);
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadDeTierra() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso {
+    	Juego juego = new Juego();
+    	Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        juego.agregarJugador(unJugador);
         Parcela parcela = new ParcelaVolcan(new Coordenada(0,0));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        }
         Interactuable unidad = new Marine(unJugador);
 
         parcela.guardarElemento(unidad);
     }
 
     @Test(expected = ExcepcionElementoNoAdmitidoEnParcela.class)
-    public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadVoladora() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
+    public void guardarElementoLanzaExcepcionSiElElementoEsUnaUnidadVoladora() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
         Mapa mapa = new Mapa(2, 5, 5);
+        Juego juego = new Juego();
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        
+        juego.agregarJugador(unJugador);
         Parcela parcela = new ParcelaVolcan(new Coordenada(0,0));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(2 ,2));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        }
         Interactuable unidad = new Espectro(unJugador);
 
         parcela.guardarElemento(unidad);

@@ -26,6 +26,9 @@ public class NaveTransporteTerranTest {
         unJugador.sumarMinerales(999);
         unJugador.sumarGasVespeno(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        }
         NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
         while(!nave.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -52,6 +55,9 @@ public class NaveTransporteTerranTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 2));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 3));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        }
         NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
         while(!nave.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -83,6 +89,9 @@ public class NaveTransporteTerranTest {
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 2));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 3));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        }
         NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
         while(!nave.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -113,6 +122,9 @@ public class NaveTransporteTerranTest {
         unJugador.sumarGasVespeno(999);
 
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(4, 4));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        }
         NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
         while(!nave.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -136,6 +148,9 @@ public class NaveTransporteTerranTest {
         unJugador.sumarGasVespeno(999);
 
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(4, 4));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        }
         NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
         while(!nave.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -158,6 +173,9 @@ public class NaveTransporteTerranTest {
         unJugador.sumarGasVespeno(999);
 
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(4, 4));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        }
         NaveTransporteTerran nave = new NaveTransporteTerran(unJugador);
         while(!nave.estaCreado()) {
             unJugador.terminarTurno(juego);

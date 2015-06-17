@@ -128,8 +128,10 @@ public class Jugador {
     public int getCapacidadDePoblacion() {
         int cantidad = 0;
         for (Construccion c: this.construcciones) {
-            if (c.getTipoDeConstruccion() == TipoDeConstruccion.ADICIONAL_SUMINISTROS)
-                cantidad += ( (AdicionalSuministros) c).getCantidadDeSuministrosAdicionales();
+        	if ( (c.getTipoDeConstruccion() == TipoDeConstruccion.ADICIONAL_SUMINISTROS) && c.estaCreado()){
+        		if (c.getTipoDeConstruccion() == TipoDeConstruccion.ADICIONAL_SUMINISTROS)
+        			cantidad += ( (AdicionalSuministros) c).getCantidadDeSuministrosAdicionales();
+        	}
         }
 
         if (cantidad < CAPACIDAD_DE_POBLACION_INICIAL)

@@ -33,6 +33,10 @@ public class DragonTest {
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         UnidadAgresora dragon = new Dragon(unJugador);
         while(!dragon.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -65,6 +69,10 @@ public class DragonTest {
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         UnidadAgresora dragon = new Dragon(unJugador);
         while(!dragon.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -96,6 +104,10 @@ public class DragonTest {
         Mapa mapa = new Mapa(2, 6, 6);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         UnidadAgresora dragon = new Dragon(unJugador);
         while(!dragon.estaCreado()) {
             unJugador.terminarTurno(juego);
@@ -124,6 +136,10 @@ public class DragonTest {
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
         UnidadAgresora dragon = new Dragon(unJugador);
         while(!dragon.estaCreado()) {
             unJugador.terminarTurno(juego);

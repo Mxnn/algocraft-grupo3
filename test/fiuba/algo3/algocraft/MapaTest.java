@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Color;
+import fiuba.algo3.algocraft.juego.Juego;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.Parcela;
 import fiuba.algo3.algocraft.mapa.ParcelaVolcan;
+import fiuba.algo3.algocraft.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.razas.terran.Terran;
 import fiuba.algo3.algocraft.razas.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.razas.terran.unidades.Golliat;
@@ -21,11 +23,16 @@ import org.junit.Test;
 public class MapaTest {
 
 	@Test
-	public void devolverElementoEnParcelaDevuelveElementoGuardado() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionNombreCorto {
+	public void devolverElementoEnParcelaDevuelveElementoGuardado() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
 		Mapa mapa = new Mapa(2, 5, 5);
         Coordenada coordenada = new Coordenada(3, 3);
-        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        unJugador.crearAdicionalDeSuministro(mapa, coordenada);
+        Juego juego = new Juego();
+		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+		juego.agregarJugador(unJugador);         
+		unJugador.crearAdicionalDeSuministro(mapa, coordenada);
+		for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        }
 		Interactuable marine = new Marine(unJugador);
 
 		mapa.ubicarElementoEnParcela(new Coordenada(0,0), marine);
@@ -34,10 +41,16 @@ public class MapaTest {
 	}
 
     @Test
-    public void ubicarGolliatEnParcelaLanzaExcepcionSiElElementoNoEsAdmitidoEnLaParcela() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionNombreCorto {
-        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+    public void ubicarGolliatEnParcelaLanzaExcepcionSiElElementoNoEsAdmitidoEnLaParcela() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+    	Juego juego = new Juego();
+		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+		juego.agregarJugador(unJugador);         
+
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        }
         Interactuable golliat = new Golliat(unJugador);
         Coordenada coordenada = new Coordenada(0,0);
 
@@ -45,10 +58,15 @@ public class MapaTest {
     }
 
     @Test
-    public void ubicarUnidadVoladoraEnParcelaEspacioLaUbica() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionNombreCorto {
-        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        Mapa mapa = new Mapa(2, 5, 5);
+    public void ubicarUnidadVoladoraEnParcelaEspacioLaUbica() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+    	Juego juego = new Juego();
+		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+		juego.agregarJugador(unJugador); 
+		Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        }
         Interactuable espectro = new Espectro(unJugador);
         Coordenada coordenada = new Coordenada(0,0);
 
@@ -92,12 +110,18 @@ public class MapaTest {
     }
 
     @Test
-    public void obtenerParcelaEnCoordenadaDevuelveLaParcelaCorrecta() throws ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNombreCorto {
-        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+    public void obtenerParcelaEnCoordenadaDevuelveLaParcelaCorrecta() throws ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
+    	Juego juego = new Juego();
+		Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+		
+		juego.agregarJugador(unJugador);  
         Mapa mapa = new Mapa(2, 10, 10);
         Coordenada coordenada = new Coordenada(5, 5);
 
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(2, 2));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        }
         Interactuable golliat = new Golliat(unJugador);
         mapa.ubicarElementoEnParcela(coordenada, golliat);
 
