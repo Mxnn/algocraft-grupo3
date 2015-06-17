@@ -169,21 +169,26 @@ public class IntegradoresTest {
          
          this.esperarEnergiaUnidad(naveCiencia, jTerran, jProtoss, juego);
          
-//         while((naveCiencia.getEnergia() <100)){
-//        	 jTerran.terminarTurno(juego);
-//        	 jProtoss.terminarTurno(juego);
-//         }
+
          int energiaInicial = naveCiencia.getEnergia();
-         //cuando este mover esto hay que cambiarlo por mover
-         mapa.ubicarCercaDeParcela(dragon.getParcela(), naveCiencia2);
          
          
          naveCiencia.lanzarEMP(dragon.getParcela());
          boolean OKEnergia = (naveCiencia.getEnergia() == energiaInicial - NaveCiencia.COSTO_ENERGIA_EMP);
          
          jTerran.terminarTurno(juego);
-         boolean OKMagia  = (naveCiencia2.getEnergia() == 0);
+         
+         
          boolean OKEscudo = (((VitalidadProtoss) dragon.getVitalidad()).getEscudo() == 0);
+         
+         jProtoss.terminarTurno(juego);
+         
+         this.esperarEnergiaUnidad(naveCiencia, jTerran, jProtoss, juego);
+         naveCiencia.lanzarEMP(naveCiencia2.getParcela());
+         jTerran.terminarTurno(juego);
+         
+         boolean OKMagia  = (naveCiencia2.getEnergia() == 0);
+         
          
          Assert.assertTrue(OKEnergia && OKEscudo && OKMagia);
     }
