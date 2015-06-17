@@ -287,20 +287,16 @@ public class IntegradoresTest {
          this.esperarEnergiaUnidad(templario, jTerran, jProtoss, juego);
          
          jTerran.terminarTurno(juego);
-         
-         //cambiar por mover
-         mapa.ubicarElementoEnParcela(new Coordenada(13,13), dragon);
-         
-         
+                 
          templario.crearAlucinacion(dragon, mapa);
          
          jProtoss.terminarTurno(juego);
          
-         mapa.ubicarElementoEnParcela(new Coordenada(14,12), naveCiencia2);
+         mapa.ubicarElementoEnParcela(new Coordenada(17,16), naveCiencia2);
          jTerran.terminarTurno(juego);
          
-         Clon clon1 = (Clon) mapa.devolverElementoEnParcela(new Coordenada(12,12));
-         Clon clon2 = (Clon) mapa.devolverElementoEnParcela(new Coordenada(12,13));
+         Clon clon1 = (Clon) mapa.devolverElementoEnParcela(new Coordenada(16,17));
+         Clon clon2 = (Clon) mapa.devolverElementoEnParcela(new Coordenada(16,18));
          
          
          vidaPrevioAtaque = naveCiencia2.getVida();
