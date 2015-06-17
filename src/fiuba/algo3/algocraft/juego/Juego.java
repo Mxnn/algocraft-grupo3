@@ -16,8 +16,7 @@ public class Juego {
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
     private Mapa mapa;
     private SistemaDeTurnos sistemaDeTurnos;
-    private LinkedList<Unidad> unidadesQueDebenMoverEnElTurno = new LinkedList<Unidad>();
-    private LinkedList<Unidad> unidadesQueDebenMoverEnElProximoTurno = new LinkedList<Unidad>();
+
     
     public Juego() throws ExcepcionNumeroDeBasesInvalido { 
     	this.mapa = new Mapa (2, 20, 20);
@@ -130,13 +129,6 @@ public class Juego {
     	return this.mapa;
     }
 
-    public LinkedList<Unidad> getListDeUnidadesQueDebenMoverEnElTurno(){
-    	 return this.unidadesQueDebenMoverEnElTurno;
-    }
-    
-    public LinkedList<Unidad> getListDeUnidadesQueDebenMoverEnElProximoTurno(){
-   	    return this.unidadesQueDebenMoverEnElProximoTurno;
-    }
 
     public void crearJugador(String nombre, Color color, Raza raza) throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreCorto {
         if (jugadores.size() == MAXIMO_NUMERO_DE_JUGADORES)
