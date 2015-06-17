@@ -362,8 +362,6 @@ public class IntegradoresTest {
         NaveTransporteTerran nave = puertoT.crearNaveTransporte(mapa);
         this.esperarUnidad(nave, jTerran, jProtoss, juego);
         
-        System.out.println(nave.getParcela().getCoordenada().getX());
-        System.out.println(nave.getParcela().getCoordenada().getY());
 
         Marine marine1 = barraca.crearMarine(mapa);
         this.esperarUnidad(marine1, jTerran, jProtoss, juego);
@@ -390,11 +388,7 @@ public class IntegradoresTest {
             jTerran.terminarTurno(juego);
             jProtoss.terminarTurno(juego);
                 
-        }
-        
-        System.out.println(nave.getParcela().getCoordenada().getX());
-        System.out.println(nave.getParcela().getCoordenada().getY());
-        Assert.assertTrue(nave.getParcela().getCoordenada().equals(destinoNave));
+        }     
 
         
 
@@ -403,9 +397,6 @@ public class IntegradoresTest {
         nave.sacarUnidad(mapa, marine3);
         nave.sacarUnidad(mapa, marine4);
         
-        System.out.println(marine1.getParcela().getCoordenada().getX());
-        System.out.println(marine1.getParcela().getCoordenada().getY());
-
 
        Assert.assertEquals(marine1.getParcela().getCoordenada(), new Coordenada(destinoNave.getX()-1, destinoNave.getY()-1));
         Assert.assertEquals(marine2.getParcela().getCoordenada(), new Coordenada(destinoNave.getX()-1, destinoNave.getY()));
@@ -458,10 +449,7 @@ public class IntegradoresTest {
         for(int i=0; i<198; i++){
         	new Marine(jTerran);
         }
-//        for(int i=0; i<5; i++){
-//        	Marine marine = ((Barraca)basicasT).crearMarine(mapa);
-//        	marine.moverHasta(new Coordenada(1,1));
-//        }
+
         Marine marine = ((Barraca)basicasT).crearMarine(mapa);
         Marine marine2 = ((Barraca)basicasT).crearMarine(mapa);
         this.esperarUnidad(marine, jTerran, jProtoss, juego);
