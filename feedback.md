@@ -1,3 +1,12 @@
+## 17/6
+
+* Métodos que devuelven `null` en `Raza` deberían ser abstractos?
+* Paquetes: sería probablemente más clara la separación si se usa un único paquete raíz para todas las clases del modelo
+* Generación del mapa hardcodeada (sería bueno que fuera aleatoriamente generado)
+* Métodos `getConstrucciones()` / `getUnidades()` / `getAtaques()` de `Jugador` rompen encapsulamiento y permiten que se modifique el estado del objeto (modificando el atributo colección) sin utilizar el comportamiento definido por el objeto.
+* Son necesarios los métodos `getListDeUnidadesQueDebenMoverEnElTurno()` y `getListDeUnidadesQueDebenMoverEnElProximoTurno` de `Jugador`?
+* Usar `@Override` en métodos heredados sobreescritos
+
 ## 10/6
 
 * Abstracciones `CreadorDeSoldados`, `CreadorDeUnidadesAereas` y `CreadorDeUnidadesTerrestres` no parece que vaya a funcionar sin preguntar de alguna forma de que raza es el jugador
