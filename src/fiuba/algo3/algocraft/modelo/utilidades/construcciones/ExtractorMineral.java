@@ -1,22 +1,22 @@
-package fiuba.algo3.algocraft.utilidades.construcciones;
+package fiuba.algo3.algocraft.modelo.utilidades.construcciones;
 
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
-import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 
-public abstract class ExtractorGas extends Construccion {
-    public static final int CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO = 10;
+public abstract class ExtractorMineral extends Construccion {
+    public static final int CANTIDAD_DE_MINERALES_RECOLECTADOS_POR_TURNO = 10;
 
-    public ExtractorGas(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion) {
+    public ExtractorMineral(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion) {
         super(propietario, vitalidad, tiempoDeConstruccion);
     }
 
     public void recolectarRecursos() {
-        (this.propietario).sumarGasVespeno(CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO);
+        (this.propietario).sumarMinerales(CANTIDAD_DE_MINERALES_RECOLECTADOS_POR_TURNO);
     }
 
     @Override
@@ -25,7 +25,7 @@ public abstract class ExtractorGas extends Construccion {
     }
 
     @Override
-    public void guardarEnParcela(ParcelaVolcan parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
+    public void guardarEnParcela(ParcelaMineral parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
     }
 
@@ -33,4 +33,5 @@ public abstract class ExtractorGas extends Construccion {
     public void vivir(Mapa mapa) {
         this.recolectarRecursos();
     }
+    
 }

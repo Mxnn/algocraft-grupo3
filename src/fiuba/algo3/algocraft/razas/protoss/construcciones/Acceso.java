@@ -8,10 +8,10 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponi
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
 import fiuba.algo3.algocraft.razas.protoss.unidades.Dragon;
 import fiuba.algo3.algocraft.razas.protoss.unidades.Zealot;
-import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
-import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 
 
 public class Acceso extends Construccion {

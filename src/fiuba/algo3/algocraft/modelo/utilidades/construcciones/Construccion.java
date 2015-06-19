@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.utilidades.construcciones;
+package fiuba.algo3.algocraft.modelo.utilidades.construcciones;
 
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;

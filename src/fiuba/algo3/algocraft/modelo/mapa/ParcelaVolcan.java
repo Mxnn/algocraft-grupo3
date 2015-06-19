@@ -3,7 +3,7 @@ package fiuba.algo3.algocraft.modelo.mapa;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
-import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorGas;
 
 public class ParcelaVolcan extends Parcela {
 	public ParcelaVolcan(Coordenada coordenada) {

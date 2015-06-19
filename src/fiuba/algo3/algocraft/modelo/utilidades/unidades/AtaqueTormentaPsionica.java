@@ -7,7 +7,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
-import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 
 public class AtaqueTormentaPsionica extends Ataque {
 	public static final int TURNOS_DE_DURACION = 2;

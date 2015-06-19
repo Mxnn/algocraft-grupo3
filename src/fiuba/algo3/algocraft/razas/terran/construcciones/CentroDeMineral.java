@@ -1,10 +1,10 @@
 package fiuba.algo3.algocraft.razas.terran.construcciones;
 
-import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorMineral;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
-import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorMineral;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
 
 public class CentroDeMineral extends ExtractorMineral {
 

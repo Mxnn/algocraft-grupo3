@@ -8,9 +8,9 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponi
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
 import fiuba.algo3.algocraft.razas.terran.unidades.Golliat;
-import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
-import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 
 public class Fabrica extends Construccion {
 

@@ -9,9 +9,9 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequerida
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
 import fiuba.algo3.algocraft.razas.terran.Terran;
 import fiuba.algo3.algocraft.razas.terran.construcciones.DepositoSuministro;
-import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 
 public class DepositoSuministroTest {
     @Test

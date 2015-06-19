@@ -8,7 +8,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
-import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 
 public abstract class Ataque{	
 	protected int duracionDeAtaque;

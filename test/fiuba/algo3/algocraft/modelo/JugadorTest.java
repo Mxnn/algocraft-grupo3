@@ -26,6 +26,7 @@ import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.AdicionalSuministros;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.razas.protoss.construcciones.Acceso;
@@ -46,7 +47,6 @@ import fiuba.algo3.algocraft.razas.terran.unidades.Golliat;
 import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
 import fiuba.algo3.algocraft.razas.terran.unidades.NaveCiencia;
 import fiuba.algo3.algocraft.razas.terran.unidades.NaveTransporteTerran;
-import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 
 public class JugadorTest {
     public static int RECURSOS_SUFFICIENTES = 1000;
