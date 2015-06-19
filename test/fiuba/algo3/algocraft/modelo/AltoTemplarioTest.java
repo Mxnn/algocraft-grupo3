@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft.modelo;
 
 import java.util.ArrayList;
+
 import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Juego;
@@ -8,12 +9,31 @@ import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Coordenada;
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.Parcela;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionAlcanzadoElMaximoCupoDeJugadores;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionColorEnUso;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnergiaInsuficiente;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEntidadEnConstruccion;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreEnUso;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadEnemiga;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.razas.protoss.construcciones.Acceso;
 import fiuba.algo3.algocraft.razas.protoss.construcciones.ArchivosTemplarios;
 import fiuba.algo3.algocraft.razas.protoss.construcciones.PuertoEstelarProtoss;
 import fiuba.algo3.algocraft.razas.protoss.unidades.AltoTemplario;
 import fiuba.algo3.algocraft.razas.protoss.unidades.Zealot;
+
 import org.junit.Test;
 
 public class AltoTemplarioTest {

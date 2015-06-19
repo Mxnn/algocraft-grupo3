@@ -1,8 +1,8 @@
 package fiuba.algo3.algocraft.modelo;
 
-import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
-
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.utilidades.Vitalidad;
+
 import org.junit.Assert;
 import org.junit.Test;
 

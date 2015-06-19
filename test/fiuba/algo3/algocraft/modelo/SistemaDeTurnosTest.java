@@ -1,15 +1,15 @@
 package fiuba.algo3.algocraft.modelo;
 
-import fiuba.algo3.algocraft.excepciones.ExcepcionCoordenadaFueraDelMapa;
-import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.excepciones.ExcepcionNoEsElTurnoDelJugador;
-import fiuba.algo3.algocraft.excepciones.ExcepcionNombreCorto;
-import fiuba.algo3.algocraft.excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.juego.SistemaDeTurnos;
 import fiuba.algo3.algocraft.mapa.Mapa;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.razas.terran.Terran;
 

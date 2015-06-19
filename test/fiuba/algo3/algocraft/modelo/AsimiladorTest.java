@@ -1,15 +1,16 @@
 package fiuba.algo3.algocraft.modelo;
 
-import fiuba.algo3.algocraft.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Jugador;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.razas.protoss.construcciones.Asimilador;
 
 public class AsimiladorTest {
