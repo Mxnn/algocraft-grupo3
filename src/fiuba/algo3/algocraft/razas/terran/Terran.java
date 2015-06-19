@@ -1,8 +1,8 @@
 package fiuba.algo3.algocraft.razas.terran;
 
-import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
-import fiuba.algo3.algocraft.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.juego.Jugador;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.razas.Raza;
 import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.razas.terran.construcciones.CentroDeMineral;

@@ -1,11 +1,12 @@
 package fiuba.algo3.algocraft.utilidades.unidades;
 
 import java.util.ArrayList;
-import fiuba.algo3.algocraft.excepciones.ExcepcionCoordenadaFueraDelMapa;
-import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
+
 import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.mapa.Parcela;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
 
 public class AtaqueTormentaPsionica extends Ataque {

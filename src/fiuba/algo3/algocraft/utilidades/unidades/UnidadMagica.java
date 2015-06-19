@@ -1,11 +1,11 @@
 package fiuba.algo3.algocraft.utilidades.unidades;
 
-import fiuba.algo3.algocraft.excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.excepciones.ExcepcionEnergiaInsuficiente;
-import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Mapa;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnergiaInsuficiente;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.utilidades.Vitalidad;
 
 public abstract class UnidadMagica extends Unidad {

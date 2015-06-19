@@ -1,10 +1,10 @@
 package fiuba.algo3.algocraft.razas.terran.construcciones;
 
-import fiuba.algo3.algocraft.excepciones.ExcepcionEntidadEnConstruccion;
-import fiuba.algo3.algocraft.excepciones.ExcepcionNoHayLugarDisponible;
-import fiuba.algo3.algocraft.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.mapa.Mapa;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEntidadEnConstruccion;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
 import fiuba.algo3.algocraft.utilidades.Costo;
 import fiuba.algo3.algocraft.utilidades.Vitalidad;

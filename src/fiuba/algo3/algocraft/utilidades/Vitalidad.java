@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft.utilidades;
 
-import fiuba.algo3.algocraft.excepciones.ExcepcionEstadoMuerto;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 
 public class Vitalidad {
     protected int vida;

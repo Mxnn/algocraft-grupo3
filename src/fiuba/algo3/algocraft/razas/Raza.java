@@ -1,8 +1,8 @@
 package fiuba.algo3.algocraft.razas;
 
-import fiuba.algo3.algocraft.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
-import fiuba.algo3.algocraft.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.juego.Jugador;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.utilidades.Costo;
 import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;

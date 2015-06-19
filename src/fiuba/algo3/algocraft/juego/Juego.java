@@ -2,6 +2,14 @@ package fiuba.algo3.algocraft.juego;
 
 import fiuba.algo3.algocraft.mapa.*;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionAlcanzadoElMaximoCupoDeJugadores;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionColorEnUso;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreEnUso;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.razas.Raza;
 import fiuba.algo3.algocraft.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.excepciones.*;
