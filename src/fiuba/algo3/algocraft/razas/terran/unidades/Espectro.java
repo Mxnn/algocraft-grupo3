@@ -5,8 +5,8 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnPar
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
-import fiuba.algo3.algocraft.utilidades.Costo;
-import fiuba.algo3.algocraft.utilidades.Vitalidad;
+import fiuba.algo3.algocraft.modelo.utilidades.Costo;
+import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
 import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
 import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;

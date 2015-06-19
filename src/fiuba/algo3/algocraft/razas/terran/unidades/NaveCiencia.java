@@ -1,6 +1,5 @@
 package fiuba.algo3.algocraft.razas.terran.unidades;
 
-import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
@@ -11,8 +10,8 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponi
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
-import fiuba.algo3.algocraft.utilidades.Costo;
-import fiuba.algo3.algocraft.utilidades.Vitalidad;
+import fiuba.algo3.algocraft.modelo.utilidades.Costo;
+import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.utilidades.unidades.AtaqueEMP;
 import fiuba.algo3.algocraft.utilidades.unidades.AtaqueRadiacion;
 import fiuba.algo3.algocraft.utilidades.unidades.Danyo;

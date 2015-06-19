@@ -2,10 +2,8 @@ package fiuba.algo3.algocraft.razas.protoss.unidades;
 
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
-import fiuba.algo3.algocraft.modelo.mapa.Parcela;
-import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
-import fiuba.algo3.algocraft.utilidades.Costo;
-import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
+import fiuba.algo3.algocraft.modelo.utilidades.Costo;
+import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
 import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
 import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;

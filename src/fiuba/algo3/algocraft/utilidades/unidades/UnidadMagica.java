@@ -6,7 +6,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnergiaInsuficiente;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
-import fiuba.algo3.algocraft.utilidades.Vitalidad;
+import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 
 public abstract class UnidadMagica extends Unidad {
     protected int regeneracionEnergia;

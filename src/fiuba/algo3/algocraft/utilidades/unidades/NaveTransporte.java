@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft.utilidades.unidades;
 
-import fiuba.algo3.algocraft.excepciones.*;
+import java.util.ArrayList;
+
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
@@ -16,9 +17,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadYaSeEncuentraEnLa
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
-import fiuba.algo3.algocraft.utilidades.Vitalidad;
-
-import java.util.ArrayList;
+import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 
 public abstract class NaveTransporte extends Unidad {
     protected int lugaresOcupados;

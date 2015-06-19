@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.utilidades;
+package fiuba.algo3.algocraft.modelo.utilidades;
 
 public class Costo {
 	private int costoMineral;

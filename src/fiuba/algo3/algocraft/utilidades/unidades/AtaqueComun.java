@@ -3,7 +3,7 @@ package fiuba.algo3.algocraft.utilidades.unidades;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
-import fiuba.algo3.algocraft.utilidades.Interactuable;
+import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
 
 public class AtaqueComun extends Ataque {

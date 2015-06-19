@@ -5,7 +5,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
-import fiuba.algo3.algocraft.utilidades.Vitalidad;
+import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 
 public abstract class UnidadAgresora extends Unidad {
     protected RangoAtaque rangoAtaque;

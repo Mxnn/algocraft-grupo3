@@ -1,8 +1,5 @@
 package fiuba.algo3.algocraft.razas.protoss.unidades;
 
-import java.util.ArrayList;
-
-import fiuba.algo3.algocraft.excepciones.*;
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnergiaInsuficiente;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEntidadEnConstruccion;
@@ -11,9 +8,8 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponi
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadEnemiga;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
-import fiuba.algo3.algocraft.utilidades.Costo;
-import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
-import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
+import fiuba.algo3.algocraft.modelo.utilidades.Costo;
+import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.utilidades.unidades.AtaqueTormentaPsionica;
 import fiuba.algo3.algocraft.utilidades.unidades.Clon;
 import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;

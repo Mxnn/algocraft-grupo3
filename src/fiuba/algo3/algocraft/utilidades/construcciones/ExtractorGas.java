@@ -6,7 +6,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
-import fiuba.algo3.algocraft.utilidades.Vitalidad;
+import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 
 public abstract class ExtractorGas extends Construccion {
     public static final int CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO = 10;

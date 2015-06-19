@@ -5,7 +5,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnPar
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
-import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
+import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 
 public class Clon extends UnidadAgresora {
 	private UnidadAgresora original;

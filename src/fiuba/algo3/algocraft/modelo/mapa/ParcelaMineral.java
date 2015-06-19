@@ -2,8 +2,8 @@ package fiuba.algo3.algocraft.modelo.mapa;
 
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorMineral;
-import fiuba.algo3.algocraft.utilidades.Interactuable;
 
 public class ParcelaMineral extends Parcela {
 	public ParcelaMineral(Coordenada coordenada) {

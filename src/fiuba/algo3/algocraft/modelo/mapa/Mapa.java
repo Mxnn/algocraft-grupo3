@@ -1,14 +1,13 @@
 package fiuba.algo3.algocraft.modelo.mapa;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
-import fiuba.algo3.algocraft.utilidades.Interactuable;
-import fiuba.algo3.algocraft.excepciones.*;
-
-import java.util.ArrayList;
-import java.util.HashMap;
+import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 
 public class Mapa {
     private static final int NUMERO_DE_BASES_MAXIMO = 4;

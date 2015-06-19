@@ -1,7 +1,6 @@
 package fiuba.algo3.algocraft.utilidades.unidades;
 
 import fiuba.algo3.algocraft.juego.Jugador;
-import fiuba.algo3.algocraft.mapa.*;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
@@ -14,8 +13,8 @@ import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
-import fiuba.algo3.algocraft.utilidades.Interactuable;
-import fiuba.algo3.algocraft.utilidades.Vitalidad;
+import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
+import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 
 public abstract class Unidad extends Interactuable {
 	protected int cupoDeTransporte;

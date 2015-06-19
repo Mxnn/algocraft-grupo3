@@ -24,12 +24,12 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
+import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.razas.protoss.unidades.Dragon;
 import fiuba.algo3.algocraft.razas.terran.Terran;
 import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
-import fiuba.algo3.algocraft.utilidades.Interactuable;
-import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.utilidades.unidades.AtaqueEMP;
 

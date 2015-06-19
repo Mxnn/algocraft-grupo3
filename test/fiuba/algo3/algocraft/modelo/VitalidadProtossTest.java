@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
+import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 
 public class VitalidadProtossTest {
     @Test

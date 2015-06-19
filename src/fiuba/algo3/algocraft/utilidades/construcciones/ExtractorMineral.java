@@ -6,7 +6,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
-import fiuba.algo3.algocraft.utilidades.Vitalidad;
+import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 
 public abstract class ExtractorMineral extends Construccion {
     public static final int CANTIDAD_DE_MINERALES_RECOLECTADOS_POR_TURNO = 10;
