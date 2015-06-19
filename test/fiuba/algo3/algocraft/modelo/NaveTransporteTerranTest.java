@@ -27,12 +27,12 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadEnemiga;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadYaSeEncuentraEnLaNave;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
-import fiuba.algo3.algocraft.razas.terran.Terran;
-import fiuba.algo3.algocraft.razas.terran.unidades.Espectro;
-import fiuba.algo3.algocraft.razas.terran.unidades.Golliat;
-import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
-import fiuba.algo3.algocraft.razas.terran.unidades.NaveCiencia;
-import fiuba.algo3.algocraft.razas.terran.unidades.NaveTransporteTerran;
+import fiuba.algo3.algocraft.modelo.razas.terran.Terran;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Espectro;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Golliat;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Marine;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveCiencia;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveTransporteTerran;
 
 public class NaveTransporteTerranTest {
     @Test

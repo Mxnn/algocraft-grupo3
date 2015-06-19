@@ -23,14 +23,14 @@ import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
+import fiuba.algo3.algocraft.modelo.razas.terran.Terran;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.CentroDeMineral;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Refineria;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Espectro;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Marine;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
-import fiuba.algo3.algocraft.razas.terran.Terran;
-import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
-import fiuba.algo3.algocraft.razas.terran.construcciones.CentroDeMineral;
-import fiuba.algo3.algocraft.razas.terran.construcciones.Refineria;
-import fiuba.algo3.algocraft.razas.terran.unidades.Espectro;
-import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
 
 public class ParcelaEspacioTest {
 

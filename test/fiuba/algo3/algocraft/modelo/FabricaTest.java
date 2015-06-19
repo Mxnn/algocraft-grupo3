@@ -25,11 +25,11 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
+import fiuba.algo3.algocraft.modelo.razas.terran.Terran;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Golliat;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
-import fiuba.algo3.algocraft.razas.terran.Terran;
-import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
-import fiuba.algo3.algocraft.razas.terran.construcciones.Fabrica;
-import fiuba.algo3.algocraft.razas.terran.unidades.Golliat;
 
 public class FabricaTest {
     @Test

@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.razas;
+package fiuba.algo3.algocraft.modelo.razas;
 
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;

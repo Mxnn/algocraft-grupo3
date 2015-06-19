@@ -1,19 +1,19 @@
-package fiuba.algo3.algocraft.razas.terran;
+package fiuba.algo3.algocraft.modelo.razas.terran;
 
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.modelo.razas.Raza;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.CentroDeMineral;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.DepositoSuministro;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Refineria;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorMineral;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.AdicionalSuministros;
-import fiuba.algo3.algocraft.razas.Raza;
-import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
-import fiuba.algo3.algocraft.razas.terran.construcciones.CentroDeMineral;
-import fiuba.algo3.algocraft.razas.terran.construcciones.DepositoSuministro;
-import fiuba.algo3.algocraft.razas.terran.construcciones.Fabrica;
-import fiuba.algo3.algocraft.razas.terran.construcciones.PuertoEstelar;
-import fiuba.algo3.algocraft.razas.terran.construcciones.Refineria;
 
 public class Terran extends Raza {
     private static Terran INSTANCIA = null;

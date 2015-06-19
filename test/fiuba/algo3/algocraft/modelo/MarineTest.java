@@ -25,12 +25,12 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
-import fiuba.algo3.algocraft.razas.terran.Terran;
-import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
-import fiuba.algo3.algocraft.razas.terran.construcciones.Fabrica;
-import fiuba.algo3.algocraft.razas.terran.construcciones.PuertoEstelar;
-import fiuba.algo3.algocraft.razas.terran.unidades.Espectro;
-import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
+import fiuba.algo3.algocraft.modelo.razas.terran.Terran;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Espectro;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Marine;
 
 public class MarineTest {
 

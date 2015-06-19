@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.razas.terran.unidades;
+package fiuba.algo3.algocraft.modelo.razas.terran.unidades;
 
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
