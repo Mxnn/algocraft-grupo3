@@ -1,11 +1,11 @@
 package fiuba.algo3.algocraft.modelo;
 
-import fiuba.algo3.algocraft.excepciones.*;
+import org.junit.Assert;
+import org.junit.Test;
+
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Juego;
 import fiuba.algo3.algocraft.juego.Jugador;
-import fiuba.algo3.algocraft.mapa.Coordenada;
-import fiuba.algo3.algocraft.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionAlcanzadoElMaximoCupoDeJugadores;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionColorEnUso;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
@@ -27,18 +27,23 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadEnemiga;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadYaSeEncuentraEnLaNave;
+import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
+import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.*;
-import fiuba.algo3.algocraft.razas.protoss.unidades.*;
+import fiuba.algo3.algocraft.razas.protoss.construcciones.Acceso;
+import fiuba.algo3.algocraft.razas.protoss.construcciones.ArchivosTemplarios;
+import fiuba.algo3.algocraft.razas.protoss.unidades.AltoTemplario;
+import fiuba.algo3.algocraft.razas.protoss.unidades.Dragon;
 import fiuba.algo3.algocraft.razas.terran.Terran;
-import fiuba.algo3.algocraft.razas.terran.construcciones.*;
-import fiuba.algo3.algocraft.razas.terran.unidades.*;
-import fiuba.algo3.algocraft.utilidades.*;
+import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.razas.terran.construcciones.PuertoEstelar;
+import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
+import fiuba.algo3.algocraft.razas.terran.unidades.NaveCiencia;
+import fiuba.algo3.algocraft.razas.terran.unidades.NaveTransporteTerran;
+import fiuba.algo3.algocraft.utilidades.Interactuable;
+import fiuba.algo3.algocraft.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.utilidades.unidades.Clon;
 import fiuba.algo3.algocraft.utilidades.unidades.UnidadMagica;
-
-import org.junit.Assert;
-import org.junit.Test;
 
 public class IntegradoresTest {
 	

@@ -1,8 +1,8 @@
 package fiuba.algo3.algocraft.juego;
 
-import fiuba.algo3.algocraft.excepciones.*;
-import fiuba.algo3.algocraft.mapa.Coordenada;
-import fiuba.algo3.algocraft.mapa.Mapa;
+import java.util.ArrayList;
+import java.util.Collection;
+
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
@@ -13,6 +13,8 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponi
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
+import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.razas.Raza;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
@@ -22,9 +24,6 @@ import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 import fiuba.algo3.algocraft.utilidades.unidades.AdicionalSuministros;
 import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.utilidades.unidades.Unidad;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class Jugador {
     private final int LONGITUD_MINIMA_PARA_EL_NOMBRE = 4;

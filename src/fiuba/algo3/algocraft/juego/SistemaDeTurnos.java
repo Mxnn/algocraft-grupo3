@@ -1,14 +1,14 @@
 package fiuba.algo3.algocraft.juego;
 
-import fiuba.algo3.algocraft.mapa.Mapa;
+import java.util.ArrayList;
+
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
+import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
-
-import java.util.ArrayList;
 
 public class SistemaDeTurnos {
     private ArrayList<Jugador> jugadores;

@@ -2,11 +2,11 @@ package fiuba.algo3.algocraft.modelo;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import fiuba.algo3.algocraft.mapa.Coordenada;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
-
 import org.junit.Assert;
 import org.junit.Test;
+
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
+import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 
 
 public class CoordenadaTest {

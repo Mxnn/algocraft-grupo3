@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft.juego;
 
-import fiuba.algo3.algocraft.mapa.*;
+import java.util.ArrayList;
+
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionAlcanzadoElMaximoCupoDeJugadores;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionColorEnUso;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
@@ -10,12 +11,12 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreEnUso;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
+import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
+import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.razas.Raza;
-import fiuba.algo3.algocraft.utilidades.unidades.Unidad;
-import fiuba.algo3.algocraft.excepciones.*;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 
 public class Juego {

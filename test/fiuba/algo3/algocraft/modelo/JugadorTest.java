@@ -1,13 +1,11 @@
 package fiuba.algo3.algocraft.modelo;
 
-import fiuba.algo3.algocraft.excepciones.*;
+import org.junit.Assert;
+import org.junit.Test;
+
 import fiuba.algo3.algocraft.juego.Color;
 import fiuba.algo3.algocraft.juego.Juego;
 import fiuba.algo3.algocraft.juego.Jugador;
-import fiuba.algo3.algocraft.mapa.Coordenada;
-import fiuba.algo3.algocraft.mapa.Mapa;
-import fiuba.algo3.algocraft.mapa.ParcelaMineral;
-import fiuba.algo3.algocraft.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionAlcanzadoElMaximoCupoDeJugadores;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionColorEnUso;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
@@ -24,16 +22,31 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreEnUso;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
+import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.*;
+import fiuba.algo3.algocraft.razas.protoss.construcciones.Acceso;
+import fiuba.algo3.algocraft.razas.protoss.construcciones.ArchivosTemplarios;
+import fiuba.algo3.algocraft.razas.protoss.construcciones.Asimilador;
+import fiuba.algo3.algocraft.razas.protoss.construcciones.NexoMineral;
+import fiuba.algo3.algocraft.razas.protoss.construcciones.Pilon;
+import fiuba.algo3.algocraft.razas.protoss.construcciones.PuertoEstelarProtoss;
 import fiuba.algo3.algocraft.razas.terran.Terran;
-import fiuba.algo3.algocraft.razas.terran.construcciones.*;
-import fiuba.algo3.algocraft.razas.terran.unidades.*;
+import fiuba.algo3.algocraft.razas.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.razas.terran.construcciones.CentroDeMineral;
+import fiuba.algo3.algocraft.razas.terran.construcciones.DepositoSuministro;
+import fiuba.algo3.algocraft.razas.terran.construcciones.Fabrica;
+import fiuba.algo3.algocraft.razas.terran.construcciones.PuertoEstelar;
+import fiuba.algo3.algocraft.razas.terran.construcciones.Refineria;
+import fiuba.algo3.algocraft.razas.terran.unidades.Espectro;
+import fiuba.algo3.algocraft.razas.terran.unidades.Golliat;
+import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
+import fiuba.algo3.algocraft.razas.terran.unidades.NaveCiencia;
+import fiuba.algo3.algocraft.razas.terran.unidades.NaveTransporteTerran;
 import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
 import fiuba.algo3.algocraft.utilidades.unidades.AdicionalSuministros;
-
-import org.junit.Assert;
-import org.junit.Test;
 
 public class JugadorTest {
     public static int RECURSOS_SUFFICIENTES = 1000;

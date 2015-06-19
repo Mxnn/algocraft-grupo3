@@ -1,8 +1,9 @@
 package fiuba.algo3.algocraft.modelo;
 
-import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
 import org.junit.Assert;
 import org.junit.Test;
+
+import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
 
 public class RangoAtaqueTest {
     @Test

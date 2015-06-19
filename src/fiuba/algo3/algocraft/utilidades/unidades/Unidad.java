@@ -7,6 +7,13 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnPar
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
+import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+import fiuba.algo3.algocraft.modelo.mapa.Parcela;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
 import fiuba.algo3.algocraft.utilidades.Vitalidad;
 

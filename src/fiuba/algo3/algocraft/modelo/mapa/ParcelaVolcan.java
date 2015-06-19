@@ -1,19 +1,19 @@
-package fiuba.algo3.algocraft.mapa;
+package fiuba.algo3.algocraft.modelo.mapa;
 
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
-import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorMineral;
+import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.utilidades.Interactuable;
 
-public class ParcelaMineral extends Parcela {
-	public ParcelaMineral(Coordenada coordenada) {
+public class ParcelaVolcan extends Parcela {
+	public ParcelaVolcan(Coordenada coordenada) {
         this.elemento = null;
         this.coordenada = coordenada;
     }
 
-    public void darMinerales() {
+    public void despedirGas() {
         if (!this.estaVacia()) {
-            ((ExtractorMineral) (this.elemento)).recolectarRecursos();
+            ((ExtractorGas) (this.elemento)).recolectarRecursos();
         }
     }
 
