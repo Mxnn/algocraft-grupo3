@@ -10,10 +10,10 @@ import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
-import fiuba.algo3.algocraft.utilidades.unidades.AtaqueTormentaPsionica;
-import fiuba.algo3.algocraft.utilidades.unidades.Clon;
-import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;
-import fiuba.algo3.algocraft.utilidades.unidades.UnidadMagica;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.AtaqueTormentaPsionica;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Clon;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadMagica;
 
 public class AltoTemplario extends UnidadMagica {
 

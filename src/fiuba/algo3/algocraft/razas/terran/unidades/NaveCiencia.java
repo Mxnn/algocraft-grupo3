@@ -12,11 +12,11 @@ import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
-import fiuba.algo3.algocraft.utilidades.unidades.AtaqueEMP;
-import fiuba.algo3.algocraft.utilidades.unidades.AtaqueRadiacion;
-import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
-import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
-import fiuba.algo3.algocraft.utilidades.unidades.UnidadMagica;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.AtaqueEMP;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.AtaqueRadiacion;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Danyo;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.RangoAtaque;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadMagica;
 
 public class NaveCiencia extends UnidadMagica {
 

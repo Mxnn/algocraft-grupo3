@@ -4,9 +4,9 @@ import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
-import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
-import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
-import fiuba.algo3.algocraft.utilidades.unidades.UnidadAgresora;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Danyo;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.RangoAtaque;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 
 public class Dragon extends UnidadAgresora {
     public static final int VIDA_INICIAL = 100;

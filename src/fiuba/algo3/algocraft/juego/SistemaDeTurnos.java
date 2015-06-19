@@ -8,7 +8,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
-import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
 
 public class SistemaDeTurnos {
     private ArrayList<Jugador> jugadores;

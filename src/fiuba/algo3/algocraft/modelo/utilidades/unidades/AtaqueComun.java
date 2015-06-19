@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.utilidades.unidades;
+package fiuba.algo3.algocraft.modelo.utilidades.unidades;
 
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;

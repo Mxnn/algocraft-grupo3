@@ -31,6 +31,8 @@ import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Clon;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadMagica;
 import fiuba.algo3.algocraft.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.razas.protoss.construcciones.Acceso;
 import fiuba.algo3.algocraft.razas.protoss.construcciones.ArchivosTemplarios;
@@ -42,8 +44,6 @@ import fiuba.algo3.algocraft.razas.terran.construcciones.PuertoEstelar;
 import fiuba.algo3.algocraft.razas.terran.unidades.Marine;
 import fiuba.algo3.algocraft.razas.terran.unidades.NaveCiencia;
 import fiuba.algo3.algocraft.razas.terran.unidades.NaveTransporteTerran;
-import fiuba.algo3.algocraft.utilidades.unidades.Clon;
-import fiuba.algo3.algocraft.utilidades.unidades.UnidadMagica;
 
 public class IntegradoresTest {
 	

@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.utilidades.unidades;
+package fiuba.algo3.algocraft.modelo.utilidades.unidades;
 
 public class RangoAtaque {
     private int rangoAire;

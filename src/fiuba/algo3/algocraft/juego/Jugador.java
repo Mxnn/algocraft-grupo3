@@ -16,14 +16,14 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.AdicionalSuministros;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.razas.Raza;
 import fiuba.algo3.algocraft.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.utilidades.construcciones.ExtractorMineral;
 import fiuba.algo3.algocraft.utilidades.construcciones.TipoDeConstruccion;
-import fiuba.algo3.algocraft.utilidades.unidades.AdicionalSuministros;
-import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
-import fiuba.algo3.algocraft.utilidades.unidades.Unidad;
 
 public class Jugador {
     private final int LONGITUD_MINIMA_PARA_EL_NOMBRE = 4;

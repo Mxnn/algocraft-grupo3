@@ -11,9 +11,9 @@ import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
-import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
-import fiuba.algo3.algocraft.utilidades.unidades.Danyo;
-import fiuba.algo3.algocraft.utilidades.unidades.RangoAtaque;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Danyo;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.RangoAtaque;
 
 public abstract class Construccion extends Interactuable {
 
