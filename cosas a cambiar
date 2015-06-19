@@ -2,5 +2,4 @@ COSAS A CAMBIAR
 
 ## 17/6
 
-* Paquetes: sería probablemente más clara la separación si se usa un único paquete raíz para todas las clases del modelo
 * Generación del mapa hardcodeada (sería bueno que fuera aleatoriamente generado)
