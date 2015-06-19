@@ -1,11 +1,11 @@
 package fiuba.algo3.algocraft.modelo.razas.protoss.unidades;
 
-import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnergiaInsuficiente;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEntidadEnConstruccion;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadEnemiga;
+import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;

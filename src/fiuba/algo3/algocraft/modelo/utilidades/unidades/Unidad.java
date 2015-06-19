@@ -1,11 +1,11 @@
 package fiuba.algo3.algocraft.modelo.utilidades.unidades;
 
-import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;

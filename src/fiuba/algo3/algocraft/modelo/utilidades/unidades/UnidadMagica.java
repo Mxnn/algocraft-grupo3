@@ -1,10 +1,10 @@
 package fiuba.algo3.algocraft.modelo.utilidades.unidades;
 
-import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnergiaInsuficiente;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 

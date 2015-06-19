@@ -3,12 +3,12 @@ package fiuba.algo3.algocraft.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.algocraft.juego.Color;
-import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
+import fiuba.algo3.algocraft.modelo.juego.Color;
+import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.razas.terran.Terran;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.DepositoSuministro;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;

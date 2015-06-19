@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.juego;
+package fiuba.algo3.algocraft.modelo.juego;
 
 import java.util.ArrayList;
 import java.util.Collection;

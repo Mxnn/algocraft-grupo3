@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft.controlador;
 
-import fiuba.algo3.algocraft.juego.Juego;
+import fiuba.algo3.algocraft.modelo.juego.Juego;
 
 public class Controlador {
 	Juego modelo;

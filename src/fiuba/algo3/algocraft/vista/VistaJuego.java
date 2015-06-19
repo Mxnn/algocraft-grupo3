@@ -1,12 +1,13 @@
 package fiuba.algo3.algocraft.vista;
 
 import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import fiuba.algo3.algocraft.controlador.Controlador;
-import fiuba.algo3.algocraft.juego.Juego;
+import fiuba.algo3.algocraft.modelo.juego.Juego;
 
 public class VistaJuego {
 	Juego modelo ;

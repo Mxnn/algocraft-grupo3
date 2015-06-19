@@ -4,9 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import fiuba.algo3.algocraft.juego.Color;
-import fiuba.algo3.algocraft.juego.Juego;
-import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionAlcanzadoElMaximoCupoDeJugadores;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionColorEnUso;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
@@ -22,6 +19,9 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreEnUso;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.modelo.juego.Color;
+import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.razas.protoss.Protoss;
