@@ -45,6 +45,7 @@ public abstract class NaveTransporte extends Unidad {
             throw new ExcepcionNaveDeTransporteLlena();
     }
 
+    @Override
     public void destruir() {
         for (Unidad u : unidades) {
             u.destruir();
@@ -56,18 +57,22 @@ public abstract class NaveTransporte extends Unidad {
         return this.unidades.size();
     }
 
+    @Override
     public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
     }
 
+    @Override
     public int seleccionarDanyo(Danyo danyo){
     	return danyo.getDanyoDeAtaqueEnAire();
     }
 
+    @Override
     public int seleccionarRango(RangoAtaque rango){
     	return rango.getRangoDeAtaqueEnAire();
     }
-    
+
+    @Override
     public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
 		ataque.atacar(this);
 	}

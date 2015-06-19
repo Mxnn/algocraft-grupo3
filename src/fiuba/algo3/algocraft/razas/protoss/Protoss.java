@@ -33,6 +33,7 @@ public class Protoss extends Raza {
         return INSTANCIA;
     }
 
+    @Override
 	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario, Asimilador.COSTO))
             throw new ExcepcionRecursosInsuficientes();
@@ -41,6 +42,7 @@ public class Protoss extends Raza {
 		return new Asimilador(propietario);
 	}
 
+    @Override
 	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario, NexoMineral.COSTO))
             throw new ExcepcionRecursosInsuficientes();
@@ -49,6 +51,7 @@ public class Protoss extends Raza {
 		return new NexoMineral(propietario);
 	}
 
+    @Override
     public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario, Pilon.COSTO))
             throw new ExcepcionRecursosInsuficientes();
@@ -57,6 +60,7 @@ public class Protoss extends Raza {
         return new Pilon(propietario);
     }
 
+    @Override
     public Construccion crearCreadorDeUnidadesBasicas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario, Acceso.COSTO))
             throw new ExcepcionRecursosInsuficientes();
@@ -65,6 +69,7 @@ public class Protoss extends Raza {
         return new Acceso(propietario);
     }
 
+    @Override
     public Construccion crearCreadorDeUnidadesAvanzadas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes{
         if (recursosInsuficientes(propietario, PuertoEstelarProtoss.COSTO))
             throw new ExcepcionRecursosInsuficientes();
@@ -73,6 +78,7 @@ public class Protoss extends Raza {
         return new PuertoEstelarProtoss(propietario);
     }
 
+    @Override
     public Construccion crearCreadorDeUnidadesMagicas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes{
         if (recursosInsuficientes(propietario, ArchivosTemplarios.COSTO))
             throw new ExcepcionRecursosInsuficientes();

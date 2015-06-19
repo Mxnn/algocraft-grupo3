@@ -14,6 +14,7 @@ import fiuba.algo3.algocraft.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.utilidades.unidades.Unidad;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Jugador {
     private final int LONGITUD_MINIMA_PARA_EL_NOMBRE = 4;
@@ -184,14 +185,15 @@ public class Jugador {
         (this.construcciones).remove(construccion);
     }
 
-    public ArrayList<Construccion> getConstrucciones() {
+    public Collection<Construccion> getConstrucciones() {
         return this.construcciones;
     }
 
-    public ArrayList<Unidad> getUnidades() {
+    public Collection<Unidad> getUnidades() {
         return this.unidades;
     }
-    public ArrayList<Ataque> getAtaques() {
+
+    public Collection<Ataque> getAtaques() {
         return this.ataques;
     }
 
@@ -200,9 +202,9 @@ public class Jugador {
     }
     
     public boolean esPerdedor(){
-    	boolean tieneGas = this.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_GAS);
-    	boolean tieneMineral = this.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_MINERAL); 
-    	return(this.mineral<100 && !tieneMineral);
+    	//boolean tieneGas = this.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_GAS);
+    	boolean tieneMineral = this.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_MINERAL);
 
+    	return(this.mineral<100 && !tieneMineral);
     }
 }

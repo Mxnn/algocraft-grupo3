@@ -16,11 +16,9 @@ public class ParcelaMineral extends Parcela {
             ((ExtractorMineral) (this.elemento)).recolectarRecursos();
         }
     }
-    
+
+    @Override
     public void guardarElemento(Interactuable elemento) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         elemento.guardarEnParcela(this);
     }
-
-    
-
 }

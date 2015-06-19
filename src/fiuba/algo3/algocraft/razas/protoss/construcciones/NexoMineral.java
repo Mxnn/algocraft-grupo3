@@ -19,6 +19,7 @@ public class NexoMineral  extends ExtractorMineral {
         super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION);
     }
 
+    @Override
     public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.EXTRACTOR_MINERAL;
     }

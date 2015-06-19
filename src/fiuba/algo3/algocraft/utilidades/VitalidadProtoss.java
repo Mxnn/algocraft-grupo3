@@ -17,6 +17,7 @@ public class VitalidadProtoss extends Vitalidad {
         return this.escudo;
     }
 
+    @Override
     public void recibirDanyo(int cantidad) throws ExcepcionEstadoMuerto {
         int restaAEscudo = this.escudo - cantidad;
         if (restaAEscudo > 0)
@@ -26,11 +27,13 @@ public class VitalidadProtoss extends Vitalidad {
             super.recibirDanyo(restaAEscudo * (-1));
         }
     }
-    
+
+    @Override
     public void recibirEmp() throws ExcepcionEstadoMuerto{
     	this.recibirDanyo(this.getEscudo());
     }
 
+    @Override
     public void regenerar() {
         int total = this.escudo + this.REGENERACION_POR_TURNO;
         if (total > this.escudoMaximo)

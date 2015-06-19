@@ -16,11 +16,9 @@ public class ParcelaVolcan extends Parcela {
             ((ExtractorGas) (this.elemento)).recolectarRecursos();
         }
     }
-    
+
+    @Override
     public void guardarElemento(Interactuable elemento) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         elemento.guardarEnParcela(this);
     }
-
-    
-	
 }

@@ -20,27 +20,15 @@ public abstract class Raza {
 	   	propietario.sumarMinerales(-(costo.getCostoMineral()));
 	}
 		    
-    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-		return null;
-	}
+    public abstract AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes;
 
-	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-		return null;
-	}
+	public abstract ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes;
 
-	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-		return null;
-	}
+	public abstract ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes;
 
-    public Construccion crearCreadorDeUnidadesBasicas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-		return null;
-	}
+    public abstract Construccion crearCreadorDeUnidadesBasicas(Jugador propietario) throws ExcepcionRecursosInsuficientes;
 
-    public Construccion crearCreadorDeUnidadesAvanzadas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
-		return null;
-	}
+    public abstract Construccion crearCreadorDeUnidadesAvanzadas(Jugador propietario) throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas;
 
-    public Construccion crearCreadorDeUnidadesMagicas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
-		return null;
-	}
+    public abstract Construccion crearCreadorDeUnidadesMagicas(Jugador propietario) throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas;
 }

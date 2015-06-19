@@ -41,7 +41,7 @@ public class Terran extends Raza {
 		return new Refineria(propietario);
 	}
 
-
+    @Override
 	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,CentroDeMineral.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
@@ -50,6 +50,7 @@ public class Terran extends Raza {
 		return new CentroDeMineral(propietario);
 	}
 
+    @Override
     public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,DepositoSuministro.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
@@ -59,6 +60,7 @@ public class Terran extends Raza {
         return new DepositoSuministro(propietario);
     }
 
+    @Override
     public Construccion crearCreadorDeUnidadesBasicas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,Barraca.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
@@ -67,6 +69,7 @@ public class Terran extends Raza {
         return new Barraca(propietario);
     }
 
+    @Override
     public Construccion crearCreadorDeUnidadesAvanzadas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,Fabrica.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();
@@ -75,6 +78,7 @@ public class Terran extends Raza {
     	return new Fabrica(propietario);
     }
 
+    @Override
     public Construccion crearCreadorDeUnidadesMagicas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,PuertoEstelar.COSTO)) 
             throw new ExcepcionRecursosInsuficientes();

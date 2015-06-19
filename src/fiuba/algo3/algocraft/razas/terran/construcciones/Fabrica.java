@@ -27,6 +27,7 @@ public class Fabrica extends Construccion {
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
     }
 
+    @Override
     public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_AVANZADAS;
     }

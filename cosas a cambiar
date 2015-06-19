@@ -1,31 +1,6 @@
 COSAS A CAMBIAR
 
-Sería bueno que las pruebas de integración esten diferenciadas de pruebas unitarias
+## 17/6
 
-Utilizar accesores a métodos (ej: no es correcto que los métodos incrementarCapacidadDePoblacion() / decrementarPoblacion() de Jugador sean público ya que rompe el encapsulamiento)
-  (Ya hice los de incrementar y decrementar pero puede haber mas como por ej: sumarMinerales/Gas y restarMinerales/Gas)
-
-Por qué es necesario que Barraca.crearMarine() reciba por parámetro el objeto Mapa?
-
-No debería ser Mapa quien calcule el itinerario para mover una unidad entre 2 puntos
-
-Estado entregables:
-
-Diagramas actualizados?
-Faltan tests de integración de creación de unidades
-
-Movimiento de unidades no implementado  --> ver si se pueden sacar los mapas de VIVIR()
-Transporte de unidades no está implementado
-
-TESTS
-3) Unidades de tierra no pueden atacar a unidades de aire y visceversa en todas las combinaciones, cuando corresponda.
-          creo que esta esto ya, para cada agresor intenta atacar todas las posibilidades
-4) Se verifica unidad por unidad, que ataque en el rango correspondiente.
-          idem 3)
-5) Naves de transporte soportan su capacidad. Se debe probar que se sube unidades, desde un punto A , se pasa por espacio y se bajan del otro lado tierra B.
-6) Perder unidades en batalla disminuye la población, construirlas suma.
-7) No se pueden construir más unidades que el límite de población, ni que el límite máximo de población (200). Verificar que construir “más casas” no sigue subiendo el límite de 200.
-8) Simular, jugar y ganar/perder una partida
-9) Verificar recuperación del escudo protoss con el paso de los turnos.
-10) Unidades terrestres no pueden pasar por espacios aéreos.
-          esto ya esta en las pruebas de parcelas, aunque podriamos hacerlo para c/unidad
+* Paquetes: sería probablemente más clara la separación si se usa un único paquete raíz para todas las clases del modelo
+* Generación del mapa hardcodeada (sería bueno que fuera aleatoriamente generado)

@@ -19,6 +19,7 @@ public class DepositoSuministro extends AdicionalSuministros {
         super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION, SUMINISTROS_ADICIONALES);
     }
 
+    @Override
     public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.ADICIONAL_SUMINISTROS;
     }

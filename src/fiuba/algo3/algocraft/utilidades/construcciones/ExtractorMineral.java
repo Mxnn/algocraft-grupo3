@@ -19,14 +19,17 @@ public abstract class ExtractorMineral extends Construccion {
         (this.propietario).sumarMinerales(CANTIDAD_DE_MINERALES_RECOLECTADOS_POR_TURNO);
     }
 
+    @Override
     public void guardarEnParcela(ParcelaTierra parcela) throws ExcepcionElementoNoAdmitidoEnParcela {
     	throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
-    
+
+    @Override
     public void guardarEnParcela(ParcelaMineral parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
     }
-    
+
+    @Override
     public void vivir(Mapa mapa) {
         this.recolectarRecursos();
     }

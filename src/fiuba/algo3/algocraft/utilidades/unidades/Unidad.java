@@ -32,32 +32,39 @@ public abstract class Unidad extends Interactuable {
         return this.vision;
     }
 
+    @Override
     public void destruir() {
         (this.propietario).eliminarUnidad(this);
     }
 
     public int getCupoDeTransporte() { return this.cupoDeTransporte; }
-    
+
+    @Override
     public void guardarEnParcela(ParcelaTierra parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         parcela.setElemento(this);
     }
-    
+
+    @Override
     public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
-    
+
+    @Override
     public void guardarEnParcela(ParcelaMineral parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
-    
+
+    @Override
     public void guardarEnParcela(ParcelaVolcan parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
-    
+
+    @Override
     public int seleccionarDanyo(Danyo danyo){
     	return danyo.getDanyoDeAtaqueEnTierra();
     }
-    
+
+    @Override
     public int seleccionarRango(RangoAtaque rango){
     	return rango.getRangoDeAtaqueEnTierra();
     }
@@ -77,6 +84,7 @@ public abstract class Unidad extends Interactuable {
         }
     }
 
+    @Override
     public void vivir(Mapa mapa) {
         (this.vitalidad).regenerar();
         this.mover(mapa);

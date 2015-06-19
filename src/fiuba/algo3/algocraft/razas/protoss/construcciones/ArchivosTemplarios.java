@@ -29,6 +29,7 @@ public class ArchivosTemplarios extends Construccion {
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
     }
 
+    @Override
     public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_MAGICAS;
     }

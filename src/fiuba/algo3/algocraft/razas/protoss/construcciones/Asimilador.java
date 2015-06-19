@@ -19,6 +19,7 @@ public class Asimilador  extends ExtractorGas {
         super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION);
     }
 
+    @Override
     public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.EXTRACTOR_GAS;
     }

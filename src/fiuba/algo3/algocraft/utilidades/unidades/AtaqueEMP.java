@@ -14,21 +14,22 @@ public class AtaqueEMP extends Ataque {
 	public AtaqueEMP(Parcela target){
 		super(target);
 		this.duracionDeAtaque = TURNOS_DE_DURACION;
-
 	}
 
+    @Override
 	public void tareaDeEntreTurno(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
 		this.listaParcelas = new ArrayList<Parcela>();
 		(this.listaParcelas).addAll(mapa.devolverParcelasEnRadioUno(this.target));
 		super.tareaDeEntreTurno(mapa);
 	}
 
+    @Override
 	public void atacar(Construccion enemigo) throws ExcepcionEstadoMuerto{
 	}
-	
+
+    @Override
 	public void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance{
 		enemigo.recibirEmp();
 	}
-
 }
 

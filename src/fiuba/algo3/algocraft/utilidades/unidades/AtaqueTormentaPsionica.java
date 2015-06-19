@@ -22,13 +22,13 @@ public class AtaqueTormentaPsionica extends Ataque {
 		(this.listaParcelas).addAll(mapa.devolverParcelasEnRadioUno(this.target));
 		super.tareaDeEntreTurno(mapa);
 	}
-	
+
+    @Override
 	public void atacar(Construccion enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
 	}
-	
+
+    @Override
 	public void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
 		enemigo.recibirDanyo(DANYO_POR_TURNO);
 	}
-
-
 }

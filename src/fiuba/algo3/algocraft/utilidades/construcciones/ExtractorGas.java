@@ -19,10 +19,12 @@ public abstract class ExtractorGas extends Construccion {
         (this.propietario).sumarGasVespeno(CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO);
     }
 
+    @Override
     public void guardarEnParcela(ParcelaTierra parcela) throws ExcepcionElementoNoAdmitidoEnParcela {
     	throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
-    
+
+    @Override
     public void guardarEnParcela(ParcelaVolcan parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
     }

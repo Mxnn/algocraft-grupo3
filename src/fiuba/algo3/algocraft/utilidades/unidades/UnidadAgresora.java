@@ -35,7 +35,8 @@ public abstract class UnidadAgresora extends Unidad {
     public Danyo getDanyo() {
     	return this.danyo;
     }
-    
+
+    @Override
     public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
 		ataque.atacar(this);
 	}

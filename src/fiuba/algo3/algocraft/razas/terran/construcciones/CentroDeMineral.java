@@ -18,8 +18,8 @@ public class CentroDeMineral extends ExtractorMineral {
         super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION);
     }
 
+    @Override
     public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.EXTRACTOR_MINERAL;
     }
-    
 }

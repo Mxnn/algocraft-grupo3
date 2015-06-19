@@ -16,5 +16,4 @@ public class Costo {
 	public int getCostoGas() {
 		return costoGas;
 	}
-
 }

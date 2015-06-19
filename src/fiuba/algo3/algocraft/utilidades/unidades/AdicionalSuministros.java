@@ -12,7 +12,6 @@ public abstract class AdicionalSuministros extends Construccion {
         this.suministrosAdicionales = suministrosAdicionales;
     }
 
-
     public int getCantidadDeSuministrosAdicionales() {
         return this.suministrosAdicionales;
     }

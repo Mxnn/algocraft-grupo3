@@ -24,35 +24,43 @@ public abstract class Construccion extends Interactuable {
 
     public abstract TipoDeConstruccion getTipoDeConstruccion();
 
+    @Override
 	public void guardarEnParcela(ParcelaTierra parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         parcela.setElemento(this);
     }
-    
+
+    @Override
     public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela {
     	throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
-    
+
+    @Override
     public void guardarEnParcela(ParcelaMineral parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
-    
+
+    @Override
     public void guardarEnParcela(ParcelaVolcan parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         throw new ExcepcionElementoNoAdmitidoEnParcela();
     }
 
+    @Override
     public void destruir() {
         (this.propietario).eliminarConstruccion(this);
         (this.parcelaUbicacion).vaciarParcela();
     }
-    
+
+    @Override
     public int seleccionarDanyo(Danyo danyo){
     	return danyo.getDanyoDeAtaqueEnTierra();
     }
 
+    @Override
     public int seleccionarRango(RangoAtaque rango){
     	return rango.getRangoDeAtaqueEnTierra();
     }
 
+    @Override
     public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
         ataque.atacar(this);
     }

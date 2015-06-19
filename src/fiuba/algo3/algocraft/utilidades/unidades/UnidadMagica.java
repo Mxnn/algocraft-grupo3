@@ -36,7 +36,8 @@ public abstract class UnidadMagica extends Unidad {
     	super.recibirEmp();
     	this.energia = 0;
     }
-    
+
+    @Override
     public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
 		ataque.atacar(this);
 	}

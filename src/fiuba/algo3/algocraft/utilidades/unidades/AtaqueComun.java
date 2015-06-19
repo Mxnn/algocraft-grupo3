@@ -28,10 +28,12 @@ public class AtaqueComun extends Ataque {
     	enemigo.recibirDanyo(enemigo.seleccionarDanyo(this.danyo));
 	}
 
+    @Override
 	public void atacar(Construccion enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
     	this.danyar(enemigo);
 	}
-	
+
+    @Override
 	public void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
 	this.danyar(enemigo);
 }

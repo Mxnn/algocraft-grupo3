@@ -33,14 +33,17 @@ public class NaveCiencia extends UnidadMagica {
         super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, ENERGIA_MAXIMA, ENERGIA_INICIAL, REGENERACION_ENERGIA);
     }
 
+    @Override
     public void guardarEnParcela(ParcelaEspacio parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
     	parcela.setElemento(this);
     }
 
+    @Override
     public int seleccionarDanyo(Danyo danyo){
     	return danyo.getDanyoDeAtaqueEnAire();
     }
 
+    @Override
     public int seleccionarRango(RangoAtaque rango){
     	return rango.getRangoDeAtaqueEnAire();
     }
@@ -61,5 +64,4 @@ public class NaveCiencia extends UnidadMagica {
         this.gastarEnergia(COSTO_ENERGIA_RADIACION);
         (this.propietario).agregarAtaque(new AtaqueRadiacion(target));
     }
-    
 }

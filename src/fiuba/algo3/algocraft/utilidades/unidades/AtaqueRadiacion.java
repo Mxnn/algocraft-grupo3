@@ -18,7 +18,8 @@ public class AtaqueRadiacion extends Ataque {
 		super(target);
 		this.enemigo = target.devolverElemento();
 	}
-	
+
+    @Override
 	public void tareaDeEntreTurno(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
 		this.listaParcelas = new ArrayList<Parcela>();
 		(this.listaParcelas).addAll(mapa.devolverParcelasEnRadioUno(enemigo.getParcela()));

@@ -25,7 +25,6 @@ public class Clon extends UnidadAgresora {
 		return original.seleccionarRango(rango);
 	}
 
-
 	@Override
 	public void guardarEnParcela(ParcelaEspacio parcela)throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
 		if(!(this.cupoDeTransporte == 0))
@@ -33,6 +32,4 @@ public class Clon extends UnidadAgresora {
 			
 		parcela.setElemento(this);
 	}
-
-
 }

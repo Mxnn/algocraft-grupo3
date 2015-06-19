@@ -27,7 +27,8 @@ public class Acceso extends Construccion {
 	public Acceso(Jugador propietario) {
         super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION);
 	}
-        
+
+    @Override
     public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_BASICAS;
     }

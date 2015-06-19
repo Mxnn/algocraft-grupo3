@@ -30,7 +30,8 @@ public class PuertoEstelarProtoss extends Construccion {
         if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_BASICAS))
             throw new ExcepcionConstruccionesRequeridasNoCreadas();
 	}
-        
+
+    @Override
     public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_AVANZADAS;
     }
