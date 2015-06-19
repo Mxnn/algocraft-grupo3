@@ -1,19 +1,19 @@
-package fiuba.algo3.algocraft.razas.protoss;
+package fiuba.algo3.algocraft.modelo.razas.protoss;
 
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.razas.Raza;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplarios;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Asimilador;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.NexoMineral;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Pilon;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.PuertoEstelarProtoss;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorMineral;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.AdicionalSuministros;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.Acceso;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.ArchivosTemplarios;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.Asimilador;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.NexoMineral;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.Pilon;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.PuertoEstelarProtoss;
 
 public class Protoss extends Raza {
     private static Protoss INSTANCIA = null;

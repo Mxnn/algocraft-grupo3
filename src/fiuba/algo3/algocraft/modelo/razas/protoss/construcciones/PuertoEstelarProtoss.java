@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.razas.protoss.construcciones;
+package fiuba.algo3.algocraft.modelo.razas.protoss.construcciones;
 
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
@@ -6,12 +6,12 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEntidadEnConstruccion;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.NaveTransporteProtoss;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Scout;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
-import fiuba.algo3.algocraft.razas.protoss.unidades.NaveTransporteProtoss;
-import fiuba.algo3.algocraft.razas.protoss.unidades.Scout;
 
 
 public class PuertoEstelarProtoss extends Construccion {

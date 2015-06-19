@@ -28,12 +28,12 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadEnemiga;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
-import fiuba.algo3.algocraft.razas.protoss.Protoss;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.Acceso;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.ArchivosTemplarios;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.PuertoEstelarProtoss;
-import fiuba.algo3.algocraft.razas.protoss.unidades.AltoTemplario;
-import fiuba.algo3.algocraft.razas.protoss.unidades.Zealot;
+import fiuba.algo3.algocraft.modelo.razas.protoss.Protoss;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplarios;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.PuertoEstelarProtoss;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Zealot;
 
 public class AltoTemplarioTest {
     @Test(expected = ExcepcionUnidadEnemiga.class)

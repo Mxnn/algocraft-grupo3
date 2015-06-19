@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.razas.protoss.construcciones;
+package fiuba.algo3.algocraft.modelo.razas.protoss.construcciones;
 
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;

@@ -29,6 +29,11 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadEnemiga;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadYaSeEncuentraEnLaNave;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+import fiuba.algo3.algocraft.modelo.razas.protoss.Protoss;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplarios;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Dragon;
 import fiuba.algo3.algocraft.modelo.razas.terran.Terran;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
@@ -39,11 +44,6 @@ import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Clon;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadMagica;
-import fiuba.algo3.algocraft.razas.protoss.Protoss;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.Acceso;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.ArchivosTemplarios;
-import fiuba.algo3.algocraft.razas.protoss.unidades.AltoTemplario;
-import fiuba.algo3.algocraft.razas.protoss.unidades.Dragon;
 
 public class IntegradoresTest {
 	

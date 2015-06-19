@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.razas.protoss.unidades;
+package fiuba.algo3.algocraft.modelo.razas.protoss.unidades;
 
 import fiuba.algo3.algocraft.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;

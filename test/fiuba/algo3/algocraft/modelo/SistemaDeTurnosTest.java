@@ -15,8 +15,8 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+import fiuba.algo3.algocraft.modelo.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.modelo.razas.terran.Terran;
-import fiuba.algo3.algocraft.razas.protoss.Protoss;
 
 public class SistemaDeTurnosTest {
     @Test

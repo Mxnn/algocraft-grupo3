@@ -29,11 +29,11 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadYaSeEncuentraEnLa
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
-import fiuba.algo3.algocraft.razas.protoss.Protoss;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.Acceso;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.PuertoEstelarProtoss;
-import fiuba.algo3.algocraft.razas.protoss.unidades.Dragon;
-import fiuba.algo3.algocraft.razas.protoss.unidades.NaveTransporteProtoss;
+import fiuba.algo3.algocraft.modelo.razas.protoss.Protoss;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.PuertoEstelarProtoss;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Dragon;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.NaveTransporteProtoss;
 
 public class NaveTransporteProtossTest {
     /*@Test

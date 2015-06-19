@@ -24,15 +24,15 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+import fiuba.algo3.algocraft.modelo.razas.protoss.Protoss;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Zealot;
 import fiuba.algo3.algocraft.modelo.razas.terran.Terran;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Marine;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
-import fiuba.algo3.algocraft.razas.protoss.Protoss;
-import fiuba.algo3.algocraft.razas.protoss.construcciones.Acceso;
-import fiuba.algo3.algocraft.razas.protoss.unidades.Zealot;
 
 public class Zealot1Test {
 

@@ -23,9 +23,9 @@ import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
+import fiuba.algo3.algocraft.modelo.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Marine;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
-import fiuba.algo3.algocraft.razas.protoss.Protoss;
 
 public class ParcelaTest {
     @Test
