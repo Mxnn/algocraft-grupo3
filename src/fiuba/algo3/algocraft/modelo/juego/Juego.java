@@ -37,7 +37,8 @@ public class Juego {
     }
 
     private void crearBasesEnMapa() {
-        //Base 1
+    	
+//        Base 1
         this.mapa.insertarParcela(new ParcelaVolcan(new Coordenada(0, 0)));
         this.mapa.insertarParcela(new ParcelaMineral(new Coordenada(0, 1)));
         this.mapa.insertarParcela(new ParcelaMineral(new Coordenada(0, 2)));
