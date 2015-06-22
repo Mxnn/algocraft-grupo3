@@ -26,7 +26,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 
 public class Jugador {
-    private final int LONGITUD_MINIMA_PARA_EL_NOMBRE = 4;
+    public static int LONGITUD_MINIMA_PARA_EL_NOMBRE = 4;
     public static final int GAS_VESPENO_INICIAL = 0;
     public static final int MINERAL_INICIAL = 200;
     public static final int CAPACIDAD_DE_POBLACION_MAXIMA = 200;
