@@ -37,7 +37,8 @@ public class AtaqueTormentaPsionicaTest {
 	public void despuesDeDosAtaqueEsDescartable() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador {
 		 Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
 		 Juego juego = new Juego();
-		 juego.agregarJugador(unJugador2);		 Mapa mapa = new Mapa(2, 5, 5);
+		 juego.agregarJugador(unJugador2);		 
+		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
 	     for(int i= 0; i<=7; i++){
 				

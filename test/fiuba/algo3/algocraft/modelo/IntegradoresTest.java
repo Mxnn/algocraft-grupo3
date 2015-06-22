@@ -130,6 +130,7 @@ public class IntegradoresTest {
     @Test
     public void escenarioNaveCienciaQuitaEscudoYRestaSuMagia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente{
     	 Juego juego = new Juego();
+    	 juego.setMapaParaTests();
     	 Mapa mapa = juego.getMapa();
          Jugador jTerran = new Jugador("Juan", Color.ROJO, Terran.getInstance());
          Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
@@ -165,6 +166,7 @@ public class IntegradoresTest {
     @Test
     public void escenarioNaveCienciaQuitaEscudoYMagiaAOTraNaveCienciaYRestaSuMagia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente{
     	 Juego juego = new Juego();
+    	 juego.setMapaParaTests();
     	 Mapa mapa = juego.getMapa();
          Jugador jTerran = new Jugador("Juan", Color.ROJO, Terran.getInstance());
          Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
@@ -215,6 +217,7 @@ public class IntegradoresTest {
     @Test
     public void escenarioNaveCienciaNoQuitaEscudoNiMagiaCuandoErraYRestaSuMagia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente{
     	 Juego juego = new Juego();
+    	 juego.setMapaParaTests();
     	 Mapa mapa = juego.getMapa();
          Jugador jTerran = new Jugador("Juan", Color.ROJO, Terran.getInstance());
          Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
@@ -253,6 +256,7 @@ public class IntegradoresTest {
     @Test
     public void escenarioTemplarioLanzaSusAtaquesBienYSusClonesMuerenConEMP() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionUnidadEnemiga {
     	 Juego juego = new Juego();
+    	 juego.setMapaParaTests();
     	 Mapa mapa = juego.getMapa();
          Jugador jTerran = new Jugador("Juan", Color.ROJO, Terran.getInstance());
          Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
@@ -291,14 +295,31 @@ public class IntegradoresTest {
 
          templario.lanzarTormentaPsionica(puertoT.getParcela());
          
+         
          jProtoss.terminarTurno(juego);
          
-
+         System.out.println(puertoT.getParcela().getCoordenada().getX());
+         System.out.println(puertoT.getParcela().getCoordenada().getY());
+//         System.out.println(naveCiencia2.getParcela().getCoordenada());
+         System.out.println(naveCiencia2.getParcela().getCoordenada().getX());
+         System.out.println(naveCiencia2.getParcela().getCoordenada().getY());
+//         System.out.println(naveCiencia.getParcela().getCoordenada());
+         System.out.println(naveCiencia.getParcela().getCoordenada().getX());
+         System.out.println(naveCiencia.getParcela().getCoordenada().getY());
+         System.out.println(naveCiencia2.getVida());
+         System.out.println(naveCiencia.getVida());
+         
+         
+         
          boolean OKVidaNaveCiencia2 = naveCiencia2.getVida() == (vidaPrevioAtaque - 50);
          boolean OKVidaNaveCiencia = naveCiencia.getVida() == (vidaPrevioAtaque - 50);
+         Assert.assertTrue(OKVidaNaveCiencia2);
+         Assert.assertTrue(OKVidaNaveCiencia);
+         
          vidaPrevioAtaque = naveCiencia2.getVida();
 
-         Assert.assertTrue(OKVidaNaveCiencia && OKVidaNaveCiencia2);
+         
+         
          jTerran.terminarTurno(juego);
          
          boolean OKVidaNaveCiencia2doTurno = naveCiencia.getVida() == (vidaPrevioAtaque - 50);
@@ -350,6 +371,7 @@ public class IntegradoresTest {
     @Test
     public void transportarConLaNaveDeTransporteLosTransportaBien() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEnemigoFueraDeAlcance, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionEstadoMuerto, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionEntidadEnConstruccion, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoEsUnidadTerrestre, ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionUnidadYaSeEncuentraEnLaNave {
         Juego juego = new Juego();
+        juego.setMapaParaTests();
         Mapa mapa = juego.getMapa();
         Jugador jTerran = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
@@ -429,6 +451,7 @@ public class IntegradoresTest {
     @Test(expected = ExcepcionNoHaySuministrosDisponibles.class)
     public void seLlegaAlTopeDePoblacion()throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente{
     	Juego juego = new Juego();
+    	juego.setMapaParaTests();
     	Mapa mapa = juego.getMapa();
         Jugador jTerran = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
@@ -493,6 +516,7 @@ public class IntegradoresTest {
     @Test
     public void escenarioJugadorPierdeSiNoPuedeObtenerMasSuministros() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionUnidadEnemiga {
     	 Juego juego = new Juego();
+    	 juego.setMapaParaTests();
     	 Mapa mapa = juego.getMapa();
          Jugador jTerran = new Jugador("Juan", Color.ROJO, Terran.getInstance());
          Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());

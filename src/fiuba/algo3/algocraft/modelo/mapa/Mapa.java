@@ -46,7 +46,7 @@ public class Mapa {
             throw new ExcepcionNumeroDeBasesInvalido();
     }
 
-    private void llenarMapaConParcelasDeTierra() {
+    public void llenarMapaConParcelasDeTierra() {
     	for (int x = 0; x <=this.filas; x++){
     	     for (int y = 0; y < this.columnas; y++){
     	    	 Coordenada coordenada = new Coordenada(x,y);

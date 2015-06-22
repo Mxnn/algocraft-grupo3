@@ -100,6 +100,7 @@ public class NaveCienciaTest {
 	@Test(expected = ExcepcionEnergiaInsuficiente.class)
 	public void lanzarEMPlanzaExcepcionSiEnergiaInsuficiente() throws ExcepcionNombreCorto, ExcepcionNumeroDeBasesInvalido, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHayLugarDisponible {
         Juego juego = new Juego();
+        juego.setMapaParaTests();
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         juego.agregarJugador(unJugador);
         Mapa mapa = juego.getMapa();

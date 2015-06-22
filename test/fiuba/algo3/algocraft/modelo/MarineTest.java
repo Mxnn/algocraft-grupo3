@@ -37,6 +37,7 @@ public class MarineTest {
     @Test
     public void atacarRestaVidaATerrestre() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionNoHayLugarDisponible, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso {
         Juego juego = new Juego();
+        juego.setMapaParaTests();
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
         Mapa mapa = juego.getMapa();
@@ -79,6 +80,7 @@ public class MarineTest {
     @Test
     public void atacarRestaVidaAVolador() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoHayLugarDisponible, ExcepcionConstruccionesRequeridasNoCreadas {
         Juego juego = new Juego();
+        juego.setMapaParaTests();
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
         Mapa mapa = juego.getMapa();
@@ -134,6 +136,7 @@ public class MarineTest {
     @Test(expected = ExcepcionEnemigoFueraDeAlcance.class)
     public void atacarFueraDeRangoLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoHayLugarDisponible {
         Juego juego = new Juego();
+        juego.setMapaParaTests();
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
         Mapa mapa = juego.getMapa();
@@ -172,6 +175,7 @@ public class MarineTest {
     @Test
     public void atacarRestaVidaAConstruccion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHayLugarDisponible {
         Juego juego = new Juego();
+        juego.setMapaParaTests();
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
         Mapa mapa = juego.getMapa();

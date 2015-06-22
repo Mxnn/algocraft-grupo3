@@ -72,6 +72,7 @@ public class JuegoTest {
     @Test
     public void cadaTurnoSeMueveLasUnidadesQueDebenMover() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreCorto, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionRecursosInsuficientes, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion{
     	Juego elJuego= new Juego();
+    	elJuego.setMapaParaTests();
         elJuego.crearJugador("Juan", Color.ROJO, Terran.getInstance());
     	Jugador jugadorUno = elJuego.getJugadores().get(0);
  

@@ -32,7 +32,8 @@ public class Juego {
     
     public Juego() throws ExcepcionNumeroDeBasesInvalido { 
     	this.mapa = new Mapa (2, 20, 20);
-    	this.rand = new RandomizadorTests();
+//    	this.rand = new RandomizadorTests();
+    	this.rand = new Randomizador();
     	this.crearEspaciosEnElMapa();
     	this.crearMineralesPorElMapa();
     	this.crearBasesEnMapa();
@@ -40,8 +41,13 @@ public class Juego {
         
     }
 
-    public void setMapaParaTests(){
+    public void setMapaParaTests() throws ExcepcionNumeroDeBasesInvalido{
+//    	this.mapa = new Mapa (2, 20, 20);
+    	this.mapa.llenarMapaConParcelasDeTierra();
     	this.rand = new RandomizadorTests();
+    	this.crearEspaciosEnElMapa();
+    	this.crearMineralesPorElMapa();
+    	this.crearBasesEnMapa();
     }
     private void crearBasesEnMapa() {
     	int x = this.rand.randInt(0, 5); //calcular bordes desde el mapa

@@ -147,6 +147,7 @@ public class Zealot1Test {
     @Test
     public void atacarRestaVidaAConstruccion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionNoHayLugarDisponible {
         Juego juego = new Juego();
+        juego.setMapaParaTests();
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
         Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
         juego.agregarJugador(unJugador);
