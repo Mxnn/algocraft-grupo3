@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 
 import fiuba.algo3.algocraft.controlador.CerrarFrameControlador;
+import fiuba.algo3.algocraft.controlador.UnloadDatosJugadores;
 
 public class IngresoJugadoresVista extends JDialog {
 
@@ -105,7 +106,8 @@ public class IngresoJugadoresVista extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
-				okButton.setActionCommand("OK");
+//				okButton.setActionCommand("OK");
+				okButton.addActionListener(new UnloadDatosJugadores());
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}

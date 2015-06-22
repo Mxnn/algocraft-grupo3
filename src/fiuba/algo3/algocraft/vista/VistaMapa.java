@@ -41,8 +41,8 @@ public class VistaMapa extends JPanel {
 
 		 this.setLocation(0, 0);
 		 this.setSize(500,500);
-//		 panelDeParcela.setLayout(new GridLayout(columnas,filas)); esto lo comente para poder usar el window builder
-		 this.setLayout(new GridLayout(20,20));
+		 this.setLayout(new GridLayout(columnas,filas)); //esto lo comente para poder usar el window builder
+//		 this.setLayout(new GridLayout(20,20));
 		 
 		 for (int i=0;i<filas*columnas;i++){
 			 
@@ -58,7 +58,7 @@ public class VistaMapa extends JPanel {
 	}
 
     public JButton getButton(int x, int y) {
-        int index = x * this.columnas + y;
+        int index = y * this.columnas + x;
         return list.get(index);
     }
     

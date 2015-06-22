@@ -97,7 +97,6 @@ public class VistaJuego {
 		 ventanita.setVisible(true);
 		 
 		 
-		 
 		 ventanita.repaint();
 	}
 }

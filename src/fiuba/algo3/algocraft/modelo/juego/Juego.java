@@ -31,7 +31,7 @@ public class Juego {
     private Randomizador rand;
     
     public Juego() throws ExcepcionNumeroDeBasesInvalido { 
-    	this.mapa = new Mapa (2, 20, 20);
+    	this.mapa = new Mapa (2, 30, 30);
 //    	this.rand = new RandomizadorTests();
     	this.rand = new Randomizador();
     	this.crearEspaciosEnElMapa();
@@ -50,8 +50,10 @@ public class Juego {
     	this.crearBasesEnMapa();
     }
     private void crearBasesEnMapa() {
-    	int x = this.rand.randInt(0, 5); //calcular bordes desde el mapa
+    	int x = this.rand.randInt(0, 4); //calcular bordes desde el mapa
     	int y = this.rand.randInt(0, this.mapa.getFilas());
+    	System.out.println(x);
+    	System.out.println(y);
     	
     	this.mapa.insertarParcela(new ParcelaVolcan(new Coordenada(x,y)));
     	
@@ -88,7 +90,7 @@ public class Juego {
     }
 
     private void crearMineralesPorElMapa() {
-    	int cantMinerales = this.rand.randInt(1,7); //sacar magic number
+    	int cantMinerales = this.rand.randInt(7,15); //sacar magic number
     	for(int i=0; i<cantMinerales; i++){
     		int x = this.rand.randInt(0, this.mapa.getColumnas());
         	int y = this.rand.randInt(0, this.mapa.getFilas());
@@ -105,7 +107,7 @@ public class Juego {
     }
 
     private void crearEspaciosEnElMapa() {
-    	int cantEspacios = this.rand.randInt(1, 4);
+    	int cantEspacios = this.rand.randInt(2, 6);
     	for(int i=0; i<cantEspacios; i++){
     		int x = this.rand.randInt(0, this.mapa.getColumnas());
         	int y = this.rand.randInt(0, this.mapa.getColumnas());
