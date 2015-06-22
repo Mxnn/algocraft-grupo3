@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft.controlador;
 
+import java.awt.event.ActionListener;
+
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 
 public class Controlador {
@@ -23,4 +25,9 @@ public class Controlador {
 		System.out.println("click en parcela");
 		
 	}
+	public ActionListener getNuevoJuego() {
+		return new NuevoJuegoListener(this);
+	}
+
+
 }

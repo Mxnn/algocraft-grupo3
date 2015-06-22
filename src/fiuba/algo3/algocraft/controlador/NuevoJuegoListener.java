@@ -3,6 +3,8 @@ package fiuba.algo3.algocraft.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import fiuba.algo3.algocraft.vista.IngresoJugadoresVista;
+
 public class NuevoJuegoListener implements ActionListener {
 	Controlador controlador;
 	
@@ -11,8 +13,7 @@ public class NuevoJuegoListener implements ActionListener {
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-//		controlador.comenzarJuego();
-
+		new IngresoJugadoresVista();
 	}
 
 }

@@ -10,5 +10,6 @@ public class ObjetoMain {
 		 Controlador unControlador = new Controlador(elJuego);
 
 		 new VistaJuego(elJuego, unControlador);
+		 
 	 }
 }

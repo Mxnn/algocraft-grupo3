@@ -79,6 +79,7 @@ public class VistaJuego {
 		 
 		 JMenuItem mntmNuevoJuego = new JMenuItem("Nuevo Juego");
 		 mnArchivo.add(mntmNuevoJuego);
+		 mntmNuevoJuego.addActionListener(this.controlador.getNuevoJuego());
 		 
 		 JMenuItem mntmSalir = new JMenuItem("Salir");
 		 mnArchivo.add(mntmSalir);
