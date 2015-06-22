@@ -40,7 +40,7 @@ public class VistaMapa extends JPanel {
 		coloresParcelas.put(ParcelaMineral.class, Color.CYAN);
 
 		 this.setLocation(0, 0);
-		 this.setSize(500,500);
+		 this.setSize(600,600);
 		 this.setLayout(new GridLayout(columnas,filas)); //esto lo comente para poder usar el window builder
 //		 this.setLayout(new GridLayout(20,20));
 		 

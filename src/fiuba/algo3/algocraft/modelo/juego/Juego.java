@@ -42,18 +42,21 @@ public class Juego {
     }
 
     public void setMapaParaTests() throws ExcepcionNumeroDeBasesInvalido{
-//    	this.mapa = new Mapa (2, 20, 20);
+    	this.mapa = new Mapa (2, 20, 20);
     	this.mapa.llenarMapaConParcelasDeTierra();
     	this.rand = new RandomizadorTests();
     	this.crearEspaciosEnElMapa();
     	this.crearMineralesPorElMapa();
     	this.crearBasesEnMapa();
+    	this.sistemaDeTurnos = new SistemaDeTurnos(this.jugadores,this.mapa);
     }
+    
+    
     private void crearBasesEnMapa() {
     	int x = this.rand.randInt(0, 4); //calcular bordes desde el mapa
     	int y = this.rand.randInt(0, this.mapa.getFilas());
-    	System.out.println(x);
-    	System.out.println(y);
+//    	System.out.println(x);
+//    	System.out.println(y);
     	
     	this.mapa.insertarParcela(new ParcelaVolcan(new Coordenada(x,y)));
     	
@@ -107,7 +110,7 @@ public class Juego {
     }
 
     private void crearEspaciosEnElMapa() {
-    	int cantEspacios = this.rand.randInt(2, 6);
+    	int cantEspacios = this.rand.randInt(3, 8);
     	for(int i=0; i<cantEspacios; i++){
     		int x = this.rand.randInt(0, this.mapa.getColumnas());
         	int y = this.rand.randInt(0, this.mapa.getColumnas());
