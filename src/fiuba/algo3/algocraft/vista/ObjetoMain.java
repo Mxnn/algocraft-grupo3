@@ -9,7 +9,7 @@ public class ObjetoMain {
 		 Juego elJuego = new Juego();
 		 Controlador unControlador = new Controlador(elJuego);
 		 
-		 new NuevoJugadorVista(elJuego);
-		 //new VistaJuego(elJuego, unControlador);
+//		 new NuevoJugadorVista(elJuego);
+		 new VistaJuego(elJuego, unControlador);
 	 }
 }

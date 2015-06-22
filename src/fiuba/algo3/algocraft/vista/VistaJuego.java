@@ -6,8 +6,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import fiuba.algo3.algocraft.controlador.CerrarFrameControlador;
 import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 public class VistaJuego {
 	Juego modelo ;
@@ -25,11 +30,13 @@ public class VistaJuego {
 		 JFrame ventanita= new JFrame();
 		 ventanita.setSize(800,650);
 		 
-		 ventanita.setVisible(true);	
 		 
 		 JPanel panelDeParcela = new JPanel();
+		 panelDeParcela.setLocation(0, 0);
 		 panelDeParcela.setSize(500,500);
-		 panelDeParcela.setLayout(new GridLayout(columnas,filas));
+//		 panelDeParcela.setLayout(new GridLayout(columnas,filas));
+		 panelDeParcela.setLayout(new GridLayout(20,20));
+
 		 
 		 for (int i=0;i<filas*columnas;i++){
 			 JButton buttonActual= new JButton();
@@ -54,16 +61,31 @@ public class VistaJuego {
 		 
 		 
 
-		 JButton button = new JButton();
-		 button.setSize(20,20);
-		 button.setText("Button Crear deposito de Sumnistro");
-		 button.addActionListener(this.controlador.getCrearDepositoDeSumnistroListener());
+//		 JButton button = new JButton();
+//		 button.setSize(20,20);
+//		 button.setText("Button Crear deposito de Sumnistro");
+//		 button.addActionListener(this.controlador.getCrearDepositoDeSumnistroListener());
 	
-		 ventanita.add(panelDeParcela);
-		 ventanita.add(button);
-		 ventanita.setLayout(null);
+		 ventanita.getContentPane().add(panelDeParcela);
+		 
+//		 ventanita.getContentPane().add(button);
+		 ventanita.getContentPane().setLayout(null);
+		 
+		 JMenuBar menuBar = new JMenuBar();
+		 ventanita.setJMenuBar(menuBar);
+		 
+		 JMenu mnArchivo = new JMenu("Archivo");
+		 menuBar.add(mnArchivo);
+		 
+		 JMenuItem mntmNuevoJuego = new JMenuItem("Nuevo Juego");
+		 mnArchivo.add(mntmNuevoJuego);
+		 
+		 JMenuItem mntmSalir = new JMenuItem("Salir");
+		 mnArchivo.add(mntmSalir);
+		 mntmSalir.addActionListener(new CerrarFrameControlador(ventanita));
+		 
+		 ventanita.setVisible(true);
 
 		 ventanita.repaint();
 	}
-
 }
