@@ -5,6 +5,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 
 public abstract class UnidadAgresora extends Unidad {
@@ -40,4 +41,5 @@ public abstract class UnidadAgresora extends Unidad {
     public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
 		ataque.atacar(this);
 	}
+    
 }
