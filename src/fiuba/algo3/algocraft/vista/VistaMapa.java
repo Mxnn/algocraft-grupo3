@@ -1,14 +1,17 @@
 package fiuba.algo3.algocraft.vista;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 
+import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.algocraft.controlador.Controlador;
@@ -25,7 +28,8 @@ public class VistaMapa extends JPanel {
 	private static final char GREEN = 0;
 	private int filas;
 	private int columnas;
-    private final List<JButton> list = new ArrayList<JButton>();
+    private final List<JButton> listaBotones = new ArrayList<JButton>();
+    private final List<JLabel> listaLabels = new ArrayList<JLabel>();
     private HashMap<Object, Color> coloresParcelas;
 	/**
 	 * Create the panel.
@@ -41,26 +45,41 @@ public class VistaMapa extends JPanel {
 
 		 this.setLocation(0, 0);
 		 this.setSize(600,600);
-		 this.setLayout(new GridLayout(columnas,filas)); //esto lo comente para poder usar el window builder
-//		 this.setLayout(new GridLayout(20,20));
+		 this.setLayout(new GridLayout(columnas,filas)); 
+//		 this.setLayout(new GridLayout(20,20)); //esto lo comente para poder usar el window builder
 		 
 		 for (int i=0;i<filas*columnas;i++){
 			 
 			 int y = i / columnas;
 	         int x = i % columnas;
 	         JButton buttonActual= new JButton();
-			 list.add(buttonActual);
+	         listaBotones.add(buttonActual);
 			 this.add(buttonActual);
 			 buttonActual.addActionListener(controlador.getParcelaListener());
-			 Color color = Color.GREEN;
-			 buttonActual.setBackground(color);
+			 buttonActual.setMargin(new Insets(0, 0, 0, 0));
+			 
+		    Font font = buttonActual.getFont();
+		    font = font.deriveFont(font.getSize() * 0.8f);
+		    buttonActual.setFont(font);
+
+//			 JLabel label = new JLabel();
+//			 this.listaLabels.add(label);
+//			 this.add(label);
+			 
+//			 Color color = Color.GREEN;
+//			 buttonActual.setBackground(color);
 		 }
 	}
 
     public JButton getButton(int x, int y) {
         int index = y * this.columnas + x;
-        return list.get(index);
+        return listaBotones.get(index);
     }
+    
+//    public JLabel getLabel(int x, int y) {
+//        int index = y * this.columnas + x;
+//        return listaLabels.get(index);
+//    }
     
     public void setParcelas(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa{
     	for(int x=0; x<this.columnas; x++){
@@ -75,4 +94,22 @@ public class VistaMapa extends JPanel {
     	JButton buttonActual = this.getButton(x, y);
     	buttonActual.setBackground(color);
     }
+
+    private void pintarElemento(Object o,int x,int y){
+    	JButton buttonActual = this.getButton(x, y);
+    	buttonActual.setText("El");
+
+//    	JLabel label = this.getLabel(x, y);
+//    	label.setText("B");
+    }
+    
+	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa {
+		for(int x=0; x<this.columnas; x++){
+    		for(int y=0; y<this.filas; y++){
+    			Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y));
+    			if(!parcela.estaVacia())
+    				this.pintarElemento(parcela.devolverElemento(),x,y);
+    		}
+		}
+	}
 }

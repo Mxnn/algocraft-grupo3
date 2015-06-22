@@ -10,6 +10,7 @@ import fiuba.algo3.algocraft.controlador.CerrarFrameControlador;
 import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -20,7 +21,8 @@ import java.awt.Color;
 public class VistaJuego {
 	Juego modelo ;
 	Controlador controlador;
-	
+	VistaMapa panelDeParcela;
+	JFrame ventanita;
 	
 	public static int CANTIDAD_DE_OPCIONES = 8;
 	public VistaJuego(Juego elJuego, Controlador elControlador) throws ExcepcionCoordenadaFueraDelMapa {
@@ -31,10 +33,12 @@ public class VistaJuego {
 		int filas = this.modelo.getMapa().getFilas();
 		
 		 JFrame ventanita= new JFrame();
-		 ventanita.setSize(800,650);
+		 this.ventanita = ventanita;
+		 ventanita.setSize(800,700);
 		 
 		 
 		 VistaMapa panelDeParcela = new VistaMapa(this.controlador,filas,columnas);
+		 this.panelDeParcela = panelDeParcela;
 		 panelDeParcela.setBackground(new Color(240, 240, 240));
 		 
 //		 panelDeParcela.setLocation(0, 0);
@@ -98,5 +102,10 @@ public class VistaJuego {
 		 
 		 
 		 ventanita.repaint();
+	}
+	
+	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa{
+		this.panelDeParcela.refrescar(mapa);
+		this.ventanita.repaint();
 	}
 }
