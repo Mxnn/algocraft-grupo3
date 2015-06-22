@@ -51,7 +51,8 @@ public class Mapa {
     	     for (int y = 0; y < this.columnas; y++){
     	    	 Coordenada coordenada = new Coordenada(x,y);
     			 Parcela parcela = new ParcelaTierra(coordenada);
-    	    	 this.tablero.put(coordenada, parcela);
+//    	    	 this.tablero.put(coordenada, parcela);
+    			 this.insertarParcela(parcela);
     	     }
     	}
     }
@@ -76,7 +77,7 @@ public class Mapa {
             throw new ExcepcionCoordenadaFueraDelMapa();
     }
 
-    private boolean coordenadaExiste(Coordenada coordenada) {
+    public boolean coordenadaExiste(Coordenada coordenada) {
         return ( (coordenada.getX() >= 0 && coordenada.getX() < this.columnas) && (coordenada.getY() >= 0 && coordenada.getY() < this.filas) );
     }
 
