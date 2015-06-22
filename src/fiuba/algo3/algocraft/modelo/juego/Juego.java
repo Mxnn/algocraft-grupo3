@@ -22,7 +22,7 @@ import fiuba.algo3.algocraft.modelo.razas.Raza;
 
 
 public class Juego {
-    private static int MAXIMO_NUMERO_DE_JUGADORES = 2;
+    public static int MAXIMO_NUMERO_DE_JUGADORES = 2;
 
 
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();

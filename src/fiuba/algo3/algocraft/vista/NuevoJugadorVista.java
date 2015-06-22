@@ -8,22 +8,20 @@ import javax.swing.*;
 
 public class NuevoJugadorVista extends JFrame {
     private JTextField textNombre;
-    private JLabel labelColor;
     private JComboBox comboColor;
-    private JLabel labelRaza;
     private JComboBox comboRaza;
     private JButton botonAceptar;
     private JButton botonCancelar;
     private JPanel panelPrincipal;
     private Juego modelo;
 
-    public NuevoJugadorVista(Juego modelo) {
+    public NuevoJugadorVista(Juego modelo, String titulo) {
         //Configurando la ventana
-        super("Agregar nuevo jugador");
+        super(titulo);
         this.setContentPane(panelPrincipal);
         this.pack();
         this.setSize(this.getWidth() + 100, this.getHeight());
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setVisible(true);
 
         this.modelo = modelo;

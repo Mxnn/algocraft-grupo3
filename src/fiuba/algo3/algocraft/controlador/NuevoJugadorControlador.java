@@ -20,7 +20,6 @@ public class NuevoJugadorControlador implements ActionListener {
     private NuevoJugadorVista frame;
     Juego modelo;
 
-
     public NuevoJugadorControlador(Juego modelo, NuevoJugadorVista frame) {
         this.modelo = modelo;
         this.frame = frame;
@@ -32,16 +31,14 @@ public class NuevoJugadorControlador implements ActionListener {
             modelo.crearJugador((this.frame).getNombreElegido(), this.devolverColor((this.frame).getNumeroDeColorElegido()), this.devolverRaza((this.frame).getNumeroDeRazaElegida()));
             this.frame.dispose();
         } catch (ExcepcionNombreEnUso excepcionNombreEnUso) {
-            JOptionPane.showMessageDialog(this.frame, "El nombre esta en uso");
+            JOptionPane.showMessageDialog(this.frame, "El nombre esta en uso. Por favor, elija otro");
         } catch (ExcepcionAlcanzadoElMaximoCupoDeJugadores excepcionAlcanzadoElMaximoCupoDeJugadores) {
-            JOptionPane.showMessageDialog(this.frame, "Se alcanzo el maximo de jugadores creados");
+            JOptionPane.showMessageDialog(this.frame, "Se permiten hasta " + Juego.MAXIMO_NUMERO_DE_JUGADORES + " jugadores");
         } catch (ExcepcionNombreCorto excepcionNombreCorto) {
-            JOptionPane.showMessageDialog(this.frame, "El nombre debe superar los " + Jugador.LONGITUD_MINIMA_PARA_EL_NOMBRE + " caracteres");
+            JOptionPane.showMessageDialog(this.frame, "El nombre debe superar los " + (Jugador.LONGITUD_MINIMA_PARA_EL_NOMBRE - 1) + " caracteres");
         } catch (ExcepcionColorEnUso excepcionColorEnUso) {
-            JOptionPane.showMessageDialog(this.frame, "El color esta en uso");
+            JOptionPane.showMessageDialog(this.frame, "El color esta en uso. Por favor, elija otro");
         }
-
-
     }
 
     private Color devolverColor(int numeroDeColor) {

@@ -8,8 +8,8 @@ public class ObjetoMain {
 	 public static void main(String[] args) throws ExcepcionNumeroDeBasesInvalido{
 		 Juego elJuego = new Juego();
 		 Controlador unControlador = new Controlador(elJuego);
-		 
-//		 new NuevoJugadorVista(elJuego);
-		 new VistaJuego(elJuego, unControlador);
+
+		 //new VistaJuego(elJuego, unControlador);
+         new PantallaPrincipalVista(elJuego);
 	 }
 }
