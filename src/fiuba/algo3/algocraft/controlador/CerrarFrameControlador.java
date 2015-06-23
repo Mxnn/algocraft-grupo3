@@ -12,7 +12,7 @@ public class CerrarFrameControlador implements ActionListener {
         this.frame = frame;
     }
 
-    @Override
+//    @Override
     public void actionPerformed(ActionEvent e) {
         this.frame.dispose();
     }

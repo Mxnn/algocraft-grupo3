@@ -13,7 +13,7 @@ import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 public class ObjetoMain {
 	 public static void main(String[] args) throws ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada{
 		 Juego elJuego = new Juego();
-		 elJuego.setMapaParaTests(); //para saber bien la vista
+//		 elJuego.setMapaParaTests(); //para saber bien la vista
 		 Controlador unControlador = new Controlador(elJuego);
 
 		 VistaJuego vista = new VistaJuego(elJuego, unControlador);
