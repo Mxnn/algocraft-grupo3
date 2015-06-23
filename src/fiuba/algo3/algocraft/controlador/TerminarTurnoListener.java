@@ -27,6 +27,7 @@ public class TerminarTurnoListener implements ActionListener {
         try {
             this.modelo.getJugadorQueJuega().terminarTurno(this.modelo);
             this.vistaBarraLateral.refrescar(this.modelo);
+            this.vistaBarraLateral.setSelectedIndex(0);
         } catch (ExcepcionNoEsElTurnoDelJugador excepcionNoEsElTurnoDelJugador) {
             JOptionPane.showMessageDialog(this.frame, "No se puede pasar turno en tu turno");
         } catch (ExcepcionEstadoMuerto excepcionEstadoMuerto) {
