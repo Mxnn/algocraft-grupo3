@@ -31,7 +31,7 @@ public class VistaMapa extends JPanel {
     private final List<JButton> listaBotones = new ArrayList<JButton>();
     private final List<JLabel> listaLabels = new ArrayList<JLabel>();
     
-    private HashMap<Object, Color> coloresParcelas;
+    
     private Representador representador;
 	/**
 	 * Create the panel.
@@ -39,11 +39,7 @@ public class VistaMapa extends JPanel {
 	public VistaMapa(Controlador controlador, int filas, int columnas) {
 		this.filas= filas;
 		this.columnas = columnas;
-		this.coloresParcelas = new HashMap<Object, Color>();
-		coloresParcelas.put(ParcelaTierra.class, Color.GREEN);
-		coloresParcelas.put(ParcelaEspacio.class, Color.LIGHT_GRAY);
-		coloresParcelas.put(ParcelaVolcan.class, Color.YELLOW);
-		coloresParcelas.put(ParcelaMineral.class, Color.CYAN);
+
 
 		this.representador = new Representador();
 		 this.setLocation(0, 0);
@@ -94,7 +90,8 @@ public class VistaMapa extends JPanel {
     }
     /// lo hice asi porque lo dijeron en clase, que conste jaja
     private void pintarBoton(Object o,int x,int y){
-    	Color color = this.coloresParcelas.get(o.getClass());
+    	Color color = this.representador.getColorParcela(o);
+    	
     	JButton buttonActual = this.getButton(x, y);
     	buttonActual.setBackground(color);
     }

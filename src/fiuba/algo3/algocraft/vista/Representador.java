@@ -3,6 +3,10 @@ package fiuba.algo3.algocraft.vista;
 import java.awt.Color;
 import java.util.HashMap;
 
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.*;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.*;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.*;
@@ -10,6 +14,7 @@ import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.*;
 
 public class Representador {
 	private HashMap<Object, String> codigoElementos; 
+	private HashMap<Object, Color> coloresParcelas;
 	
 	public Representador(){
 		this.codigoElementos = new HashMap<Object, String>();
@@ -39,11 +44,22 @@ public class Representador {
 		this.codigoElementos.put(Scout.class, "Sc");
 		this.codigoElementos.put(Zealot.class, "Ze");
 
+		this.coloresParcelas = new HashMap<Object, Color>();
+		coloresParcelas.put(ParcelaTierra.class, Color.GREEN);
+		coloresParcelas.put(ParcelaEspacio.class, Color.LIGHT_GRAY);
+		coloresParcelas.put(ParcelaVolcan.class, Color.YELLOW);
+		coloresParcelas.put(ParcelaMineral.class, Color.CYAN);
+		
 	}
 	
 	public String getCodigo(Object o){
 		String codigo = this.codigoElementos.get(o.getClass());
 		return codigo;
 		
+	}
+
+	public Color getColorParcela(Object o) {
+		// TODO Auto-generated method stub
+		return this.coloresParcelas.get(o.getClass());
 	}
 }
