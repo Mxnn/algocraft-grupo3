@@ -30,7 +30,9 @@ public class VistaMapa extends JPanel {
 	private int columnas;
     private final List<JButton> listaBotones = new ArrayList<JButton>();
     private final List<JLabel> listaLabels = new ArrayList<JLabel>();
+    
     private HashMap<Object, Color> coloresParcelas;
+    private Representador representador;
 	/**
 	 * Create the panel.
 	 */
@@ -43,6 +45,7 @@ public class VistaMapa extends JPanel {
 		coloresParcelas.put(ParcelaVolcan.class, Color.YELLOW);
 		coloresParcelas.put(ParcelaMineral.class, Color.CYAN);
 
+		this.representador = new Representador();
 		 this.setLocation(0, 0);
 		 this.setSize(600,600);
 		 this.setLayout(new GridLayout(columnas,filas)); 
@@ -61,7 +64,6 @@ public class VistaMapa extends JPanel {
 		    Font font = buttonActual.getFont();
 		    font = font.deriveFont(font.getSize() * 0.8f);
 		    buttonActual.setFont(font);
-
 //			 JLabel label = new JLabel();
 //			 this.listaLabels.add(label);
 //			 this.add(label);
@@ -69,6 +71,8 @@ public class VistaMapa extends JPanel {
 //			 Color color = Color.GREEN;
 //			 buttonActual.setBackground(color);
 		 }
+		 
+		 
 	}
 
     public JButton getButton(int x, int y) {
@@ -95,9 +99,10 @@ public class VistaMapa extends JPanel {
     	buttonActual.setBackground(color);
     }
 
-    private void pintarElemento(Object o,int x,int y){
+    private void escribirElemento(Object o,int x,int y){
     	JButton buttonActual = this.getButton(x, y);
-    	buttonActual.setText("El");
+    	String codigo = this.representador.getCodigo(o);
+    	buttonActual.setText(codigo);
 
 //    	JLabel label = this.getLabel(x, y);
 //    	label.setText("B");
@@ -108,7 +113,7 @@ public class VistaMapa extends JPanel {
     		for(int y=0; y<this.filas; y++){
     			Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y));
     			if(!parcela.estaVacia())
-    				this.pintarElemento(parcela.devolverElemento(),x,y);
+    				this.escribirElemento(parcela.devolverElemento(),x,y);
     		}
 		}
 	}
