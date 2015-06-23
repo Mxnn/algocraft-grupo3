@@ -18,7 +18,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		GridBagConstraints gbc_btnCrearExtractorGas = new GridBagConstraints();
 		gbc_btnCrearExtractorGas.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearExtractorGas.gridx = 0;
-		gbc_btnCrearExtractorGas.gridy = 1;
+		gbc_btnCrearExtractorGas.gridy = 2;
 		add(btnExtractorGas, gbc_btnCrearExtractorGas);
 		
 		JButton btnExtractorMinera = new JButton("Extractor Mineral");
@@ -26,7 +26,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
 		gbc_btnNewButton.gridx = 0;
-		gbc_btnNewButton.gridy = 2;
+		gbc_btnNewButton.gridy = 1;
 		add(btnExtractorMinera, gbc_btnNewButton);
 		
 		JButton btnAdicionalDeSuministros = new JButton("Adicional De Suministros");

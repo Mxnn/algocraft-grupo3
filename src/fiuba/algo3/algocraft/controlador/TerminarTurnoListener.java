@@ -17,19 +17,20 @@ public class TerminarTurnoListener implements ActionListener {
     private Juego modelo;
     private JPanel frame;
     private VistaBarraLateral vistaBarraLateral;
-
-    public TerminarTurnoListener(Juego modelo, JPanel frame, VistaBarraLateral vistaBarraLateral) {
+    private Controlador controlador;
+    public TerminarTurnoListener(Juego modelo, JPanel frame, VistaBarraLateral vistaBarraLateral, Controlador controlador) {
         this.modelo = modelo;
         this.frame = frame;
         this.vistaBarraLateral = vistaBarraLateral;
+        this.controlador = controlador;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            this.modelo.getJugadorQueJuega().terminarTurno(this.modelo);
-            this.vistaBarraLateral.refrescar(this.modelo);
-            this.vistaBarraLateral.setPanelAcciones(this.frame);//prueba
+//            this.modelo.getJugadorQueJuega().terminarTurno(this.modelo); //esto creo que lo tiene que ahcer el controlador
+//            this.vistaBarraLateral.refrescar(this.modelo);
+        	controlador.terminarTurno();
             this.vistaBarraLateral.setSelectedIndex(0);
         } catch (ExcepcionNoEsElTurnoDelJugador excepcionNoEsElTurnoDelJugador) {
             JOptionPane.showMessageDialog(this.frame, "No se puede pasar turno en tu turno");

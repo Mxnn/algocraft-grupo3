@@ -7,9 +7,11 @@ import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.controlador.ParcelaListener;
@@ -34,10 +36,9 @@ public class VistaMapa extends JPanel {
 		this.filas= filas;
 		this.columnas = columnas;
 
-
 		this.representador = new Representador();
 		 this.setLocation(0, 0);
-		 this.setSize(600,600);
+		 this.setSize(650,650);
 		 this.setLayout(new GridLayout(columnas,filas)); 
 //		 this.setLayout(new GridLayout(20,20)); //esto lo comente para poder usar el window builder
 		 
@@ -52,6 +53,8 @@ public class VistaMapa extends JPanel {
 			 buttonActual.addActionListener(l);
 			 l.setCoordenadasBoton(x,y);
 			 buttonActual.setMargin(new Insets(0, 0, 0, 0));
+			 buttonActual.setBorder(BorderFactory.createLineBorder(Color.black));
+//			 buttonActual.setBorder(null); //sin bordes es otra opcion
 			 
 		    Font font = buttonActual.getFont();
 		    font = font.deriveFont(font.getSize() * 0.8f);
@@ -95,6 +98,7 @@ public class VistaMapa extends JPanel {
     private void escribirElemento(Interactuable i,int x,int y){
     	JButton buttonActual = this.getButton(x, y);
     	String codigo = this.representador.getCodigo(i);
+    	buttonActual.setMargin(new Insets(0, 0, 0, 0));
     	buttonActual.setText(codigo);
         buttonActual.setForeground(this.representador.getColorTexto(i.getPropietario()));
 

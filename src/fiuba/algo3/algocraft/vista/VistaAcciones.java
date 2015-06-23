@@ -43,7 +43,7 @@ public class VistaAcciones extends JPanel {
 		GridBagConstraints gbc_btnTerminarTurno = new GridBagConstraints();
 		gbc_btnTerminarTurno.gridx = 0;
 		gbc_btnTerminarTurno.gridy = 9;
-        btnTerminarTurno.addActionListener(new TerminarTurnoListener(this.modelo, this, vistaBarraLateral));
+        btnTerminarTurno.addActionListener(new TerminarTurnoListener(this.modelo, this, vistaBarraLateral, this.controlador));
 		add(btnTerminarTurno, gbc_btnTerminarTurno);
 	}
 	

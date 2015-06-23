@@ -20,7 +20,7 @@ import java.awt.Color;
 public class VistaJuego {
 	Juego modelo;
 	Controlador controlador;
-	VistaMapa panelDeParcela;
+	VistaMapa vistaMapa;
 	JFrame ventanita;
 	VistaBarraLateral barraLateral;
 	Coordenada coordenadaSeleccionada;
@@ -37,10 +37,10 @@ public class VistaJuego {
         this.ventanita = ventanita;
         ventanita.setSize(1000,700);
         
-        VistaMapa panelDeParcela = new VistaMapa(this.controlador,this.modelo.getMapa().getFilas(),this.modelo.getMapa().getColumnas());
-        this.panelDeParcela = panelDeParcela;
-        panelDeParcela.setBackground(new Color(240, 240, 240));
-        ventanita.getContentPane().add(panelDeParcela);
+        VistaMapa vistaMapa = new VistaMapa(this.controlador,this.modelo.getMapa().getFilas(),this.modelo.getMapa().getColumnas());
+        this.vistaMapa = vistaMapa;
+        vistaMapa.setBackground(new Color(240, 240, 240));
+        ventanita.getContentPane().add(vistaMapa);
 
         ventanita.getContentPane().setLayout(null);
 
@@ -68,21 +68,23 @@ public class VistaJuego {
 //        panelDeParcela.setParcelas(this.modelo.getMapa());
 
         this.barraLateral = new VistaBarraLateral(this.controlador);
+        barraLateral.setLocation(666, 0);
         ventanita.getContentPane().add(barraLateral);
         this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo, this.barraLateral,this.controlador));
         ventanita.setVisible(false);
         ventanita.repaint();
 	}
 	
-	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa{
-		this.panelDeParcela.refrescar(mapa);
+	public void refrescar() throws ExcepcionCoordenadaFueraDelMapa{
+		Mapa mapa = this.modelo.getMapa();
+		this.vistaMapa.refrescar(mapa);
 		this.barraLateral.refrescar(this.modelo);
 		this.ventanita.repaint();
-//		this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo, this.barraLateral, this.controlador));//cambia dependiendo elemento seleccionado
+		this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo, this.barraLateral, this.controlador));//cambia dependiendo elemento seleccionado
 	}
 
 	public void inicializarMapa() throws ExcepcionCoordenadaFueraDelMapa {
-        panelDeParcela.setParcelas(this.modelo.getMapa());
+		vistaMapa.setParcelas(this.modelo.getMapa());
         ventanita.repaint();
 	}
 
@@ -94,7 +96,7 @@ public class VistaJuego {
 			this.barraLateral.setPanelAcciones(new VistaAccionesParcelaVacia(this.modelo, this.barraLateral, this.controlador));;
 		}
 		this.coordenadaSeleccionada = new Coordenada(x,y);
-		this.refrescar(mapa);
+		ventanita.repaint();
 		
 	}
 	public void abrirVista(){

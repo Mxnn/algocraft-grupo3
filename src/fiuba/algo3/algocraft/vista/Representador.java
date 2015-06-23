@@ -21,28 +21,28 @@ public class Representador {
 	public Representador(){
 		this.codigoElementos = new HashMap<Class, String>();
 		this.codigoElementos.put(Barraca.class, "Ba");
-		this.codigoElementos.put(CentroDeMineral.class, "C.M.");
-		this.codigoElementos.put(DepositoSuministro.class, "D.S.");
+		this.codigoElementos.put(CentroDeMineral.class, "CM");
+		this.codigoElementos.put(DepositoSuministro.class, "DS");
 		this.codigoElementos.put(Fabrica.class, "Fa");
-		this.codigoElementos.put(PuertoEstelar.class, "P.E.T.");
+		this.codigoElementos.put(PuertoEstelar.class, "PET");
 		this.codigoElementos.put(Refineria.class, "Re");
 		
 		this.codigoElementos.put(Espectro.class, "Es");
 		this.codigoElementos.put(Golliat.class, "Go");
 		this.codigoElementos.put(Marine.class, "Ma");
-		this.codigoElementos.put(NaveCiencia.class, "N.C.");
-		this.codigoElementos.put(NaveTransporteTerran.class, "N.T.T.");
+		this.codigoElementos.put(NaveCiencia.class, "NC");
+		this.codigoElementos.put(NaveTransporteTerran.class, "NTT");
 		
 		this.codigoElementos.put(Acceso.class, "Ac");
-		this.codigoElementos.put(ArchivosTemplarios.class, "Ar.T.");
+		this.codigoElementos.put(ArchivosTemplarios.class, "ArT");
 		this.codigoElementos.put(Asimilador.class, "As");
-		this.codigoElementos.put(NexoMineral.class, "N.M.");
+		this.codigoElementos.put(NexoMineral.class, "NM");
 		this.codigoElementos.put(Pilon.class, "Pi");
-		this.codigoElementos.put(PuertoEstelarProtoss.class, "P.E.P.");
+		this.codigoElementos.put(PuertoEstelarProtoss.class, "PEP");
 		
-		this.codigoElementos.put(AltoTemplario.class, "A.T.");
+		this.codigoElementos.put(AltoTemplario.class, "AT");
 		this.codigoElementos.put(Dragon.class, "Dr");
-		this.codigoElementos.put(NaveTransporteProtoss.class, "N.T.P.");
+		this.codigoElementos.put(NaveTransporteProtoss.class, "NTP");
 		this.codigoElementos.put(Scout.class, "Sc");
 		this.codigoElementos.put(Zealot.class, "Ze");
 
