@@ -22,8 +22,8 @@ public class ObjetoMain {
 		 
 		 //para probar que cuando metes un elemento, se muestra en las parcelas
 		 Mapa mapa = elJuego.getMapa();
-         Jugador jTerran = new Jugador("Juan", Color.CELESTE, Terran.getInstance());
-         Jugador jProtoss = new Jugador("Pablo", Color.NARANJA, Protoss.getInstance());
+         Jugador jTerran = new Jugador("Juan", Color.BLANCO, Terran.getInstance());
+         Jugador jProtoss = new Jugador("Pablo", Color.CELESTE, Protoss.getInstance());
 		 mapa.ubicarElementoEnParcela(new Coordenada(2,2), new Barraca(jTerran));
 		 mapa.ubicarElementoEnParcela(new Coordenada(3,3), new Acceso(jProtoss));
 		 vista.refrescar(mapa);

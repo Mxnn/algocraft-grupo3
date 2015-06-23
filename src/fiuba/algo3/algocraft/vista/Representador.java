@@ -49,18 +49,18 @@ public class Representador {
 		this.coloresParcelas = new HashMap<Class, Color>();
         this.coloresParcelas.put(ParcelaTierra.class, Color.lightGray);
         this.coloresParcelas.put(ParcelaEspacio.class, Color.black);
-        this.coloresParcelas.put(ParcelaVolcan.class, new Color(0xB97A57));
-        this.coloresParcelas.put(ParcelaMineral.class, new Color(0x94D8E9));
+        this.coloresParcelas.put(ParcelaVolcan.class, new Color(0xA47861));
+            this.coloresParcelas.put(ParcelaMineral.class, new Color(0x80C0D2));
 
         this.coloresDeTextos = new HashMap<fiuba.algo3.algocraft.modelo.juego.Color, Color>();
         this.coloresDeTextos.put(fiuba.algo3.algocraft.modelo.juego.Color.ROJO, Color.red);
         this.coloresDeTextos.put(fiuba.algo3.algocraft.modelo.juego.Color.AZUL, Color.blue);
         this.coloresDeTextos.put(fiuba.algo3.algocraft.modelo.juego.Color.VERDE, Color.green);
         this.coloresDeTextos.put(fiuba.algo3.algocraft.modelo.juego.Color.AMARILLO, Color.yellow);
-        this.coloresDeTextos.put(fiuba.algo3.algocraft.modelo.juego.Color.NARANJA, Color.orange);
+        this.coloresDeTextos.put(fiuba.algo3.algocraft.modelo.juego.Color.NARANJA, new Color(0xFF9900));
         this.coloresDeTextos.put(fiuba.algo3.algocraft.modelo.juego.Color.VIOLETA, new Color(0x9015B2));
         this.coloresDeTextos.put(fiuba.algo3.algocraft.modelo.juego.Color.BLANCO, Color.white);
-        this.coloresDeTextos.put(fiuba.algo3.algocraft.modelo.juego.Color.CELESTE, new Color(0xEB7F03));
+        this.coloresDeTextos.put(fiuba.algo3.algocraft.modelo.juego.Color.CELESTE, Color.cyan);
 	}
 	
 	public String getCodigo(Object o){
