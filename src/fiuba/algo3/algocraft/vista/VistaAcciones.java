@@ -1,5 +1,8 @@
 package fiuba.algo3.algocraft.vista;
 
+import fiuba.algo3.algocraft.controlador.TerminarTurnoListener;
+import fiuba.algo3.algocraft.modelo.juego.Juego;
+
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -9,7 +12,10 @@ import java.awt.Insets;
 
 public class VistaAcciones extends JPanel {
 	private JLabel titulo;
-	public VistaAcciones() {
+    private Juego modelo;
+
+	public VistaAcciones(Juego modelo) {
+        this.modelo = modelo;
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -29,6 +35,7 @@ public class VistaAcciones extends JPanel {
 		GridBagConstraints gbc_btnTerminarTurno = new GridBagConstraints();
 		gbc_btnTerminarTurno.gridx = 0;
 		gbc_btnTerminarTurno.gridy = 9;
+        btnTerminarTurno.addActionListener(new TerminarTurnoListener(this.modelo, this));
 		add(btnTerminarTurno, gbc_btnTerminarTurno);
 	}
 	

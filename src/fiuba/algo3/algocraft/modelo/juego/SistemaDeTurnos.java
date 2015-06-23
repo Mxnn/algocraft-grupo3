@@ -25,6 +25,9 @@ public class SistemaDeTurnos {
     }
 
     public Jugador getJugadorQueJuega() {
+        if (this.jugadorQueJuega == null && this.jugadores.size() > 0)
+            this.jugadorQueJuega = this.jugadores.get(0);
+
         return this.jugadorQueJuega;
     }
 

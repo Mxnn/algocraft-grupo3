@@ -16,7 +16,7 @@ import javax.swing.JMenuItem;
 import java.awt.Color;
 
 public class VistaJuego {
-	Juego modelo ;
+	Juego modelo;
 	Controlador controlador;
 	VistaMapa panelDeParcela;
 	JFrame ventanita;
@@ -25,7 +25,7 @@ public class VistaJuego {
 	public static int CANTIDAD_DE_OPCIONES = 8;
 	public VistaJuego(Juego elJuego, Controlador elControlador) throws ExcepcionCoordenadaFueraDelMapa {
         this.modelo = elJuego;
-        this.controlador= elControlador;
+        this.controlador = elControlador;
 
 //        int columnas = this.modelo.getMapa().getColumnas();
 //        int filas = this.modelo.getMapa().getFilas();
@@ -116,7 +116,7 @@ public class VistaJuego {
 		this.panelDeParcela.refrescar(mapa);
 		this.barraLateral.refrescar(this.modelo);
 		this.ventanita.repaint();
-		this.barraLateral.setPanelAcciones(new VistaAccionesUnidadAgresora());//cambia dependiendo elemento seleccionado
+		this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo));//cambia dependiendo elemento seleccionado
 	}
 
 	public void inicializarMapa() throws ExcepcionCoordenadaFueraDelMapa {

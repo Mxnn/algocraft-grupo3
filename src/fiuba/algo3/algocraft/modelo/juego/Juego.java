@@ -264,4 +264,8 @@ public class Juego {
     public void limpiarJugadores() {
         this.jugadores.clear();
     }
+
+    public Jugador getJugadorQueJuega() {
+        return this.sistemaDeTurnos.getJugadorQueJuega();
+    }
 }

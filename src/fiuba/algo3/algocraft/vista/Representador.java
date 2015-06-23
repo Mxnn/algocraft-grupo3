@@ -50,7 +50,7 @@ public class Representador {
         this.coloresParcelas.put(ParcelaTierra.class, Color.lightGray);
         this.coloresParcelas.put(ParcelaEspacio.class, Color.black);
         this.coloresParcelas.put(ParcelaVolcan.class, new Color(0xA47861));
-            this.coloresParcelas.put(ParcelaMineral.class, new Color(0x80C0D2));
+        this.coloresParcelas.put(ParcelaMineral.class, new Color(0x80C0D2));
 
         this.coloresDeTextos = new HashMap<fiuba.algo3.algocraft.modelo.juego.Color, Color>();
         this.coloresDeTextos.put(fiuba.algo3.algocraft.modelo.juego.Color.ROJO, Color.red);
