@@ -1,19 +1,21 @@
 package fiuba.algo3.algocraft.vista;
+import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+
 import javax.swing.JButton;
 
 public class VistaAccionesUnidadAgresora extends VistaAccionesUnidad{
-	public VistaAccionesUnidadAgresora(Juego modelo, VistaBarraLateral barra) {
+	public VistaAccionesUnidadAgresora(Juego modelo, VistaBarraLateral barra, Controlador controlador) {
 //		GridBagLayout gridBagLayout = new GridBagLayout();
 //		gridBagLayout.columnWidths = new int[]{0, 0, 0};
 //		gridBagLayout.rowHeights = new int[]{0, 0};
 //		gridBagLayout.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 //		gridBagLayout.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 //		setLayout(gridBagLayout);
-		super(modelo, barra);
+		super(modelo, barra, controlador);
 		this.setTitulo("Unidad Agresora");
 		
 		JButton btnAtacar = new JButton("Atacar");

@@ -28,6 +28,7 @@ public class VistaBarraLateral extends JTabbedPane{
 	
 	private JPanel acciones;
 	
+	
 	public VistaBarraLateral(Controlador controlador) {
 		//hay que modificar para que el tabbedPane se cree desde este constructor
 

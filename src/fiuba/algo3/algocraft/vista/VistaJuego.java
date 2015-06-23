@@ -23,6 +23,7 @@ public class VistaJuego {
 	VistaMapa panelDeParcela;
 	JFrame ventanita;
 	VistaBarraLateral barraLateral;
+	Coordenada coordenadaSeleccionada;
 	
 	public static int CANTIDAD_DE_OPCIONES = 8;
 	public VistaJuego(Juego elJuego, Controlador elControlador) throws ExcepcionCoordenadaFueraDelMapa {
@@ -68,7 +69,7 @@ public class VistaJuego {
 
         this.barraLateral = new VistaBarraLateral(this.controlador);
         ventanita.getContentPane().add(barraLateral);
-        this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo, this.barraLateral));
+        this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo, this.barraLateral,this.controlador));
         ventanita.setVisible(false);
         ventanita.repaint();
 	}
@@ -77,7 +78,7 @@ public class VistaJuego {
 		this.panelDeParcela.refrescar(mapa);
 		this.barraLateral.refrescar(this.modelo);
 		this.ventanita.repaint();
-//		this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo, this.barraLateral));//cambia dependiendo elemento seleccionado
+//		this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo, this.barraLateral, this.controlador));//cambia dependiendo elemento seleccionado
 	}
 
 	public void inicializarMapa() throws ExcepcionCoordenadaFueraDelMapa {
@@ -90,12 +91,17 @@ public class VistaJuego {
 		Mapa mapa = modelo.getMapa();
 		Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y));
 		if(parcela.estaVacia()){
-			this.barraLateral.setPanelAcciones(new VistaAccionesParcelaVacia(this.modelo, this.barraLateral));;
+			this.barraLateral.setPanelAcciones(new VistaAccionesParcelaVacia(this.modelo, this.barraLateral, this.controlador));;
 		}
+		this.coordenadaSeleccionada = new Coordenada(x,y);
 		this.refrescar(mapa);
 		
 	}
 	public void abrirVista(){
 		this.ventanita.setVisible(true);
+	}
+	
+	public Coordenada getCoordenadaSeleccionada(){
+		return this.coordenadaSeleccionada;
 	}
 }

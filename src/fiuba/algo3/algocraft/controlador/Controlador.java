@@ -1,6 +1,9 @@
 package fiuba.algo3.algocraft.controlador;
 
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.vista.VistaJuego;
 
@@ -36,6 +39,11 @@ public class Controlador {
 	public void setVistaJuego(VistaJuego vista){
 		this.vista = vista;
 		
+	}
+
+	public void crearExtractorMineral() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
+		this.modelo.getJugadorQueJuega().crearExtractorMineral(modelo.getMapa(), vista.getCoordenadaSeleccionada());
+		this.vista.refrescar(modelo.getMapa());
 	}
 	
 }

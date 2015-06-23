@@ -1,15 +1,20 @@
 package fiuba.algo3.algocraft.vista;
 import javax.swing.JButton;
 
+import fiuba.algo3.algocraft.controlador.Controlador;
+import fiuba.algo3.algocraft.controlador.CrearExtractorMineralListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class VistaAccionesParcelaVacia extends VistaAcciones {
-	public VistaAccionesParcelaVacia(Juego modelo, VistaBarraLateral vistaBarraLateral) {
-		super(modelo, vistaBarraLateral);
+	public VistaAccionesParcelaVacia(Juego modelo, VistaBarraLateral vistaBarraLateral, Controlador controlador) {
+		super(modelo, vistaBarraLateral, controlador);
+		
+		
 		JButton btnExtractorGas = new JButton("Extractor Gas");
+		
 		GridBagConstraints gbc_btnCrearExtractorGas = new GridBagConstraints();
 		gbc_btnCrearExtractorGas.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearExtractorGas.gridx = 0;
@@ -17,6 +22,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnExtractorGas, gbc_btnCrearExtractorGas);
 		
 		JButton btnExtractorMinera = new JButton("Extractor Mineral");
+		btnExtractorMinera.addActionListener(new CrearExtractorMineralListener(controlador));
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
 		gbc_btnNewButton.gridx = 0;

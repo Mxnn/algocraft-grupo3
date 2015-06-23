@@ -1,20 +1,28 @@
 package fiuba.algo3.algocraft.vista;
 
+import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.controlador.TerminarTurnoListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 
 import javax.swing.JPanel;
+
 import java.awt.GridBagLayout;
+
 import javax.swing.JButton;
+
 import java.awt.GridBagConstraints;
+
 import javax.swing.JLabel;
+
 import java.awt.Insets;
 
 public class VistaAcciones extends JPanel {
 	private JLabel titulo;
     private Juego modelo;
+    private Controlador controlador;
 
-	public VistaAcciones(Juego modelo, VistaBarraLateral vistaBarraLateral) {
+	public VistaAcciones(Juego modelo, VistaBarraLateral vistaBarraLateral, Controlador controlador) {
+		this.controlador = controlador;
         this.modelo = modelo;
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0};

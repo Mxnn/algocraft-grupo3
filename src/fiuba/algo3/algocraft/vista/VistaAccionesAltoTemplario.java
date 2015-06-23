@@ -1,14 +1,17 @@
 package fiuba.algo3.algocraft.vista;
 
+import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+
 import javax.swing.JButton;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class VistaAccionesAltoTemplario extends VistaAccionesUnidad {
 
-		public VistaAccionesAltoTemplario(Juego modelo, VistaBarraLateral barra) {
-			super(modelo, barra);
+		public VistaAccionesAltoTemplario(Juego modelo, VistaBarraLateral barra, Controlador controlador) {
+			super(modelo, barra, controlador);
 			
 			JButton btnAlucinacion = new JButton("Alucinacion");
 			GridBagConstraints gbc_btnEmp = new GridBagConstraints();
@@ -26,4 +29,5 @@ public class VistaAccionesAltoTemplario extends VistaAccionesUnidad {
 			
 		}
 
-}
+	}
+
