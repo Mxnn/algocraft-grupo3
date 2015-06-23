@@ -3,17 +3,19 @@ package fiuba.algo3.algocraft.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.vista.IngresoJugadoresVista;
 
 public class NuevoJuegoListener implements ActionListener {
-	Controlador controlador;
+    private Juego modelo;
 	
-	public NuevoJuegoListener(Controlador elControlador){
-		this.controlador = elControlador;
+	public NuevoJuegoListener(Juego modelo){
+        this.modelo = modelo;
 	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new IngresoJugadoresVista();
+		new IngresoJugadoresVista(this.modelo);
 	}
 
 }

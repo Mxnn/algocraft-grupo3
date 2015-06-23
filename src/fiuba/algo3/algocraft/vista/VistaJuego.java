@@ -1,21 +1,15 @@
 package fiuba.algo3.algocraft.vista;
 
-import java.awt.GridLayout;
-
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import fiuba.algo3.algocraft.controlador.CerrarFrameControlador;
 import fiuba.algo3.algocraft.controlador.Controlador;
+import fiuba.algo3.algocraft.controlador.NuevoJuegoListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
-
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-
 import java.awt.Color;
 
 public class VistaJuego {
@@ -88,7 +82,7 @@ public class VistaJuego {
 		 
 		 JMenuItem mntmNuevoJuego = new JMenuItem("Nuevo Juego");
 		 mnArchivo.add(mntmNuevoJuego);
-		 mntmNuevoJuego.addActionListener(this.controlador.getNuevoJuego());
+		 mntmNuevoJuego.addActionListener(new NuevoJuegoListener(this.modelo));
 		 
 		 JMenuItem mntmSalir = new JMenuItem("Salir");
 		 mnArchivo.add(mntmSalir);

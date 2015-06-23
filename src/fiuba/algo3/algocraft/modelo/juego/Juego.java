@@ -260,4 +260,8 @@ public class Juego {
         if(jugador.esPerdedor())
         	this.finJuego(jugador);
     }
+
+    public void limpiarJugadores() {
+        this.jugadores.clear();
+    }
 }

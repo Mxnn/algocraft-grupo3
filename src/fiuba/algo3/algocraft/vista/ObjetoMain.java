@@ -21,6 +21,5 @@ public class ObjetoMain {
 		 Mapa mapa = elJuego.getMapa();
 		 mapa.ubicarElementoEnParcela(new Coordenada(2,2), new Barraca(null) );
 		 vista.refrescar(mapa);
-		 
 	 }
 }

@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft.vista;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -9,9 +10,12 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.JComboBox;
 
 import fiuba.algo3.algocraft.controlador.CerrarFrameControlador;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
+import fiuba.algo3.algocraft.modelo.juego.Color;
+import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.controlador.UnloadDatosJugadores;
 
 public class IngresoJugadoresVista extends JDialog {
@@ -19,6 +23,11 @@ public class IngresoJugadoresVista extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField nombre1;
 	private JTextField nombre2;
+    private ComboBoxColores colorJ1;
+    private ComboBoxColores colorJ2;
+    private ComboBoxRazas razaJ1;
+    private ComboBoxRazas razaJ2;
+    private Juego modelo;
 
 	/**
 	 * Launch the application.
@@ -37,7 +46,8 @@ public class IngresoJugadoresVista extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public IngresoJugadoresVista() {
+	public IngresoJugadoresVista(Juego modelo) {
+        this.modelo = modelo;
 		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		this.setVisible(true);
 		setBounds(100, 100, 450, 300);
@@ -62,18 +72,20 @@ public class IngresoJugadoresVista extends JDialog {
 			contentPanel.add(lblColor);
 		}
 		{
-			JComboBox color1 = new JComboBox();
-			color1.setBounds(268, 10, 28, 20);
+			ComboBoxColores color1 = new ComboBoxColores();
+			color1.setBounds(268, 10, 60, 20);
 			contentPanel.add(color1);
+            this.colorJ1 = color1;
 		}
 		
 		JLabel lblRaza = new JLabel("Raza:");
-		lblRaza.setBounds(306, 13, 46, 14);
+		lblRaza.setBounds(338, 13, 46, 14);
 		contentPanel.add(lblRaza);
 		
-		JComboBox raza1 = new JComboBox();
-		raza1.setBounds(362, 10, 28, 20);
+		ComboBoxRazas raza1 = new ComboBoxRazas();
+		raza1.setBounds(375, 10, 60, 20);
 		contentPanel.add(raza1);
+        this.razaJ1 = raza1;
 		{
 			JLabel lblNombreJugador_2 = new JLabel("Nombre Jugador 2:");
 			lblNombreJugador_2.setBounds(10, 62, 101, 14);
@@ -89,17 +101,19 @@ public class IngresoJugadoresVista extends JDialog {
 		label.setBounds(217, 62, 41, 14);
 		contentPanel.add(label);
 		
-		JComboBox color2 = new JComboBox();
-		color2.setBounds(268, 59, 28, 20);
+		ComboBoxColores color2 = new ComboBoxColores();
+		color2.setBounds(268, 59, 60, 20);
 		contentPanel.add(color2);
+        this.colorJ2 = color2;
 		
 		JLabel label_1 = new JLabel("Raza:");
-		label_1.setBounds(306, 62, 46, 14);
+		label_1.setBounds(338, 62, 46, 14);
 		contentPanel.add(label_1);
 		
-		JComboBox raza2 = new JComboBox();
-		raza2.setBounds(362, 59, 28, 20);
+		ComboBoxRazas raza2 = new ComboBoxRazas();
+		raza2.setBounds(375, 59, 60, 20);
 		contentPanel.add(raza2);
+        this.razaJ2 = raza2;
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -107,7 +121,7 @@ public class IngresoJugadoresVista extends JDialog {
 			{
 				JButton okButton = new JButton("OK");
 //				okButton.setActionCommand("OK");
-				okButton.addActionListener(new UnloadDatosJugadores());
+				okButton.addActionListener(new UnloadDatosJugadores(this.modelo, this));
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
@@ -119,4 +133,13 @@ public class IngresoJugadoresVista extends JDialog {
 			}
 		}
 	}
+
+    public ArrayList<Jugador> getJugadores() throws ExcepcionNombreCorto {
+        ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+
+        jugadores.add(new Jugador(this.nombre1.getText(), this.colorJ1.getSelectedItem(), this.razaJ1.getRazaElegida()));
+        jugadores.add(new Jugador(this.nombre2.getText(), this.colorJ2.getSelectedItem(), this.razaJ2.getRazaElegida()));
+
+        return jugadores;
+    }
 }
