@@ -111,6 +111,7 @@ public class VistaJuego {
 	
 	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa{
 		this.panelDeParcela.refrescar(mapa);
+		this.barraLateral.refrescar(this.modelo);
 		this.ventanita.repaint();
 	}
 }

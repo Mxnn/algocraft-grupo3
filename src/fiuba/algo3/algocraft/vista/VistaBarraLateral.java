@@ -10,8 +10,22 @@ import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
 
 import fiuba.algo3.algocraft.controlador.Controlador;
+import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.juego.Jugador;
 
 public class VistaBarraLateral extends JTabbedPane{
+	private JLabel nombreJ1;
+	private JLabel mineralJ1;
+	private JLabel gasJ1;
+	private JLabel poblacionJ1;
+	private JLabel maxPoblacionJ1;
+	
+	private JLabel nombreJ2;
+	private JLabel mineralJ2;
+	private JLabel gasJ2;
+	private JLabel poblacionJ2;
+	private JLabel maxPoblacionJ2;
+	
 	public VistaBarraLateral(Controlador controlador) {
 		//hay que modificar para que el tabbedPane se cree desde este constructor
 		
@@ -59,6 +73,7 @@ public class VistaBarraLateral extends JTabbedPane{
 		 panelInfo.add(lblNombre, gbc_lblNombre);
 		 
 		 JLabel lblNombreJ1 = new JLabel("NOMBRE J1");
+		 this.nombreJ1 = lblNombreJ1;
 		 GridBagConstraints gbc_lblNombreJ1 = new GridBagConstraints();
 		 gbc_lblNombreJ1.insets = new Insets(0, 0, 5, 5);
 		 gbc_lblNombreJ1.gridx = 2;
@@ -73,6 +88,7 @@ public class VistaBarraLateral extends JTabbedPane{
 		 panelInfo.add(lblMinerales, gbc_lblMinerales);
 		 
 		 JLabel lblCantminj1 = new JLabel("CANT_MIN_J1");
+		 this.mineralJ1 = lblCantminj1;
 		 GridBagConstraints gbc_lblCantminj1 = new GridBagConstraints();
 		 gbc_lblCantminj1.insets = new Insets(0, 0, 5, 5);
 		 gbc_lblCantminj1.gridx = 2;
@@ -87,6 +103,7 @@ public class VistaBarraLateral extends JTabbedPane{
 		 panelInfo.add(lblGas, gbc_lblGas);
 		 
 		 JLabel lblCantgasj1 = new JLabel("CANT_GAS_J1");
+		 this.gasJ1 = lblCantgasj1;
 		 GridBagConstraints gbc_lblCantgasj1 = new GridBagConstraints();
 		 gbc_lblCantgasj1.insets = new Insets(0, 0, 5, 5);
 		 gbc_lblCantgasj1.gridx = 2;
@@ -101,6 +118,7 @@ public class VistaBarraLateral extends JTabbedPane{
 		 panelInfo.add(lblSuministros, gbc_lblSuministros);
 		 
 		 JLabel lblPoblacionj1 = new JLabel("POBLACION_J1");
+		 this.poblacionJ1 = lblPoblacionj1;
 		 GridBagConstraints gbc_lblPoblacionj1 = new GridBagConstraints();
 		 gbc_lblPoblacionj1.insets = new Insets(0, 0, 5, 5);
 		 gbc_lblPoblacionj1.gridx = 2;
@@ -115,6 +133,7 @@ public class VistaBarraLateral extends JTabbedPane{
 		 panelInfo.add(lblMaxPoblacion, gbc_lblMaxPoblacion);
 		 
 		 JLabel lblMaxpobacionj1 = new JLabel("MAX_POBACION_J1");
+		 this.maxPoblacionJ1 = lblMaxpobacionj1;
 		 GridBagConstraints gbc_lblMaxpobacionj1 = new GridBagConstraints();
 		 gbc_lblMaxpobacionj1.insets = new Insets(0, 0, 5, 5);
 		 gbc_lblMaxpobacionj1.gridx = 2;
@@ -136,6 +155,7 @@ public class VistaBarraLateral extends JTabbedPane{
 		 panelInfo.add(label, gbc_label);
 		 
 		 JLabel lblNombreJ2 = new JLabel("NOMBRE J2");
+		 this.nombreJ2 = lblNombreJ2;
 		 GridBagConstraints gbc_lblNombreJ2 = new GridBagConstraints();
 		 gbc_lblNombreJ2.insets = new Insets(0, 0, 5, 5);
 		 gbc_lblNombreJ2.gridx = 2;
@@ -150,6 +170,7 @@ public class VistaBarraLateral extends JTabbedPane{
 		 panelInfo.add(label_1, gbc_label_1);
 		 
 		 JLabel lblCantminj2 = new JLabel("CANT_MIN_J2");
+		 this.mineralJ2 = lblCantminj2;
 		 GridBagConstraints gbc_lblCantminj2 = new GridBagConstraints();
 		 gbc_lblCantminj2.insets = new Insets(0, 0, 5, 5);
 		 gbc_lblCantminj2.gridx = 2;
@@ -164,6 +185,7 @@ public class VistaBarraLateral extends JTabbedPane{
 		 panelInfo.add(label_2, gbc_label_2);
 		 
 		 JLabel lblCantgasj2 = new JLabel("CANT_GAS_J2");
+		 this.gasJ2 = lblCantgasj2;
 		 GridBagConstraints gbc_lblCantgasj2 = new GridBagConstraints();
 		 gbc_lblCantgasj2.insets = new Insets(0, 0, 5, 5);
 		 gbc_lblCantgasj2.gridx = 2;
@@ -178,6 +200,7 @@ public class VistaBarraLateral extends JTabbedPane{
 		 panelInfo.add(label_3, gbc_label_3);
 		 
 		 JLabel lblPoblacionj2 = new JLabel("POBLACION_J2");
+		 this.poblacionJ2 = lblPoblacionj2;
 		 GridBagConstraints gbc_lblPoblacionj2 = new GridBagConstraints();
 		 gbc_lblPoblacionj2.insets = new Insets(0, 0, 5, 5);
 		 gbc_lblPoblacionj2.gridx = 2;
@@ -192,6 +215,7 @@ public class VistaBarraLateral extends JTabbedPane{
 		 panelInfo.add(label_4, gbc_label_4);
 		 
 		 JLabel lblMaxpobacionj2 = new JLabel("MAX_POBACION_J2");
+		 this.maxPoblacionJ2 = lblMaxpobacionj2;
 		 GridBagConstraints gbc_lblMaxpobacionj2 = new GridBagConstraints();
 		 gbc_lblMaxpobacionj2.insets = new Insets(0, 0, 0, 5);
 		 gbc_lblMaxpobacionj2.gridx = 2;
@@ -385,5 +409,23 @@ public class VistaBarraLateral extends JTabbedPane{
 //		 tabbedPane.addTab("Acciones", panelAcciones);
 //		 
 //		 return tabbedPane;
+	}
+
+	public void refrescar(Juego modelo) {
+		Jugador j1 = modelo.getJugadores().get(0);
+		Jugador j2 = modelo.getJugadores().get(1);
+		
+		this.nombreJ1.setText(j1.getNombre());
+		this.mineralJ1.setText(Integer.toString(j1.getMinerales()));
+		this.gasJ1.setText(Integer.toString(j1.getGasVespeno()));
+		this.poblacionJ1.setText(Integer.toString(j1.getPoblacion()));
+		this.maxPoblacionJ1.setText(Integer.toString(j1.getCapacidadDePoblacion()));
+		
+		this.nombreJ2.setText(j2.getNombre());
+		this.mineralJ2.setText(Integer.toString(j2.getMinerales()));
+		this.gasJ2.setText(Integer.toString(j2.getGasVespeno()));
+		this.poblacionJ2.setText(Integer.toString(j2.getPoblacion()));
+		this.maxPoblacionJ2.setText(Integer.toString(j2.getCapacidadDePoblacion()));
+		
 	}
 }
