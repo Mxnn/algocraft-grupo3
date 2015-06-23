@@ -21,8 +21,8 @@ public class Controlador {
 		
 		return new ParcelaListener(this);
 	}
-	public void clickEnParcela() {
-		System.out.println("click en parcela");
+	public void clickEnParcela(int x, int y) {
+		System.out.println("click en parcela "+x+","+y);
 		
 	}
 }

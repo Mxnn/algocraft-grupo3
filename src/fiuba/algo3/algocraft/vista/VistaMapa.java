@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.algocraft.controlador.Controlador;
+import fiuba.algo3.algocraft.controlador.ParcelaListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
@@ -42,12 +44,16 @@ public class VistaMapa extends JPanel {
 		 
 		 for (int i=0;i<filas*columnas;i++){
 			 
-			 /*int y = i / columnas;
-	         int x = i % columnas;*/
+			 int y = i / columnas;
+	         int x = i % columnas;
 	         JButton buttonActual= new JButton();
 	         listaBotones.add(buttonActual);
 			 this.add(buttonActual);
-			 buttonActual.addActionListener(controlador.getParcelaListener());
+			 ParcelaListener listener = controlador.getParcelaListener();
+			 listener.setCoordenadasBoton(x,y);
+			 buttonActual.addActionListener(listener);
+			 
+			 
 			 buttonActual.setMargin(new Insets(0, 0, 0, 0));
 			 
 		    Font font = buttonActual.getFont();
