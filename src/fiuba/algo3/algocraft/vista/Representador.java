@@ -45,17 +45,15 @@ public class Representador {
 		this.codigoElementos.put(Zealot.class, "Ze");
 
 		this.coloresParcelas = new HashMap<Object, Color>();
-		coloresParcelas.put(ParcelaTierra.class, Color.GREEN);
-		coloresParcelas.put(ParcelaEspacio.class, Color.LIGHT_GRAY);
-		coloresParcelas.put(ParcelaVolcan.class, Color.YELLOW);
-		coloresParcelas.put(ParcelaMineral.class, Color.CYAN);
+		coloresParcelas.put(ParcelaTierra.class, Color.lightGray);
+		coloresParcelas.put(ParcelaEspacio.class, Color.black);
+		coloresParcelas.put(ParcelaVolcan.class, new Color(0xB97A57));
+		coloresParcelas.put(ParcelaMineral.class, new Color(0x94D8E9));
 		
 	}
 	
 	public String getCodigo(Object o){
-		String codigo = this.codigoElementos.get(o.getClass());
-		return codigo;
-		
+		return this.codigoElementos.get(o.getClass());
 	}
 
 	public Color getColorParcela(Object o) {

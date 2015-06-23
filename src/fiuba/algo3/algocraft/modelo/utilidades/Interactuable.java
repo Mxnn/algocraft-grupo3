@@ -83,4 +83,8 @@ public abstract class Interactuable {
     public void vivir(Mapa mapa) {
         (this.vitalidad).regenerar();
     }
+
+    public Jugador getPropietario() {
+        return this.propietario;
+    }
 }

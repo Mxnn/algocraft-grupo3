@@ -3,11 +3,8 @@ package fiuba.algo3.algocraft.vista;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
-
-
 import java.awt.Insets;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -16,16 +13,13 @@ import javax.swing.JPanel;
 
 import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
+import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
-import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
-import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
-import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
-import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
+import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 
 public class VistaMapa extends JPanel {
-	private static final char GREEN = 0;
 	private int filas;
 	private int columnas;
     private final List<JButton> listaBotones = new ArrayList<JButton>();
@@ -49,8 +43,8 @@ public class VistaMapa extends JPanel {
 		 
 		 for (int i=0;i<filas*columnas;i++){
 			 
-			 int y = i / columnas;
-	         int x = i % columnas;
+			 /*int y = i / columnas;
+	         int x = i % columnas;*/
 	         JButton buttonActual= new JButton();
 	         listaBotones.add(buttonActual);
 			 this.add(buttonActual);
@@ -96,13 +90,28 @@ public class VistaMapa extends JPanel {
     	buttonActual.setBackground(color);
     }
 
-    private void escribirElemento(Object o,int x,int y){
+    private void escribirElemento(Interactuable i,int x,int y){
     	JButton buttonActual = this.getButton(x, y);
-    	String codigo = this.representador.getCodigo(o);
+    	String codigo = this.representador.getCodigo(i);
     	buttonActual.setText(codigo);
+        buttonActual.setForeground(this.colorDelJugador(i.getPropietario()));
 
 //    	JLabel label = this.getLabel(x, y);
 //    	label.setText("B");
+    }
+
+    private Color colorDelJugador(Jugador j) {
+        switch (j.getColor()) {
+            case ROJO: return Color.red;
+            case AZUL: return Color.blue;
+            case VERDE: return Color.green;
+            case AMARILLO: return Color.yellow;
+            case VIOLETA: return Color.pink;
+            case NARANJA: return Color.orange;
+            case BLANCO: return Color.white;
+        }
+
+        return Color.cyan;
     }
     
 	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa {
