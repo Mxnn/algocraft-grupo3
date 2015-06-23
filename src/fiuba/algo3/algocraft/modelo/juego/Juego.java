@@ -93,7 +93,7 @@ public class Juego {
     }
 
     private void crearMineralesPorElMapa() {
-    	int cantMinerales = this.rand.randInt(7,15); //sacar magic number
+    	int cantMinerales = this.rand.randInt(10,20); //sacar magic number
     	for(int i=0; i<cantMinerales; i++){
     		int x = this.rand.randInt(0, this.mapa.getColumnas());
         	int y = this.rand.randInt(0, this.mapa.getFilas());
