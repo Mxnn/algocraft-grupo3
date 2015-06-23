@@ -46,7 +46,7 @@ public class IngresoJugadoresVista extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public IngresoJugadoresVista(Juego modelo) {
+	public IngresoJugadoresVista(Juego modelo, VistaJuego vista) {
         this.modelo = modelo;
 		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		this.setVisible(true);
@@ -121,7 +121,7 @@ public class IngresoJugadoresVista extends JDialog {
 			{
 				JButton okButton = new JButton("OK");
 //				okButton.setActionCommand("OK");
-				okButton.addActionListener(new UnloadDatosJugadores(this.modelo, this));
+				okButton.addActionListener(new UnloadDatosJugadores(this.modelo, this, vista));
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}

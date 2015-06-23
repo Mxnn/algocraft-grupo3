@@ -21,12 +21,12 @@ public class ObjetoMain {
 		 VistaJuego vista = new VistaJuego(elJuego, unControlador);
 		 
 		 //para probar que cuando metes un elemento, se muestra en las parcelas
-		 Mapa mapa = elJuego.getMapa();
+//		 Mapa mapa = elJuego.getMapa();
 //         Jugador jTerran = new Jugador("Juan", Color.BLANCO, Terran.getInstance());
 //         Jugador jProtoss = new Jugador("Pablo", Color.CELESTE, Protoss.getInstance());
 //		 
 //		 mapa.ubicarElementoEnParcela(new Coordenada(2,2), new Barraca(jTerran));
 //		 mapa.ubicarElementoEnParcela(new Coordenada(3,3), new Acceso(jProtoss));
-		 vista.refrescar(mapa);
+//		 vista.refrescar(mapa);
 	 }
 }

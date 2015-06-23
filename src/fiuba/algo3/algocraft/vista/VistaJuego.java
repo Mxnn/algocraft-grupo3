@@ -27,17 +27,21 @@ public class VistaJuego {
         this.modelo = elJuego;
         this.controlador= elControlador;
 
-        int columnas = this.modelo.getMapa().getColumnas();
-        int filas = this.modelo.getMapa().getFilas();
+//        int columnas = this.modelo.getMapa().getColumnas();
+//        int filas = this.modelo.getMapa().getFilas();
 
         JFrame ventanita= new JFrame("AlgoCraft");
         this.ventanita = ventanita;
         ventanita.setSize(1000,700);
-
-
-        VistaMapa panelDeParcela = new VistaMapa(this.controlador,filas,columnas);
+        
+        VistaMapa panelDeParcela = new VistaMapa(this.controlador,this.modelo.getMapa().getFilas(),this.modelo.getMapa().getColumnas());
         this.panelDeParcela = panelDeParcela;
         panelDeParcela.setBackground(new Color(240, 240, 240));
+        ventanita.getContentPane().add(panelDeParcela);
+        
+//        VistaMapa panelDeParcela = new VistaMapa(this.controlador,filas,columnas);
+//        this.panelDeParcela = panelDeParcela;
+//        panelDeParcela.setBackground(new Color(240, 240, 240));
 
 //		 panelDeParcela.setLocation(0, 0);
 //		 panelDeParcela.setSize(500,500);
@@ -73,7 +77,7 @@ public class VistaJuego {
 //		 button.setText("Button Crear deposito de Sumnistro");
 //		 button.addActionListener(this.controlador.getCrearDepositoDeSumnistroListener());
 
-        ventanita.getContentPane().add(panelDeParcela);
+//        ventanita.getContentPane().add(panelDeParcela);
 
 //		 ventanita.getContentPane().add(button);
         ventanita.getContentPane().setLayout(null);
@@ -84,7 +88,7 @@ public class VistaJuego {
         JMenu mnArchivo = new JMenu("Archivo");
         JMenuItem mntmNuevoJuego = new JMenuItem("Nuevo Juego");
         mnArchivo.add(mntmNuevoJuego);
-        mntmNuevoJuego.addActionListener(new NuevoJuegoListener(this.modelo));
+        mntmNuevoJuego.addActionListener(new NuevoJuegoListener(this.modelo, this));
         JMenuItem mntmSalir = new JMenuItem("Salir");
         mnArchivo.add(mntmSalir);
         mntmSalir.addActionListener(new CerrarFrameControlador(ventanita));
@@ -99,8 +103,7 @@ public class VistaJuego {
         menuBar.add(mnAcerca);
 
         //esto habria que [ponerlo cuando se inicie el juego pero lo pongo aca para probar
-        panelDeParcela.setParcelas(this.modelo.getMapa());
-
+//        panelDeParcela.setParcelas(this.modelo.getMapa());
 
         this.barraLateral = new VistaBarraLateral(this.controlador);
         ventanita.getContentPane().add(barraLateral);
@@ -113,5 +116,10 @@ public class VistaJuego {
 		this.panelDeParcela.refrescar(mapa);
 		this.barraLateral.refrescar(this.modelo);
 		this.ventanita.repaint();
+	}
+
+	public void inicializarMapa() throws ExcepcionCoordenadaFueraDelMapa {
+        panelDeParcela.setParcelas(this.modelo.getMapa());
+        ventanita.repaint();
 	}
 }
