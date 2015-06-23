@@ -7,7 +7,9 @@ import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.controlador.NuevoJuegoListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -38,48 +40,7 @@ public class VistaJuego {
         this.panelDeParcela = panelDeParcela;
         panelDeParcela.setBackground(new Color(240, 240, 240));
         ventanita.getContentPane().add(panelDeParcela);
-        
-//        VistaMapa panelDeParcela = new VistaMapa(this.controlador,filas,columnas);
-//        this.panelDeParcela = panelDeParcela;
-//        panelDeParcela.setBackground(new Color(240, 240, 240));
 
-//		 panelDeParcela.setLocation(0, 0);
-//		 panelDeParcela.setSize(500,500);
-////		 panelDeParcela.setLayout(new GridLayout(columnas,filas)); esto lo comente para poder usar el window builder
-//		 panelDeParcela.setLayout(new GridLayout(20,20));
-//
-//		 
-//		 for (int i=0;i<filas*columnas;i++){
-//			 JButton buttonActual= new JButton();
-//			 panelDeParcela.add(buttonActual);
-//			 buttonActual.addActionListener(this.controlador.getParcelaListener());
-//				
-//		 }
-		 
-		 /*int columnasOpciones = CANTIDAD_DE_OPCIONES;
-		 int filasOpciones = 1;
-		 
-		 JPanel panelDeOpciones = new JPanel();
-		 panelDeOpciones.setSize(500,500);
-		 panelDeOpciones.setLayout(new GridLayout(columnasOpciones,filasOpciones));
-		 
-		 for (int i=0;i<filasOpciones*columnasOpciones;i++){
-			 JButton buttonActual= new JButton();
-			 panelDeOpciones.add(buttonActual);
-			 buttonActual.addActionListener(this.controlador.getParcelaListener());
-				
-		 }*/
-
-
-
-//		 JButton button = new JButton();
-//		 button.setSize(20,20);
-//		 button.setText("Button Crear deposito de Sumnistro");
-//		 button.addActionListener(this.controlador.getCrearDepositoDeSumnistroListener());
-
-//        ventanita.getContentPane().add(panelDeParcela);
-
-//		 ventanita.getContentPane().add(button);
         ventanita.getContentPane().setLayout(null);
 
         JMenuBar menuBar = new JMenuBar();
@@ -107,8 +68,8 @@ public class VistaJuego {
 
         this.barraLateral = new VistaBarraLateral(this.controlador);
         ventanita.getContentPane().add(barraLateral);
-
-        ventanita.setVisible(true);
+        this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo, this.barraLateral));
+        ventanita.setVisible(false);
         ventanita.repaint();
 	}
 	
@@ -116,11 +77,25 @@ public class VistaJuego {
 		this.panelDeParcela.refrescar(mapa);
 		this.barraLateral.refrescar(this.modelo);
 		this.ventanita.repaint();
-		this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo, this.barraLateral));//cambia dependiendo elemento seleccionado
+//		this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo, this.barraLateral));//cambia dependiendo elemento seleccionado
 	}
 
 	public void inicializarMapa() throws ExcepcionCoordenadaFueraDelMapa {
         panelDeParcela.setParcelas(this.modelo.getMapa());
         ventanita.repaint();
+	}
+
+	public void seleccionarCoordenada(int x, int y) throws ExcepcionCoordenadaFueraDelMapa {
+		// TODO Auto-generated method stub
+		Mapa mapa = modelo.getMapa();
+		Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y));
+		if(parcela.estaVacia()){
+			this.barraLateral.setPanelAcciones(new VistaAccionesParcelaVacia(this.modelo, this.barraLateral));;
+		}
+		this.refrescar(mapa);
+		
+	}
+	public void abrirVista(){
+		this.ventanita.setVisible(true);
 	}
 }

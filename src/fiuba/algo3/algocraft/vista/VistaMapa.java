@@ -48,8 +48,9 @@ public class VistaMapa extends JPanel {
 	         JButton buttonActual= new JButton();
 	         listaBotones.add(buttonActual);
 			 this.add(buttonActual);
-			 buttonActual.addActionListener(new ParcelaListener(x, y));
-			 
+			 ParcelaListener l = controlador.getParcelaListener();
+			 buttonActual.addActionListener(l);
+			 l.setCoordenadasBoton(x,y);
 			 buttonActual.setMargin(new Insets(0, 0, 0, 0));
 			 
 		    Font font = buttonActual.getFont();

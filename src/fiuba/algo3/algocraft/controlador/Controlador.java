@@ -1,12 +1,16 @@
 package fiuba.algo3.algocraft.controlador;
 
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.vista.VistaJuego;
 
 public class Controlador {
 	Juego modelo;
+	VistaJuego vista;
 	
 	public Controlador(Juego elJuego) {
 		this.modelo=elJuego;
+
 	}
 	
 	public void clickYCrearDeposito() {
@@ -17,4 +21,21 @@ public class Controlador {
 	public CrearDepositoDeSumnistroListener getCrearDepositoDeSumnistroListener(){
 		return new CrearDepositoDeSumnistroListener(this);
 	}
+
+	public ParcelaListener getParcelaListener() {
+		
+		return new ParcelaListener(this);
+	}
+	public void clickEnParcela(int x, int y) throws ExcepcionCoordenadaFueraDelMapa {
+		//hacer algo cuando sea necesario
+		System.out.println("click en parcela "+x+","+y);
+		vista.seleccionarCoordenada(x, y);
+		
+	}
+
+	public void setVistaJuego(VistaJuego vista){
+		this.vista = vista;
+		
+	}
+	
 }

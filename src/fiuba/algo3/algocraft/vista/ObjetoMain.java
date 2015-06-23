@@ -20,6 +20,10 @@ public class ObjetoMain {
 
 		 VistaJuego vista = new VistaJuego(elJuego, unControlador);
 		 
+		 unControlador.setVistaJuego(vista);
+		 
+		 vista.abrirVista();
+		 
 		 //para probar que cuando metes un elemento, se muestra en las parcelas
 //		 Mapa mapa = elJuego.getMapa();
 //         Jugador jTerran = new Jugador("Juan", Color.BLANCO, Terran.getInstance());
