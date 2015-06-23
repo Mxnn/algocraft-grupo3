@@ -45,8 +45,22 @@ public class Controlador {
 	}
 
 	public void crearExtractorMineral() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
-		this.modelo.getJugadorQueJuega().crearExtractorMineral(modelo.getMapa(), vista.getCoordenadaSeleccionada());
-		this.vista.refrescar();
+		
+		try {
+			this.modelo.getJugadorQueJuega().crearExtractorMineral(modelo.getMapa(), vista.getCoordenadaSeleccionada());
+			this.vista.refrescar();
+		} catch (ExcepcionRecursosInsuficientes e1) {
+			vista.displayError("Recursos Insuficientes");
+		} catch (ExcepcionCoordenadaFueraDelMapa e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ExcepcionElementoNoAdmitidoEnParcela e1) {
+			vista.displayError("ElementoNoAdmitidoEnParcela");
+			e1.printStackTrace();
+		} catch (ExcepcionParcelaOcupada e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	public void terminarTurno() throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {

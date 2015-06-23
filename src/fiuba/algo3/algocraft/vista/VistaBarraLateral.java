@@ -27,7 +27,7 @@ public class VistaBarraLateral extends JTabbedPane{
 	private JLabel maxPoblacionJ2;
 	
 	private JPanel acciones;
-	
+	private JLabel error;
 	
 	public VistaBarraLateral(Controlador controlador) {
 		//hay que modificar para que el tabbedPane se cree desde este constructor
@@ -228,6 +228,16 @@ public class VistaBarraLateral extends JTabbedPane{
 		 JPanel panelAcciones = new JPanel();
 		 this.acciones = panelAcciones;
 		 this.addTab("Acciones", this.acciones);
+		 
+	        JPanel panelError = new JPanel();
+	        this.addTab("Errores", null, panelError, null);
+	        
+	        JLabel lblError = new JLabel("");
+	        lblError.setForeground(Color.RED);
+	        lblError.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	        panelError.add(lblError);
+	        
+	        this.error = lblError;
 
 	}
 
@@ -259,6 +269,12 @@ public class VistaBarraLateral extends JTabbedPane{
 	
 	public void setPanelAcciones(JPanel accion){
 		this.setComponentAt(1, accion);
+		this.repaint();
+	}
+	
+	public void displayError(String msg){
+		this.setSelectedIndex(2);
+		this.error.setText(msg);
 		this.repaint();
 	}
 }

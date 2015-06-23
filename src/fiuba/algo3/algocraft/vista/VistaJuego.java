@@ -16,6 +16,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import java.awt.Color;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 public class VistaJuego {
 	Juego modelo;
@@ -71,6 +74,7 @@ public class VistaJuego {
         barraLateral.setLocation(666, 0);
         ventanita.getContentPane().add(barraLateral);
         this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo, this.barraLateral,this.controlador));
+        
         ventanita.setVisible(false);
         ventanita.repaint();
 	}
@@ -105,5 +109,10 @@ public class VistaJuego {
 	
 	public Coordenada getCoordenadaSeleccionada(){
 		return this.coordenadaSeleccionada;
+	}
+	
+	public void displayError(String msg){
+		this.barraLateral.displayError(msg);
+		this.ventanita.repaint();
 	}
 }
