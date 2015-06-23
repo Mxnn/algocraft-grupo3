@@ -116,7 +116,7 @@ public class VistaJuego {
 		this.panelDeParcela.refrescar(mapa);
 		this.barraLateral.refrescar(this.modelo);
 		this.ventanita.repaint();
-		this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo));//cambia dependiendo elemento seleccionado
+		this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo, this.barraLateral));//cambia dependiendo elemento seleccionado
 	}
 
 	public void inicializarMapa() throws ExcepcionCoordenadaFueraDelMapa {

@@ -1,8 +1,6 @@
 package fiuba.algo3.algocraft.vista;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.*;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,6 +12,8 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 
 public class VistaBarraLateral extends JTabbedPane{
+    private final Color colorJugadorQueJuega = Color.blue;
+
 	private JLabel nombreJ1;
 	private JLabel mineralJ1;
 	private JLabel gasJ1;
@@ -30,7 +30,6 @@ public class VistaBarraLateral extends JTabbedPane{
 	
 	public VistaBarraLateral(Controlador controlador) {
 		//hay que modificar para que el tabbedPane se cree desde este constructor
-		
 
 		this.setBounds(627, 0, 281, 641);
 	
@@ -246,7 +245,15 @@ public class VistaBarraLateral extends JTabbedPane{
 		this.gasJ2.setText(Integer.toString(j2.getGasVespeno()));
 		this.poblacionJ2.setText(Integer.toString(j2.getPoblacion()));
 		this.maxPoblacionJ2.setText(Integer.toString(j2.getCapacidadDePoblacion()));
-		
+
+        if ((modelo.getJugadorQueJuega()).equals(modelo.getJugadores().get(0))) {
+            this.nombreJ1.setForeground(colorJugadorQueJuega);
+            this.nombreJ2.setForeground(Color.black);
+        }
+        else {
+            this.nombreJ1.setForeground(Color.black);
+            this.nombreJ2.setForeground(colorJugadorQueJuega);
+        }
 	}
 	
 	public void setPanelAcciones(JPanel accion){
