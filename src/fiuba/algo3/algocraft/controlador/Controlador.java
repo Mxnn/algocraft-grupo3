@@ -17,12 +17,4 @@ public class Controlador {
 	public CrearDepositoDeSumnistroListener getCrearDepositoDeSumnistroListener(){
 		return new CrearDepositoDeSumnistroListener(this);
 	}
-	public ParcelaListener getParcelaListener() {
-		
-		return new ParcelaListener(this);
-	}
-	public void clickEnParcela(int x, int y) {
-		System.out.println("click en parcela "+x+","+y);
-		
-	}
 }

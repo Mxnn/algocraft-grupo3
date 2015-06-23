@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Insets;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,10 +48,7 @@ public class VistaMapa extends JPanel {
 	         JButton buttonActual= new JButton();
 	         listaBotones.add(buttonActual);
 			 this.add(buttonActual);
-			 ParcelaListener listener = controlador.getParcelaListener();
-			 listener.setCoordenadasBoton(x,y);
-			 buttonActual.addActionListener(listener);
-			 
+			 buttonActual.addActionListener(new ParcelaListener(x, y));
 			 
 			 buttonActual.setMargin(new Insets(0, 0, 0, 0));
 			 

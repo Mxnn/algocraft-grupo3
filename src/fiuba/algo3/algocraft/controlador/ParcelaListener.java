@@ -4,20 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ParcelaListener implements ActionListener {
-	Controlador controlador;
 	int x;
 	int y;
-	public ParcelaListener(Controlador elControlador){
-		this.controlador=elControlador;
+	public ParcelaListener(int x, int y) {
+        this.x = x;
+        this.y = y;
 	}
+
+    @Override
 	public void actionPerformed(ActionEvent arg0) {
-		
-		controlador.clickEnParcela(this.x, this.y);
+        System.out.println("click en parcela "+x+","+y);
 	}
-	public void setCoordenadasBoton(int x2, int y2) {
-		this.x = x2;
-		this.y = y2;
-		
-	}
- 
 }
