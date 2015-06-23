@@ -14,19 +14,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import java.awt.Color;
-import java.awt.GridBagLayout;
-
-import javax.swing.JTextField;
-
-import java.awt.GridBagConstraints;
-
-import javax.swing.JPanel;
-import javax.swing.JSeparator;
-import javax.swing.JTabbedPane;
-import javax.swing.BoxLayout;
-import javax.swing.JLabel;
-
-import java.awt.Insets;
 
 public class VistaJuego {
 	Juego modelo ;
@@ -37,21 +24,21 @@ public class VistaJuego {
 	
 	public static int CANTIDAD_DE_OPCIONES = 8;
 	public VistaJuego(Juego elJuego, Controlador elControlador) throws ExcepcionCoordenadaFueraDelMapa {
-		this.modelo = elJuego;
-		this.controlador= elControlador;
-	
-		int columnas = this.modelo.getMapa().getColumnas();
-		int filas = this.modelo.getMapa().getFilas();
-		
-		 JFrame ventanita= new JFrame();
-		 this.ventanita = ventanita;
-		 ventanita.setSize(1000,700);
-		 
-		 
-		 VistaMapa panelDeParcela = new VistaMapa(this.controlador,filas,columnas);
-		 this.panelDeParcela = panelDeParcela;
-		 panelDeParcela.setBackground(new Color(240, 240, 240));
-		 
+        this.modelo = elJuego;
+        this.controlador= elControlador;
+
+        int columnas = this.modelo.getMapa().getColumnas();
+        int filas = this.modelo.getMapa().getFilas();
+
+        JFrame ventanita= new JFrame("AlgoCraft");
+        this.ventanita = ventanita;
+        ventanita.setSize(1000,700);
+
+
+        VistaMapa panelDeParcela = new VistaMapa(this.controlador,filas,columnas);
+        this.panelDeParcela = panelDeParcela;
+        panelDeParcela.setBackground(new Color(240, 240, 240));
+
 //		 panelDeParcela.setLocation(0, 0);
 //		 panelDeParcela.setSize(500,500);
 ////		 panelDeParcela.setLayout(new GridLayout(columnas,filas)); esto lo comente para poder usar el window builder
@@ -78,57 +65,48 @@ public class VistaJuego {
 			 buttonActual.addActionListener(this.controlador.getParcelaListener());
 				
 		 }*/
-		 
-		 
+
+
 
 //		 JButton button = new JButton();
 //		 button.setSize(20,20);
 //		 button.setText("Button Crear deposito de Sumnistro");
 //		 button.addActionListener(this.controlador.getCrearDepositoDeSumnistroListener());
-	
-		 ventanita.getContentPane().add(panelDeParcela);
-		 
-//		 ventanita.getContentPane().add(button);
-		 ventanita.getContentPane().setLayout(null);
-		 
-		 JMenuBar menuBar = new JMenuBar();
-		 ventanita.setJMenuBar(menuBar);
-		 
-		 JMenu mnArchivo = new JMenu("Archivo");
-		 menuBar.add(mnArchivo);
-		 
-		 JMenuItem mntmNuevoJuego = new JMenuItem("Nuevo Juego");
-		 mnArchivo.add(mntmNuevoJuego);
-		 mntmNuevoJuego.addActionListener(new NuevoJuegoListener(this.modelo));
-		 
-		 JMenuItem mntmSalir = new JMenuItem("Salir");
-		 mnArchivo.add(mntmSalir);
-		 mntmSalir.addActionListener(new CerrarFrameControlador(ventanita));
-		 
-		 
-		 
-		 
-		 
-		 
-		 
-		 
-		 //esto habria que [ponerlo cuando se inicie el juego pero lo pongo aca para probar
-		 panelDeParcela.setParcelas(this.modelo.getMapa());
-		 
-		 
-		 VistaBarraLateral unaBarraLateral = new VistaBarraLateral(this.controlador);
-		 this.barraLateral = unaBarraLateral;
-		 ventanita.getContentPane().add(barraLateral);
-		
-		 
-		 
-		
-		 
 
-		 ventanita.setVisible(true);
-		 
-		 
-		 ventanita.repaint();
+        ventanita.getContentPane().add(panelDeParcela);
+
+//		 ventanita.getContentPane().add(button);
+        ventanita.getContentPane().setLayout(null);
+
+        JMenuBar menuBar = new JMenuBar();
+        ventanita.setJMenuBar(menuBar);
+
+        JMenu mnArchivo = new JMenu("Archivo");
+        JMenuItem mntmNuevoJuego = new JMenuItem("Nuevo Juego");
+        mnArchivo.add(mntmNuevoJuego);
+        mntmNuevoJuego.addActionListener(new NuevoJuegoListener(this.modelo));
+        JMenuItem mntmSalir = new JMenuItem("Salir");
+        mnArchivo.add(mntmSalir);
+        mntmSalir.addActionListener(new CerrarFrameControlador(ventanita));
+
+        JMenu mnAcerca = new JMenu("Acerca De..");
+        JMenuItem iCreadores = new JMenuItem("Creadores");
+        mnAcerca.add(iCreadores);
+        JMenuItem iReferencias = new JMenuItem("Referencias");
+        mnAcerca.add(iReferencias);
+
+        menuBar.add(mnArchivo);
+        menuBar.add(mnAcerca);
+
+        //esto habria que [ponerlo cuando se inicie el juego pero lo pongo aca para probar
+        panelDeParcela.setParcelas(this.modelo.getMapa());
+
+
+        this.barraLateral = new VistaBarraLateral(this.controlador);
+        ventanita.getContentPane().add(barraLateral);
+
+        ventanita.setVisible(true);
+        ventanita.repaint();
 	}
 	
 	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa{

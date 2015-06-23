@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 
 import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
-import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
@@ -94,24 +93,10 @@ public class VistaMapa extends JPanel {
     	JButton buttonActual = this.getButton(x, y);
     	String codigo = this.representador.getCodigo(i);
     	buttonActual.setText(codigo);
-        buttonActual.setForeground(this.colorDelJugador(i.getPropietario()));
+        buttonActual.setForeground(this.representador.getColorTexto(i.getPropietario()));
 
 //    	JLabel label = this.getLabel(x, y);
 //    	label.setText("B");
-    }
-
-    private Color colorDelJugador(Jugador j) {
-        switch (j.getColor()) {
-            case ROJO: return Color.red;
-            case AZUL: return Color.blue;
-            case VERDE: return Color.green;
-            case AMARILLO: return Color.yellow;
-            case VIOLETA: return Color.pink;
-            case NARANJA: return Color.orange;
-            case BLANCO: return Color.white;
-        }
-
-        return Color.cyan;
     }
     
 	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa {
