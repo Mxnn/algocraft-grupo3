@@ -12,12 +12,14 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponi
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplarios;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.PuertoEstelarProtoss;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.vista.VistaJuego;
 
 public class Controlador {
@@ -394,6 +396,18 @@ public class Controlador {
 			e.printStackTrace();
 		}
 		
+	}
+
+	public void mover() throws ExcepcionCoordenadaFueraDelMapa {
+		
+		try {
+			Unidad unidad = (Unidad)this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+			unidad.moverHasta(new Coordenada(7,7));
+		
+		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
