@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesMagicasListener;
 import fiuba.algo3.algocraft.controlador.CrearMarineListener;
+import fiuba.algo3.algocraft.controlador.CrearNaveTransporteProtossListener;
+import fiuba.algo3.algocraft.controlador.CrearScoutListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 
 public class VistaAccionesPuertoEstelarProtoss  extends VistaAcciones {
@@ -18,7 +20,7 @@ public class VistaAccionesPuertoEstelarProtoss  extends VistaAcciones {
 		super(controlador);
 		
 		JButton btnCrearScout = new JButton("Crear Scout");
-		btnCrearScout.addActionListener(new CrearMarineListener(controlador));
+		btnCrearScout.addActionListener(new CrearScoutListener(controlador));
 		GridBagConstraints gbc_btnCrearScout = new GridBagConstraints();
 		gbc_btnCrearScout.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearScout.gridx = 0;
@@ -27,7 +29,7 @@ public class VistaAccionesPuertoEstelarProtoss  extends VistaAcciones {
 		
 
 		JButton btnCrearNaveDeTransporte = new JButton("Crear Nave de transporte");
-		btnCrearNaveDeTransporte.addActionListener(new CrearMarineListener(controlador));
+		btnCrearNaveDeTransporte.addActionListener(new CrearNaveTransporteProtossListener(controlador));
 		GridBagConstraints gbc_btnCrearNaveDeTransporte = new GridBagConstraints();
 		gbc_btnCrearNaveDeTransporte.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearNaveDeTransporte.gridx = 0;

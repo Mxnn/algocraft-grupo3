@@ -8,7 +8,9 @@ import javax.swing.JButton;
 
 import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesMagicasListener;
+import fiuba.algo3.algocraft.controlador.CrearDragonListener;
 import fiuba.algo3.algocraft.controlador.CrearMarineListener;
+import fiuba.algo3.algocraft.controlador.CrearZealotListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 
 public class  VistaAccionesAcceso  extends VistaAcciones {
@@ -18,7 +20,7 @@ public class  VistaAccionesAcceso  extends VistaAcciones {
 		super(controlador);
 		
 		JButton btnCrearZealot = new JButton("Crear Zealot");
-		btnCrearZealot.addActionListener(new CrearMarineListener(controlador));
+		btnCrearZealot.addActionListener(new CrearZealotListener(controlador));
 		GridBagConstraints gbc_btnCrearZealot = new GridBagConstraints();
 		gbc_btnCrearZealot.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearZealot.gridx = 0;
@@ -27,7 +29,7 @@ public class  VistaAccionesAcceso  extends VistaAcciones {
 		
 
 		JButton btnCrearDragon = new JButton("Crear Dragon");
-		btnCrearDragon.addActionListener(new CrearMarineListener(controlador));
+		btnCrearDragon.addActionListener(new CrearDragonListener(controlador));
 		GridBagConstraints gbc_btnCrearDragon = new GridBagConstraints();
 		gbc_btnCrearDragon.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearDragon.gridx = 0;
