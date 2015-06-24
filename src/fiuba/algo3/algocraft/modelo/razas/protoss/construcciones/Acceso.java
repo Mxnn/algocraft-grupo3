@@ -22,10 +22,9 @@ public class Acceso extends Construccion {
     public static int COSTO_MINERAL = 150;
     public static int COSTO_GAS = 0;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
-    
-    
+
 	public Acceso(Jugador propietario) {
-        super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION);
+        super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION, COSTO);
 	}
 
     @Override

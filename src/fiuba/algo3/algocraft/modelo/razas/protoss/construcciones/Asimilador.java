@@ -16,7 +16,7 @@ public class Asimilador  extends ExtractorGas {
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
 
     public Asimilador(Jugador propietario) {
-        super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION);
+        super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION, COSTO);
     }
 
     @Override

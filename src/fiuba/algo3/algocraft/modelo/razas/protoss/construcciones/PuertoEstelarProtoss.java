@@ -22,10 +22,9 @@ public class PuertoEstelarProtoss extends Construccion {
     public static int COSTO_MINERAL = 150;
     public static int COSTO_GAS = 150;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
-    
-    
+
 	public PuertoEstelarProtoss(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas {
-        super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION);
+        super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION, COSTO);
 
         if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_BASICAS))
             throw new ExcepcionConstruccionesRequeridasNoCreadas();

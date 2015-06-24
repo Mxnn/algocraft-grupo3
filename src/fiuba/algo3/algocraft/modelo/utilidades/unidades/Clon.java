@@ -5,13 +5,14 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponi
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
+import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 
 public class Clon extends UnidadAgresora {
 	private UnidadAgresora original;
 	
-	public Clon (UnidadAgresora aClonar, Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        super(propietario, new VitalidadProtoss(0, ((VitalidadProtoss) aClonar.getVitalidad()).getEscudo()), 0, aClonar.getCupoDeTransporte(), aClonar.getVision(), 0, aClonar.getRangoAtaque(), new Danyo(0, 0));
+	public Clon(UnidadAgresora aClonar, Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
+        super(propietario, new VitalidadProtoss(0, ((VitalidadProtoss) aClonar.getVitalidad()).getEscudo()), 0, aClonar.getCupoDeTransporte(), aClonar.getVision(), 0, aClonar.getRangoAtaque(), new Danyo(0, 0), new Costo(0, 0));
         this.tiempoDeConstruccion = 0;
 	}
 

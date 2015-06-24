@@ -16,17 +16,18 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.razas.Raza;
+import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorMineral;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
-import fiuba.algo3.algocraft.modelo.utilidades.unidades.AdicionalSuministros;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.AdicionalSuministros;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 
 public class Jugador {
-    public static int LONGITUD_MINIMA_PARA_EL_NOMBRE = 4;
+    public int LONGITUD_MINIMA_PARA_EL_NOMBRE = 4;
     public static final int GAS_VESPENO_INICIAL = 0;
     public static final int MINERAL_INICIAL = 200;
     public static final int CAPACIDAD_DE_POBLACION_MAXIMA = 200;
@@ -65,6 +66,7 @@ public class Jugador {
         ExtractorGas unExtractorGas = raza.crearExtractorGas(this);
 
         mapa.ubicarElementoEnParcela(coordenada, unExtractorGas);
+        this.deducirCostos(unExtractorGas.getCosto());
 		construcciones.add(unExtractorGas);
 
         return unExtractorGas;
@@ -74,6 +76,7 @@ public class Jugador {
 		ExtractorMineral unExtractorMineral = raza.crearExtractorMineral(this);
 
         mapa.ubicarElementoEnParcela(coordenada, unExtractorMineral);
+        this.deducirCostos(unExtractorMineral.getCosto());
 		construcciones.add(unExtractorMineral);
 
         return unExtractorMineral;
@@ -83,27 +86,27 @@ public class Jugador {
         AdicionalSuministros adicionalSuministros = raza.crearAdicionalDeSuministros(this);
 
         mapa.ubicarElementoEnParcela(coordenada, adicionalSuministros);
+        this.deducirCostos(adicionalSuministros.getCosto());
         construcciones.add(adicionalSuministros);
 
         return adicionalSuministros;
     }
 
     public Interactuable crearCreadorDeUnidadesBasicas(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
-        Construccion creadorDeSoldados = raza.crearCreadorDeUnidadesBasicas(this);
-        
-        
-        
-        mapa.ubicarElementoEnParcela(coordenada, creadorDeSoldados);
-        
-        construcciones.add(creadorDeSoldados);
+        Construccion creadorDeUnidadesBasicas = raza.crearCreadorDeUnidadesBasicas(this);
 
-        return creadorDeSoldados;
+        mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesBasicas);
+        this.deducirCostos(creadorDeUnidadesBasicas.getCosto());
+        construcciones.add(creadorDeUnidadesBasicas);
+
+        return creadorDeUnidadesBasicas;
     }
 
     public Interactuable crearCreadorDeUnidadesAvanzadas(Mapa mapa, Coordenada coordenada) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
         Construccion creadorDeUnidadesTerrestres = raza.crearCreadorDeUnidadesAvanzadas(this);
 
         mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesTerrestres);
+        this.deducirCostos(creadorDeUnidadesTerrestres.getCosto());
         construcciones.add(creadorDeUnidadesTerrestres);
 
         return creadorDeUnidadesTerrestres;
@@ -113,6 +116,7 @@ public class Jugador {
         Construccion creadorDeUnidadesAereas = raza.crearCreadorDeUnidadesMagicas(this);
 
         mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesAereas);
+        this.deducirCostos(creadorDeUnidadesAereas.getCosto());
         construcciones.add(creadorDeUnidadesAereas);
 
         return creadorDeUnidadesAereas;
@@ -218,5 +222,10 @@ public class Jugador {
     	boolean tieneMineral = this.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_MINERAL);
 
     	return(this.mineral<100 && !tieneMineral);
+    }
+
+    public void deducirCostos(Costo costo) {
+        this.mineral -= costo.getCostoMineral();
+        this.gasVespeno -= costo.getCostoGas();
     }
 }

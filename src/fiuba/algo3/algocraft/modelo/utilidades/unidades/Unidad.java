@@ -13,6 +13,7 @@ import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
+import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 
@@ -22,8 +23,8 @@ public abstract class Unidad extends Interactuable {
     protected int suministro;
     protected Coordenada coordenadaDestinacion;
 
-    public Unidad(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro) throws ExcepcionNoHaySuministrosDisponibles {
-        super(propietario, vitalidad, tiempoDeConstruccion);
+    public Unidad(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, Costo costo) throws ExcepcionNoHaySuministrosDisponibles {
+        super(propietario, vitalidad, tiempoDeConstruccion, costo);
         this.cupoDeTransporte = cupoDeTransporte;
         this.vision = vision;
         this.suministro = suministro;

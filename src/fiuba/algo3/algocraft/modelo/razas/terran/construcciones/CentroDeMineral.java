@@ -15,7 +15,7 @@ public class CentroDeMineral extends ExtractorMineral {
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
 
 	public CentroDeMineral(Jugador propietario) {
-        super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION);
+        super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION, COSTO);
     }
 
     @Override

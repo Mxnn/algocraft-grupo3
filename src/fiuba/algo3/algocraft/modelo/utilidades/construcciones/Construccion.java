@@ -9,6 +9,7 @@ import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
+import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
@@ -17,8 +18,8 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.RangoAtaque;
 
 public abstract class Construccion extends Interactuable {
 
-    public Construccion(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion) {
-        super(propietario, vitalidad, tiempoDeConstruccion);
+    public Construccion(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, Costo costo) {
+        super(propietario, vitalidad, tiempoDeConstruccion, costo);
     }
 
     public abstract TipoDeConstruccion getTipoDeConstruccion();

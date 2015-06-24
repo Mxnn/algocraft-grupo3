@@ -5,15 +5,15 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
-import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
+import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 
 public abstract class UnidadAgresora extends Unidad {
     protected RangoAtaque rangoAtaque;
     protected Danyo danyo;
 
-    public UnidadAgresora(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, RangoAtaque rangoAtaque, Danyo danyo) throws ExcepcionNoHaySuministrosDisponibles {
-        super(propietario, vitalidad, tiempoDeConstruccion, cupoDeTransporte, vision, suministro);
+    public UnidadAgresora(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, RangoAtaque rangoAtaque, Danyo danyo, Costo costo) throws ExcepcionNoHaySuministrosDisponibles {
+        super(propietario, vitalidad, tiempoDeConstruccion, cupoDeTransporte, vision, suministro, costo);
         this.rangoAtaque = rangoAtaque;
         this.danyo = danyo;
     }

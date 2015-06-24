@@ -46,7 +46,7 @@ import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Marine;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveCiencia;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveTransporteTerran;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
-import fiuba.algo3.algocraft.modelo.utilidades.unidades.AdicionalSuministros;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.AdicionalSuministros;
 
 public class JugadorTest {
     public static int RECURSOS_SUFFICIENTES = 1000;

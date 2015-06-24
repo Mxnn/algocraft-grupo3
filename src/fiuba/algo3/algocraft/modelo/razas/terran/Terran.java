@@ -13,7 +13,7 @@ import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Refineria;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorMineral;
-import fiuba.algo3.algocraft.modelo.utilidades.unidades.AdicionalSuministros;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.AdicionalSuministros;
 
 public class Terran extends Raza {
     private static Terran INSTANCIA = null;
@@ -36,54 +36,47 @@ public class Terran extends Raza {
 	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario, Refineria.COSTO))
             throw new ExcepcionRecursosInsuficientes();
-		
-        restarCosto(propietario, Refineria.COSTO);
+
 		return new Refineria(propietario);
 	}
 
     @Override
 	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario,CentroDeMineral.COSTO)) 
+        if (recursosInsuficientes(propietario,CentroDeMineral.COSTO))
             throw new ExcepcionRecursosInsuficientes();
-		
-        restarCosto(propietario,CentroDeMineral.COSTO);
+
 		return new CentroDeMineral(propietario);
 	}
 
     @Override
     public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario,DepositoSuministro.COSTO)) 
+        if (recursosInsuficientes(propietario,DepositoSuministro.COSTO))
             throw new ExcepcionRecursosInsuficientes();
-		
-        restarCosto(propietario,DepositoSuministro.COSTO);
-        
+
         return new DepositoSuministro(propietario);
     }
 
     @Override
     public Construccion crearCreadorDeUnidadesBasicas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario,Barraca.COSTO)) 
+        if (recursosInsuficientes(propietario,Barraca.COSTO))
             throw new ExcepcionRecursosInsuficientes();
-		
-        restarCosto(propietario,Barraca.COSTO);
+
         return new Barraca(propietario);
     }
 
     @Override
     public Construccion crearCreadorDeUnidadesAvanzadas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario,Fabrica.COSTO)) 
+        if (recursosInsuficientes(propietario,Fabrica.COSTO))
             throw new ExcepcionRecursosInsuficientes();
-		
-        restarCosto(propietario,Fabrica.COSTO);
+
     	return new Fabrica(propietario);
     }
 
     @Override
     public Construccion crearCreadorDeUnidadesMagicas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario,PuertoEstelar.COSTO)) 
+        if (recursosInsuficientes(propietario,PuertoEstelar.COSTO))
             throw new ExcepcionRecursosInsuficientes();
-		
-        restarCosto(propietario,PuertoEstelar.COSTO);
+
     	return new PuertoEstelar(propietario);
     }
 }

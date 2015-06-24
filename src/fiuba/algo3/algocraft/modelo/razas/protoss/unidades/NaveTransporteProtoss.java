@@ -18,10 +18,9 @@ public class NaveTransporteProtoss extends NaveTransporte {
     public static int COSTO_MINERAL = 200;
     public static int COSTO_GAS = 0;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
-    
-    
+
     public NaveTransporteProtoss(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, CAPACIDAD);
+        super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, CAPACIDAD, COSTO);
     }
     
 }

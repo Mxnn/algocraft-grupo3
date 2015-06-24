@@ -13,7 +13,7 @@ import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.PuertoEstelarPr
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorMineral;
-import fiuba.algo3.algocraft.modelo.utilidades.unidades.AdicionalSuministros;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.AdicionalSuministros;
 
 public class Protoss extends Raza {
     private static Protoss INSTANCIA = null;
@@ -37,8 +37,7 @@ public class Protoss extends Raza {
 	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario, Asimilador.COSTO))
             throw new ExcepcionRecursosInsuficientes();
-		
-        restarCosto(propietario,Asimilador.COSTO);
+
 		return new Asimilador(propietario);
 	}
 
@@ -46,8 +45,7 @@ public class Protoss extends Raza {
 	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario, NexoMineral.COSTO))
             throw new ExcepcionRecursosInsuficientes();
-		
-        restarCosto(propietario,NexoMineral.COSTO);
+
 		return new NexoMineral(propietario);
 	}
 
@@ -55,8 +53,7 @@ public class Protoss extends Raza {
     public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario, Pilon.COSTO))
             throw new ExcepcionRecursosInsuficientes();
-		
-        restarCosto(propietario, Pilon.COSTO);
+
         return new Pilon(propietario);
     }
 
@@ -64,8 +61,7 @@ public class Protoss extends Raza {
     public Construccion crearCreadorDeUnidadesBasicas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario, Acceso.COSTO))
             throw new ExcepcionRecursosInsuficientes();
-		
-        restarCosto(propietario,Acceso.COSTO);
+
         return new Acceso(propietario);
     }
 
@@ -74,7 +70,6 @@ public class Protoss extends Raza {
         if (recursosInsuficientes(propietario, PuertoEstelarProtoss.COSTO))
             throw new ExcepcionRecursosInsuficientes();
 
-        restarCosto(propietario,PuertoEstelarProtoss.COSTO);
         return new PuertoEstelarProtoss(propietario);
     }
 
@@ -83,7 +78,6 @@ public class Protoss extends Raza {
         if (recursosInsuficientes(propietario, ArchivosTemplarios.COSTO))
             throw new ExcepcionRecursosInsuficientes();
 
-        restarCosto(propietario, ArchivosTemplarios.COSTO);
         return new ArchivosTemplarios(propietario);
     }
 }

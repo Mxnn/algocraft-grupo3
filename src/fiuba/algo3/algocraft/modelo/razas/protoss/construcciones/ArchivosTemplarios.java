@@ -21,9 +21,8 @@ public class ArchivosTemplarios extends Construccion {
     public static int COSTO_GAS = 200;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
     
-    
     public ArchivosTemplarios(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas {
-        super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION);
+        super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION, COSTO);
 
         if (!propietario.tieneConstruccionDeTipo(TipoDeConstruccion.CREADOR_DE_UNIDADES_AVANZADAS))
             throw new ExcepcionConstruccionesRequeridasNoCreadas();

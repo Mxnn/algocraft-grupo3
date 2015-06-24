@@ -4,7 +4,7 @@ import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
-import fiuba.algo3.algocraft.modelo.utilidades.unidades.AdicionalSuministros;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.AdicionalSuministros;
 
 public class DepositoSuministro extends AdicionalSuministros {
 
@@ -14,9 +14,9 @@ public class DepositoSuministro extends AdicionalSuministros {
     public static int COSTO_MINERAL = 100;
     public static int COSTO_GAS = 0;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
-    
+
     public DepositoSuministro(Jugador propietario) {
-        super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION, SUMINISTROS_ADICIONALES);
+        super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION, SUMINISTROS_ADICIONALES, COSTO);
     }
 
     @Override

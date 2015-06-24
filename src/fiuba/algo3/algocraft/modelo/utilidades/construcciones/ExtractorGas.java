@@ -6,13 +6,14 @@ import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
+import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 
 public abstract class ExtractorGas extends Construccion {
     public static final int CANTIDAD_DE_GAS_ABSORBIDO_POR_TURNO = 10;
 
-    public ExtractorGas(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion) {
-        super(propietario, vitalidad, tiempoDeConstruccion);
+    public ExtractorGas(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, Costo costo) {
+        super(propietario, vitalidad, tiempoDeConstruccion, costo);
     }
 
     public void recolectarRecursos() {

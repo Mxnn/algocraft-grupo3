@@ -6,13 +6,14 @@ import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
+import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 
 public abstract class ExtractorMineral extends Construccion {
     public static final int CANTIDAD_DE_MINERALES_RECOLECTADOS_POR_TURNO = 10;
 
-    public ExtractorMineral(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion) {
-        super(propietario, vitalidad, tiempoDeConstruccion);
+    public ExtractorMineral(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, Costo costo) {
+        super(propietario, vitalidad, tiempoDeConstruccion, costo);
     }
 
     public void recolectarRecursos() {

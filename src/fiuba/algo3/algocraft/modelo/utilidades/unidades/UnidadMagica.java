@@ -6,6 +6,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 
 public abstract class UnidadMagica extends Unidad {
@@ -13,8 +14,8 @@ public abstract class UnidadMagica extends Unidad {
     protected int energiaMaxima;
     protected int energia;
 
-    public UnidadMagica(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, int energiaMaxima, int energiaInicial, int regeneracionEnergia) throws ExcepcionNoHaySuministrosDisponibles {
-        super(propietario, vitalidad, tiempoDeConstruccion, cupoDeTransporte, vision, suministro);
+    public UnidadMagica(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, int energiaMaxima, int energiaInicial, int regeneracionEnergia, Costo costo) throws ExcepcionNoHaySuministrosDisponibles {
+        super(propietario, vitalidad, tiempoDeConstruccion, cupoDeTransporte, vision, suministro, costo);
         this.energiaMaxima = energiaMaxima;
         this.energia = energiaInicial;
         this.regeneracionEnergia = regeneracionEnergia;

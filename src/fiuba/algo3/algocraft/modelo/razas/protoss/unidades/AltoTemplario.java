@@ -32,13 +32,12 @@ public class AltoTemplario extends UnidadMagica {
     public static final int REGENERACION_ENERGIA = 15;
     public static final int COSTO_ENERGIA_ALUCINACION = 100;
     public static final int COSTO_ENERGIA_TORMENTA = 75;
-
     public static int COSTO_MINERAL = 50;
     public static int COSTO_GAS = 150;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
 
     public AltoTemplario(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, ENERGIA_MAXIMA, ENERGIA_INICIAL, REGENERACION_ENERGIA);
+        super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, ENERGIA_MAXIMA, ENERGIA_INICIAL, REGENERACION_ENERGIA, COSTO);
     }
     
     public void crearAlucinacion(Interactuable unidadAClonar, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion, ExcepcionUnidadNoClonable {
@@ -65,15 +64,18 @@ public class AltoTemplario extends UnidadMagica {
     public Clon crearClon(UnidadAgresora unidadAClonar) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnergiaInsuficiente, ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible{
     	if (!(this.propietario).equals(unidadAClonar.getPropietario()))
             throw new ExcepcionUnidadEnemiga();
+
     	return new Clon(unidadAClonar, this.propietario);
     }
 
     public void crearClon(UnidadMagica unidadAClonar) throws ExcepcionUnidadNoClonable{
     	throw new ExcepcionUnidadNoClonable();
     }
+
     public void crearClon(Construccion unidadAClonar) throws ExcepcionUnidadNoClonable{
     	throw new ExcepcionUnidadNoClonable();
     }
+
     public void crearClon(NaveTransporte unidadAClonar) throws ExcepcionUnidadNoClonable{
     	throw new ExcepcionUnidadNoClonable();
     }

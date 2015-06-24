@@ -11,8 +11,6 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 public class Golliat extends UnidadAgresora {
     public static int COSTO_MINERAL = 100;
     public static int COSTO_GAS = 50;
-    public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
-
     public static final int VIDA_INICIAL = 125;
     public static final int VISION = 8;
     public static final int TIEMPO_DE_CONSTRUCCION = 6;
@@ -24,6 +22,6 @@ public class Golliat extends UnidadAgresora {
     public static final int RANGO_TIERRA = 6;
 
     public Golliat(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
-        super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, new RangoAtaque(RANGO_AIRE, RANGO_TIERRA), new Danyo(DANYO_AIRE, DANYO_TIERRA));
+        super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, new RangoAtaque(RANGO_AIRE, RANGO_TIERRA), new Danyo(DANYO_AIRE, DANYO_TIERRA), new Costo(COSTO_MINERAL, COSTO_GAS));
     }
 }

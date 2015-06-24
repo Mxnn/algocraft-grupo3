@@ -7,7 +7,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorMineral;
-import fiuba.algo3.algocraft.modelo.utilidades.unidades.AdicionalSuministros;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.AdicionalSuministros;
 
 public abstract class Raza {
 
@@ -16,8 +16,7 @@ public abstract class Raza {
 	}
 
 	public void restarCosto(Jugador propietario, Costo costo) {
-		propietario.sumarGasVespeno(-(costo.getCostoGas()));
-	   	propietario.sumarMinerales(-(costo.getCostoMineral()));
+        propietario.deducirCostos(costo);
 	}
 		    
     public abstract AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes;
