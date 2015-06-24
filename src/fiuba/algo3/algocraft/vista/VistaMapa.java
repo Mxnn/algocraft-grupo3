@@ -106,17 +106,24 @@ public class VistaMapa extends JPanel {
         	buttonActual.setEnabled(false); 
         }
         
-
+       
 //    	JLabel label = this.getLabel(x, y);
 //    	label.setText("B");
     }
     
+    private void desinscribirElemento(int x, int y){  //metodo para limpiar la parcela si la unidad se mueve en otra parcela
+    	JButton buttonActual = this.getButton(x, y);
+    	buttonActual.setText("");
+    }
 	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa {
 		for(int x=0; x<this.columnas; x++){
     		for(int y=0; y<this.filas; y++){
     			Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y));
-    			if(!parcela.estaVacia())
+    			if(!parcela.estaVacia()){
     				this.escribirElemento(parcela.devolverElemento(),x,y);
+    			}else{
+    				this.desinscribirElemento(x, y);
+    			}
     		}
 		}
 	}
