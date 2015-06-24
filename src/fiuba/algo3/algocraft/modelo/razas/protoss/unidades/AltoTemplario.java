@@ -45,16 +45,11 @@ public class AltoTemplario extends UnidadMagica {
             throw new ExcepcionEntidadEnConstruccion();
 
         this.gastarEnergia(COSTO_ENERGIA_ALUCINACION);
-//    	if (!(this.propietario).equals(unidadAClonar.getPropietario()))
-//            throw new ExcepcionUnidadEnemiga();
-
-//        Clon clon = new Clon(unidadAClonar, this.propietario);
         try{
-        Clon clon = this.crearClon((UnidadAgresora) unidadAClonar);
-        mapa.ubicarCercaDeParcela(unidadAClonar.getParcela(), clon);
-//        Clon clon2 = new Clon(unidadAClonar, this.propietario);
-        Clon clon2 = this.crearClon((UnidadAgresora) unidadAClonar);
-        mapa.ubicarCercaDeParcela(unidadAClonar.getParcela(), clon2);
+            Clon clon = this.crearClon((UnidadAgresora) unidadAClonar);
+            mapa.ubicarCercaDeParcela(unidadAClonar.getParcela(), clon);
+            Clon clon2 = this.crearClon((UnidadAgresora) unidadAClonar);
+            mapa.ubicarCercaDeParcela(unidadAClonar.getParcela(), clon2);
         }
         catch (ClassCastException e) {
         	throw new ExcepcionUnidadNoClonable();
