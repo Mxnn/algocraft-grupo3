@@ -3,6 +3,7 @@ package fiuba.algo3.algocraft.vista;
 import java.awt.Color;
 import java.util.HashMap;
 
+import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
@@ -17,8 +18,9 @@ public class Representador {
 	private HashMap<Class, String> codigoElementos;
 	private HashMap<Class, Color> coloresParcelas;
     private HashMap<fiuba.algo3.algocraft.modelo.juego.Color, Color> coloresDeTextos;
-	
+
 	public Representador(){
+
 		this.codigoElementos = new HashMap<Class, String>();
 		this.codigoElementos.put(Barraca.class, "Ba");
 		this.codigoElementos.put(CentroDeMineral.class, "CM");

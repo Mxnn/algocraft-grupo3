@@ -179,7 +179,7 @@ public class Controlador {
 		
 	}
 
-	public void crearMarine() {//que onda aca hacemos los casteos?
+	public void crearMarine() {//que onda aca, hacemos los casteos?
 		try {
 			Barraca barraca = (Barraca) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
 			barraca.crearMarine(this.modelo.getMapa());

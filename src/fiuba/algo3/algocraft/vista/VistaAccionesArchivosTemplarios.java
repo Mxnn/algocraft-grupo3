@@ -14,8 +14,8 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 public class VistaAccionesArchivosTemplarios  extends VistaAcciones {
 
 
-	public VistaAccionesArchivosTemplarios(Juego modelo, VistaBarraLateral barra, Controlador controlador) {
-		super(modelo, barra, controlador);
+	public VistaAccionesArchivosTemplarios(Controlador controlador) {
+		super(controlador);
 		
 		JButton btnCrearAltoTemplario = new JButton("Crear Alto Templario");
 		btnCrearAltoTemplario.addActionListener(new CrearMarineListener(controlador));

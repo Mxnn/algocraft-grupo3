@@ -13,8 +13,8 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 public class VistaAccionesBarraca extends VistaAcciones {
 
 
-	public VistaAccionesBarraca(Juego modelo, VistaBarraLateral barra, Controlador controlador) {
-		super(modelo, barra, controlador);
+	public VistaAccionesBarraca(Controlador controlador) {
+		super(controlador);
 		
 		JButton btnCrearMarines = new JButton("Crear Marines");
 		btnCrearMarines.addActionListener(new CrearMarineListener(controlador));

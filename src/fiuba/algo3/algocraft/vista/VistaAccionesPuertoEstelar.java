@@ -14,8 +14,8 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 public class VistaAccionesPuertoEstelar  extends VistaAcciones {
 
 
-	public VistaAccionesPuertoEstelar(Juego modelo, VistaBarraLateral barra, Controlador controlador) {
-		super(modelo, barra, controlador);
+	public VistaAccionesPuertoEstelar(Controlador controlador) {
+		super(controlador);
 		
 		JButton btnCrearEspectro = new JButton("Crear Espectro");
 		btnCrearEspectro.addActionListener(new CrearMarineListener(controlador));

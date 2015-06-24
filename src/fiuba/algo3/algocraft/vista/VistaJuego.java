@@ -10,15 +10,23 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveCiencia;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import java.awt.Color;
+
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+import java.util.HashMap;
 
 public class VistaJuego {
 	Juego modelo;
@@ -27,6 +35,7 @@ public class VistaJuego {
 	JFrame ventanita;
 	VistaBarraLateral barraLateral;
 	Coordenada coordenadaSeleccionada;
+	private HashMap<Class, VistaAcciones> vistasAcciones;
 	
 	public static int CANTIDAD_DE_OPCIONES = 8;
 	public VistaJuego(Juego elJuego, Controlador elControlador) throws ExcepcionCoordenadaFueraDelMapa {
@@ -73,10 +82,17 @@ public class VistaJuego {
         this.barraLateral = new VistaBarraLateral(this.controlador);
         barraLateral.setLocation(666, 0);
         ventanita.getContentPane().add(barraLateral);
-        this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo, this.barraLateral,this.controlador));
+        this.barraLateral.setPanelAcciones(new VistaAcciones(this.controlador));
         
         ventanita.setVisible(false);
         ventanita.repaint();
+        //sacar de aca despues
+		this.vistasAcciones = new HashMap<Class, VistaAcciones>();
+		this.vistasAcciones.put(Barraca.class, new VistaAccionesBarraca(controlador));
+		this.vistasAcciones.put(Fabrica.class, new VistaAccionesFabrica(controlador));
+		this.vistasAcciones.put(NaveCiencia.class, new VistaAccionesNaveCiencia(controlador));
+		this.vistasAcciones.put(AltoTemplario.class, new VistaAccionesAltoTemplario(controlador));
+		this.vistasAcciones.put(UnidadAgresora.class, new VistaAccionesUnidadAgresora(controlador));
 	}
 	
 	public void refrescar() throws ExcepcionCoordenadaFueraDelMapa{
@@ -84,7 +100,7 @@ public class VistaJuego {
 		this.vistaMapa.refrescar(mapa);
 		this.barraLateral.refrescar(this.modelo);
 		this.ventanita.repaint();
-		this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo, this.barraLateral, this.controlador));//cambia dependiendo elemento seleccionado
+		this.barraLateral.setPanelAcciones(new VistaAcciones(this.controlador));//cambia dependiendo elemento seleccionado
 	}
 
 	public void inicializarMapa() throws ExcepcionCoordenadaFueraDelMapa {
@@ -97,7 +113,10 @@ public class VistaJuego {
 		Mapa mapa = modelo.getMapa();
 		Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y));
 		if(parcela.estaVacia()){
-			this.barraLateral.setPanelAcciones(new VistaAccionesParcelaVacia(this.modelo, this.barraLateral, this.controlador));;
+			this.barraLateral.setPanelAcciones(new VistaAccionesParcelaVacia(this.controlador));;
+		}else{
+			Object o = parcela.devolverElemento();
+			this.barraLateral.setPanelAcciones(this.getVistaElemento(o));
 		}
 		this.coordenadaSeleccionada = new Coordenada(x,y);
 		ventanita.repaint();
@@ -114,5 +133,9 @@ public class VistaJuego {
 	public void displayError(String msg){
 		this.barraLateral.displayError(msg);
 		this.ventanita.repaint();
+	}
+	
+	private VistaAcciones getVistaElemento(Object o){
+		return this.vistasAcciones.get(o.getClass());
 	}
 }

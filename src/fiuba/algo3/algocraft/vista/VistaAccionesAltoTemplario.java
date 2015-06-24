@@ -10,8 +10,8 @@ import java.awt.Insets;
 
 public class VistaAccionesAltoTemplario extends VistaAccionesUnidad {
 
-		public VistaAccionesAltoTemplario(Juego modelo, VistaBarraLateral barra, Controlador controlador) {
-			super(modelo, barra, controlador);
+		public VistaAccionesAltoTemplario(Controlador controlador) {
+			super(controlador);
 			
 			JButton btnAlucinacion = new JButton("Alucinacion");
 			GridBagConstraints gbc_btnEmp = new GridBagConstraints();

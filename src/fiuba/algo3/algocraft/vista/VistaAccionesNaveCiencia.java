@@ -10,8 +10,8 @@ import java.awt.Insets;
 
 public class VistaAccionesNaveCiencia extends VistaAccionesUnidad {
 
-	public VistaAccionesNaveCiencia(Juego modelo, VistaBarraLateral barra, Controlador controlador) {
-		super(modelo, barra, controlador);
+	public VistaAccionesNaveCiencia(Controlador controlador) {
+		super(controlador);
 		
 		JButton btnEmp = new JButton("EMP");
 		GridBagConstraints gbc_btnEmp = new GridBagConstraints();

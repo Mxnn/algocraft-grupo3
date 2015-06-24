@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft.vista;
 
 import java.awt.*;
+import java.util.HashMap;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -10,6 +11,12 @@ import javax.swing.JTabbedPane;
 import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.CentroDeMineral;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.DepositoSuministro;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Refineria;
 
 public class VistaBarraLateral extends JTabbedPane{
     private final Color colorJugadorQueJuega = Color.blue;
@@ -29,8 +36,18 @@ public class VistaBarraLateral extends JTabbedPane{
 	private JPanel acciones;
 	private JLabel error;
 	
+
+	
+	
 	public VistaBarraLateral(Controlador controlador) {
 		//hay que modificar para que el tabbedPane se cree desde este constructor
+		
+
+		
+		
+		
+		
+		
 
 		this.setBounds(627, 0, 281, 641);
 	
@@ -265,6 +282,8 @@ public class VistaBarraLateral extends JTabbedPane{
             this.nombreJ1.setForeground(Color.black);
             this.nombreJ2.setForeground(colorJugadorQueJuega);
         }
+        this.setSelectedIndex(0);
+        this.repaint();
 	}
 	
 	public void setPanelAcciones(JPanel accion){

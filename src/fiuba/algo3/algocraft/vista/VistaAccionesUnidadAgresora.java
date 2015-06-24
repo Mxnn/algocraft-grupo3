@@ -8,14 +8,9 @@ import java.awt.Insets;
 import javax.swing.JButton;
 
 public class VistaAccionesUnidadAgresora extends VistaAccionesUnidad{
-	public VistaAccionesUnidadAgresora(Juego modelo, VistaBarraLateral barra, Controlador controlador) {
-//		GridBagLayout gridBagLayout = new GridBagLayout();
-//		gridBagLayout.columnWidths = new int[]{0, 0, 0};
-//		gridBagLayout.rowHeights = new int[]{0, 0};
-//		gridBagLayout.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
-//		gridBagLayout.rowWeights = new double[]{0.0, Double.MIN_VALUE};
-//		setLayout(gridBagLayout);
-		super(modelo, barra, controlador);
+	public VistaAccionesUnidadAgresora(Controlador controlador) {
+
+		super(controlador);
 		this.setTitulo("Unidad Agresora");
 		
 		JButton btnAtacar = new JButton("Atacar");

@@ -14,8 +14,8 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class VistaAccionesParcelaVacia extends VistaAcciones {
-	public VistaAccionesParcelaVacia(Juego modelo, VistaBarraLateral vistaBarraLateral, Controlador controlador) {
-		super(modelo, vistaBarraLateral, controlador);
+	public VistaAccionesParcelaVacia( Controlador controlador) {
+		super(controlador);
 		
 		
 		JButton btnExtractorGas = new JButton("Extractor Gas");

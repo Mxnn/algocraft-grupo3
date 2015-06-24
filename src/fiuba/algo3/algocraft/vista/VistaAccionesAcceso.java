@@ -14,8 +14,8 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 public class  VistaAccionesAcceso  extends VistaAcciones {
 
 
-	public VistaAccionesAcceso(Juego modelo, VistaBarraLateral barra, Controlador controlador) {
-		super(modelo, barra, controlador);
+	public VistaAccionesAcceso(Controlador controlador) {
+		super(controlador);
 		
 		JButton btnCrearZealot = new JButton("Crear Zealot");
 		btnCrearZealot.addActionListener(new CrearMarineListener(controlador));

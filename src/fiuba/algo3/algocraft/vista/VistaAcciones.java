@@ -18,12 +18,12 @@ import java.awt.Insets;
 
 public class VistaAcciones extends JPanel {
 	private JLabel titulo;
-    private Juego modelo;
+//    private Juego modelo;
     private Controlador controlador;
 
-	public VistaAcciones(Juego modelo, VistaBarraLateral vistaBarraLateral, Controlador controlador) {
+	public VistaAcciones(Controlador controlador) {
 		this.controlador = controlador;
-        this.modelo = modelo;
+//        this.modelo = modelo;
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -43,7 +43,7 @@ public class VistaAcciones extends JPanel {
 		GridBagConstraints gbc_btnTerminarTurno = new GridBagConstraints();
 		gbc_btnTerminarTurno.gridx = 0;
 		gbc_btnTerminarTurno.gridy = 9;
-        btnTerminarTurno.addActionListener(new TerminarTurnoListener(this.modelo, this, vistaBarraLateral, this.controlador));
+        btnTerminarTurno.addActionListener(new TerminarTurnoListener(this.controlador));
 		add(btnTerminarTurno, gbc_btnTerminarTurno);
 	}
 	

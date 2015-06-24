@@ -11,8 +11,8 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 public class VistaAccionesFabrica extends VistaAcciones {
 
 
-	public VistaAccionesFabrica(Juego modelo, VistaBarraLateral barra, Controlador controlador) {
-		super(modelo, barra, controlador);
+	public VistaAccionesFabrica(Controlador controlador) {
+		super(controlador);
 		
 		JButton btnCrearGolliat = new JButton("Crear Golliat");
 		GridBagConstraints gbc_btnCrearGolliat = new GridBagConstraints();
