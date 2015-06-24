@@ -1,13 +1,11 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import fiuba.algo3.algocraft.controlador.Controlador;
-
-public class CreadorUnidadesAvanzadasListener implements ActionListener {
+public class CrearCreadorUnidadesAvanzadasListener implements ActionListener {
 	Controlador controlador;
-	public CreadorUnidadesAvanzadasListener(Controlador elControlador){
+	public CrearCreadorUnidadesAvanzadasListener(Controlador elControlador){
 		this.controlador=elControlador;
 	}
 	public void actionPerformed(ActionEvent arg0) {

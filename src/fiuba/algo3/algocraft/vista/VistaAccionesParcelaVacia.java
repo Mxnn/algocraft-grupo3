@@ -2,8 +2,10 @@ package fiuba.algo3.algocraft.vista;
 import javax.swing.JButton;
 
 import fiuba.algo3.algocraft.controlador.Controlador;
-import fiuba.algo3.algocraft.controlador.CreadorUnidadesBasicasListener;
+import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesAvanzadasListener;
+import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesBasicasListener;
 import fiuba.algo3.algocraft.controlador.CrearAdicionalDeSuministroListener;
+import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesMagicasListener;
 import fiuba.algo3.algocraft.controlador.CrearExtractorGasListener;
 import fiuba.algo3.algocraft.controlador.CrearExtractorMineralListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
@@ -41,7 +43,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnAdicionalDeSuministros, gbc_btnNewButton_1);
 		
 		JButton btnCreadorUnidadesBasicas = new JButton("Creador Unidades Basicas");
-		btnCreadorUnidadesBasicas.addActionListener(new CreadorUnidadesBasicasListener(controlador));
+		btnCreadorUnidadesBasicas.addActionListener(new CrearCreadorUnidadesBasicasListener(controlador));
 		GridBagConstraints gbc_btnCreadorUnidadesBasicas = new GridBagConstraints();
 		gbc_btnCreadorUnidadesBasicas.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCreadorUnidadesBasicas.gridx = 0;
@@ -49,7 +51,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnCreadorUnidadesBasicas, gbc_btnCreadorUnidadesBasicas);
 		
 		JButton btnCreadorUnidadesAvanzadas = new JButton("Creador Unidades Avanzadas");
-		btnCreadorUnidadesAvanzadas.addActionListener(new CreadorUnidadesAvanzadasListener(controlador));
+		btnCreadorUnidadesAvanzadas.addActionListener(new CrearCreadorUnidadesAvanzadasListener(controlador));
 		GridBagConstraints gbc_btnCreadorUnidadesAvanzadas = new GridBagConstraints();
 		gbc_btnCreadorUnidadesAvanzadas.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCreadorUnidadesAvanzadas.gridx = 0;
@@ -57,7 +59,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnCreadorUnidadesAvanzadas, gbc_btnCreadorUnidadesAvanzadas);
 		
 		JButton btnCreadorUnidadesMagicas = new JButton("Creador Unidades Magicas");
-		btnCreadorUnidadesMagicas.addActionListener(new CreadorUnidadesMagicasListener(controlador));
+		btnCreadorUnidadesMagicas.addActionListener(new CrearCreadorUnidadesMagicasListener(controlador));
 		GridBagConstraints gbc_btnCreadorUnidadesMagicas = new GridBagConstraints();
 		gbc_btnCreadorUnidadesMagicas.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCreadorUnidadesMagicas.gridx = 0;
