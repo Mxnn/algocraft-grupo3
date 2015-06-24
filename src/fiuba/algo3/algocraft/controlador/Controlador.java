@@ -4,11 +4,15 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequerida
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEntidadEnConstruccion;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.vista.VistaJuego;
 
 public class Controlador {
@@ -172,6 +176,28 @@ public class Controlador {
 			vista.displayError("Construcciones Requeridas No Creadas");
 			e.printStackTrace();
 		}
+		
+	}
+
+	public void crearMarine() {//que onda aca hacemos los casteos?
+		try {
+			Barraca barraca = (Barraca) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+			barraca.crearMarine(this.modelo.getMapa());
+			this.vista.refrescar();
+		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+			vista.displayError("No Hay Suministros Disponibles");
+			e.printStackTrace();
+		} catch (ExcepcionNoHayLugarDisponible e) {
+			vista.displayError("No Hay Lugar Disponible");
+			e.printStackTrace();
+		} catch (ExcepcionEntidadEnConstruccion e) {
+			// TODO Auto-generated catch block 
+			e.printStackTrace();
+		}
+		
 		
 	}
 	

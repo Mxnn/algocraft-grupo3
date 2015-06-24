@@ -6,6 +6,8 @@ import java.awt.Insets;
 import javax.swing.JButton;
 
 import fiuba.algo3.algocraft.controlador.Controlador;
+import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesMagicasListener;
+import fiuba.algo3.algocraft.controlador.CrearMarineListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 
 public class VistaAccionesBarraca extends VistaAcciones {
@@ -15,6 +17,7 @@ public class VistaAccionesBarraca extends VistaAcciones {
 		super(modelo, barra, controlador);
 		
 		JButton btnCrearMarines = new JButton("Crear Marines");
+		btnCrearMarines.addActionListener(new CrearMarineListener(controlador));
 		GridBagConstraints gbc_btnEmp = new GridBagConstraints();
 		gbc_btnEmp.insets = new Insets(0, 0, 5, 0);
 		gbc_btnEmp.gridx = 0;
