@@ -14,6 +14,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
 import fiuba.algo3.algocraft.vista.VistaJuego;
 
 public class Controlador {
@@ -199,7 +200,6 @@ public class Controlador {
 			e.printStackTrace();
 		}
 		
-		
 	}
 
 	public void crearGolliat() {
@@ -217,11 +217,35 @@ public class Controlador {
 			vista.displayError("No Hay Lugar Disponible");
 			e.printStackTrace();
 		} catch (ExcepcionEntidadEnConstruccion e) {
-			// TODO Auto-generated catch block 
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 	}
+	
+	
+	
+	public void crearEspectro() {
+		try {
+			PuertoEstelar puertoEstelar = (PuertoEstelar) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+			puertoEstelar.crearEspectro(this.modelo.getMapa());
+			this.vista.refrescar();
+		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+			vista.displayError("No Hay Suministros Disponibles");
+			e.printStackTrace();
+		} catch (ExcepcionNoHayLugarDisponible e) {
+			vista.displayError("No Hay Lugar Disponible");
+			e.printStackTrace();
+		} catch (ExcepcionEntidadEnConstruccion e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	
 	
 }
