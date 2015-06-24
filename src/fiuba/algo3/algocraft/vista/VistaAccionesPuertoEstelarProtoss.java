@@ -31,7 +31,7 @@ public class VistaAccionesPuertoEstelarProtoss  extends VistaAcciones {
 		GridBagConstraints gbc_btnCrearNaveDeTransporte = new GridBagConstraints();
 		gbc_btnCrearNaveDeTransporte.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearNaveDeTransporte.gridx = 0;
-		gbc_btnCrearNaveDeTransporte.gridy = 2;
+		gbc_btnCrearNaveDeTransporte.gridy = 3;
 		add(btnCrearNaveDeTransporte, gbc_btnCrearNaveDeTransporte);		
 	}
 

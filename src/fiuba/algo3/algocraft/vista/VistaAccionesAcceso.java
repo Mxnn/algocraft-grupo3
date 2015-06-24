@@ -31,7 +31,7 @@ public class  VistaAccionesAcceso  extends VistaAcciones {
 		GridBagConstraints gbc_btnCrearDragon = new GridBagConstraints();
 		gbc_btnCrearDragon.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearDragon.gridx = 0;
-		gbc_btnCrearDragon.gridy = 2;
+		gbc_btnCrearDragon.gridy = 3;
 		add(btnCrearDragon, gbc_btnCrearDragon);		
 	}
 

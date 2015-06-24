@@ -266,6 +266,27 @@ public class Controlador {
 		}
 		
 	}
+
+	public void crearNaveCiencia() {
+		try {
+			PuertoEstelar puertoEstelar = (PuertoEstelar) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+			puertoEstelar.crearNaveCiencia(this.modelo.getMapa());
+			this.vista.refrescar();
+		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+			vista.displayError("No Hay Suministros Disponibles");
+			e.printStackTrace();
+		} catch (ExcepcionNoHayLugarDisponible e) {
+			vista.displayError("No Hay Lugar Disponible");
+			e.printStackTrace();
+		} catch (ExcepcionEntidadEnConstruccion e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 	
