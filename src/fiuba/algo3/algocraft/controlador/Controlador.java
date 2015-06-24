@@ -86,5 +86,25 @@ public class Controlador {
 			e.printStackTrace();
 		}
 	}
+
+	public void crearExtractorGas() {
+		try {
+			this.modelo.getJugadorQueJuega().crearExtractorGas(modelo.getMapa(), vista.getCoordenadaSeleccionada());
+			this.vista.refrescar();
+		} catch (ExcepcionRecursosInsuficientes e) {
+			vista.displayError("Recursos Insuficientes");
+			e.printStackTrace();
+		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+			vista.displayError("Coordenada Fuera Del Mapa");
+			e.printStackTrace();
+		} catch (ExcepcionParcelaOcupada e) {
+			vista.displayError("Parcela Ocupada");
+			e.printStackTrace();
+		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+			vista.displayError("Elemento No Admitido En Parcela");
+			e.printStackTrace();
+		}
+		
+	}
 	
 }

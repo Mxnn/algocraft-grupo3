@@ -3,6 +3,7 @@ import javax.swing.JButton;
 
 import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.controlador.CrearAdicionalDeSuministroListener;
+import fiuba.algo3.algocraft.controlador.CrearExtractorGasListener;
 import fiuba.algo3.algocraft.controlador.CrearExtractorMineralListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 
@@ -15,7 +16,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		
 		
 		JButton btnExtractorGas = new JButton("Extractor Gas");
-		
+		btnExtractorGas.addActionListener(new CrearExtractorGasListener(controlador));
 		GridBagConstraints gbc_btnCrearExtractorGas = new GridBagConstraints();
 		gbc_btnCrearExtractorGas.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearExtractorGas.gridx = 0;
