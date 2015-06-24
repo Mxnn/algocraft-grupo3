@@ -8,6 +8,7 @@ import fiuba.algo3.algocraft.controlador.CrearAdicionalDeSuministroListener;
 import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesMagicasListener;
 import fiuba.algo3.algocraft.controlador.CrearExtractorGasListener;
 import fiuba.algo3.algocraft.controlador.CrearExtractorMineralListener;
+import fiuba.algo3.algocraft.controlador.DestinacionListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 
 import java.awt.GridBagConstraints;
@@ -65,6 +66,14 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		gbc_btnCreadorUnidadesMagicas.gridx = 0;
 		gbc_btnCreadorUnidadesMagicas.gridy = 6;
 		add(btnCreadorUnidadesMagicas, gbc_btnCreadorUnidadesMagicas);
+		
+		JButton btnDestinacion = new JButton("Destinacion");
+		btnDestinacion.addActionListener(new DestinacionListener(controlador));
+		GridBagConstraints gbc_btnDestinacion = new GridBagConstraints();
+		gbc_btnDestinacion.insets = new Insets(0, 0, 5, 0);
+		gbc_btnDestinacion.gridx = 0;
+		gbc_btnDestinacion.gridy = 7;
+		add(btnDestinacion, gbc_btnDestinacion);
 	}
 
 }

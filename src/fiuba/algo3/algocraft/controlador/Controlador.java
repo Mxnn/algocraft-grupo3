@@ -25,7 +25,7 @@ import fiuba.algo3.algocraft.vista.VistaJuego;
 public class Controlador {
 	Juego modelo;
 	VistaJuego vista;
-	
+	Coordenada coordPartida;
 	public Controlador(Juego elJuego) {
 		this.modelo=elJuego;
 
@@ -319,12 +319,22 @@ public class Controlador {
 		}
 	}
 
-    public void mover() throws ExcepcionCoordenadaFueraDelMapa {
-        try {
-            Unidad unidad = (Unidad)this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
-            unidad.moverHasta(new Coordenada(7,7));
-        } catch (ExcepcionCoordenadaFueraDelMapa e) {
-            // TODO Auto-generated catch block
-        }
-    }
+	public void mover() throws ExcepcionCoordenadaFueraDelMapa {
+		
+		this.coordPartida= this.vista.getCoordenadaSeleccionada();
+			vista.displayError("Bien, ahora clickear sobre destinacion");
+       
+	}
+
+	public void ponerDestinacion() throws ExcepcionCoordenadaFueraDelMapa {
+		if(this.coordPartida!=null){
+		Unidad unidad = (Unidad) this.modelo.getMapa().devolverElementoEnParcela(this.coordPartida);
+		unidad.moverHasta(this.vista.getCoordenadaSeleccionada());
+		this.vista.refrescar();
+		this.coordPartida=null;
+		}else{
+			vista.displayError("Primer, clickear sobre la unidad");
+		}
+		
+	}
 }
