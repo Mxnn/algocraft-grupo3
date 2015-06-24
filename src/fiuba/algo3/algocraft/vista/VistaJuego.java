@@ -112,11 +112,16 @@ public class VistaJuego {
 		// TODO Auto-generated method stub
 		Mapa mapa = modelo.getMapa();
 		Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y));
+		//es un asco esto pero bueno, despues cambiamos
 		if(parcela.estaVacia()){
 			this.barraLateral.setPanelAcciones(new VistaAccionesParcelaVacia(this.controlador));;
 		}else{
 			Object o = parcela.devolverElemento();
-			this.barraLateral.setPanelAcciones(this.getVistaElemento(o));
+			VistaAcciones vistaActual = this.getVistaElemento(o.getClass());
+			if(vistaActual == null){
+				vistaActual = this.getVistaElemento(o.getClass().getSuperclass());
+			}
+			this.barraLateral.setPanelAcciones(vistaActual);
 		}
 		this.coordenadaSeleccionada = new Coordenada(x,y);
 		ventanita.repaint();
@@ -135,7 +140,7 @@ public class VistaJuego {
 		this.ventanita.repaint();
 	}
 	
-	private VistaAcciones getVistaElemento(Object o){
-		return this.vistasAcciones.get(o.getClass());
+	private VistaAcciones getVistaElemento(Class c){
+		return this.vistasAcciones.get(c);
 	}
 }
