@@ -72,7 +72,10 @@ public class Coordenada {
 				int direccion =this.darDireccion(coordenadaSiguiente.getY());
 				coordenadaSiguiente= new Coordenada(this.x,this.y+direccion);
 			}
+		}else{
+			coordenadaSiguiente = this;
 		}
+		
 		return coordenadaSiguiente;
 	}
 

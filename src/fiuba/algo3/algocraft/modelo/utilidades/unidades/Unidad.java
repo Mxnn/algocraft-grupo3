@@ -101,10 +101,10 @@ public abstract class Unidad extends Interactuable {
 		if (this.parcelaUbicacion != null) {
 			Coordenada coordenadaActual = this.parcelaUbicacion.getCoordenada();
 			if (coordenadaActual != null && this.coordenadaDestinacion != null) {
-				Coordenada coordenadaSiguiente = coordenadaActual
-						.calcularCoordenadaSiguiente(this.coordenadaDestinacion);
-				if (!coordenadaActual.equals(coordenadaSiguiente)) {
-
+				
+				if (!coordenadaActual.equals(coordenadaDestinacion)) {
+					Coordenada coordenadaSiguiente = coordenadaActual
+							.calcularCoordenadaSiguiente(this.coordenadaDestinacion);
 					try {
 						Parcela nuevaParcelaActual = mapa
 								.obtenerParcelaEnCoordenada(coordenadaSiguiente);
