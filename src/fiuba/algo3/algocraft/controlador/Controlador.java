@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft.controlador;
 
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
@@ -102,6 +103,73 @@ public class Controlador {
 			e.printStackTrace();
 		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
 			vista.displayError("Elemento No Admitido En Parcela");
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void crearCreadorUnidadesBasicas() {
+		try {
+			this.modelo.getJugadorQueJuega().crearCreadorDeUnidadesBasicas(modelo.getMapa(), vista.getCoordenadaSeleccionada());
+			this.vista.refrescar();
+		} catch (ExcepcionRecursosInsuficientes e) {
+			vista.displayError("Recursos Insuficientes");
+			e.printStackTrace();
+		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+			vista.displayError("Coordenada Fuera Del Mapa");
+			e.printStackTrace();
+		} catch (ExcepcionParcelaOcupada e) {
+			vista.displayError("Parcela Ocupada");
+			e.printStackTrace();
+		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+			vista.displayError("Elemento No Admitido En Parcela");
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void crearCreadorUnidadesAvanzadas(){
+		try {
+			this.modelo.getJugadorQueJuega().crearCreadorDeUnidadesAvanzadas(modelo.getMapa(), vista.getCoordenadaSeleccionada());
+			this.vista.refrescar();
+		} catch (ExcepcionRecursosInsuficientes e) {
+			vista.displayError("Recursos Insuficientes");
+			e.printStackTrace();
+		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+			vista.displayError("Coordenada Fuera Del Mapa");
+			e.printStackTrace();
+		} catch (ExcepcionParcelaOcupada e) {
+			vista.displayError("Parcela Ocupada");
+			e.printStackTrace();
+		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+			vista.displayError("Elemento No Admitido En Parcela");
+			e.printStackTrace();
+		} catch (ExcepcionConstruccionesRequeridasNoCreadas e) {
+			vista.displayError("Construcciones Requeridas No Creadas");
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	public void crearCreadorUnidadesMagicas() {
+		try {
+			this.modelo.getJugadorQueJuega().crearCreadorDeUnidadesMagicas(modelo.getMapa(), vista.getCoordenadaSeleccionada());
+			this.vista.refrescar();
+		} catch (ExcepcionRecursosInsuficientes e) {
+			vista.displayError("Recursos Insuficientes");
+			e.printStackTrace();
+		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+			vista.displayError("Coordenada Fuera Del Mapa");
+			e.printStackTrace();
+		} catch (ExcepcionParcelaOcupada e) {
+			vista.displayError("Parcela Ocupada");
+			e.printStackTrace();
+		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+			vista.displayError("Elemento No Admitido En Parcela");
+			e.printStackTrace();
+		} catch (ExcepcionConstruccionesRequeridasNoCreadas e) {
+			vista.displayError("Construcciones Requeridas No Creadas");
 			e.printStackTrace();
 		}
 		

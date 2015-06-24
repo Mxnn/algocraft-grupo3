@@ -90,8 +90,11 @@ public class Jugador {
 
     public Interactuable crearCreadorDeUnidadesBasicas(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
         Construccion creadorDeSoldados = raza.crearCreadorDeUnidadesBasicas(this);
-
+        
+        
+        
         mapa.ubicarElementoEnParcela(coordenada, creadorDeSoldados);
+        
         construcciones.add(creadorDeSoldados);
 
         return creadorDeSoldados;
