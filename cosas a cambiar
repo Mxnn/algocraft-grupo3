@@ -5,3 +5,4 @@ COSAS A CAMBIAR
 BUG en la creacion de edificios, se gastan los minerales aunque despues no se puedan ubicar en la parcela. 
 EXCEPCIONES que deberiamos pasar a runtime porque con la vista ya no pueden pasar y no tiene sentido hacerles catch si o si.
 TURNOS que un jugador no pueda seleccionar unidades enemigas para usarlas.
+VSTASACCIONES andan bien para las construcciones pero no para las unidades
