@@ -13,6 +13,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
 import fiuba.algo3.algocraft.vista.VistaJuego;
 
 public class Controlador {
@@ -183,6 +184,28 @@ public class Controlador {
 		try {
 			Barraca barraca = (Barraca) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
 			barraca.crearMarine(this.modelo.getMapa());
+			this.vista.refrescar();
+		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+			vista.displayError("No Hay Suministros Disponibles");
+			e.printStackTrace();
+		} catch (ExcepcionNoHayLugarDisponible e) {
+			vista.displayError("No Hay Lugar Disponible");
+			e.printStackTrace();
+		} catch (ExcepcionEntidadEnConstruccion e) {
+			// TODO Auto-generated catch block 
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	public void crearGolliat() {
+		try {
+			Fabrica fabrica = (Fabrica) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+			fabrica.crearGolliat(this.modelo.getMapa());
 			this.vista.refrescar();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			// TODO Auto-generated catch block
