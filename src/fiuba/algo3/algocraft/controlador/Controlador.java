@@ -64,20 +64,16 @@ public class Controlador {
 			vista.displayError("Recursos Insuficientes");
 		} catch (ExcepcionCoordenadaFueraDelMapa e1) {
 			vista.displayError("Coordenada Fuera Del Mapa");
-			e1.printStackTrace();
 		} catch (ExcepcionElementoNoAdmitidoEnParcela e1) {
 			vista.displayError("Elemento No Admitido En Parcela");
-			e1.printStackTrace();
 		} catch (ExcepcionParcelaOcupada e1) {
 			vista.displayError("ParcelaOcupada");
-			e1.printStackTrace();
 		}
 	}
 
 	public void terminarTurno() throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
 		this.modelo.pasarTurno(this.modelo.getJugadorQueJuega());
 		this.vista.refrescar();
-		
 	}
 	
 	public void crearAdicionalSuministros(){
@@ -86,16 +82,12 @@ public class Controlador {
 			this.vista.refrescar();
 		} catch (ExcepcionRecursosInsuficientes e) {
 			vista.displayError("Recursos Insuficientes");
-			e.printStackTrace();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			vista.displayError("Coordenada Fuera Del Mapa");
-			e.printStackTrace();
 		} catch (ExcepcionParcelaOcupada e) {
 			vista.displayError("Parcela Ocupada");
-			e.printStackTrace();
 		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
 			vista.displayError("Elemento No Admitido En Parcela");
-			e.printStackTrace();
 		}
 	}
 
@@ -105,16 +97,12 @@ public class Controlador {
 			this.vista.refrescar();
 		} catch (ExcepcionRecursosInsuficientes e) {
 			vista.displayError("Recursos Insuficientes");
-			e.printStackTrace();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			vista.displayError("Coordenada Fuera Del Mapa");
-			e.printStackTrace();
 		} catch (ExcepcionParcelaOcupada e) {
 			vista.displayError("Parcela Ocupada");
-			e.printStackTrace();
 		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
 			vista.displayError("Elemento No Admitido En Parcela");
-			e.printStackTrace();
 		}
 		
 	}
@@ -125,16 +113,12 @@ public class Controlador {
 			this.vista.refrescar();
 		} catch (ExcepcionRecursosInsuficientes e) {
 			vista.displayError("Recursos Insuficientes");
-			e.printStackTrace();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			vista.displayError("Coordenada Fuera Del Mapa");
-			e.printStackTrace();
 		} catch (ExcepcionParcelaOcupada e) {
 			vista.displayError("Parcela Ocupada");
-			e.printStackTrace();
 		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
 			vista.displayError("Elemento No Admitido En Parcela");
-			e.printStackTrace();
 		}
 		
 	}
@@ -145,22 +129,15 @@ public class Controlador {
 			this.vista.refrescar();
 		} catch (ExcepcionRecursosInsuficientes e) {
 			vista.displayError("Recursos Insuficientes");
-			e.printStackTrace();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			vista.displayError("Coordenada Fuera Del Mapa");
-			e.printStackTrace();
 		} catch (ExcepcionParcelaOcupada e) {
 			vista.displayError("Parcela Ocupada");
-			e.printStackTrace();
 		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
 			vista.displayError("Elemento No Admitido En Parcela");
-			e.printStackTrace();
 		} catch (ExcepcionConstruccionesRequeridasNoCreadas e) {
 			vista.displayError("Construcciones Requeridas No Creadas");
-			e.printStackTrace();
 		}
-		
-		
 	}
 
 	public void crearCreadorUnidadesMagicas() {
@@ -169,21 +146,15 @@ public class Controlador {
 			this.vista.refrescar();
 		} catch (ExcepcionRecursosInsuficientes e) {
 			vista.displayError("Recursos Insuficientes");
-			e.printStackTrace();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			vista.displayError("Coordenada Fuera Del Mapa");
-			e.printStackTrace();
 		} catch (ExcepcionParcelaOcupada e) {
 			vista.displayError("Parcela Ocupada");
-			e.printStackTrace();
 		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
 			vista.displayError("Elemento No Admitido En Parcela");
-			e.printStackTrace();
 		} catch (ExcepcionConstruccionesRequeridasNoCreadas e) {
 			vista.displayError("Construcciones Requeridas No Creadas");
-			e.printStackTrace();
 		}
-		
 	}
 
 	public void crearMarine() {//que onda aca, hacemos los casteos?
@@ -196,15 +167,11 @@ public class Controlador {
 			e.printStackTrace();
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
 			vista.displayError("No Hay Suministros Disponibles");
-			e.printStackTrace();
 		} catch (ExcepcionNoHayLugarDisponible e) {
 			vista.displayError("No Hay Lugar Disponible");
-			e.printStackTrace();
 		} catch (ExcepcionEntidadEnConstruccion e) {
-			// TODO Auto-generated catch block 
-			e.printStackTrace();
+            vista.displayError("La entidad esta en construccion");
 		}
-		
 	}
 
 	public void crearGolliat() {
@@ -214,22 +181,15 @@ public class Controlador {
 			this.vista.refrescar();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
 			vista.displayError("No Hay Suministros Disponibles");
-			e.printStackTrace();
 		} catch (ExcepcionNoHayLugarDisponible e) {
 			vista.displayError("No Hay Lugar Disponible");
-			e.printStackTrace();
 		} catch (ExcepcionEntidadEnConstruccion e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            vista.displayError("La entidad esta en construccion");
 		}
-
 	}
-	
-	
-	
+
 	public void crearEspectro() {
 		try {
 			PuertoEstelar puertoEstelar = (PuertoEstelar) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
@@ -237,18 +197,14 @@ public class Controlador {
 			this.vista.refrescar();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
 			vista.displayError("No Hay Suministros Disponibles");
-			e.printStackTrace();
 		} catch (ExcepcionNoHayLugarDisponible e) {
 			vista.displayError("No Hay Lugar Disponible");
-			e.printStackTrace();
 		} catch (ExcepcionEntidadEnConstruccion e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+            vista.displayError("La entidad esta en construccion");
 		}
-
 	}
 
 	public void crearNaveTransporte() {
@@ -258,18 +214,13 @@ public class Controlador {
 			this.vista.refrescar();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
 			vista.displayError("No Hay Suministros Disponibles");
-			e.printStackTrace();
 		} catch (ExcepcionNoHayLugarDisponible e) {
 			vista.displayError("No Hay Lugar Disponible");
-			e.printStackTrace();
 		} catch (ExcepcionEntidadEnConstruccion e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            vista.displayError("La entidad esta en construccion");
 		}
-		
 	}
 
 	public void crearNaveCiencia() {
@@ -279,18 +230,13 @@ public class Controlador {
 			this.vista.refrescar();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
 			vista.displayError("No Hay Suministros Disponibles");
-			e.printStackTrace();
 		} catch (ExcepcionNoHayLugarDisponible e) {
 			vista.displayError("No Hay Lugar Disponible");
-			e.printStackTrace();
 		} catch (ExcepcionEntidadEnConstruccion e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            vista.displayError("La entidad esta en construccion");
 		}
-		
 	}
 
 	public void crearZealot() {
@@ -300,16 +246,12 @@ public class Controlador {
 			this.vista.refrescar();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
 			vista.displayError("No Hay Suministros Disponibles");
-			e.printStackTrace();
 		} catch (ExcepcionNoHayLugarDisponible e) {
 			vista.displayError("No Hay Lugar Disponible");
-			e.printStackTrace();
 		} catch (ExcepcionEntidadEnConstruccion e) {
-			// TODO Auto-generated catch block 
-			e.printStackTrace();
+            vista.displayError("La entidad esta en construccion");
 		}
 	}
 
@@ -320,18 +262,13 @@ public class Controlador {
 			this.vista.refrescar();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
 			vista.displayError("No Hay Suministros Disponibles");
-			e.printStackTrace();
 		} catch (ExcepcionNoHayLugarDisponible e) {
 			vista.displayError("No Hay Lugar Disponible");
-			e.printStackTrace();
 		} catch (ExcepcionEntidadEnConstruccion e) {
-			// TODO Auto-generated catch block 
-			e.printStackTrace();
+            vista.displayError("La entidad esta en construccion");
 		}
-		
 	}
 
 	public void crearScout() {
@@ -341,18 +278,13 @@ public class Controlador {
 			this.vista.refrescar();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
 			vista.displayError("No Hay Suministros Disponibles");
-			e.printStackTrace();
 		} catch (ExcepcionNoHayLugarDisponible e) {
 			vista.displayError("No Hay Lugar Disponible");
-			e.printStackTrace();
 		} catch (ExcepcionEntidadEnConstruccion e) {
-			// TODO Auto-generated catch block 
-			e.printStackTrace();
+            vista.displayError("La entidad esta en construccion");
 		}
-		
 	}
 
 	public void crearNaveTransporteProtoss() {
@@ -362,19 +294,13 @@ public class Controlador {
 			this.vista.refrescar();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
 			vista.displayError("No Hay Suministros Disponibles");
-			e.printStackTrace();
 		} catch (ExcepcionNoHayLugarDisponible e) {
 			vista.displayError("No Hay Lugar Disponible");
-			e.printStackTrace();
 		} catch (ExcepcionEntidadEnConstruccion e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            vista.displayError("La entidad esta en construccion");
 		}
-		
-		
 	}
 
 	public void crearAltoTemplario() {
@@ -384,32 +310,21 @@ public class Controlador {
 			this.vista.refrescar();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
 			vista.displayError("No Hay Suministros Disponibles");
-			e.printStackTrace();
 		} catch (ExcepcionNoHayLugarDisponible e) {
 			vista.displayError("No Hay Lugar Disponible");
-			e.printStackTrace();
 		} catch (ExcepcionEntidadEnConstruccion e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            vista.displayError("La entidad esta en construccion");
 		}
-		
 	}
 
-	public void mover() throws ExcepcionCoordenadaFueraDelMapa {
-		
-		try {
-			Unidad unidad = (Unidad)this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
-			unidad.moverHasta(new Coordenada(7,7));
-		
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	
-	
+    public void mover() throws ExcepcionCoordenadaFueraDelMapa {
+        try {
+            Unidad unidad = (Unidad)this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+            unidad.moverHasta(new Coordenada(7,7));
+        } catch (ExcepcionCoordenadaFueraDelMapa e) {
+            // TODO Auto-generated catch block
+        }
+    }
 }
