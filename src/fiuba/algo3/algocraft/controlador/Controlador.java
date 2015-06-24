@@ -24,8 +24,8 @@ public class Controlador {
 		
 	}
 
-	public CrearDepositoDeSumnistroListener getCrearDepositoDeSumnistroListener(){
-		return new CrearDepositoDeSumnistroListener(this);
+	public CrearAdicionalDeSuministroListener getCrearDepositoDeSumnistroListener(){
+		return new CrearAdicionalDeSuministroListener(this);
 	}
 
 	public ParcelaListener getParcelaListener() {
@@ -44,21 +44,20 @@ public class Controlador {
 		
 	}
 
-	public void crearExtractorMineral() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
-		
+	public void crearExtractorMineral() {		
 		try {
 			this.modelo.getJugadorQueJuega().crearExtractorMineral(modelo.getMapa(), vista.getCoordenadaSeleccionada());
 			this.vista.refrescar();
 		} catch (ExcepcionRecursosInsuficientes e1) {
 			vista.displayError("Recursos Insuficientes");
 		} catch (ExcepcionCoordenadaFueraDelMapa e1) {
-			// TODO Auto-generated catch block
+			vista.displayError("Coordenada Fuera Del Mapa");
 			e1.printStackTrace();
 		} catch (ExcepcionElementoNoAdmitidoEnParcela e1) {
-			vista.displayError("ElementoNoAdmitidoEnParcela");
+			vista.displayError("Elemento No Admitido En Parcela");
 			e1.printStackTrace();
 		} catch (ExcepcionParcelaOcupada e1) {
-			// TODO Auto-generated catch block
+			vista.displayError("ParcelaOcupada");
 			e1.printStackTrace();
 		}
 	}
@@ -66,6 +65,26 @@ public class Controlador {
 	public void terminarTurno() throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
 		this.modelo.pasarTurno(this.modelo.getJugadorQueJuega());
 		this.vista.refrescar();
+		
+	}
+	
+	public void crearAdicionalSuministros(){
+		try {
+			this.modelo.getJugadorQueJuega().crearAdicionalDeSuministro(modelo.getMapa(), vista.getCoordenadaSeleccionada());
+			this.vista.refrescar();
+		} catch (ExcepcionRecursosInsuficientes e) {
+			vista.displayError("Recursos Insuficientes");
+			e.printStackTrace();
+		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+			vista.displayError("Coordenada Fuera Del Mapa");
+			e.printStackTrace();
+		} catch (ExcepcionParcelaOcupada e) {
+			vista.displayError("Parcela Ocupada");
+			e.printStackTrace();
+		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+			vista.displayError("Elemento No Admitido En Parcela");
+			e.printStackTrace();
+		}
 	}
 	
 }

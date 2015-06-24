@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft.vista;
 import javax.swing.JButton;
 
 import fiuba.algo3.algocraft.controlador.Controlador;
+import fiuba.algo3.algocraft.controlador.CrearAdicionalDeSuministroListener;
 import fiuba.algo3.algocraft.controlador.CrearExtractorMineralListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 
@@ -30,6 +31,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnExtractorMinera, gbc_btnNewButton);
 		
 		JButton btnAdicionalDeSuministros = new JButton("Adicional De Suministros");
+		btnAdicionalDeSuministros.addActionListener(new CrearAdicionalDeSuministroListener(controlador));
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 0);
 		gbc_btnNewButton_1.gridx = 0;

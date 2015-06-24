@@ -32,6 +32,8 @@ public class TerminarTurnoListener implements ActionListener {
 //            this.vistaBarraLateral.refrescar(this.modelo);
         	controlador.terminarTurno();
             this.vistaBarraLateral.setSelectedIndex(0);
+            
+            //estos los podemos hacer runtime, no podrian pasar nunca creo
         } catch (ExcepcionNoEsElTurnoDelJugador excepcionNoEsElTurnoDelJugador) {
             JOptionPane.showMessageDialog(this.frame, "No se puede pasar turno en tu turno");
         } catch (ExcepcionEstadoMuerto excepcionEstadoMuerto) {

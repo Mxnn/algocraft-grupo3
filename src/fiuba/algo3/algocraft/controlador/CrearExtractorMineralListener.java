@@ -16,21 +16,7 @@ public class CrearExtractorMineralListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		try {
 			controlador.crearExtractorMineral();
-		} catch (ExcepcionRecursosInsuficientes e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (ExcepcionCoordenadaFueraDelMapa e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (ExcepcionElementoNoAdmitidoEnParcela e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (ExcepcionParcelaOcupada e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 
 	}
 
