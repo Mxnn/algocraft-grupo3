@@ -13,6 +13,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplarios;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.PuertoEstelarProtoss;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
@@ -371,6 +372,27 @@ public class Controlador {
 			e.printStackTrace();
 		}
 		
+		
+	}
+
+	public void crearAltoTemplario() {
+		try {
+			ArchivosTemplarios archivosTemplarios = (ArchivosTemplarios) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+			archivosTemplarios.crearAltoTemplario(this.modelo.getMapa());
+			this.vista.refrescar();
+		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+			vista.displayError("No Hay Suministros Disponibles");
+			e.printStackTrace();
+		} catch (ExcepcionNoHayLugarDisponible e) {
+			vista.displayError("No Hay Lugar Disponible");
+			e.printStackTrace();
+		} catch (ExcepcionEntidadEnConstruccion e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	

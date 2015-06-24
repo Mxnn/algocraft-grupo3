@@ -10,9 +10,13 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplarios;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.PuertoEstelarProtoss;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveCiencia;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 
@@ -93,6 +97,10 @@ public class VistaJuego {
 		this.vistasAcciones.put(NaveCiencia.class, new VistaAccionesNaveCiencia(controlador));
 		this.vistasAcciones.put(AltoTemplario.class, new VistaAccionesAltoTemplario(controlador));
 		this.vistasAcciones.put(UnidadAgresora.class, new VistaAccionesUnidadAgresora(controlador));
+		this.vistasAcciones.put(PuertoEstelar.class, new VistaAccionesPuertoEstelar(controlador));
+		this.vistasAcciones.put(Acceso.class, new VistaAccionesAcceso(controlador));
+		this.vistasAcciones.put(PuertoEstelarProtoss.class, new VistaAccionesPuertoEstelarProtoss(controlador));
+		this.vistasAcciones.put(ArchivosTemplarios.class, new VistaAccionesArchivosTemplarios(controlador));
 	}
 	
 	public void refrescar() throws ExcepcionCoordenadaFueraDelMapa{
