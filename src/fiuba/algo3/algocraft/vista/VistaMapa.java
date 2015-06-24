@@ -101,6 +101,11 @@ public class VistaMapa extends JPanel {
     	buttonActual.setMargin(new Insets(0, 0, 0, 0));
     	buttonActual.setText(codigo);
         buttonActual.setForeground(this.representador.getColorTexto(i.getPropietario()));
+        buttonActual.setEnabled(true); 
+        if(!i.estaCreado()){
+        	buttonActual.setEnabled(false); 
+        }
+        
 
 //    	JLabel label = this.getLabel(x, y);
 //    	label.setText("B");
