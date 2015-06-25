@@ -100,7 +100,7 @@ public class GeneradorMapa {
     
     private void crearBasesEnMapa() {
     	int x = this.rand.randInt(0, 4); //calcular bordes desde el mapa
-    	int y = this.rand.randInt(0, this.mapa.getFilas());
+    	int y = this.rand.randInt(0, this.mapa.getFilas()-2);
 //    	System.out.println(x);
 //    	System.out.println(y);
     	

@@ -106,7 +106,7 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     private void escribirElemento(Interactuable i,int x,int y){
     	JButton buttonActual = this.getButton(x, y);
     	String codigo = this.representador.getCodigo(i);
-    	buttonActual.setMargin(new Insets(0, 0, 0, 0));
+//    	buttonActual.setMargin(new Insets(0, 0, 0, 0));
     	buttonActual.setText(codigo);
         buttonActual.setForeground(this.representador.getColorTexto(i.getPropietario()));
         buttonActual.setEnabled(true); 
@@ -131,12 +131,8 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     			}
     		}
 		}
+		this.repaint();
 	}
-
-//	@Override
-//	public void crearVistaParcela(ParcelaTierra parcela) {
-//		this.pintarBoton(parcela.getCoordenada(), Color.lightGray);
-//	}
 
 	@Override
 	public void crearVistaParcela(ParcelaEspacio parcela) {

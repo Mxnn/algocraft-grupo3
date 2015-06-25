@@ -35,6 +35,7 @@ public class Juego {
     
 	public void setObservadores(ObservadorMapa observador) throws ExcepcionNumeroDeBasesInvalido {
 		this.generadorMapa = new GeneradorMapa(observador);
+		this.sistemaDeTurnos = new SistemaDeTurnos(this.jugadores,this.getMapa());
 //		this.mapa = this.generadorMapa.getMapa();
 		//por ahi convienen dos inicializadores de je
 	}
