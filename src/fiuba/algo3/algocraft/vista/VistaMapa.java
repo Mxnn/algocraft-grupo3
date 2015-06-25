@@ -26,6 +26,11 @@ import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 
 public class VistaMapa extends JPanel implements ObservadorMapa{
+	public static final Color PARCELA_TIERRA = Color.lightGray;
+    public static final Color PARCELA_ESPACIO = Color.black;
+    public static final Color PARCELA_MINERAL = new Color(0x80C0D2);
+    public static final Color PARCELA_VOLCAN = new Color(0xA47861);
+    
 	private int filas;
 	private int columnas;
     private final List<JButton> listaBotones = new ArrayList<JButton>();
@@ -59,18 +64,13 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 			 l.setCoordenadasBoton(x,y);
 			 buttonActual.setMargin(new Insets(0, 0, 0, 0));
 			 buttonActual.setBorder(BorderFactory.createLineBorder(Color.black));
-			 buttonActual.setBackground(Color.lightGray); //el mapa se crea con colores de tierra
+			 buttonActual.setBackground(PARCELA_TIERRA); //el mapa se crea con colores de tierra
 //			 buttonActual.setBorder(null); //sin bordes es otra opcion
 			 
 		    Font font = buttonActual.getFont();
 		    font = font.deriveFont(font.getSize() * 0.8f);
 		    buttonActual.setFont(font);
-//			 JLabel label = new JLabel();
-//			 this.listaLabels.add(label);
-//			 this.add(label);
-			 
-//			 Color color = Color.GREEN;
-//			 buttonActual.setBackground(color);
+
 		 }
 		 
 		 
@@ -81,24 +81,10 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
         return listaBotones.get(index);
     }
     
-//    public JLabel getLabel(int x, int y) {
-//        int index = y * this.columnas + x;
-//        return listaLabels.get(index);
-//    }
-    
-//    public void setParcelas(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa{
-//    	for(int x=0; x<this.columnas; x++){
-//    		for(int y=0; y<this.filas; y++){
-//    			this.pintarBoton(mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y)),x,y);
-//    		}
-//    	}
-//    }
-    
-    /// lo hice asi porque lo dijeron en clase, que conste jaja
+
     private void pintarBoton(Coordenada coordenada, Color color){
 		int x = coordenada.getX();
 		int y = coordenada.getY();
-    	
     	JButton buttonActual = this.getButton(x, y);
     	buttonActual.setBackground(color);
     }
@@ -136,16 +122,16 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 
 	@Override
 	public void crearVistaParcela(ParcelaEspacio parcela) {
-		this.pintarBoton(parcela.getCoordenada(), Color.black);
+		this.pintarBoton(parcela.getCoordenada(), PARCELA_ESPACIO);
 	}
 
 	@Override
 	public void crearVistaParcela(ParcelaMineral parcela) {
-		this.pintarBoton(parcela.getCoordenada(), new Color(0x80C0D2));
+		this.pintarBoton(parcela.getCoordenada(), PARCELA_MINERAL);
 	}
 
 	@Override
 	public void crearVistaParcela(ParcelaVolcan parcela) {
-		this.pintarBoton(parcela.getCoordenada(), new Color(0xA47861));
+		this.pintarBoton(parcela.getCoordenada(), PARCELA_VOLCAN);
 	}
 }

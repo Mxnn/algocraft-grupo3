@@ -33,6 +33,7 @@ import java.awt.Font;
 import java.util.HashMap;
 
 public class VistaJuego {
+
 	Juego modelo;
 	Controlador controlador;
 	VistaMapa vistaMapa;
@@ -40,6 +41,7 @@ public class VistaJuego {
 	VistaBarraLateral barraLateral;
 	Coordenada coordenadaSeleccionada;
 	private HashMap<Class, VistaAcciones> vistasAcciones;
+	
 	
 	public static int CANTIDAD_DE_OPCIONES = 8;
 	public VistaJuego(Juego elJuego, Controlador elControlador) throws ExcepcionCoordenadaFueraDelMapa {
