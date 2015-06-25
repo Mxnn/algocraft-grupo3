@@ -8,6 +8,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class Mapa {
     private static final int NUMERO_DE_BASES_MAXIMO = 4;
@@ -15,6 +16,7 @@ public class Mapa {
     private int columnas;
     private int filas;
     private HashMap<Coordenada, Parcela> tablero;
+
 
     
     public Mapa(int numeroDeBases, int columnas, int filas) throws ExcepcionNumeroDeBasesInvalido {
@@ -45,13 +47,12 @@ public class Mapa {
         if (numero < 2 || numero > NUMERO_DE_BASES_MAXIMO)
             throw new ExcepcionNumeroDeBasesInvalido();
     }
-
+//
     public void llenarMapaConParcelasDeTierra() {
     	for (int x = 0; x <=this.filas; x++){
     	     for (int y = 0; y < this.columnas; y++){
     	    	 Coordenada coordenada = new Coordenada(x,y);
     			 Parcela parcela = new ParcelaTierra(coordenada);
-//    	    	 this.tablero.put(coordenada, parcela);
     			 this.insertarParcela(parcela);
     	     }
     	}

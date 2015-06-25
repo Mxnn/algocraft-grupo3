@@ -103,18 +103,23 @@ public class VistaJuego {
 		this.vistasAcciones.put(ArchivosTemplarios.class, new VistaAccionesArchivosTemplarios(controlador));
 	}
 	
+	public ObservadorMapa getObservadorMapa(){
+		return this.vistaMapa;
+	}
+	
 	public void refrescar() throws ExcepcionCoordenadaFueraDelMapa{
 		Mapa mapa = this.modelo.getMapa();
 		this.vistaMapa.refrescar(mapa);
+		this.vistaMapa.setVisible(true);
 		this.barraLateral.refrescar(this.modelo);
 		this.ventanita.repaint();
 		this.barraLateral.setPanelAcciones(new VistaAcciones(this.controlador));//cambia dependiendo elemento seleccionado
 	}
 
-	public void inicializarMapa() throws ExcepcionCoordenadaFueraDelMapa {
-		vistaMapa.setParcelas(this.modelo.getMapa());
-        ventanita.repaint();
-	}
+//	public void inicializarMapa() throws ExcepcionCoordenadaFueraDelMapa {
+//		vistaMapa.setParcelas(this.modelo.getMapa());
+//        ventanita.repaint();
+//	}
 
 	public void seleccionarCoordenada(int x, int y) throws ExcepcionCoordenadaFueraDelMapa {
 		// TODO Auto-generated method stub
@@ -135,7 +140,7 @@ public class VistaJuego {
 		ventanita.repaint();
 		
 	}
-	public void abrirVista(){
+	public void abrirVista() throws ExcepcionCoordenadaFueraDelMapa{
 		this.ventanita.setVisible(true);
 	}
 	

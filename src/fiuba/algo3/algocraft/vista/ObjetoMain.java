@@ -20,6 +20,10 @@ public class ObjetoMain {
 
 		 VistaJuego vista = new VistaJuego(elJuego, unControlador);
 		 
+		 ObservadorMapa observador = vista.getObservadorMapa();
+		 
+		 elJuego.setObservadores(observador);
+		 
 		 unControlador.setVistaJuego(vista);
 		 
 		 vista.abrirVista();

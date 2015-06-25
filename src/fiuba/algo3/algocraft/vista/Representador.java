@@ -48,6 +48,12 @@ public class Representador {
 		this.codigoElementos.put(Scout.class, "Sc");
 		this.codigoElementos.put(Zealot.class, "Ze");
 
+//		this.coloresParcelas = new HashMap<Class, Color>();
+//        this.coloresParcelas.put(ParcelaTierra.class, Color.lightGray);
+//        this.coloresParcelas.put(ParcelaEspacio.class, Color.black);
+//        this.coloresParcelas.put(ParcelaVolcan.class, new Color(0xA47861));
+//        this.coloresParcelas.put(ParcelaMineral.class, new Color(0x80C0D2));
+		
 		this.coloresParcelas = new HashMap<Class, Color>();
         this.coloresParcelas.put(ParcelaTierra.class, Color.lightGray);
         this.coloresParcelas.put(ParcelaEspacio.class, Color.black);

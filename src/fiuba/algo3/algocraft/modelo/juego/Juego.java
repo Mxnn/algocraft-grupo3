@@ -11,14 +11,9 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreEnUso;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
-import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
-import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
-import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
-import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
-import fiuba.algo3.algocraft.modelo.mapa.Randomizador;
-import fiuba.algo3.algocraft.modelo.mapa.RandomizadorTests;
 import fiuba.algo3.algocraft.modelo.razas.Raza;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 
 public class Juego {
@@ -27,32 +22,36 @@ public class Juego {
 
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
     private GeneradorMapa generadorMapa;
-    private Mapa mapa;
+//    private Mapa mapa;
     private SistemaDeTurnos sistemaDeTurnos;
-    private Randomizador rand;
     
     
     public Juego() throws ExcepcionNumeroDeBasesInvalido { 
     	this.generadorMapa = new GeneradorMapa();
-    	this.mapa = this.generadorMapa.getMapa();
-        this.sistemaDeTurnos = new SistemaDeTurnos(this.jugadores,this.mapa);
-        
+//    	this.mapa = this.generadorMapa.getMapa();
+        this.sistemaDeTurnos = new SistemaDeTurnos(this.jugadores,this.getMapa());
     }
 
+    
+	public void setObservadores(ObservadorMapa observador) throws ExcepcionNumeroDeBasesInvalido {
+		this.generadorMapa = new GeneradorMapa(observador);
+//		this.mapa = this.generadorMapa.getMapa();
+		//por ahi convienen dos inicializadores de je
+	}
+
+    
     public void setMapaParaTests() throws ExcepcionNumeroDeBasesInvalido{
     	this.generadorMapa.setMapaParaTests();
-    	this.mapa = this.generadorMapa.getMapa();
-    	this.sistemaDeTurnos = new SistemaDeTurnos(this.jugadores,this.mapa);
+//    	this.mapa = this.generadorMapa.getMapa();
+    	this.sistemaDeTurnos = new SistemaDeTurnos(this.jugadores,this.getMapa());
     }
-    
-    
 
     public ArrayList<Jugador> getJugadores(){
     	return this.jugadores;
     }
 
     public Mapa getMapa(){
-    	return this.mapa;
+    	return this.generadorMapa.getMapa();
     }
 
 
@@ -124,4 +123,9 @@ public class Juego {
     public Jugador getJugadorQueJuega() {
         return this.sistemaDeTurnos.getJugadorQueJuega();
     }
+
+
+
+
+
 }

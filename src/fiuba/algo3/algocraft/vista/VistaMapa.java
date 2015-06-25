@@ -19,9 +19,13 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
+import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 
-public class VistaMapa extends JPanel {
+public class VistaMapa extends JPanel implements ObservadorMapa{
 	private int filas;
 	private int columnas;
     private final List<JButton> listaBotones = new ArrayList<JButton>();
@@ -33,6 +37,7 @@ public class VistaMapa extends JPanel {
 	 * Create the panel.
 	 */
 	public VistaMapa(Controlador controlador, int filas, int columnas) {
+		this.setVisible(false);
 		this.filas= filas;
 		this.columnas = columnas;
 
@@ -54,6 +59,7 @@ public class VistaMapa extends JPanel {
 			 l.setCoordenadasBoton(x,y);
 			 buttonActual.setMargin(new Insets(0, 0, 0, 0));
 			 buttonActual.setBorder(BorderFactory.createLineBorder(Color.black));
+			 buttonActual.setBackground(Color.lightGray); //el mapa se crea con colores de tierra
 //			 buttonActual.setBorder(null); //sin bordes es otra opcion
 			 
 		    Font font = buttonActual.getFont();
@@ -80,16 +86,18 @@ public class VistaMapa extends JPanel {
 //        return listaLabels.get(index);
 //    }
     
-    public void setParcelas(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa{
-    	for(int x=0; x<this.columnas; x++){
-    		for(int y=0; y<this.filas; y++){
-    			this.pintarBoton(mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y)),x,y);
-    		}
-    	}
-    }
+//    public void setParcelas(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa{
+//    	for(int x=0; x<this.columnas; x++){
+//    		for(int y=0; y<this.filas; y++){
+//    			this.pintarBoton(mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y)),x,y);
+//    		}
+//    	}
+//    }
+    
     /// lo hice asi porque lo dijeron en clase, que conste jaja
-    private void pintarBoton(Object o,int x,int y){
-    	Color color = this.representador.getColorParcela(o);
+    private void pintarBoton(Coordenada coordenada, Color color){
+		int x = coordenada.getX();
+		int y = coordenada.getY();
     	
     	JButton buttonActual = this.getButton(x, y);
     	buttonActual.setBackground(color);
@@ -105,16 +113,13 @@ public class VistaMapa extends JPanel {
         if(!i.estaCreado()){
         	buttonActual.setEnabled(false); 
         }
-        
-       
-//    	JLabel label = this.getLabel(x, y);
-//    	label.setText("B");
     }
     
     private void desinscribirElemento(int x, int y){  //metodo para limpiar la parcela si la unidad se mueve en otra parcela
     	JButton buttonActual = this.getButton(x, y);
     	buttonActual.setText("");
     }
+    
 	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa {
 		for(int x=0; x<this.columnas; x++){
     		for(int y=0; y<this.filas; y++){
@@ -126,5 +131,25 @@ public class VistaMapa extends JPanel {
     			}
     		}
 		}
+	}
+
+//	@Override
+//	public void crearVistaParcela(ParcelaTierra parcela) {
+//		this.pintarBoton(parcela.getCoordenada(), Color.lightGray);
+//	}
+
+	@Override
+	public void crearVistaParcela(ParcelaEspacio parcela) {
+		this.pintarBoton(parcela.getCoordenada(), Color.black);
+	}
+
+	@Override
+	public void crearVistaParcela(ParcelaMineral parcela) {
+		this.pintarBoton(parcela.getCoordenada(), new Color(0x80C0D2));
+	}
+
+	@Override
+	public void crearVistaParcela(ParcelaVolcan parcela) {
+		this.pintarBoton(parcela.getCoordenada(), new Color(0xA47861));
 	}
 }
