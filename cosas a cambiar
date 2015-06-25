@@ -1,7 +1,11 @@
 COSAS A CAMBIAR
 
-## 17/6
+
 
 EXCEPCIONES que deberiamos pasar a runtime porque con la vista ya no pueden pasar y no tiene sentido hacerles catch si o si.
 TURNOS que un jugador no pueda seleccionar unidades enemigas para usarlas.
 VISTASACCIONES andan bien para las construcciones pero no para las unidades
+
+Refactor en el tema de los mapas y revisar el tema de pasar el observador al mapa
+
+terminar de sacar todas las representaciones
