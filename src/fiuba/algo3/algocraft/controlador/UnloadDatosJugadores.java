@@ -37,9 +37,12 @@ public class UnloadDatosJugadores implements ActionListener {
             try {
                 this.modelo.agregarJugador(jugadores.get(0));
                 this.modelo.agregarJugador(jugadores.get(1));
+                jugadores.get(0).setObservadores(vista.getObservadorMapa());
+                jugadores.get(1).setObservadores(vista.getObservadorMapa());
                 JOptionPane.showMessageDialog(this.frame, "Los jugadores se agregaron exitosamente");
 //                vista.inicializarMapa(); el mapa se incializa solo
                 vista.refrescar();
+                
                 this.frame.dispose();
             } catch (ExcepcionNombreEnUso excepcionNombreEnUso) {
                 JOptionPane.showMessageDialog(this.frame, "Los nombres de los jugadores no pueden ser iguales");

@@ -24,6 +24,8 @@ public class ObjetoMain {
 		 
 		 elJuego.setObservadores(observador);
 		 
+		 unControlador.setObservadores(observador);
+		 
 		 unControlador.setVistaJuego(vista);
 		 
 		 vista.abrirVista();

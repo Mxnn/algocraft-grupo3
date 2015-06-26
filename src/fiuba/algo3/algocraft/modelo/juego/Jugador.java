@@ -25,6 +25,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.AdicionalSuministros;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class Jugador {
     public static int LONGITUD_MINIMA_PARA_EL_NOMBRE = 4;
@@ -54,6 +55,10 @@ public class Jugador {
         this.mineral = MINERAL_INICIAL;
     }
 
+    public void setObservadores(ObservadorMapa observador){
+    	this.raza.setObservadores(observador);
+    }
+    
     public String getNombre() {
         return this.nombre;
     }

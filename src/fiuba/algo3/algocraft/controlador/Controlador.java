@@ -20,12 +20,15 @@ import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 import fiuba.algo3.algocraft.vista.VistaJuego;
 
 public class Controlador {
 	Juego modelo;
 	VistaJuego vista;
 	Coordenada coordPartida;
+	private ObservadorMapa observador;
+	
 	public Controlador(Juego elJuego) {
 		this.modelo=elJuego;
 
@@ -48,6 +51,7 @@ public class Controlador {
 		//hacer algo cuando sea necesario
 		System.out.println("click en parcela "+x+","+y);
 		vista.seleccionarCoordenada(x, y);
+		this.observador.seleccionarCoordenada(x,y);
 		
 	}
 
@@ -335,6 +339,11 @@ public class Controlador {
 		}else{
 			vista.displayError("Primer, clickear sobre la unidad");
 		}
+		
+	}
+
+	public void setObservadores(ObservadorMapa observador) {
+		this.observador = observador;
 		
 	}
 }

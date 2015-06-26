@@ -4,6 +4,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequerida
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.razas.Raza;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Asimilador;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.CentroDeMineral;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.DepositoSuministro;
@@ -14,6 +15,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorMineral;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.AdicionalSuministros;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class Terran extends Raza {
     private static Terran INSTANCIA = null;
@@ -37,7 +39,14 @@ public class Terran extends Raza {
         if (recursosInsuficientes(propietario, Refineria.COSTO))
             throw new ExcepcionRecursosInsuficientes();
 
-		return new Refineria(propietario);
+        Refineria refineria = new Refineria(propietario);
+
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(refineria);
+    	}
+        
+		return refineria;
 	}
 
     @Override
@@ -45,7 +54,14 @@ public class Terran extends Raza {
         if (recursosInsuficientes(propietario,CentroDeMineral.COSTO))
             throw new ExcepcionRecursosInsuficientes();
 
-		return new CentroDeMineral(propietario);
+        CentroDeMineral centroDeMineral = new CentroDeMineral(propietario);
+
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(centroDeMineral);
+    	}
+        
+		return centroDeMineral;
 	}
 
     @Override
@@ -53,7 +69,14 @@ public class Terran extends Raza {
         if (recursosInsuficientes(propietario,DepositoSuministro.COSTO))
             throw new ExcepcionRecursosInsuficientes();
 
-        return new DepositoSuministro(propietario);
+        DepositoSuministro depositoSuministro = new DepositoSuministro(propietario);
+
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(depositoSuministro);
+    	}
+        
+        return depositoSuministro;
     }
 
     @Override
@@ -61,15 +84,28 @@ public class Terran extends Raza {
         if (recursosInsuficientes(propietario,Barraca.COSTO))
             throw new ExcepcionRecursosInsuficientes();
 
-        return new Barraca(propietario);
+        Barraca barraca = new Barraca(propietario);
+
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(barraca);
+    	}
+        
+        return barraca;
     }
 
     @Override
     public Construccion crearCreadorDeUnidadesAvanzadas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
         if (recursosInsuficientes(propietario,Fabrica.COSTO))
             throw new ExcepcionRecursosInsuficientes();
+       
+        Fabrica fabrica = new Fabrica(propietario);
 
-    	return new Fabrica(propietario);
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(fabrica);
+    	}
+    	return fabrica;
     }
 
     @Override
@@ -77,6 +113,13 @@ public class Terran extends Raza {
         if (recursosInsuficientes(propietario,PuertoEstelar.COSTO))
             throw new ExcepcionRecursosInsuficientes();
 
+        PuertoEstelar puertoEstelar = new PuertoEstelar(propietario);
+
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(puertoEstelar);
+    	}
+        
     	return new PuertoEstelar(propietario);
     }
 }
