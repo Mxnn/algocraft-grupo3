@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft.vista;
 
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -10,6 +11,7 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
@@ -31,10 +33,13 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     public static final Color PARCELA_MINERAL = new Color(0x80C0D2);
     public static final Color PARCELA_VOLCAN = new Color(0xA47861);
     
+    public static final String BOTON_PARCELA = "botonParcela";
+    public static final String BOTON_INTERACTUABLE = "botonInteractuable";
+    
 	private int filas;
 	private int columnas;
-    private final List<JButton> listaBotones = new ArrayList<JButton>();
-    private final List<JLabel> listaLabels = new ArrayList<JLabel>();
+    private final List<JButton> listaBotonesParcela = new ArrayList<JButton>();
+    private final List<JPanel> listaPanelesParcela = new ArrayList<JPanel>();
     
     
     private Representador representador;
@@ -56,15 +61,30 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 			 
 			 int y = i / columnas;
 	         int x = i % columnas;
+	         
 	         JButton buttonActual= new JButton();
-	         listaBotones.add(buttonActual);
-			 this.add(buttonActual);
+	         buttonActual.setOpaque(false);
+	         buttonActual.setContentAreaFilled(false);
+//	         buttonActual.setBorderPainted(false);
+	         listaBotonesParcela.add(buttonActual);
+//			 this.add(buttonActual);
+	         
+	         JPanel panelBotones = new JPanel();
+	         panelBotones.setLayout(new CardLayout());
+	         panelBotones.setBackground(PARCELA_TIERRA); //el mapa se crea con colores de tierra
+	         this.add(panelBotones);
+	         this.listaPanelesParcela.add(panelBotones);
+	         panelBotones.add(buttonActual, BOTON_PARCELA);
+//	         panelBotones.setVisible(true);
+	         
+	         
+	         
 			 ParcelaListener l = controlador.getParcelaListener();
 			 buttonActual.addActionListener(l);
 			 l.setCoordenadasBoton(x,y);
 			 buttonActual.setMargin(new Insets(0, 0, 0, 0));
 			 buttonActual.setBorder(BorderFactory.createLineBorder(Color.black));
-			 buttonActual.setBackground(PARCELA_TIERRA); //el mapa se crea con colores de tierra
+			 
 //			 buttonActual.setBorder(null); //sin bordes es otra opcion
 			 
 		    Font font = buttonActual.getFont();
@@ -78,15 +98,20 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 
     public JButton getButton(int x, int y) {
         int index = y * this.columnas + x;
-        return listaBotones.get(index);
+        return listaBotonesParcela.get(index);
+    }
+    
+    public JPanel getPanel(int x, int y) {
+        int index = y * this.columnas + x;
+        return listaPanelesParcela.get(index);
     }
     
 
-    private void pintarBoton(Coordenada coordenada, Color color){
+    private void pintarParcela(Coordenada coordenada, Color color){
 		int x = coordenada.getX();
 		int y = coordenada.getY();
-    	JButton buttonActual = this.getButton(x, y);
-    	buttonActual.setBackground(color);
+    	JPanel panelParcela = this.getPanel(x, y);
+    	panelParcela.setBackground(color);
     }
 
     private void escribirElemento(Interactuable i,int x,int y){
@@ -122,16 +147,16 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 
 	@Override
 	public void crearVistaParcela(ParcelaEspacio parcela) {
-		this.pintarBoton(parcela.getCoordenada(), PARCELA_ESPACIO);
+		this.pintarParcela(parcela.getCoordenada(), PARCELA_ESPACIO);
 	}
 
 	@Override
 	public void crearVistaParcela(ParcelaMineral parcela) {
-		this.pintarBoton(parcela.getCoordenada(), PARCELA_MINERAL);
+		this.pintarParcela(parcela.getCoordenada(), PARCELA_MINERAL);
 	}
 
 	@Override
 	public void crearVistaParcela(ParcelaVolcan parcela) {
-		this.pintarBoton(parcela.getCoordenada(), PARCELA_VOLCAN);
+		this.pintarParcela(parcela.getCoordenada(), PARCELA_VOLCAN);
 	}
 }
