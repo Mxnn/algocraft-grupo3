@@ -27,6 +27,7 @@ import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
+import fiuba.algo3.algocraft.vista.botones.VistaBotonInteractuable;
 
 public class VistaMapa extends JPanel implements ObservadorMapa{
 	public static final Color PARCELA_TIERRA = Color.lightGray;

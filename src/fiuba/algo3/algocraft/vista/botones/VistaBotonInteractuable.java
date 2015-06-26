@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.botones;
 
 import java.awt.Color;
 import java.awt.Font;
