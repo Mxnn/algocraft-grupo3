@@ -3,9 +3,22 @@ COSAS A CAMBIAR
 
 
 EXCEPCIONES que deberiamos pasar a runtime porque con la vista ya no pueden pasar y no tiene sentido hacerles catch si o si.
+
 TURNOS que un jugador no pueda seleccionar unidades enemigas para usarlas.
+
 VISTASACCIONES andan bien para las construcciones pero no para las unidades
 
 Refactor en el tema de los mapas y revisar el tema de pasar el observador al mapa
 
 terminar de sacar todas las representaciones
+
+la vista tiene como atributo a lo que representa? (nos haria las cosas faciles, sobre todo en el momento de pasar el objeto al listener)
+
+Pasar toda la logica a cada listener
+
+hacer los botones de cada unidad
+
+metemos vista acciones y vista boton todo en una misma vista? creo que diego habia dicho que si, pero no estoy segura.
+
+Hacemos el patron observador para todo lo que pase en el juego? podemos meter uno en jugador y otro en el sistema de turnos.
+
