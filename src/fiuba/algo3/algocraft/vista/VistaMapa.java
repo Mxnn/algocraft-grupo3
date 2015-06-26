@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft.vista;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Insets;
@@ -40,7 +41,7 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 	private int columnas;
     private final List<JButton> listaBotonesParcela = new ArrayList<JButton>();
     private final List<JPanel> listaPanelesParcela = new ArrayList<JPanel>();
-    
+    private Controlador controlador;
     
     private Representador representador;
 	/**
@@ -50,7 +51,7 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 		this.setVisible(false);
 		this.filas= filas;
 		this.columnas = columnas;
-
+		this.controlador = controlador;
 		this.representador = new Representador();
 		 this.setLocation(0, 0);
 		 this.setSize(650,650);
@@ -115,17 +116,17 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     }
 
     private void escribirElemento(Interactuable i,int x,int y){
-//    	JButton buttonActual = this.getButton(x, y);
     	String codigo = this.representador.getCodigo(i);
     	
     	JPanel panelParcela = this.getPanel(x, y);
     	
     	VistaBotonInteractuable buttonActual = new VistaBotonInteractuable();
-    	
-    	
+    	ParcelaListener l = this.controlador.getParcelaListener();
+    	l.setCoordenadasBoton(x,y);
+    	buttonActual.addActionListener(l);
     	buttonActual.setText(codigo);
         buttonActual.setForeground(this.representador.getColorTexto(i.getPropietario()));
-        buttonActual.setEnabled(true); 
+        
         if(!i.estaCreado()){
         	buttonActual.setEnabled(false); 
         }
@@ -135,8 +136,12 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     }
     
     private void desinscribirElemento(int x, int y){  //metodo para limpiar la parcela si la unidad se mueve en otra parcela
-    	JButton buttonActual = this.getButton(x, y);
-    	buttonActual.setText("");
+    	JPanel panelParcela = this.getPanel(x, y);
+    	if(panelParcela.getComponentCount() >1)
+    		panelParcela.remove(1);
+//    	Component boton = panelParcela.getComponent(1);
+//    	CardLayout cl = (CardLayout) panelParcela.getLayout();
+//        cl.removeLayoutComponent(boton);
     }
     
 	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa {
@@ -145,7 +150,8 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     			Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y));
     			if(!parcela.estaVacia()){
     				this.escribirElemento(parcela.devolverElemento(),x,y);
-    			}else{
+    			}
+    			else{
     				this.desinscribirElemento(x, y);
     			}
     		}

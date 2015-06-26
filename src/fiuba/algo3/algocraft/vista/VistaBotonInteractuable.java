@@ -12,5 +12,6 @@ public class VistaBotonInteractuable extends JButton {
         this.setContentAreaFilled(false);
         this.setBorderPainted(false);
         this.setBorder(BorderFactory.createLineBorder(Color.black));
+        this.setEnabled(true); 
 	}
 }
