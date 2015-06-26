@@ -117,15 +117,19 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     }
 
     private void escribirElemento(Interactuable i,int x,int y){
-    	String codigo = this.representador.getCodigo(i);
+    	JButton buttonActual = this.representador.getCodigo(i);
     	
     	JPanel panelParcela = this.getPanel(x, y);
     	
-    	VistaBotonInteractuable buttonActual = new VistaBotonInteractuable();
+    	
+    	
+    	
+    	
+//    	VistaBotonInteractuable buttonActual = new VistaBotonInteractuable();
     	ParcelaListener l = this.controlador.getParcelaListener();
     	l.setCoordenadasBoton(x,y);
     	buttonActual.addActionListener(l);
-    	buttonActual.setText(codigo);
+//    	buttonActual.setText(codigo);
         buttonActual.setForeground(this.representador.getColorTexto(i.getPropietario()));
         
         if(!i.estaCreado()){

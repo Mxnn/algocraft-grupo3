@@ -13,40 +13,41 @@ import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.*;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.*;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.*;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.*;
+import fiuba.algo3.algocraft.vista.botones.*;
 
 public class Representador {
-	private HashMap<Class, String> codigoElementos;
+	private HashMap<Class, Class> codigoElementos;
 	private HashMap<Class, Color> coloresParcelas;
     private HashMap<fiuba.algo3.algocraft.modelo.juego.Color, Color> coloresDeTextos;
 
 	public Representador(){
 
-		this.codigoElementos = new HashMap<Class, String>();
-		this.codigoElementos.put(Barraca.class, "Ba");
-		this.codigoElementos.put(CentroDeMineral.class, "CM");
-		this.codigoElementos.put(DepositoSuministro.class, "DS");
-		this.codigoElementos.put(Fabrica.class, "Fa");
-		this.codigoElementos.put(PuertoEstelar.class, "PET");
-		this.codigoElementos.put(Refineria.class, "Re");
+		this.codigoElementos = new HashMap<Class, Class>();
+		this.codigoElementos.put(Barraca.class, VistaBotonBarraca.class);
+		this.codigoElementos.put(CentroDeMineral.class,  VistaBotonCentroMineral.class);
+		this.codigoElementos.put(DepositoSuministro.class,  VistaBotonDepositoSuministro.class);
+		this.codigoElementos.put(Fabrica.class,  VistaBotonFabrica.class);
+		this.codigoElementos.put(PuertoEstelar.class, VistaBotonPuertoEstelar.class);
+		this.codigoElementos.put(Refineria.class,  VistaBotonRefineria.class);
 		
-		this.codigoElementos.put(Espectro.class, "Es");
-		this.codigoElementos.put(Golliat.class, "Go");
-		this.codigoElementos.put(Marine.class, "Ma");
-		this.codigoElementos.put(NaveCiencia.class, "NC");
-		this.codigoElementos.put(NaveTransporteTerran.class, "NTT");
+		this.codigoElementos.put(Espectro.class,  VistaBotonEspectro.class);
+		this.codigoElementos.put(Golliat.class,  VistaBotonGolliat.class);
+		this.codigoElementos.put(Marine.class,  VistaBotonMarine.class);
+		this.codigoElementos.put(NaveCiencia.class,  VistaBotonNaveCiencia.class);
+		this.codigoElementos.put(NaveTransporteTerran.class,  VistaBotonNaveTransporteTerran.class);
 		
-		this.codigoElementos.put(Acceso.class, "Ac");
-		this.codigoElementos.put(ArchivosTemplarios.class, "ArT");
-		this.codigoElementos.put(Asimilador.class, "As");
-		this.codigoElementos.put(NexoMineral.class, "NM");
-		this.codigoElementos.put(Pilon.class, "Pi");
-		this.codigoElementos.put(PuertoEstelarProtoss.class, "PEP");
+		this.codigoElementos.put(Acceso.class,  VistaBotonAcceso.class);
+		this.codigoElementos.put(ArchivosTemplarios.class,  VistaBotonArchivosTemplarios.class);
+		this.codigoElementos.put(Asimilador.class,  VistaBotonAsimilador.class);
+		this.codigoElementos.put(NexoMineral.class,  VistaBotonNexoMineral.class);
+		this.codigoElementos.put(Pilon.class,  VistaBotonPilon.class);
+		this.codigoElementos.put(PuertoEstelarProtoss.class,  VistaBotonPuertoEstelarProtoss.class);
 		
-		this.codigoElementos.put(AltoTemplario.class, "AT");
-		this.codigoElementos.put(Dragon.class, "Dr");
-		this.codigoElementos.put(NaveTransporteProtoss.class, "NTP");
-		this.codigoElementos.put(Scout.class, "Sc");
-		this.codigoElementos.put(Zealot.class, "Ze");
+		this.codigoElementos.put(AltoTemplario.class,  VistaBotonAltoTemplario.class);
+		this.codigoElementos.put(Dragon.class,  VistaBotonDragon.class);
+		this.codigoElementos.put(NaveTransporteProtoss.class,  VistaBotonNaveTransporteProtoss.class);
+		this.codigoElementos.put(Scout.class,  VistaBotonScout.class);
+		this.codigoElementos.put(Zealot.class,  VistaBotonZealot.class);
 
 //		this.coloresParcelas = new HashMap<Class, Color>();
 //        this.coloresParcelas.put(ParcelaTierra.class, Color.lightGray);
@@ -71,8 +72,14 @@ public class Representador {
         this.coloresDeTextos.put(fiuba.algo3.algocraft.modelo.juego.Color.CELESTE, Color.cyan);
 	}
 	
-	public String getCodigo(Object o){
-		return this.codigoElementos.get(o.getClass());
+	public VistaBotonInteractuable getCodigo(Object o){
+		try {
+			return (VistaBotonInteractuable) (this.codigoElementos.get(o.getClass())).newInstance();
+		} catch (InstantiationException e) {
+			return null;
+		} catch (IllegalAccessException e) {
+			return null;
+		}
 	}
 
 	public Color getColorParcela(Object o) {

@@ -6,7 +6,7 @@ import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
-public class VistaBotonInteractuable extends JButton {
+public class VistaBotonInteractuable extends JButton{
 
 	public VistaBotonInteractuable(){
 		//no se por que quedan mas grandes que la parcela, como que le comen el borde
