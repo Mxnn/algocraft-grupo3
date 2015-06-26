@@ -131,6 +131,10 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     private void agregarElemento(VistaBotonInteractuable buttonActual){   
     	JPanel panelParcela = this.getPanel(this.coordenadaSeleccionada);
     	
+    	if(panelParcela.getComponentCount() >1){
+    		panelParcela.remove(1);
+    	}
+    	
     	ParcelaListener l = this.controlador.getParcelaListener();
     	l.setCoordenadasBoton(this.coordenadaSeleccionada.getX(), this.coordenadaSeleccionada.getY());
     	buttonActual.addActionListener(l);
@@ -178,8 +182,8 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 //    			else{
 //    				this.desinscribirElemento(x, y);
 //    			}
-//    			if(!parcela.estaVacia() && parcela.devolverElemento().estaCreado())
-//    					this.activarBoton(parcela.getCoordenada());
+    			if(!parcela.estaVacia() && parcela.devolverElemento().estaCreado())
+    					this.activarBoton(parcela.getCoordenada());
     		}
 		}
 		this.repaint();
