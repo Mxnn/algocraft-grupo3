@@ -15,7 +15,7 @@ public class VistaBotonDragon extends VistaBotonInteractuable {
 
     @Override
     public VistaAccionesUnidadAgresora getVistaDeAcciones(Juego modelo) {
-    	VistaAccionesUnidadAgresora vistaAcciones = new VistaAccionesUnidadAgresora(modelo);
+    	VistaAccionesUnidadAgresora vistaAcciones = new VistaAccionesUnidadAgresora(modelo, this.representado);
     	this.vistaAcciones = vistaAcciones;
         return vistaAcciones;
     }

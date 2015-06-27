@@ -15,7 +15,7 @@ public class VistaBotonNaveTransporteTerran extends VistaBotonInteractuable {
 
     @Override
     public VistaAccionesNaveTransporte getVistaDeAcciones(Juego modelo) {
-    	VistaAccionesNaveTransporte vistaAcciones = new VistaAccionesNaveTransporte(modelo);
+    	VistaAccionesNaveTransporte vistaAcciones = new VistaAccionesNaveTransporte(modelo, this.representado);
     	this.vistaAcciones = vistaAcciones;
     	return vistaAcciones;
     }

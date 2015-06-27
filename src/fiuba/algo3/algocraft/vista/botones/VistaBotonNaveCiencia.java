@@ -16,7 +16,7 @@ public class VistaBotonNaveCiencia extends VistaBotonInteractuable {
 
     @Override
     public VistaAccionesNaveCiencia getVistaDeAcciones(Juego modelo) {
-    	VistaAccionesNaveCiencia vistaAcciones = new VistaAccionesNaveCiencia(modelo);
+    	VistaAccionesNaveCiencia vistaAcciones = new VistaAccionesNaveCiencia(modelo, this.representado);
     	this.vistaAcciones = vistaAcciones;
         return vistaAcciones;
     }

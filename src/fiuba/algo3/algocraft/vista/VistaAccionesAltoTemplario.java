@@ -1,12 +1,15 @@
 package fiuba.algo3.algocraft.vista;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
+
 import javax.swing.JButton;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class VistaAccionesAltoTemplario extends VistaAccionesUnidad {
-	public VistaAccionesAltoTemplario(Juego modelo) {
+	public VistaAccionesAltoTemplario(Juego modelo, AltoTemplario representado) {
 		super(modelo);
 
 		JButton btnAlucinacion = new JButton("Alucinacion");
@@ -15,7 +18,7 @@ public class VistaAccionesAltoTemplario extends VistaAccionesUnidad {
 		gbc_btnEmp.gridx = 0;
 		gbc_btnEmp.gridy = 2;
 		add(btnAlucinacion, gbc_btnEmp);
-
+		this.habilitarBoton(btnAlucinacion, representado);
 
 		JButton btnTormenta = new JButton("Tormenta Psionica");
 		GridBagConstraints gbc_btnRadiacion = new GridBagConstraints();
@@ -23,5 +26,6 @@ public class VistaAccionesAltoTemplario extends VistaAccionesUnidad {
 		gbc_btnRadiacion.gridx = 0;
 		gbc_btnRadiacion.gridy = 3;
 		add(btnTormenta, gbc_btnRadiacion);
+		this.habilitarBoton(btnTormenta, representado);
 	}
 }

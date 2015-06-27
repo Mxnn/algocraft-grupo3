@@ -1,13 +1,16 @@
 package fiuba.algo3.algocraft.vista;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveCiencia;
+
 import javax.swing.JButton;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class VistaAccionesNaveCiencia extends VistaAccionesUnidad {
 
-	public VistaAccionesNaveCiencia(Juego modelo) {
+	public VistaAccionesNaveCiencia(Juego modelo, NaveCiencia representado) {
 		super(modelo);
 		
 		JButton btnEmp = new JButton("EMP");
@@ -16,6 +19,7 @@ public class VistaAccionesNaveCiencia extends VistaAccionesUnidad {
 		gbc_btnEmp.gridx = 0;
 		gbc_btnEmp.gridy = 2;
 		add(btnEmp, gbc_btnEmp);
+		this.habilitarBoton(btnEmp, representado);
 		
 		JButton btnRadiacion = new JButton("Radiacion");
 		GridBagConstraints gbc_btnRadiacion = new GridBagConstraints();
@@ -23,5 +27,6 @@ public class VistaAccionesNaveCiencia extends VistaAccionesUnidad {
 		gbc_btnRadiacion.gridx = 0;
 		gbc_btnRadiacion.gridy = 3;
 		add(btnRadiacion, gbc_btnRadiacion);
+		this.habilitarBoton(btnRadiacion, representado);
 	}
 }
