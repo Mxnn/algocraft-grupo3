@@ -11,6 +11,8 @@ TURNOS una vez que se termine el tema de botnes para unidades, hacer mismo proce
 
 VISTASACCIONES andan bien para las construcciones pero no para las unidades
 
+DATOS JUGADOR no se actualizan en tiempo real, solo cuando termina el turno
+
 Refactor en el tema de los mapas y revisar el tema de pasar el observador al mapa
 
 terminar de sacar todas las representaciones
