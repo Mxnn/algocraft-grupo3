@@ -2,12 +2,15 @@ package fiuba.algo3.algocraft.vista;
 
 import fiuba.algo3.algocraft.controlador.MoverListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
+
 import javax.swing.JButton;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class VistaAccionesUnidad extends VistaAcciones {
-	public VistaAccionesUnidad(Juego modelo) {
+	public VistaAccionesUnidad(Juego modelo, Unidad representado) {
 		super(modelo);
 		JButton btnMover = new JButton("Mover");
 		btnMover.addActionListener(new MoverListener(modelo));
@@ -16,6 +19,7 @@ public class VistaAccionesUnidad extends VistaAcciones {
 		gbc_btnMover.gridx = 0;
 		gbc_btnMover.gridy = 1;
 		add(btnMover, gbc_btnMover);
+		this.habilitarBoton(btnMover, representado);
 	}
 
 }

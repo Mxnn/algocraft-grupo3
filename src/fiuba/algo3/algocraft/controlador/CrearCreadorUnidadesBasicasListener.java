@@ -26,7 +26,6 @@ public class CrearCreadorUnidadesBasicasListener implements ActionListener {
         try {
 			this.modelo.getJugadorQueJuega().crearCreadorDeUnidadesBasicas(this.modelo.getMapa(), new Coordenada(this.x, this.y));
 		} catch (ExcepcionRecursosInsuficientes e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (ExcepcionParcelaOcupada e1) {
 			// TODO Auto-generated catch block

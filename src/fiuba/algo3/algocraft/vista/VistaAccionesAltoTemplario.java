@@ -10,7 +10,7 @@ import java.awt.Insets;
 
 public class VistaAccionesAltoTemplario extends VistaAccionesUnidad {
 	public VistaAccionesAltoTemplario(Juego modelo, AltoTemplario representado) {
-		super(modelo);
+		super(modelo, representado);
 
 		JButton btnAlucinacion = new JButton("Alucinacion");
 		GridBagConstraints gbc_btnEmp = new GridBagConstraints();

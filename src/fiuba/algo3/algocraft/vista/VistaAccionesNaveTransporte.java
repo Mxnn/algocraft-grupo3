@@ -13,7 +13,7 @@ import javax.swing.JButton;
 public class VistaAccionesNaveTransporte extends VistaAccionesUnidad {
 
 	public VistaAccionesNaveTransporte(Juego modelo, NaveTransporte representado) {
-		super(modelo);
+		super(modelo, representado);
 		
 		JButton btnInsertarUnidad = new JButton("Insertar Unidad");
 		GridBagConstraints gbc_btnInsertarUnidad = new GridBagConstraints();

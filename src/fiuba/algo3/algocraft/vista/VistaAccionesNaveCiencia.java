@@ -11,7 +11,7 @@ import java.awt.Insets;
 public class VistaAccionesNaveCiencia extends VistaAccionesUnidad {
 
 	public VistaAccionesNaveCiencia(Juego modelo, NaveCiencia representado) {
-		super(modelo);
+		super(modelo, representado);
 		
 		JButton btnEmp = new JButton("EMP");
 		GridBagConstraints gbc_btnEmp = new GridBagConstraints();

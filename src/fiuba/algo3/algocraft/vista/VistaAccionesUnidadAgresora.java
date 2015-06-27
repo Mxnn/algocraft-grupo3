@@ -12,7 +12,7 @@ import javax.swing.JButton;
 
 public class VistaAccionesUnidadAgresora extends VistaAccionesUnidad {
 	public VistaAccionesUnidadAgresora(Juego modelo, UnidadAgresora representado) {
-		super(modelo);
+		super(modelo, representado);
 		this.setTitulo("Unidad Agresora");
 		
 		JButton btnAtacar = new JButton("Atacar");
