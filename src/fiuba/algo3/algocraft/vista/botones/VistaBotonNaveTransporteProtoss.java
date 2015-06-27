@@ -1,12 +1,16 @@
 package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.NaveTransporteProtoss;
 import fiuba.algo3.algocraft.vista.VistaAccionesNaveTransporte;
 
 public class VistaBotonNaveTransporteProtoss extends VistaBotonInteractuable {
-	public VistaBotonNaveTransporteProtoss(){
+	private NaveTransporteProtoss representado;
+
+	public VistaBotonNaveTransporteProtoss(NaveTransporteProtoss nave){
 		super();
 		this.setText("NTP");
+		this.representado = nave;
 	}
 
     @Override

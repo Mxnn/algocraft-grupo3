@@ -16,6 +16,7 @@ public class VistaAccionesAltoTemplario extends VistaAccionesUnidad {
 		gbc_btnEmp.gridy = 2;
 		add(btnAlucinacion, gbc_btnEmp);
 
+
 		JButton btnTormenta = new JButton("Tormenta Psionica");
 		GridBagConstraints gbc_btnRadiacion = new GridBagConstraints();
 		gbc_btnRadiacion.insets = new Insets(0, 0, 5, 0);

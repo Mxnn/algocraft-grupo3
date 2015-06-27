@@ -21,21 +21,22 @@ public class CrearExtractorMineralListener implements ActionListener {
 	}
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        try {
-			this.modelo.getJugadorQueJuega().crearExtractorMineral(this.modelo.getMapa(), new Coordenada(this.x, this.y));
-		} catch (ExcepcionRecursosInsuficientes e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (ExcepcionCoordenadaFueraDelMapa e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (ExcepcionElementoNoAdmitidoEnParcela e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (ExcepcionParcelaOcupada e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+    public void actionPerformed(ActionEvent e){
+			try {
+				this.modelo.getJugadorQueJuega().crearExtractorMineral(this.modelo.getMapa(), new Coordenada(this.x, this.y));
+			} catch (ExcepcionCoordenadaFueraDelMapa e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (ExcepcionRecursosInsuficientes e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (ExcepcionElementoNoAdmitidoEnParcela e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (ExcepcionParcelaOcupada e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
     }
 }

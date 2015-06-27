@@ -25,12 +25,22 @@ import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Asimilador;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.NexoMineral;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Pilon;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.PuertoEstelarProtoss;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Dragon;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.NaveTransporteProtoss;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Scout;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Zealot;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.CentroDeMineral;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.DepositoSuministro;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Refineria;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Espectro;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Golliat;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Marine;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveCiencia;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveTransporteTerran;
 import fiuba.algo3.algocraft.vista.botones.*;
 
 public class VistaMapa extends JPanel implements ObservadorMapa{
@@ -288,6 +298,86 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 		VistaBotonAsimilador buttonActual = new VistaBotonAsimilador(asimilador);
     	buttonActual.setForeground(this.representador.getColorTexto(asimilador.getPropietario()));
         this.agregarElemento(buttonActual);
+	}
+
+	@Override
+	public void crearInteractuable(AltoTemplario templario) {
+		VistaBotonAltoTemplario buttonActual = new VistaBotonAltoTemplario(templario);
+		buttonActual.setForeground(this.representador.getColorTexto(templario.getPropietario()));
+		this.agregarElemento(buttonActual);
+		
+	}
+
+	@Override
+	public void crearInteractuable(Dragon dragon) {
+		VistaBotonDragon buttonActual = new VistaBotonDragon(dragon);
+		buttonActual.setForeground(this.representador.getColorTexto(dragon.getPropietario()));
+		this.agregarElemento(buttonActual);
+		
+	}
+
+	@Override
+	public void crearInteractuable(Espectro espectro) {
+		VistaBotonEspectro buttonActual = new VistaBotonEspectro(espectro);
+		buttonActual.setForeground(this.representador.getColorTexto(espectro.getPropietario()));
+		this.agregarElemento(buttonActual);
+		
+	}
+
+	@Override
+	public void crearInteractuable(Golliat golliat) {
+		VistaBotonGolliat buttonActual = new VistaBotonGolliat(golliat);
+		buttonActual.setForeground(this.representador.getColorTexto(golliat.getPropietario()));
+		this.agregarElemento(buttonActual);
+		
+	}
+
+	@Override
+	public void crearInteractuable(Marine marine) {
+		VistaBotonMarine buttonActual = new VistaBotonMarine(marine);
+		buttonActual.setForeground(this.representador.getColorTexto(marine.getPropietario()));
+		this.agregarElemento(buttonActual);
+		
+	}
+
+	@Override
+	public void crearInteractuable(NaveCiencia nave) {
+		VistaBotonNaveCiencia buttonActual = new VistaBotonNaveCiencia(nave);
+		buttonActual.setForeground(this.representador.getColorTexto(nave.getPropietario()));
+		this.agregarElemento(buttonActual);
+		
+	}
+
+	@Override
+	public void crearInteractuable(NaveTransporteProtoss nave) {
+		VistaBotonNaveTransporteProtoss buttonActual = new VistaBotonNaveTransporteProtoss(nave);
+		buttonActual.setForeground(this.representador.getColorTexto(nave.getPropietario()));
+		this.agregarElemento(buttonActual);
+		
+	}
+
+	@Override
+	public void crearInteractuable(NaveTransporteTerran nave) {
+		VistaBotonNaveTransporteTerran buttonActual = new VistaBotonNaveTransporteTerran(nave);
+		buttonActual.setForeground(this.representador.getColorTexto(nave.getPropietario()));
+		this.agregarElemento(buttonActual);
+		
+	}
+
+	@Override
+	public void crearInteractuable(Scout scout) {
+		VistaBotonScout buttonActual = new VistaBotonScout(scout);
+		buttonActual.setForeground(this.representador.getColorTexto(scout.getPropietario()));
+		this.agregarElemento(buttonActual);
+		
+	}
+
+	@Override
+	public void crearInteractuable(Zealot zealot) {
+		VistaBotonZealot buttonActual = new VistaBotonZealot(zealot);
+		buttonActual.setForeground(this.representador.getColorTexto(zealot.getPropietario()));
+		this.agregarElemento(buttonActual);
+		
 	}
 
 //	@Override

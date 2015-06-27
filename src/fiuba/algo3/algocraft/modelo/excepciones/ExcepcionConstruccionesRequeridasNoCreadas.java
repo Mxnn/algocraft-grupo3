@@ -1,4 +1,12 @@
 package fiuba.algo3.algocraft.modelo.excepciones;
 
 public class ExcepcionConstruccionesRequeridasNoCreadas extends Exception {
+//	private String mensaje = "Construcciones Requeridas No Creadas";
+//	public String getMensaje(){
+//		return this.mensaje;
+//	}
+	
+	public ExcepcionConstruccionesRequeridasNoCreadas(){
+		super("Construcciones Requeridas No Creadas");
+	}
 }
