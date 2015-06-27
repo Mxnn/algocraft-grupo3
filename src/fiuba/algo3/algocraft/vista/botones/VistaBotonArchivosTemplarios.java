@@ -16,7 +16,7 @@ public class VistaBotonArchivosTemplarios extends VistaBotonInteractuable {
 
     @Override
     public VistaAccionesArchivosTemplarios getVistaDeAcciones(Juego modelo) {
-    	VistaAccionesArchivosTemplarios vistaAcciones = new VistaAccionesArchivosTemplarios(modelo);
+    	VistaAccionesArchivosTemplarios vistaAcciones = new VistaAccionesArchivosTemplarios(modelo, this.representado);
     	this.vistaAcciones = vistaAcciones;
         return vistaAcciones;
     }

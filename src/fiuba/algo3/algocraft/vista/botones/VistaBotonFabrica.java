@@ -6,17 +6,17 @@ import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
 import fiuba.algo3.algocraft.vista.VistaAccionesFabrica;
 
 public class VistaBotonFabrica extends VistaBotonInteractuable {
-	private Fabrica representador;
+	private Fabrica representado;
 
 	public VistaBotonFabrica(Fabrica fabrica){
 		super();
 		this.setText("Fa");
-		this.representador = fabrica;
+		this.representado = fabrica;
 	}
 
     @Override
     public VistaAccionesFabrica getVistaDeAcciones(Juego modelo) {
-    	VistaAccionesFabrica vistaAcciones = new VistaAccionesFabrica(modelo);
+    	VistaAccionesFabrica vistaAcciones = new VistaAccionesFabrica(modelo,this.representado);
         return vistaAcciones;
     }
 }

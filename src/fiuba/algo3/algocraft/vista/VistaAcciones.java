@@ -2,11 +2,18 @@ package fiuba.algo3.algocraft.vista;
 
 import fiuba.algo3.algocraft.controlador.TerminarTurnoListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
+
 import javax.swing.JPanel;
+
 import java.awt.GridBagLayout;
+
 import javax.swing.JButton;
+
 import java.awt.GridBagConstraints;
+
 import javax.swing.JLabel;
+
 import java.awt.Insets;
 
 public class VistaAcciones extends JPanel {
@@ -39,5 +46,11 @@ public class VistaAcciones extends JPanel {
 	
 	public void setTitulo(String titulo){
 		this.titulo.setText(titulo);
+	}
+	
+	public void habilitarBoton(JButton boton, Interactuable i){
+		if(this.modelo.getJugadorQueJuega() != i.getPropietario())
+			boton.setEnabled(false);
+		
 	}
 }

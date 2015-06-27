@@ -2,12 +2,15 @@ package fiuba.algo3.algocraft.vista;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+
 import javax.swing.JButton;
+
 import fiuba.algo3.algocraft.controlador.CrearAltoTemplarioListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplarios;
 
 public class VistaAccionesArchivosTemplarios  extends VistaAcciones {
-	public VistaAccionesArchivosTemplarios(Juego modelo) {
+	public VistaAccionesArchivosTemplarios(Juego modelo, ArchivosTemplarios representado) {
 		super(modelo);
 		
 		JButton btnCrearAltoTemplario = new JButton("Crear Alto Templario");
@@ -17,6 +20,7 @@ public class VistaAccionesArchivosTemplarios  extends VistaAcciones {
 		gbc_btnCrearAltoTemplario.gridx = 0;
 		gbc_btnCrearAltoTemplario.gridy = 2;
 		add(btnCrearAltoTemplario, gbc_btnCrearAltoTemplario);
+		this.habilitarBoton(btnCrearAltoTemplario, representado);
 			
 	}
 

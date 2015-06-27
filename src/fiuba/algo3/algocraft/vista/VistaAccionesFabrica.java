@@ -2,12 +2,15 @@ package fiuba.algo3.algocraft.vista;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+
 import javax.swing.JButton;
+
 import fiuba.algo3.algocraft.controlador.CrearGolliatListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
 
 public class VistaAccionesFabrica extends VistaAcciones {
-	public VistaAccionesFabrica(Juego modelo) {
+	public VistaAccionesFabrica(Juego modelo, Fabrica representado) {
 		super(modelo);
 		JButton btnCrearGolliat = new JButton("Crear Golliat");
 		btnCrearGolliat.addActionListener(new CrearGolliatListener(modelo));
@@ -16,6 +19,7 @@ public class VistaAccionesFabrica extends VistaAcciones {
 		gbc_btnCrearGolliat.gridx = 0;
 		gbc_btnCrearGolliat.gridy = 2;
 		add(btnCrearGolliat, gbc_btnCrearGolliat);
+		this.habilitarBoton(btnCrearGolliat, representado);
 	}
 }
 

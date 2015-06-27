@@ -7,17 +7,17 @@ import fiuba.algo3.algocraft.vista.VistaAccionesPuertoEstelar;
 import fiuba.algo3.algocraft.vista.VistaAccionesPuertoEstelarProtoss;
 
 public class VistaBotonPuertoEstelarProtoss extends VistaBotonInteractuable {
-	private PuertoEstelarProtoss representador;
+	private PuertoEstelarProtoss representado;
 
 	public VistaBotonPuertoEstelarProtoss(PuertoEstelarProtoss puerto){
 		super();
 		this.setText("PEP");
-		this.representador = puerto;
+		this.representado = puerto;
 	}
 
     @Override
     public VistaAccionesPuertoEstelarProtoss getVistaDeAcciones(Juego modelo) {
-    	VistaAccionesPuertoEstelarProtoss vistaAcciones = new VistaAccionesPuertoEstelarProtoss(modelo);
+    	VistaAccionesPuertoEstelarProtoss vistaAcciones = new VistaAccionesPuertoEstelarProtoss(modelo,this.representado);
     	this.vistaAcciones = vistaAcciones;
         return vistaAcciones;
     }
