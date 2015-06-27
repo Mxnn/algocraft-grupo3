@@ -1,16 +1,20 @@
 package fiuba.algo3.algocraft.vista;
 
 import javax.swing.JFrame;
+
 import fiuba.algo3.algocraft.controlador.CerrarFrameControlador;
 import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.controlador.NuevoJuegoListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+
 import java.awt.Color;
 
 public class VistaJuego implements ObservadorJuego{
@@ -128,6 +132,13 @@ public class VistaJuego implements ObservadorJuego{
 	@Override
 	public void nuevoTurno() {
 		this.refrescar();
+		
+	}
+
+	@Override
+	public void hayPerdedor(Jugador perdedor) {
+		// TODO Auto-generated method stub
+		//PONER CODIGO QUE MUESTRE UNA VENTANA O ALGO
 		
 	}
 }

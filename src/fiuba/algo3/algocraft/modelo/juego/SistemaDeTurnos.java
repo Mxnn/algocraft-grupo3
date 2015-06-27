@@ -9,7 +9,6 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
-import fiuba.algo3.algocraft.vista.ObservadorJuego;
 
 
 public class SistemaDeTurnos {
@@ -17,7 +16,7 @@ public class SistemaDeTurnos {
     private Jugador jugadorQueJuega;
     private int turno = 0;
     private Mapa mapa;
-    private ArrayList<ObservadorJuego> observadores = new ArrayList<ObservadorJuego>();
+
 
     public SistemaDeTurnos(ArrayList<Jugador> jugadores, Mapa mapa) {
         this.jugadores = jugadores;
@@ -47,10 +46,6 @@ public class SistemaDeTurnos {
             this.turno = 0;
 
         this.jugadorQueJuega = this.jugadores.get(this.turno);
-    	for(int i=0; i<this.observadores.size();i++){
-    		ObservadorJuego observador = this.observadores.get(i);
-    		observador.nuevoTurno();
-    	}
         this.tareasDeEntreturno();
     }
 
@@ -75,8 +70,5 @@ public class SistemaDeTurnos {
         }
     }
 
-	public void setObservador(ObservadorJuego observador) {
-		this.observadores.add(observador);
-		
-	}
+
 }

@@ -26,6 +26,7 @@ public class Juego {
     private GeneradorMapa generadorMapa;
 //    private Mapa mapa;
     private SistemaDeTurnos sistemaDeTurnos;
+    private ArrayList<ObservadorJuego> observadores = new ArrayList<ObservadorJuego>();
     
     
     public Juego() throws ExcepcionNumeroDeBasesInvalido { 
@@ -38,7 +39,8 @@ public class Juego {
 	public void setObservadores(ObservadorMapa observador, ObservadorJuego observadorJuego) throws ExcepcionNumeroDeBasesInvalido {
 		this.generadorMapa = new GeneradorMapa(observador);
 		this.sistemaDeTurnos = new SistemaDeTurnos(this.jugadores,this.getMapa());
-		this.sistemaDeTurnos.setObservador(observadorJuego);
+//		this.sistemaDeTurnos.setObservador(observadorJuego);
+		this.observadores.add(observadorJuego);
 
 //		this.mapa = this.generadorMapa.getMapa();
 		//por ahi convienen dos inicializadores de je
@@ -111,12 +113,18 @@ public class Juego {
     }
 
   private void finJuego(Jugador perdedor){
-//	  System.out.println(perdedor.getNombre());
-	  //fin del juego
+  	for(int i=0; i<this.observadores.size();i++){
+		ObservadorJuego observador = this.observadores.get(i);
+		observador.hayPerdedor(perdedor);
+	}
   }
 
     public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
         sistemaDeTurnos.pasarTurno(jugador);
+    	for(int i=0; i<this.observadores.size();i++){
+    		ObservadorJuego observador = this.observadores.get(i);
+    		observador.nuevoTurno();
+    	}
         if(jugador.esPerdedor())
         	this.finJuego(jugador);
     }
