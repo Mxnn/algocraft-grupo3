@@ -1,6 +1,7 @@
 COSAS A CAMBIAR
 
 
+Observadores para cuando se crean las unidades
 
 EXCEPCIONES que deberiamos pasar a runtime porque con la vista ya no pueden pasar y no tiene sentido hacerles catch si o si.
 
@@ -9,20 +10,17 @@ EXCEPCIONES los action listener no tiene la vista de juego, entonces ya no se pu
 
 TURNOS una vez que se termine el tema de botnes para unidades, hacer mismo procedimiento que para las construcciones para que no puedan ser usadas por enemigo
 
-VISTASACCIONES andan bien para las construcciones pero no para las unidades
-
 DATOS JUGADOR no se actualizan en tiempo real, solo cuando termina el turno
 
 Refactor en el tema de los mapas y revisar el tema de pasar el observador al mapa
 
-terminar de sacar todas las representaciones
+podemos cambiar los colores de jugador a colores reales?
 
+REPREsentador que se ocupe de ser el observador de creaciones de interactuables en vez de que sea el mismo mapa el que haga todo?
 
-Pasar el objeto a cada listener para poder llamar a los metodos.
+Pasar el objeto a cada listener de UNIDAD para poder usar los metodos
 
 Pasar toda la logica a cada listener
-
-Observadores para cuando se crean las unidades
 
 Probar si mover sigue funcionando despues de todos estos cambios
 
