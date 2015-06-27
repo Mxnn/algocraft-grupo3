@@ -9,9 +9,7 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.vista.IngresoJugadoresVista;
 import fiuba.algo3.algocraft.vista.VistaJuego;
-
 import javax.swing.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -30,7 +28,6 @@ public class UnloadDatosJugadores implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		//chequear los datos y eso
         ArrayList<Jugador> jugadores = this.getJugadores();
 
         if (jugadores != null && jugadores.size() == 2) {
@@ -39,8 +36,6 @@ public class UnloadDatosJugadores implements ActionListener {
                 this.modelo.agregarJugador(jugadores.get(1));
                 jugadores.get(0).setObservadores(vista.getObservadorMapa());
                 jugadores.get(1).setObservadores(vista.getObservadorMapa());
-                JOptionPane.showMessageDialog(this.frame, "Los jugadores se agregaron exitosamente");
-//                vista.inicializarMapa(); el mapa se incializa solo
                 vista.refrescar();
                 
                 this.frame.dispose();
