@@ -12,13 +12,13 @@ Refactor en el tema de los mapas y revisar el tema de pasar el observador al map
 
 terminar de sacar todas las representaciones
 
-la vista tiene como atributo a lo que representa? (nos haria las cosas faciles, sobre todo en el momento de pasar el objeto al listener)
+Pasar a la vista el objeto que representa para que lo pueda usar el listener
 
 Pasar toda la logica a cada listener
 
-hacer los botones de cada unidad
+Observadores para cuando se crean las unidades
 
-metemos vista acciones y vista boton todo en una misma vista? creo que diego habia dicho que si, pero no estoy segura.
+Probar si mover sigue funcionando despues de todos estos cambios
 
 Hacemos el patron observador para todo lo que pase en el juego? podemos meter uno en jugador y otro en el sistema de turnos.
 
