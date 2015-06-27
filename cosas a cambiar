@@ -26,3 +26,4 @@ Probar si mover sigue funcionando despues de todos estos cambios
 
 Hacemos el patron observador para todo lo que pase en el juego? podemos meter uno en jugador y otro en el sistema de turnos.
 
+Puse al pedo un atributo en los botones, despues lo saco
