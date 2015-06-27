@@ -1,16 +1,13 @@
 package fiuba.algo3.algocraft.vista;
-import fiuba.algo3.algocraft.controlador.Controlador;
-import fiuba.algo3.algocraft.modelo.juego.Juego;
 
+import fiuba.algo3.algocraft.modelo.juego.Juego;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-
 import javax.swing.JButton;
 
-public class VistaAccionesUnidadAgresora extends VistaAccionesUnidad{
-	public VistaAccionesUnidadAgresora(Controlador controlador) {
-
-		super(controlador);
+public class VistaAccionesUnidadAgresora extends VistaAccionesUnidad {
+	public VistaAccionesUnidadAgresora(Juego modelo) {
+		super(modelo);
 		this.setTitulo("Unidad Agresora");
 		
 		JButton btnAtacar = new JButton("Atacar");

@@ -22,7 +22,7 @@ public class ObjetoMain {
 		 
 		 ObservadorMapa observador = vista.getObservadorMapa();
 		 
-		 elJuego.setObservadores(observador);
+		 elJuego.setObservadores(observador, vista);
 		 
 		 unControlador.setObservadores(observador);
 		 

@@ -3,13 +3,8 @@ package fiuba.algo3.algocraft.vista;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-
 import javax.swing.JButton;
-
-import fiuba.algo3.algocraft.controlador.Controlador;
-import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesMagicasListener;
 import fiuba.algo3.algocraft.controlador.CrearEspectroListener;
-import fiuba.algo3.algocraft.controlador.CrearMarineListener;
 import fiuba.algo3.algocraft.controlador.CrearNaveCienciaListener;
 import fiuba.algo3.algocraft.controlador.CrearNaveTransporteListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
@@ -17,11 +12,11 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 public class VistaAccionesPuertoEstelar  extends VistaAcciones {
 
 
-	public VistaAccionesPuertoEstelar(Controlador controlador) {
-		super(controlador);
+	public VistaAccionesPuertoEstelar(Juego modelo) {
+		super(modelo);
 		
 		JButton btnCrearEspectro = new JButton("Crear Espectro");
-		btnCrearEspectro.addActionListener(new CrearEspectroListener(controlador));
+		btnCrearEspectro.addActionListener(new CrearEspectroListener(modelo));
 		GridBagConstraints gbc_btnCrearEspectro = new GridBagConstraints();
 		gbc_btnCrearEspectro.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearEspectro.gridx = 0;
@@ -30,7 +25,7 @@ public class VistaAccionesPuertoEstelar  extends VistaAcciones {
 		
 
 		JButton btnCrearNaveDeTransporte = new JButton("Crear Nave Transporte");
-		btnCrearNaveDeTransporte.addActionListener(new CrearNaveTransporteListener(controlador));
+		btnCrearNaveDeTransporte.addActionListener(new CrearNaveTransporteListener(modelo));
 		GridBagConstraints gbc_btnCrearNaveDeTransporte = new GridBagConstraints();
 		gbc_btnCrearNaveDeTransporte.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearNaveDeTransporte.gridx = 0;
@@ -40,7 +35,7 @@ public class VistaAccionesPuertoEstelar  extends VistaAcciones {
 		
 		
 		JButton btnCrearNaveCiencia = new JButton("Crear Nave Ciencia");
-		btnCrearNaveCiencia.addActionListener(new CrearNaveCienciaListener(controlador));
+		btnCrearNaveCiencia.addActionListener(new CrearNaveCienciaListener(modelo));
 		GridBagConstraints gbc_btnCrearNaveCiencia = new GridBagConstraints();
 		gbc_btnCrearNaveCiencia.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearNaveCiencia.gridx = 0;

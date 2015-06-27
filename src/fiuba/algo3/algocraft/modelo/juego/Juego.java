@@ -13,7 +13,9 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreEnUso;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.razas.Raza;
+import fiuba.algo3.algocraft.vista.ObservadorJuego;
 import fiuba.algo3.algocraft.vista.ObservadorMapa;
+import fiuba.algo3.algocraft.vista.VistaJuego;
 
 
 public class Juego {
@@ -33,9 +35,10 @@ public class Juego {
     }
 
     
-	public void setObservadores(ObservadorMapa observador) throws ExcepcionNumeroDeBasesInvalido {
+	public void setObservadores(ObservadorMapa observador, ObservadorJuego observadorJuego) throws ExcepcionNumeroDeBasesInvalido {
 		this.generadorMapa = new GeneradorMapa(observador);
 		this.sistemaDeTurnos = new SistemaDeTurnos(this.jugadores,this.getMapa());
+		this.sistemaDeTurnos.setObservador(observadorJuego);
 
 //		this.mapa = this.generadorMapa.getMapa();
 		//por ahi convienen dos inicializadores de je

@@ -39,9 +39,9 @@ public class Controlador {
 		
 	}
 
-	public CrearAdicionalDeSuministroListener getCrearDepositoDeSumnistroListener(){
+	/*public CrearAdicionalDeSuministroListener getCrearDepositoDeSumnistroListener(){
 		return new CrearAdicionalDeSuministroListener(this);
-	}
+	}*/
 
 	public ParcelaListener getParcelaListener() {
 		
@@ -52,12 +52,10 @@ public class Controlador {
 		System.out.println("click en parcela "+x+","+y);
 		vista.seleccionarCoordenada(x, y);
 		this.observador.seleccionarCoordenada(x,y);
-		
 	}
 
 	public void setVistaJuego(VistaJuego vista){
 		this.vista = vista;
-		
 	}
 
 	public void crearExtractorMineral() {		

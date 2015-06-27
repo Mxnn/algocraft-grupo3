@@ -3,18 +3,12 @@ package fiuba.algo3.algocraft.vista;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
 import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.controlador.ParcelaListener;
@@ -24,7 +18,6 @@ import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
-import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplarios;
@@ -38,8 +31,6 @@ import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.DepositoSuminist
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Refineria;
-import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
-import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.vista.botones.*;
 
 public class VistaMapa extends JPanel implements ObservadorMapa{
@@ -57,71 +48,61 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     private final List<JPanel> listaPanelesParcela = new ArrayList<JPanel>();
     private Controlador controlador;
     private Coordenada coordenadaSeleccionada;
-    
+    private Mapa mapa;
     private Representador representador;
 	/**
 	 * Create the panel.
 	 */
-	public VistaMapa(Controlador controlador, int filas, int columnas) {
-		this.setVisible(false);
-		this.filas= filas;
-		this.columnas = columnas;
+	public VistaMapa(Controlador controlador, Mapa mapa) {
+	    this.setVisible(false);
+		this.filas=  mapa.getFilas();
+		this.columnas = mapa.getColumnas();
 		this.controlador = controlador;
 		this.representador = new Representador();
-		 this.setLocation(0, 0);
-		 this.setSize(650,650);
-		 this.setLayout(new GridLayout(columnas,filas)); 
-//		 this.setLayout(new GridLayout(20,20)); //esto lo comente para poder usar el window builder
-		 
-		 for (int i=0;i<filas*columnas;i++){
-			 
-			 int y = i / columnas;
-	         int x = i % columnas;
-	         
-	         JButton buttonActual= new JButton();
-	         buttonActual.setOpaque(false);
-	         buttonActual.setContentAreaFilled(false);
-//	         buttonActual.setBorderPainted(false);
-	         listaBotonesParcela.add(buttonActual);
-//			 this.add(buttonActual);
-	         
-	         JPanel panelBotones = new JPanel();
-	         panelBotones.setLayout(new CardLayout());
-	         panelBotones.setBackground(PARCELA_TIERRA); //el mapa se crea con colores de tierra
-	         this.add(panelBotones);
-	         this.listaPanelesParcela.add(panelBotones);
-	         panelBotones.add(buttonActual, BOTON_PARCELA);
-//	         panelBotones.setVisible(true);
-	         
-	         
-	         
-			 ParcelaListener l = controlador.getParcelaListener();
-			 buttonActual.addActionListener(l);
-			 l.setCoordenadasBoton(x,y);
-			 buttonActual.setMargin(new Insets(0, 0, 0, 0));
-			 buttonActual.setBorder(BorderFactory.createLineBorder(Color.black));
-			 
-//			 buttonActual.setBorder(null); //sin bordes es otra opcion
-			 
-		    Font font = buttonActual.getFont();
-		    font = font.deriveFont(font.getSize() * 0.8f);
-		    buttonActual.setFont(font);
+		this.mapa = mapa;
+		this.setLocation(0, 0);
+		this.setSize(650,650);
+		this.setLayout(new GridLayout(columnas,filas));
+//		this.setLayout(new GridLayout(20,20)); //esto lo comente para poder usar el window builder
 
-		 }
-		 
-		 
+		for(int i=0;i<filas*columnas;i++) {
+
+		    int y = i / columnas;
+	        int x = i % columnas;
+
+            VistaBotonParcela buttonActual = new VistaBotonParcela(x,y);
+            ParcelaListener l = controlador.getParcelaListener();
+            buttonActual.addActionListener(l);
+            l.setCoordenadasBoton(x,y);
+	        listaBotonesParcela.add(buttonActual);
+	        
+//			this.add(buttonActual);
+
+	        JPanel panelBotones = new JPanel();
+	        panelBotones.setLayout(new CardLayout());
+	        panelBotones.setBackground(PARCELA_TIERRA); //el mapa se crea con colores de tierra
+	        this.add(panelBotones);
+	        this.listaPanelesParcela.add(panelBotones);
+	        panelBotones.add(buttonActual, BOTON_PARCELA);
+        }
 	}
 
     public JButton getButton(int x, int y) {
         int index = y * this.columnas + x;
         return listaBotonesParcela.get(index);
     }
+
+    public VistaBotonInteractuable getBoton(Coordenada coordenada) {
+        JPanel panel = this.getPanel(coordenada);
+
+        return (VistaBotonInteractuable) panel.getComponent(panel.getComponentCount() - 1);
+    }
     
     public JPanel getPanel(Coordenada coordenada) {
         int index = coordenada.getY() * this.columnas + coordenada.getX();
+
         return listaPanelesParcela.get(index);
     }
-    
 
     private void pintarParcela(Coordenada coordenada, Color color){
     	JPanel panelParcela = this.getPanel(coordenada);
@@ -172,7 +153,7 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     }
     
 	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa {
-		//TODA ESTA ASQUEROSIDAD TAMBIEN VUELA MAS ADELANTE, ES SOLO PARA PROBAR QE LAS CONSTR FUNCIONEN
+		//ES SOLO PARA PROBAR QE LAS CONSTR FUNCIONEN
 		for(int x=0; x<this.columnas; x++){
     		for(int y=0; y<this.filas; y++){
     			Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y));
@@ -255,7 +236,7 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 
 	@Override
 	public void crearInteractuable(DepositoSuministro depositoSuministro) {
-		VistaBotonBarraca buttonActual = new VistaBotonBarraca();
+		VistaBotonDepositoSuministro buttonActual = new VistaBotonDepositoSuministro();
     	buttonActual.setForeground(this.representador.getColorTexto(depositoSuministro.getPropietario()));
         this.agregarElemento(buttonActual);
 	}
@@ -308,6 +289,9 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     	buttonActual.setForeground(this.representador.getColorTexto(asimilador.getPropietario()));
         this.agregarElemento(buttonActual);
 	}
-	
-	
+
+//	@Override
+//	public void nuevoTurno() {
+//		this.refrescar(this.mapa);
+//	}
 }

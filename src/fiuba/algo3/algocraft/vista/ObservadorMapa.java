@@ -36,4 +36,5 @@ public interface ObservadorMapa {
 	public abstract void crearInteractuable(NexoMineral nexoMineral);
 	public abstract void crearInteractuable(Asimilador asimilador);
 	public abstract void seleccionarCoordenada(int x, int y);
+
 }
