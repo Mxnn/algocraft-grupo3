@@ -10,6 +10,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class Barraca extends Construccion {
 
@@ -34,6 +35,11 @@ public class Barraca extends Construccion {
 
         Marine marine = new Marine(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, marine);
+        
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(marine);
+    	}
 
         return marine;
     }

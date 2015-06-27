@@ -11,6 +11,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class ArchivosTemplarios extends Construccion {
 
@@ -39,7 +40,12 @@ public class ArchivosTemplarios extends Construccion {
 
         AltoTemplario altoTemplario = new AltoTemplario(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, altoTemplario);
-
+        
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(altoTemplario);
+    	}
+        
         return altoTemplario;
     }
 }

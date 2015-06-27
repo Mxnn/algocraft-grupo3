@@ -119,20 +119,50 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     	panelParcela.setBackground(color);
     }
     
-    private void agregarElemento(VistaBotonInteractuable buttonActual){   
+    private void agregarConstruccion(VistaBotonInteractuable buttonActual){   
     	JPanel panelParcela = this.getPanel(this.coordenadaSeleccionada);
     	
-    	if(panelParcela.getComponentCount() >1){
-    		panelParcela.remove(1);
-    	}
+//    	if(panelParcela.getComponentCount() >1){
+//    		panelParcela.remove(1);
+//    	}
+    	
+    	this.agregarBoton(buttonActual, panelParcela);
     	
     	ParcelaListener l = this.controlador.getParcelaListener();
     	l.setCoordenadasBoton(this.coordenadaSeleccionada.getX(), this.coordenadaSeleccionada.getY());
     	buttonActual.addActionListener(l);
 
+//        panelParcela.add(buttonActual, BOTON_INTERACTUABLE);
+//        CardLayout cl = (CardLayout) panelParcela.getLayout();
+//        cl.show(panelParcela, BOTON_INTERACTUABLE);
+    }
+    
+    private void agregarUnidad(VistaBotonInteractuable buttonActual, Coordenada coordenada){   
+    	JPanel panelParcela = this.getPanel(coordenada);
+    	
+//    	if(panelParcela.getComponentCount() >1){
+//    		panelParcela.remove(1);
+//    	}
+    	
+    	this.agregarBoton(buttonActual, panelParcela);
+    	
+    	ParcelaListener l = this.controlador.getParcelaListener();
+    	l.setCoordenadasBoton(coordenada.getX(), coordenada.getY());
+    	buttonActual.addActionListener(l);
+
+//        panelParcela.add(buttonActual, BOTON_INTERACTUABLE);
+//        CardLayout cl = (CardLayout) panelParcela.getLayout();
+//        cl.show(panelParcela, BOTON_INTERACTUABLE);
+    }
+    
+    private void agregarBoton(VistaBotonInteractuable buttonActual, JPanel panelParcela){
+    	if(panelParcela.getComponentCount() >1)
+    		panelParcela.remove(1);
+    	
         panelParcela.add(buttonActual, BOTON_INTERACTUABLE);
         CardLayout cl = (CardLayout) panelParcela.getLayout();
         cl.show(panelParcela, BOTON_INTERACTUABLE);
+    	
     }
 
 //    private void escribirElemento(Interactuable i,int x,int y){
@@ -163,7 +193,7 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     }
     
 	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa {
-		//ES SOLO PARA PROBAR QE LAS CONSTR FUNCIONEN
+		//ESTO NO SE SI DA DEJARLO ASI, SE FIJA DE BORRAR PARCELAS VACIAS Y ACTIVAR BOTONES
 		for(int x=0; x<this.columnas; x++){
     		for(int y=0; y<this.filas; y++){
     			Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y));
@@ -173,8 +203,11 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 //    			else{
 //    				this.desinscribirElemento(x, y);
 //    			}
-    			if(!parcela.estaVacia() && parcela.devolverElemento().estaCreado())
+    			if(!parcela.estaVacia() && parcela.devolverElemento().estaCreado()){
     					this.activarBoton(parcela.getCoordenada());
+    			}else if(parcela.estaVacia()){
+    				this.desinscribirElemento(x, y);
+    			}
     		}
 		}
 		this.repaint();
@@ -190,7 +223,7 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 		boton.setEnabled(true);
 	}
 
-	//TODOS ESTOS METODOS PODRIAN IR EN EL REPRESENTADOR Y QUE SEA EL EL OBSERVADOR
+	
 	@Override
 	public void crearVistaParcela(ParcelaEspacio parcela) {
 		this.pintarParcela(parcela.getCoordenada(), PARCELA_ESPACIO);
@@ -206,26 +239,20 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 		this.pintarParcela(parcela.getCoordenada(), PARCELA_VOLCAN);
 	}
 
+	//TODOS ESTOS METODOS PODRIAN IR EN EL REPRESENTADOR Y QUE SEA EL EL OBSERVADOR
 	@Override
 	public void crearInteractuable(ArchivosTemplarios archivo) {
 		VistaBotonArchivosTemplarios buttonActual = new VistaBotonArchivosTemplarios(archivo);
     	buttonActual.setForeground(this.representador.getColorTexto(archivo.getPropietario()));
         
-//        if(!archivo.estaCreado()){
-//        	buttonActual.setEnabled(false); 
-//        }
-        this.agregarElemento(buttonActual);
+        this.agregarConstruccion(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(PuertoEstelar puertoEstelar) {
 		VistaBotonPuertoEstelar buttonActual = new VistaBotonPuertoEstelar(puertoEstelar);
     	buttonActual.setForeground(this.representador.getColorTexto(puertoEstelar.getPropietario()));
-        
-//        if(!puertoEstelar.estaCreado()){
-//        	buttonActual.setEnabled(false); 
-//        }
-        this.agregarElemento(buttonActual);
+        this.agregarConstruccion(buttonActual);
 		
 	}
 
@@ -233,14 +260,14 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 	public void crearInteractuable(Fabrica fabrica) {
 		VistaBotonFabrica buttonActual = new VistaBotonFabrica(fabrica);
     	buttonActual.setForeground(this.representador.getColorTexto(fabrica.getPropietario()));
-        this.agregarElemento(buttonActual);
+        this.agregarConstruccion(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(Barraca barraca) {
 		VistaBotonBarraca buttonActual = new VistaBotonBarraca(barraca);
     	buttonActual.setForeground(this.representador.getColorTexto(barraca.getPropietario()));
-        this.agregarElemento(buttonActual);
+        this.agregarConstruccion(buttonActual);
 		
 	}
 
@@ -248,63 +275,64 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 	public void crearInteractuable(DepositoSuministro depositoSuministro) {
 		VistaBotonDepositoSuministro buttonActual = new VistaBotonDepositoSuministro(depositoSuministro);
     	buttonActual.setForeground(this.representador.getColorTexto(depositoSuministro.getPropietario()));
-        this.agregarElemento(buttonActual);
+        this.agregarConstruccion(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(CentroDeMineral centroDeMineral) {
 		VistaBotonCentroMineral buttonActual = new VistaBotonCentroMineral(centroDeMineral);
     	buttonActual.setForeground(this.representador.getColorTexto(centroDeMineral.getPropietario()));
-        this.agregarElemento(buttonActual);
+        this.agregarConstruccion(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(Refineria refineria) {
 		VistaBotonRefineria buttonActual = new VistaBotonRefineria(refineria);
     	buttonActual.setForeground(this.representador.getColorTexto(refineria.getPropietario()));
-        this.agregarElemento(buttonActual);
+        this.agregarConstruccion(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(PuertoEstelarProtoss puerto) {
 		VistaBotonPuertoEstelarProtoss buttonActual = new VistaBotonPuertoEstelarProtoss(puerto);
     	buttonActual.setForeground(this.representador.getColorTexto(puerto.getPropietario()));
-        this.agregarElemento(buttonActual);
+        this.agregarConstruccion(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(Acceso acceso) {
 		VistaBotonAcceso buttonActual = new VistaBotonAcceso(acceso);
     	buttonActual.setForeground(this.representador.getColorTexto(acceso.getPropietario()));
-        this.agregarElemento(buttonActual);
+        this.agregarConstruccion(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(Pilon pilon) {
 		VistaBotonPilon buttonActual = new VistaBotonPilon(pilon);
     	buttonActual.setForeground(this.representador.getColorTexto(pilon.getPropietario()));
-        this.agregarElemento(buttonActual);
+        this.agregarConstruccion(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(NexoMineral nexoMineral) {
 		VistaBotonNexoMineral buttonActual = new VistaBotonNexoMineral(nexoMineral);
     	buttonActual.setForeground(this.representador.getColorTexto(nexoMineral.getPropietario()));
-        this.agregarElemento(buttonActual);
+        this.agregarConstruccion(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(Asimilador asimilador) {
 		VistaBotonAsimilador buttonActual = new VistaBotonAsimilador(asimilador);
     	buttonActual.setForeground(this.representador.getColorTexto(asimilador.getPropietario()));
-        this.agregarElemento(buttonActual);
+        this.agregarConstruccion(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(AltoTemplario templario) {
 		VistaBotonAltoTemplario buttonActual = new VistaBotonAltoTemplario(templario);
 		buttonActual.setForeground(this.representador.getColorTexto(templario.getPropietario()));
-		this.agregarElemento(buttonActual);
+		Coordenada coordenada = templario.getParcela().getCoordenada();
+		this.agregarUnidad(buttonActual, coordenada);
 		
 	}
 
@@ -312,72 +340,72 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 	public void crearInteractuable(Dragon dragon) {
 		VistaBotonDragon buttonActual = new VistaBotonDragon(dragon);
 		buttonActual.setForeground(this.representador.getColorTexto(dragon.getPropietario()));
-		this.agregarElemento(buttonActual);
-		
+		Coordenada coordenada = dragon.getParcela().getCoordenada();
+		this.agregarUnidad(buttonActual, coordenada);		
 	}
 
 	@Override
 	public void crearInteractuable(Espectro espectro) {
 		VistaBotonEspectro buttonActual = new VistaBotonEspectro(espectro);
 		buttonActual.setForeground(this.representador.getColorTexto(espectro.getPropietario()));
-		this.agregarElemento(buttonActual);
-		
+		Coordenada coordenada = espectro.getParcela().getCoordenada();
+		this.agregarUnidad(buttonActual, coordenada);		
 	}
 
 	@Override
 	public void crearInteractuable(Golliat golliat) {
 		VistaBotonGolliat buttonActual = new VistaBotonGolliat(golliat);
 		buttonActual.setForeground(this.representador.getColorTexto(golliat.getPropietario()));
-		this.agregarElemento(buttonActual);
-		
+		Coordenada coordenada = golliat.getParcela().getCoordenada();
+		this.agregarUnidad(buttonActual, coordenada);		
 	}
 
 	@Override
 	public void crearInteractuable(Marine marine) {
 		VistaBotonMarine buttonActual = new VistaBotonMarine(marine);
 		buttonActual.setForeground(this.representador.getColorTexto(marine.getPropietario()));
-		this.agregarElemento(buttonActual);
-		
+		Coordenada coordenada = marine.getParcela().getCoordenada();
+		this.agregarUnidad(buttonActual, coordenada);		
 	}
 
 	@Override
 	public void crearInteractuable(NaveCiencia nave) {
 		VistaBotonNaveCiencia buttonActual = new VistaBotonNaveCiencia(nave);
 		buttonActual.setForeground(this.representador.getColorTexto(nave.getPropietario()));
-		this.agregarElemento(buttonActual);
-		
+		Coordenada coordenada = nave.getParcela().getCoordenada();
+		this.agregarUnidad(buttonActual, coordenada);		
 	}
 
 	@Override
 	public void crearInteractuable(NaveTransporteProtoss nave) {
 		VistaBotonNaveTransporteProtoss buttonActual = new VistaBotonNaveTransporteProtoss(nave);
 		buttonActual.setForeground(this.representador.getColorTexto(nave.getPropietario()));
-		this.agregarElemento(buttonActual);
-		
+		Coordenada coordenada = nave.getParcela().getCoordenada();
+		this.agregarUnidad(buttonActual, coordenada);		
 	}
 
 	@Override
 	public void crearInteractuable(NaveTransporteTerran nave) {
 		VistaBotonNaveTransporteTerran buttonActual = new VistaBotonNaveTransporteTerran(nave);
 		buttonActual.setForeground(this.representador.getColorTexto(nave.getPropietario()));
-		this.agregarElemento(buttonActual);
-		
+		Coordenada coordenada = nave.getParcela().getCoordenada();
+		this.agregarUnidad(buttonActual, coordenada);		
 	}
 
 	@Override
 	public void crearInteractuable(Scout scout) {
 		VistaBotonScout buttonActual = new VistaBotonScout(scout);
 		buttonActual.setForeground(this.representador.getColorTexto(scout.getPropietario()));
-		this.agregarElemento(buttonActual);
-		
+		Coordenada coordenada = scout.getParcela().getCoordenada();
+		this.agregarUnidad(buttonActual, coordenada);		
 	}
 
 	@Override
 	public void crearInteractuable(Zealot zealot) {
 		VistaBotonZealot buttonActual = new VistaBotonZealot(zealot);
 		buttonActual.setForeground(this.representador.getColorTexto(zealot.getPropietario()));
-		this.agregarElemento(buttonActual);
-		
+		Coordenada coordenada = zealot.getParcela().getCoordenada();
+		this.agregarUnidad(buttonActual, coordenada);		
 	}
 
 //	@Override

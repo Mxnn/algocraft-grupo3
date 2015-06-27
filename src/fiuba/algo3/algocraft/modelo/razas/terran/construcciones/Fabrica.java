@@ -11,6 +11,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class Fabrica extends Construccion {
 
@@ -38,6 +39,11 @@ public class Fabrica extends Construccion {
 
         Golliat golliat = new Golliat(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, golliat);
+        
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(golliat);
+    	}
 
         return golliat;
     }

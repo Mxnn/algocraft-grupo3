@@ -88,6 +88,7 @@ public class Protoss extends Raza {
         for(int i=0; i<this.observadores.size();i++){
     		ObservadorMapa observador = this.observadores.get(i);
     		observador.crearInteractuable(acceso);
+    		acceso.setObservador(this.observadores.get(i));
     	}
 
         return acceso;
@@ -103,6 +104,7 @@ public class Protoss extends Raza {
         for(int i=0; i<this.observadores.size();i++){
     		ObservadorMapa observador = this.observadores.get(i);
     		observador.crearInteractuable(puerto);
+    		puerto.setObservador(this.observadores.get(i));
     	}
         
         return puerto;
@@ -120,6 +122,7 @@ public class Protoss extends Raza {
     	for(int i=0; i<this.observadores.size();i++){
     		ObservadorMapa observador = this.observadores.get(i);
     		observador.crearInteractuable(archivo);
+    		archivo.setObservador(this.observadores.get(i));
     	}
     	
         return archivo;

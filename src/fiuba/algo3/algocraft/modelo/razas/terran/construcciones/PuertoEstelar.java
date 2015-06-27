@@ -13,6 +13,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class PuertoEstelar extends Construccion {
 
@@ -40,7 +41,11 @@ public class PuertoEstelar extends Construccion {
 
         Espectro espectro = new Espectro(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, espectro);
-
+        
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(espectro);
+    	}
         return espectro;
     }
 
@@ -50,6 +55,11 @@ public class PuertoEstelar extends Construccion {
 
         NaveTransporteTerran nave = new NaveTransporteTerran(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, nave);
+        
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(nave);
+    	}
 
         return nave;
     }
@@ -60,6 +70,11 @@ public class PuertoEstelar extends Construccion {
 
         NaveCiencia nave = new NaveCiencia(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, nave);
+        
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(nave);
+    	}
 
         return nave;
     }

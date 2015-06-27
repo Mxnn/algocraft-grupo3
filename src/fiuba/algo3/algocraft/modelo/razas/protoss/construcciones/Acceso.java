@@ -12,6 +12,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 
 public class Acceso extends Construccion {
@@ -38,7 +39,12 @@ public class Acceso extends Construccion {
 
         Zealot zealot = new Zealot(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, zealot);
-
+        
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(zealot);
+    	}
+        
         return zealot;
     }
 
@@ -49,6 +55,11 @@ public class Acceso extends Construccion {
         Dragon dragon = new Dragon(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, dragon);
 
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(dragon);
+    	}
+        
         return dragon;
     }
 }

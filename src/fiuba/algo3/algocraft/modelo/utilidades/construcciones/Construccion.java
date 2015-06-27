@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft.modelo.utilidades.construcciones;
 
+import java.util.ArrayList;
+
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
@@ -15,8 +17,11 @@ import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Danyo;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.RangoAtaque;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public abstract class Construccion extends Interactuable {
+	
+	protected ArrayList<ObservadorMapa> observadores = new ArrayList<ObservadorMapa>();
 
     public Construccion(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, Costo costo) {
         super(propietario, vitalidad, tiempoDeConstruccion, costo);
@@ -63,5 +68,9 @@ public abstract class Construccion extends Interactuable {
     @Override
     public void recibirAtaque(Ataque ataque) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
         ataque.atacar(this);
+    }
+    
+    public void setObservador(ObservadorMapa observador){
+    	this.observadores.add(observador);
     }
 }

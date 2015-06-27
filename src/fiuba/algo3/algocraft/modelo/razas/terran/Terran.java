@@ -89,6 +89,7 @@ public class Terran extends Raza {
         for(int i=0; i<this.observadores.size();i++){
     		ObservadorMapa observador = this.observadores.get(i);
     		observador.crearInteractuable(barraca);
+    		barraca.setObservador(this.observadores.get(i));
     	}
         
         return barraca;
@@ -104,6 +105,7 @@ public class Terran extends Raza {
         for(int i=0; i<this.observadores.size();i++){
     		ObservadorMapa observador = this.observadores.get(i);
     		observador.crearInteractuable(fabrica);
+    		fabrica.setObservador(this.observadores.get(i));
     	}
     	return fabrica;
     }
@@ -118,6 +120,7 @@ public class Terran extends Raza {
         for(int i=0; i<this.observadores.size();i++){
     		ObservadorMapa observador = this.observadores.get(i);
     		observador.crearInteractuable(puertoEstelar);
+    		puertoEstelar.setObservador(this.observadores.get(i));
     	}
         
     	return new PuertoEstelar(propietario);

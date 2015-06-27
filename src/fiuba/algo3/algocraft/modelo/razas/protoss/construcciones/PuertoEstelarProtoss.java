@@ -12,6 +12,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 
 public class PuertoEstelarProtoss extends Construccion {
@@ -41,6 +42,11 @@ public class PuertoEstelarProtoss extends Construccion {
 
         Scout scout = new Scout(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, scout);
+        
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(scout);
+    	}
 
         return scout;
     }
@@ -51,6 +57,11 @@ public class PuertoEstelarProtoss extends Construccion {
 
         NaveTransporteProtoss nave = new NaveTransporteProtoss(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, nave);
+        
+        for(int i=0; i<this.observadores.size();i++){
+    		ObservadorMapa observador = this.observadores.get(i);
+    		observador.crearInteractuable(nave);
+    	}
 
         return nave;
     }
