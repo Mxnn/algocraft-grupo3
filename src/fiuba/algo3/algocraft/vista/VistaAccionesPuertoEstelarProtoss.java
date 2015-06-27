@@ -16,7 +16,7 @@ public class VistaAccionesPuertoEstelarProtoss  extends VistaAcciones {
 		super(modelo);
 		
 		JButton btnCrearScout = new JButton("Crear Scout");
-		btnCrearScout.addActionListener(new CrearScoutListener(modelo));
+		btnCrearScout.addActionListener(new CrearScoutListener(modelo, representado));
 		GridBagConstraints gbc_btnCrearScout = new GridBagConstraints();
 		gbc_btnCrearScout.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearScout.gridx = 0;
@@ -25,7 +25,7 @@ public class VistaAccionesPuertoEstelarProtoss  extends VistaAcciones {
 		this.habilitarBoton(btnCrearScout, representado);
 
 		JButton btnCrearNaveDeTransporte = new JButton("Crear Nave de transporte");
-		btnCrearNaveDeTransporte.addActionListener(new CrearNaveTransporteProtossListener(modelo));
+		btnCrearNaveDeTransporte.addActionListener(new CrearNaveTransporteProtossListener(modelo, representado));
 		GridBagConstraints gbc_btnCrearNaveDeTransporte = new GridBagConstraints();
 		gbc_btnCrearNaveDeTransporte.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearNaveDeTransporte.gridx = 0;

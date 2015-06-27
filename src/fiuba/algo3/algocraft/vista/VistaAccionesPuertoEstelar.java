@@ -19,7 +19,7 @@ public class VistaAccionesPuertoEstelar  extends VistaAcciones {
 		super(modelo);
 		
 		JButton btnCrearEspectro = new JButton("Crear Espectro");
-		btnCrearEspectro.addActionListener(new CrearEspectroListener(modelo));
+		btnCrearEspectro.addActionListener(new CrearEspectroListener(modelo, representado));
 		GridBagConstraints gbc_btnCrearEspectro = new GridBagConstraints();
 		gbc_btnCrearEspectro.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearEspectro.gridx = 0;
@@ -29,7 +29,7 @@ public class VistaAccionesPuertoEstelar  extends VistaAcciones {
 		
 
 		JButton btnCrearNaveDeTransporte = new JButton("Crear Nave Transporte");
-		btnCrearNaveDeTransporte.addActionListener(new CrearNaveTransporteListener(modelo));
+		btnCrearNaveDeTransporte.addActionListener(new CrearNaveTransporteListener(modelo, representado));
 		GridBagConstraints gbc_btnCrearNaveDeTransporte = new GridBagConstraints();
 		gbc_btnCrearNaveDeTransporte.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearNaveDeTransporte.gridx = 0;
@@ -40,7 +40,7 @@ public class VistaAccionesPuertoEstelar  extends VistaAcciones {
 		
 		
 		JButton btnCrearNaveCiencia = new JButton("Crear Nave Ciencia");
-		btnCrearNaveCiencia.addActionListener(new CrearNaveCienciaListener(modelo));
+		btnCrearNaveCiencia.addActionListener(new CrearNaveCienciaListener(modelo, representado));
 		GridBagConstraints gbc_btnCrearNaveCiencia = new GridBagConstraints();
 		gbc_btnCrearNaveCiencia.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearNaveCiencia.gridx = 0;

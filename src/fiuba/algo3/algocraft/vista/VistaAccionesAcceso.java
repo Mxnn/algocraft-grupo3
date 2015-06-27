@@ -15,7 +15,7 @@ public class  VistaAccionesAcceso  extends VistaAcciones {
 		super(modelo);
 		
 		JButton btnCrearZealot = new JButton("Crear Zealot");
-		btnCrearZealot.addActionListener(new CrearZealotListener(modelo));
+		btnCrearZealot.addActionListener(new CrearZealotListener(modelo, representado));
 		GridBagConstraints gbc_btnCrearZealot = new GridBagConstraints();
 		gbc_btnCrearZealot.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearZealot.gridx = 0;
@@ -25,7 +25,7 @@ public class  VistaAccionesAcceso  extends VistaAcciones {
 		
 
 		JButton btnCrearDragon = new JButton("Crear Dragon");
-		btnCrearDragon.addActionListener(new CrearDragonListener(modelo));
+		btnCrearDragon.addActionListener(new CrearDragonListener(modelo, representado));
 		GridBagConstraints gbc_btnCrearDragon = new GridBagConstraints();
 		gbc_btnCrearDragon.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearDragon.gridx = 0;

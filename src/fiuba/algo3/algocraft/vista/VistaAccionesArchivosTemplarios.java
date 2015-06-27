@@ -14,7 +14,7 @@ public class VistaAccionesArchivosTemplarios  extends VistaAcciones {
 		super(modelo);
 		
 		JButton btnCrearAltoTemplario = new JButton("Crear Alto Templario");
-		btnCrearAltoTemplario.addActionListener(new CrearAltoTemplarioListener(modelo));
+		btnCrearAltoTemplario.addActionListener(new CrearAltoTemplarioListener(modelo, representado));
 		GridBagConstraints gbc_btnCrearAltoTemplario = new GridBagConstraints();
 		gbc_btnCrearAltoTemplario.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearAltoTemplario.gridx = 0;

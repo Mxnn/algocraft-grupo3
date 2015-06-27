@@ -16,7 +16,7 @@ public class VistaAccionesBarraca extends VistaAcciones {
 		super(modelo);
 
 		JButton btnCrearMarines = new JButton("Crear Marine");
-		btnCrearMarines.addActionListener(new CrearMarineListener(modelo));
+		btnCrearMarines.addActionListener(new CrearMarineListener(modelo, representado));
 		GridBagConstraints gbc_btnCrearMarines = new GridBagConstraints();
 		gbc_btnCrearMarines.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearMarines.gridx = 0;

@@ -13,7 +13,7 @@ public class VistaAccionesFabrica extends VistaAcciones {
 	public VistaAccionesFabrica(Juego modelo, Fabrica representado) {
 		super(modelo);
 		JButton btnCrearGolliat = new JButton("Crear Golliat");
-		btnCrearGolliat.addActionListener(new CrearGolliatListener(modelo));
+		btnCrearGolliat.addActionListener(new CrearGolliatListener(modelo, representado));
 		GridBagConstraints gbc_btnCrearGolliat = new GridBagConstraints();
 		gbc_btnCrearGolliat.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearGolliat.gridx = 0;
