@@ -1,3 +1,17 @@
+## 24/6
+
+* Interacción con objetos del modelo debería ser más simple desde el controlador (ej: `this.modelo.getJugadorQueJuega().crearExtractorMineral(modelo.getMapa(), vista.getCoordenadaSeleccionada())` en `Controlador.crearExtractorMineral()`). Encadenamiento de métodos es un _smell_ de que se está violando el encapsulamiento
+* Llamada a `this.vista.refrescar()` después de cada invocación a métodos `crearXXXX` de `Controlador`
+* Listeners actuan como controladores, deberían ser ellos los encargados de invocar a los métodos del modelo
+* `CerrarFrameControlador` es un _listener_, nombres de clases deberían ser consistentes (o todos los objetos que implementan `ActionListener` son _listener_ o son _controlador_)
+* Diagramas de clase no actualizados con clases de paquetes Vista y Controlador
+* Nombres de atributos de objetos de la vista también tienen que ser explicativos (ej: `VistaJuego.ventanita`)
+* Mapeo de objetos del modelo a `VistaAccionesXXXX` con clase / superclase del objeto (`VistaJuego.seleccionarCoordenada()`)
+* Mucho código comentado
+* _Preguntas:_
+  * Como está implementada la creación de la vista del mapa?
+  * Como está implementada la creación de la vista de nuevas unidades / edificios?
+
 ## 17/6
 
 * Métodos que devuelven `null` en `Raza` deberían ser abstractos?
