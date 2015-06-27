@@ -80,7 +80,7 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 		    int y = i / columnas;
 	        int x = i % columnas;
 
-            VistaBotonParcela buttonActual = new VistaBotonParcela(x,y);
+            VistaBotonParcela buttonActual = new VistaBotonParcela(new Coordenada(x, y));
             ParcelaListener l = controlador.getParcelaListener();
             buttonActual.addActionListener(l);
             l.setCoordenadasBoton(x,y);

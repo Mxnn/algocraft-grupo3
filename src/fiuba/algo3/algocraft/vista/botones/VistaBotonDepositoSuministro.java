@@ -2,13 +2,10 @@ package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.DepositoSuministro;
 
-
-public class VistaBotonDepositoSuministro extends VistaBotonInteractuable {
-	private DepositoSuministro representador;
+public class VistaBotonDepositoSuministro extends VistaBotonRepresentante {
 
 	public VistaBotonDepositoSuministro(DepositoSuministro depositoSuministro){
-		super();
+		super(depositoSuministro);
 		this.setText("DS");
-		this.representador = depositoSuministro;
 	}
 }

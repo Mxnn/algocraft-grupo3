@@ -5,18 +5,15 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplarios;
 import fiuba.algo3.algocraft.vista.VistaAccionesArchivosTemplarios;
 
-public class VistaBotonArchivosTemplarios extends VistaBotonInteractuable {
-	private ArchivosTemplarios representado;
-
-	public VistaBotonArchivosTemplarios(ArchivosTemplarios archivo){
-		super();
+public class VistaBotonArchivosTemplarios extends VistaBotonRepresentante {
+	public VistaBotonArchivosTemplarios(ArchivosTemplarios archivos){
+		super(archivos);
 		this.setText("ArT");
-		this.representado = archivo;
 	}
 
     @Override
     public VistaAccionesArchivosTemplarios getVistaDeAcciones(Juego modelo) {
-    	VistaAccionesArchivosTemplarios vistaAcciones = new VistaAccionesArchivosTemplarios(modelo, this.representado);
+    	VistaAccionesArchivosTemplarios vistaAcciones = new VistaAccionesArchivosTemplarios(modelo, (ArchivosTemplarios) this.elementoRepresentado);
     	this.vistaAcciones = vistaAcciones;
         return vistaAcciones;
     }

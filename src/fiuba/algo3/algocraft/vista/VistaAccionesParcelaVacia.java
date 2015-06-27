@@ -14,12 +14,11 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class VistaAccionesParcelaVacia extends VistaAcciones {
-	public VistaAccionesParcelaVacia(Juego modelo, int x, int y) {
+	public VistaAccionesParcelaVacia(Juego modelo, Coordenada ubicacionParcela) {
 		super(modelo);
-		Coordenada ubicacion = new Coordenada(x,y);
 
 		JButton btnExtractorGas = new JButton("Extractor Gas");
-		btnExtractorGas.addActionListener(new CrearExtractorGasListener(modelo, ubicacion));
+		btnExtractorGas.addActionListener(new CrearExtractorGasListener(modelo, ubicacionParcela));
 		GridBagConstraints gbc_btnCrearExtractorGas = new GridBagConstraints();
 		gbc_btnCrearExtractorGas.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearExtractorGas.gridx = 0;
@@ -27,7 +26,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnExtractorGas, gbc_btnCrearExtractorGas);
 		
 		JButton btnExtractorMinera = new JButton("Extractor Mineral");
-		btnExtractorMinera.addActionListener(new CrearExtractorMineralListener(modelo, ubicacion));
+		btnExtractorMinera.addActionListener(new CrearExtractorMineralListener(modelo, ubicacionParcela));
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
 		gbc_btnNewButton.gridx = 0;
@@ -35,7 +34,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnExtractorMinera, gbc_btnNewButton);
 		
 		JButton btnAdicionalDeSuministros = new JButton("Adicional De Suministros");
-		btnAdicionalDeSuministros.addActionListener(new CrearAdicionalDeSuministroListener(modelo, ubicacion));
+		btnAdicionalDeSuministros.addActionListener(new CrearAdicionalDeSuministroListener(modelo, ubicacionParcela));
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 0);
 		gbc_btnNewButton_1.gridx = 0;
@@ -43,7 +42,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnAdicionalDeSuministros, gbc_btnNewButton_1);
 		
 		JButton btnCreadorUnidadesBasicas = new JButton("Creador Unidades Basicas");
-		btnCreadorUnidadesBasicas.addActionListener(new CrearCreadorUnidadesBasicasListener(modelo, ubicacion));
+		btnCreadorUnidadesBasicas.addActionListener(new CrearCreadorUnidadesBasicasListener(modelo, ubicacionParcela));
 		GridBagConstraints gbc_btnCreadorUnidadesBasicas = new GridBagConstraints();
 		gbc_btnCreadorUnidadesBasicas.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCreadorUnidadesBasicas.gridx = 0;
@@ -51,7 +50,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnCreadorUnidadesBasicas, gbc_btnCreadorUnidadesBasicas);
 		
 		JButton btnCreadorUnidadesAvanzadas = new JButton("Creador Unidades Avanzadas");
-		btnCreadorUnidadesAvanzadas.addActionListener(new CrearCreadorUnidadesAvanzadasListener(modelo, ubicacion));
+		btnCreadorUnidadesAvanzadas.addActionListener(new CrearCreadorUnidadesAvanzadasListener(modelo, ubicacionParcela));
 		GridBagConstraints gbc_btnCreadorUnidadesAvanzadas = new GridBagConstraints();
 		gbc_btnCreadorUnidadesAvanzadas.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCreadorUnidadesAvanzadas.gridx = 0;
@@ -59,7 +58,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnCreadorUnidadesAvanzadas, gbc_btnCreadorUnidadesAvanzadas);
 		
 		JButton btnCreadorUnidadesMagicas = new JButton("Creador Unidades Magicas");
-		btnCreadorUnidadesMagicas.addActionListener(new CrearCreadorUnidadesMagicasListener(modelo, ubicacion));
+		btnCreadorUnidadesMagicas.addActionListener(new CrearCreadorUnidadesMagicasListener(modelo, ubicacionParcela));
 		GridBagConstraints gbc_btnCreadorUnidadesMagicas = new GridBagConstraints();
 		gbc_btnCreadorUnidadesMagicas.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCreadorUnidadesMagicas.gridx = 0;

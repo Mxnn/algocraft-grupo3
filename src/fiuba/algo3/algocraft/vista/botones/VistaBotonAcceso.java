@@ -4,18 +4,16 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
 import fiuba.algo3.algocraft.vista.VistaAccionesAcceso;
 
-public class VistaBotonAcceso extends VistaBotonInteractuable {
-	private Acceso representado;
+public class VistaBotonAcceso extends VistaBotonRepresentante {
 
 	public VistaBotonAcceso(Acceso acceso){
-		super();
+		super(acceso);
 		this.setText("Ac");
-		this.representado = acceso;
 	}
 
     @Override
     public VistaAccionesAcceso getVistaDeAcciones(Juego modelo) {
-    	VistaAccionesAcceso vistaAcciones = new VistaAccionesAcceso(modelo, this.representado);
+    	VistaAccionesAcceso vistaAcciones = new VistaAccionesAcceso(modelo, (Acceso) this.elementoRepresentado);
     	this.vistaAcciones = vistaAcciones;
         return vistaAcciones;
     }

@@ -4,18 +4,15 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.vista.VistaAccionesUnidadAgresora;
 
-public class VistaBotonEspectro extends VistaBotonInteractuable {
-	private Espectro representado;
-
+public class VistaBotonEspectro extends VistaBotonRepresentante {
 	public VistaBotonEspectro(Espectro espectro){
-		super();
+		super(espectro);
 		this.setText("Es");
-		this.representado = espectro;
 	}
 
     @Override
     public VistaAccionesUnidadAgresora getVistaDeAcciones(Juego modelo) {
-    	VistaAccionesUnidadAgresora vistaAcciones = new VistaAccionesUnidadAgresora(modelo, this.representado);
+    	VistaAccionesUnidadAgresora vistaAcciones = new VistaAccionesUnidadAgresora(modelo, (Espectro) this.elementoRepresentado);
     	this.vistaAcciones = vistaAcciones;
         return vistaAcciones;
     }

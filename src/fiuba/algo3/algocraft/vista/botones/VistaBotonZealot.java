@@ -4,18 +4,16 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Zealot;
 import fiuba.algo3.algocraft.vista.VistaAccionesUnidadAgresora;
 
-public class VistaBotonZealot extends VistaBotonInteractuable {
-	private Zealot representado;
+public class VistaBotonZealot extends VistaBotonRepresentante {
 
 	public VistaBotonZealot(Zealot zealot){
-		super();
+		super(zealot);
 		this.setText("Ze");
-		this.representado = zealot;
 	}
 
     @Override
     public VistaAccionesUnidadAgresora getVistaDeAcciones(Juego modelo) {
-    	VistaAccionesUnidadAgresora vistaAcciones = new VistaAccionesUnidadAgresora(modelo, this.representado);
+    	VistaAccionesUnidadAgresora vistaAcciones = new VistaAccionesUnidadAgresora(modelo, (Zealot) this.elementoRepresentado);
     	this.vistaAcciones = vistaAcciones;
         return vistaAcciones;
     }

@@ -2,13 +2,10 @@ package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.NexoMineral;
 
-
-public class VistaBotonNexoMineral extends VistaBotonInteractuable {
-	private NexoMineral representador;
+public class VistaBotonNexoMineral extends VistaBotonRepresentante {
 
 	public VistaBotonNexoMineral(NexoMineral nexoMineral){
-		super();
+		super(nexoMineral);
 		this.setText("NM");
-		this.representador = nexoMineral;
 	}
 }
