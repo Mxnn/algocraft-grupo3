@@ -7,7 +7,7 @@ EXCEPCIONES que deberiamos pasar a runtime porque con la vista ya no pueden pasa
 EXCEPCIONES los action listener no tiene la vista de juego, entonces ya no se pueden mostrar los errores, una solucion seria pasar observador a todos los listners para ver cuando hay un error
             los action perform no pueden lanzar excepciones, en los listeners que crean unidades si va a haber observador de todas formas.
 
-TURNOS una vez que se termine el tema de botnes para unidades, hacer mismo procedimiento que ara las construcciones para que no puedan ser usadas por enemigo
+TURNOS una vez que se termine el tema de botnes para unidades, hacer mismo procedimiento que para las construcciones para que no puedan ser usadas por enemigo
 
 VISTASACCIONES andan bien para las construcciones pero no para las unidades
 
@@ -17,7 +17,7 @@ Refactor en el tema de los mapas y revisar el tema de pasar el observador al map
 
 terminar de sacar todas las representaciones
 
-Pasar a la vista el objeto que representa para que lo pueda usar el listener para unidades (construcciones ya esta)
+pasar a vista acciones de unidades los objetos representados.
 
 Pasar el objeto a cada listener para poder llamar a los metodos.
 
