@@ -17,7 +17,6 @@ Refactor en el tema de los mapas y revisar el tema de pasar el observador al map
 
 terminar de sacar todas las representaciones
 
-pasar a vista acciones de unidades los objetos representados.
 
 Pasar el objeto a cada listener para poder llamar a los metodos.
 
