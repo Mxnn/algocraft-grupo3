@@ -198,37 +198,37 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 
 	@Override
 	public void crearInteractuable(ArchivosTemplarios archivo) {
-		VistaBotonArchivosTemplarios buttonActual = new VistaBotonArchivosTemplarios();
+		VistaBotonArchivosTemplarios buttonActual = new VistaBotonArchivosTemplarios(archivo);
     	buttonActual.setForeground(this.representador.getColorTexto(archivo.getPropietario()));
         
-        if(!archivo.estaCreado()){
-        	buttonActual.setEnabled(false); 
-        }
+//        if(!archivo.estaCreado()){
+//        	buttonActual.setEnabled(false); 
+//        }
         this.agregarElemento(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(PuertoEstelar puertoEstelar) {
-		VistaBotonPuertoEstelar buttonActual = new VistaBotonPuertoEstelar();
+		VistaBotonPuertoEstelar buttonActual = new VistaBotonPuertoEstelar(puertoEstelar);
     	buttonActual.setForeground(this.representador.getColorTexto(puertoEstelar.getPropietario()));
         
-        if(!puertoEstelar.estaCreado()){
-        	buttonActual.setEnabled(false); 
-        }
+//        if(!puertoEstelar.estaCreado()){
+//        	buttonActual.setEnabled(false); 
+//        }
         this.agregarElemento(buttonActual);
 		
 	}
 
 	@Override
 	public void crearInteractuable(Fabrica fabrica) {
-		VistaBotonFabrica buttonActual = new VistaBotonFabrica();
+		VistaBotonFabrica buttonActual = new VistaBotonFabrica(fabrica);
     	buttonActual.setForeground(this.representador.getColorTexto(fabrica.getPropietario()));
         this.agregarElemento(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(Barraca barraca) {
-		VistaBotonBarraca buttonActual = new VistaBotonBarraca();
+		VistaBotonBarraca buttonActual = new VistaBotonBarraca(barraca);
     	buttonActual.setForeground(this.representador.getColorTexto(barraca.getPropietario()));
         this.agregarElemento(buttonActual);
 		
@@ -236,56 +236,56 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 
 	@Override
 	public void crearInteractuable(DepositoSuministro depositoSuministro) {
-		VistaBotonDepositoSuministro buttonActual = new VistaBotonDepositoSuministro();
+		VistaBotonDepositoSuministro buttonActual = new VistaBotonDepositoSuministro(depositoSuministro);
     	buttonActual.setForeground(this.representador.getColorTexto(depositoSuministro.getPropietario()));
         this.agregarElemento(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(CentroDeMineral centroDeMineral) {
-		VistaBotonCentroMineral buttonActual = new VistaBotonCentroMineral();
+		VistaBotonCentroMineral buttonActual = new VistaBotonCentroMineral(centroDeMineral);
     	buttonActual.setForeground(this.representador.getColorTexto(centroDeMineral.getPropietario()));
         this.agregarElemento(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(Refineria refineria) {
-		VistaBotonRefineria buttonActual = new VistaBotonRefineria();
+		VistaBotonRefineria buttonActual = new VistaBotonRefineria(refineria);
     	buttonActual.setForeground(this.representador.getColorTexto(refineria.getPropietario()));
         this.agregarElemento(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(PuertoEstelarProtoss puerto) {
-		VistaBotonPuertoEstelarProtoss buttonActual = new VistaBotonPuertoEstelarProtoss();
+		VistaBotonPuertoEstelarProtoss buttonActual = new VistaBotonPuertoEstelarProtoss(puerto);
     	buttonActual.setForeground(this.representador.getColorTexto(puerto.getPropietario()));
         this.agregarElemento(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(Acceso acceso) {
-		VistaBotonAcceso buttonActual = new VistaBotonAcceso();
+		VistaBotonAcceso buttonActual = new VistaBotonAcceso(acceso);
     	buttonActual.setForeground(this.representador.getColorTexto(acceso.getPropietario()));
         this.agregarElemento(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(Pilon pilon) {
-		VistaBotonPilon buttonActual = new VistaBotonPilon();
+		VistaBotonPilon buttonActual = new VistaBotonPilon(pilon);
     	buttonActual.setForeground(this.representador.getColorTexto(pilon.getPropietario()));
         this.agregarElemento(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(NexoMineral nexoMineral) {
-		VistaBotonNexoMineral buttonActual = new VistaBotonNexoMineral();
+		VistaBotonNexoMineral buttonActual = new VistaBotonNexoMineral(nexoMineral);
     	buttonActual.setForeground(this.representador.getColorTexto(nexoMineral.getPropietario()));
         this.agregarElemento(buttonActual);
 	}
 
 	@Override
 	public void crearInteractuable(Asimilador asimilador) {
-		VistaBotonAsimilador buttonActual = new VistaBotonAsimilador();
+		VistaBotonAsimilador buttonActual = new VistaBotonAsimilador(asimilador);
     	buttonActual.setForeground(this.representador.getColorTexto(asimilador.getPropietario()));
         this.agregarElemento(buttonActual);
 	}
