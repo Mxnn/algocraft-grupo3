@@ -4,6 +4,9 @@ COSAS A CAMBIAR
 
 EXCEPCIONES que deberiamos pasar a runtime porque con la vista ya no pueden pasar y no tiene sentido hacerles catch si o si.
 
+EXCEPCIONES los action listener no tiene la vista de juego, entonces ya no se pueden mostrar los errores, una solucion seria pasar observador a todos los listners para ver cuando hay un error
+            los action perform no pueden lanzar excepciones. 
+
 TURNOS una vez que se termine el tema de botnes para unidades, hacer mismo procedimiento que ara las construcciones para que no puedan ser usadas por enemigo
 
 VISTASACCIONES andan bien para las construcciones pero no para las unidades
