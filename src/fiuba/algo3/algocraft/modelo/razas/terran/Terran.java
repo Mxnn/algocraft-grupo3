@@ -4,7 +4,6 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequerida
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.razas.Raza;
-import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Asimilador;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.CentroDeMineral;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.DepositoSuministro;
@@ -41,8 +40,7 @@ public class Terran extends Raza {
 
         Refineria refineria = new Refineria(propietario);
 
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearInteractuable(refineria);
     	}
         
@@ -56,8 +54,7 @@ public class Terran extends Raza {
 
         CentroDeMineral centroDeMineral = new CentroDeMineral(propietario);
 
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearInteractuable(centroDeMineral);
     	}
         
@@ -71,8 +68,7 @@ public class Terran extends Raza {
 
         DepositoSuministro depositoSuministro = new DepositoSuministro(propietario);
 
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearInteractuable(depositoSuministro);
     	}
         
@@ -86,10 +82,9 @@ public class Terran extends Raza {
 
         Barraca barraca = new Barraca(propietario);
 
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearInteractuable(barraca);
-    		barraca.setObservador(this.observadores.get(i));
+    		barraca.setObservador(observador);
     	}
         
         return barraca;
@@ -102,10 +97,9 @@ public class Terran extends Raza {
        
         Fabrica fabrica = new Fabrica(propietario);
 
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearInteractuable(fabrica);
-    		fabrica.setObservador(this.observadores.get(i));
+    		fabrica.setObservador(observador);
     	}
     	return fabrica;
     }
@@ -117,12 +111,11 @@ public class Terran extends Raza {
 
         PuertoEstelar puertoEstelar = new PuertoEstelar(propietario);
 
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearInteractuable(puertoEstelar);
-    		puertoEstelar.setObservador(this.observadores.get(i));
+    		puertoEstelar.setObservador(observador);
     	}
         
-    	return new PuertoEstelar(propietario);
+    	return puertoEstelar;
     }
 }

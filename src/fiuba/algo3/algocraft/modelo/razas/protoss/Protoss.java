@@ -41,8 +41,7 @@ public class Protoss extends Raza {
 
         Asimilador asimilador = new Asimilador(propietario);
 
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearInteractuable(asimilador);
     	}
         
@@ -56,8 +55,7 @@ public class Protoss extends Raza {
         
         NexoMineral nexoMineral = new NexoMineral(propietario);
 
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearInteractuable(nexoMineral);
     	}
 
@@ -71,8 +69,7 @@ public class Protoss extends Raza {
         
         Pilon pilon = new Pilon(propietario);
 
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearInteractuable(pilon);
     	}
         return pilon;
@@ -85,10 +82,9 @@ public class Protoss extends Raza {
         
         Acceso acceso = new Acceso(propietario);
 
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearInteractuable(acceso);
-    		acceso.setObservador(this.observadores.get(i));
+    		acceso.setObservador(observador);
     	}
 
         return acceso;
@@ -101,10 +97,9 @@ public class Protoss extends Raza {
         
         PuertoEstelarProtoss puerto = new PuertoEstelarProtoss(propietario);
 
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearInteractuable(puerto);
-    		puerto.setObservador(this.observadores.get(i));
+    		puerto.setObservador(observador);
     	}
         
         return puerto;
@@ -117,12 +112,11 @@ public class Protoss extends Raza {
         
         
         ArchivosTemplarios archivo = new ArchivosTemplarios(propietario);
-        
-        
-    	for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+
+
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearInteractuable(archivo);
-    		archivo.setObservador(this.observadores.get(i));
+    		archivo.setObservador(observador);
     	}
     	
         return archivo;
