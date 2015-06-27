@@ -12,7 +12,9 @@ Refactor en el tema de los mapas y revisar el tema de pasar el observador al map
 
 terminar de sacar todas las representaciones
 
-Pasar a la vista el objeto que representa para que lo pueda usar el listener
+Pasar a la vista el objeto que representa para que lo pueda usar el listener para unidades (construcciones ya esta)
+
+Pasar el objeto a cada listener para poder llamar a los metodos.
 
 Pasar toda la logica a cada listener
 
