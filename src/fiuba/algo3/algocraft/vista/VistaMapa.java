@@ -156,12 +156,13 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     }
     
     private void agregarBoton(VistaBotonInteractuable buttonActual, JPanel panelParcela){
-    	if(panelParcela.getComponentCount() >1)
-    		panelParcela.remove(1);
+    	if(!(panelParcela.getComponentCount() >1)){
+//    		panelParcela.remove(1);
     	
         panelParcela.add(buttonActual, BOTON_INTERACTUABLE);
         CardLayout cl = (CardLayout) panelParcela.getLayout();
         cl.show(panelParcela, BOTON_INTERACTUABLE);
+    	}
     	
     }
 

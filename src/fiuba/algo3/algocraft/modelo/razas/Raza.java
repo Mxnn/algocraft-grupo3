@@ -37,6 +37,7 @@ public abstract class Raza {
     public abstract Construccion crearCreadorDeUnidadesMagicas(Jugador propietario) throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas;
 
 	public void setObservadores(ObservadorMapa observador) {
-		this.observadores.add(observador);
+		if(this.observadores.size()<1)
+			this.observadores.add(observador);
 	}
 }
