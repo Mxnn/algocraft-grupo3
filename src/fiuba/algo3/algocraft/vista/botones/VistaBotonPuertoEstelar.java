@@ -10,7 +10,7 @@ public class VistaBotonPuertoEstelar extends VistaBotonInteractuable {
 
 	public VistaBotonPuertoEstelar(PuertoEstelar puertoEstelar){
 		super();
-		this.setText("Ma");
+		this.setText("PET");
 		this.representado = puertoEstelar;
 	}
 
