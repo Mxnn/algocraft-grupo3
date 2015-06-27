@@ -10,8 +10,6 @@ EXCEPCIONES los action listener no tiene la vista de juego, entonces ya no se pu
             los action perform no pueden lanzar excepciones, en los listeners que crean unidades si va a haber observador de todas formas.
             El problema antes no lo teniamos porque pasabamos todo via controlador, pero diego dijo que cambiaramos eso
 
-TURNOS una vez que se termine el tema de botnes para unidades, hacer mismo procedimiento que para las construcciones para que no puedan ser usadas por enemigo
-
 DATOS JUGADOR no se actualizan en tiempo real, solo cuando termina el turno
 
 Refactor en el tema de los mapas y revisar el tema de pasar el observador al mapa
