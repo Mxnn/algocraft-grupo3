@@ -9,15 +9,17 @@ import fiuba.algo3.algocraft.controlador.CrearExtractorGasListener;
 import fiuba.algo3.algocraft.controlador.CrearExtractorMineralListener;
 import fiuba.algo3.algocraft.controlador.DestinacionListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class VistaAccionesParcelaVacia extends VistaAcciones {
 	public VistaAccionesParcelaVacia(Juego modelo, int x, int y) {
 		super(modelo);
-		
+		Coordenada ubicacion = new Coordenada(x,y);
+
 		JButton btnExtractorGas = new JButton("Extractor Gas");
-		btnExtractorGas.addActionListener(new CrearExtractorGasListener(modelo, x,y));
+		btnExtractorGas.addActionListener(new CrearExtractorGasListener(modelo, ubicacion));
 		GridBagConstraints gbc_btnCrearExtractorGas = new GridBagConstraints();
 		gbc_btnCrearExtractorGas.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearExtractorGas.gridx = 0;
@@ -25,7 +27,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnExtractorGas, gbc_btnCrearExtractorGas);
 		
 		JButton btnExtractorMinera = new JButton("Extractor Mineral");
-		btnExtractorMinera.addActionListener(new CrearExtractorMineralListener(modelo, x,y));
+		btnExtractorMinera.addActionListener(new CrearExtractorMineralListener(modelo, ubicacion));
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
 		gbc_btnNewButton.gridx = 0;
@@ -33,7 +35,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnExtractorMinera, gbc_btnNewButton);
 		
 		JButton btnAdicionalDeSuministros = new JButton("Adicional De Suministros");
-		btnAdicionalDeSuministros.addActionListener(new CrearAdicionalDeSuministroListener(modelo, x,y));
+		btnAdicionalDeSuministros.addActionListener(new CrearAdicionalDeSuministroListener(modelo, ubicacion));
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 0);
 		gbc_btnNewButton_1.gridx = 0;
@@ -41,7 +43,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnAdicionalDeSuministros, gbc_btnNewButton_1);
 		
 		JButton btnCreadorUnidadesBasicas = new JButton("Creador Unidades Basicas");
-		btnCreadorUnidadesBasicas.addActionListener(new CrearCreadorUnidadesBasicasListener(modelo, x,y));
+		btnCreadorUnidadesBasicas.addActionListener(new CrearCreadorUnidadesBasicasListener(modelo, ubicacion));
 		GridBagConstraints gbc_btnCreadorUnidadesBasicas = new GridBagConstraints();
 		gbc_btnCreadorUnidadesBasicas.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCreadorUnidadesBasicas.gridx = 0;
@@ -49,7 +51,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnCreadorUnidadesBasicas, gbc_btnCreadorUnidadesBasicas);
 		
 		JButton btnCreadorUnidadesAvanzadas = new JButton("Creador Unidades Avanzadas");
-		btnCreadorUnidadesAvanzadas.addActionListener(new CrearCreadorUnidadesAvanzadasListener(modelo, x,y));
+		btnCreadorUnidadesAvanzadas.addActionListener(new CrearCreadorUnidadesAvanzadasListener(modelo, ubicacion));
 		GridBagConstraints gbc_btnCreadorUnidadesAvanzadas = new GridBagConstraints();
 		gbc_btnCreadorUnidadesAvanzadas.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCreadorUnidadesAvanzadas.gridx = 0;
@@ -57,7 +59,7 @@ public class VistaAccionesParcelaVacia extends VistaAcciones {
 		add(btnCreadorUnidadesAvanzadas, gbc_btnCreadorUnidadesAvanzadas);
 		
 		JButton btnCreadorUnidadesMagicas = new JButton("Creador Unidades Magicas");
-		btnCreadorUnidadesMagicas.addActionListener(new CrearCreadorUnidadesMagicasListener(modelo, x,y));
+		btnCreadorUnidadesMagicas.addActionListener(new CrearCreadorUnidadesMagicasListener(modelo, ubicacion));
 		GridBagConstraints gbc_btnCreadorUnidadesMagicas = new GridBagConstraints();
 		gbc_btnCreadorUnidadesMagicas.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCreadorUnidadesMagicas.gridx = 0;

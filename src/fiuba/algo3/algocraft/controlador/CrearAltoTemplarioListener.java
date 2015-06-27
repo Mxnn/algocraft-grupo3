@@ -5,22 +5,17 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplarios;
-
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class CrearAltoTemplarioListener implements ActionListener {
-    private Juego modelo;
-	private ArchivosTemplarios representado;
+public class CrearAltoTemplarioListener extends CreadorDeUnidadListener {
 
-	public CrearAltoTemplarioListener(Juego modelo, ArchivosTemplarios representado){
-		this.modelo = modelo;
-		this.representado = representado;
+	public CrearAltoTemplarioListener(Juego modelo, ArchivosTemplarios representado) {
+        super(modelo, representado);
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
 		try {
-			this.representado.crearAltoTemplario(modelo.getMapa());
+            ((ArchivosTemplarios) (this.construccion)).crearAltoTemplario(modelo.getMapa());
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

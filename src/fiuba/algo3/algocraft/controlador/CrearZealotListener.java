@@ -7,19 +7,15 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class CrearZealotListener implements ActionListener {
-    private Juego modelo;
-	private Acceso representado;
+public class CrearZealotListener extends CreadorDeUnidadListener {
 
-	public CrearZealotListener(Juego modelo, Acceso representado){
-		this.modelo = modelo;
-		this.representado = representado;
+	public CrearZealotListener(Juego modelo, Acceso representado) {
+		super(modelo, representado);
 	}
 	public void actionPerformed(ActionEvent arg0) {
 		try {
-			this.representado.crearZealot(modelo.getMapa());
+            ((Acceso) (this.construccion)).crearZealot(modelo.getMapa());
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

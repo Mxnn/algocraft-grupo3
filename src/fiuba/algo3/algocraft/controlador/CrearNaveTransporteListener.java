@@ -5,22 +5,17 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
-
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class CrearNaveTransporteListener implements ActionListener {
-    private Juego modelo;
-	private PuertoEstelar representado;
+public class CrearNaveTransporteListener extends CreadorDeUnidadListener {
 
 	public CrearNaveTransporteListener(Juego modelo, PuertoEstelar representado){
-		this.modelo = modelo;
-		this.representado = representado;
+		super(modelo, representado);
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
 		try {
-			this.representado.crearNaveTransporte(modelo.getMapa());
+            ((PuertoEstelar) (this.construccion)).crearNaveTransporte(modelo.getMapa());
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

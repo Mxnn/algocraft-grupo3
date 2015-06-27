@@ -1,7 +1,6 @@
 package fiuba.algo3.algocraft.modelo.juego;
 
 import java.util.ArrayList;
-
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionAlcanzadoElMaximoCupoDeJugadores;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionColorEnUso;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
@@ -15,19 +14,14 @@ import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.razas.Raza;
 import fiuba.algo3.algocraft.vista.ObservadorJuego;
 import fiuba.algo3.algocraft.vista.ObservadorMapa;
-import fiuba.algo3.algocraft.vista.VistaJuego;
-
 
 public class Juego {
     public static int MAXIMO_NUMERO_DE_JUGADORES = 2;
 
-
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
     private GeneradorMapa generadorMapa;
-//    private Mapa mapa;
     private SistemaDeTurnos sistemaDeTurnos;
     private ArrayList<ObservadorJuego> observadores = new ArrayList<ObservadorJuego>();
-    
     
     public Juego() throws ExcepcionNumeroDeBasesInvalido { 
     	this.generadorMapa = new GeneradorMapa();
@@ -35,7 +29,6 @@ public class Juego {
         this.sistemaDeTurnos = new SistemaDeTurnos(this.jugadores,this.getMapa());
     }
 
-    
 	public void setObservadores(ObservadorMapa observador, ObservadorJuego observadorJuego) throws ExcepcionNumeroDeBasesInvalido {
 		this.generadorMapa = new GeneradorMapa(observador);
 		this.sistemaDeTurnos = new SistemaDeTurnos(this.jugadores,this.getMapa());
@@ -46,7 +39,6 @@ public class Juego {
 		//por ahi convienen dos inicializadores de je
 	}
 
-    
     public void setMapaParaTests() throws ExcepcionNumeroDeBasesInvalido{
     	this.generadorMapa.setMapaParaTests();
 //    	this.mapa = this.generadorMapa.getMapa();
@@ -60,7 +52,6 @@ public class Juego {
     public Mapa getMapa(){
     	return this.generadorMapa.getMapa();
     }
-
 
     public void crearJugador(String nombre, Color color, Raza raza) throws ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreCorto {
         if (jugadores.size() == MAXIMO_NUMERO_DE_JUGADORES)
@@ -113,16 +104,14 @@ public class Juego {
     }
 
   private void finJuego(Jugador perdedor){
-  	for(int i=0; i<this.observadores.size();i++){
-		ObservadorJuego observador = this.observadores.get(i);
+  	for (ObservadorJuego observador: this.observadores) {
 		observador.hayPerdedor(perdedor);
 	}
   }
 
     public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
-        sistemaDeTurnos.pasarTurno(jugador);
-    	for(int i=0; i<this.observadores.size();i++){
-    		ObservadorJuego observador = this.observadores.get(i);
+        this.sistemaDeTurnos.pasarTurno(jugador);
+        for (ObservadorJuego observador: this.observadores) {
     		observador.nuevoTurno();
     	}
         if(jugador.esPerdedor())
@@ -136,9 +125,4 @@ public class Juego {
     public Jugador getJugadorQueJuega() {
         return this.sistemaDeTurnos.getJugadorQueJuega();
     }
-
-
-
-
-
 }

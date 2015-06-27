@@ -5,21 +5,16 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
-
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class CrearDragonListener implements ActionListener {
-    private Juego modelo;
-	private Acceso representado;
+public class CrearDragonListener extends CreadorDeUnidadListener {
 
 	public CrearDragonListener(Juego modelo, Acceso representado){
-		this.modelo = modelo;
-		this.representado = representado;
+        super(modelo, representado);
 	}
 	public void actionPerformed(ActionEvent arg0) {
 		try {
-			this.representado.crearDragon(modelo.getMapa());
+            ((Acceso) (this.construccion)).crearDragon(modelo.getMapa());
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
