@@ -1,7 +1,7 @@
 package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
-import fiuba.algo3.algocraft.vista.VistaAcciones;
+import fiuba.algo3.algocraft.vista.acciones.VistaAcciones;
 import java.awt.*;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;

@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.acciones;
 
 import fiuba.algo3.algocraft.controlador.TerminarTurnoListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;

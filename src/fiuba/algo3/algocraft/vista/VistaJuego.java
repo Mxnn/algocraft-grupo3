@@ -10,6 +10,7 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+import fiuba.algo3.algocraft.vista.acciones.VistaAcciones;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;

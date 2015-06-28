@@ -1,8 +1,6 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.acciones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
-import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.NaveTransporteProtoss;
-import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveTransporteTerran;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.NaveTransporte;
 
 import java.awt.GridBagConstraints;

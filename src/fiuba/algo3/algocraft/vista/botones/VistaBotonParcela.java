@@ -2,7 +2,7 @@ package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
-import fiuba.algo3.algocraft.vista.VistaAccionesParcela;
+import fiuba.algo3.algocraft.vista.acciones.VistaAccionesParcela;
 
 public class VistaBotonParcela extends VistaBotonInteractuable {
 	private Coordenada ubicacion;

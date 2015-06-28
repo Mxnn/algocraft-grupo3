@@ -1,5 +1,5 @@
 
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.acciones;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;

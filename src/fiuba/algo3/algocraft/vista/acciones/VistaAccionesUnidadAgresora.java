@@ -1,8 +1,6 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.acciones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
-import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Dragon;
-import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 
 import java.awt.GridBagConstraints;

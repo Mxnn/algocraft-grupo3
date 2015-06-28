@@ -2,7 +2,7 @@ package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.PuertoEstelarProtoss;
-import fiuba.algo3.algocraft.vista.VistaAccionesPuertoEstelarProtoss;
+import fiuba.algo3.algocraft.vista.acciones.VistaAccionesPuertoEstelarProtoss;
 
 public class VistaBotonPuertoEstelarProtoss extends VistaBotonRepresentante {
 

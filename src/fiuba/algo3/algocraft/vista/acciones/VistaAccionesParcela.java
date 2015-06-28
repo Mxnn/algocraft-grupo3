@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.acciones;
 
 import javax.swing.JButton;
 import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesAvanzadasListener;

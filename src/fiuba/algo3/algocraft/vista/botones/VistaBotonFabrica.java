@@ -2,7 +2,7 @@ package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
-import fiuba.algo3.algocraft.vista.VistaAccionesFabrica;
+import fiuba.algo3.algocraft.vista.acciones.VistaAccionesFabrica;
 
 public class VistaBotonFabrica extends VistaBotonRepresentante {
 
