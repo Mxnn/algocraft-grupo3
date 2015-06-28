@@ -11,9 +11,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import fiuba.algo3.algocraft.controlador.CerrarFrameControlador;
+import fiuba.algo3.algocraft.controlador.CerrarFrameListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
-import fiuba.algo3.algocraft.modelo.juego.Color;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.controlador.UnloadDatosJugadores;
@@ -128,7 +127,7 @@ public class IngresoJugadoresVista extends JDialog {
 			{
 				JButton cancelButton = new JButton("Cancel");
 //				cancelButton.setActionCommand("Cancel");
-				cancelButton.addActionListener(new CerrarFrameControlador(this));
+				cancelButton.addActionListener(new CerrarFrameListener(this));
 				buttonPane.add(cancelButton);
 			}
 		}

@@ -2,7 +2,7 @@ package fiuba.algo3.algocraft.vista;
 
 import javax.swing.JFrame;
 
-import fiuba.algo3.algocraft.controlador.CerrarFrameControlador;
+import fiuba.algo3.algocraft.controlador.CerrarFrameListener;
 import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.controlador.NuevoJuegoListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
@@ -54,7 +54,7 @@ public class VistaJuego implements ObservadorJuego{
         mntmNuevoJuego.addActionListener(new NuevoJuegoListener(this.modelo, this));
         JMenuItem mntmSalir = new JMenuItem("Salir");
         mnArchivo.add(mntmSalir);
-        mntmSalir.addActionListener(new CerrarFrameControlador(ventanita));
+        mntmSalir.addActionListener(new CerrarFrameListener(ventanita));
 
         JMenu mnAcerca = new JMenu("Acerca De..");
         JMenuItem iCreadores = new JMenuItem("Creadores");
