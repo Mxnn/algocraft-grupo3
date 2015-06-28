@@ -6,11 +6,10 @@ import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
 
-
 public class Refineria extends ExtractorGas {
 
     private static final int TIEMPO_DE_CONSTRUCCION = 6;
-    private static final int VIDA_INICIAL = 750;
+    public static final int VIDA_INICIAL = 750;
     public static int COSTO_MINERAL = 100;
     public static int COSTO_GAS = 0;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);

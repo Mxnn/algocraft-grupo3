@@ -10,8 +10,8 @@ public class Pilon extends AdicionalSuministros {
 
     public static final int SUMINISTROS_ADICIONALES = 5;
     public static final int TIEMPO_DE_CONSTRUCCION = 6;
-    private static final int VIDA_INICIAL = 300;
-    private static final int ESCUDO_INICIAL = 300;
+    public static final int VIDA_INICIAL = 300;
+    public static final int ESCUDO_INICIAL = 300;
     public static int COSTO_MINERAL = 100;
     public static int COSTO_GAS = 0;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);

@@ -25,6 +25,4 @@ public abstract class VistaBotonInteractuable extends JButton {
     	this.vistaAcciones = vistaAcciones;
         return vistaAcciones;
     }
-
-  
 }

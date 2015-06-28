@@ -1,7 +1,6 @@
 package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
-import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesBarraca;
 
@@ -21,7 +20,7 @@ public class VistaBotonBarraca extends VistaBotonRepresentante {
     	VistaAccionesBarraca vistaAcciones = new VistaAccionesBarraca(modelo,representado);
     	vistaAcciones.setTitulo(NOMBRE);
     	
-    	vistaAcciones.setVida(representado.VIDA_INICIAL, this.elementoRepresentado.getVida());
+    	vistaAcciones.setVida(Barraca.VIDA_INICIAL, this.elementoRepresentado.getVida());
         return vistaAcciones;
     }
 }

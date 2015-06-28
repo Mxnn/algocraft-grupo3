@@ -1,7 +1,6 @@
 package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
-import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Dragon;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Scout;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesUnidadAgresora;
@@ -21,10 +20,10 @@ public class VistaBotonScout extends VistaBotonRepresentante {
     	Scout representado = (Scout) this.elementoRepresentado;
     	VistaAccionesUnidadAgresora vistaAcciones = new VistaAccionesUnidadAgresora(modelo, representado);
     	vistaAcciones.setTitulo(NOMBRE);
-    	vistaAcciones.setVida(representado.VIDA_INICIAL, this.elementoRepresentado.getVida());
+    	vistaAcciones.setVida(Scout.VIDA_INICIAL, this.elementoRepresentado.getVida());
     	
     	int escudoActual = ((VitalidadProtoss) representado.getVitalidad()).getEscudo();
-    	vistaAcciones.setEscudo(representado.ESCUDO_INICIAL, escudoActual);
+    	vistaAcciones.setEscudo(Scout.ESCUDO_INICIAL, escudoActual);
         return vistaAcciones;
     }
 }

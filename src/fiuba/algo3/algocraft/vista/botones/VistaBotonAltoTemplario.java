@@ -22,12 +22,12 @@ public class VistaBotonAltoTemplario extends VistaBotonRepresentante {
     	VistaAccionesAltoTemplario vistaAcciones = new VistaAccionesAltoTemplario(modelo, representado);
     	vistaAcciones.setTitulo(NOMBRE);   	
     	
-    	vistaAcciones.setVida(representado.VIDA_INICIAL, this.elementoRepresentado.getVida());
+    	vistaAcciones.setVida(AltoTemplario.VIDA_INICIAL, this.elementoRepresentado.getVida());
     	
     	int escudoActual = ((VitalidadProtoss) representado.getVitalidad()).getEscudo();
-    	vistaAcciones.setEscudo(representado.ESCUDO_INICIAL, escudoActual);
+    	vistaAcciones.setEscudo(AltoTemplario.ESCUDO_INICIAL, escudoActual);
     	
-    	vistaAcciones.setEnergia(representado.ENERGIA_MAXIMA, representado.getEnergia());
+    	vistaAcciones.setEnergia(AltoTemplario.ENERGIA_MAXIMA, representado.getEnergia());
     	
     	
         return vistaAcciones;

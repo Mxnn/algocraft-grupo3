@@ -2,7 +2,6 @@ package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
-import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesAcceso;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 
@@ -22,10 +21,10 @@ public class VistaBotonAcceso extends VistaBotonRepresentante {
     	VistaAccionesAcceso vistaAcciones = new VistaAccionesAcceso(modelo, representado);
     	vistaAcciones.setTitulo(NOMBRE);
     	
-    	vistaAcciones.setVida(representado.VIDA_INICIAL, this.elementoRepresentado.getVida());
+    	vistaAcciones.setVida(Acceso.VIDA_INICIAL, this.elementoRepresentado.getVida());
     	
     	int escudoActual = ((VitalidadProtoss) representado.getVitalidad()).getEscudo();
-    	vistaAcciones.setEscudo(representado.ESCUDO_INICIAL, escudoActual);
+    	vistaAcciones.setEscudo(Acceso.ESCUDO_INICIAL, escudoActual);
     	
         return vistaAcciones;
     }

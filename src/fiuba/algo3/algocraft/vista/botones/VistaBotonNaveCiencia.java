@@ -1,9 +1,7 @@
 package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
-import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveCiencia;
-import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesNaveCiencia;
 
 public class VistaBotonNaveCiencia extends VistaBotonRepresentante {
@@ -21,9 +19,9 @@ public class VistaBotonNaveCiencia extends VistaBotonRepresentante {
     	VistaAccionesNaveCiencia vistaAcciones = new VistaAccionesNaveCiencia(modelo, representado);
     	vistaAcciones.setTitulo(NOMBRE);
     	
-    	vistaAcciones.setVida(representado.VIDA_INICIAL, this.elementoRepresentado.getVida());
+    	vistaAcciones.setVida(NaveCiencia.VIDA_INICIAL, this.elementoRepresentado.getVida());
     	
-    	vistaAcciones.setEnergia(representado.ENERGIA_MAXIMA, representado.getEnergia());
+    	vistaAcciones.setEnergia(NaveCiencia.ENERGIA_MAXIMA, representado.getEnergia());
         return vistaAcciones;
     }
 }
