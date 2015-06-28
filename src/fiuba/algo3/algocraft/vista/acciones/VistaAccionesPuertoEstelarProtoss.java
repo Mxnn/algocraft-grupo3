@@ -10,7 +10,7 @@ import fiuba.algo3.algocraft.controlador.CrearScoutListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.PuertoEstelarProtoss;
 
-public class VistaAccionesPuertoEstelarProtoss  extends VistaAcciones {
+public class VistaAccionesPuertoEstelarProtoss  extends VistaAccionesInteractuable {
 
 	public VistaAccionesPuertoEstelarProtoss(Juego modelo, PuertoEstelarProtoss representado) {
 		super(modelo);

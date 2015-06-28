@@ -16,7 +16,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.Danyo;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.RangoAtaque;
 
 public abstract class Interactuable {
-	
+    
 	protected Jugador propietario;
 	protected Vitalidad vitalidad;
 	protected int tiempoDeConstruccion;

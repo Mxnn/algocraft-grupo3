@@ -9,7 +9,7 @@ import fiuba.algo3.algocraft.controlador.CrearMarineListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 
-public class VistaAccionesBarraca extends VistaAcciones {
+public class VistaAccionesBarraca extends VistaAccionesInteractuable {
 
     //Por referencia el modelo
 	public VistaAccionesBarraca(Juego modelo, Barraca representado) {

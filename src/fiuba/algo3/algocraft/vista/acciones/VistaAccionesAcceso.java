@@ -10,7 +10,7 @@ import fiuba.algo3.algocraft.controlador.CrearZealotListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
 
-public class  VistaAccionesAcceso  extends VistaAcciones {
+public class  VistaAccionesAcceso  extends VistaAccionesInteractuable {
 	public VistaAccionesAcceso(Juego modelo, Acceso representado) {
 		super(modelo);
 		

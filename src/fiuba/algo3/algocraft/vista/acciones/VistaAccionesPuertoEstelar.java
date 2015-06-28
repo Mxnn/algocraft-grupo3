@@ -12,7 +12,7 @@ import fiuba.algo3.algocraft.controlador.CrearNaveTransporteListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
 
-public class VistaAccionesPuertoEstelar  extends VistaAcciones {
+public class VistaAccionesPuertoEstelar  extends VistaAccionesInteractuable {
 
 
 	public VistaAccionesPuertoEstelar(Juego modelo, PuertoEstelar representado) {

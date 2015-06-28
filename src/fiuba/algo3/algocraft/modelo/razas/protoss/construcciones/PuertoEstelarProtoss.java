@@ -18,8 +18,8 @@ import fiuba.algo3.algocraft.vista.ObservadorMapa;
 public class PuertoEstelarProtoss extends Construccion {
 
     private static final int TIEMPO_DE_CONSTRUCCION = 10;
-    private static final int VIDA_INICIAL = 600;
-    private static final int ESCUDO_INICIAL = 600;
+    public static final int VIDA_INICIAL = 600;
+    public static final int ESCUDO_INICIAL = 600;
     public static int COSTO_MINERAL = 150;
     public static int COSTO_GAS = 150;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);

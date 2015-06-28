@@ -19,28 +19,10 @@ import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
-import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
-import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplarios;
-import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Asimilador;
-import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.NexoMineral;
-import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Pilon;
-import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.PuertoEstelarProtoss;
-import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
-import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Dragon;
-import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.NaveTransporteProtoss;
-import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Scout;
-import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Zealot;
-import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
-import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.CentroDeMineral;
-import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.DepositoSuministro;
-import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
-import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
-import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Refineria;
-import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Espectro;
-import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Golliat;
-import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Marine;
-import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveCiencia;
-import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveTransporteTerran;
+import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.*;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.*;
+import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.*;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.*;
 import fiuba.algo3.algocraft.vista.botones.*;
 
 public class VistaMapa extends JPanel implements ObservadorMapa{
@@ -216,6 +198,8 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 	
 	public void seleccionarCoordenada(int x, int y){
 		this.coordenadaSeleccionada = new Coordenada (x,y);
+		JButton seleccionado = this.getButton(x, y);
+		
 	}
 	
 	public void activarBoton(Coordenada coordenada){

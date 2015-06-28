@@ -9,7 +9,7 @@ import fiuba.algo3.algocraft.controlador.CrearGolliatListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
 
-public class VistaAccionesFabrica extends VistaAcciones {
+public class VistaAccionesFabrica extends VistaAccionesInteractuable {
 	public VistaAccionesFabrica(Juego modelo, Fabrica representado) {
 		super(modelo);
 		JButton btnCrearGolliat = new JButton("Crear Golliat");

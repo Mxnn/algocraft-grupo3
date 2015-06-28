@@ -16,8 +16,8 @@ import fiuba.algo3.algocraft.vista.ObservadorMapa;
 public class ArchivosTemplarios extends Construccion {
 
     private static final int TIEMPO_DE_CONSTRUCCION = 9;
-    private static final int VIDA_INICIAL = 500;
-    private static final int ESCUDO_INICIAL = 500;
+    public static final int VIDA_INICIAL = 500;
+    public static final int ESCUDO_INICIAL = 500;
     public static int COSTO_MINERAL = 150;
     public static int COSTO_GAS = 200;
     public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);

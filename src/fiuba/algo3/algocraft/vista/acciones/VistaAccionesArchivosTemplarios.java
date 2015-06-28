@@ -9,7 +9,7 @@ import fiuba.algo3.algocraft.controlador.CrearAltoTemplarioListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplarios;
 
-public class VistaAccionesArchivosTemplarios  extends VistaAcciones {
+public class VistaAccionesArchivosTemplarios  extends VistaAccionesInteractuable {
 	public VistaAccionesArchivosTemplarios(Juego modelo, ArchivosTemplarios representado) {
 		super(modelo);
 		
