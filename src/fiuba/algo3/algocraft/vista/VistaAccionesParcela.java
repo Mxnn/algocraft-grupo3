@@ -13,8 +13,8 @@ import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-public class VistaAccionesParcelaVacia extends VistaAcciones {
-	public VistaAccionesParcelaVacia(Juego modelo, Coordenada ubicacionParcela) {
+public class VistaAccionesParcela extends VistaAcciones {
+	public VistaAccionesParcela(Juego modelo, Coordenada ubicacionParcela) {
 		super(modelo);
 
 		JButton btnExtractorGas = new JButton("Extractor Gas");
