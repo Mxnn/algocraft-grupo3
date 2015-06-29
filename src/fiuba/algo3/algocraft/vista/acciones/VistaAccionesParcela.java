@@ -6,6 +6,7 @@ import java.awt.Insets;
 import javax.swing.JButton;
 
 import fiuba.algo3.algocraft.controlador.DestinacionListener;
+import fiuba.algo3.algocraft.controlador.ObjetivoListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 
@@ -23,7 +24,7 @@ public class VistaAccionesParcela extends VistaAcciones {
 		add(btnDestinacion, gbc_btnDestinacion);
 		
 		JButton btnObjetivo = new JButton("Objetivo");
-		btnObjetivo.addActionListener(new ObjetivoListener(modelo.getMapa(),ubicacionParcela));
+		btnObjetivo.addActionListener(new ObjetivoListener(modelo,ubicacionParcela));
 		GridBagConstraints gbc_btnObjetivo = new GridBagConstraints();
 		gbc_btnObjetivo.insets = new Insets(0, 0, 5, 0);
 		gbc_btnObjetivo.gridx = 0;

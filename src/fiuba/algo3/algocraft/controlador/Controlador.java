@@ -38,23 +38,23 @@ public class Controlador {
 	public void terminarTurno() throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
 		this.modelo.pasarTurno(this.modelo.getJugadorQueJuega());
 	}
-
-	public void mover() throws ExcepcionCoordenadaFueraDelMapa {
-		this.coordPartida= this.vista.getCoordenadaSeleccionada();
-		vista.displayError("Bien, ahora clickear sobre destinacion");
-       
-	}
-
-	public void ponerDestinacion() throws ExcepcionCoordenadaFueraDelMapa {
-		if (this.coordPartida!=null) {
-            Unidad unidad = (Unidad) this.modelo.getMapa().devolverElementoEnParcela(this.coordPartida);
-            unidad.moverHasta(this.vista.getCoordenadaSeleccionada());
-            this.coordPartida=null;
-		} else {
-			vista.displayError("Primer, clickear sobre la unidad");
-		}
-		
-	}
+//
+//	public void mover() throws ExcepcionCoordenadaFueraDelMapa {
+//		this.coordPartida= this.vista.getCoordenadaSeleccionada();
+//		vista.displayError("Bien, ahora clickear sobre destinacion");
+//       
+//	}
+//
+//	public void ponerDestinacion() throws ExcepcionCoordenadaFueraDelMapa {
+//		if (this.coordPartida!=null) {
+//            Unidad unidad = (Unidad) this.modelo.getMapa().devolverElementoEnParcela(this.coordPartida);
+//            unidad.moverHasta(this.vista.getCoordenadaSeleccionada());
+//            this.coordPartida=null;
+//		} else {
+//			vista.displayError("Primer, clickear sobre la unidad");
+//		}
+//		
+//	}
 
 	public void setObservadores(ObservadorMapa observador) {
 		this.observador = observador;

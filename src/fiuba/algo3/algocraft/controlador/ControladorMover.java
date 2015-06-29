@@ -28,6 +28,9 @@ public class ControladorMover {
     }
     
     public void mover(Coordenada destino){
-    	this.unidad.moverHasta(destino);
+    	if(this.unidad != null){
+    		this.unidad.moverHasta(destino);
+    		this.unidad = null;
+    	}
     }
 }

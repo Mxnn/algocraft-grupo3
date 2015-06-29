@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft.vista.acciones;
 
+import fiuba.algo3.algocraft.controlador.LanzarEmpListener;
+import fiuba.algo3.algocraft.controlador.LanzarRadiacionListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveCiencia;
 
@@ -14,6 +16,7 @@ public class VistaAccionesNaveCiencia extends VistaAccionesUnidad {
 		super(modelo, representado);
 		
 		JButton btnEmp = new JButton("EMP");
+		btnEmp.addActionListener(new LanzarEmpListener(representado));
 		GridBagConstraints gbc_btnEmp = new GridBagConstraints();
 		gbc_btnEmp.insets = new Insets(0, 0, 5, 0);
 		gbc_btnEmp.gridx = 0;
@@ -22,6 +25,7 @@ public class VistaAccionesNaveCiencia extends VistaAccionesUnidad {
 		this.habilitarBoton(btnEmp, representado);
 		
 		JButton btnRadiacion = new JButton("Radiacion");
+		btnRadiacion.addActionListener(new LanzarRadiacionListener(representado));
 		GridBagConstraints gbc_btnRadiacion = new GridBagConstraints();
 		gbc_btnRadiacion.insets = new Insets(0, 0, 5, 0);
 		gbc_btnRadiacion.gridx = 0;

@@ -22,14 +22,10 @@ public class TerminarTurnoListener implements ActionListener {
         try {
         	modelo.pasarTurno(this.modelo.getJugadorQueJuega());
             //estos los podemos hacer runtime, no podrian pasar nunca creo
-        } catch (ExcepcionNoEsElTurnoDelJugador excepcionNoEsElTurnoDelJugador) {
-//            JOptionPane.showMessageDialog(this.frame, "No se puede pasar turno en tu turno");
         } catch (ExcepcionEstadoMuerto excepcionEstadoMuerto) {
 //            JOptionPane.showMessageDialog(this.frame, "...");
         } catch (ExcepcionEnemigoFueraDeAlcance excepcionEnemigoFueraDeAlcance) {
 //            JOptionPane.showMessageDialog(this.frame, "...");
-        } catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
-//            JOptionPane.showMessageDialog(this.frame, "...");
-        }
+        } 
     }
 }
