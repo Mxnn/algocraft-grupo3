@@ -4,8 +4,6 @@ DIAGRAMAS DE LA VISTA
 
 BARRA LATERAL deshabilitar cuanod el juego todavia no comenzo
 
-DATOS JUGADOR no se actualizan en tiempo real, solo cuando termina el turno(no se si esta mal, despues de todo la construccion se hace al finalizar el turno, no deberia ser en tiempo real todo)
-
 podemos cambiar los colores de jugador a colores reales?
 
 QUE TERMINE EL JUEGO CUANDO HAY GANADOR
@@ -15,6 +13,8 @@ NAVE TRANSPORTE implementar
 Vista de REFERENCIAS
 
 Los muertos no desaparecen de la vista.
+
+ataque alucinacion.
 
 
 
