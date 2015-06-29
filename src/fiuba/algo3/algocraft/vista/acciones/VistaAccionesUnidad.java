@@ -13,7 +13,7 @@ public class VistaAccionesUnidad extends VistaAccionesInteractuable {
 	public VistaAccionesUnidad(Juego modelo, Unidad representado) {
 		super(modelo);
 		JButton btnMover = new JButton("Mover");
-		btnMover.addActionListener(new MoverListener(modelo));
+		btnMover.addActionListener(new MoverListener(modelo,representado));
 		GridBagConstraints gbc_btnMover = new GridBagConstraints();
 		gbc_btnMover.insets = new Insets(0, 0, 5, 0);
 		gbc_btnMover.gridx = 0;
