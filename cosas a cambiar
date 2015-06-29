@@ -8,8 +8,6 @@ DATOS JUGADOR no se actualizan en tiempo real, solo cuando termina el turno(no s
 
 podemos cambiar los colores de jugador a colores reales?
 
-REPREsentador que se ocupe de ser el observador de creaciones de interactuables en vez de que sea el mismo mapa el que haga todo?
-
 QUE TERMINE EL JUEGO CUANDO HAY GANADOR
 
 NAVE TRANSPORTE implementar
