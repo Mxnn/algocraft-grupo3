@@ -16,7 +16,7 @@ public class VistaAccionesAltoTemplario extends VistaAccionesUnidad {
 		GridBagConstraints gbc_btnEmp = new GridBagConstraints();
 		gbc_btnEmp.insets = new Insets(0, 0, 5, 0);
 		gbc_btnEmp.gridx = 0;
-		gbc_btnEmp.gridy = 2;
+		gbc_btnEmp.gridy = 3;
 		add(btnAlucinacion, gbc_btnEmp);
 		this.habilitarBoton(btnAlucinacion, representado);
 
@@ -24,7 +24,7 @@ public class VistaAccionesAltoTemplario extends VistaAccionesUnidad {
 		GridBagConstraints gbc_btnRadiacion = new GridBagConstraints();
 		gbc_btnRadiacion.insets = new Insets(0, 0, 5, 0);
 		gbc_btnRadiacion.gridx = 0;
-		gbc_btnRadiacion.gridy = 3;
+		gbc_btnRadiacion.gridy = 4;
 		add(btnTormenta, gbc_btnRadiacion);
 		this.habilitarBoton(btnTormenta, representado);
 	}

@@ -20,7 +20,7 @@ public class VistaAccionesPuertoEstelarProtoss  extends VistaAccionesInteractuab
 		GridBagConstraints gbc_btnCrearScout = new GridBagConstraints();
 		gbc_btnCrearScout.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearScout.gridx = 0;
-		gbc_btnCrearScout.gridy = 2;
+		gbc_btnCrearScout.gridy = 3;
 		add(btnCrearScout, gbc_btnCrearScout);
 		this.habilitarBoton(btnCrearScout, representado);
 
@@ -29,7 +29,7 @@ public class VistaAccionesPuertoEstelarProtoss  extends VistaAccionesInteractuab
 		GridBagConstraints gbc_btnCrearNaveDeTransporte = new GridBagConstraints();
 		gbc_btnCrearNaveDeTransporte.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearNaveDeTransporte.gridx = 0;
-		gbc_btnCrearNaveDeTransporte.gridy = 3;
+		gbc_btnCrearNaveDeTransporte.gridy = 4;
 		add(btnCrearNaveDeTransporte, gbc_btnCrearNaveDeTransporte);
 		this.habilitarBoton(btnCrearNaveDeTransporte, representado);
 	}

@@ -34,10 +34,10 @@ public class Controlador {
 
 	}
 	
-	public void clickYCrearDeposito() {
-		System.out.println("coucou");
-		
-	}
+//	public void clickYCrearDeposito() {
+//		System.out.println("coucou");
+//		
+//	}
 
 	/*public CrearAdicionalDeSuministroListener getCrearDepositoDeSumnistroListener(){
 		return new CrearAdicionalDeSuministroListener(this);
@@ -58,268 +58,268 @@ public class Controlador {
 		this.vista = vista;
 	}
 
-	public void crearExtractorMineral() {		
-		try {
-			this.modelo.getJugadorQueJuega().crearExtractorMineral(modelo.getMapa(), vista.getCoordenadaSeleccionada());
-			this.vista.refrescar();
-		} catch (ExcepcionRecursosInsuficientes e1) {
-			vista.displayError("Recursos Insuficientes");
-		} catch (ExcepcionCoordenadaFueraDelMapa e1) {
-			vista.displayError("Coordenada Fuera Del Mapa");
-		} catch (ExcepcionElementoNoAdmitidoEnParcela e1) {
-			vista.displayError("Elemento No Admitido En Parcela");
-		} catch (ExcepcionParcelaOcupada e1) {
-			vista.displayError("ParcelaOcupada");
-		}
-	}
+//	public void crearExtractorMineral() {		
+//		try {
+//			this.modelo.getJugadorQueJuega().crearExtractorMineral(modelo.getMapa(), vista.getCoordenadaSeleccionada());
+//			this.vista.refrescar();
+//		} catch (ExcepcionRecursosInsuficientes e1) {
+//			vista.displayError("Recursos Insuficientes");
+//		} catch (ExcepcionCoordenadaFueraDelMapa e1) {
+//			vista.displayError("Coordenada Fuera Del Mapa");
+//		} catch (ExcepcionElementoNoAdmitidoEnParcela e1) {
+//			vista.displayError("Elemento No Admitido En Parcela");
+//		} catch (ExcepcionParcelaOcupada e1) {
+//			vista.displayError("ParcelaOcupada");
+//		}
+//	}
 
 	public void terminarTurno() throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
 		this.modelo.pasarTurno(this.modelo.getJugadorQueJuega());
 		this.vista.refrescar();
 	}
-	
-	public void crearAdicionalSuministros(){
-		try {
-			this.modelo.getJugadorQueJuega().crearAdicionalDeSuministro(modelo.getMapa(), vista.getCoordenadaSeleccionada());
-			this.vista.refrescar();
-		} catch (ExcepcionRecursosInsuficientes e) {
-			vista.displayError("Recursos Insuficientes");
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			vista.displayError("Coordenada Fuera Del Mapa");
-		} catch (ExcepcionParcelaOcupada e) {
-			vista.displayError("Parcela Ocupada");
-		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-			vista.displayError("Elemento No Admitido En Parcela");
-		}
-	}
+//	
+//	public void crearAdicionalSuministros(){
+//		try {
+//			this.modelo.getJugadorQueJuega().crearAdicionalDeSuministro(modelo.getMapa(), vista.getCoordenadaSeleccionada());
+//			this.vista.refrescar();
+//		} catch (ExcepcionRecursosInsuficientes e) {
+//			vista.displayError("Recursos Insuficientes");
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			vista.displayError("Coordenada Fuera Del Mapa");
+//		} catch (ExcepcionParcelaOcupada e) {
+//			vista.displayError("Parcela Ocupada");
+//		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+//			vista.displayError("Elemento No Admitido En Parcela");
+//		}
+//	}
+//
+//	public void crearExtractorGas() {
+//		try {
+//			this.modelo.getJugadorQueJuega().crearExtractorGas(modelo.getMapa(), vista.getCoordenadaSeleccionada());
+//			this.vista.refrescar();
+//		} catch (ExcepcionRecursosInsuficientes e) {
+//			vista.displayError("Recursos Insuficientes");
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			vista.displayError("Coordenada Fuera Del Mapa");
+//		} catch (ExcepcionParcelaOcupada e) {
+//			vista.displayError("Parcela Ocupada");
+//		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+//			vista.displayError("Elemento No Admitido En Parcela");
+//		}
+//		
+//	}
+//
+//	public void crearCreadorUnidadesBasicas() {
+//		try {
+//			this.modelo.getJugadorQueJuega().crearCreadorDeUnidadesBasicas(modelo.getMapa(), vista.getCoordenadaSeleccionada());
+//			this.vista.refrescar();
+//		} catch (ExcepcionRecursosInsuficientes e) {
+//			vista.displayError("Recursos Insuficientes");
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			vista.displayError("Coordenada Fuera Del Mapa");
+//		} catch (ExcepcionParcelaOcupada e) {
+//			vista.displayError("Parcela Ocupada");
+//		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+//			vista.displayError("Elemento No Admitido En Parcela");
+//		}
+//		
+//	}
+//
+//	public void crearCreadorUnidadesAvanzadas(){
+//		try {
+//			this.modelo.getJugadorQueJuega().crearCreadorDeUnidadesAvanzadas(modelo.getMapa(), vista.getCoordenadaSeleccionada());
+//			this.vista.refrescar();
+//		} catch (ExcepcionRecursosInsuficientes e) {
+//			vista.displayError("Recursos Insuficientes");
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			vista.displayError("Coordenada Fuera Del Mapa");
+//		} catch (ExcepcionParcelaOcupada e) {
+//			vista.displayError("Parcela Ocupada");
+//		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+//			vista.displayError("Elemento No Admitido En Parcela");
+//		} catch (ExcepcionConstruccionesRequeridasNoCreadas e) {
+//			vista.displayError("Construcciones Requeridas No Creadas");
+//		}
+//	}
 
-	public void crearExtractorGas() {
-		try {
-			this.modelo.getJugadorQueJuega().crearExtractorGas(modelo.getMapa(), vista.getCoordenadaSeleccionada());
-			this.vista.refrescar();
-		} catch (ExcepcionRecursosInsuficientes e) {
-			vista.displayError("Recursos Insuficientes");
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			vista.displayError("Coordenada Fuera Del Mapa");
-		} catch (ExcepcionParcelaOcupada e) {
-			vista.displayError("Parcela Ocupada");
-		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-			vista.displayError("Elemento No Admitido En Parcela");
-		}
-		
-	}
-
-	public void crearCreadorUnidadesBasicas() {
-		try {
-			this.modelo.getJugadorQueJuega().crearCreadorDeUnidadesBasicas(modelo.getMapa(), vista.getCoordenadaSeleccionada());
-			this.vista.refrescar();
-		} catch (ExcepcionRecursosInsuficientes e) {
-			vista.displayError("Recursos Insuficientes");
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			vista.displayError("Coordenada Fuera Del Mapa");
-		} catch (ExcepcionParcelaOcupada e) {
-			vista.displayError("Parcela Ocupada");
-		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-			vista.displayError("Elemento No Admitido En Parcela");
-		}
-		
-	}
-
-	public void crearCreadorUnidadesAvanzadas(){
-		try {
-			this.modelo.getJugadorQueJuega().crearCreadorDeUnidadesAvanzadas(modelo.getMapa(), vista.getCoordenadaSeleccionada());
-			this.vista.refrescar();
-		} catch (ExcepcionRecursosInsuficientes e) {
-			vista.displayError("Recursos Insuficientes");
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			vista.displayError("Coordenada Fuera Del Mapa");
-		} catch (ExcepcionParcelaOcupada e) {
-			vista.displayError("Parcela Ocupada");
-		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-			vista.displayError("Elemento No Admitido En Parcela");
-		} catch (ExcepcionConstruccionesRequeridasNoCreadas e) {
-			vista.displayError("Construcciones Requeridas No Creadas");
-		}
-	}
-
-	public void crearCreadorUnidadesMagicas() {
-		try {
-			this.modelo.getJugadorQueJuega().crearCreadorDeUnidadesMagicas(modelo.getMapa(), vista.getCoordenadaSeleccionada());
-			this.vista.refrescar();
-		} catch (ExcepcionRecursosInsuficientes e) {
-			vista.displayError("Recursos Insuficientes");
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			vista.displayError("Coordenada Fuera Del Mapa");
-		} catch (ExcepcionParcelaOcupada e) {
-			vista.displayError("Parcela Ocupada");
-		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
-			vista.displayError("Elemento No Admitido En Parcela");
-		} catch (ExcepcionConstruccionesRequeridasNoCreadas e) {
-			vista.displayError("Construcciones Requeridas No Creadas");
-		}
-	}
-
-	public void crearMarine() {//que onda aca, hacemos los casteos?
-		try {
-			Barraca barraca = (Barraca) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
-			barraca.crearMarine(this.modelo.getMapa());
-			this.vista.refrescar();
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExcepcionNoHaySuministrosDisponibles e) {
-			vista.displayError("No Hay Suministros Disponibles");
-		} catch (ExcepcionNoHayLugarDisponible e) {
-			vista.displayError("No Hay Lugar Disponible");
-		} catch (ExcepcionEntidadEnConstruccion e) {
-            vista.displayError("La entidad esta en construccion");
-		}
-	}
-
-	public void crearGolliat() {
-		try {
-			Fabrica fabrica = (Fabrica) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
-			fabrica.crearGolliat(this.modelo.getMapa());
-			this.vista.refrescar();
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			// TODO Auto-generated catch block
-		} catch (ExcepcionNoHaySuministrosDisponibles e) {
-			vista.displayError("No Hay Suministros Disponibles");
-		} catch (ExcepcionNoHayLugarDisponible e) {
-			vista.displayError("No Hay Lugar Disponible");
-		} catch (ExcepcionEntidadEnConstruccion e) {
-            vista.displayError("La entidad esta en construccion");
-		}
-	}
-
-	public void crearEspectro() {
-		try {
-			PuertoEstelar puertoEstelar = (PuertoEstelar) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
-			puertoEstelar.crearEspectro(this.modelo.getMapa());
-			this.vista.refrescar();
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			// TODO Auto-generated catch block
-		} catch (ExcepcionNoHaySuministrosDisponibles e) {
-			vista.displayError("No Hay Suministros Disponibles");
-		} catch (ExcepcionNoHayLugarDisponible e) {
-			vista.displayError("No Hay Lugar Disponible");
-		} catch (ExcepcionEntidadEnConstruccion e) {
-			// TODO Auto-generated catch block
-            vista.displayError("La entidad esta en construccion");
-		}
-	}
-
-	public void crearNaveTransporte() {
-		try {
-			PuertoEstelar puertoEstelar = (PuertoEstelar) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
-			puertoEstelar.crearNaveTransporte(this.modelo.getMapa());
-			this.vista.refrescar();
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			// TODO Auto-generated catch block
-		} catch (ExcepcionNoHaySuministrosDisponibles e) {
-			vista.displayError("No Hay Suministros Disponibles");
-		} catch (ExcepcionNoHayLugarDisponible e) {
-			vista.displayError("No Hay Lugar Disponible");
-		} catch (ExcepcionEntidadEnConstruccion e) {
-            vista.displayError("La entidad esta en construccion");
-		}
-	}
-
-	public void crearNaveCiencia() {
-		try {
-			PuertoEstelar puertoEstelar = (PuertoEstelar) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
-			puertoEstelar.crearNaveCiencia(this.modelo.getMapa());
-			this.vista.refrescar();
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			// TODO Auto-generated catch block
-		} catch (ExcepcionNoHaySuministrosDisponibles e) {
-			vista.displayError("No Hay Suministros Disponibles");
-		} catch (ExcepcionNoHayLugarDisponible e) {
-			vista.displayError("No Hay Lugar Disponible");
-		} catch (ExcepcionEntidadEnConstruccion e) {
-            vista.displayError("La entidad esta en construccion");
-		}
-	}
-
-	public void crearZealot() {
-		try {
-			Acceso acceso = (Acceso) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
-			acceso.crearZealot(this.modelo.getMapa());
-			this.vista.refrescar();
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			// TODO Auto-generated catch block
-		} catch (ExcepcionNoHaySuministrosDisponibles e) {
-			vista.displayError("No Hay Suministros Disponibles");
-		} catch (ExcepcionNoHayLugarDisponible e) {
-			vista.displayError("No Hay Lugar Disponible");
-		} catch (ExcepcionEntidadEnConstruccion e) {
-            vista.displayError("La entidad esta en construccion");
-		}
-	}
-
-	public void crearDragon() {
-		try {
-			Acceso acceso = (Acceso) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
-			acceso.crearDragon(this.modelo.getMapa());
-			this.vista.refrescar();
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			// TODO Auto-generated catch block
-		} catch (ExcepcionNoHaySuministrosDisponibles e) {
-			vista.displayError("No Hay Suministros Disponibles");
-		} catch (ExcepcionNoHayLugarDisponible e) {
-			vista.displayError("No Hay Lugar Disponible");
-		} catch (ExcepcionEntidadEnConstruccion e) {
-            vista.displayError("La entidad esta en construccion");
-		}
-	}
-
-	public void crearScout() {
-		try {
-			PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
-			puerto.crearScout(this.modelo.getMapa());
-			this.vista.refrescar();
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			// TODO Auto-generated catch block
-		} catch (ExcepcionNoHaySuministrosDisponibles e) {
-			vista.displayError("No Hay Suministros Disponibles");
-		} catch (ExcepcionNoHayLugarDisponible e) {
-			vista.displayError("No Hay Lugar Disponible");
-		} catch (ExcepcionEntidadEnConstruccion e) {
-            vista.displayError("La entidad esta en construccion");
-		}
-	}
-
-	public void crearNaveTransporteProtoss() {
-		try {
-			PuertoEstelarProtoss puertoEstelar = (PuertoEstelarProtoss) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
-			puertoEstelar.crearNaveTransporte(this.modelo.getMapa());
-			this.vista.refrescar();
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			// TODO Auto-generated catch block
-		} catch (ExcepcionNoHaySuministrosDisponibles e) {
-			vista.displayError("No Hay Suministros Disponibles");
-		} catch (ExcepcionNoHayLugarDisponible e) {
-			vista.displayError("No Hay Lugar Disponible");
-		} catch (ExcepcionEntidadEnConstruccion e) {
-            vista.displayError("La entidad esta en construccion");
-		}
-	}
-
-	public void crearAltoTemplario() {
-		try {
-			ArchivosTemplarios archivosTemplarios = (ArchivosTemplarios) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
-			archivosTemplarios.crearAltoTemplario(this.modelo.getMapa());
-			this.vista.refrescar();
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			// TODO Auto-generated catch block
-		} catch (ExcepcionNoHaySuministrosDisponibles e) {
-			vista.displayError("No Hay Suministros Disponibles");
-		} catch (ExcepcionNoHayLugarDisponible e) {
-			vista.displayError("No Hay Lugar Disponible");
-		} catch (ExcepcionEntidadEnConstruccion e) {
-            vista.displayError("La entidad esta en construccion");
-		}
-	}
+//	public void crearCreadorUnidadesMagicas() {
+//		try {
+//			this.modelo.getJugadorQueJuega().crearCreadorDeUnidadesMagicas(modelo.getMapa(), vista.getCoordenadaSeleccionada());
+//			this.vista.refrescar();
+//		} catch (ExcepcionRecursosInsuficientes e) {
+//			vista.displayError("Recursos Insuficientes");
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			vista.displayError("Coordenada Fuera Del Mapa");
+//		} catch (ExcepcionParcelaOcupada e) {
+//			vista.displayError("Parcela Ocupada");
+//		} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
+//			vista.displayError("Elemento No Admitido En Parcela");
+//		} catch (ExcepcionConstruccionesRequeridasNoCreadas e) {
+//			vista.displayError("Construcciones Requeridas No Creadas");
+//		}
+//	}
+//
+//	public void crearMarine() {//que onda aca, hacemos los casteos?
+//		try {
+//			Barraca barraca = (Barraca) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+//			barraca.crearMarine(this.modelo.getMapa());
+//			this.vista.refrescar();
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+//			vista.displayError("No Hay Suministros Disponibles");
+//		} catch (ExcepcionNoHayLugarDisponible e) {
+//			vista.displayError("No Hay Lugar Disponible");
+//		} catch (ExcepcionEntidadEnConstruccion e) {
+//            vista.displayError("La entidad esta en construccion");
+//		}
+//	}
+//
+//	public void crearGolliat() {
+//		try {
+//			Fabrica fabrica = (Fabrica) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+//			fabrica.crearGolliat(this.modelo.getMapa());
+//			this.vista.refrescar();
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			// TODO Auto-generated catch block
+//		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+//			vista.displayError("No Hay Suministros Disponibles");
+//		} catch (ExcepcionNoHayLugarDisponible e) {
+//			vista.displayError("No Hay Lugar Disponible");
+//		} catch (ExcepcionEntidadEnConstruccion e) {
+//            vista.displayError("La entidad esta en construccion");
+//		}
+//	}
+//
+//	public void crearEspectro() {
+//		try {
+//			PuertoEstelar puertoEstelar = (PuertoEstelar) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+//			puertoEstelar.crearEspectro(this.modelo.getMapa());
+//			this.vista.refrescar();
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			// TODO Auto-generated catch block
+//		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+//			vista.displayError("No Hay Suministros Disponibles");
+//		} catch (ExcepcionNoHayLugarDisponible e) {
+//			vista.displayError("No Hay Lugar Disponible");
+//		} catch (ExcepcionEntidadEnConstruccion e) {
+//			// TODO Auto-generated catch block
+//            vista.displayError("La entidad esta en construccion");
+//		}
+//	}
+//
+//	public void crearNaveTransporte() {
+//		try {
+//			PuertoEstelar puertoEstelar = (PuertoEstelar) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+//			puertoEstelar.crearNaveTransporte(this.modelo.getMapa());
+//			this.vista.refrescar();
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			// TODO Auto-generated catch block
+//		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+//			vista.displayError("No Hay Suministros Disponibles");
+//		} catch (ExcepcionNoHayLugarDisponible e) {
+//			vista.displayError("No Hay Lugar Disponible");
+//		} catch (ExcepcionEntidadEnConstruccion e) {
+//            vista.displayError("La entidad esta en construccion");
+//		}
+//	}
+//
+//	public void crearNaveCiencia() {
+//		try {
+//			PuertoEstelar puertoEstelar = (PuertoEstelar) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+//			puertoEstelar.crearNaveCiencia(this.modelo.getMapa());
+//			this.vista.refrescar();
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			// TODO Auto-generated catch block
+//		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+//			vista.displayError("No Hay Suministros Disponibles");
+//		} catch (ExcepcionNoHayLugarDisponible e) {
+//			vista.displayError("No Hay Lugar Disponible");
+//		} catch (ExcepcionEntidadEnConstruccion e) {
+//            vista.displayError("La entidad esta en construccion");
+//		}
+//	}
+//
+//	public void crearZealot() {
+//		try {
+//			Acceso acceso = (Acceso) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+//			acceso.crearZealot(this.modelo.getMapa());
+//			this.vista.refrescar();
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			// TODO Auto-generated catch block
+//		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+//			vista.displayError("No Hay Suministros Disponibles");
+//		} catch (ExcepcionNoHayLugarDisponible e) {
+//			vista.displayError("No Hay Lugar Disponible");
+//		} catch (ExcepcionEntidadEnConstruccion e) {
+//            vista.displayError("La entidad esta en construccion");
+//		}
+//	}
+//
+//	public void crearDragon() {
+//		try {
+//			Acceso acceso = (Acceso) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+//			acceso.crearDragon(this.modelo.getMapa());
+//			this.vista.refrescar();
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			// TODO Auto-generated catch block
+//		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+//			vista.displayError("No Hay Suministros Disponibles");
+//		} catch (ExcepcionNoHayLugarDisponible e) {
+//			vista.displayError("No Hay Lugar Disponible");
+//		} catch (ExcepcionEntidadEnConstruccion e) {
+//            vista.displayError("La entidad esta en construccion");
+//		}
+//	}
+//
+//	public void crearScout() {
+//		try {
+//			PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+//			puerto.crearScout(this.modelo.getMapa());
+//			this.vista.refrescar();
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			// TODO Auto-generated catch block
+//		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+//			vista.displayError("No Hay Suministros Disponibles");
+//		} catch (ExcepcionNoHayLugarDisponible e) {
+//			vista.displayError("No Hay Lugar Disponible");
+//		} catch (ExcepcionEntidadEnConstruccion e) {
+//            vista.displayError("La entidad esta en construccion");
+//		}
+//	}
+//
+//	public void crearNaveTransporteProtoss() {
+//		try {
+//			PuertoEstelarProtoss puertoEstelar = (PuertoEstelarProtoss) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+//			puertoEstelar.crearNaveTransporte(this.modelo.getMapa());
+//			this.vista.refrescar();
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			// TODO Auto-generated catch block
+//		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+//			vista.displayError("No Hay Suministros Disponibles");
+//		} catch (ExcepcionNoHayLugarDisponible e) {
+//			vista.displayError("No Hay Lugar Disponible");
+//		} catch (ExcepcionEntidadEnConstruccion e) {
+//            vista.displayError("La entidad esta en construccion");
+////		}
+////	}
+//
+//	public void crearAltoTemplario() {
+//		try {
+//			ArchivosTemplarios archivosTemplarios = (ArchivosTemplarios) this.modelo.getMapa().devolverElementoEnParcela(this.vista.getCoordenadaSeleccionada());
+//			archivosTemplarios.crearAltoTemplario(this.modelo.getMapa());
+//			this.vista.refrescar();
+//		} catch (ExcepcionCoordenadaFueraDelMapa e) {
+//			// TODO Auto-generated catch block
+//		} catch (ExcepcionNoHaySuministrosDisponibles e) {
+//			vista.displayError("No Hay Suministros Disponibles");
+//		} catch (ExcepcionNoHayLugarDisponible e) {
+//			vista.displayError("No Hay Lugar Disponible");
+//		} catch (ExcepcionEntidadEnConstruccion e) {
+//            vista.displayError("La entidad esta en construccion");
+//		}
+//	}
 
 	public void mover() throws ExcepcionCoordenadaFueraDelMapa {
 		

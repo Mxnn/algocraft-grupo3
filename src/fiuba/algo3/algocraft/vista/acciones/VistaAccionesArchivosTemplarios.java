@@ -18,7 +18,7 @@ public class VistaAccionesArchivosTemplarios  extends VistaAccionesInteractuable
 		GridBagConstraints gbc_btnCrearAltoTemplario = new GridBagConstraints();
 		gbc_btnCrearAltoTemplario.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearAltoTemplario.gridx = 0;
-		gbc_btnCrearAltoTemplario.gridy = 2;
+		gbc_btnCrearAltoTemplario.gridy = 3;
 		add(btnCrearAltoTemplario, gbc_btnCrearAltoTemplario);
 		this.habilitarBoton(btnCrearAltoTemplario, representado);
 			

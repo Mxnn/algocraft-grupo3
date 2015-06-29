@@ -20,7 +20,7 @@ public class VistaAccionesBarraca extends VistaAccionesInteractuable {
 		GridBagConstraints gbc_btnCrearMarines = new GridBagConstraints();
 		gbc_btnCrearMarines.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearMarines.gridx = 0;
-		gbc_btnCrearMarines.gridy = 2;
+		gbc_btnCrearMarines.gridy = 3;
 		add(btnCrearMarines, gbc_btnCrearMarines);
 		this.habilitarBoton(btnCrearMarines, representado);
 	}

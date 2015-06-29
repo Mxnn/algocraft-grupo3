@@ -23,7 +23,7 @@ public class VistaAccionesPuertoEstelar  extends VistaAccionesInteractuable {
 		GridBagConstraints gbc_btnCrearEspectro = new GridBagConstraints();
 		gbc_btnCrearEspectro.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearEspectro.gridx = 0;
-		gbc_btnCrearEspectro.gridy = 2;
+		gbc_btnCrearEspectro.gridy = 3;
 		add(btnCrearEspectro, gbc_btnCrearEspectro);
 		this.habilitarBoton(btnCrearEspectro, representado);
 		
@@ -33,7 +33,7 @@ public class VistaAccionesPuertoEstelar  extends VistaAccionesInteractuable {
 		GridBagConstraints gbc_btnCrearNaveDeTransporte = new GridBagConstraints();
 		gbc_btnCrearNaveDeTransporte.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearNaveDeTransporte.gridx = 0;
-		gbc_btnCrearNaveDeTransporte.gridy = 3;
+		gbc_btnCrearNaveDeTransporte.gridy = 4;
 		add(btnCrearNaveDeTransporte, gbc_btnCrearNaveDeTransporte);	
 		this.habilitarBoton(btnCrearNaveDeTransporte, representado);
 		
@@ -44,7 +44,7 @@ public class VistaAccionesPuertoEstelar  extends VistaAccionesInteractuable {
 		GridBagConstraints gbc_btnCrearNaveCiencia = new GridBagConstraints();
 		gbc_btnCrearNaveCiencia.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearNaveCiencia.gridx = 0;
-		gbc_btnCrearNaveCiencia.gridy = 4;
+		gbc_btnCrearNaveCiencia.gridy = 5;
 		add(btnCrearNaveCiencia, gbc_btnCrearNaveCiencia);	
 		this.habilitarBoton(btnCrearNaveCiencia, representado);
 		

@@ -19,7 +19,7 @@ public class  VistaAccionesAcceso  extends VistaAccionesInteractuable {
 		GridBagConstraints gbc_btnCrearZealot = new GridBagConstraints();
 		gbc_btnCrearZealot.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearZealot.gridx = 0;
-		gbc_btnCrearZealot.gridy = 2;
+		gbc_btnCrearZealot.gridy = 3;
 		add(btnCrearZealot, gbc_btnCrearZealot);
 		this.habilitarBoton(btnCrearZealot, representado);
 		
@@ -29,7 +29,7 @@ public class  VistaAccionesAcceso  extends VistaAccionesInteractuable {
 		GridBagConstraints gbc_btnCrearDragon = new GridBagConstraints();
 		gbc_btnCrearDragon.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearDragon.gridx = 0;
-		gbc_btnCrearDragon.gridy = 3;
+		gbc_btnCrearDragon.gridy = 4;
 		add(btnCrearDragon, gbc_btnCrearDragon);		
 		this.habilitarBoton(btnCrearDragon, representado);
 	}

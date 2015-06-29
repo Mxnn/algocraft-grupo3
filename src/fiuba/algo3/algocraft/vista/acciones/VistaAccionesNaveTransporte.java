@@ -17,7 +17,7 @@ public class VistaAccionesNaveTransporte extends VistaAccionesUnidad {
 		GridBagConstraints gbc_btnInsertarUnidad = new GridBagConstraints();
 		gbc_btnInsertarUnidad.insets = new Insets(0, 0, 5, 0);
 		gbc_btnInsertarUnidad.gridx = 0;
-		gbc_btnInsertarUnidad.gridy = 2;
+		gbc_btnInsertarUnidad.gridy = 3;
 		add(btnInsertarUnidad, gbc_btnInsertarUnidad);
 		this.habilitarBoton(btnInsertarUnidad, representado);
 		
@@ -25,7 +25,7 @@ public class VistaAccionesNaveTransporte extends VistaAccionesUnidad {
 		GridBagConstraints gbc_btnSacarUnidad = new GridBagConstraints();
 		gbc_btnSacarUnidad.insets = new Insets(0, 0, 5, 0);
 		gbc_btnSacarUnidad.gridx = 0;
-		gbc_btnSacarUnidad.gridy = 3;
+		gbc_btnSacarUnidad.gridy = 4;
 		add(btnSacarUnidad, gbc_btnSacarUnidad);
 		this.habilitarBoton(btnSacarUnidad, representado);
 	}

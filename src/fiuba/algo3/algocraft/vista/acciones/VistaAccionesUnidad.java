@@ -17,7 +17,7 @@ public class VistaAccionesUnidad extends VistaAccionesInteractuable {
 		GridBagConstraints gbc_btnMover = new GridBagConstraints();
 		gbc_btnMover.insets = new Insets(0, 0, 5, 0);
 		gbc_btnMover.gridx = 0;
-		gbc_btnMover.gridy = 1;
+		gbc_btnMover.gridy = 2;
 		add(btnMover, gbc_btnMover);
 		this.habilitarBoton(btnMover, representado);
 	}

@@ -17,7 +17,7 @@ public class VistaAccionesFabrica extends VistaAccionesInteractuable {
 		GridBagConstraints gbc_btnCrearGolliat = new GridBagConstraints();
 		gbc_btnCrearGolliat.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCrearGolliat.gridx = 0;
-		gbc_btnCrearGolliat.gridy = 2;
+		gbc_btnCrearGolliat.gridy = 3;
 		add(btnCrearGolliat, gbc_btnCrearGolliat);
 		this.habilitarBoton(btnCrearGolliat, representado);
 	}

@@ -17,7 +17,7 @@ public class VistaAccionesUnidadAgresora extends VistaAccionesUnidad {
 		GridBagConstraints gbc_btnAtacar = new GridBagConstraints();
 		gbc_btnAtacar.insets = new Insets(0, 0, 5, 0);
 		gbc_btnAtacar.gridx = 0;
-		gbc_btnAtacar.gridy = 2;
+		gbc_btnAtacar.gridy = 3;
 		add(btnAtacar, gbc_btnAtacar);
 		this.habilitarBoton(btnAtacar, representado);
 		
