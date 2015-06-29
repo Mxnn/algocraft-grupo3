@@ -18,7 +18,9 @@ import javax.swing.JMenuItem;
 
 import java.awt.Color;
 
-public class VistaJuego implements ObservadorJuego{
+public class VistaJuego implements ObservadorJuego {
+    private static VistaJuego INSTANCIA = null;
+
 	private Juego modelo;
     private Controlador controlador;
     private VistaMapa vistaMapa;
@@ -28,7 +30,19 @@ public class VistaJuego implements ObservadorJuego{
 
 	public static int CANTIDAD_DE_OPCIONES = 8;
 
-	public VistaJuego(Juego elJuego, Controlador elControlador)  {
+    public static VistaJuego createInstance(Juego juego, Controlador controlador) {
+        if (INSTANCIA == null) {
+            INSTANCIA = new VistaJuego(juego, controlador);
+        }
+
+        return INSTANCIA;
+    }
+
+    public static VistaJuego getInstance() {
+        return INSTANCIA;
+    }
+
+	private VistaJuego(Juego elJuego, Controlador elControlador)  {
         this.modelo = elJuego;
         this.controlador = elControlador;
 
