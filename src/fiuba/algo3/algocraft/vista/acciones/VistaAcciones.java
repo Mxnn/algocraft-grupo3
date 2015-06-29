@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import java.awt.Insets;
 
 public class VistaAcciones extends JPanel {
+	private static final String TITULO_DEFAULT = "Clickear parcela para realizar una accion";
 	private JLabel titulo;
     protected Juego modelo;
 	public VistaAcciones(Juego modelo) {
@@ -42,6 +43,8 @@ public class VistaAcciones extends JPanel {
 		gbc_btnTerminarTurno.gridy = 9;
         btnTerminarTurno.addActionListener(new TerminarTurnoListener(this.modelo));
 		add(btnTerminarTurno, gbc_btnTerminarTurno);
+		
+		this.setTitulo(TITULO_DEFAULT);
 	}
 	
 	public void setTitulo(String titulo){

@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft.vista.acciones;
 
 import javax.swing.JButton;
+
 import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesAvanzadasListener;
 import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesBasicasListener;
 import fiuba.algo3.algocraft.controlador.CrearAdicionalDeSuministroListener;
@@ -9,10 +10,13 @@ import fiuba.algo3.algocraft.controlador.CrearExtractorGasListener;
 import fiuba.algo3.algocraft.controlador.CrearExtractorMineralListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class VistaAccionesParcelaVacia extends VistaAccionesParcela {
+	private static final String TITULO_PARCELA_VACIA = "Parcela Vacia";
+
 	public VistaAccionesParcelaVacia(Juego modelo, Coordenada ubicacionParcela) {
 		super(modelo, ubicacionParcela);
 
@@ -64,7 +68,7 @@ public class VistaAccionesParcelaVacia extends VistaAccionesParcela {
 		gbc_btnCreadorUnidadesMagicas.gridy = 6;
 		add(btnCreadorUnidadesMagicas, gbc_btnCreadorUnidadesMagicas);
 		
-
+		this.setTitulo(TITULO_PARCELA_VACIA);
 	}
 
 }
