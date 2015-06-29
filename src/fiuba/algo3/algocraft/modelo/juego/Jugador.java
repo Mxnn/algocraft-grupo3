@@ -25,6 +25,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.AdicionalSuministros;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
+import fiuba.algo3.algocraft.vista.ObservadorJugador;
 import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class Jugador {
@@ -43,6 +44,8 @@ public class Jugador {
     private ArrayList<Ataque> ataques = new ArrayList<Ataque>();
     private int gasVespeno;
     private int mineral;
+
+    private ObservadorJugador observadorJugador;
     
     public Jugador(String nombre, Color color, Raza raza) throws ExcepcionNombreCorto {
         if (nombre.length() < LONGITUD_MINIMA_PARA_EL_NOMBRE)
@@ -57,6 +60,10 @@ public class Jugador {
 
     public void setObservadores(ObservadorMapa observador){
     	this.raza.setObservadores(observador);
+    }
+
+    public void setObservadorJugador(ObservadorJugador observador) {
+        this.observadorJugador = observador;
     }
     
     public String getNombre() {
@@ -239,5 +246,6 @@ public class Jugador {
     public void deducirCostos(Costo costo) {
         this.mineral -= costo.getCostoMineral();
         this.gasVespeno -= costo.getCostoGas();
+        this.observadorJugador.actualizarRecursos();
     }
 }

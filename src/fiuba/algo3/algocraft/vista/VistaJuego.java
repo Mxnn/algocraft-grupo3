@@ -24,7 +24,7 @@ public class VistaJuego implements ObservadorJuego {
 
 	private Juego modelo;
     private VistaMapa vistaMapa;
-    private JFrame ventanita;
+    private JFrame ventanaPrincipal;
     private VistaBarraLateral barraLateral;
     private Coordenada coordenadaSeleccionada;
 
@@ -45,19 +45,19 @@ public class VistaJuego implements ObservadorJuego {
 	private VistaJuego(Juego elJuego, Controlador controlador)  {
         this.modelo = elJuego;
 
-        JFrame ventanita= new JFrame("AlgoCraft");
-        this.ventanita = ventanita;
-        ventanita.setSize(1000,700);
+        JFrame ventanaPrincipal= new JFrame("AlgoCraft");
+        this.ventanaPrincipal = ventanaPrincipal;
+        ventanaPrincipal.setSize(1000,700);
         
         VistaMapa vistaMapa = new VistaMapa(controlador ,this.modelo.getMapa());
         this.vistaMapa = vistaMapa;
         vistaMapa.setBackground(new Color(240, 240, 240));
-        ventanita.getContentPane().add(vistaMapa);
+        ventanaPrincipal.getContentPane().add(vistaMapa);
 
-        ventanita.getContentPane().setLayout(null);
+        ventanaPrincipal.getContentPane().setLayout(null);
 
         JMenuBar menuBar = new JMenuBar();
-        ventanita.setJMenuBar(menuBar);
+        ventanaPrincipal.setJMenuBar(menuBar);
 
         JMenu mnArchivo = new JMenu("Archivo");
         JMenuItem mntmNuevoJuego = new JMenuItem("Nuevo Juego");
@@ -65,7 +65,7 @@ public class VistaJuego implements ObservadorJuego {
         mntmNuevoJuego.addActionListener(new NuevoJuegoListener(this.modelo, this));
         JMenuItem mntmSalir = new JMenuItem("Salir");
         mnArchivo.add(mntmSalir);
-        mntmSalir.addActionListener(new CerrarFrameListener(ventanita));
+        mntmSalir.addActionListener(new CerrarFrameListener(ventanaPrincipal));
 
         JMenu mnAcerca = new JMenu("Acerca De..");
         JMenuItem iCreadores = new JMenuItem("Creadores");
@@ -80,32 +80,36 @@ public class VistaJuego implements ObservadorJuego {
         //esto habria que [ponerlo cuando se inicie el juego pero lo pongo aca para probar
 //        panelDeParcela.setParcelas(this.modelo.getMapa());
 
-        this.barraLateral = new VistaBarraLateral();
-        barraLateral.setLocation(666, 0);
-        ventanita.getContentPane().add(barraLateral);
+        this.barraLateral = new VistaBarraLateral(this.modelo);
+        this.barraLateral.setLocation(666, 0);
+        ventanaPrincipal.getContentPane().add(this.barraLateral);
         this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo));
         
-        ventanita.setVisible(false);
-        ventanita.repaint();
+        ventanaPrincipal.setVisible(false);
+        ventanaPrincipal.repaint();
         //sacar de aca despues
 	}
 	
 	public ObservadorMapa getObservadorMapa(){
 		return this.vistaMapa;
 	}
+
+    public ObservadorJugador getObservadorJugador() {
+        return this.barraLateral;
+    }
 	
 	public void refrescar() throws ExcepcionCoordenadaFueraDelMapa {
 		Mapa mapa = this.modelo.getMapa();
 		this.vistaMapa.refrescar(mapa);
 		this.vistaMapa.setVisible(true);
-		this.barraLateral.refrescar(this.modelo);
-		this.ventanita.repaint();
+		this.barraLateral.refrescar();
+		this.ventanaPrincipal.repaint();
 		this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo));//cambia dependiendo elemento seleccionado
 	}
 
 //	public void inicializarMapa() throws ExcepcionCoordenadaFueraDelMapa {
 //		vistaMapa.setParcelas(this.modelo.getMapa());
-//        ventanita.repaint();
+//        ventanaPrincipal.repaint();
 //	}
 
 	public void seleccionarCoordenada(int x, int y) throws ExcepcionCoordenadaFueraDelMapa {
@@ -125,11 +129,11 @@ public class VistaJuego implements ObservadorJuego {
         VistaAcciones vistaDelBoton = this.vistaMapa.getBoton(new Coordenada(x, y)).getVistaDeAcciones(this.modelo);
         this.barraLateral.setPanelAcciones(vistaDelBoton);
 		this.coordenadaSeleccionada = new Coordenada(x,y);
-		ventanita.repaint();
+        this.ventanaPrincipal.repaint();
 	}
 
 	public void abrirVista() throws ExcepcionCoordenadaFueraDelMapa {
-		this.ventanita.setVisible(true);
+		this.ventanaPrincipal.setVisible(true);
 	}
 	
 	public Coordenada getCoordenadaSeleccionada(){
@@ -138,7 +142,7 @@ public class VistaJuego implements ObservadorJuego {
 	
 	public void displayError(String msg){
 		this.barraLateral.displayError(msg);
-		this.ventanita.repaint();
+		this.ventanaPrincipal.repaint();
 	}
 
 	public void nuevoTurno() {

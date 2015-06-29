@@ -34,8 +34,11 @@ public class UnloadDatosJugadores implements ActionListener {
             try {
                 this.modelo.agregarJugador(jugadores.get(0));
                 this.modelo.agregarJugador(jugadores.get(1));
-                jugadores.get(0).setObservadores(vista.getObservadorMapa());
-                jugadores.get(1).setObservadores(vista.getObservadorMapa());
+                for (Jugador jugador: this.modelo.getJugadores()) {
+                    jugador.setObservadores(vista.getObservadorMapa());
+                    jugador.setObservadorJugador(vista.getObservadorJugador());
+                }
+
                 vista.refrescar();
                 
                 this.frame.dispose();

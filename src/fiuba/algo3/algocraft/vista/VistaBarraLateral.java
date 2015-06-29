@@ -9,12 +9,14 @@ import javax.swing.JTabbedPane;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 
-public class VistaBarraLateral extends JTabbedPane {
-    private final Color COLOR_JUGADOR_QUE_NO_JUEGA = Color.gray;
+public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador {
+    private final Color COLOR_DATOS_JUGADOR_QUE_NO_JUEGA = Color.gray;
     private static final String LABEL_NOMBRE = "Nombre:";
     private static final String LABEL_MINERALES = "Minerales:";
     private static final String LABEL_GAS = "Gas:";
     private static final String LABEL_POBLACION = "Poblacion/MAX:";
+
+    private Juego modelo;
 
     private ArrayList<JLabel> labelsJ1 = new ArrayList<JLabel>();
 	private JLabel nombreJ1;
@@ -31,7 +33,8 @@ public class VistaBarraLateral extends JTabbedPane {
 	private JLabel error;
 	private Representador representador;
 	
-	public VistaBarraLateral() {
+	public VistaBarraLateral(Juego modelo) {
+        this.modelo = modelo;
 		//hay que modificar para que el tabbedPane se cree desde este constructor
         representador = new Representador();
         int y=0;
@@ -230,9 +233,9 @@ public class VistaBarraLateral extends JTabbedPane {
         this.labelsJ2.add(this.poblacionJ2);
 	}
 
-	public void refrescar(Juego modelo) {
-		Jugador j1 = modelo.getJugadores().get(0);
-		Jugador j2 = modelo.getJugadores().get(1);
+	public void refrescar() {
+		Jugador j1 = this.modelo.getJugadores().get(0);
+		Jugador j2 = this.modelo.getJugadores().get(1);
 		
 		this.nombreJ1.setText(j1.getNombre());
 		this.mineralJ1.setText(Integer.toString(j1.getMinerales()));
@@ -244,24 +247,29 @@ public class VistaBarraLateral extends JTabbedPane {
 		this.gasJ2.setText(Integer.toString(j2.getGasVespeno()));
         this.poblacionJ2.setText(Integer.toString(j2.getPoblacion()) + "/" + Integer.toString(j2.getCapacidadDePoblacion()));
 
-		Color colorJugadorQueJuega = representador.getColorTexto(modelo.getJugadorQueJuega());
-		
-        if ((modelo.getJugadorQueJuega()).equals(modelo.getJugadores().get(0))) {
-            this.cambiarColorDeLabels(this.labelsJ1, colorJugadorQueJuega);
-            this.cambiarColorDeLabels(this.labelsJ2, COLOR_JUGADOR_QUE_NO_JUEGA);
+        if ((this.modelo.getJugadorQueJuega()).equals(this.modelo.getJugadores().get(0))) {
+            this.cambiarColorDeLabels(this.labelsJ1, Color.black);
+            this.cambiarColorDeLabels(this.labelsJ2, COLOR_DATOS_JUGADOR_QUE_NO_JUEGA);
         }
         else {
-            this.cambiarColorDeLabels(this.labelsJ2, colorJugadorQueJuega);
-            this.cambiarColorDeLabels(this.labelsJ1, COLOR_JUGADOR_QUE_NO_JUEGA);
+            this.cambiarColorDeLabels(this.labelsJ2, Color.black);
+            this.cambiarColorDeLabels(this.labelsJ1, COLOR_DATOS_JUGADOR_QUE_NO_JUEGA);
         }
+
+        this.colorearNombres(this.modelo);
+
         this.setSelectedIndex(0);
         this.repaint();
 	}
 
+    private void colorearNombres(Juego modelo) {
+        this.nombreJ1.setForeground(this.representador.getColorTexto(modelo.getJugadores().get(0)));
+        this.nombreJ2.setForeground(this.representador.getColorTexto(modelo.getJugadores().get(1)));
+    }
+
     private void cambiarColorDeLabels(ArrayList<JLabel> labels, Color color) {
-        for (JLabel label: labels) {
+        for (JLabel label: labels)
             label.setForeground(color);
-        }
     }
 	
 	public void setPanelAcciones(JPanel accion){
@@ -274,4 +282,11 @@ public class VistaBarraLateral extends JTabbedPane {
 		this.error.setText(msg);
 		this.repaint();
 	}
+
+    @Override
+    public void actualizarRecursos() {
+        this.setSelectedIndex(0);
+        this.refrescar();
+        this.repaint();
+    }
 }
