@@ -4,10 +4,8 @@ import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
-import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.*;
-import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.*;
-import fiuba.algo3.algocraft.modelo.razas.terran.unidades.*;
-import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.*;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 
 public interface ObservadorMapa {
 	public void crearVistaParcela(ParcelaEspacio parcela);
@@ -15,8 +13,8 @@ public interface ObservadorMapa {
 	public void crearVistaParcela(ParcelaVolcan parcela);
 
     public void agregarConstruccionEnEspera();
-
-	public void crearInteractuable(ArchivosTemplarios archivo);
+    public void crearConstruccion(Construccion construccion);
+	/*public void crearInteractuable(ArchivosTemplarios archivo);
 	public void crearInteractuable(PuertoEstelar puertoEstelar);
 	public void crearInteractuable(Fabrica fabrica);
 	public void crearInteractuable(Barraca barraca);
@@ -38,7 +36,8 @@ public interface ObservadorMapa {
 	public void crearInteractuable(NaveTransporteProtoss nave);
 	public void crearInteractuable(NaveTransporteTerran nave);
 	public void crearInteractuable(Scout scout);
-	public void crearInteractuable(Zealot zealot);
+	public void crearInteractuable(Zealot zealot);*/
+    public void crearUnidad(Unidad unidad);
 
 	public void seleccionarCoordenada(int x, int y);
 	

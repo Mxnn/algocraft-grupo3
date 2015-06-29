@@ -4,12 +4,11 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridLayout;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
 import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.controlador.ParcelaListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
@@ -19,10 +18,8 @@ import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
-import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.*;
-import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.*;
-import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.*;
-import fiuba.algo3.algocraft.modelo.razas.terran.unidades.*;
+import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.vista.botones.*;
 
 public class VistaMapa extends JPanel implements ObservadorMapa{
@@ -237,196 +234,49 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 
 	//TODOS ESTOS METODOS PODRIAN IR EN EL REPRESENTADOR Y QUE SEA EL EL OBSERVADOR
     @Override
+    public void crearConstruccion(Construccion construccion) {
+        VistaBotonInteractuable boton;
+        try {
+            Class<?> claseBoton = this.representador.getClaseBoton(construccion);
+            boton = (VistaBotonInteractuable) claseBoton.getDeclaredConstructor(construccion.getClass()).newInstance(construccion);
+            boton.setForeground(this.representador.getColorTexto(construccion.getPropietario()));
+            this.botonEnEspera = boton;
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void crearUnidad(Unidad unidad) {
+        VistaBotonInteractuable boton;
+        try {
+            Class<?> claseBoton = this.representador.getClaseBoton(unidad);
+            boton = (VistaBotonInteractuable) claseBoton.getDeclaredConstructor(unidad.getClass()).newInstance(unidad);
+            boton.setForeground(this.representador.getColorTexto(unidad.getPropietario()));
+            Coordenada coordenada = unidad.getParcela().getCoordenada();
+            this.agregarUnidad(boton, coordenada);
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public void agregarConstruccionEnEspera() {
         if (this.botonEnEspera != null) {
             this.agregarConstruccion(this.botonEnEspera);
             this.botonEnEspera = null;
         }
     }
-
-	@Override
-	public void crearInteractuable(ArchivosTemplarios archivo) {
-		VistaBotonArchivosTemplarios buttonActual = new VistaBotonArchivosTemplarios(archivo);
-    	buttonActual.setForeground(this.representador.getColorTexto(archivo.getPropietario()));
-        
-        this.botonEnEspera = buttonActual;
-	}
-
-	@Override
-	public void crearInteractuable(PuertoEstelar puertoEstelar) {
-		VistaBotonPuertoEstelar buttonActual = new VistaBotonPuertoEstelar(puertoEstelar);
-    	buttonActual.setForeground(this.representador.getColorTexto(puertoEstelar.getPropietario()));
-
-        this.botonEnEspera = buttonActual;
-	}
-
-	@Override
-	public void crearInteractuable(Fabrica fabrica) {
-		VistaBotonFabrica buttonActual = new VistaBotonFabrica(fabrica);
-    	buttonActual.setForeground(this.representador.getColorTexto(fabrica.getPropietario()));
-
-        this.botonEnEspera = buttonActual;
-	}
-
-	@Override
-	public void crearInteractuable(Barraca barraca) {
-		VistaBotonBarraca buttonActual = new VistaBotonBarraca(barraca);
-    	buttonActual.setForeground(this.representador.getColorTexto(barraca.getPropietario()));
-
-        this.botonEnEspera = buttonActual;
-	}
-
-	@Override
-	public void crearInteractuable(DepositoSuministro depositoSuministro) {
-		VistaBotonDepositoSuministro buttonActual = new VistaBotonDepositoSuministro(depositoSuministro);
-    	buttonActual.setForeground(this.representador.getColorTexto(depositoSuministro.getPropietario()));
-
-        this.botonEnEspera = buttonActual;
-	}
-
-	@Override
-	public void crearInteractuable(CentroDeMineral centroDeMineral) {
-		VistaBotonCentroMineral buttonActual = new VistaBotonCentroMineral(centroDeMineral);
-    	buttonActual.setForeground(this.representador.getColorTexto(centroDeMineral.getPropietario()));
-
-        this.botonEnEspera = buttonActual;
-	}
-
-	@Override
-	public void crearInteractuable(Refineria refineria) {
-		VistaBotonRefineria buttonActual = new VistaBotonRefineria(refineria);
-    	buttonActual.setForeground(this.representador.getColorTexto(refineria.getPropietario()));
-
-        this.botonEnEspera = buttonActual;
-	}
-
-	@Override
-	public void crearInteractuable(PuertoEstelarProtoss puerto) {
-		VistaBotonPuertoEstelarProtoss buttonActual = new VistaBotonPuertoEstelarProtoss(puerto);
-    	buttonActual.setForeground(this.representador.getColorTexto(puerto.getPropietario()));
-
-        this.botonEnEspera = buttonActual;
-	}
-
-	@Override
-	public void crearInteractuable(Acceso acceso) {
-		VistaBotonAcceso buttonActual = new VistaBotonAcceso(acceso);
-    	buttonActual.setForeground(this.representador.getColorTexto(acceso.getPropietario()));
-
-        this.botonEnEspera = buttonActual;
-	}
-
-	@Override
-	public void crearInteractuable(Pilon pilon) {
-		VistaBotonPilon buttonActual = new VistaBotonPilon(pilon);
-    	buttonActual.setForeground(this.representador.getColorTexto(pilon.getPropietario()));
-
-        this.botonEnEspera = buttonActual;
-	}
-
-	@Override
-	public void crearInteractuable(NexoMineral nexoMineral) {
-		VistaBotonNexoMineral buttonActual = new VistaBotonNexoMineral(nexoMineral);
-    	buttonActual.setForeground(this.representador.getColorTexto(nexoMineral.getPropietario()));
-
-        this.botonEnEspera = buttonActual;
-	}
-
-	@Override
-	public void crearInteractuable(Asimilador asimilador) {
-		VistaBotonAsimilador buttonActual = new VistaBotonAsimilador(asimilador);
-    	buttonActual.setForeground(this.representador.getColorTexto(asimilador.getPropietario()));
-
-        this.botonEnEspera = buttonActual;
-	}
-
-
-	@Override
-	public void crearInteractuable(AltoTemplario templario) {
-		VistaBotonAltoTemplario buttonActual = new VistaBotonAltoTemplario(templario);
-		buttonActual.setForeground(this.representador.getColorTexto(templario.getPropietario()));
-		Coordenada coordenada = templario.getParcela().getCoordenada();
-		this.agregarUnidad(buttonActual, coordenada);
-		
-	}
-
-	@Override
-	public void crearInteractuable(Dragon dragon) {
-		VistaBotonDragon buttonActual = new VistaBotonDragon(dragon);
-		buttonActual.setForeground(this.representador.getColorTexto(dragon.getPropietario()));
-		Coordenada coordenada = dragon.getParcela().getCoordenada();
-		this.agregarUnidad(buttonActual, coordenada);		
-	}
-
-	@Override
-	public void crearInteractuable(Espectro espectro) {
-		VistaBotonEspectro buttonActual = new VistaBotonEspectro(espectro);
-		buttonActual.setForeground(this.representador.getColorTexto(espectro.getPropietario()));
-		Coordenada coordenada = espectro.getParcela().getCoordenada();
-		this.agregarUnidad(buttonActual, coordenada);		
-	}
-
-	@Override
-	public void crearInteractuable(Golliat golliat) {
-		VistaBotonGolliat buttonActual = new VistaBotonGolliat(golliat);
-		buttonActual.setForeground(this.representador.getColorTexto(golliat.getPropietario()));
-		Coordenada coordenada = golliat.getParcela().getCoordenada();
-		this.agregarUnidad(buttonActual, coordenada);		
-	}
-
-	@Override
-	public void crearInteractuable(Marine marine) {
-		VistaBotonMarine buttonActual = new VistaBotonMarine(marine);
-		buttonActual.setForeground(this.representador.getColorTexto(marine.getPropietario()));
-		Coordenada coordenada = marine.getParcela().getCoordenada();
-		this.agregarUnidad(buttonActual, coordenada);		
-	}
-
-	@Override
-	public void crearInteractuable(NaveCiencia nave) {
-		VistaBotonNaveCiencia buttonActual = new VistaBotonNaveCiencia(nave);
-		buttonActual.setForeground(this.representador.getColorTexto(nave.getPropietario()));
-		Coordenada coordenada = nave.getParcela().getCoordenada();
-		this.agregarUnidad(buttonActual, coordenada);		
-	}
-
-	@Override
-	public void crearInteractuable(NaveTransporteProtoss nave) {
-		VistaBotonNaveTransporteProtoss buttonActual = new VistaBotonNaveTransporteProtoss(nave);
-		buttonActual.setForeground(this.representador.getColorTexto(nave.getPropietario()));
-		Coordenada coordenada = nave.getParcela().getCoordenada();
-		this.agregarUnidad(buttonActual, coordenada);		
-	}
-
-	@Override
-	public void crearInteractuable(NaveTransporteTerran nave) {
-		VistaBotonNaveTransporteTerran buttonActual = new VistaBotonNaveTransporteTerran(nave);
-		buttonActual.setForeground(this.representador.getColorTexto(nave.getPropietario()));
-		Coordenada coordenada = nave.getParcela().getCoordenada();
-		this.agregarUnidad(buttonActual, coordenada);		
-	}
-
-	@Override
-	public void crearInteractuable(Scout scout) {
-		VistaBotonScout buttonActual = new VistaBotonScout(scout);
-		buttonActual.setForeground(this.representador.getColorTexto(scout.getPropietario()));
-		Coordenada coordenada = scout.getParcela().getCoordenada();
-		this.agregarUnidad(buttonActual, coordenada);		
-	}
-
-	@Override
-	public void crearInteractuable(Zealot zealot) {
-		VistaBotonZealot buttonActual = new VistaBotonZealot(zealot);
-		buttonActual.setForeground(this.representador.getColorTexto(zealot.getPropietario()));
-		Coordenada coordenada = zealot.getParcela().getCoordenada();
-		this.agregarUnidad(buttonActual, coordenada);		
-	}
-
-
-
-
-//	@Override
-//	public void nuevoTurno() {
-//		this.refrescar(this.mapa);
-//	}
 }

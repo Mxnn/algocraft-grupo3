@@ -14,7 +14,6 @@ import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion
 import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class Fabrica extends Construccion {
-
     private static final int TIEMPO_DE_CONSTRUCCION = 12;
     public static final int VIDA_INICIAL = 1250;
     public static int COSTO_MINERAL = 200;
@@ -39,10 +38,9 @@ public class Fabrica extends Construccion {
 
         Golliat golliat = new Golliat(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, golliat);
-        
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
-    		observador.crearInteractuable(golliat);
+
+        for (ObservadorMapa observador: this.observadores) {
+    		observador.crearUnidad(golliat);
     		golliat.setObservador(observador);
     	}
 

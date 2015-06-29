@@ -16,7 +16,6 @@ import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion
 import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class PuertoEstelar extends Construccion {
-
     private static final int TIEMPO_DE_CONSTRUCCION = 10;
     public static final int VIDA_INICIAL = 1300;
     public static int COSTO_MINERAL = 150;
@@ -41,10 +40,9 @@ public class PuertoEstelar extends Construccion {
 
         Espectro espectro = new Espectro(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, espectro);
-        
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
-    		observador.crearInteractuable(espectro);
+
+        for (ObservadorMapa observador: this.observadores) {
+    		observador.crearUnidad(espectro);
     		espectro.setObservador(observador);
     	}
         return espectro;
@@ -56,10 +54,9 @@ public class PuertoEstelar extends Construccion {
 
         NaveTransporteTerran nave = new NaveTransporteTerran(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, nave);
-        
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
-    		observador.crearInteractuable(nave);
+
+        for (ObservadorMapa observador: this.observadores) {
+    		observador.crearUnidad(nave);
     		nave.setObservador(observador);
     	}
 
@@ -72,10 +69,9 @@ public class PuertoEstelar extends Construccion {
 
         NaveCiencia nave = new NaveCiencia(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, nave);
-        
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
-    		observador.crearInteractuable(nave);
+
+        for (ObservadorMapa observador: this.observadores) {
+    		observador.crearUnidad(nave);
     		nave.setObservador(observador);
     	}
 

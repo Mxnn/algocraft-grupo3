@@ -14,9 +14,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
 import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
-
 public class PuertoEstelarProtoss extends Construccion {
-
     private static final int TIEMPO_DE_CONSTRUCCION = 10;
     public static final int VIDA_INICIAL = 600;
     public static final int ESCUDO_INICIAL = 600;
@@ -35,17 +33,16 @@ public class PuertoEstelarProtoss extends Construccion {
     public TipoDeConstruccion getTipoDeConstruccion() {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_AVANZADAS;
     }
-    
+
     public Scout crearScout(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
         if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
 
         Scout scout = new Scout(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, scout);
-        
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
-    		observador.crearInteractuable(scout);
+
+        for (ObservadorMapa observador: this.observadores) {
+    		observador.crearUnidad(scout);
     		scout.setObservador(observador);
     	}
 
@@ -58,10 +55,9 @@ public class PuertoEstelarProtoss extends Construccion {
 
         NaveTransporteProtoss nave = new NaveTransporteProtoss(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, nave);
-        
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
-    		observador.crearInteractuable(nave);
+
+        for (ObservadorMapa observador: this.observadores) {
+    		observador.crearUnidad(nave);
     		nave.setObservador(observador);
     	}
 

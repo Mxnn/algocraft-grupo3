@@ -13,7 +13,6 @@ import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion
 import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class Barraca extends Construccion {
-
     private static final int TIEMPO_DE_CONSTRUCCION = 12;
     public static final int VIDA_INICIAL = 1000;
     public static int COSTO_MINERAL = 150;
@@ -35,10 +34,9 @@ public class Barraca extends Construccion {
 
         Marine marine = new Marine(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, marine);
-        
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
-    		observador.crearInteractuable(marine);
+
+        for (ObservadorMapa observador: this.observadores) {
+    		observador.crearUnidad(marine);
     		marine.setObservador(observador);
     	}
 

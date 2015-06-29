@@ -1,6 +1,5 @@
 package fiuba.algo3.algocraft.modelo.razas.protoss.construcciones;
 
-
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEntidadEnConstruccion;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
@@ -14,9 +13,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
 import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
-
 public class Acceso extends Construccion {
-
     private static final int TIEMPO_DE_CONSTRUCCION = 8;
     public static final int ESCUDO_INICIAL = 500;
     public static final int VIDA_INICIAL = 500;
@@ -39,10 +36,9 @@ public class Acceso extends Construccion {
 
         Zealot zealot = new Zealot(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, zealot);
-        
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
-    		observador.crearInteractuable(zealot);
+
+        for (ObservadorMapa observador: this.observadores) {
+    		observador.crearUnidad(zealot);
     		zealot.setObservador(observador);
     	}
         
@@ -56,9 +52,8 @@ public class Acceso extends Construccion {
         Dragon dragon = new Dragon(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, dragon);
 
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
-    		observador.crearInteractuable(dragon);
+        for (ObservadorMapa observador: this.observadores) {
+    		observador.crearUnidad(dragon);
     		dragon.setObservador(observador);
     	}
         

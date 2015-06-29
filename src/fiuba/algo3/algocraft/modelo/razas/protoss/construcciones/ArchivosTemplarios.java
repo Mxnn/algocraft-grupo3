@@ -14,7 +14,6 @@ import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion
 import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class ArchivosTemplarios extends Construccion {
-
     private static final int TIEMPO_DE_CONSTRUCCION = 9;
     public static final int VIDA_INICIAL = 500;
     public static final int ESCUDO_INICIAL = 500;
@@ -40,10 +39,9 @@ public class ArchivosTemplarios extends Construccion {
 
         AltoTemplario altoTemplario = new AltoTemplario(this.propietario);
         mapa.ubicarCercaDeParcela(parcelaUbicacion, altoTemplario);
-        
-        for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
-    		observador.crearInteractuable(altoTemplario);
+
+        for (ObservadorMapa observador: this.observadores) {
+    		observador.crearUnidad(altoTemplario);
     		altoTemplario.setObservador(observador);
     	}
         

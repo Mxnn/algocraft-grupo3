@@ -18,7 +18,6 @@ import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class Terran extends Raza {
     private static Terran INSTANCIA = null;
-
     private Terran() { }
 
     private synchronized static void createInstance() {
@@ -41,7 +40,7 @@ public class Terran extends Raza {
         Refineria refineria = new Refineria(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
-    		observador.crearInteractuable(refineria);
+    		observador.crearConstruccion(refineria);
     	}
         
 		return refineria;
@@ -55,7 +54,7 @@ public class Terran extends Raza {
         CentroDeMineral centroDeMineral = new CentroDeMineral(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
-    		observador.crearInteractuable(centroDeMineral);
+    		observador.crearConstruccion(centroDeMineral);
     	}
         
 		return centroDeMineral;
@@ -69,7 +68,7 @@ public class Terran extends Raza {
         DepositoSuministro depositoSuministro = new DepositoSuministro(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
-    		observador.crearInteractuable(depositoSuministro);
+    		observador.crearConstruccion(depositoSuministro);
     	}
         
         return depositoSuministro;
@@ -83,7 +82,7 @@ public class Terran extends Raza {
         Barraca barraca = new Barraca(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
-    		observador.crearInteractuable(barraca);
+    		observador.crearConstruccion(barraca);
     		barraca.setObservador(observador);
     	}
         
@@ -98,7 +97,7 @@ public class Terran extends Raza {
         Fabrica fabrica = new Fabrica(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
-    		observador.crearInteractuable(fabrica);
+    		observador.crearConstruccion(fabrica);
     		fabrica.setObservador(observador);
     	}
     	return fabrica;
@@ -112,7 +111,7 @@ public class Terran extends Raza {
         PuertoEstelar puertoEstelar = new PuertoEstelar(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
-    		observador.crearInteractuable(puertoEstelar);
+    		observador.crearConstruccion(puertoEstelar);
     		puertoEstelar.setObservador(observador);
     	}
         

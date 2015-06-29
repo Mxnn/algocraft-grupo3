@@ -18,7 +18,6 @@ import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class Protoss extends Raza {
     private static Protoss INSTANCIA = null;
-
     private Protoss() { }
 
     private synchronized static void createInstance() {
@@ -42,7 +41,7 @@ public class Protoss extends Raza {
         Asimilador asimilador = new Asimilador(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
-    		observador.crearInteractuable(asimilador);
+    		observador.crearConstruccion(asimilador);
     	}
         
 		return asimilador;
@@ -56,7 +55,7 @@ public class Protoss extends Raza {
         NexoMineral nexoMineral = new NexoMineral(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
-    		observador.crearInteractuable(nexoMineral);
+    		observador.crearConstruccion(nexoMineral);
     	}
 
 		return nexoMineral;
@@ -70,7 +69,7 @@ public class Protoss extends Raza {
         Pilon pilon = new Pilon(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
-    		observador.crearInteractuable(pilon);
+    		observador.crearConstruccion(pilon);
     	}
         return pilon;
     }
@@ -83,7 +82,7 @@ public class Protoss extends Raza {
         Acceso acceso = new Acceso(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
-    		observador.crearInteractuable(acceso);
+    		observador.crearConstruccion(acceso);
     		acceso.setObservador(observador);
     	}
 
@@ -98,7 +97,7 @@ public class Protoss extends Raza {
         PuertoEstelarProtoss puerto = new PuertoEstelarProtoss(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
-    		observador.crearInteractuable(puerto);
+    		observador.crearConstruccion(puerto);
     		puerto.setObservador(observador);
     	}
         
@@ -115,7 +114,7 @@ public class Protoss extends Raza {
 
 
         for (ObservadorMapa observador: this.observadores) {
-    		observador.crearInteractuable(archivo);
+    		observador.crearConstruccion(archivo);
     		archivo.setObservador(observador);
     	}
     	
