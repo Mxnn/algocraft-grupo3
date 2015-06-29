@@ -91,6 +91,8 @@ public abstract class Unidad extends Interactuable {
     public int getSuministro() { return this.suministro; }
     
     public void recibirEmp(){
+    	if(!this.estaCreado())
+    		return;
     	try {
     		(this.vitalidad).recibirEmp();
     	}
