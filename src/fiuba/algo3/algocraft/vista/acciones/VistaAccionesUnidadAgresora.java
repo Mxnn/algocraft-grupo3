@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft.vista.acciones;
 
+import fiuba.algo3.algocraft.controlador.AtacarListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 
@@ -14,6 +15,7 @@ public class VistaAccionesUnidadAgresora extends VistaAccionesUnidad {
 		this.setTitulo("Unidad Agresora");
 		
 		JButton btnAtacar = new JButton("Atacar");
+		btnAtacar.addActionListener(new AtacarListener(modelo.getMapa(), representado));
 		GridBagConstraints gbc_btnAtacar = new GridBagConstraints();
 		gbc_btnAtacar.insets = new Insets(0, 0, 5, 0);
 		gbc_btnAtacar.gridx = 0;

@@ -16,7 +16,7 @@ public class VistaAccionesPuertoEstelar  extends VistaAccionesInteractuable {
 
 
 	public VistaAccionesPuertoEstelar(Juego modelo, PuertoEstelar representado) {
-		super(modelo);
+		super(modelo, representado);
 		
 		JButton btnCrearEspectro = new JButton("Crear Espectro");
 		btnCrearEspectro.addActionListener(new CrearEspectroListener(modelo, representado));

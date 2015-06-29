@@ -13,7 +13,7 @@ import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.PuertoEstelarPr
 public class VistaAccionesPuertoEstelarProtoss  extends VistaAccionesInteractuable {
 
 	public VistaAccionesPuertoEstelarProtoss(Juego modelo, PuertoEstelarProtoss representado) {
-		super(modelo);
+		super(modelo, representado);
 		
 		JButton btnCrearScout = new JButton("Crear Scout");
 		btnCrearScout.addActionListener(new CrearScoutListener(modelo, representado));

@@ -13,10 +13,10 @@ import javax.swing.JPanel;
 
 import java.awt.GridBagLayout;
 
-public class VistaAccionesInteractuable extends VistaAcciones {
+public class VistaAccionesInteractuable extends VistaAccionesParcela {
 	protected JPanel panelVitalidad;
-	public VistaAccionesInteractuable(Juego modelo) {
-		super(modelo);
+	public VistaAccionesInteractuable(Juego modelo, Interactuable representado) {
+		super(modelo, representado.getParcela().getCoordenada());
 		GridBagLayout gridBagLayout = (GridBagLayout) getLayout();
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		gridBagLayout.columnWeights = new double[]{1.0};

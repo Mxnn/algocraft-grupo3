@@ -11,7 +11,7 @@ import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplar
 
 public class VistaAccionesArchivosTemplarios  extends VistaAccionesInteractuable {
 	public VistaAccionesArchivosTemplarios(Juego modelo, ArchivosTemplarios representado) {
-		super(modelo);
+		super(modelo, representado);
 		
 		JButton btnCrearAltoTemplario = new JButton("Crear Alto Templario");
 		btnCrearAltoTemplario.addActionListener(new CrearAltoTemplarioListener(modelo, representado));

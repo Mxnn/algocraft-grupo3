@@ -5,19 +5,20 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
+import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 
 public class ControladorAtacar {
 	private static ControladorAtacar INSTANCIA = null;
-	private Juego juego;
+	private Mapa mapa;
 	private UnidadAgresora unidad;
-    public ControladorAtacar(Juego juego) {
-		this.juego = juego;
+    public ControladorAtacar(Mapa mapa) {
+		this.mapa = mapa;
 	}
 
-	public static ControladorAtacar createInstance(Juego juego) {
+	public static ControladorAtacar createInstance(Mapa mapa) {
         if (INSTANCIA == null) {
-            INSTANCIA = new ControladorAtacar(juego);
+            INSTANCIA = new ControladorAtacar(mapa);
         }
 
         return INSTANCIA;
@@ -33,11 +34,8 @@ public class ControladorAtacar {
     
     public void atacar(Coordenada target){
     	try {
-			this.unidad.atacar(this.juego.getMapa().obtenerParcelaEnCoordenada(target));
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExcepcionEnemigoFueraDeAlcance e) {
+			this.unidad.atacar(this.mapa.obtenerParcelaEnCoordenada(target));
+		}  catch (ExcepcionEnemigoFueraDeAlcance e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ExcepcionEstadoMuerto e) {

@@ -11,10 +11,10 @@ public class DestinacionListener implements ActionListener {
 	private ControladorMover controladorMover;
 	private Coordenada ubicacion;
 
-	public DestinacionListener(Juego modelo, Coordenada ubicacionParcela){
+	public DestinacionListener(Coordenada ubicacionParcela){
 //		this.modelo = modelo;
 		this.ubicacion = ubicacionParcela;
-		this.controladorMover = ControladorMover.createInstance(modelo);
+		this.controladorMover = ControladorMover.createInstance();
 	}
 
 	public void actionPerformed(ActionEvent arg0) {

@@ -16,7 +16,7 @@ public class VistaBotonPilon extends VistaBotonRepresentante {
 
     @Override
     public VistaAccionesInteractuable getVistaDeAcciones(Juego modelo) {
-        VistaAccionesInteractuable vistaAcciones = new VistaAccionesInteractuable(modelo);
+        VistaAccionesInteractuable vistaAcciones = new VistaAccionesInteractuable(modelo, this.elementoRepresentado);
 
         vistaAcciones.setTitulo(NOMBRE);
         vistaAcciones.setVida(Pilon.VIDA_INICIAL, this.elementoRepresentado.getVida());

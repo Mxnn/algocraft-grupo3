@@ -13,10 +13,10 @@ public class MoverListener implements ActionListener {
     private Unidad representado;
 	private ControladorMover controladorMover;
 
-	public MoverListener(Juego modelo,Unidad representado){
+	public MoverListener(Unidad representado){
 //		this.modelo = modelo;
 		this.representado = representado;
-		this.controladorMover = ControladorMover.createInstance(modelo);
+		this.controladorMover = ControladorMover.createInstance();
 	}
 
 	public void actionPerformed(ActionEvent arg0) {

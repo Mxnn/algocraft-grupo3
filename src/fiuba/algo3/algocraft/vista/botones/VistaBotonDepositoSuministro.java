@@ -15,7 +15,7 @@ public class VistaBotonDepositoSuministro extends VistaBotonRepresentante {
 
     @Override
     public VistaAccionesInteractuable getVistaDeAcciones(Juego modelo) {
-        VistaAccionesInteractuable vistaAcciones = new VistaAccionesInteractuable(modelo);
+        VistaAccionesInteractuable vistaAcciones = new VistaAccionesInteractuable(modelo, this.elementoRepresentado);
 
         vistaAcciones.setTitulo(NOMBRE);
         vistaAcciones.setVida(DepositoSuministro.VIDA_INICIAL, this.elementoRepresentado.getVida());

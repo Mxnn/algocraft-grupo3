@@ -7,15 +7,13 @@ import fiuba.algo3.algocraft.vista.VistaJuego;
 
 public class ControladorMover {
 	private static ControladorMover INSTANCIA = null;
-	private Juego juego;
 	private Unidad unidad;
-    public ControladorMover(Juego juego) {
-		this.juego = juego;
+    public ControladorMover() {
 	}
 
-	public static ControladorMover createInstance(Juego juego) {
+	public static ControladorMover createInstance() {
         if (INSTANCIA == null) {
-            INSTANCIA = new ControladorMover(juego);
+            INSTANCIA = new ControladorMover();
         }
 
         return INSTANCIA;

@@ -12,7 +12,7 @@ import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
 
 public class  VistaAccionesAcceso  extends VistaAccionesInteractuable {
 	public VistaAccionesAcceso(Juego modelo, Acceso representado) {
-		super(modelo);
+		super(modelo, representado);
 		
 		JButton btnCrearZealot = new JButton("Crear Zealot");
 		btnCrearZealot.addActionListener(new CrearZealotListener(modelo, representado));

@@ -13,7 +13,7 @@ public class VistaAccionesBarraca extends VistaAccionesInteractuable {
 
     //Por referencia el modelo
 	public VistaAccionesBarraca(Juego modelo, Barraca representado) {
-		super(modelo);
+		super(modelo, representado);
 
 		JButton btnCrearMarines = new JButton("Crear Marine");
 		btnCrearMarines.addActionListener(new CrearMarineListener(modelo, representado));
