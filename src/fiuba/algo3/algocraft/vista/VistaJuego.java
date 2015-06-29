@@ -19,9 +19,7 @@ import javax.swing.JMenuItem;
 
 import java.awt.Color;
 
-public class VistaJuego implements ObservadorJuego {
-    private static VistaJuego INSTANCIA = null;
-
+public class VistaJuego implements ObservadorJuego{
 	private Juego modelo;
     private Controlador controlador;
     private VistaMapa vistaMapa;
@@ -31,19 +29,7 @@ public class VistaJuego implements ObservadorJuego {
 
 	public static int CANTIDAD_DE_OPCIONES = 8;
 
-    public static VistaJuego createInstance(Juego juego, Controlador controlador) {
-        if (INSTANCIA == null) {
-            INSTANCIA = new VistaJuego(juego, controlador);
-        }
-
-        return INSTANCIA;
-    }
-
-    public static VistaJuego getInstance() {
-        return INSTANCIA;
-    }
-
-	private VistaJuego(Juego elJuego, Controlador elControlador)  {
+	public VistaJuego(Juego elJuego, Controlador elControlador)  {
         this.modelo = elJuego;
         this.controlador = elControlador;
 
@@ -75,7 +61,7 @@ public class VistaJuego implements ObservadorJuego {
         JMenu mnAcerca = new JMenu("Acerca De..");
         JMenuItem iCreadores = new JMenuItem("Creadores");
         mnAcerca.add(iCreadores);
-        iCreadores.addActionListener(new CreadoresListener());         
+        iCreadores.addActionListener(new CreadoresListener());        
         JMenuItem iReferencias = new JMenuItem("Referencias");
         mnAcerca.add(iReferencias);
 
@@ -146,13 +132,13 @@ public class VistaJuego implements ObservadorJuego {
 		this.ventanita.repaint();
 	}
 
-	@Override
+
 	public void nuevoTurno() {
 		this.refrescar();
 		
 	}
 
-	@Override
+
 	public void hayPerdedor(Jugador perdedor) {
 		// TODO Auto-generated method stub
 		//PONER CODIGO QUE MUESTRE UNA VENTANA O ALGO
