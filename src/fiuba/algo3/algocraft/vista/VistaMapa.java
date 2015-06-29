@@ -62,7 +62,6 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
             VistaBotonParcela buttonActual = new VistaBotonParcela(new Coordenada(x, y));
             ParcelaListener l = controlador.getParcelaListener();
             buttonActual.addActionListener(l);
-            buttonActual.addMouseListener(new MouseHoverParcela(buttonActual));
             l.setCoordenadasBoton(x,y);
 	        listaBotonesParcela.add(buttonActual);
 	        

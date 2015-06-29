@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft.vista;
 
-import fiuba.algo3.algocraft.vista.botones.VistaBotonParcela;
+import fiuba.algo3.algocraft.vista.botones.VistaBotonInteractuable;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -8,9 +8,9 @@ import java.awt.event.MouseListener;
 
 public class MouseHoverParcela implements MouseListener {
     private Color COLOR = Color.white;
-    private VistaBotonParcela botonParcela;
+    private VistaBotonInteractuable botonParcela;
 
-    public MouseHoverParcela(VistaBotonParcela buttonActual) {
+    public MouseHoverParcela(VistaBotonInteractuable buttonActual) {
         this.botonParcela = buttonActual;
     }
 
