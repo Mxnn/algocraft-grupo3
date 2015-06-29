@@ -31,8 +31,6 @@ public abstract class Interactuable {
     }
 
     public void recibirDanyo(int cantidad) throws ExcepcionEstadoMuerto {
-    	if(!this.estaCreado())
-    		return;
         try {
             (this.vitalidad).recibirDanyo(cantidad);
         }

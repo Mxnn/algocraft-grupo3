@@ -88,11 +88,11 @@ public abstract class Unidad extends Interactuable {
         return this.propietario;
     }
 
-    public int getSuministro() { return this.suministro; }
+    public int getSuministro() { 
+    	return this.suministro; 
+    }
     
     public void recibirEmp(){
-    	if(!this.estaCreado())
-    		return;
     	try {
     		(this.vitalidad).recibirEmp();
     	}
