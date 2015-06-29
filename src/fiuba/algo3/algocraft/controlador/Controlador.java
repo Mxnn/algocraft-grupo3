@@ -75,7 +75,7 @@ public class Controlador {
 
 	public void terminarTurno() throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
 		this.modelo.pasarTurno(this.modelo.getJugadorQueJuega());
-		this.vista.refrescar();
+//		this.vista.refrescar();
 	}
 //	
 //	public void crearAdicionalSuministros(){
@@ -332,7 +332,7 @@ public class Controlador {
 		if(this.coordPartida!=null){
 		Unidad unidad = (Unidad) this.modelo.getMapa().devolverElementoEnParcela(this.coordPartida);
 		unidad.moverHasta(this.vista.getCoordenadaSeleccionada());
-		this.vista.refrescar();
+//		this.vista.refrescar();
 		this.coordPartida=null;
 		}else{
 			vista.displayError("Primer, clickear sobre la unidad");

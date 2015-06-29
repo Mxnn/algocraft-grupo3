@@ -43,6 +43,7 @@ public class Acceso extends Construccion {
         for(int i=0; i<this.observadores.size();i++){
     		ObservadorMapa observador = this.observadores.get(i);
     		observador.crearInteractuable(zealot);
+    		zealot.setObservador(observador);
     	}
         
         return zealot;
@@ -58,6 +59,7 @@ public class Acceso extends Construccion {
         for(int i=0; i<this.observadores.size();i++){
     		ObservadorMapa observador = this.observadores.get(i);
     		observador.crearInteractuable(dragon);
+    		dragon.setObservador(observador);
     	}
         
         return dragon;

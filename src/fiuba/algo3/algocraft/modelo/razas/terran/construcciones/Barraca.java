@@ -39,6 +39,7 @@ public class Barraca extends Construccion {
         for(int i=0; i<this.observadores.size();i++){
     		ObservadorMapa observador = this.observadores.get(i);
     		observador.crearInteractuable(marine);
+    		marine.setObservador(observador);
     	}
 
         return marine;

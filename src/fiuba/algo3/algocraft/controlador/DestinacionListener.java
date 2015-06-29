@@ -2,17 +2,23 @@ package fiuba.algo3.algocraft.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 
 public class DestinacionListener implements ActionListener {
-	private Juego modelo;
+//	private Juego modelo;
+	private ControladorMover controladorMover;
+	private Coordenada ubicacion;
 
-	public DestinacionListener(Juego modelo){
-		this.modelo = modelo;
+	public DestinacionListener(Juego modelo, Coordenada ubicacionParcela){
+//		this.modelo = modelo;
+		this.ubicacion = ubicacionParcela;
+		this.controladorMover = ControladorMover.createInstance(modelo);
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
-		
+		this.controladorMover.mover(this.ubicacion);
 		/*try {
 			controlador.ponerDestinacion();
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {

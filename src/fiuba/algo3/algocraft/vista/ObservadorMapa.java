@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft.vista;
 
+import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
@@ -41,5 +42,7 @@ public interface ObservadorMapa {
 
 	
 	public abstract void seleccionarCoordenada(int x, int y);
+	
+	public abstract void detectarMovimiento(Coordenada origen, Coordenada destino);
 
 }

@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft.modelo.utilidades.unidades;
 
+import java.util.ArrayList;
+
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
@@ -16,12 +18,14 @@ import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public abstract class Unidad extends Interactuable {
 	protected int cupoDeTransporte;
     protected int vision;
     protected int suministro;
     protected Coordenada coordenadaDestinacion;
+	private ArrayList<ObservadorMapa> observadores = new ArrayList<ObservadorMapa>(); 
 
     public Unidad(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, Costo costo) throws ExcepcionNoHaySuministrosDisponibles {
         super(propietario, vitalidad, tiempoDeConstruccion, costo);
@@ -31,7 +35,11 @@ public abstract class Unidad extends Interactuable {
         propietario.agregarUnidad(this);
     }
 
+    public void setObservador(ObservadorMapa observador){
+    	this.observadores.add(observador);
+    }
     public void moverHasta(Coordenada unaCoordenada){
+    	System.out.println("Destino Final: "+unaCoordenada.getX()+","+unaCoordenada.getY());
     	this.coordenadaDestinacion = unaCoordenada;
     }
     
@@ -106,11 +114,25 @@ public abstract class Unidad extends Interactuable {
 					Coordenada coordenadaSiguiente = coordenadaActual
 							.calcularCoordenadaSiguiente(this.coordenadaDestinacion);
 					try {
-						Parcela nuevaParcelaActual = mapa
-								.obtenerParcelaEnCoordenada(coordenadaSiguiente);
+						Parcela parcelaVieja = this.parcelaUbicacion;
+						Parcela nuevaParcelaActual = mapa.obtenerParcelaEnCoordenada(coordenadaSiguiente);
 						nuevaParcelaActual.guardarElemento(this);
-						this.parcelaUbicacion.vaciarParcela();
+						
+//						this.parcelaUbicacion.vaciarParcela();
+						parcelaVieja.vaciarParcela();
 						this.setParcela(nuevaParcelaActual);
+						
+						
+						
+						Coordenada origen = parcelaVieja.getCoordenada();
+						Coordenada destino = nuevaParcelaActual.getCoordenada();
+						
+						System.out.println("Origen"+origen.getX()+","+origen.getY());
+						System.out.println("Destino"+destino.getX()+","+destino.getY());
+						
+				        for (ObservadorMapa observador: this.observadores) {
+				    		observador.detectarMovimiento(parcelaVieja.getCoordenada(), nuevaParcelaActual.getCoordenada());
+				    	}
 
 					} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
 						this.coordenadaDestinacion = null;

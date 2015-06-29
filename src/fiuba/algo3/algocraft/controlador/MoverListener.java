@@ -9,20 +9,19 @@ import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 
 public class MoverListener implements ActionListener {
-    private Juego modelo;
+//    private Juego modelo;
     private Unidad representado;
+	private ControladorMover controladorMover;
 
 	public MoverListener(Juego modelo,Unidad representado){
-		this.modelo = modelo;
+//		this.modelo = modelo;
 		this.representado = representado;
+		this.controladorMover = ControladorMover.createInstance(modelo);
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
-		try {
-			this.representado.moverHasta(new Coordenada(13,13));
-		} catch (ExcepcionCoordenadaFueraDelMapa e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//			this.representado.moverHasta(new Coordenada(13,13));
+		this.controladorMover.setUnidad(this.representado);
+		
 	}
 }

@@ -45,6 +45,7 @@ public class PuertoEstelar extends Construccion {
         for(int i=0; i<this.observadores.size();i++){
     		ObservadorMapa observador = this.observadores.get(i);
     		observador.crearInteractuable(espectro);
+    		espectro.setObservador(observador);
     	}
         return espectro;
     }
@@ -59,6 +60,7 @@ public class PuertoEstelar extends Construccion {
         for(int i=0; i<this.observadores.size();i++){
     		ObservadorMapa observador = this.observadores.get(i);
     		observador.crearInteractuable(nave);
+    		nave.setObservador(observador);
     	}
 
         return nave;
@@ -74,6 +76,7 @@ public class PuertoEstelar extends Construccion {
         for(int i=0; i<this.observadores.size();i++){
     		ObservadorMapa observador = this.observadores.get(i);
     		observador.crearInteractuable(nave);
+    		nave.setObservador(observador);
     	}
 
         return nave;

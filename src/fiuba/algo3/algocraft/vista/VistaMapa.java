@@ -166,8 +166,8 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 //        cl.show(panelParcela, BOTON_INTERACTUABLE);
 //    }
     
-    private void desinscribirElemento(int x, int y){  //metodo para limpiar la parcela si la unidad se mueve en otra parcela
-    	JPanel panelParcela = this.getPanel(new Coordenada(x,y));
+    private void desinscribirElemento(Coordenada coordenada){  //metodo para limpiar la parcela si la unidad se mueve en otra parcela
+    	JPanel panelParcela = this.getPanel(coordenada);
     	if(panelParcela.getComponentCount() >1)
     		panelParcela.remove(1);
 //    	Component boton = panelParcela.getComponent(1);
@@ -186,10 +186,11 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 //    			else{
 //    				this.desinscribirElemento(x, y);
 //    			}
+    			//VER POR QUE ESTO DA ERROR AL MOVER, SE SUPONE QUE LAS COSAS SE MUEVEN ANTES
     			if(!parcela.estaVacia() && parcela.devolverElemento().estaCreado()){
     					this.activarBoton(parcela.getCoordenada());
     			}else if(parcela.estaVacia()){
-    				this.desinscribirElemento(x, y);
+    				this.desinscribirElemento(new Coordenada(x,y));
     			}
     		}
 		}
@@ -203,9 +204,13 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 	}
 	
 	public void activarBoton(Coordenada coordenada){
-		JPanel panel = this.getPanel(coordenada);
-		Component boton = panel.getComponent(1);
-		boton.setEnabled(true);
+		JPanel panelParcela = this.getPanel(coordenada);
+		if(panelParcela.getComponentCount()>1){
+			Component boton = panelParcela.getComponent(1);
+			boton.setEnabled(true);
+		}
+//		Component boton = panelParcela.getComponent(1);
+//		boton.setEnabled(true);
 	}
 
 	
@@ -392,6 +397,14 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 		Coordenada coordenada = zealot.getParcela().getCoordenada();
 		this.agregarUnidad(buttonActual, coordenada);		
 	}
+
+	@Override
+	public void detectarMovimiento(Coordenada origen, Coordenada destino) {
+		VistaBotonInteractuable botonOrigen = this.getBoton(origen);
+		this.desinscribirElemento(origen);
+		this.agregarBoton(botonOrigen, this.getPanel(destino));
+	}
+
 
 //	@Override
 //	public void nuevoTurno() {

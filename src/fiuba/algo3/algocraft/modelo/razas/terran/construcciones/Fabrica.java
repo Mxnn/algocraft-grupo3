@@ -43,6 +43,7 @@ public class Fabrica extends Construccion {
         for(int i=0; i<this.observadores.size();i++){
     		ObservadorMapa observador = this.observadores.get(i);
     		observador.crearInteractuable(golliat);
+    		golliat.setObservador(observador);
     	}
 
         return golliat;

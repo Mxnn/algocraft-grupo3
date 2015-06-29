@@ -66,7 +66,7 @@ public class VistaAccionesParcela extends VistaAcciones {
 		add(btnCreadorUnidadesMagicas, gbc_btnCreadorUnidadesMagicas);
 		
 		JButton btnDestinacion = new JButton("Destinacion");
-		btnDestinacion.addActionListener(new DestinacionListener(modelo));
+		btnDestinacion.addActionListener(new DestinacionListener(modelo, ubicacionParcela));
 		GridBagConstraints gbc_btnDestinacion = new GridBagConstraints();
 		gbc_btnDestinacion.insets = new Insets(0, 0, 5, 0);
 		gbc_btnDestinacion.gridx = 0;

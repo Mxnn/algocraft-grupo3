@@ -44,6 +44,7 @@ public class ArchivosTemplarios extends Construccion {
         for(int i=0; i<this.observadores.size();i++){
     		ObservadorMapa observador = this.observadores.get(i);
     		observador.crearInteractuable(altoTemplario);
+    		altoTemplario.setObservador(observador);
     	}
         
         return altoTemplario;
