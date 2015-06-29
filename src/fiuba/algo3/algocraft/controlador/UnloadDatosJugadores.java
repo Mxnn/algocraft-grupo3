@@ -46,8 +46,7 @@ public class UnloadDatosJugadores implements ActionListener {
                 JOptionPane.showMessageDialog(this.frame, "Los colores de los jugadores no pueden ser iguales");
                 this.modelo.limpiarJugadores();
             } catch (ExcepcionAlcanzadoElMaximoCupoDeJugadores excepcionAlcanzadoElMaximoCupoDeJugadores) {
-                JOptionPane.showMessageDialog(this.frame, "Se permiten hasta " + Juego.MAXIMO_NUMERO_DE_JUGADORES + " jugadores");
-                this.modelo.limpiarJugadores();
+                JOptionPane.showMessageDialog(this.frame, "Imposible crear nuevo juego. Ya hay un juego en curso");
             } catch (ExcepcionCoordenadaFueraDelMapa e) {
 				// Ver que onda con esta excepcion
             	this.modelo.limpiarJugadores();
