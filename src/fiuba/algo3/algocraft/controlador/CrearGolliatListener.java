@@ -17,11 +17,10 @@ public class CrearGolliatListener extends CreadorDeUnidadListener {
 		try {
             ((Fabrica) (this.construccion)).crearGolliat(modelo.getMapa());
         } catch (ExcepcionNoHaySuministrosDisponibles e) {
-            this.mostrarError(msjNoHaySuministrosDisponible);
+//            this.mostrarError(msjNoHaySuministrosDisponible);
+        	this.mostrarError(e.getMessage());
         } catch (ExcepcionNoHayLugarDisponible e) {
-            this.mostrarError(msjNoHayLugarDisponible);
-        } catch (ExcepcionEntidadEnConstruccion e) {
-            this.mostrarError(msjEntidadEnConstruccion);
+            this.mostrarError(e.getMessage());
         }
 	}
 }

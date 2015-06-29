@@ -17,11 +17,9 @@ public class CrearEspectroListener extends CreadorDeUnidadListener {
 		try {
             ((PuertoEstelar) (this.construccion)).crearEspectro(modelo.getMapa());
         } catch (ExcepcionNoHaySuministrosDisponibles e) {
-            this.mostrarError(msjNoHaySuministrosDisponible);
+            this.mostrarError(e.getMessage());
         } catch (ExcepcionNoHayLugarDisponible e) {
-            this.mostrarError(msjNoHayLugarDisponible);
-        } catch (ExcepcionEntidadEnConstruccion e) {
-            this.mostrarError(msjEntidadEnConstruccion);
+            this.mostrarError(e.getMessage());
         }
 	}
 }
