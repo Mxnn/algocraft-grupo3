@@ -14,8 +14,6 @@ REPREsentador que se ocupe de ser el observador de creaciones de interactuables 
 
 QUE TERMINE EL JUEGO CUANDO HAY GANADOR
 
-Puse al pedo un atributo en los botones, despues lo saco
-
 Vista de REFERENCIAS
 
 Arreglar bug de mover y atacar (se puede empezar la accion en un turno y terminarla en otro)
