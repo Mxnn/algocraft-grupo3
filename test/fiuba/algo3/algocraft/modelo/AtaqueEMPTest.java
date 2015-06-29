@@ -49,6 +49,10 @@ public class AtaqueEMPTest {
 	     
 	     Interactuable dragon = new Dragon(unJugador);
 	     mapa.ubicarElementoEnParcela(new Coordenada (1,1), dragon);
+	     while(!dragon.estaCreado()){
+	        	
+	    	 unJugador.terminarTurno(juego);
+	        }
 
 	     Ataque emp = new AtaqueEMP(dragon.getParcela());
 	     emp.tareaDeEntreTurno(mapa);

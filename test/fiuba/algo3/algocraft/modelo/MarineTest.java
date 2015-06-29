@@ -70,6 +70,10 @@ public class MarineTest {
         }
 
         Marine marineJugador2 = barracaJugador2.crearMarine(mapa);
+        while(!marineJugador2.estaCreado()) {
+            unJugador2.terminarTurno(juego);
+            unJugador.terminarTurno(juego);
+        }
 
         marine.atacar(marineJugador2.getParcela());
         unJugador2.terminarTurno(juego);
@@ -125,6 +129,10 @@ public class MarineTest {
         }
 
         Espectro espectro = puerto.crearEspectro(mapa);
+        while(!espectro.estaCreado()) {
+            unJugador2.terminarTurno(juego);
+            unJugador.terminarTurno(juego);
+        }
         unJugador2.terminarTurno(juego);
 
         marine.atacar(espectro.getParcela());

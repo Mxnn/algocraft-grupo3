@@ -149,6 +149,7 @@ public class DragonTest {
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        unJugador2.sumarMinerales(999);
         for(int i= 0; i<=7; i++){
         	unJugador.terminarTurno(juego);
         	unJugador2.terminarTurno(juego);
@@ -160,8 +161,14 @@ public class DragonTest {
         }
         mapa.ubicarElementoEnParcela(new Coordenada(0,0), dragon);
 
-        Interactuable barraca = new Barraca(unJugador2);
-        mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
+        
+        Interactuable barraca = unJugador2.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(1,1));
+        
+        while(!barraca.estaCreado()) {
+            unJugador.terminarTurno(juego);
+            unJugador2.terminarTurno(juego);
+        }
+        
         dragon.atacar(barraca.getParcela());
         unJugador.terminarTurno(juego);
 

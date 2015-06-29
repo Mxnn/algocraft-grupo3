@@ -130,8 +130,13 @@ public class GolliatTest {
         }
 
         Espectro espectro = puerto.crearEspectro(mapa);
+       
+        while(!espectro.estaCreado()){
+            unJugador2.terminarTurno(juego);
+            unJugador.terminarTurno(juego);
+        }
+        
         unJugador2.terminarTurno(juego);
-
         golliat.atacar(espectro.getParcela());
         unJugador.terminarTurno(juego);
         

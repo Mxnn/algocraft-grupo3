@@ -186,6 +186,7 @@ public class EspectroTest {
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        unJugador2.sumarMinerales(999);
         for(int i= 0; i<=7; i++){
         	unJugador.terminarTurno(juego);
         	unJugador2.terminarTurno(juego);
@@ -197,10 +198,16 @@ public class EspectroTest {
             unJugador2.terminarTurno(juego);
         }
         unJugador.terminarTurno(juego);
-        Interactuable barraca = new Barraca(unJugador2);
-        mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
-
         unJugador2.terminarTurno(juego);
+        Interactuable barraca = unJugador2.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(1,1));
+//        mapa.ubicarElementoEnParcela(new Coordenada(1,1), barraca);
+
+        while(!barraca.estaCreado()) {
+            unJugador.terminarTurno(juego);
+            unJugador2.terminarTurno(juego);
+        }
+        
+        
         espectro.atacar(barraca.getParcela());
 
         unJugador.terminarTurno(juego);

@@ -48,6 +48,10 @@ public class AtaqueRadiacionTest {
 	    Interactuable dragon = new Dragon(unJugador);
 	    mapa.ubicarElementoEnParcela(new Coordenada (1,1), dragon);
 
+	    while(!dragon.estaCreado()){
+	    	unJugador.terminarTurno(juego);
+	    }
+	    
 	    Ataque radiacion = new AtaqueRadiacion(dragon.getParcela());
 
 	    radiacion.tareaDeEntreTurno(mapa);
@@ -67,6 +71,10 @@ public class AtaqueRadiacionTest {
 	    }
 	    Interactuable marine = new Marine(unJugador2);
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,1), marine);
+	    
+	    while(!marine.estaCreado()){
+	    	unJugador2.terminarTurno(juego);
+	    }
 
 	    Ataque radiacion = new AtaqueRadiacion(marine.getParcela());
 	     
@@ -91,6 +99,10 @@ public class AtaqueRadiacionTest {
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,1), marine);
 	    Interactuable marine2 = new Marine(unJugador2);
 	    Interactuable marine3 = new Marine(unJugador2);
+	    
+	    while(!marine.estaCreado()){
+	    	unJugador2.terminarTurno(juego);
+	    }
 
 	    Ataque radiacion = new AtaqueRadiacion(marine.getParcela());
 
@@ -128,6 +140,10 @@ public class AtaqueRadiacionTest {
 	    mapa.ubicarElementoEnParcela(new Coordenada(6,6), marine);
 	    mapa.ubicarElementoEnParcela(new Coordenada(1,1), marine3);
 	    mapa.ubicarElementoEnParcela(new Coordenada(3,3), marine2);
+	    
+	    while(!marine.estaCreado()){
+	    	unJugador2.terminarTurno(juego);
+	    }
 
 	    Ataque radiacion = new AtaqueRadiacion(marine.getParcela());
 

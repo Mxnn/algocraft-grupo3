@@ -92,6 +92,10 @@ public class AtaqueTormentaPsionicaTest {
 	        }
 	     Interactuable golliat = new Golliat(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), golliat);
+	     while(!golliat.estaCreado()){
+	        	
+	    	 unJugador2.terminarTurno(juego);
+	        }
 	     
 	     Ataque tormenta = new AtaqueTormentaPsionica(golliat.getParcela());
 	     
@@ -116,7 +120,10 @@ public class AtaqueTormentaPsionicaTest {
 	     Interactuable golliat = new Golliat(unJugador2);
 	     mapa.ubicarElementoEnParcela(new Coordenada(1,1), golliat);
 
-	     
+	     while(!golliat.estaCreado()){
+	        	
+	    	 unJugador2.terminarTurno(juego);
+	        }
 	     Ataque tormenta = new AtaqueTormentaPsionica(golliat.getParcela());
 	     
 	     tormenta.tareaDeEntreTurno(mapa);

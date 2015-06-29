@@ -30,7 +30,7 @@ public class AtaqueEMP extends Ataque {
 
     @Override
 	public void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance{
-		enemigo.recibirEmp();
+    	enemigo.recibirEmp();
 	}
 }
 

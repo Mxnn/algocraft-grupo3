@@ -32,7 +32,8 @@ public abstract class Ataque{
     		Parcela parcela = (this.listaParcelas).get(i);
 			if(!parcela.estaVacia()){
 				Interactuable enemigo = parcela.devolverElemento();
-				enemigo.recibirAtaque(this);
+				if(enemigo.estaCreado())
+					enemigo.recibirAtaque(this);
 			}
 		}
 	}

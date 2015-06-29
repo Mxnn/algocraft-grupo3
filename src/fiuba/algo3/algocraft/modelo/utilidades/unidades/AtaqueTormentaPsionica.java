@@ -30,6 +30,6 @@ public class AtaqueTormentaPsionica extends Ataque {
 
     @Override
 	public void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto,ExcepcionEnemigoFueraDeAlcance {
-		enemigo.recibirDanyo(DANYO_POR_TURNO);
+    	enemigo.recibirDanyo(DANYO_POR_TURNO);
 	}
 }

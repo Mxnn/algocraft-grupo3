@@ -35,6 +35,6 @@ public class AtaqueComun extends Ataque {
 
     @Override
 	public void atacar(Unidad enemigo) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
-	this.danyar(enemigo);
+    	this.danyar(enemigo);
 }
 }
