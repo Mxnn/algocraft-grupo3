@@ -2,7 +2,11 @@ package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.vista.acciones.VistaAcciones;
+
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
@@ -24,5 +28,12 @@ public abstract class VistaBotonInteractuable extends JButton {
     	VistaAcciones vistaAcciones = new VistaAcciones(modelo);
     	this.vistaAcciones = vistaAcciones;
         return vistaAcciones;
+    }
+    
+    public void removeAllActionListeners(){
+    	ActionListener[] listeners = this.getActionListeners(); 
+    	for( ActionListener al : listeners) {
+            this.removeActionListener( al );
+        }
     }
 }

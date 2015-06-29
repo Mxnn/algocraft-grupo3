@@ -189,9 +189,10 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     			//VER POR QUE ESTO DA ERROR AL MOVER, SE SUPONE QUE LAS COSAS SE MUEVEN ANTES
     			if(!parcela.estaVacia() && parcela.devolverElemento().estaCreado()){
     					this.activarBoton(parcela.getCoordenada());
-    			}else if(parcela.estaVacia()){
-    				this.desinscribirElemento(new Coordenada(x,y));
     			}
+//    			else if(parcela.estaVacia()){
+//    				this.desinscribirElemento(new Coordenada(x,y));
+//    			}
     		}
 		}
 		this.repaint();
@@ -205,12 +206,12 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 	
 	public void activarBoton(Coordenada coordenada){
 		JPanel panelParcela = this.getPanel(coordenada);
-		if(panelParcela.getComponentCount()>1){
-			Component boton = panelParcela.getComponent(1);
-			boton.setEnabled(true);
-		}
-//		Component boton = panelParcela.getComponent(1);
-//		boton.setEnabled(true);
+//		if(panelParcela.getComponentCount()>1){
+//			Component boton = panelParcela.getComponent(1);
+//			boton.setEnabled(true);
+//		}
+		Component boton = panelParcela.getComponent(1);
+		boton.setEnabled(true);
 	}
 
 	
@@ -227,6 +228,14 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 	@Override
 	public void crearVistaParcela(ParcelaVolcan parcela) {
 		this.pintarParcela(parcela.getCoordenada(), PARCELA_VOLCAN);
+	}
+	
+	@Override
+	public void detectarMovimiento(Coordenada origen, Coordenada destino) {
+		VistaBotonInteractuable botonOrigen = this.getBoton(origen);
+		this.desinscribirElemento(origen);
+		botonOrigen.removeAllActionListeners();
+		this.agregarUnidad(botonOrigen, destino);
 	}
 
 	//TODOS ESTOS METODOS PODRIAN IR EN EL REPRESENTADOR Y QUE SEA EL EL OBSERVADOR
@@ -398,12 +407,7 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 		this.agregarUnidad(buttonActual, coordenada);		
 	}
 
-	@Override
-	public void detectarMovimiento(Coordenada origen, Coordenada destino) {
-		VistaBotonInteractuable botonOrigen = this.getBoton(origen);
-		this.desinscribirElemento(origen);
-		this.agregarBoton(botonOrigen, this.getPanel(destino));
-	}
+
 
 
 //	@Override
