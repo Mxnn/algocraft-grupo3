@@ -11,7 +11,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 public abstract class VistaBotonInteractuable extends JButton {
-	protected VistaAcciones vistaAcciones;
 
 	public VistaBotonInteractuable() {
         super();
@@ -26,7 +25,6 @@ public abstract class VistaBotonInteractuable extends JButton {
 
     public VistaAcciones getVistaDeAcciones(Juego modelo) {
     	VistaAcciones vistaAcciones = new VistaAcciones(modelo);
-    	this.vistaAcciones = vistaAcciones;
         return vistaAcciones;
     }
     

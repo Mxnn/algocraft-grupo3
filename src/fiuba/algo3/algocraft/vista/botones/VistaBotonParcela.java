@@ -15,8 +15,6 @@ public class VistaBotonParcela extends VistaBotonInteractuable {
 
     public VistaAccionesParcelaVacia getVistaDeAcciones(Juego modelo) {
     	VistaAccionesParcelaVacia vistaAcciones = new VistaAccionesParcelaVacia(modelo, this.ubicacion);
-    	this.vistaAcciones = vistaAcciones;
-
     	return vistaAcciones;
     }
 }
