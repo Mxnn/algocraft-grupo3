@@ -45,7 +45,7 @@ public class Jugador {
     private int mineral;
     
     public Jugador(String nombre, Color color, Raza raza) throws ExcepcionNombreCorto {
-        if (nombre.length() < this.LONGITUD_MINIMA_PARA_EL_NOMBRE)
+        if (nombre.length() < LONGITUD_MINIMA_PARA_EL_NOMBRE)
             throw new ExcepcionNombreCorto();
 
         this.nombre = nombre;
@@ -73,6 +73,7 @@ public class Jugador {
         mapa.ubicarElementoEnParcela(coordenada, unExtractorGas);
         this.deducirCostos(unExtractorGas.getCosto());
 		construcciones.add(unExtractorGas);
+        this.raza.confirmarCreacionDeConstruccion();
 
         return unExtractorGas;
 	}
@@ -83,6 +84,8 @@ public class Jugador {
         mapa.ubicarElementoEnParcela(coordenada, unExtractorMineral);
         this.deducirCostos(unExtractorMineral.getCosto());
 		construcciones.add(unExtractorMineral);
+        this.raza.confirmarCreacionDeConstruccion();
+
 
         return unExtractorMineral;
 	}
@@ -93,6 +96,7 @@ public class Jugador {
         mapa.ubicarElementoEnParcela(coordenada, adicionalSuministros);
         this.deducirCostos(adicionalSuministros.getCosto());
         construcciones.add(adicionalSuministros);
+        this.raza.confirmarCreacionDeConstruccion();
 
         return adicionalSuministros;
     }
@@ -103,6 +107,7 @@ public class Jugador {
         mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesBasicas);
         this.deducirCostos(creadorDeUnidadesBasicas.getCosto());
         construcciones.add(creadorDeUnidadesBasicas);
+        this.raza.confirmarCreacionDeConstruccion();
 
         return creadorDeUnidadesBasicas;
     }
@@ -113,6 +118,7 @@ public class Jugador {
         mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesTerrestres);
         this.deducirCostos(creadorDeUnidadesTerrestres.getCosto());
         construcciones.add(creadorDeUnidadesTerrestres);
+        this.raza.confirmarCreacionDeConstruccion();
 
         return creadorDeUnidadesTerrestres;
     }
@@ -123,6 +129,7 @@ public class Jugador {
         mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesAereas);
         this.deducirCostos(creadorDeUnidadesAereas.getCosto());
         construcciones.add(creadorDeUnidadesAereas);
+        this.raza.confirmarCreacionDeConstruccion();
 
         return creadorDeUnidadesAereas;
     }

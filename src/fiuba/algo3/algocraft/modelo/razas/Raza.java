@@ -40,4 +40,10 @@ public abstract class Raza {
 		if(this.observadores.size()<1)
 			this.observadores.add(observador);
 	}
+
+    public void confirmarCreacionDeConstruccion() {
+        for (ObservadorMapa observador: this.observadores) {
+            observador.agregarConstruccionEnEspera();
+        }
+    }
 }
