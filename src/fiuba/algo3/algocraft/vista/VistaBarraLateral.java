@@ -17,6 +17,7 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
     private static final String LABEL_MINERALES = "Minerales:";
     private static final String LABEL_GAS = "Gas:";
     private static final String LABEL_POBLACION = "Poblacion/MAX:";
+	private static final int INDICE_ERROR = 1;
 
     private Juego modelo;
 
@@ -260,7 +261,7 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
 
         this.colorearNombres(this.modelo);
 
-        this.setSelectedIndex(0);
+//        this.setSelectedIndex(0);
         this.repaint();
 	}
 
@@ -281,14 +282,14 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
 	}
 	
 	public void displayError(String msg){
-		this.setSelectedIndex(2);
+		this.setSelectedIndex(INDICE_ERROR);
 		this.error.setText(msg);
 		this.repaint();
 	}
 
     @Override
     public void actualizarRecursos() {
-        this.setSelectedIndex(0);
+//        this.setSelectedIndex(0);
         this.refrescar();
         this.repaint();
     }
