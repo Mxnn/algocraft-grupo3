@@ -2,6 +2,8 @@ COSAS A CAMBIAR
 
 DIAGRAMAS DE LA VISTA 
 
+BARRA LATERAL deshabilitar cuanod el juego todavia no comenzo
+
 EXCEPCIONES que deberiamos pasar a runtime porque con la vista ya no pueden pasar y no tiene sentido hacerles catch si o si.
 
 DATOS JUGADOR no se actualizan en tiempo real, solo cuando termina el turno(no se si esta mal, despues de todo la construccion se hace al finalizar el turno, no deberia ser en tiempo real todo)
@@ -20,6 +22,5 @@ Vista de REFERENCIAS
 
 Los muertos no desaparecen de la vista.
 
-poner todo(informacion y ataques) en una misma tab.
 
 
