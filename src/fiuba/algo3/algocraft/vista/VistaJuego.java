@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 import fiuba.algo3.algocraft.controlador.CerrarFrameListener;
 import fiuba.algo3.algocraft.controlador.Controlador;
+import fiuba.algo3.algocraft.controlador.CreadoresListener;
 import fiuba.algo3.algocraft.controlador.NuevoJuegoListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
@@ -74,6 +75,7 @@ public class VistaJuego implements ObservadorJuego {
         JMenu mnAcerca = new JMenu("Acerca De..");
         JMenuItem iCreadores = new JMenuItem("Creadores");
         mnAcerca.add(iCreadores);
+        iCreadores.addActionListener(new CreadoresListener());         
         JMenuItem iReferencias = new JMenuItem("Referencias");
         mnAcerca.add(iReferencias);
 
