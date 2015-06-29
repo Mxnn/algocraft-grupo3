@@ -47,7 +47,7 @@ public class VistaJuego implements ObservadorJuego {
 
         JFrame ventanaPrincipal= new JFrame("AlgoCraft");
         this.ventanaPrincipal = ventanaPrincipal;
-        ventanaPrincipal.setSize(1000,700);
+        ventanaPrincipal.setSize(1024,778);
         
         VistaMapa vistaMapa = new VistaMapa(controlador ,this.modelo.getMapa());
         this.vistaMapa = vistaMapa;

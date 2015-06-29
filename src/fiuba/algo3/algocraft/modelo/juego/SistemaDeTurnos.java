@@ -49,7 +49,7 @@ public class SistemaDeTurnos {
         this.tareasDeEntreturno();
     }
 
-    private void tareasDeEntreturno() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa{
+    private void tareasDeEntreturno() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
     	
     	ArrayList<Ataque> ataques = new ArrayList<Ataque>();
     	for (Jugador j: this.jugadores) {
@@ -64,10 +64,18 @@ public class SistemaDeTurnos {
                 i.tareaDeEntreTurno(this.mapa);
             }
         }
-        
+        Boolean huboExcepcionAtaque = false;
         for (Ataque i: ataques) {
-            i.tareaDeEntreTurno(this.mapa);
+            try {
+				i.tareaDeEntreTurno(this.mapa);
+			}  catch (ExcepcionEnemigoFueraDeAlcance e) {
+				huboExcepcionAtaque = true;
+				continue;
+			}
         }
+        if(huboExcepcionAtaque)
+        	throw new ExcepcionEnemigoFueraDeAlcance();
+
     }
 
 

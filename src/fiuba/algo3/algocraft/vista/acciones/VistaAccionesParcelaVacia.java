@@ -7,7 +7,6 @@ import fiuba.algo3.algocraft.controlador.CrearAdicionalDeSuministroListener;
 import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesMagicasListener;
 import fiuba.algo3.algocraft.controlador.CrearExtractorGasListener;
 import fiuba.algo3.algocraft.controlador.CrearExtractorMineralListener;
-import fiuba.algo3.algocraft.controlador.DestinacionListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import java.awt.GridBagConstraints;

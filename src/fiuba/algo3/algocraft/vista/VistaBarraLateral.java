@@ -38,7 +38,7 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
 		//hay que modificar para que el tabbedPane se cree desde este constructor
         representador = new Representador();
         int y=0;
-        this.setBounds(627, 0, 281, 641);
+        this.setBounds(627, 0, 355, 641);
         JPanel panelInfo = new JPanel();
 
         this.addTab("Informacion", panelInfo);

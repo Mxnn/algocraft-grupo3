@@ -6,4 +6,6 @@ public interface ObservadorJuego {
 	public abstract void nuevoTurno();
 
 	public abstract void hayPerdedor(Jugador perdedor);
+	
+	public abstract void displayError(String mensaje);
 }

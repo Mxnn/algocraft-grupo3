@@ -45,18 +45,8 @@ public class ControladorAccionPorTurno {
     	this.unidad = null;
     }
     
-    public void ejecutarAccionDeTurno(Mapa mapa, Coordenada target) throws ExcepcionEnergiaInsuficiente{
-    	try {
-    		if(this.unidad != null){
+    public void ejecutarAccionDeTurno(Mapa mapa, Coordenada target) throws ExcepcionEnergiaInsuficiente, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
     			this.comando.ejectutar(this.unidad, mapa, target);
-    			this.unidad = null;
-    		}
-		}  catch (ExcepcionEnemigoFueraDeAlcance e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExcepcionEstadoMuerto e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
+    			this.unidad = null;	
+   	}
 }

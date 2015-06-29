@@ -5,7 +5,6 @@ import java.awt.Insets;
 
 import javax.swing.JButton;
 
-import fiuba.algo3.algocraft.controlador.DestinacionListener;
 import fiuba.algo3.algocraft.controlador.ObjetivoListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;

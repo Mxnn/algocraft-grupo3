@@ -10,9 +10,10 @@ import fiuba.algo3.algocraft.vista.VistaMapa;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TerminarTurnoListener implements ActionListener {
+public class TerminarTurnoListener extends JuegoListener {
     private Juego modelo;
     public TerminarTurnoListener(Juego modelo) {
+    	super(modelo);
         this.modelo = modelo;
 
     }
@@ -25,8 +26,6 @@ public class TerminarTurnoListener implements ActionListener {
             //estos los podemos hacer runtime, no podrian pasar nunca creo
         } catch (ExcepcionEstadoMuerto excepcionEstadoMuerto) {
 //            JOptionPane.showMessageDialog(this.frame, "...");
-        } catch (ExcepcionEnemigoFueraDeAlcance exc) {
-        	exc.getMessage();
-        } 
+        }
     }
 }
