@@ -23,7 +23,6 @@ public class VistaJuego implements ObservadorJuego {
     private static VistaJuego INSTANCIA = null;
 
 	private Juego modelo;
-    private Controlador controlador;
     private VistaMapa vistaMapa;
     private JFrame ventanita;
     private VistaBarraLateral barraLateral;
@@ -43,18 +42,14 @@ public class VistaJuego implements ObservadorJuego {
         return INSTANCIA;
     }
 
-	private VistaJuego(Juego elJuego, Controlador elControlador)  {
+	private VistaJuego(Juego elJuego, Controlador controlador)  {
         this.modelo = elJuego;
-        this.controlador = elControlador;
-
-//        int columnas = this.modelo.getMapa().getColumnas();
-//        int filas = this.modelo.getMapa().getFilas();
 
         JFrame ventanita= new JFrame("AlgoCraft");
         this.ventanita = ventanita;
         ventanita.setSize(1000,700);
         
-        VistaMapa vistaMapa = new VistaMapa(this.controlador,this.modelo.getMapa());
+        VistaMapa vistaMapa = new VistaMapa(controlador ,this.modelo.getMapa());
         this.vistaMapa = vistaMapa;
         vistaMapa.setBackground(new Color(240, 240, 240));
         ventanita.getContentPane().add(vistaMapa);
@@ -85,7 +80,7 @@ public class VistaJuego implements ObservadorJuego {
         //esto habria que [ponerlo cuando se inicie el juego pero lo pongo aca para probar
 //        panelDeParcela.setParcelas(this.modelo.getMapa());
 
-        this.barraLateral = new VistaBarraLateral(this.controlador);
+        this.barraLateral = new VistaBarraLateral();
         barraLateral.setLocation(666, 0);
         ventanita.getContentPane().add(barraLateral);
         this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo));
@@ -146,16 +141,12 @@ public class VistaJuego implements ObservadorJuego {
 		this.ventanita.repaint();
 	}
 
-
 	public void nuevoTurno() {
 		this.refrescar();
-		
 	}
-
 
 	public void hayPerdedor(Jugador perdedor) {
 		// TODO Auto-generated method stub
 		//PONER CODIGO QUE MUESTRE UNA VENTANA O ALGO
-		
 	}
 }
