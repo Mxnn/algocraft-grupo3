@@ -18,6 +18,7 @@ import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
+import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.vista.botones.*;
@@ -232,14 +233,18 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 		this.agregarUnidad(botonOrigen, destino);
 	}
 
-	//TODOS ESTOS METODOS PODRIAN IR EN EL REPRESENTADOR Y QUE SEA EL EL OBSERVADOR
+	private void ponerColorDeLetraAdecuado(VistaBotonInteractuable boton, Interactuable interactuable) {
+        boton.setForeground(this.representador.getColorTexto(interactuable.getPropietario()));
+    }
+
     @Override
     public void crearConstruccion(Construccion construccion) {
         VistaBotonInteractuable boton;
         try {
             Class<?> claseBoton = this.representador.getClaseBoton(construccion);
             boton = (VistaBotonInteractuable) claseBoton.getDeclaredConstructor(construccion.getClass()).newInstance(construccion);
-            boton.setForeground(this.representador.getColorTexto(construccion.getPropietario()));
+            this.ponerColorDeLetraAdecuado(boton, construccion);
+
             this.botonEnEspera = boton;
         } catch (InstantiationException e) {
             e.printStackTrace();
@@ -258,7 +263,8 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
         try {
             Class<?> claseBoton = this.representador.getClaseBoton(unidad);
             boton = (VistaBotonInteractuable) claseBoton.getDeclaredConstructor(unidad.getClass()).newInstance(unidad);
-            boton.setForeground(this.representador.getColorTexto(unidad.getPropietario()));
+            this.ponerColorDeLetraAdecuado(boton, unidad);
+
             Coordenada coordenada = unidad.getParcela().getCoordenada();
             this.agregarUnidad(boton, coordenada);
         } catch (InstantiationException e) {

@@ -13,30 +13,8 @@ public interface ObservadorMapa {
 	public void crearVistaParcela(ParcelaVolcan parcela);
 
     public void agregarConstruccionEnEspera();
+
     public void crearConstruccion(Construccion construccion);
-	/*public void crearInteractuable(ArchivosTemplarios archivo);
-	public void crearInteractuable(PuertoEstelar puertoEstelar);
-	public void crearInteractuable(Fabrica fabrica);
-	public void crearInteractuable(Barraca barraca);
-	public void crearInteractuable(DepositoSuministro depositoSuministro);
-	public void crearInteractuable(CentroDeMineral centroDeMineral);
-	public void crearInteractuable(Refineria refineria);
-	public void crearInteractuable(PuertoEstelarProtoss puerto);
-	public void crearInteractuable(Acceso acceso);
-	public void crearInteractuable(Pilon pilon);
-	public void crearInteractuable(NexoMineral nexoMineral);
-	public void crearInteractuable(Asimilador asimilador);
-	
-	public void crearInteractuable(AltoTemplario templario);
-	public void crearInteractuable(Dragon dragon);
-	public void crearInteractuable(Espectro espectro);
-	public void crearInteractuable(Golliat gollait);
-	public void crearInteractuable(Marine marine);
-	public void crearInteractuable(NaveCiencia nave);
-	public void crearInteractuable(NaveTransporteProtoss nave);
-	public void crearInteractuable(NaveTransporteTerran nave);
-	public void crearInteractuable(Scout scout);
-	public void crearInteractuable(Zealot zealot);*/
     public void crearUnidad(Unidad unidad);
 
 	public void seleccionarCoordenada(int x, int y);
