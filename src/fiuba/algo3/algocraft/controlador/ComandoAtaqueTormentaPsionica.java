@@ -9,7 +9,7 @@ import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 
-public class ComandoAtaqueTormentaPsionica extends ComandoAtaque {
+public class ComandoAtaqueTormentaPsionica extends ComandoAccionPorTurno {
 	
 	@Override
 	public void ejectutar(Unidad unidad, Mapa mapa,Coordenada coordenadaObjetivo)throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionEnergiaInsuficiente{

@@ -7,11 +7,11 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 
 public class LanzarTormentaPsionicaListener implements ActionListener {
     private Unidad representado;
-	private ControladorAtacar controladorAtacar;
+	private ControladorAccionPorTurno controladorAtacar;
 	
 	public LanzarTormentaPsionicaListener(Unidad representado){
 		this.representado = representado;
-		this.controladorAtacar = ControladorAtacar.createInstance();
+		this.controladorAtacar = ControladorAccionPorTurno.createInstance();
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {

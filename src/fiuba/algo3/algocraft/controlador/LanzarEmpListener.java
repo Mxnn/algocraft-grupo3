@@ -8,16 +8,16 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 
 public class LanzarEmpListener implements ActionListener {
     private Unidad representado;
-	private ControladorAtacar controladorAtacar;
+	private ControladorAccionPorTurno controladorAccionPorTurno;
 	
 	public LanzarEmpListener(Unidad representado){
 		this.representado = representado;
-		this.controladorAtacar = ControladorAtacar.createInstance();
+		this.controladorAccionPorTurno = ControladorAccionPorTurno.createInstance();
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.controladorAtacar.setUnidad(this.representado);
-		this.controladorAtacar.setComando(new ComandoAtaqueEMP());
+		this.controladorAccionPorTurno.setUnidad(this.representado);
+		this.controladorAccionPorTurno.setComando(new ComandoAtaqueEMP());
 		
 	}
 

@@ -9,20 +9,20 @@ import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 
 public class ObjetivoListener implements ActionListener {
-	private ControladorAtacar controladorAtacar;
+	private ControladorAccionPorTurno controladorAccionPorTurno;
 	private Coordenada ubicacion;
 	private Juego modelo;
 	
 	public ObjetivoListener(Juego modelo,Coordenada ubicacionParcela){
 		this.modelo = modelo;
 		this.ubicacion = ubicacionParcela;
-//		this.controladorAtacar = ControladorAtacar.createInstance();
+//		this.controladorAtacar = ControladorAccionPorTurno.createInstance();
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
-			ControladorAtacar.createInstance().atacar(this.modelo.getMapa(),this.ubicacion);
+			ControladorAccionPorTurno.createInstance().ejecutarAccionDeTurno(this.modelo.getMapa(),this.ubicacion);
 		} catch (ExcepcionEnergiaInsuficiente e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

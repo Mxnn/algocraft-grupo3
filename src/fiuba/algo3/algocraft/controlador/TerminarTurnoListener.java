@@ -21,6 +21,7 @@ public class TerminarTurnoListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try {
         	modelo.pasarTurno(this.modelo.getJugadorQueJuega());
+        	ControladorAccionPorTurno.createInstance().resetControlador();
             //estos los podemos hacer runtime, no podrian pasar nunca creo
         } catch (ExcepcionEstadoMuerto excepcionEstadoMuerto) {
 //            JOptionPane.showMessageDialog(this.frame, "...");

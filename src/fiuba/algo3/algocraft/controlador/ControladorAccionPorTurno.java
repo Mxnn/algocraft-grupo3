@@ -10,30 +10,30 @@ import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 
-public class ControladorAtacar {
-	private static ControladorAtacar INSTANCIA = null;
+public class ControladorAccionPorTurno {
+	private static ControladorAccionPorTurno INSTANCIA = null;
 
 	private Unidad unidad;
-	private ComandoAtaque comando;
+	private ComandoAccionPorTurno comando;
 	
-    public ControladorAtacar() {
+    public ControladorAccionPorTurno() {
     	
 
 	}
 
-	public static ControladorAtacar createInstance() {
+	public static ControladorAccionPorTurno createInstance() {
         if (INSTANCIA == null) {
-            INSTANCIA = new ControladorAtacar();
+            INSTANCIA = new ControladorAccionPorTurno();
         }
 
         return INSTANCIA;
     }
 	
-    public static ControladorAtacar getInstance() {
+    public static ControladorAccionPorTurno getInstance() {
         return INSTANCIA;
     }
     
-    public void setComando(ComandoAtaque comando){
+    public void setComando(ComandoAccionPorTurno comando){
     	this.comando = comando;
     }
     
@@ -41,7 +41,11 @@ public class ControladorAtacar {
     	this.unidad = representado;
     }
     
-    public void atacar(Mapa mapa, Coordenada target) throws ExcepcionEnergiaInsuficiente{
+    public void resetControlador(){
+    	this.unidad = null;
+    }
+    
+    public void ejecutarAccionDeTurno(Mapa mapa, Coordenada target) throws ExcepcionEnergiaInsuficiente{
     	try {
     		if(this.unidad != null){
     			this.comando.ejectutar(this.unidad, mapa, target);

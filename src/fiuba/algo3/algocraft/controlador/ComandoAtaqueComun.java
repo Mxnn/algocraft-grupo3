@@ -8,7 +8,7 @@ import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 
-public class ComandoAtaqueComun extends ComandoAtaque {
+public class ComandoAtaqueComun extends ComandoAccionPorTurno {
 
 	@Override
 	public void ejectutar(Unidad unidad, Mapa mapa,Coordenada coordenadaObjetivo) throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto {

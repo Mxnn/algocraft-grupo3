@@ -10,7 +10,7 @@ import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveCiencia;
 
-public class ComandoAtaqueEMP extends ComandoAtaque {
+public class ComandoAtaqueEMP extends ComandoAccionPorTurno {
 
 	@Override
 	public void ejectutar(Unidad unidad, Mapa mapa,Coordenada coordenadaObjetivo)throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionEnergiaInsuficiente{

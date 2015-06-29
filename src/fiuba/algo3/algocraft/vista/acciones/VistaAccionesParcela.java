@@ -15,20 +15,20 @@ public class VistaAccionesParcela extends VistaAcciones {
 	public VistaAccionesParcela(Juego modelo, Coordenada ubicacionParcela) {
 		super(modelo);
 		
-		JButton btnDestinacion = new JButton("Destinacion");
-		btnDestinacion.addActionListener(new DestinacionListener(ubicacionParcela));
-		GridBagConstraints gbc_btnDestinacion = new GridBagConstraints();
-		gbc_btnDestinacion.insets = new Insets(0, 0, 5, 0);
-		gbc_btnDestinacion.gridx = 0;
-		gbc_btnDestinacion.gridy = 7;
-		add(btnDestinacion, gbc_btnDestinacion);
+//		JButton btnDestinacion = new JButton("Destinacion");
+//		btnDestinacion.addActionListener(new DestinacionListener(modelo,ubicacionParcela));
+//		GridBagConstraints gbc_btnDestinacion = new GridBagConstraints();
+//		gbc_btnDestinacion.insets = new Insets(0, 0, 5, 0);
+//		gbc_btnDestinacion.gridx = 0;
+//		gbc_btnDestinacion.gridy = 7;
+//		add(btnDestinacion, gbc_btnDestinacion);
 		
 		JButton btnObjetivo = new JButton("Objetivo");
 		btnObjetivo.addActionListener(new ObjetivoListener(modelo,ubicacionParcela));
 		GridBagConstraints gbc_btnObjetivo = new GridBagConstraints();
 		gbc_btnObjetivo.insets = new Insets(0, 0, 5, 0);
 		gbc_btnObjetivo.gridx = 0;
-		gbc_btnObjetivo.gridy = 8;
+		gbc_btnObjetivo.gridy = 7;
 		add(btnObjetivo, gbc_btnObjetivo);
 	}
 
