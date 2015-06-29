@@ -142,24 +142,6 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     	}
     	
     }
-
-//    private void escribirElemento(Interactuable i,int x,int y){
-//    	JButton buttonActual = this.representador.getCodigo(i);
-//    	
-//    	JPanel panelParcela = this.getPanel(new Coordenada(x,y));
-//    	
-//    	ParcelaListener l = this.controlador.getParcelaListener();
-//    	l.setCoordenadasBoton(x,y);
-//    	buttonActual.addActionListener(l);
-//        buttonActual.setForeground(this.representador.getColorTexto(i.getPropietario()));
-//        
-//        if(!i.estaCreado()){
-//        	buttonActual.setEnabled(false); 
-//        }
-//        panelParcela.add(buttonActual, BOTON_INTERACTUABLE);
-//        CardLayout cl = (CardLayout) panelParcela.getLayout();
-//        cl.show(panelParcela, BOTON_INTERACTUABLE);
-//    }
     
     private void desinscribirElemento(Coordenada coordenada){  //metodo para limpiar la parcela si la unidad se mueve en otra parcela
     	JPanel panelParcela = this.getPanel(coordenada);
@@ -175,19 +157,13 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 		for(int x=0; x<this.columnas; x++){
     		for(int y=0; y<this.filas; y++){
     			Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y));
-//    			if(!parcela.estaVacia() && (parcela.devolverElemento().getClass().getSuperclass() == Unidad.class)){
-//    				this.escribirElemento(parcela.devolverElemento(),x,y);
-//    			}
-//    			else{
-//    				this.desinscribirElemento(x, y);
-//    			}
-    			//VER POR QUE ESTO DA ERROR AL MOVER, SE SUPONE QUE LAS COSAS SE MUEVEN ANTES
+    			//PROBABLEMENTE HAYA QUE CAMBIAR ESTO
     			if(!parcela.estaVacia() && parcela.devolverElemento().estaCreado()){
     					this.activarBoton(parcela.getCoordenada());
     			}
-//    			else if(parcela.estaVacia()){
-//    				this.desinscribirElemento(new Coordenada(x,y));
-//    			}
+    			else if(parcela.estaVacia()){
+    				this.desinscribirElemento(new Coordenada(x,y));
+    			}
     		}
 		}
 		this.repaint();

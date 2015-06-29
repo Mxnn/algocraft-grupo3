@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft.vista.acciones;
 
+import fiuba.algo3.algocraft.controlador.LanzarRadiacionListener;
+import fiuba.algo3.algocraft.controlador.LanzarTormentaPsionicaListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
 
@@ -21,6 +23,7 @@ public class VistaAccionesAltoTemplario extends VistaAccionesUnidad {
 		this.habilitarBoton(btnAlucinacion, representado);
 
 		JButton btnTormenta = new JButton("Tormenta Psionica");
+		btnTormenta.addActionListener(new LanzarTormentaPsionicaListener(representado));
 		GridBagConstraints gbc_btnRadiacion = new GridBagConstraints();
 		gbc_btnRadiacion.insets = new Insets(0, 0, 5, 0);
 		gbc_btnRadiacion.gridx = 0;
