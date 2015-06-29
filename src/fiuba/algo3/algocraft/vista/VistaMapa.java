@@ -62,8 +62,6 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
             buttonActual.addActionListener(l);
             l.setCoordenadasBoton(x,y);
 	        listaBotonesParcela.add(buttonActual);
-	        
-//			this.add(buttonActual);
 
 	        JPanel panelBotones = new JPanel();
 	        panelBotones.setLayout(new CardLayout());
@@ -99,42 +97,25 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     private void agregarConstruccion(VistaBotonInteractuable buttonActual){   
     	JPanel panelParcela = this.getPanel(this.coordenadaSeleccionada);
     	
-//    	if(panelParcela.getComponentCount() >1){
-//    		panelParcela.remove(1);
-//    	}
-    	
     	this.agregarBoton(buttonActual, panelParcela);
     	
     	ParcelaListener l = this.controlador.getParcelaListener();
     	l.setCoordenadasBoton(this.coordenadaSeleccionada.getX(), this.coordenadaSeleccionada.getY());
     	buttonActual.addActionListener(l);
-
-//        panelParcela.add(buttonActual, BOTON_INTERACTUABLE);
-//        CardLayout cl = (CardLayout) panelParcela.getLayout();
-//        cl.show(panelParcela, BOTON_INTERACTUABLE);
     }
     
     private void agregarUnidad(VistaBotonInteractuable buttonActual, Coordenada coordenada){   
     	JPanel panelParcela = this.getPanel(coordenada);
-    	
-//    	if(panelParcela.getComponentCount() >1){
-//    		panelParcela.remove(1);
-//    	}
     	
     	this.agregarBoton(buttonActual, panelParcela);
     	
     	ParcelaListener l = this.controlador.getParcelaListener();
     	l.setCoordenadasBoton(coordenada.getX(), coordenada.getY());
     	buttonActual.addActionListener(l);
-
-//        panelParcela.add(buttonActual, BOTON_INTERACTUABLE);
-//        CardLayout cl = (CardLayout) panelParcela.getLayout();
-//        cl.show(panelParcela, BOTON_INTERACTUABLE);
     }
     
     private void agregarBoton(VistaBotonInteractuable buttonActual, JPanel panelParcela){
     	if(!(panelParcela.getComponentCount() >1)){
-//    		panelParcela.remove(1);
     	
         panelParcela.add(buttonActual, BOTON_INTERACTUABLE);
         CardLayout cl = (CardLayout) panelParcela.getLayout();
@@ -147,9 +128,6 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     	JPanel panelParcela = this.getPanel(coordenada);
     	if(panelParcela.getComponentCount() >1)
     		panelParcela.remove(1);
-//    	Component boton = panelParcela.getComponent(1);
-//    	CardLayout cl = (CardLayout) panelParcela.getLayout();
-//        cl.removeLayoutComponent(boton);
     }
     
 	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa {
@@ -171,16 +149,11 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
 	
 	public void seleccionarCoordenada(int x, int y){
 		this.coordenadaSeleccionada = new Coordenada (x,y);
-		//JButton seleccionado = this.getButton(x, y);
 		
 	}
 	
 	public void activarBoton(Coordenada coordenada){
 		JPanel panelParcela = this.getPanel(coordenada);
-//		if(panelParcela.getComponentCount()>1){
-//			Component boton = panelParcela.getComponent(1);
-//			boton.setEnabled(true);
-//		}
 		Component boton = panelParcela.getComponent(1);
 		boton.setEnabled(true);
 	}
