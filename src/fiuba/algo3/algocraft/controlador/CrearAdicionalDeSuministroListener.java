@@ -19,17 +19,13 @@ public class CrearAdicionalDeSuministroListener extends ConstruccionListener {
         try {
 			this.modelo.getJugadorQueJuega().crearAdicionalDeSuministro(this.modelo.getMapa(), this.ubicacion);
 		} catch (ExcepcionRecursosInsuficientes e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			this.mostrarError(msjRecursosInsuficientes);
 		} catch (ExcepcionCoordenadaFueraDelMapa e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+            this.mostrarError("");
 		} catch (ExcepcionParcelaOcupada e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+            this.mostrarError(msjParcelaOcupada);
 		} catch (ExcepcionElementoNoAdmitidoEnParcela e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+            this.mostrarError(msjElementoNoAdmitido);
 		}
     }
 }

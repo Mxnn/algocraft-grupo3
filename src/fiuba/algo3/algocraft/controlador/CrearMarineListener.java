@@ -15,16 +15,12 @@ public class CrearMarineListener extends CreadorDeUnidadListener {
 	public void actionPerformed(ActionEvent arg0) {
 		try {
             ((Barraca) (this.construccion)).crearMarine(modelo.getMapa());
-		} catch (ExcepcionNoHaySuministrosDisponibles e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExcepcionNoHayLugarDisponible e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExcepcionEntidadEnConstruccion e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        } catch (ExcepcionNoHaySuministrosDisponibles e) {
+            this.mostrarError(msjNoHaySuministrosDisponible);
+        } catch (ExcepcionNoHayLugarDisponible e) {
+            this.mostrarError(msjNoHayLugarDisponible);
+        } catch (ExcepcionEntidadEnConstruccion e) {
+            this.mostrarError(msjEntidadEnConstruccion);
+        }
 	}
-
 }

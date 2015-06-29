@@ -20,20 +20,15 @@ public class CrearCreadorUnidadesAvanzadasListener extends ConstruccionListener 
         try {
 			this.modelo.getJugadorQueJuega().crearCreadorDeUnidadesAvanzadas(this.modelo.getMapa(), this.ubicacion);
 		} catch (ExcepcionConstruccionesRequeridasNoCreadas e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			this.mostrarError("El creador de unidades basicas no fue creado");
 		} catch (ExcepcionRecursosInsuficientes e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+            this.mostrarError(msjRecursosInsuficientes);
 		} catch (ExcepcionParcelaOcupada e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+            this.mostrarError(msjParcelaOcupada);
 		} catch (ExcepcionElementoNoAdmitidoEnParcela e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+            this.mostrarError(msjElementoNoAdmitido);
 		} catch (ExcepcionCoordenadaFueraDelMapa e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			this.mostrarError(msjCoordenadaFueraDelMapa);
 		}
     }
 }

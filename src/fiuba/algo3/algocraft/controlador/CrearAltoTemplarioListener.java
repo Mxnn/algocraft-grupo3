@@ -17,16 +17,12 @@ public class CrearAltoTemplarioListener extends CreadorDeUnidadListener {
 		try {
             ((ArchivosTemplarios) (this.construccion)).crearAltoTemplario(modelo.getMapa());
 		} catch (ExcepcionNoHaySuministrosDisponibles e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			this.mostrarError(msjNoHaySuministrosDisponible);
 		} catch (ExcepcionNoHayLugarDisponible e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            this.mostrarError(msjNoHayLugarDisponible);
 		} catch (ExcepcionEntidadEnConstruccion e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            this.mostrarError(msjEntidadEnConstruccion);
 		}
 	}
-
 }
 

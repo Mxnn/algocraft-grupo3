@@ -15,21 +15,16 @@ public class CrearExtractorMineralListener extends ConstruccionListener {
 
     @Override
     public void actionPerformed(ActionEvent e){
-			try {
-				this.modelo.getJugadorQueJuega().crearExtractorMineral(this.modelo.getMapa(), this.ubicacion);
-			} catch (ExcepcionCoordenadaFueraDelMapa e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (ExcepcionRecursosInsuficientes e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (ExcepcionElementoNoAdmitidoEnParcela e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (ExcepcionParcelaOcupada e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-
+		try {
+		    this.modelo.getJugadorQueJuega().crearExtractorMineral(this.modelo.getMapa(), this.ubicacion);
+        } catch (ExcepcionRecursosInsuficientes e1) {
+            this.mostrarError(msjRecursosInsuficientes);
+        } catch (ExcepcionParcelaOcupada e1) {
+            this.mostrarError(msjParcelaOcupada);
+        } catch (ExcepcionElementoNoAdmitidoEnParcela e1) {
+            this.mostrarError(msjElementoNoAdmitido);
+        } catch (ExcepcionCoordenadaFueraDelMapa e1) {
+            this.mostrarError(msjCoordenadaFueraDelMapa);
+        }
     }
 }
