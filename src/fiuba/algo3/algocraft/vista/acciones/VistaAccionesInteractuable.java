@@ -114,7 +114,7 @@ public class VistaAccionesInteractuable extends VistaAccionesParcela {
 	}
 	
 	public void setCapacidad(int max, int actual){
-		JLabel lblCapacidad = new JLabel("Energia");
+		JLabel lblCapacidad = new JLabel("Capacidad");
 		GridBagConstraints gbc_lblCapacidad = new GridBagConstraints();
 		gbc_lblCapacidad.insets = new Insets(0, 0, 5, 0);
 		gbc_lblCapacidad.gridx = 0;

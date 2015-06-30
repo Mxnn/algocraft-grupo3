@@ -24,8 +24,9 @@ public class VistaBotonClon extends VistaBotonRepresentante {
 
     	vistaAcciones.setVida(Clon.VIDA_INICIAL, this.elementoRepresentado.getVida());
     	
-    	int escudoActual = ((VitalidadProtoss) representado.getClonado().getVitalidad()).getEscudo();
-    	vistaAcciones.setEscudo(Dragon.ESCUDO_INICIAL, escudoActual);
+    	int escudoInicial = ((VitalidadProtoss) representado.getClonado().getVitalidad()).getEscudo();
+    	int escudoActual = ((VitalidadProtoss) representado.getVitalidad()).getEscudo();
+    	vistaAcciones.setEscudo(escudoInicial, escudoActual);
     	
         return vistaAcciones;
     }
