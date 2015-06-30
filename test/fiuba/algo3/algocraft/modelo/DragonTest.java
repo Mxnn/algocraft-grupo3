@@ -116,42 +116,6 @@ public class DragonTest {
         assertEquals(espectro.getVida(), 120-20);
     }
 
-    @Test(expected = ExcepcionEnemigoFueraDeAlcance.class)
-    public void atacarFueraDeRangoLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionParcelaVacia, ExcepcionUnidadParaDeMover {
-        Juego juego = new Juego();
-        Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
-        Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
-        juego.agregarJugador(unJugador);
-        juego.agregarJugador(unJugador2);
-        unJugador.sumarGasVespeno(999);
-        unJugador.sumarMinerales(999);
-        unJugador2.sumarGasVespeno(999);
-        unJugador2.sumarMinerales(999);
-        Mapa mapa = new Mapa(2, 6, 6);
-        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
-        unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-        for(int i= 0; i<=7; i++){
-        	unJugador.terminarTurno(juego);
-        	unJugador2.terminarTurno(juego);
-        }
-        UnidadAgresora dragon = new Dragon(unJugador);
-        while(!dragon.estaCreado()) {
-            unJugador.terminarTurno(juego);
-            unJugador2.terminarTurno(juego);
-        }
-        mapa.ubicarElementoEnParcela(new Coordenada(0,0), dragon);
-        unJugador.terminarTurno(juego);
-        Interactuable marine = new Marine(unJugador2);
-        mapa.ubicarElementoEnParcela(new Coordenada(5,0), marine);
-        while(!marine.estaCreado()) {
-            unJugador2.terminarTurno(juego);
-            unJugador.terminarTurno(juego);
-        }
-        unJugador2.terminarTurno(juego);
-        dragon.atacar(marine.getParcela());
-
-        unJugador.terminarTurno(juego);
-    }
     @Test
     public void atacarRestaVidaAConstruccion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionParcelaVacia, ExcepcionUnidadParaDeMover {
         Juego juego = new Juego();

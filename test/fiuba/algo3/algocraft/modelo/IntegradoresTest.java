@@ -423,12 +423,8 @@ public class IntegradoresTest {
         nave.moverHasta(destinoNave);
  
         while(!(nave.getParcela().getCoordenada()).equals(destinoNave)) {
-            try{
         	jTerran.terminarTurno(juego);
             jProtoss.terminarTurno(juego);
-            }catch (ExcepcionUnidadParaDeMover e) {
-            	continue;
-            }
         }     
 
         

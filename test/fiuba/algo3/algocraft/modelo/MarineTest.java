@@ -143,45 +143,6 @@ public class MarineTest {
         assertEquals(espectro.getVida(), 120-6);
     }
 
-    @Test(expected = ExcepcionEnemigoFueraDeAlcance.class)
-    public void atacarFueraDeRangoLanzaExcepcion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoHayLugarDisponible, ExcepcionParcelaVacia, ExcepcionUnidadParaDeMover {
-        Juego juego = new Juego();
-        juego.setMapaParaTests();
-        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-        Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
-        Mapa mapa = juego.getMapa();
-        juego.agregarJugador(unJugador);
-        juego.agregarJugador(unJugador2);
-        unJugador.sumarGasVespeno(999);
-        unJugador.sumarMinerales(999);
-        unJugador2.sumarGasVespeno(999);
-        unJugador2.sumarMinerales(999);
-        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
-        unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
-
-        Barraca barraca = (Barraca) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(3, 2));
-        while(!barraca.estaCreado()) {
-            unJugador.terminarTurno(juego);
-            unJugador2.terminarTurno(juego);
-        }
-
-        Marine marine = barraca.crearMarine(mapa);
-        while(!marine.estaCreado()) {
-            unJugador.terminarTurno(juego);
-            unJugador2.terminarTurno(juego);
-        }
-        unJugador.terminarTurno(juego);
-
-        Barraca barracaJugador2 = (Barraca) unJugador2.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(18, 18));
-        while(!barracaJugador2.estaCreado()) {
-            unJugador2.terminarTurno(juego);
-            unJugador.terminarTurno(juego);
-        }
-        unJugador2.terminarTurno(juego);
-
-        marine.atacar(barracaJugador2.getParcela());
-        unJugador.terminarTurno(juego);
-    }
     @Test
     public void atacarRestaVidaAConstruccion() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHayLugarDisponible, ExcepcionParcelaVacia, ExcepcionUnidadParaDeMover {
         Juego juego = new Juego();

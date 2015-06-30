@@ -2,10 +2,7 @@ package fiuba.algo3.algocraft.modelo.juego;
 
 import java.util.ArrayList;
 
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
+import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
@@ -33,7 +30,7 @@ public class SistemaDeTurnos {
         return this.jugadorQueJuega;
     }
 
-    public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
+    public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa, ExcepcionUnidadParaDeMover {
         if (this.jugadorQueJuega == null && this.jugadores.size() > 0)
             this.jugadorQueJuega = this.jugadores.get(0);
 
@@ -49,9 +46,8 @@ public class SistemaDeTurnos {
         this.tareasDeEntreturno();
     }
 
-    private void tareasDeEntreturno() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance{
+    private void tareasDeEntreturno() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionUnidadParaDeMover {
     	ArrayList<Exception> excepcionesAtaque = new ArrayList<Exception>();
-    	ArrayList<Exception> excepcionesMover = new ArrayList<Exception>();
     	ArrayList<Ataque> ataques = new ArrayList<Ataque>();
     	for (Jugador j: this.jugadores) {
 //    		if(j.esPerdedor())
@@ -70,7 +66,6 @@ public class SistemaDeTurnos {
 				i.tareaDeEntreTurno(this.mapa);
 			}  catch (ExcepcionEnemigoFueraDeAlcance e) {
 				excepcionesAtaque.add(e);
-				continue;
 			}
         }
         for(Exception e: excepcionesAtaque){

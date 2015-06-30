@@ -1,15 +1,8 @@
 package fiuba.algo3.algocraft.modelo.juego;
 
 import java.util.ArrayList;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionAlcanzadoElMaximoCupoDeJugadores;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionColorEnUso;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreEnUso;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
+
+import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.razas.Raza;
 import fiuba.algo3.algocraft.vista.ObservadorJuego;
@@ -118,7 +111,11 @@ public class Juego {
 			for (ObservadorJuego observador: this.observadores) {
 	    		observador.encolarError(e);
 	    	}
-		}finally{
+		} catch (ExcepcionUnidadParaDeMover e) {
+            for (ObservadorJuego observador: this.observadores) {
+                observador.encolarError(e);
+            }
+        } finally{
         for (ObservadorJuego observador: this.observadores) {
     		observador.nuevoTurno();
     	}

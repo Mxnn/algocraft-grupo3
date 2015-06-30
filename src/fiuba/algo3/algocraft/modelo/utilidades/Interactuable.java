@@ -1,9 +1,6 @@
 package fiuba.algo3.algocraft.modelo.utilidades;
 
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
@@ -71,7 +68,7 @@ public abstract class Interactuable {
 
     public abstract void guardarEnParcela(ParcelaTierra parcela) throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada;
 
-    public void tareaDeEntreTurno(Mapa mapa) {
+    public void tareaDeEntreTurno(Mapa mapa) throws ExcepcionUnidadParaDeMover {
         if (this.estaCreado())
             this.vivir(mapa);
         else
@@ -82,7 +79,7 @@ public abstract class Interactuable {
         return (this.tiempoDeConstruccion == 0);
     }
 
-    public void vivir(Mapa mapa) {
+    public void vivir(Mapa mapa) throws ExcepcionUnidadParaDeMover {
         (this.vitalidad).regenerar();
     }
 
