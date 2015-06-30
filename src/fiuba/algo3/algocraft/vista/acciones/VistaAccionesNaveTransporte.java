@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft.vista.acciones;
 
 import fiuba.algo3.algocraft.controlador.NaveTransporteInsertarUnidadListener;
+import fiuba.algo3.algocraft.controlador.NaveTransporteRemoverUnidadListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.NaveTransporte;
 
@@ -22,6 +23,7 @@ public class VistaAccionesNaveTransporte extends VistaAccionesUnidad {
 		this.habilitarBoton(btnInsertarUnidad, representado);
 		
 		JButton btnSacarUnidad = new JButton("Sacar Unidad");
+        btnSacarUnidad.addActionListener(new NaveTransporteRemoverUnidadListener(modelo, representado));
 		GridBagConstraints gbc_btnSacarUnidad = new GridBagConstraints();
 		gbc_btnSacarUnidad.insets = new Insets(0, 0, 5, 0);
 		gbc_btnSacarUnidad.gridx = 0;

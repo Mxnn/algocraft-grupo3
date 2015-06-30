@@ -15,18 +15,12 @@ import java.awt.GridBagLayout;
 
 public class VistaAccionesInteractuable extends VistaAccionesParcela {
 	protected JPanel panelVitalidad;
+
 	public VistaAccionesInteractuable(Juego modelo, Interactuable representado) {
 		super(modelo, representado.getParcela().getCoordenada());
 		GridBagLayout gridBagLayout = (GridBagLayout) getLayout();
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		gridBagLayout.columnWeights = new double[]{1.0};
-		
-//		JLabel lblNewLabel = new JLabel("Vitalidad");
-//		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-//		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
-//		gbc_lblNewLabel.gridx = 0;
-//		gbc_lblNewLabel.gridy = 1;
-//		add(lblNewLabel, gbc_lblNewLabel);
 		
 		JPanel panel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();

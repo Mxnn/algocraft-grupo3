@@ -16,6 +16,7 @@ public interface ObservadorMapa {
 
     public void crearConstruccion(Construccion construccion);
     public void crearUnidad(Unidad unidad);
+
     public void removerUnidadDeLaVista(Unidad unidad);
 
 	public void seleccionarCoordenada(int x, int y);

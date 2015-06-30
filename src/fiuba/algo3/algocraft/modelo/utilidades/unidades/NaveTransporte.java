@@ -93,6 +93,8 @@ public abstract class NaveTransporte extends Unidad {
         if (this.unidades.size() > 0) {
             Unidad unidadSacada = this.unidades.remove(this.unidades.size() - 1);
             mapa.ubicarCercaDeParcela(this.parcelaUbicacion, unidadSacada);
+            if (this.observador != null)
+                this.observador.crearUnidad(unidadSacada);
         }
     }
 }

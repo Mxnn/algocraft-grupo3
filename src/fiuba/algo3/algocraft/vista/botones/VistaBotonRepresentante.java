@@ -7,5 +7,6 @@ public abstract class VistaBotonRepresentante extends VistaBotonInteractuable {
 
     public VistaBotonRepresentante(Interactuable elemento) {
         this.elementoRepresentado = elemento;
+        this.setEnabled(elemento.estaCreado());
     }
 }
