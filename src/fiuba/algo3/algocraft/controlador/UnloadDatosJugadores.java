@@ -29,7 +29,7 @@ public class UnloadDatosJugadores implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
         ArrayList<Jugador> jugadores = this.getJugadores();
-
+        
         if (jugadores != null && jugadores.size() == 2) {
             try {
                 this.modelo.agregarJugador(jugadores.get(0));
@@ -38,7 +38,7 @@ public class UnloadDatosJugadores implements ActionListener {
                     jugador.setObservadores(vista.getObservadorMapa());
                     jugador.setObservadorJugador(vista.getObservadorJugador());
                 }
-
+               vista.getBarraLateral().setVisible(true);
                 vista.refrescar();
                 
                 this.frame.dispose();
@@ -53,6 +53,7 @@ public class UnloadDatosJugadores implements ActionListener {
             } catch (ExcepcionCoordenadaFueraDelMapa e) {
 				// Ver que onda con esta excepcion
             	this.modelo.limpiarJugadores();
+            
 			} 
         }
 	}

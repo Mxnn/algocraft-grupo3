@@ -21,6 +21,7 @@ public class ObjetoMain {
 		 unControlador.setVistaJuego(vista);
 		 
 		 vista.abrirVista();
+		 vista.getBarraLateral().setVisible(false);
 		 
 		 //para probar que cuando metes un elemento, se muestra en las parcelas
 //		 Mapa mapa = elJuego.getMapa();

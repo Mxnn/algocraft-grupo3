@@ -101,6 +101,10 @@ public class VistaJuego implements ObservadorJuego {
     public ObservadorJugador getObservadorJugador() {
         return this.barraLateral;
     }
+    
+    public VistaBarraLateral getBarraLateral(){
+    	return this.barraLateral;
+    }
 	
 	public void refrescar() throws ExcepcionCoordenadaFueraDelMapa {
 		Mapa mapa = this.modelo.getMapa();
