@@ -22,6 +22,8 @@ public class VistaBotonNaveTransporteTerran extends VistaBotonRepresentante {
     	vistaAcciones.setVida(NaveTransporteTerran.VIDA_INICIAL, this.elementoRepresentado.getVida());
     	
     	vistaAcciones.setCapacidad(NaveTransporteTerran.CAPACIDAD, representado.cantidadDeUnidades());
+    	
+    	vistaAcciones.setBotonesSacar(NaveTransporteTerran.CAPACIDAD);
     	return vistaAcciones;
     }
 }
