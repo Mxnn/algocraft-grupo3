@@ -21,11 +21,14 @@ public class TerminarTurnoListener extends JuegoListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-        	modelo.pasarTurno(this.modelo.getJugadorQueJuega());
+				modelo.pasarTurno(this.modelo.getJugadorQueJuega());
+
         	ControladorAccionPorTurno.createInstance().resetControlador();
             //estos los podemos hacer runtime, no podrian pasar nunca creo
         } catch (ExcepcionEstadoMuerto excepcionEstadoMuerto) {
 //            JOptionPane.showMessageDialog(this.frame, "...");
-        }
+        }catch (ExcepcionEnemigoFueraDeAlcance e1) {
+			this.mostrarError(e1.getMessage());
+		}
     }
 }

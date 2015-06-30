@@ -246,6 +246,7 @@ public class Jugador {
     public void deducirCostos(Costo costo) {
         this.mineral -= costo.getCostoMineral();
         this.gasVespeno -= costo.getCostoGas();
-        this.observadorJugador.actualizarRecursos();
+        if (this.observadorJugador != null)
+            this.observadorJugador.actualizarRecursos();
     }
 }
