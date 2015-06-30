@@ -23,7 +23,9 @@ import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.vista.botones.*;
 
-public class VistaMapa extends JPanel implements ObservadorMapa{
+public class VistaMapa extends JPanel implements ObservadorMapa {
+    private static VistaMapa INSTANCIA = null;
+
 	public static final Color PARCELA_TIERRA = Color.lightGray;
     public static final Color PARCELA_ESPACIO = Color.black;
     public static final Color PARCELA_MINERAL = new Color(0x80C0D2);
@@ -41,7 +43,18 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
     private Representador representador;
 	private VistaBotonInteractuable botonEnEspera = null;
 
-	public VistaMapa(Controlador controlador, Mapa mapa) {
+    public static VistaMapa createInstance(Controlador controlador, Mapa mapa) {
+        if (INSTANCIA == null)
+            INSTANCIA = new VistaMapa(controlador, mapa);
+
+        return INSTANCIA;
+    }
+
+    public static VistaMapa getInstance() {
+        return INSTANCIA;
+    }
+
+	private VistaMapa(Controlador controlador, Mapa mapa) {
 	    this.setVisible(false);
 		this.filas=  mapa.getFilas();
 		this.columnas = mapa.getColumnas();
@@ -225,6 +238,13 @@ public class VistaMapa extends JPanel implements ObservadorMapa{
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void removerUnidadDeLaVista(Unidad unidad) {
+        Coordenada ubicacion = unidad.getParcela().getCoordenada();
+        JPanel panel = this.getPanel(ubicacion);
+        panel.remove(panel.getComponentCount() - 1);
     }
 
     @Override

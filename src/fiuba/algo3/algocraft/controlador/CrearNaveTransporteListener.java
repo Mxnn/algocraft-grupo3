@@ -5,6 +5,9 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponi
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.NaveTransporte;
+import fiuba.algo3.algocraft.vista.VistaMapa;
+
 import java.awt.event.ActionEvent;
 
 public class CrearNaveTransporteListener extends CreadorDeUnidadListener {
@@ -15,7 +18,8 @@ public class CrearNaveTransporteListener extends CreadorDeUnidadListener {
 
 	public void actionPerformed(ActionEvent arg0) {
 		try {
-            ((PuertoEstelar) (this.construccion)).crearNaveTransporte(modelo.getMapa());
+            NaveTransporte nave = ((PuertoEstelar) (this.construccion)).crearNaveTransporte(modelo.getMapa());
+            nave.setObservador(VistaMapa.getInstance());
         } catch (ExcepcionNoHaySuministrosDisponibles e) {
             this.mostrarError(e.getMessage());
         } catch (ExcepcionNoHayLugarDisponible e) {

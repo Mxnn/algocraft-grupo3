@@ -51,7 +51,7 @@ public class VistaJuego implements ObservadorJuego {
         this.ventanaPrincipal = ventanaPrincipal;
         ventanaPrincipal.setSize(1024,778);
         
-        VistaMapa vistaMapa = new VistaMapa(controlador ,this.modelo.getMapa());
+        VistaMapa vistaMapa = VistaMapa.createInstance(controlador ,this.modelo.getMapa());
         this.vistaMapa = vistaMapa;
         vistaMapa.setBackground(new Color(240, 240, 240));
         ventanaPrincipal.getContentPane().add(vistaMapa);

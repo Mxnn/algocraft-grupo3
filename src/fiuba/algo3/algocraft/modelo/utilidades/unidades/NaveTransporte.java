@@ -9,16 +9,22 @@ import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public abstract class NaveTransporte extends Unidad {
     protected int lugaresOcupados;
     protected int capacidad;
+    private ObservadorMapa observador;
     protected ArrayList<Unidad> unidades = new ArrayList<Unidad>();
 
     public NaveTransporte(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, int capacidad, Costo costo) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         super(propietario, vitalidad, tiempoDeConstruccion, cupoDeTransporte, vision, suministro, costo);
         this.lugaresOcupados = 0;
         this.capacidad = capacidad;
+    }
+
+    public void setObservador(ObservadorMapa observador) {
+        this.observador = observador;
     }
 
     public void insertarUnidad(Unidad unidad) throws ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionEntidadEnConstruccion, ExcepcionUnidadYaSeEncuentraEnLaNave {
@@ -41,6 +47,9 @@ public abstract class NaveTransporte extends Unidad {
             Parcela parcela = unidad.getParcela();
             if (parcela != null) //Fix medio triste
                 parcela.vaciarParcela();
+
+            if (this.observador != null)
+                this.observador.removerUnidadDeLaVista(unidad);
         }
         else
             throw new ExcepcionNaveDeTransporteLlena();
