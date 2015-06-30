@@ -1,7 +1,6 @@
 package fiuba.algo3.algocraft.modelo.razas.terran;
 
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.razas.Raza;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
@@ -33,10 +32,7 @@ public class Terran extends Raza {
         return INSTANCIA;
     }
 
-	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario, Refineria.COSTO))
-            throw new ExcepcionRecursosInsuficientes();
-
+	public ExtractorGas crearExtractorGas(Jugador propietario) {
         Refineria refineria = new Refineria(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
@@ -47,10 +43,7 @@ public class Terran extends Raza {
 	}
 
     @Override
-	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario,CentroDeMineral.COSTO))
-            throw new ExcepcionRecursosInsuficientes();
-
+	public ExtractorMineral crearExtractorMineral(Jugador propietario) {
         CentroDeMineral centroDeMineral = new CentroDeMineral(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
@@ -61,10 +54,7 @@ public class Terran extends Raza {
 	}
 
     @Override
-    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario,DepositoSuministro.COSTO))
-            throw new ExcepcionRecursosInsuficientes();
-
+    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) {
         DepositoSuministro depositoSuministro = new DepositoSuministro(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
@@ -75,10 +65,7 @@ public class Terran extends Raza {
     }
 
     @Override
-    public Construccion crearCreadorDeUnidadesBasicas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario,Barraca.COSTO))
-            throw new ExcepcionRecursosInsuficientes();
-
+    public Construccion crearCreadorDeUnidadesBasicas(Jugador propietario) {
         Barraca barraca = new Barraca(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
@@ -90,10 +77,7 @@ public class Terran extends Raza {
     }
 
     @Override
-    public Construccion crearCreadorDeUnidadesAvanzadas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario,Fabrica.COSTO))
-            throw new ExcepcionRecursosInsuficientes();
-       
+    public Construccion crearCreadorDeUnidadesAvanzadas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas {
         Fabrica fabrica = new Fabrica(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
@@ -104,10 +88,7 @@ public class Terran extends Raza {
     }
 
     @Override
-    public Construccion crearCreadorDeUnidadesMagicas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario,PuertoEstelar.COSTO))
-            throw new ExcepcionRecursosInsuficientes();
-
+    public Construccion crearCreadorDeUnidadesMagicas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas {
         PuertoEstelar puertoEstelar = new PuertoEstelar(propietario);
 
         for (ObservadorMapa observador: this.observadores) {

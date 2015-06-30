@@ -84,6 +84,8 @@ public class AtaqueTormentaPsionicaTest {
 		 Juego juego = new Juego();
 		 juego.agregarJugador(unJugador2);
 		 Mapa mapa = new Mapa(2, 5, 5);
+         unJugador2.sumarGasVespeno(999);
+         unJugador2.sumarMinerales(999);
 
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
 	     for(int i= 0; i<=7; i++){
@@ -110,6 +112,8 @@ public class AtaqueTormentaPsionicaTest {
 		 Juego juego = new Juego();
 		 juego.agregarJugador(unJugador2);
 		 Mapa mapa = new Mapa(2, 5, 5);
+         unJugador2.sumarGasVespeno(999);
+         unJugador2.sumarMinerales(999);
 
 	     unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
 	     for(int i= 0; i<=7; i++){

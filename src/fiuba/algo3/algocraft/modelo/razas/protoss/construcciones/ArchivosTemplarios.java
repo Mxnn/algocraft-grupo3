@@ -1,9 +1,6 @@
 package fiuba.algo3.algocraft.modelo.razas.protoss.construcciones;
 
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEntidadEnConstruccion;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
@@ -33,7 +30,7 @@ public class ArchivosTemplarios extends Construccion {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_MAGICAS;
     }
 
-    public AltoTemplario crearAltoTemplario(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
+    public AltoTemplario crearAltoTemplario(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionRecursosInsuficientes {
         if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
 

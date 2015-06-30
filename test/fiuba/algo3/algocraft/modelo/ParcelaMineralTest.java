@@ -54,6 +54,8 @@ public class ParcelaMineralTest {
     	Mapa mapa = new Mapa(2, 5, 5);
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         juego.agregarJugador(unJugador);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 1));
         for(int i= 0; i<=7; i++){
         	unJugador.terminarTurno(juego);

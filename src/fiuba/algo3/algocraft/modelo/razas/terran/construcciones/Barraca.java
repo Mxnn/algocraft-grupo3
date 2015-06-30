@@ -3,6 +3,7 @@ package fiuba.algo3.algocraft.modelo.razas.terran.construcciones;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEntidadEnConstruccion;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Marine;
@@ -28,7 +29,7 @@ public class Barraca extends Construccion {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_BASICAS;
     }
 
-    public Marine crearMarine(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
+    public Marine crearMarine(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionRecursosInsuficientes {
         if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
 

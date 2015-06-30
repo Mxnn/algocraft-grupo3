@@ -2,11 +2,7 @@ package fiuba.algo3.algocraft.modelo.utilidades.unidades;
 
 import java.util.ArrayList;
 
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
@@ -27,7 +23,7 @@ public abstract class Unidad extends Interactuable {
     protected Coordenada coordenadaDestinacion;
 	private ArrayList<ObservadorMapa> observadores = new ArrayList<ObservadorMapa>(); 
 
-    public Unidad(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, Costo costo) throws ExcepcionNoHaySuministrosDisponibles {
+    public Unidad(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, Costo costo) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         super(propietario, vitalidad, tiempoDeConstruccion, costo);
         this.cupoDeTransporte = cupoDeTransporte;
         this.vision = vision;
@@ -38,8 +34,8 @@ public abstract class Unidad extends Interactuable {
     public void setObservador(ObservadorMapa observador){
     	this.observadores.add(observador);
     }
+
     public void moverHasta(Coordenada unaCoordenada){
-    	System.out.println("Destino Final: "+unaCoordenada.getX()+","+unaCoordenada.getY());
     	this.coordenadaDestinacion = unaCoordenada;
     }
     
@@ -123,14 +119,6 @@ public abstract class Unidad extends Interactuable {
 //						this.parcelaUbicacion.vaciarParcela();
 						parcelaVieja.vaciarParcela();
 						this.setParcela(nuevaParcelaActual);
-						
-						
-						
-						Coordenada origen = parcelaVieja.getCoordenada();
-						Coordenada destino = nuevaParcelaActual.getCoordenada();
-						
-						System.out.println("Origen"+origen.getX()+","+origen.getY());
-						System.out.println("Destino"+destino.getX()+","+destino.getY());
 						
 				        for (ObservadorMapa observador: this.observadores) {
 				    		observador.detectarMovimiento(parcelaVieja.getCoordenada(), nuevaParcelaActual.getCoordenada());

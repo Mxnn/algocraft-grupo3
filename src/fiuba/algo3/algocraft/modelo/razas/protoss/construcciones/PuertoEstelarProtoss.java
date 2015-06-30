@@ -1,9 +1,6 @@
 package fiuba.algo3.algocraft.modelo.razas.protoss.construcciones;
 
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEntidadEnConstruccion;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.NaveTransporteProtoss;
@@ -34,7 +31,7 @@ public class PuertoEstelarProtoss extends Construccion {
         return TipoDeConstruccion.CREADOR_DE_UNIDADES_AVANZADAS;
     }
 
-    public Scout crearScout(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
+    public Scout crearScout(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionRecursosInsuficientes {
         if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
 
@@ -49,7 +46,7 @@ public class PuertoEstelarProtoss extends Construccion {
         return scout;
     }
     
-    public NaveTransporteProtoss crearNaveTransporte(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
+    public NaveTransporteProtoss crearNaveTransporte(Mapa mapa) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionRecursosInsuficientes {
         if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
 

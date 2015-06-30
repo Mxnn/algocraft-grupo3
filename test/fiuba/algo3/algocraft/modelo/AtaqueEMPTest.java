@@ -40,6 +40,8 @@ public class AtaqueEMPTest {
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		Juego juego = new Juego();
 		juego.agregarJugador(unJugador);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     for(int i= 0; i<=7; i++){
@@ -67,6 +69,8 @@ public class AtaqueEMPTest {
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		Juego juego = new Juego();
 		juego.agregarJugador(unJugador);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     for(int i= 0; i<=7; i++){

@@ -45,6 +45,10 @@ public class GolliatTest {
         Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
         juego.agregarJugador(unJugador);
         juego.agregarJugador(unJugador2);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
+        unJugador2.sumarGasVespeno(999);
+        unJugador2.sumarMinerales(999);
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
@@ -207,6 +211,10 @@ public class GolliatTest {
         Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
         juego.agregarJugador(unJugador);
         juego.agregarJugador(unJugador2);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
+        unJugador2.sumarGasVespeno(999);
+        unJugador2.sumarMinerales(999);
         Mapa mapa = juego.getMapa();
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));

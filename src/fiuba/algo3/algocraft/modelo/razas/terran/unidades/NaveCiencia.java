@@ -1,12 +1,6 @@
 package fiuba.algo3.algocraft.modelo.razas.terran.unidades;
 
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnergiaInsuficiente;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEntidadEnConstruccion;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
@@ -33,7 +27,7 @@ public class NaveCiencia extends UnidadMagica {
     public static final int COSTO_ENERGIA_EMP = 100;
     public static final int COSTO_ENERGIA_RADIACION = 75;
 
-    public NaveCiencia(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
+    public NaveCiencia(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, ENERGIA_MAXIMA, ENERGIA_INICIAL, REGENERACION_ENERGIA, new Costo(COSTO_MINERAL, COSTO_GAS));
     }
 

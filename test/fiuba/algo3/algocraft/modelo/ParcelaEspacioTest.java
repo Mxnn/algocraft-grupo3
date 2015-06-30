@@ -55,7 +55,9 @@ public class ParcelaEspacioTest {
         Mapa mapa = new Mapa(2, 5, 5);
         Juego juego = new Juego();
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
-		juego.agregarJugador(unJugador);        
+		juego.agregarJugador(unJugador);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
 		unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 		for(int i= 0; i<=7; i++){
         	unJugador.terminarTurno(juego);

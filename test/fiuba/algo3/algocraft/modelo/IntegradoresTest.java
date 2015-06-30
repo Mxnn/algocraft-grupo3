@@ -175,6 +175,10 @@ public class IntegradoresTest {
          juego.agregarJugador(jTerran);
          juego.agregarJugador(jProtoss);
          this.crearTodasLasConstrucciones(jTerran, jProtoss, mapa, juego);
+         while(jTerran.getMinerales() < 1000) {
+             jTerran.terminarTurno(juego);
+             jProtoss.terminarTurno(juego);
+         }
          
          PuertoEstelar puertoT = (PuertoEstelar) mapa.devolverElementoEnParcela(new Coordenada(3,3));
          Acceso acceso = (Acceso) mapa.devolverElementoEnParcela(new Coordenada(18,18));
@@ -226,6 +230,10 @@ public class IntegradoresTest {
          juego.agregarJugador(jTerran);
          juego.agregarJugador(jProtoss);
          this.crearTodasLasConstrucciones(jTerran, jProtoss, mapa, juego);
+         while(jTerran.getMinerales() < 1000) {
+            jTerran.terminarTurno(juego);
+            jProtoss.terminarTurno(juego);
+         }
          
          PuertoEstelar puertoT = (PuertoEstelar) mapa.devolverElementoEnParcela(new Coordenada(3,3));
          Acceso acceso = (Acceso) mapa.devolverElementoEnParcela(new Coordenada(18,18));
@@ -265,6 +273,10 @@ public class IntegradoresTest {
          juego.agregarJugador(jTerran);
          juego.agregarJugador(jProtoss);
          this.crearTodasLasConstrucciones(jTerran, jProtoss, mapa, juego);
+         while(jTerran.getMinerales() < 1000) {
+            jTerran.terminarTurno(juego);
+            jProtoss.terminarTurno(juego);
+         }
          
          PuertoEstelar puertoT = (PuertoEstelar) mapa.devolverElementoEnParcela(new Coordenada(3,3));
          Acceso acceso = (Acceso) mapa.devolverElementoEnParcela(new Coordenada(18,18));
@@ -299,19 +311,6 @@ public class IntegradoresTest {
          
          
          jProtoss.terminarTurno(juego);
-         
-         System.out.println(puertoT.getParcela().getCoordenada().getX());
-         System.out.println(puertoT.getParcela().getCoordenada().getY());
-//         System.out.println(naveCiencia2.getParcela().getCoordenada());
-         System.out.println(naveCiencia2.getParcela().getCoordenada().getX());
-         System.out.println(naveCiencia2.getParcela().getCoordenada().getY());
-//         System.out.println(naveCiencia.getParcela().getCoordenada());
-         System.out.println(naveCiencia.getParcela().getCoordenada().getX());
-         System.out.println(naveCiencia.getParcela().getCoordenada().getY());
-         System.out.println(naveCiencia2.getVida());
-         System.out.println(naveCiencia.getVida());
-         
-         
          
          boolean OKVidaNaveCiencia2 = naveCiencia2.getVida() == (vidaPrevioAtaque - 50);
          boolean OKVidaNaveCiencia = naveCiencia.getVida() == (vidaPrevioAtaque - 50);
@@ -379,16 +378,12 @@ public class IntegradoresTest {
         Jugador jProtoss = new Jugador("Carlos", Color.AZUL, Protoss.getInstance());
         juego.agregarJugador(jTerran);
         juego.agregarJugador(jProtoss);
-        
-        
-        this.crearTodasLasConstrucciones(jTerran, jProtoss, mapa, juego);
 
-        
+        this.crearTodasLasConstrucciones(jTerran, jProtoss, mapa, juego);
 
         while(jTerran.getMinerales() <= 10000){
         	jTerran.terminarTurno(juego);
          	 jProtoss.terminarTurno(juego);
-        
         }
         
         while(jTerran.getGasVespeno() <= 10000){
@@ -398,9 +393,7 @@ public class IntegradoresTest {
         
         jTerran.crearAdicionalDeSuministro(mapa, new Coordenada(4, 5));
         jTerran.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(13,13));
-        
-       
-        
+
         PuertoEstelar puertoT = (PuertoEstelar) mapa.devolverElementoEnParcela(new Coordenada(13,13));
         Barraca barraca = (Barraca) mapa.devolverElementoEnParcela(new Coordenada(1,1));
 
@@ -408,7 +401,6 @@ public class IntegradoresTest {
         
         NaveTransporteTerran nave = puertoT.crearNaveTransporte(mapa);
         this.esperarUnidad(nave, jTerran, jProtoss, juego);
-        
 
         Marine marine1 = barraca.crearMarine(mapa);
         this.esperarUnidad(marine1, jTerran, jProtoss, juego);
@@ -425,8 +417,6 @@ public class IntegradoresTest {
         Marine marine4 = barraca.crearMarine(mapa);
         this.esperarUnidad(marine4, jTerran, jProtoss, juego);
         nave.insertarUnidad(marine4);
-
-        
        
         Coordenada destinoNave = new Coordenada(8,10);
         nave.moverHasta(destinoNave);

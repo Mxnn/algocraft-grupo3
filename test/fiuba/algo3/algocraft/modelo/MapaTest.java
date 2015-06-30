@@ -56,7 +56,9 @@ public class MapaTest {
     public void ubicarGolliatEnParcelaLanzaExcepcionSiElElementoNoEsAdmitidoEnLaParcela() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
     	Juego juego = new Juego();
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
-		juego.agregarJugador(unJugador);         
+		juego.agregarJugador(unJugador);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
 
         Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
@@ -73,7 +75,9 @@ public class MapaTest {
     public void ubicarUnidadVoladoraEnParcelaEspacioLaUbica() throws ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
     	Juego juego = new Juego();
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
-		juego.agregarJugador(unJugador); 
+		juego.agregarJugador(unJugador);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
 		Mapa mapa = new Mapa(2, 5, 5);
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
         for(int i= 0; i<=7; i++){
@@ -126,7 +130,9 @@ public class MapaTest {
     	Juego juego = new Juego();
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
 		
-		juego.agregarJugador(unJugador);  
+		juego.agregarJugador(unJugador);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
         Mapa mapa = new Mapa(2, 10, 10);
         Coordenada coordenada = new Coordenada(5, 5);
 

@@ -87,7 +87,9 @@ public class ParcelaTierraTest {
         Coordenada coordenada = new Coordenada(3, 3);
         Juego juego = new Juego();
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
-		juego.agregarJugador(unJugador);         
+		juego.agregarJugador(unJugador);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
 		unJugador.crearAdicionalDeSuministro(mapa, coordenada);
 		for(int i= 0; i<=7; i++){
         	unJugador.terminarTurno(juego);
@@ -107,7 +109,9 @@ public class ParcelaTierraTest {
         Juego juego = new Juego();
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		
-		juego.agregarJugador(unJugador);         
+		juego.agregarJugador(unJugador);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
 		unJugador.crearAdicionalDeSuministro(mapa, coordenada);
 		for(int i= 0; i<=7; i++){
         	unJugador.terminarTurno(juego);

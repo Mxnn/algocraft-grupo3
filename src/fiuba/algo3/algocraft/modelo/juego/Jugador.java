@@ -82,6 +82,7 @@ public class Jugador {
 		construcciones.add(unExtractorGas);
         this.raza.confirmarCreacionDeConstruccion();
 
+
         return unExtractorGas;
 	}
 
@@ -196,12 +197,16 @@ public class Jugador {
         return cantidad;
     }
 
-    public void agregarUnidad(Unidad unidad) throws ExcepcionNoHaySuministrosDisponibles {
+    public void agregarUnidad(Unidad unidad) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         int total = this.getPoblacion() + unidad.getSuministro();
         if (total > this.getCapacidadDePoblacion())
             throw new ExcepcionNoHaySuministrosDisponibles();
-        else
+        else {
+            this.deducirCostos(unidad.getCosto());
             this.unidades.add(unidad);
+            if (this.observadorJugador != null)
+                this.observadorJugador.actualizar();
+        }
     }
     
     public void agregarAtaque(Ataque ataque){
@@ -243,10 +248,15 @@ public class Jugador {
     	return(this.mineral<100 && !tieneMineral);
     }
 
-    public void deducirCostos(Costo costo) {
-        this.mineral -= costo.getCostoMineral();
-        this.gasVespeno -= costo.getCostoGas();
+    public void deducirCostos(Costo costo) throws ExcepcionRecursosInsuficientes {
+        int totalMineral = this.mineral - costo.getCostoMineral();
+        int totalGas = this.gasVespeno - costo.getCostoGas();
+        if (totalMineral < 0 || totalGas < 0)
+            throw new ExcepcionRecursosInsuficientes();
+
+        this.mineral = totalMineral;
+        this.gasVespeno = totalGas;
         if (this.observadorJugador != null)
-            this.observadorJugador.actualizarRecursos();
+            this.observadorJugador.actualizar();
     }
 }

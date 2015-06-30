@@ -40,6 +40,8 @@ public class AtaqueRadiacionTest {
 		Juego juego = new Juego();
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		juego.agregarJugador(unJugador);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
 		Mapa mapa = new Mapa(2, 5, 5);
 	    unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	    for(int i= 0; i<=7; i++) {
@@ -88,6 +90,8 @@ public class AtaqueRadiacionTest {
 	public void danyaALosQueEstanARangoUnoDelAfectado() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador {
 		Juego juego = new Juego();  
 		Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
+        unJugador2.sumarGasVespeno(999);
+        unJugador2.sumarMinerales(999);
 		juego.agregarJugador(unJugador2); 
 		Mapa mapa = new Mapa(2, 5, 5);
 	    unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
@@ -126,7 +130,9 @@ public class AtaqueRadiacionTest {
 	public void danyaALosQueEstanARangoUnoDelAfectadoCuandoSeMueve() throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador {
 		Juego juego = new Juego();  
 		Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
-		juego.agregarJugador(unJugador2); 
+		juego.agregarJugador(unJugador2);
+        unJugador2.sumarGasVespeno(999);
+        unJugador2.sumarMinerales(999);
 		Mapa mapa = new Mapa(2, 7, 7);
 	    unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
 	    for(int i= 0; i<=7; i++) {

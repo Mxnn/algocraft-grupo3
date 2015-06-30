@@ -17,7 +17,6 @@ import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplar
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.PuertoEstelarProtoss;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Zealot;
-import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 
 public class AltoTemplarioTest {
     @Test(expected = ExcepcionUnidadEnemiga.class)
@@ -178,6 +177,8 @@ public class AltoTemplarioTest {
     	Juego juego = new Juego();
     	Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
     	juego.agregarJugador(unJugador);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
 		 Mapa mapa = new Mapa(2, 5, 5);
 	     unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
 	     for(int i= 0; i<=7; i++){
@@ -185,7 +186,7 @@ public class AltoTemplarioTest {
 	    	 unJugador.terminarTurno(juego);
 	        }
 	     AltoTemplario templario = new AltoTemplario(unJugador);
-	     
+
 	     ArrayList<Parcela> listaParcelas = new ArrayList<Parcela>();
 	     listaParcelas.add(mapa.obtenerParcelaEnCoordenada(new Coordenada (1,1)));
 	     
@@ -202,7 +203,6 @@ public class AltoTemplarioTest {
         juego.agregarJugador(jugador2);
         ArchivosTemplarios archivo;
         Acceso acceso;
-        Interactuable zealot;
         AltoTemplario altoTemplario;
 
         jugador1.sumarMinerales(999);
@@ -223,7 +223,7 @@ public class AltoTemplarioTest {
             jugador2.terminarTurno(juego);
         }
 
-        zealot = acceso.crearZealot(mapa);
+        acceso.crearZealot(mapa);
         jugador1.terminarTurno(juego); //Le pasa el turno al segundo jugador
 
         jugador2.crearAdicionalDeSuministro(mapa, new Coordenada(18, 18));

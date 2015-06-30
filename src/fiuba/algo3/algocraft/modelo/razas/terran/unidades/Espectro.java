@@ -3,6 +3,7 @@ package fiuba.algo3.algocraft.modelo.razas.terran.unidades;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;
@@ -24,7 +25,7 @@ public class Espectro extends UnidadAgresora {
     public static final int RANGO_AIRE = 5;
     public static final int RANGO_TIERRA = 5;
 
-    public Espectro(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles {
+    public Espectro(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         super(propietario, new Vitalidad(VIDA_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, new RangoAtaque(RANGO_AIRE, RANGO_TIERRA), new Danyo(DANYO_AIRE, DANYO_TIERRA), new Costo(COSTO_MINERAL, COSTO_GAS));
     }
 

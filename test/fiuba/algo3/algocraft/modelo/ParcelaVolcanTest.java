@@ -55,6 +55,8 @@ public class ParcelaVolcanTest {
         Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
         
         juego.agregarJugador(unJugador);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
         Parcela parcela = new ParcelaVolcan(new Coordenada(0,0));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(2 ,2));
         for(int i= 0; i<=7; i++){

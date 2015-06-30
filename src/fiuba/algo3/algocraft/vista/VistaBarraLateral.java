@@ -2,10 +2,8 @@ package fiuba.algo3.algocraft.vista;
 
 import java.awt.*;
 import java.util.ArrayList;
-
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
@@ -35,8 +33,7 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
 
 	private JLabel error;
 	private Representador representador;
-	
-	private JPanel informacion;
+
 	private JPanel accion;
 	
 	public VistaBarraLateral(Juego modelo) {
@@ -66,7 +63,6 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         gbl_panelInfos.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
         gbl_panelInfos.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
         panelInfos.setLayout(gbl_panelInfos);
-        this.informacion = panelInfos;
         panelPrincipal.add(panelInfos);
 
         JLabel lblInformacionJugador = new JLabel("Informacion Jugador 1");
@@ -213,9 +209,6 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         gbc_lblPoblacionj2.gridy = y;
         panelInfos.add(lblPoblacionj2, gbc_lblPoblacionj2);
 
-//        JPanel acciones = new JPanel();
-//        this.addTab("Acciones", acciones);
-
         JPanel panelError = new JPanel();
         this.addTab("Errores", null, panelError, null);
 
@@ -261,7 +254,6 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
 
         this.colorearNombres(this.modelo);
 
-//        this.setSelectedIndex(0);
         this.repaint();
 	}
 
@@ -287,9 +279,7 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
 		this.repaint();
 	}
 
-    @Override
-    public void actualizarRecursos() {
-//        this.setSelectedIndex(0);
+    public void actualizar() {
         this.refrescar();
         this.repaint();
     }

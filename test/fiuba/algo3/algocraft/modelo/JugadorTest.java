@@ -2,7 +2,6 @@ package fiuba.algo3.algocraft.modelo;
 
 import org.junit.Assert;
 import org.junit.Test;
-
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionAlcanzadoElMaximoCupoDeJugadores;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionColorEnUso;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
@@ -255,15 +254,6 @@ public class JugadorTest {
     	Assert.assertEquals(unJugador.getMinerales(), Jugador.MINERAL_INICIAL - Barraca.COSTO.getCostoMineral());
     }
 
-    @Test(expected = ExcepcionRecursosInsuficientes.class)
-    public void crearCreadorDeUnidadesAvanzadasLanzaExcepcionSiNoHaySuministros() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto {
-        Mapa mapa = new Mapa (2, 20, 20);
-        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
-    	unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(2, 2));  //construction requirida para crear el creador de unidades terrestres
-        unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL + Barraca.COSTO.getCostoMineral());
-        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 3));
-    }
-    
     @Test
     public void crearCreadorDeUnidadesAvanzadasRestaRecursosAlJugador() throws ExcepcionRecursosInsuficientes, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance {
         Juego juego = new Juego();
@@ -432,7 +422,7 @@ public class JugadorTest {
             unJugador.terminarTurno(juego);
 
         unJugador.sumarMinerales(-Jugador.MINERAL_INICIAL + Acceso.COSTO.getCostoMineral());
-        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(2, 2));
+        unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(3, 2));
     }
     
     @Test

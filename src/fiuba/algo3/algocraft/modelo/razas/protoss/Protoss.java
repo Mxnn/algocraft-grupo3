@@ -1,7 +1,6 @@
 package fiuba.algo3.algocraft.modelo.razas.protoss;
 
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.razas.Raza;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
@@ -34,10 +33,7 @@ public class Protoss extends Raza {
     }
 
     @Override
-	public ExtractorGas crearExtractorGas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario, Asimilador.COSTO))
-            throw new ExcepcionRecursosInsuficientes();
-
+	public ExtractorGas crearExtractorGas(Jugador propietario) {
         Asimilador asimilador = new Asimilador(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
@@ -48,10 +44,7 @@ public class Protoss extends Raza {
 	}
 
     @Override
-	public ExtractorMineral crearExtractorMineral(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario, NexoMineral.COSTO))
-            throw new ExcepcionRecursosInsuficientes();
-        
+	public ExtractorMineral crearExtractorMineral(Jugador propietario) {
         NexoMineral nexoMineral = new NexoMineral(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
@@ -62,10 +55,7 @@ public class Protoss extends Raza {
 	}
 
     @Override
-    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario, Pilon.COSTO))
-            throw new ExcepcionRecursosInsuficientes();
-        
+    public AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario) {
         Pilon pilon = new Pilon(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
@@ -75,10 +65,7 @@ public class Protoss extends Raza {
     }
 
     @Override
-    public Construccion crearCreadorDeUnidadesBasicas(Jugador propietario) throws ExcepcionRecursosInsuficientes {
-        if (recursosInsuficientes(propietario, Acceso.COSTO))
-            throw new ExcepcionRecursosInsuficientes();
-        
+    public Construccion crearCreadorDeUnidadesBasicas(Jugador propietario) {
         Acceso acceso = new Acceso(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
@@ -90,10 +77,7 @@ public class Protoss extends Raza {
     }
 
     @Override
-    public Construccion crearCreadorDeUnidadesAvanzadas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes{
-        if (recursosInsuficientes(propietario, PuertoEstelarProtoss.COSTO))
-            throw new ExcepcionRecursosInsuficientes();
-        
+    public Construccion crearCreadorDeUnidadesAvanzadas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas{
         PuertoEstelarProtoss puerto = new PuertoEstelarProtoss(propietario);
 
         for (ObservadorMapa observador: this.observadores) {
@@ -105,13 +89,8 @@ public class Protoss extends Raza {
     }
 
     @Override
-    public Construccion crearCreadorDeUnidadesMagicas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes{
-        if (recursosInsuficientes(propietario, ArchivosTemplarios.COSTO))
-            throw new ExcepcionRecursosInsuficientes();
-        
-        
+    public Construccion crearCreadorDeUnidadesMagicas(Jugador propietario) throws ExcepcionConstruccionesRequeridasNoCreadas{
         ArchivosTemplarios archivo = new ArchivosTemplarios(propietario);
-
 
         for (ObservadorMapa observador: this.observadores) {
     		observador.crearConstruccion(archivo);
