@@ -51,13 +51,12 @@ public class AltoTemplario extends UnidadMagica {
 //        }
 //    }
     
-    public void crearAlucinacion(Parcela parcela, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion, ExcepcionUnidadNoClonable, ExcepcionParcelaVacia {
+    public void crearAlucinacion(Parcela parcela, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion, ExcepcionUnidadNoClonable, ExcepcionParcelaVacia, ExcepcionRecursosInsuficientes {
         if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
         
-        if(parcela.estaVacia()){
+        if(parcela.estaVacia())
         	throw new ExcepcionParcelaVacia();
-        }
         
         Interactuable unidadAClonar = parcela.devolverElemento();
 
@@ -70,8 +69,6 @@ public class AltoTemplario extends UnidadMagica {
         }
         catch (ClassCastException e) {
         	throw new ExcepcionUnidadNoClonable();
-        } catch (ExcepcionRecursosInsuficientes excepcionRecursosInsuficientes) {
-            //Nunca va a pasar (es gratis)
         }
     }
     

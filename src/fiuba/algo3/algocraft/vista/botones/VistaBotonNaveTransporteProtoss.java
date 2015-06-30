@@ -26,6 +26,8 @@ public class VistaBotonNaveTransporteProtoss extends VistaBotonRepresentante {
     	
     	int escudoActual = ((VitalidadProtoss) representado.getVitalidad()).getEscudo();
     	vistaAcciones.setEscudo(NaveTransporteProtoss.ESCUDO_INICIAL, escudoActual);
+    	
+    	vistaAcciones.setCapacidad(NaveTransporteProtoss.CAPACIDAD, representado.cantidadDeUnidades());
     	return vistaAcciones;
     }
 }

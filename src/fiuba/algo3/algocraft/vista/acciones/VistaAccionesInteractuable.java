@@ -112,5 +112,26 @@ public class VistaAccionesInteractuable extends VistaAccionesParcela {
 		this.panelVitalidad.add(progressEnergia, gbc_progressEnergia);
 
 	}
+	
+	public void setCapacidad(int max, int actual){
+		JLabel lblCapacidad = new JLabel("Energia");
+		GridBagConstraints gbc_lblCapacidad = new GridBagConstraints();
+		gbc_lblCapacidad.insets = new Insets(0, 0, 5, 0);
+		gbc_lblCapacidad.gridx = 0;
+		gbc_lblCapacidad.gridy = 6;
+		this.panelVitalidad.add(lblCapacidad, gbc_lblCapacidad);
+		
+		JProgressBar progressCapacidad = new JProgressBar();
+		
+		progressCapacidad.setMaximum(max);
+		progressCapacidad.setStringPainted(true);
+		GridBagConstraints gbc_progressCapacidad = new GridBagConstraints();
+		gbc_progressCapacidad.insets = new Insets(0, 0, 5, 0);
+		gbc_progressCapacidad.gridx = 0;
+		gbc_progressCapacidad.gridy = 7;
+		progressCapacidad.setValue(actual);
+		progressCapacidad.setString(actual + "/" + max);
+		this.panelVitalidad.add(progressCapacidad, gbc_progressCapacidad);
+	}
 
 }
