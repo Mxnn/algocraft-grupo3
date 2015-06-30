@@ -27,8 +27,6 @@ public class TerminarTurnoListener extends JuegoListener {
             //estos los podemos hacer runtime, no podrian pasar nunca creo
         } catch (ExcepcionEstadoMuerto excepcionEstadoMuerto) {
 //            JOptionPane.showMessageDialog(this.frame, "...");
-        }catch (ExcepcionEnemigoFueraDeAlcance e1) {
-			this.mostrarError(e1.getMessage());
-		}
+        }
     }
 }

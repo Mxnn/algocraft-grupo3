@@ -109,12 +109,15 @@ public class Juego {
 	}
   }
 
-    public void pasarTurno(Jugador jugador) throws ExcepcionEstadoMuerto, ExcepcionCoordenadaFueraDelMapa, ExcepcionEnemigoFueraDeAlcance {
-    	boolean huboExcepcion = false;
+    public void pasarTurno(Jugador jugador) throws ExcepcionEstadoMuerto, ExcepcionCoordenadaFueraDelMapa {
+//    	boolean huboExcepcion = false;
         try {
 			this.sistemaDeTurnos.pasarTurno(jugador);
 		} catch (ExcepcionEnemigoFueraDeAlcance e) {
-			huboExcepcion = true;
+//			huboExcepcion = true;
+			for (ObservadorJuego observador: this.observadores) {
+	    		observador.encolarError(e);
+	    	}
 		}finally{
         for (ObservadorJuego observador: this.observadores) {
     		observador.nuevoTurno();
@@ -122,8 +125,8 @@ public class Juego {
         if(jugador.esPerdedor())
         	this.finJuego(jugador);
 		}
-        if(huboExcepcion)
-        	throw new ExcepcionEnemigoFueraDeAlcance();
+//        if(huboExcepcion)
+//        	throw new ExcepcionEnemigoFueraDeAlcance();
     }
 
     public void limpiarJugadores() {

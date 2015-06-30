@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft.vista;
 
 import java.awt.*;
 import java.util.ArrayList;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
@@ -31,7 +32,7 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
 	private JLabel gasJ2;
 	private JLabel poblacionJ2;
 
-	private JLabel error;
+	private JPanel error;
 	private Representador representador;
 
 	private JPanel accion;
@@ -212,14 +213,14 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
 
         JPanel panelError = new JPanel();
         this.addTab("Errores", null, panelError, null);
+        
+        this.error = panelError;
 
-        JLabel lblError = new JLabel("");
-        lblError.setForeground(Color.RED);
-        lblError.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        panelError.add(lblError);
-        this.error = lblError;
-        
-        
+//        JLabel lblError = new JLabel("");
+//        lblError.setForeground(Color.RED);
+//        lblError.setFont(new Font("Tahoma", Font.PLAIN, 14));
+//        panelError.add(lblError);
+//        this.error = lblError;
 
         this.labelsJ1.add(this.nombreJ1);
         this.labelsJ1.add(this.gasJ1);
@@ -286,9 +287,19 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
 		this.repaint();
 	}
 	
-	public void displayError(String msg){
+	public void displayErrores(ArrayList<String> errores){
 		this.setSelectedIndex(INDICE_ERROR);
-		this.error.setText(msg);
+//		this.error.setText(errores);
+		for(String error: errores){
+	        JLabel lblError = new JLabel("");
+	        lblError.setForeground(Color.RED);
+	        lblError.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	        lblError.setText(error);
+	        this.error.add(lblError);
+//	        this.error = lblError;
+		}
+		
+		
 		this.repaint();
 	}
 
@@ -296,4 +307,9 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         this.refrescar();
         this.repaint();
     }
+
+	public void borrarErrores() {
+		this.error.removeAll();
+		
+	}
 }

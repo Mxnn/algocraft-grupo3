@@ -7,5 +7,5 @@ public interface ObservadorJuego {
 
 	public abstract void hayPerdedor(Jugador perdedor);
 	
-	public abstract void displayError(String mensaje);
+	public abstract void encolarError(Exception error);
 }

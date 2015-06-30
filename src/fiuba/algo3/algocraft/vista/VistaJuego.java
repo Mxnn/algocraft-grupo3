@@ -18,6 +18,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 public class VistaJuego implements ObservadorJuego {
     private static VistaJuego INSTANCIA = null;
@@ -27,6 +28,7 @@ public class VistaJuego implements ObservadorJuego {
     private JFrame ventanaPrincipal;
     private VistaBarraLateral barraLateral;
     private Coordenada coordenadaSeleccionada;
+    private ArrayList<String> errores = new ArrayList<String>();
 
 	public static int CANTIDAD_DE_OPCIONES = 8;
 
@@ -141,16 +143,29 @@ public class VistaJuego implements ObservadorJuego {
 	}
 	
 	public void displayError(String msg){
-		this.barraLateral.displayError(msg);
+		this.errores.clear();
+		this.errores.add(msg);
+		this.barraLateral.displayErrores(this.errores);
+		this.errores.clear();
 		this.ventanaPrincipal.repaint();
 	}
 
 	public void nuevoTurno() {
+		this.barraLateral.borrarErrores();
+		if(!this.errores.isEmpty()){
+			this.barraLateral.displayErrores(this.errores);
+			this.errores.clear();
+		}
 		this.refrescar();
 	}
 
 	public void hayPerdedor(Jugador perdedor) {
 		// TODO Auto-generated method stub
 		//PONER CODIGO QUE MUESTRE UNA VENTANA O ALGO
+	}
+
+	@Override
+	public void encolarError(Exception error) {
+		this.errores.add(error.getMessage());
 	}
 }
