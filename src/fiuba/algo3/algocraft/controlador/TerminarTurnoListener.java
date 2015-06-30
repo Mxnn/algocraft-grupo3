@@ -4,6 +4,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadParaDeMover;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.vista.VistaMapa;
 
@@ -27,6 +28,8 @@ public class TerminarTurnoListener extends JuegoListener {
             //estos los podemos hacer runtime, no podrian pasar nunca creo
         } catch (ExcepcionEstadoMuerto excepcionEstadoMuerto) {
 //            JOptionPane.showMessageDialog(this.frame, "...");
+        } catch (ExcepcionUnidadParaDeMover e2){
+        	this.mostrarError(e2.getMessage());
         }
     }
 }
