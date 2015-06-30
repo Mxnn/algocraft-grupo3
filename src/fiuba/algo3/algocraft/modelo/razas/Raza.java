@@ -3,7 +3,6 @@ package fiuba.algo3.algocraft.modelo.razas;
 import java.util.ArrayList;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
-import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorMineral;
@@ -14,10 +13,6 @@ public abstract class Raza {
 
     protected ArrayList<ObservadorMapa> observadores = new ArrayList<ObservadorMapa>();
 
-	public boolean recursosInsuficientes(Jugador propietario, Costo costo) {
-	    return((propietario.getGasVespeno()<costo.getCostoGas()) || (propietario.getMinerales()<costo.getCostoMineral()));
-	}
-		    
     public abstract AdicionalSuministros crearAdicionalDeSuministros(Jugador propietario);
 
 	public abstract ExtractorGas crearExtractorGas(Jugador propietario);

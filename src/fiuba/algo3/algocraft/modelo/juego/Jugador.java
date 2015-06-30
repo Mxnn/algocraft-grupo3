@@ -77,11 +77,14 @@ public class Jugador {
 	public Interactuable crearExtractorGas(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
         ExtractorGas unExtractorGas = raza.crearExtractorGas(this);
 
-        mapa.ubicarElementoEnParcela(coordenada, unExtractorGas);
-        this.deducirCostos(unExtractorGas.getCosto());
-		construcciones.add(unExtractorGas);
-        this.raza.confirmarCreacionDeConstruccion();
-
+        if (this.jugadorTieneRecursosNecesarios(unExtractorGas.getCosto())) {
+            mapa.ubicarElementoEnParcela(coordenada, unExtractorGas);
+            this.deducirCostos(unExtractorGas.getCosto());
+            construcciones.add(unExtractorGas);
+            this.raza.confirmarCreacionDeConstruccion();
+        }
+        else
+            throw new ExcepcionRecursosInsuficientes();
 
         return unExtractorGas;
 	}
@@ -89,11 +92,14 @@ public class Jugador {
 	public Interactuable crearExtractorMineral(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada {
 		ExtractorMineral unExtractorMineral = raza.crearExtractorMineral(this);
 
-        mapa.ubicarElementoEnParcela(coordenada, unExtractorMineral);
-        this.deducirCostos(unExtractorMineral.getCosto());
-		construcciones.add(unExtractorMineral);
-        this.raza.confirmarCreacionDeConstruccion();
-
+        if (this.jugadorTieneRecursosNecesarios(unExtractorMineral.getCosto())) {
+            mapa.ubicarElementoEnParcela(coordenada, unExtractorMineral);
+            this.deducirCostos(unExtractorMineral.getCosto());
+            construcciones.add(unExtractorMineral);
+            this.raza.confirmarCreacionDeConstruccion();
+        }
+        else
+            throw new ExcepcionRecursosInsuficientes();
 
         return unExtractorMineral;
 	}
@@ -101,10 +107,14 @@ public class Jugador {
     public Interactuable crearAdicionalDeSuministro(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela {
         AdicionalSuministros adicionalSuministros = raza.crearAdicionalDeSuministros(this);
 
-        mapa.ubicarElementoEnParcela(coordenada, adicionalSuministros);
-        this.deducirCostos(adicionalSuministros.getCosto());
-        construcciones.add(adicionalSuministros);
-        this.raza.confirmarCreacionDeConstruccion();
+        if (this.jugadorTieneRecursosNecesarios(adicionalSuministros.getCosto())) {
+            mapa.ubicarElementoEnParcela(coordenada, adicionalSuministros);
+            this.deducirCostos(adicionalSuministros.getCosto());
+            construcciones.add(adicionalSuministros);
+            this.raza.confirmarCreacionDeConstruccion();
+        }
+        else
+            throw new ExcepcionRecursosInsuficientes();
 
         return adicionalSuministros;
     }
@@ -112,10 +122,14 @@ public class Jugador {
     public Interactuable crearCreadorDeUnidadesBasicas(Mapa mapa, Coordenada coordenada) throws ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
         Construccion creadorDeUnidadesBasicas = raza.crearCreadorDeUnidadesBasicas(this);
 
-        mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesBasicas);
-        this.deducirCostos(creadorDeUnidadesBasicas.getCosto());
-        construcciones.add(creadorDeUnidadesBasicas);
-        this.raza.confirmarCreacionDeConstruccion();
+        if (this.jugadorTieneRecursosNecesarios(creadorDeUnidadesBasicas.getCosto())) {
+            mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesBasicas);
+            this.deducirCostos(creadorDeUnidadesBasicas.getCosto());
+            construcciones.add(creadorDeUnidadesBasicas);
+            this.raza.confirmarCreacionDeConstruccion();
+        }
+        else
+            throw new ExcepcionRecursosInsuficientes();
 
         return creadorDeUnidadesBasicas;
     }
@@ -123,10 +137,14 @@ public class Jugador {
     public Interactuable crearCreadorDeUnidadesAvanzadas(Mapa mapa, Coordenada coordenada) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
         Construccion creadorDeUnidadesTerrestres = raza.crearCreadorDeUnidadesAvanzadas(this);
 
-        mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesTerrestres);
-        this.deducirCostos(creadorDeUnidadesTerrestres.getCosto());
-        construcciones.add(creadorDeUnidadesTerrestres);
-        this.raza.confirmarCreacionDeConstruccion();
+        if (this.jugadorTieneRecursosNecesarios(creadorDeUnidadesTerrestres.getCosto())) {
+            mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesTerrestres);
+            this.deducirCostos(creadorDeUnidadesTerrestres.getCosto());
+            construcciones.add(creadorDeUnidadesTerrestres);
+            this.raza.confirmarCreacionDeConstruccion();
+        }
+        else
+            throw new ExcepcionRecursosInsuficientes();
 
         return creadorDeUnidadesTerrestres;
     }
@@ -134,12 +152,20 @@ public class Jugador {
     public Interactuable crearCreadorDeUnidadesMagicas(Mapa mapa, Coordenada coordenada) throws ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa {
         Construccion creadorDeUnidadesAereas = raza.crearCreadorDeUnidadesMagicas(this);
 
-        mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesAereas);
-        this.deducirCostos(creadorDeUnidadesAereas.getCosto());
-        construcciones.add(creadorDeUnidadesAereas);
-        this.raza.confirmarCreacionDeConstruccion();
+        if (this.jugadorTieneRecursosNecesarios(creadorDeUnidadesAereas.getCosto())) {
+            mapa.ubicarElementoEnParcela(coordenada, creadorDeUnidadesAereas);
+            this.deducirCostos(creadorDeUnidadesAereas.getCosto());
+            construcciones.add(creadorDeUnidadesAereas);
+            this.raza.confirmarCreacionDeConstruccion();
+        }
+        else
+            throw new ExcepcionRecursosInsuficientes();
 
         return creadorDeUnidadesAereas;
+    }
+
+    private boolean jugadorTieneRecursosNecesarios(Costo costo) {
+        return((this.getGasVespeno() >= costo.getCostoGas()) && (this.getMinerales() >= costo.getCostoMineral()));
     }
 	
 	public int cantidadDeConstrucciones() {
@@ -202,10 +228,14 @@ public class Jugador {
         if (total > this.getCapacidadDePoblacion())
             throw new ExcepcionNoHaySuministrosDisponibles();
         else {
-            this.deducirCostos(unidad.getCosto());
-            this.unidades.add(unidad);
-            if (this.observadorJugador != null)
-                this.observadorJugador.actualizar();
+            if (this.jugadorTieneRecursosNecesarios(unidad.getCosto())) {
+                this.deducirCostos(unidad.getCosto());
+                this.unidades.add(unidad);
+                if (this.observadorJugador != null)
+                    this.observadorJugador.actualizar();
+            }
+            else
+                throw new ExcepcionRecursosInsuficientes();
         }
     }
     
@@ -248,14 +278,9 @@ public class Jugador {
     	return(this.mineral<100 && !tieneMineral);
     }
 
-    public void deducirCostos(Costo costo) throws ExcepcionRecursosInsuficientes {
-        int totalMineral = this.mineral - costo.getCostoMineral();
-        int totalGas = this.gasVespeno - costo.getCostoGas();
-        if (totalMineral < 0 || totalGas < 0)
-            throw new ExcepcionRecursosInsuficientes();
-
-        this.mineral = totalMineral;
-        this.gasVespeno = totalGas;
+    private void deducirCostos(Costo costo) {
+        this.mineral -= costo.getCostoMineral();
+        this.gasVespeno -= costo.getCostoGas();
         if (this.observadorJugador != null)
             this.observadorJugador.actualizar();
     }
