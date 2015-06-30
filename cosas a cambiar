@@ -2,6 +2,8 @@ COSAS A CAMBIAR
 
 DIAGRAMAS DE LA VISTA 
 
+EXCEPCIONES puede haber varias al mismo tiempo, deberiamos meterlas en una cola.
+
 BARRA LATERAL deshabilitar cuanod el juego todavia no comenzo
 
 podemos cambiar los colores de jugador a colores reales?
