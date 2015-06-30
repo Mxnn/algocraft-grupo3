@@ -104,7 +104,7 @@ public abstract class Unidad extends Interactuable {
         this.mover(mapa);
     }
 
-	private void mover(Mapa mapa) {
+	private void mover(Mapa mapa) throws ExcepcionUnidadParaDeMover {
 		if (this.parcelaUbicacion != null) {
 			Coordenada coordenadaActual = this.parcelaUbicacion.getCoordenada();
 			if (coordenadaActual != null && this.coordenadaDestinacion != null) {
@@ -127,11 +127,17 @@ public abstract class Unidad extends Interactuable {
 
 					} catch (ExcepcionElementoNoAdmitidoEnParcela e) {
 						this.coordenadaDestinacion = null;
+						throw new ExcepcionUnidadParaDeMover();
 					} catch (ExcepcionParcelaOcupada e) {
 						this.coordenadaDestinacion = null;
+						throw new ExcepcionUnidadParaDeMover();
 					} catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
 						this.coordenadaDestinacion = null;
+						throw new ExcepcionUnidadParaDeMover();
 					}
+				}else{
+					this.coordenadaDestinacion= null;
+					throw new ExcepcionUnidadParaDeMover();
 				}
 
 			}
