@@ -12,7 +12,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 public class ComandoAtaqueComun extends ComandoAccionPorTurno {
 
 	@Override
-	public void ejectutar(Unidad unidad, Mapa mapa,Coordenada coordenadaObjetivo) throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionParcelaVacia {
+	public void ejectutar(Unidad unidad, Mapa mapa,Coordenada coordenadaObjetivo) throws ExcepcionEstadoMuerto, ExcepcionParcelaVacia {
 		Parcela parcela = this.getParcela(mapa, coordenadaObjetivo);
 		((UnidadAgresora) unidad).atacar(parcela);	
 	}

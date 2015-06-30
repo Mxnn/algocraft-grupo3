@@ -21,7 +21,8 @@ public class CrearZealotListener extends CreadorDeUnidadListener {
         } catch (ExcepcionNoHayLugarDisponible e) {
             this.mostrarError(e.getMessage());
         } catch (ExcepcionRecursosInsuficientes excepcionRecursosInsuficientes) {
-            excepcionRecursosInsuficientes.printStackTrace();
+//            excepcionRecursosInsuficientes.printStackTrace();
+        	this.mostrarError(excepcionRecursosInsuficientes.getMessage());
         }
     }
 }

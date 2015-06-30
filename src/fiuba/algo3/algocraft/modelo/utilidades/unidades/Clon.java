@@ -10,13 +10,19 @@ import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 
 public class Clon extends UnidadAgresora {
+	public static final int VIDA_INICIAL = 0;
 	private UnidadAgresora original;
+	private UnidadAgresora clonado;
 	
 	public Clon(UnidadAgresora aClonar, Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         super(propietario, new VitalidadProtoss(0, ((VitalidadProtoss) aClonar.getVitalidad()).getEscudo()), 0, aClonar.getCupoDeTransporte(), aClonar.getVision(), 0, aClonar.getRangoAtaque(), new Danyo(0, 0), new Costo(0, 0));
         this.tiempoDeConstruccion = 0;
+        this.clonado = aClonar;
 	}
 
+	public UnidadAgresora getClonado(){
+		return this.clonado;
+	}
 	@Override
 	public int seleccionarDanyo(Danyo danyo) {
 		return original.seleccionarDanyo(danyo);

@@ -21,7 +21,7 @@ public abstract class Ataque{
 		this.target = target;
 	}
 	
-	public void tareaDeEntreTurno(Mapa mapa) throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa{
+	public void tareaDeEntreTurno(Mapa mapa) throws ExcepcionEstadoMuerto, ExcepcionCoordenadaFueraDelMapa, ExcepcionEnemigoFueraDeAlcance{
 		if(!esDescartable())
 			ejecutarAtaque();
 	}

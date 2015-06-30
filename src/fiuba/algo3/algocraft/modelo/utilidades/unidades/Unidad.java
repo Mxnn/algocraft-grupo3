@@ -21,7 +21,7 @@ public abstract class Unidad extends Interactuable {
     protected int vision;
     protected int suministro;
     protected Coordenada coordenadaDestinacion;
-	private ArrayList<ObservadorMapa> observadores = new ArrayList<ObservadorMapa>(); 
+	protected ArrayList<ObservadorMapa> observadores = new ArrayList<ObservadorMapa>(); 
 
     public Unidad(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, Costo costo) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         super(propietario, vitalidad, tiempoDeConstruccion, costo);

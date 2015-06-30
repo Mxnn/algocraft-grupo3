@@ -2,12 +2,14 @@ package fiuba.algo3.algocraft.vista;
 
 import java.awt.Color;
 import java.util.HashMap;
+
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.*;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.*;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.*;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.*;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Clon;
 import fiuba.algo3.algocraft.vista.botones.*;
 
 public class Representador {
@@ -47,6 +49,7 @@ public class Representador {
         this.botonesDeClase.put(PuertoEstelarProtoss.class,  VistaBotonPuertoEstelarProtoss.class);
 
         this.botonesDeClase.put(AltoTemplario.class,  VistaBotonAltoTemplario.class);
+        this.botonesDeClase.put(Clon.class,  VistaBotonClon.class);
         this.botonesDeClase.put(Dragon.class,  VistaBotonDragon.class);
         this.botonesDeClase.put(NaveTransporteProtoss.class,  VistaBotonNaveTransporteProtoss.class);
         this.botonesDeClase.put(Scout.class,  VistaBotonScout.class);

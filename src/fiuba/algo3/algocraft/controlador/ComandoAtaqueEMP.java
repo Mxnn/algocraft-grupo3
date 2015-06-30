@@ -13,7 +13,7 @@ import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveCiencia;
 public class ComandoAtaqueEMP extends ComandoAccionPorTurno {
 
 	@Override
-	public void ejectutar(Unidad unidad, Mapa mapa,Coordenada coordenadaObjetivo)throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionEnergiaInsuficiente{
+	public void ejectutar(Unidad unidad, Mapa mapa,Coordenada coordenadaObjetivo)throws ExcepcionEstadoMuerto, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion, ExcepcionEnemigoFueraDeAlcance{
 		Parcela parcelaObjetivo = this.getParcela(mapa, coordenadaObjetivo);
 		((NaveCiencia) unidad).lanzarEMP(parcelaObjetivo);
 		

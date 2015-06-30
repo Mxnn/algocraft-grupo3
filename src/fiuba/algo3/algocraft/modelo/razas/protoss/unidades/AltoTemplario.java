@@ -13,6 +13,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.Clon;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.NaveTransporte;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadMagica;
+import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public class AltoTemplario extends UnidadMagica {
 
@@ -51,7 +52,7 @@ public class AltoTemplario extends UnidadMagica {
 //        }
 //    }
     
-    public void crearAlucinacion(Parcela parcela, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion, ExcepcionUnidadNoClonable, ExcepcionParcelaVacia, ExcepcionRecursosInsuficientes {
+    public void crearAlucinacion(Parcela parcela, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionEnergiaInsuficiente, ExcepcionUnidadNoClonable, ExcepcionParcelaVacia, ExcepcionRecursosInsuficientes {
         if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
         
@@ -64,8 +65,16 @@ public class AltoTemplario extends UnidadMagica {
         try{
             Clon clon = this.crearClon((UnidadAgresora) unidadAClonar);
             mapa.ubicarCercaDeParcela(unidadAClonar.getParcela(), clon);
+            for (ObservadorMapa observador: this.observadores) {
+	    		observador.crearUnidad(clon);
+	    	}
+            
+            
             Clon clon2 = this.crearClon((UnidadAgresora) unidadAClonar);
             mapa.ubicarCercaDeParcela(unidadAClonar.getParcela(), clon2);
+            for (ObservadorMapa observador: this.observadores) {
+	    		observador.crearUnidad(clon2);
+	    	}
         }
         catch (ClassCastException e) {
         	throw new ExcepcionUnidadNoClonable();

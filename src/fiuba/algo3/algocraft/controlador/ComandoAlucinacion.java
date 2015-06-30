@@ -13,16 +13,17 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadNoClonable;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
+import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
+import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
 
-public abstract class ComandoAccionPorTurno {
-	
-	public Parcela getParcela(Mapa mapa, Coordenada coordenada){
-		return mapa.obtenerParcelaEnCoordenada(coordenada);
+public class ComandoAlucinacion extends ComandoAccionPorTurno {
+
+	@Override
+	public void ejectutar(Unidad unidad, Mapa mapa,Coordenada coordenadaObjetivo)throws ExcepcionEstadoMuerto,ExcepcionEnergiaInsuficiente, ExcepcionParcelaVacia, ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionUnidadNoClonable, ExcepcionRecursosInsuficientes {
+		Parcela parcela = mapa.obtenerParcelaEnCoordenada(coordenadaObjetivo);
+		((AltoTemplario) unidad).crearAlucinacion(parcela, mapa);
+
 	}
-	
-	
-	
-	public abstract void ejectutar(Unidad unidad, Mapa mapa, Coordenada coordenadaObjetivo) throws ExcepcionEstadoMuerto, ExcepcionEnergiaInsuficiente, ExcepcionParcelaVacia, ExcepcionEntidadEnConstruccion, ExcepcionEnemigoFueraDeAlcance, ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionUnidadNoClonable, ExcepcionRecursosInsuficientes;
 
 }
