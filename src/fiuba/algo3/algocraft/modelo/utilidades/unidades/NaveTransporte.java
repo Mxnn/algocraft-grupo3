@@ -1,7 +1,6 @@
 package fiuba.algo3.algocraft.modelo.utilidades.unidades;
 
 import java.util.ArrayList;
-
 import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
@@ -87,15 +86,13 @@ public abstract class NaveTransporte extends Unidad {
 		ataque.atacar(this);
 	}
 
-    public void sacarUnidad(Mapa mapa, Unidad unidad) throws ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
+    public void sacarUnidad(Mapa mapa) throws ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
         if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
 
-        int index = unidades.indexOf(unidad);
-        Unidad unidadSacada = unidades.get(index);
-        unidades.remove(unidad);
-
-        mapa.ubicarCercaDeParcela(this.parcelaUbicacion, unidadSacada);
+        if (this.unidades.size() > 0) {
+            Unidad unidadSacada = this.unidades.remove(this.unidades.size() - 1);
+            mapa.ubicarCercaDeParcela(this.parcelaUbicacion, unidadSacada);
+        }
     }
-    
 }

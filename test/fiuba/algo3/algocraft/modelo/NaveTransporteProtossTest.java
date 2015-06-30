@@ -166,7 +166,7 @@ public class NaveTransporteProtossTest {
             unJugador.terminarTurno(juego);
 
         nave.insertarUnidad(dragon);
-        nave.sacarUnidad(mapa, dragon);
+        nave.sacarUnidad(mapa);
 
         Assert.assertSame(mapa.obtenerParcelaEnCoordenada(ubicacionDragon).devolverElemento(), dragon);
     }
@@ -213,6 +213,6 @@ public class NaveTransporteProtossTest {
         mapa.insertarParcela(new ParcelaVolcan(new Coordenada(8, 6)));
         mapa.insertarParcela(new ParcelaVolcan(new Coordenada(8, 7)));
 
-        nave.sacarUnidad(mapa, dragon);
+        nave.sacarUnidad(mapa);
     }
 }

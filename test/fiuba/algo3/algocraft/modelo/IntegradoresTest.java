@@ -429,17 +429,18 @@ public class IntegradoresTest {
 
         
 
-          nave.sacarUnidad(mapa, marine1);
-        nave.sacarUnidad(mapa, marine2);
-        nave.sacarUnidad(mapa, marine3);
-        nave.sacarUnidad(mapa, marine4);
+        nave.sacarUnidad(mapa);
+        nave.sacarUnidad(mapa);
+        nave.sacarUnidad(mapa);
+        nave.sacarUnidad(mapa);
         
 
-       Assert.assertEquals(marine1.getParcela().getCoordenada(), new Coordenada(destinoNave.getX()-1, destinoNave.getY()-1));
-        Assert.assertEquals(marine2.getParcela().getCoordenada(), new Coordenada(destinoNave.getX()-1, destinoNave.getY()));
-        Assert.assertEquals(marine3.getParcela().getCoordenada(), new Coordenada(destinoNave.getX()-1, destinoNave.getY()+1));
-        Assert.assertEquals(marine4.getParcela().getCoordenada(), new Coordenada(destinoNave.getX(), destinoNave.getY()-1));
+       Assert.assertEquals(marine4.getParcela().getCoordenada(), new Coordenada(destinoNave.getX()-1, destinoNave.getY()-1));
+        Assert.assertEquals(marine3.getParcela().getCoordenada(), new Coordenada(destinoNave.getX()-1, destinoNave.getY()));
+        Assert.assertEquals(marine2.getParcela().getCoordenada(), new Coordenada(destinoNave.getX()-1, destinoNave.getY()+1));
+        Assert.assertEquals(marine1.getParcela().getCoordenada(), new Coordenada(destinoNave.getX(), destinoNave.getY()-1));
     }
+
     @Test(expected = ExcepcionNoHaySuministrosDisponibles.class)
     public void seLlegaAlTopeDePoblacion()throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionParcelaVacia, ExcepcionUnidadParaDeMover{
     	Juego juego = new Juego();
@@ -504,7 +505,8 @@ public class IntegradoresTest {
         
         ((Barraca)basicasT).crearMarine(mapa);
         ((Barraca)basicasT).crearMarine(mapa);
-    } 
+    }
+
     @Test
     public void escenarioJugadorPierdeSiNoPuedeObtenerMasSuministros() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionUnidadEnemiga, ExcepcionUnidadParaDeMover {
     	 Juego juego = new Juego();

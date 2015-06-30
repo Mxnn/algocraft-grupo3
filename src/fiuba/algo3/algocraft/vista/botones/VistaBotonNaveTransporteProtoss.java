@@ -2,7 +2,6 @@ package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.NaveTransporteProtoss;
-import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveTransporteTerran;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesNaveTransporte;
 
@@ -29,8 +28,7 @@ public class VistaBotonNaveTransporteProtoss extends VistaBotonRepresentante {
     	vistaAcciones.setEscudo(NaveTransporteProtoss.ESCUDO_INICIAL, escudoActual);
     	
     	vistaAcciones.setCapacidad(NaveTransporteProtoss.CAPACIDAD, representado.cantidadDeUnidades());
-    	
-    	vistaAcciones.setBotonesSacar(NaveTransporteProtoss.CAPACIDAD);
+
     	return vistaAcciones;
     }
 }
