@@ -25,9 +25,8 @@ public class Juego {
 	public void setObservadores(ObservadorMapa observador, ObservadorJuego observadorJuego) throws ExcepcionNumeroDeBasesInvalido {
 		this.generadorMapa = new GeneradorMapa(observador);
 		this.sistemaDeTurnos = new SistemaDeTurnos(this.jugadores,this.getMapa());
-//		this.sistemaDeTurnos.setObservador(observadorJuego);
 		this.observadores.add(observadorJuego);
-
+		this.sistemaDeTurnos.setObservador(observadorJuego);
 //		this.mapa = this.generadorMapa.getMapa();
 		//por ahi convienen dos inicializadores de je
 	}
@@ -103,27 +102,23 @@ public class Juego {
   }
 
     public void pasarTurno(Jugador jugador) throws ExcepcionEstadoMuerto, ExcepcionCoordenadaFueraDelMapa {
-//    	boolean huboExcepcion = false;
-        try {
+//        try {
 			this.sistemaDeTurnos.pasarTurno(jugador);
-		} catch (ExcepcionEnemigoFueraDeAlcance e) {
-//			huboExcepcion = true;
-			for (ObservadorJuego observador: this.observadores) {
-	    		observador.encolarError(e);
-	    	}
-		} catch (ExcepcionUnidadParaDeMover e) {
-            for (ObservadorJuego observador: this.observadores) {
-                observador.encolarError(e);
-            }
-        } finally{
-        for (ObservadorJuego observador: this.observadores) {
+//		} catch (ExcepcionEnemigoFueraDeAlcance e) {
+//			for (ObservadorJuego observador: this.observadores) {
+//	    		observador.encolarError(e);
+//	    	}
+//		} catch (ExcepcionUnidadParaDeMover e) {
+//            for (ObservadorJuego observador: this.observadores) {
+//                observador.encolarError(e);
+//            }
+//        } finally{
+        for (ObservadorJuego observador: this.observadores) 
     		observador.nuevoTurno();
-    	}
+    	
         if(jugador.esPerdedor())
         	this.finJuego(jugador);
-		}
-//        if(huboExcepcion)
-//        	throw new ExcepcionEnemigoFueraDeAlcance();
+//		}
     }
 
     public void limpiarJugadores() {

@@ -131,13 +131,15 @@ public abstract class Unidad extends Interactuable {
 					} catch (ExcepcionParcelaOcupada e) {
 						this.coordenadaDestinacion = null;
 						throw new ExcepcionUnidadParaDeMover(this.getClass());
-					} catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
-						this.coordenadaDestinacion = null;
-						throw new ExcepcionUnidadParaDeMover(this.getClass());
-					}
-				}else{
+					} 
+//					catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
+//						this.coordenadaDestinacion = null;
+//						throw new ExcepcionUnidadParaDeMover(this.getClass());
+//					}
+				}
+				else{
 					this.coordenadaDestinacion= null;
-					throw new ExcepcionUnidadParaDeMover(this.getClass());
+//					throw new ExcepcionUnidadParaDeMover(this.getClass());
 				}
 
 			}

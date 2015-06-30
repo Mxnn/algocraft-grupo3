@@ -6,9 +6,11 @@ import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
+import fiuba.algo3.algocraft.vista.ObservadorJuego;
 
 
 public class SistemaDeTurnos {
+	private ArrayList<ObservadorJuego> observadores = new ArrayList<ObservadorJuego>();
     private ArrayList<Jugador> jugadores;
     private Jugador jugadorQueJuega;
     private int turno = 0;
@@ -30,7 +32,7 @@ public class SistemaDeTurnos {
         return this.jugadorQueJuega;
     }
 
-    public void pasarTurno(Jugador jugador) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa, ExcepcionUnidadParaDeMover {
+    public void pasarTurno(Jugador jugador) throws ExcepcionEstadoMuerto, ExcepcionCoordenadaFueraDelMapa {
         if (this.jugadorQueJuega == null && this.jugadores.size() > 0)
             this.jugadorQueJuega = this.jugadores.get(0);
 
@@ -46,33 +48,38 @@ public class SistemaDeTurnos {
         this.tareasDeEntreturno();
     }
 
-    private void tareasDeEntreturno() throws ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionUnidadParaDeMover {
-    	ArrayList<Exception> excepcionesAtaque = new ArrayList<Exception>();
+    private void tareasDeEntreturno() throws ExcepcionEstadoMuerto{
     	ArrayList<Ataque> ataques = new ArrayList<Ataque>();
     	for (Jugador j: this.jugadores) {
-//    		if(j.esPerdedor())
-//    			throw new ExcepcionFinDelJuego();
             ArrayList<Interactuable> interactuables = new ArrayList<Interactuable>();
             ataques.addAll(j.getAtaques());
             interactuables.addAll(j.getConstrucciones());
             interactuables.addAll(j.getUnidades());
         
             for (Interactuable i: interactuables) {
-                i.tareaDeEntreTurno(this.mapa);
+                try {
+					i.tareaDeEntreTurno(this.mapa);
+				} catch (ExcepcionUnidadParaDeMover e) {
+					for (ObservadorJuego observador: this.observadores)
+		                observador.encolarError(e);
+				}
             }
         }
         for (Ataque i: ataques) {
             try {
 				i.tareaDeEntreTurno(this.mapa);
 			}  catch (ExcepcionEnemigoFueraDeAlcance e) {
-				excepcionesAtaque.add(e);
+				for (ObservadorJuego observador: this.observadores)
+	                observador.encolarError(e);
 			}
-        }
-        for(Exception e: excepcionesAtaque){
-        	throw new ExcepcionEnemigoFueraDeAlcance();
         }
 
     }
+
+	public void setObservador(ObservadorJuego observadorJuego) {
+		this.observadores.add(observadorJuego);
+		
+	}
 
 
 }
