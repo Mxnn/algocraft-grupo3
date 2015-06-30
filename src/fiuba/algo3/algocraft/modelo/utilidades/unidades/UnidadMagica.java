@@ -40,9 +40,10 @@ public abstract class UnidadMagica extends Unidad {
 		ataque.atacar(this);
 	}
 
-    public void vivir(Mapa mapa) {
+    public void vivir(Mapa mapa) throws ExcepcionUnidadParaDeMover {
         this.regenerarEnergia();
         (this.vitalidad).regenerar();
+        this.mover(mapa);
     }
 
     public void regenerarEnergia() {

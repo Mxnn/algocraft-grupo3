@@ -101,10 +101,10 @@ public abstract class Unidad extends Interactuable {
     public void vivir(Mapa mapa) throws ExcepcionUnidadParaDeMover {
         (this.vitalidad).regenerar();
        for (int i=0;i<this.vision;i++)
-        this.mover(mapa);
+    	   this.mover(mapa);
     }
 
-	private void mover(Mapa mapa) throws ExcepcionUnidadParaDeMover {
+	protected void mover(Mapa mapa) throws ExcepcionUnidadParaDeMover {
 		if (this.parcelaUbicacion != null) {
 			Coordenada coordenadaActual = this.parcelaUbicacion.getCoordenada();
 			if (coordenadaActual != null && this.coordenadaDestinacion != null) {
