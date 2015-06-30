@@ -100,6 +100,7 @@ public abstract class Unidad extends Interactuable {
     @Override
     public void vivir(Mapa mapa) {
         (this.vitalidad).regenerar();
+       for (int i=0;i<this.vision;i++)
         this.mover(mapa);
     }
 
