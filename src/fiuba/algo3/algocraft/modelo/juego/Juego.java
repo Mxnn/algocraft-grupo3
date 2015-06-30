@@ -114,9 +114,6 @@ public class Juego {
         try {
 			this.sistemaDeTurnos.pasarTurno(jugador);
 		} catch (ExcepcionEnemigoFueraDeAlcance e) {
-			for (ObservadorJuego observador: this.observadores) {
-	    		observador.displayError(e.getMessage());
-			}
 			huboExcepcion = true;
 		}finally{
         for (ObservadorJuego observador: this.observadores) {
