@@ -7,8 +7,10 @@ import java.awt.GridLayout;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
 import fiuba.algo3.algocraft.controlador.Controlador;
 import fiuba.algo3.algocraft.controlador.ParcelaListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
@@ -20,6 +22,7 @@ import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
+import fiuba.algo3.algocraft.modelo.utilidades.unidades.Clon;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.vista.botones.*;
 
@@ -228,6 +231,28 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
             this.ponerColorDeLetraAdecuado(boton, unidad);
 
             Coordenada coordenada = unidad.getParcela().getCoordenada();
+            this.agregarUnidad(boton, coordenada);
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @Override
+    public void crearUnidad(Clon clon) {
+        VistaBotonInteractuable boton;
+        Unidad unidad = clon.getClonado();
+        try {
+            Class<?> claseBoton = this.representador.getClaseBoton(unidad);
+            boton = (VistaBotonInteractuable) claseBoton.getDeclaredConstructor(unidad.getClass()).newInstance(unidad);
+            this.ponerColorDeLetraAdecuado(boton, unidad);
+
+            Coordenada coordenada = clon.getParcela().getCoordenada();
             this.agregarUnidad(boton, coordenada);
         } catch (InstantiationException e) {
             e.printStackTrace();
