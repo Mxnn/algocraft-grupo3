@@ -21,7 +21,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 
 public class AltoTemplarioTest {
     @Test(expected = ExcepcionUnidadEnemiga.class)
-    public void alucionacionLanzaExcpecionSiLaUnidadNoEsPropia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionUnidadEnemiga, CloneNotSupportedException, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionEnergiaInsuficiente, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionUnidadNoClonable {
+    public void alucionacionLanzaExcpecionSiLaUnidadNoEsPropia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionUnidadEnemiga, CloneNotSupportedException, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionEnergiaInsuficiente, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionUnidadNoClonable, ExcepcionParcelaVacia {
         Juego juego = new Juego();
         Mapa mapa = new Mapa(2, 20, 20);
         Jugador jugador1 = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
@@ -95,11 +95,11 @@ public class AltoTemplarioTest {
         for (int i = 0; i < 6; i++) 
         	altoTemplario.regenerarEnergia();
 
-        altoTemplario.crearAlucinacion(zealot, mapa);
+        altoTemplario.crearAlucinacion(zealot.getParcela(), mapa);
     }
     
     @Test(expected = ExcepcionEnergiaInsuficiente.class)
-    public void alucionacionLanzaExcpecionSiNoAlcanzaLaEnergia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionUnidadEnemiga, CloneNotSupportedException, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionEnergiaInsuficiente, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionUnidadNoClonable {
+    public void alucionacionLanzaExcpecionSiNoAlcanzaLaEnergia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionUnidadEnemiga, CloneNotSupportedException, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionEnergiaInsuficiente, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionUnidadNoClonable, ExcepcionParcelaVacia {
         Juego juego = new Juego();
         Mapa mapa = new Mapa(2, 20, 20);
         Jugador jugador1 = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
@@ -170,7 +170,7 @@ public class AltoTemplarioTest {
             jugador1.terminarTurno(juego);
         }
 
-        altoTemplario.crearAlucinacion(zealot, mapa);
+        altoTemplario.crearAlucinacion(zealot.getParcela(), mapa);
     }
     
     @Test(expected = ExcepcionEnergiaInsuficiente.class)
@@ -193,7 +193,7 @@ public class AltoTemplarioTest {
     	 unJugador.terminarTurno(juego);
     }
     @Test(expected = ExcepcionUnidadNoClonable.class)
-    public void alucionacionLanzaExcpecionSiLaUnidadNoEsAgresora() throws ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionUnidadEnemiga, CloneNotSupportedException, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionEnergiaInsuficiente, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionUnidadNoClonable {
+    public void alucionacionLanzaExcpecionSiLaUnidadNoEsAgresora() throws ExcepcionNumeroDeBasesInvalido, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionCoordenadaFueraDelMapa, ExcepcionRecursosInsuficientes, ExcepcionNoHaySuministrosDisponibles, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionUnidadEnemiga, CloneNotSupportedException, ExcepcionNoHayLugarDisponible, ExcepcionNombreCorto, ExcepcionEnergiaInsuficiente, ExcepcionNoEsElTurnoDelJugador, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionUnidadNoClonable, ExcepcionParcelaVacia {
         Juego juego = new Juego();
         Mapa mapa = new Mapa(2, 20, 20);
         Jugador jugador1 = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
@@ -268,6 +268,6 @@ public class AltoTemplarioTest {
         	altoTemplario.regenerarEnergia();
 
 //        altoTemplario.crearAlucinacion(zealot, mapa);
-        altoTemplario.crearAlucinacion(acceso, mapa);
+        altoTemplario.crearAlucinacion(acceso.getParcela(), mapa);
     }
 }

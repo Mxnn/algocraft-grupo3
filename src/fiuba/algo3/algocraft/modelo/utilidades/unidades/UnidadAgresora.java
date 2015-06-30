@@ -3,6 +3,7 @@ package fiuba.algo3.algocraft.modelo.utilidades.unidades;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaVacia;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;
@@ -18,7 +19,10 @@ public abstract class UnidadAgresora extends Unidad {
         this.danyo = danyo;
     }
 
-    public void atacar(Parcela parcela) {
+    public void atacar(Parcela parcela) throws ExcepcionParcelaVacia {
+    	if(parcela.estaVacia()){
+    		throw new ExcepcionParcelaVacia();
+    	}
 		int distancia = calcularDistanciaDeEnemigo(parcela);
 		AtaqueComun ataque = new AtaqueComun(parcela, rangoAtaque, danyo, distancia);
 		this.propietario.agregarAtaque(ataque);

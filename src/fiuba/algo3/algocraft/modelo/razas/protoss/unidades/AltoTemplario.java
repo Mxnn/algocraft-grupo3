@@ -4,6 +4,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnergiaInsuficiente;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEntidadEnConstruccion;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaVacia;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadEnemiga;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadNoClonable;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
@@ -40,9 +41,31 @@ public class AltoTemplario extends UnidadMagica {
         super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, ENERGIA_MAXIMA, ENERGIA_INICIAL, REGENERACION_ENERGIA, COSTO);
     }
     
-    public void crearAlucinacion(Interactuable unidadAClonar, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion, ExcepcionUnidadNoClonable {
+//    public void crearAlucinacion(Interactuable unidadAClonar, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion, ExcepcionUnidadNoClonable {
+//        if (!this.estaCreado())
+//            throw new ExcepcionEntidadEnConstruccion();
+//
+//        this.gastarEnergia(COSTO_ENERGIA_ALUCINACION);
+//        try{
+//            Clon clon = this.crearClon((UnidadAgresora) unidadAClonar);
+//            mapa.ubicarCercaDeParcela(unidadAClonar.getParcela(), clon);
+//            Clon clon2 = this.crearClon((UnidadAgresora) unidadAClonar);
+//            mapa.ubicarCercaDeParcela(unidadAClonar.getParcela(), clon2);
+//        }
+//        catch (ClassCastException e) {
+//        	throw new ExcepcionUnidadNoClonable();
+//        }
+//    }
+    
+    public void crearAlucinacion(Parcela parcela, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion, ExcepcionUnidadNoClonable, ExcepcionParcelaVacia {
         if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
+        
+        if(parcela.estaVacia()){
+        	throw new ExcepcionParcelaVacia();
+        }
+        
+        Interactuable unidadAClonar = parcela.devolverElemento();
 
         this.gastarEnergia(COSTO_ENERGIA_ALUCINACION);
         try{
