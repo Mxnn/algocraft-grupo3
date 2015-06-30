@@ -230,19 +230,28 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
 	}
 
 	public void refrescar() {
-		Jugador j1 = this.modelo.getJugadores().get(0);
-		Jugador j2 = this.modelo.getJugadores().get(1);
-		
-		this.nombreJ1.setText(j1.getNombre());
-		this.mineralJ1.setText(Integer.toString(j1.getMinerales()));
-		this.gasJ1.setText(Integer.toString(j1.getGasVespeno()));
-        this.poblacionJ1.setText(Integer.toString(j1.getPoblacion()) + "/" + Integer.toString(j1.getCapacidadDePoblacion()));
-		
-		this.nombreJ2.setText(j2.getNombre());
-		this.mineralJ2.setText(Integer.toString(j2.getMinerales()));
-		this.gasJ2.setText(Integer.toString(j2.getGasVespeno()));
-        this.poblacionJ2.setText(Integer.toString(j2.getPoblacion()) + "/" + Integer.toString(j2.getCapacidadDePoblacion()));
+		this.actualizarTextos();
+        this.colorearLabels();
 
+        this.repaint();
+	}
+
+    private void actualizarTextos() {
+        Jugador j1 = this.modelo.getJugadores().get(0);
+        Jugador j2 = this.modelo.getJugadores().get(1);
+
+        this.nombreJ1.setText(j1.getNombre());
+        this.mineralJ1.setText(Integer.toString(j1.getMinerales()));
+        this.gasJ1.setText(Integer.toString(j1.getGasVespeno()));
+        this.poblacionJ1.setText(Integer.toString(j1.getPoblacion()) + "/" + Integer.toString(j1.getCapacidadDePoblacion()));
+
+        this.nombreJ2.setText(j2.getNombre());
+        this.mineralJ2.setText(Integer.toString(j2.getMinerales()));
+        this.gasJ2.setText(Integer.toString(j2.getGasVespeno()));
+        this.poblacionJ2.setText(Integer.toString(j2.getPoblacion()) + "/" + Integer.toString(j2.getCapacidadDePoblacion()));
+    }
+
+    private void colorearLabels() {
         if ((this.modelo.getJugadorQueJuega()).equals(this.modelo.getJugadores().get(0))) {
             this.cambiarColorDeLabels(this.labelsJ1, Color.black);
             this.cambiarColorDeLabels(this.labelsJ2, COLOR_DATOS_JUGADOR_QUE_NO_JUEGA);
@@ -252,12 +261,10 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
             this.cambiarColorDeLabels(this.labelsJ1, COLOR_DATOS_JUGADOR_QUE_NO_JUEGA);
         }
 
-        this.colorearNombres(this.modelo);
+        this.colorearNombres();
+    }
 
-        this.repaint();
-	}
-
-    private void colorearNombres(Juego modelo) {
+    private void colorearNombres() {
         this.nombreJ1.setForeground(this.representador.getColorTexto(modelo.getJugadores().get(0)));
         this.nombreJ2.setForeground(this.representador.getColorTexto(modelo.getJugadores().get(1)));
     }
