@@ -11,6 +11,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadParaDeMover;
 import fiuba.algo3.algocraft.modelo.juego.Color;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.juego.SistemaDeTurnos;
@@ -32,7 +33,7 @@ public class SistemaDeTurnosTest {
     }
 
     @Test
-    public void pasarTurnoHaceQueJuegueElOtroJugador() throws ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionNumeroDeBasesInvalido, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
+    public void pasarTurnoHaceQueJuegueElOtroJugador() throws ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionNumeroDeBasesInvalido, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa, ExcepcionUnidadParaDeMover {
         ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
         Jugador juan = new Jugador("Juan", Color.AZUL, Terran.getInstance());
         Jugador pedro = new Jugador("Pedro", Color.ROJO, Protoss.getInstance());
@@ -46,7 +47,7 @@ public class SistemaDeTurnosTest {
     }
 
     @Test(expected = ExcepcionNoEsElTurnoDelJugador.class)
-    public void pasarTurnoLanzaExcepcionSiElQuePasaElTurnoNoEsElJugadorQueDebeJugar() throws ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionNumeroDeBasesInvalido, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
+    public void pasarTurnoLanzaExcepcionSiElQuePasaElTurnoNoEsElJugadorQueDebeJugar() throws ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionNumeroDeBasesInvalido, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa, ExcepcionUnidadParaDeMover {
         ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
         Jugador juan = new Jugador("Juan", Color.AZUL, Terran.getInstance());
         Jugador pedro = new Jugador("Pedro", Color.ROJO, Protoss.getInstance());

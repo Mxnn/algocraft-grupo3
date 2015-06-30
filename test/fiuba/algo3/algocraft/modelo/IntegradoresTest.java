@@ -25,6 +25,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaVacia;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadEnemiga;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadNoClonable;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadParaDeMover;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadYaSeEncuentraEnLaNave;
 import fiuba.algo3.algocraft.modelo.juego.Color;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
@@ -49,7 +50,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadMagica;
 
 public class IntegradoresTest {
 	
-	private void crearTodasLasConstrucciones(Jugador jTerran, Jugador jProtoss, Mapa mapa, Juego juego)  throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas{
+	private void crearTodasLasConstrucciones(Jugador jTerran, Jugador jProtoss, Mapa mapa, Juego juego)  throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionUnidadParaDeMover{
 
         Interactuable gasT = jTerran.crearExtractorGas(mapa, new Coordenada(0,0));
         Interactuable mineralT = jTerran.crearExtractorMineral(mapa, new Coordenada(0,1));
@@ -111,14 +112,14 @@ public class IntegradoresTest {
         
 	}
 	
-	private void esperarUnidad(Interactuable unidad, Jugador jugador1, Jugador jugador2, Juego juego) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa{
+	private void esperarUnidad(Interactuable unidad, Jugador jugador1, Jugador jugador2, Juego juego) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa, ExcepcionUnidadParaDeMover{
 		while(!unidad.estaCreado()){
 			jugador1.terminarTurno(juego);
 			jugador2.terminarTurno(juego);
 		}
 	}
 	
-	private void esperarEnergiaUnidad(UnidadMagica unidad,Jugador jugador1, Jugador jugador2, Juego juego) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa{
+	private void esperarEnergiaUnidad(UnidadMagica unidad,Jugador jugador1, Jugador jugador2, Juego juego) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa, ExcepcionUnidadParaDeMover{
 		int energia = unidad.getEnergia();
 		boolean cambio = true;
 		while(cambio){
@@ -130,7 +131,7 @@ public class IntegradoresTest {
 	}
     
     @Test
-    public void escenarioNaveCienciaQuitaEscudoYRestaSuMagia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente{
+    public void escenarioNaveCienciaQuitaEscudoYRestaSuMagia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionUnidadParaDeMover{
     	 Juego juego = new Juego();
     	 juego.setMapaParaTests();
     	 Mapa mapa = juego.getMapa();
@@ -166,7 +167,7 @@ public class IntegradoresTest {
     }
     
     @Test
-    public void escenarioNaveCienciaQuitaEscudoYMagiaAOTraNaveCienciaYRestaSuMagia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente{
+    public void escenarioNaveCienciaQuitaEscudoYMagiaAOTraNaveCienciaYRestaSuMagia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionUnidadParaDeMover{
     	 Juego juego = new Juego();
     	 juego.setMapaParaTests();
     	 Mapa mapa = juego.getMapa();
@@ -221,7 +222,7 @@ public class IntegradoresTest {
     }
     
     @Test
-    public void escenarioNaveCienciaNoQuitaEscudoNiMagiaCuandoErraYRestaSuMagia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente{
+    public void escenarioNaveCienciaNoQuitaEscudoNiMagiaCuandoErraYRestaSuMagia() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionUnidadParaDeMover{
     	 Juego juego = new Juego();
     	 juego.setMapaParaTests();
     	 Mapa mapa = juego.getMapa();
@@ -264,7 +265,7 @@ public class IntegradoresTest {
     }
     
     @Test
-    public void escenarioTemplarioLanzaSusAtaquesBienYSusClonesMuerenConEMP() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionUnidadEnemiga, ExcepcionUnidadNoClonable, ExcepcionParcelaVacia {
+    public void escenarioTemplarioLanzaSusAtaquesBienYSusClonesMuerenConEMP() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionUnidadEnemiga, ExcepcionUnidadNoClonable, ExcepcionParcelaVacia, ExcepcionUnidadParaDeMover {
     	 Juego juego = new Juego();
     	 juego.setMapaParaTests();
     	 Mapa mapa = juego.getMapa();
@@ -370,7 +371,7 @@ public class IntegradoresTest {
     }
 
     @Test
-    public void transportarConLaNaveDeTransporteLosTransportaBien() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEnemigoFueraDeAlcance, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionEstadoMuerto, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionEntidadEnConstruccion, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoEsUnidadTerrestre, ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionUnidadYaSeEncuentraEnLaNave {
+    public void transportarConLaNaveDeTransporteLosTransportaBien() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEnemigoFueraDeAlcance, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionEstadoMuerto, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionEntidadEnConstruccion, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoEsUnidadTerrestre, ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionUnidadYaSeEncuentraEnLaNave, ExcepcionUnidadParaDeMover {
         Juego juego = new Juego();
         juego.setMapaParaTests();
         Mapa mapa = juego.getMapa();
@@ -422,9 +423,12 @@ public class IntegradoresTest {
         nave.moverHasta(destinoNave);
  
         while(!(nave.getParcela().getCoordenada()).equals(destinoNave)) {
-            jTerran.terminarTurno(juego);
+            try{
+        	jTerran.terminarTurno(juego);
             jProtoss.terminarTurno(juego);
-                
+            }catch (ExcepcionUnidadParaDeMover e) {
+            	continue;
+            }
         }     
 
         
@@ -441,7 +445,7 @@ public class IntegradoresTest {
         Assert.assertEquals(marine4.getParcela().getCoordenada(), new Coordenada(destinoNave.getX(), destinoNave.getY()-1));
     }
     @Test(expected = ExcepcionNoHaySuministrosDisponibles.class)
-    public void seLlegaAlTopeDePoblacion()throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionParcelaVacia{
+    public void seLlegaAlTopeDePoblacion()throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionParcelaVacia, ExcepcionUnidadParaDeMover{
     	Juego juego = new Juego();
     	juego.setMapaParaTests();
     	Mapa mapa = juego.getMapa();
@@ -506,7 +510,7 @@ public class IntegradoresTest {
         ((Barraca)basicasT).crearMarine(mapa);
     } 
     @Test
-    public void escenarioJugadorPierdeSiNoPuedeObtenerMasSuministros() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionUnidadEnemiga {
+    public void escenarioJugadorPierdeSiNoPuedeObtenerMasSuministros() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionEnergiaInsuficiente, ExcepcionUnidadEnemiga, ExcepcionUnidadParaDeMover {
     	 Juego juego = new Juego();
     	 juego.setMapaParaTests();
     	 Mapa mapa = juego.getMapa();

@@ -19,6 +19,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaVacia;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadParaDeMover;
 import fiuba.algo3.algocraft.modelo.juego.Color;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
@@ -36,7 +37,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 public class ClonTest {
 
 	@Test
-	public void alAgotarseElEscudoMuere() throws ExcepcionEstadoMuerto, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEnemigoFueraDeAlcance {
+	public void alAgotarseElEscudoMuere() throws ExcepcionEstadoMuerto, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEnemigoFueraDeAlcance, ExcepcionUnidadParaDeMover {
 		Juego juego = new Juego();
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		juego.agregarJugador(unJugador);
@@ -56,7 +57,7 @@ public class ClonTest {
 		assertEquals(unJugador.getCantidadDeUnidades(), 1); //se espera una porque se murio el clon pero el dragon sigue
 	}
 	@Test
-	public void clonTieneEscudoCorrecto() throws ExcepcionEstadoMuerto, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionEnemigoFueraDeAlcance, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso {
+	public void clonTieneEscudoCorrecto() throws ExcepcionEstadoMuerto, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionNoEsElTurnoDelJugador, ExcepcionEnemigoFueraDeAlcance, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionUnidadParaDeMover {
 		Juego juego = new Juego();
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		juego.agregarJugador(unJugador);
@@ -74,7 +75,7 @@ public class ClonTest {
 		assertEquals(80,((VitalidadProtoss) clon.getVitalidad()).getEscudo());
 	}
 	@Test
-	public void clonTieneCeroVida() throws ExcepcionEstadoMuerto, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEnemigoFueraDeAlcance {
+	public void clonTieneCeroVida() throws ExcepcionEstadoMuerto, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEnemigoFueraDeAlcance, ExcepcionUnidadParaDeMover {
 		Juego juego = new Juego();
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
 		juego.agregarJugador(unJugador);
@@ -93,7 +94,7 @@ public class ClonTest {
 	}
 	
 	@Test
-	public void elDanyoDelAtaqueEsCero() throws ExcepcionEstadoMuerto, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionEnemigoFueraDeAlcance, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionParcelaVacia {
+	public void elDanyoDelAtaqueEsCero() throws ExcepcionEstadoMuerto, ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNumeroDeBasesInvalido, ExcepcionEnemigoFueraDeAlcance, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionParcelaVacia, ExcepcionUnidadParaDeMover {
 		Juego juego = new Juego();
 		Mapa mapa = new Mapa(2, 6, 6);
 		Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());

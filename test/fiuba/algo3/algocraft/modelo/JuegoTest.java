@@ -18,6 +18,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreEnUso;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
+import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadParaDeMover;
 import fiuba.algo3.algocraft.modelo.juego.Color;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
@@ -70,7 +71,7 @@ public class JuegoTest {
  
     
     @Test
-    public void cadaTurnoSeMueveLasUnidadesQueDebenMover() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreCorto, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionRecursosInsuficientes, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion{
+    public void cadaTurnoSeMueveLasUnidadesQueDebenMover() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreEnUso, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreCorto, ExcepcionCoordenadaFueraDelMapa, ExcepcionNoHaySuministrosDisponibles, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNoEsElTurnoDelJugador, ExcepcionRecursosInsuficientes, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion, ExcepcionUnidadParaDeMover{
     	Juego elJuego= new Juego();
     	elJuego.setMapaParaTests();
         elJuego.crearJugador("Juan", Color.ROJO, Terran.getInstance());
@@ -96,16 +97,20 @@ public class JuegoTest {
         Marine marine = barraca.crearMarine(mapa);
         
         coordPartida = marine.getParcela().getCoordenada();
-        marine.moverHasta(coordDeDestinacion);
+
       //  mapa.obtenerParcelaEnCoordenada(coordPartida).guardarElemento(marine);
 
         while (!marine.estaCreado())
         	jugadorUno.terminarTurno(elJuego);
 
-
+        marine.moverHasta(coordDeDestinacion);
+        try{
         sistema.pasarTurno(jugadorUno);    
         sistema.pasarTurno(jugadorUno);    
         sistema.pasarTurno(jugadorUno);    
+        }catch (ExcepcionUnidadParaDeMover e){
+        	
+        }
         
         Assert.assertTrue(marine.getParcela().getCoordenada()!=coordPartida);
     }
