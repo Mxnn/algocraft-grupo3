@@ -23,7 +23,7 @@ public class AtaqueComun extends Ataque {
 
 	private void danyar(Interactuable enemigo) throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto{
 		if(enemigo.seleccionarRango(this.rango) < distancia){
-    		throw new ExcepcionEnemigoFueraDeAlcance();
+    		throw new ExcepcionEnemigoFueraDeAlcance(enemigo.getClass());
     	}
     	enemigo.recibirDanyo(enemigo.seleccionarDanyo(this.danyo));
 	}

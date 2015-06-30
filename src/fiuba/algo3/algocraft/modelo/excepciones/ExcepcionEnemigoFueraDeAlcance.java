@@ -2,7 +2,7 @@ package fiuba.algo3.algocraft.modelo.excepciones;
 
 
 public class ExcepcionEnemigoFueraDeAlcance extends Exception {
-	public ExcepcionEnemigoFueraDeAlcance(){
-		super("Ataque Fallido: Enemigo fuera de alcance");
+	public ExcepcionEnemigoFueraDeAlcance(Class claseUnidad){
+		super("Ataque Fallido: "+ claseUnidad.getSimpleName() + " fuera de alcance");
 	}
 }

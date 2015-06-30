@@ -104,14 +104,11 @@ public class JuegoTest {
         	jugadorUno.terminarTurno(elJuego);
 
         marine.moverHasta(coordDeDestinacion);
-        try{
+
         sistema.pasarTurno(jugadorUno);    
         sistema.pasarTurno(jugadorUno);    
         sistema.pasarTurno(jugadorUno);    
-        }catch (ExcepcionUnidadParaDeMover e){
-        	
-        }
-        
+
         Assert.assertTrue(marine.getParcela().getCoordenada()!=coordPartida);
     }
 }
