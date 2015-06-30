@@ -1,32 +1,9 @@
 package fiuba.algo3.algocraft.modelo;
 
+import fiuba.algo3.algocraft.modelo.excepciones.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionAlcanzadoElMaximoCupoDeJugadores;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionColorEnUso;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionConstruccionesRequeridasNoCreadas;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnergiaInsuficiente;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEntidadEnConstruccion;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNaveDeTransporteLlena;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsElTurnoDelJugador;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoEsUnidadTerrestre;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHayLugarDisponible;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNoHaySuministrosDisponibles;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreEnUso;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaVacia;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadEnemiga;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadNoClonable;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadParaDeMover;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionUnidadYaSeEncuentraEnLaNave;
 import fiuba.algo3.algocraft.modelo.juego.Color;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
@@ -371,7 +348,7 @@ public class IntegradoresTest {
     }
 
     @Test
-    public void transportarConLaNaveDeTransporteLosTransportaBien() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEnemigoFueraDeAlcance, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionEstadoMuerto, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionEntidadEnConstruccion, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoEsUnidadTerrestre, ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionUnidadYaSeEncuentraEnLaNave, ExcepcionUnidadParaDeMover {
+    public void transportarConLaNaveDeTransporteLosTransportaBien() throws ExcepcionNumeroDeBasesInvalido, ExcepcionNombreCorto, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionEnemigoFueraDeAlcance, ExcepcionParcelaOcupada, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionEstadoMuerto, ExcepcionConstruccionesRequeridasNoCreadas, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionEntidadEnConstruccion, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionNoEsUnidadTerrestre, ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionUnidadYaSeEncuentraEnLaNave, ExcepcionUnidadParaDeMover, ExcepcionUnidadMuyLejos {
         Juego juego = new Juego();
         juego.setMapaParaTests();
         Mapa mapa = juego.getMapa();
@@ -393,9 +370,9 @@ public class IntegradoresTest {
         }
         
         jTerran.crearAdicionalDeSuministro(mapa, new Coordenada(4, 5));
-        jTerran.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(13,13));
+        jTerran.crearCreadorDeUnidadesMagicas(mapa, new Coordenada(2, 3));
 
-        PuertoEstelar puertoT = (PuertoEstelar) mapa.devolverElementoEnParcela(new Coordenada(13,13));
+        PuertoEstelar puertoT = (PuertoEstelar) mapa.devolverElementoEnParcela(new Coordenada(2, 3));
         Barraca barraca = (Barraca) mapa.devolverElementoEnParcela(new Coordenada(1,1));
 
         this.esperarUnidad(puertoT, jTerran, jProtoss, juego);

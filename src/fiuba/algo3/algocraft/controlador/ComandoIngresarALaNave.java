@@ -27,6 +27,8 @@ public class ComandoIngresarALaNave extends ComandoAccionPorTurno {
                 this.listener.mostrarError(e.getMessage());
             } catch (ExcepcionNoEsUnidadTerrestre e) {
                 this.listener.mostrarError(e.getMessage());
+            } catch (ExcepcionUnidadMuyLejos e) {
+                this.listener.mostrarError(e.getMessage());
             }
         }
         catch (ClassCastException e) {

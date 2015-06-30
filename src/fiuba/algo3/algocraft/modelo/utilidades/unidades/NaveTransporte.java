@@ -11,6 +11,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public abstract class NaveTransporte extends Unidad {
+    protected final int RANGO_DE_INSERCION_DE_UNIDADES = 3;
     protected int lugaresOcupados;
     protected int capacidad;
     private ObservadorMapa observador;
@@ -26,7 +27,7 @@ public abstract class NaveTransporte extends Unidad {
         this.observador = observador;
     }
 
-    public void insertarUnidad(Unidad unidad) throws ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionEntidadEnConstruccion, ExcepcionUnidadYaSeEncuentraEnLaNave {
+    public void insertarUnidad(Unidad unidad) throws ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionEntidadEnConstruccion, ExcepcionUnidadYaSeEncuentraEnLaNave, ExcepcionUnidadMuyLejos {
         if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
 
@@ -38,6 +39,9 @@ public abstract class NaveTransporte extends Unidad {
 
         if (unidad.getCupoDeTransporte() == 0)
             throw new ExcepcionNoEsUnidadTerrestre();
+
+        if (unidad.getParcela().devolverDistanciaConParcela(this.getParcela()) > this.RANGO_DE_INSERCION_DE_UNIDADES)
+            throw new ExcepcionUnidadMuyLejos();
 
         int lugaresTotalesOcupadas = lugaresOcupados + unidad.getCupoDeTransporte();
         if (lugaresTotalesOcupadas <= capacidad) {
