@@ -15,7 +15,7 @@ import fiuba.algo3.algocraft.controlador.CerrarFrameListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
-import fiuba.algo3.algocraft.controlador.UnloadDatosJugadores;
+import fiuba.algo3.algocraft.controlador.UnloadDatosJugadoresListener;
 
 public class IngresoJugadoresVista extends JDialog {
 
@@ -120,7 +120,7 @@ public class IngresoJugadoresVista extends JDialog {
 			{
 				JButton okButton = new JButton("OK");
 //				okButton.setActionCommand("OK");
-				okButton.addActionListener(new UnloadDatosJugadores(this.modelo, this, vista));
+				okButton.addActionListener(new UnloadDatosJugadoresListener(this.modelo, this, vista));
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
