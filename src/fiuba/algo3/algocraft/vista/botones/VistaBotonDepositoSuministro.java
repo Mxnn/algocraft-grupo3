@@ -5,7 +5,11 @@ import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.DepositoSuminist
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 public class VistaBotonDepositoSuministro extends VistaBotonRepresentante {
-    private static final String CODIGO = "DS";
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static final String CODIGO = "DS";
     private static final String NOMBRE = "Deposito de Suministro";
 
 	public VistaBotonDepositoSuministro(DepositoSuministro depositoSuministro){

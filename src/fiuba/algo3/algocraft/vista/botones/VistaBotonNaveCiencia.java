@@ -5,6 +5,10 @@ import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveCiencia;
 import fiuba.algo3.algocraft.vista.acciones.unidades.VistaAccionesNaveCiencia;
 
 public class VistaBotonNaveCiencia extends VistaBotonRepresentante {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String NOMBRE = "Nave Ciencia";
 	private static final String CODIGO = "NC";
 

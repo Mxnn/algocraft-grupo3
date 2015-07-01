@@ -9,6 +9,11 @@ import java.awt.Color;
 
 
 public class ReferenciasVista extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ReferenciasVista() {
         JPanel contentPanel = new JPanel();
 		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);

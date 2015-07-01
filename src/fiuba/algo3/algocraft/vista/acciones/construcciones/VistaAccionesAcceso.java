@@ -12,6 +12,11 @@ import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 public class  VistaAccionesAcceso  extends VistaAccionesInteractuable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public VistaAccionesAcceso(Juego modelo, Acceso representado) {
 		super(modelo, representado);
 		

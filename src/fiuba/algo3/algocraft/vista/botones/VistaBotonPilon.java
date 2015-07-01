@@ -6,7 +6,11 @@ import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 public class VistaBotonPilon extends VistaBotonRepresentante {
-    public static final String CODIGO = "Pi";
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public static final String CODIGO = "Pi";
     public static final String NOMBRE = "Pilon";
 
 	public VistaBotonPilon(Pilon pilon){

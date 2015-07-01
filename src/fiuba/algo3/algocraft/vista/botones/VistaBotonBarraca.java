@@ -6,6 +6,10 @@ import fiuba.algo3.algocraft.vista.acciones.construcciones.VistaAccionesBarraca;
 
 public class VistaBotonBarraca extends VistaBotonRepresentante {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String NOMBRE = "Barraca";
 	private static final String CODIGO = "Ba";
 

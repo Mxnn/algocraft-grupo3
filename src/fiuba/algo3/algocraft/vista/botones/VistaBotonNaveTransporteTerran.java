@@ -5,6 +5,10 @@ import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveTransporteTerran;
 import fiuba.algo3.algocraft.vista.acciones.unidades.VistaAccionesNaveTransporte;
 
 public class VistaBotonNaveTransporteTerran extends VistaBotonRepresentante {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String NOMBRE = "Nave Transpoerte Terran";
 	private static final String CODIGO = "NTT";
 

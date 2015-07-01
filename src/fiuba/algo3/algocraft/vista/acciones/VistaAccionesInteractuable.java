@@ -14,6 +14,10 @@ import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 
 public class VistaAccionesInteractuable extends VistaAccionesParcela {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected JPanel panelVitalidad;
 
 	public VistaAccionesInteractuable(Juego modelo, Interactuable representado) {

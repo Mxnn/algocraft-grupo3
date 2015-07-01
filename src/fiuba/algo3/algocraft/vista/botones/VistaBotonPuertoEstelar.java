@@ -5,6 +5,10 @@ import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
 import fiuba.algo3.algocraft.vista.acciones.construcciones.VistaAccionesPuertoEstelar;
 
 public class VistaBotonPuertoEstelar extends VistaBotonRepresentante {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final String CODIGO = "PET";
 	public static final String NOMBRE = "Puerto Estelar Terran";
 

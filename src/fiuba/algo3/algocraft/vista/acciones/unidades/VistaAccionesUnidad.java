@@ -11,6 +11,11 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public abstract class VistaAccionesUnidad extends VistaAccionesInteractuable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public VistaAccionesUnidad(Juego modelo, Unidad representado) {
 		super(modelo, representado);
 		JButton btnMover = new JButton("Mover");

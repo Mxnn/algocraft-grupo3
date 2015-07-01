@@ -11,6 +11,10 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 public abstract class VistaBotonInteractuable extends JButton {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected String nombre;
 	protected String codigo;
 

@@ -10,6 +10,10 @@ import javax.swing.JLabel;
 
 public class CreadoresVista extends JDialog {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 
 	/**

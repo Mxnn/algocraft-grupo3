@@ -11,6 +11,11 @@ import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 
 public abstract class VistaAccionesParcela extends VistaAcciones {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public VistaAccionesParcela(Juego modelo, Coordenada ubicacionParcela) {
 		super(modelo);
 		

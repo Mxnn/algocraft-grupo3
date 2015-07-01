@@ -12,7 +12,11 @@ import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.vista.observadores.jugador.ObservadorJugador;
 
 public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador {
-    private final Color COLOR_DATOS_JUGADOR_QUE_NO_JUEGA = Color.gray;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final Color COLOR_DATOS_JUGADOR_QUE_NO_JUEGA = Color.gray;
     private static final String LABEL_NOMBRE = "Nombre:";
     private static final String LABEL_MINERALES = "Minerales:";
     private static final String LABEL_GAS = "Gas:";

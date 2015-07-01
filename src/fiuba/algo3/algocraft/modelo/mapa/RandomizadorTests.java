@@ -3,12 +3,9 @@ package fiuba.algo3.algocraft.modelo.mapa;
 import java.util.ArrayList;
 import java.util.List;
 
-import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 
 public class RandomizadorTests extends Randomizador {
-//	public static int CANT_ESPACIOS = 3;
-//    public static int COSTO_GAS = 50;
-//    public static Costo COSTO = new Costo(COSTO_MINERAL, COSTO_GAS);
+
 	private List<Integer> numeros;
 	public RandomizadorTests(){
 		this.numeros = new ArrayList<Integer>();

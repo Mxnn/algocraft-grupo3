@@ -5,6 +5,10 @@ import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.vista.acciones.unidades.VistaAccionesUnidadAgresora;
 
 public class VistaBotonEspectro extends VistaBotonRepresentante {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String NOMBRE = "Espectro";
 	private static final String CODIGO = "Es";
 

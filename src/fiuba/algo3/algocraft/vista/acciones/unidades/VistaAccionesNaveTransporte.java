@@ -12,6 +12,11 @@ import java.awt.Insets;
 import javax.swing.*;
 
 public class VistaAccionesNaveTransporte extends VistaAccionesUnidad {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public VistaAccionesNaveTransporte(Juego modelo, NaveTransporte representado) {
 		super(modelo, representado);
 		JButton btnInsertarUnidad = new JButton("Insertar Unidad");

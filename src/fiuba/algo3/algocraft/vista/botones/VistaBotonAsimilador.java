@@ -7,7 +7,11 @@ import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 public class VistaBotonAsimilador extends VistaBotonRepresentante {
 
-    private static final String CODIGO = "As";
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static final String CODIGO = "As";
     private static final String NOMBRE = "Asimilador";
 
 	public VistaBotonAsimilador(Asimilador asimilador){

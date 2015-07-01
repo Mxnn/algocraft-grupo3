@@ -7,6 +7,10 @@ import fiuba.algo3.algocraft.vista.acciones.unidades.VistaAccionesUnidadAgresora
 
 public class VistaBotonScout extends VistaBotonRepresentante {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String CODIGO = "Sc";
 	private static final String NOMBRE = "Scout";
 

@@ -7,6 +7,10 @@ import fiuba.algo3.algocraft.vista.acciones.VistaAcciones;
 import fiuba.algo3.algocraft.vista.acciones.unidades.VistaAccionesAltoTemplario;
 
 public class VistaBotonAltoTemplario extends VistaBotonRepresentante {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final String CODIGO = "AlT";
 	public static final String NOMBRE = "Alto Templario";
 	

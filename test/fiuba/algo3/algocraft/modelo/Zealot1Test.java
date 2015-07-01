@@ -152,7 +152,7 @@ public class Zealot1Test {
         unJugador2.terminarTurno(juego);
         zealot.atacar(espectro.getParcela());
         unJugador.terminarTurno(juego);
-        assertEquals(espectro.getVida(), espectro.VIDA_INICIAL);
+        assertEquals(espectro.getVida(), Espectro.VIDA_INICIAL);
     }
 
     @Test
@@ -191,6 +191,6 @@ public class Zealot1Test {
 
         zealot.atacar(marine.getParcela());
         unJugador.terminarTurno(juego);
-        assertEquals(marine.getVida(), marine.VIDA_INICIAL);
+        assertEquals(marine.getVida(), Marine.VIDA_INICIAL);
     }
 }

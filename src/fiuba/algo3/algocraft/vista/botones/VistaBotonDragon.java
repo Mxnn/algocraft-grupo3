@@ -6,6 +6,10 @@ import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.vista.acciones.unidades.VistaAccionesUnidadAgresora;
 
 public class VistaBotonDragon extends VistaBotonRepresentante {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String NOMBRE = "Dragon";
 	private static final String CODIGO = "Dr";
 

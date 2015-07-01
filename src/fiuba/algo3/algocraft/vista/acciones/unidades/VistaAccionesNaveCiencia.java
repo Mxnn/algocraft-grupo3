@@ -12,6 +12,11 @@ import java.awt.Insets;
 
 public class VistaAccionesNaveCiencia extends VistaAccionesUnidad {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public VistaAccionesNaveCiencia(Juego modelo, NaveCiencia representado) {
 		super(modelo, representado);
 		

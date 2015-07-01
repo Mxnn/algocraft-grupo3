@@ -191,7 +191,7 @@ public class DragonTest {
         dragon.atacar(marine.getParcela());
 
         unJugador.terminarTurno(juego);
-        assertEquals(marine.getVida(), marine.VIDA_INICIAL);
+        assertEquals(marine.getVida(), Marine.VIDA_INICIAL);
     }
 
 }

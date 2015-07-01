@@ -13,6 +13,11 @@ import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 public class VistaAccionesPuertoEstelarProtoss  extends VistaAccionesInteractuable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public VistaAccionesPuertoEstelarProtoss(Juego modelo, PuertoEstelarProtoss representado) {
 		super(modelo, representado);
 		

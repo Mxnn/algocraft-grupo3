@@ -11,6 +11,11 @@ import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplar
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 public class VistaAccionesArchivosTemplarios  extends VistaAccionesInteractuable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public VistaAccionesArchivosTemplarios(Juego modelo, ArchivosTemplarios representado) {
 		super(modelo, representado);
 		

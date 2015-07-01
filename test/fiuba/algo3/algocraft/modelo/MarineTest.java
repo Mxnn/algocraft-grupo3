@@ -225,6 +225,6 @@ public class MarineTest {
 
         marine.atacar(barracaJugador2.getParcela());
         unJugador.terminarTurno(juego);
-        assertEquals(barracaJugador2.getVida(), barracaJugador2.VIDA_INICIAL);
+        assertEquals(barracaJugador2.getVida(), Barraca.VIDA_INICIAL);
     }
 }

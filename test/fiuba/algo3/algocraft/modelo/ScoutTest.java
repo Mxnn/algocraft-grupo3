@@ -28,11 +28,9 @@ import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.razas.protoss.Protoss;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Scout;
 import fiuba.algo3.algocraft.modelo.razas.terran.Terran;
-import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Marine;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
-import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 
 public class ScoutTest {
@@ -153,7 +151,7 @@ public class ScoutTest {
 
 	    scout.atacar(marine.getParcela());
         unJugador.terminarTurno(juego);
-        assertEquals(marine.getVida(),marine.VIDA_INICIAL );
+        assertEquals(marine.getVida(),Marine.VIDA_INICIAL );
 	}
 
     @Test
@@ -192,7 +190,7 @@ public class ScoutTest {
 
         scout.atacar(espectro.getParcela());
         unJugador.terminarTurno(juego);
-        assertEquals(espectro.getVida(),espectro.VIDA_INICIAL );
+        assertEquals(espectro.getVida(),Espectro.VIDA_INICIAL );
     }
     
 

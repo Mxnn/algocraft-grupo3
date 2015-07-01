@@ -7,6 +7,10 @@ import fiuba.algo3.algocraft.vista.acciones.unidades.VistaAccionesNaveTransporte
 
 public class VistaBotonNaveTransporteProtoss extends VistaBotonRepresentante {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String NOMBRE = "Nave Transporte Protoss";
 	private static final String CODIGO = "NTP";
 

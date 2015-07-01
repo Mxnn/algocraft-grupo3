@@ -5,7 +5,11 @@ import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Refineria;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 public class VistaBotonRefineria extends VistaBotonRepresentante {
-    private static final String CODIGO = "Re";
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static final String CODIGO = "Re";
     private static final String NOMBRE = "Refineria";
 
 	public VistaBotonRefineria(Refineria refineria) {

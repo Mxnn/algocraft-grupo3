@@ -6,6 +6,10 @@ import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.vista.acciones.construcciones.VistaAccionesArchivosTemplarios;
 
 public class VistaBotonArchivosTemplarios extends VistaBotonRepresentante {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String CODIGO = "ArT";
 	private static final String NOMBRE = "Archivos Templarios";
 	

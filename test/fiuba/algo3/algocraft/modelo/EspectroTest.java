@@ -197,7 +197,7 @@ public class EspectroTest {
         espectro.atacar(marine.getParcela());
 
         unJugador.terminarTurno(juego);
-        assertEquals(marine.getVida(),marine.VIDA_INICIAL );
+        assertEquals(marine.getVida(),Marine.VIDA_INICIAL );
     }
 
     @Test
@@ -237,7 +237,7 @@ public class EspectroTest {
 
        unJugador.terminarTurno(juego);
        
-       assertEquals(espectro2.getVida(),espectro2.VIDA_INICIAL );
+       assertEquals(espectro2.getVida(),Espectro.VIDA_INICIAL );
     }
 }
 

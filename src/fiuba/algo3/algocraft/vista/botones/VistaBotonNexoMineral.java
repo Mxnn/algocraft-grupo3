@@ -6,7 +6,11 @@ import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 public class VistaBotonNexoMineral extends VistaBotonRepresentante {
-    private static final String CODIGO = "NM";
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static final String CODIGO = "NM";
     private static final String NOMBRE = "Nexo Mineral";
 
 	public VistaBotonNexoMineral(NexoMineral nexoMineral){

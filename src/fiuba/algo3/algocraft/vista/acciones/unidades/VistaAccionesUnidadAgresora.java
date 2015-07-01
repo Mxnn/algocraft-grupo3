@@ -10,6 +10,11 @@ import java.awt.Insets;
 import javax.swing.JButton;
 
 public class VistaAccionesUnidadAgresora extends VistaAccionesUnidad {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public VistaAccionesUnidadAgresora(Juego modelo, UnidadAgresora representado) {
 		super(modelo, representado);
 		this.setTitulo("Unidad Agresora");

@@ -17,6 +17,10 @@ import javax.swing.JLabel;
 import java.awt.Insets;
 
 public class VistaAcciones extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String TITULO_DEFAULT = "Clickear parcela para realizar una accion";
 	private JLabel titulo;
     protected Juego modelo;

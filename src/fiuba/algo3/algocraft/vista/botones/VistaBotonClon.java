@@ -9,6 +9,11 @@ public class VistaBotonClon extends VistaBotonRepresentante {
 //	private String codigoClonado;
 //	private String nombreClonado;
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public VistaBotonClon(Clon clon, VistaBotonInteractuable botonAClonar) {
 		super(clon,botonAClonar.getCodigo(), botonAClonar.getNombre());
 //		this.codigoClonado = botonAClonar.getCodigo();

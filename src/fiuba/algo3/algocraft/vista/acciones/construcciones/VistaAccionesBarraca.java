@@ -12,7 +12,12 @@ import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 public class VistaAccionesBarraca extends VistaAccionesInteractuable {
 
-    //Por referencia el modelo
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	//Por referencia el modelo
 	public VistaAccionesBarraca(Juego modelo, Barraca representado) {
 		super(modelo, representado);
 

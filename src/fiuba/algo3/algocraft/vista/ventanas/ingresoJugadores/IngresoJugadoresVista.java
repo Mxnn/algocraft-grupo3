@@ -20,6 +20,10 @@ import fiuba.algo3.algocraft.vista.observadores.juego.VistaJuego;
 
 public class IngresoJugadoresVista extends JDialog {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField nombre1;
 	private JTextField nombre2;

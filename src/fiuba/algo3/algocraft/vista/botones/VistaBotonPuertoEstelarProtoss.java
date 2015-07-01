@@ -6,6 +6,10 @@ import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.vista.acciones.construcciones.VistaAccionesPuertoEstelarProtoss;
 
 public class VistaBotonPuertoEstelarProtoss extends VistaBotonRepresentante {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final String NOMBRE = "Puerto Estelar Protoss";
 	public static final String CODIGO = "PEP";
 

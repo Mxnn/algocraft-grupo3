@@ -5,6 +5,10 @@ import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Golliat;
 import fiuba.algo3.algocraft.vista.acciones.unidades.VistaAccionesUnidadAgresora;
 
 public class VistaBotonGolliat extends VistaBotonRepresentante {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final String NOMBRE = "Golliat";
 	public static final String CODIGO = "Go";
 

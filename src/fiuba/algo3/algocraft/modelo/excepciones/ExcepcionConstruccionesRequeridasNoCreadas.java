@@ -6,6 +6,11 @@ public class ExcepcionConstruccionesRequeridasNoCreadas extends Exception {
 //		return this.mensaje;
 //	}
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ExcepcionConstruccionesRequeridasNoCreadas(){
 		super("Construcciones Requeridas No Creadas");
 	}

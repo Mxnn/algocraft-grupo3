@@ -257,7 +257,7 @@ public class GolliatTest {
 
         golliat.atacar(marine.getParcela());
         unJugador2.terminarTurno(juego);
-        assertEquals(marine.getVida(), marine.VIDA_INICIAL);
+        assertEquals(marine.getVida(), Marine.VIDA_INICIAL);
     }
     
     @Test
@@ -302,7 +302,7 @@ public class GolliatTest {
 
         golliat.atacar(espectro.getParcela());
         unJugador.terminarTurno(juego);
-        assertEquals(espectro.getVida(), espectro.VIDA_INICIAL);
+        assertEquals(espectro.getVida(), Espectro.VIDA_INICIAL);
     }
 
 

@@ -10,6 +10,10 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class VistaAccionesParcelaVacia extends VistaAccionesParcela {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String TITULO_PARCELA_VACIA = "Parcela Vacia";
 
 	public VistaAccionesParcelaVacia(Juego modelo, Coordenada ubicacionParcela) {

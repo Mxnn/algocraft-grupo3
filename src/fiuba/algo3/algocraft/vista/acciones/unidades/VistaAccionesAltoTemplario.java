@@ -11,6 +11,11 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class VistaAccionesAltoTemplario extends VistaAccionesUnidad {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public VistaAccionesAltoTemplario(Juego modelo, AltoTemplario representado) {
 		super(modelo, representado);
 

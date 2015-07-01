@@ -7,7 +7,12 @@ import fiuba.algo3.algocraft.modelo.razas.terran.Terran;
 import javax.swing.*;
 
 public class ComboBoxRazas extends JComboBox<String> {
-    public ComboBoxRazas() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public ComboBoxRazas() {
         this.addItem("Terran");
         this.addItem("Protoss");
     }

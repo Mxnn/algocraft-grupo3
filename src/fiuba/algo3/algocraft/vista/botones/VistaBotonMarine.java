@@ -5,6 +5,10 @@ import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Marine;
 import fiuba.algo3.algocraft.vista.acciones.unidades.VistaAccionesUnidadAgresora;
 
 public class VistaBotonMarine extends VistaBotonRepresentante {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String NOMBRE = "Marine";
 	private static final String CODIGO = "Ma";
 
