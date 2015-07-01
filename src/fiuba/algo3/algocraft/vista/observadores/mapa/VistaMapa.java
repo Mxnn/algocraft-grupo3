@@ -36,6 +36,8 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
     
     public static final String BOTON_PARCELA = "botonParcela";
     public static final String BOTON_INTERACTUABLE = "botonInteractuable";
+
+	private static final int INDICE_BOTON_INTERACTUABLE = 1;
     
 	private int filas;
 	private int columnas;
@@ -88,10 +90,10 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
         }
 	}
 
-    public JButton getButton(int x, int y) {
-        int index = y * this.columnas + x;
-        return listaBotonesParcela.get(index);
-    }
+//    public JButton getButton(int x, int y) {
+//        int index = y * this.columnas + x;
+//        return listaBotonesParcela.get(index);
+//    }
 
     public VistaBotonInteractuable getBoton(Coordenada coordenada) {
         JPanel panel = this.getPanel(coordenada);
@@ -142,21 +144,25 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
     
     private void desinscribirElemento(Coordenada coordenada){  //metodo para limpiar la parcela si la unidad se mueve en otra parcela
     	JPanel panelParcela = this.getPanel(coordenada);
-    	if(panelParcela.getComponentCount() >1)
-    		panelParcela.remove(1);
+    	if(this.hayInteractuableEnPanelParcela(panelParcela))
+    		panelParcela.remove(INDICE_BOTON_INTERACTUABLE);
     }
     
 	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa {
-		//ESTO NO SE SI DA DEJARLO ASI, SE FIJA DE BORRAR PARCELAS VACIAS Y ACTIVAR BOTONES
 		for(int x=0; x<this.columnas; x++){
     		for(int y=0; y<this.filas; y++){
-    			Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y));
-    			//PROBABLEMENTE HAYA QUE CAMBIAR ESTO
-    			if(!parcela.estaVacia() && parcela.devolverElemento().estaCreado())
-    					this.activarBoton(parcela.getCoordenada());
+    			JPanel panelParcela = this.getPanel(new Coordenada(x,y));
+    			if(this.hayInteractuableEnPanelParcela(panelParcela)){
+    				VistaBotonRepresentante boton = (VistaBotonRepresentante) this.getBoton(new Coordenada(x,y));
+    				boton.habilitarBoton();
+    			}
+    				
     		}
-		}
-		this.repaint();
+    	}
+	}
+	
+	private boolean hayInteractuableEnPanelParcela(JPanel panelParcela){
+		return (panelParcela.getComponentCount() >1);
 	}
 	
 	public void seleccionarCoordenada(int x, int y){
