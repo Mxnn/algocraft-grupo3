@@ -1,30 +1,16 @@
 package fiuba.algo3.algocraft.vista.ventanas.referencias;
 
 import java.awt.BorderLayout;
-
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Color;
-import javax.swing.ImageIcon;
 
 
 public class ReferenciasVista extends JDialog {
-
-	private final JPanel contentPanel = new JPanel();
-
-	/**
-	 * Launch the application.
-	 */
-
-
-
-	/**
-	 * Create the dialog.
-	 */
 	public ReferenciasVista() {
-
+        JPanel contentPanel = new JPanel();
 		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		this.setVisible(true);
 		setBounds(100, 100, 782, 481);
