@@ -156,42 +156,22 @@ public class ReferenciasVista extends JDialog {
 		lblReferenciasParcelas.setBounds(552, 13, 129, 19);
 		contentPanel.add(lblReferenciasParcelas);
 		
-		JLabel lblGrisParcelaDe = new JLabel(" Parcela de tierra(Gris)");
+		JLabel lblGrisParcelaDe = new JLabel(" Parcela de tierra(Color Gris)");
 		lblGrisParcelaDe.setForeground(Color.BLACK);
 		lblGrisParcelaDe.setBounds(540, 83, 179, 19);
 		contentPanel.add(lblGrisParcelaDe);
 		
-		JLabel lblParcelaDeEspacio = new JLabel("         Parcela de espacio(Negro)");
+		JLabel lblParcelaDeEspacio = new JLabel("         Parcela de espacio(Color Negro)");
 		lblParcelaDeEspacio.setBounds(516, 113, 179, 19);
 		contentPanel.add(lblParcelaDeEspacio);
 		
-		JLabel lblParcelaDeMineral = new JLabel("        Parcela de mineral(Celeste)");
+		JLabel lblParcelaDeMineral = new JLabel("        Parcela de mineral(Color Celeste)");
 		lblParcelaDeMineral.setBounds(516, 143, 203, 19);
 		contentPanel.add(lblParcelaDeMineral);
 		
-		JLabel lblParcelaDeVolcan = new JLabel("         Parcela de Volcan(Anaranjado)");
+		JLabel lblParcelaDeVolcan = new JLabel("         Parcela de Volcan(Color Anaranjado)");
 		lblParcelaDeVolcan.setBounds(516, 173, 203, 19);
 		contentPanel.add(lblParcelaDeVolcan);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\PC\\Desktop\\UBA_cursos\\algo\\java\\tp\\tp2\\.grey_caseJPG"));
-		lblNewLabel.setBounds(509, 83, 21, 19);
-		contentPanel.add(lblNewLabel);
-		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\PC\\Desktop\\UBA_cursos\\algo\\java\\tp\\tp2\\space_case.JPG"));
-		label.setBounds(509, 113, 21, 19);
-		contentPanel.add(label);
-		
-		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon("C:\\Users\\PC\\Desktop\\UBA_cursos\\algo\\java\\tp\\tp2\\blue_case.JPG"));
-		label_1.setBounds(508, 143, 22, 19);
-		contentPanel.add(label_1);
-		
-		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon("C:\\Users\\PC\\Desktop\\UBA_cursos\\algo\\java\\tp\\tp2\\marron_case.JPG"));
-		label_2.setBounds(508, 173, 22, 19);
-		contentPanel.add(label_2);
 		
 		JLabel lblNota = new JLabel("Nota: los elementos escritos en color gris son elementos ");
 		lblNota.setBounds(442, 293, 361, 19);
