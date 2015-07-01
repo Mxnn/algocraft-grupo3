@@ -55,7 +55,7 @@ public class VistaJuego implements ObservadorJuego {
 
         JFrame ventanaPrincipal= new JFrame("AlgoCraft");
         this.ventanaPrincipal = ventanaPrincipal;
-        ventanaPrincipal.setSize(1024,778);
+        ventanaPrincipal.setSize(1024,900);
         
         VistaMapa vistaMapa = VistaMapa.createInstance(clickEnParcelaListener, this.modelo.getMapa());
         this.vistaMapa = vistaMapa;
@@ -90,7 +90,7 @@ public class VistaJuego implements ObservadorJuego {
 //        panelDeParcela.setParcelas(this.modelo.getMapa());
 
         this.barraLateral = new VistaBarraLateral(this.modelo);
-        this.barraLateral.setLocation(666, 0);
+        this.barraLateral.setLocation(700, 0);
         ventanaPrincipal.getContentPane().add(this.barraLateral);
         this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo));
         

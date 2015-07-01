@@ -64,7 +64,7 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
 		this.clickEnParcelaListener = clickEnParcelaListener;
 		this.representador = new Representador();
 		this.setLocation(0, 0);
-		this.setSize(650,650);
+		this.setSize(700,700);
 		this.setLayout(new GridLayout(columnas,filas));
 //		this.setLayout(new GridLayout(20,20)); //esto lo comente para poder usar el window builder
 

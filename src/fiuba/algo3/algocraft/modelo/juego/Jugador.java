@@ -277,10 +277,14 @@ public class Jugador {
     }
     
     public boolean esPerdedor(){
-    	//boolean tieneGas = this.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_GAS);
-    	boolean tieneMineral = this.tieneConstruccionDeTipo(TipoDeConstruccion.EXTRACTOR_MINERAL);
+    	boolean tieneConstruccionMineral = false;
+        for (Construccion c : construcciones) {
+            if (c.getTipoDeConstruccion() == TipoDeConstruccion.EXTRACTOR_MINERAL)
+            	tieneConstruccionMineral = true;
+        }
+    	
 
-    	return(this.mineral<100 && !tieneMineral);
+    	return(this.mineral<=100 && !tieneConstruccionMineral);
     }
 
     private void deducirCostos(Costo costo) {
