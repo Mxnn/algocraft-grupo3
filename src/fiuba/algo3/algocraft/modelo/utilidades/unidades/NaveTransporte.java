@@ -1,6 +1,8 @@
 package fiuba.algo3.algocraft.modelo.utilidades.unidades;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
@@ -11,7 +13,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.vista.ObservadorMapa;
 
 public abstract class NaveTransporte extends Unidad {
-    protected final int RANGO_DE_INSERCION_DE_UNIDADES = 3;
+    protected final int RANGO_DE_INSERCION_DE_UNIDADES = 1;
     protected int lugaresOcupados;
     protected int capacidad;
     private ObservadorMapa observador;
@@ -90,15 +92,22 @@ public abstract class NaveTransporte extends Unidad {
 		ataque.atacar(this);
 	}
 
-    public void sacarUnidad(Mapa mapa) throws ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
+    public void sacarUnidad(Mapa mapa, Unidad unidadASacar) throws ExcepcionNoHayLugarDisponible, ExcepcionEntidadEnConstruccion {
         if (!this.estaCreado())
             throw new ExcepcionEntidadEnConstruccion();
 
         if (this.unidades.size() > 0) {
-            Unidad unidadSacada = this.unidades.remove(this.unidades.size() - 1);
-            mapa.ubicarCercaDeParcela(this.parcelaUbicacion, unidadSacada);
-            if (this.observador != null)
-                this.observador.crearUnidad(unidadSacada);
+            if (this.unidades.indexOf(unidadASacar) != -1) {
+                mapa.ubicarCercaDeParcela(this.parcelaUbicacion, unidadASacar);
+                this.unidades.remove(unidadASacar);
+
+                if (this.observador != null)
+                    this.observador.crearUnidad(unidadASacar);
+            }
         }
+    }
+
+    public List<Unidad> getUnidades() {
+        return this.unidades;
     }
 }

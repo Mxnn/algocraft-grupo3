@@ -133,19 +133,20 @@ public abstract class Unidad extends Interactuable {
 					} catch (ExcepcionParcelaOcupada e) {
 						this.coordenadaDestinacion = null;
 						throw new ExcepcionUnidadParaDeMover(this.getClass());
-					} 
-//					catch (ExcepcionCoordenadaFueraDelMapa excepcionCoordenadaFueraDelMapa) {
-//						this.coordenadaDestinacion = null;
-//						throw new ExcepcionUnidadParaDeMover(this.getClass());
-//					}
+					}
 				}
 				else{
 					this.coordenadaDestinacion= null;
-//					throw new ExcepcionUnidadParaDeMover(this.getClass());
 				}
 
 			}
 		}
 	}
+
+    //Para el ComboBox de NaveTransporte
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName();
+    }
 
 }

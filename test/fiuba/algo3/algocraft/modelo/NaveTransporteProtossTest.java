@@ -131,13 +131,13 @@ public class NaveTransporteProtossTest {
             
         	unJugador.terminarTurno(juego);
 
-        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(8, 8));
+        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(7, 8));
 
         //Se pasan los turnos necesarios
         while(!puerto.estaCreado())
             unJugador.terminarTurno(juego);
 
-        NaveTransporteProtoss nave = puerto.crearNaveTransporte(mapa); //Se crea en (7,7)
+        NaveTransporteProtoss nave = puerto.crearNaveTransporte(mapa); //Se crea en (6,7)
         Dragon dragon = acceso.crearDragon(mapa); //Se crea en (6, 6)
 
         //Se pasan los turnos necesarios
@@ -145,7 +145,7 @@ public class NaveTransporteProtossTest {
             unJugador.terminarTurno(juego);
 
         nave.insertarUnidad(dragon);
-        nave.sacarUnidad(mapa);
+        nave.sacarUnidad(mapa, dragon);
 
         Assert.assertSame(mapa.obtenerParcelaEnCoordenada(dragon.getParcela().getCoordenada()).devolverElemento(), dragon);
     }
@@ -161,22 +161,22 @@ public class NaveTransporteProtossTest {
 
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(1, 4));
         unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(4, 4));
-        Acceso acceso = (Acceso) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(6, 6));
+        Acceso acceso = (Acceso) unJugador.crearCreadorDeUnidadesBasicas(mapa, new Coordenada(7, 7));
 
         //Se pasan los turnos necesarios
         while(!acceso.estaCreado())
             unJugador.terminarTurno(juego);
 
-        Dragon dragon = acceso.crearDragon(mapa);
+        Dragon dragon = acceso.crearDragon(mapa); //Se crea en (6, 6)
 
-        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(8, 8));
+        PuertoEstelarProtoss puerto = (PuertoEstelarProtoss) unJugador.crearCreadorDeUnidadesAvanzadas(mapa, new Coordenada(7, 8));
 
         //Se pasan los turnos necesarios
         while(!puerto.estaCreado())
             
         	unJugador.terminarTurno(juego);
 
-        NaveTransporteProtoss nave = puerto.crearNaveTransporte(mapa); //Se crea en (7,7)
+        NaveTransporteProtoss nave = puerto.crearNaveTransporte(mapa); //Se crea en (6, 7)
 
         //Se pasan los turnos necesarios
         while(!dragon.estaCreado() || !nave.estaCreado())
@@ -184,13 +184,14 @@ public class NaveTransporteProtossTest {
 
         nave.insertarUnidad(dragon);
 
-        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(6, 7)));
+        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(5, 6)));
+        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(5, 7)));
+        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(5, 8)));
+        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(6, 6)));
         mapa.insertarParcela(new ParcelaVolcan(new Coordenada(6, 8)));
         mapa.insertarParcela(new ParcelaVolcan(new Coordenada(7, 6)));
-        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(7, 8)));
-        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(8, 6)));
-        mapa.insertarParcela(new ParcelaVolcan(new Coordenada(8, 7)));
 
-        nave.sacarUnidad(mapa);
+
+        nave.sacarUnidad(mapa, dragon);
     }
 }

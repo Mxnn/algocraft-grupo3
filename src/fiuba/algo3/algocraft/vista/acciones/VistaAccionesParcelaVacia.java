@@ -1,13 +1,8 @@
 package fiuba.algo3.algocraft.vista.acciones;
 
-import javax.swing.JButton;
+import javax.swing.*;
 
-import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesAvanzadasListener;
-import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesBasicasListener;
-import fiuba.algo3.algocraft.controlador.CrearAdicionalDeSuministroListener;
-import fiuba.algo3.algocraft.controlador.CrearCreadorUnidadesMagicasListener;
-import fiuba.algo3.algocraft.controlador.CrearExtractorGasListener;
-import fiuba.algo3.algocraft.controlador.CrearExtractorMineralListener;
+import fiuba.algo3.algocraft.controlador.*;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 
