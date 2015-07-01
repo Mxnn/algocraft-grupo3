@@ -16,7 +16,7 @@ public abstract class NaveTransporte extends Unidad {
     protected final int RANGO_DE_INSERCION_DE_UNIDADES = 1;
     protected int lugaresOcupados;
     protected int capacidad;
-    private ObservadorMapa observador;
+//    private ObservadorMapa observador;
     protected ArrayList<Unidad> unidades = new ArrayList<Unidad>();
 
     public NaveTransporte(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, int capacidad, Costo costo) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
@@ -25,9 +25,9 @@ public abstract class NaveTransporte extends Unidad {
         this.capacidad = capacidad;
     }
 
-    public void setObservador(ObservadorMapa observador) {
-        this.observador = observador;
-    }
+//    public void setObservador(ObservadorMapa observador) {
+//        this.observador = observador;
+//    }
 
     public void insertarUnidad(Unidad unidad) throws ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionEntidadEnConstruccion, ExcepcionUnidadYaSeEncuentraEnLaNave, ExcepcionUnidadMuyLejos {
         if (!this.estaCreado())
@@ -52,9 +52,9 @@ public abstract class NaveTransporte extends Unidad {
             Parcela parcela = unidad.getParcela();
             if (parcela != null) //Fix medio triste
                 parcela.vaciarParcela();
-
-            if (this.observador != null)
-                this.observador.removerInteractuableDeLaVista(unidad);
+           
+            for (ObservadorMapa observador: this.observadores)
+                observador.removerInteractuableDeLaVista(unidad);
         }
         else
             throw new ExcepcionNaveDeTransporteLlena();
@@ -101,8 +101,8 @@ public abstract class NaveTransporte extends Unidad {
                 mapa.ubicarCercaDeParcela(this.parcelaUbicacion, unidadASacar);
                 this.unidades.remove(unidadASacar);
 
-                if (this.observador != null)
-                    this.observador.crearUnidad(unidadASacar);
+                for (ObservadorMapa observador: this.observadores)
+                    observador.crearUnidad(unidadASacar);
             }
         }
     }
