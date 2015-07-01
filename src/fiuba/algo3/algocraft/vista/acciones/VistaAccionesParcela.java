@@ -9,18 +9,10 @@ import fiuba.algo3.algocraft.controlador.ObjetivoListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 
-public class VistaAccionesParcela extends VistaAcciones {
+public abstract class VistaAccionesParcela extends VistaAcciones {
 
 	public VistaAccionesParcela(Juego modelo, Coordenada ubicacionParcela) {
 		super(modelo);
-		
-//		JButton btnDestinacion = new JButton("Destinacion");
-//		btnDestinacion.addActionListener(new DestinacionListener(modelo,ubicacionParcela));
-//		GridBagConstraints gbc_btnDestinacion = new GridBagConstraints();
-//		gbc_btnDestinacion.insets = new Insets(0, 0, 5, 0);
-//		gbc_btnDestinacion.gridx = 0;
-//		gbc_btnDestinacion.gridy = 7;
-//		add(btnDestinacion, gbc_btnDestinacion);
 		
 		JButton btnObjetivo = new JButton("Objetivo");
 		btnObjetivo.addActionListener(new ObjetivoListener(modelo,ubicacionParcela));

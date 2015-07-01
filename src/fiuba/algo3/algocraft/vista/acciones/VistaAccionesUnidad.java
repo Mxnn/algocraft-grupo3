@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-public class VistaAccionesUnidad extends VistaAccionesInteractuable {
+public abstract class VistaAccionesUnidad extends VistaAccionesInteractuable {
 	public VistaAccionesUnidad(Juego modelo, Unidad representado) {
 		super(modelo, representado);
 		JButton btnMover = new JButton("Mover");
@@ -21,5 +21,4 @@ public class VistaAccionesUnidad extends VistaAccionesInteractuable {
 		add(btnMover, gbc_btnMover);
 		this.habilitarBoton(btnMover, representado);
 	}
-
 }
