@@ -21,7 +21,7 @@ public class NaveTransporteSacarUnidadesComboBoxListener extends JuegoListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JComboBox cb = (JComboBox) e.getSource();
+        JComboBox<?> cb = (JComboBox<?>) e.getSource();
         Unidad unidadSeleccionada = (Unidad) cb.getSelectedItem();
         try {
             nave.sacarUnidad(this.mapa, unidadSeleccionada);

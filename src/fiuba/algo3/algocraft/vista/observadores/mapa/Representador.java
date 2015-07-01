@@ -14,7 +14,7 @@ import fiuba.algo3.algocraft.vista.botones.*;
 
 public class Representador {
     private HashMap<fiuba.algo3.algocraft.modelo.juego.Color, Color> coloresDeTextos;
-    private HashMap<Class, Class> botonesDeClase;
+    private HashMap<Class<?>, Class<?>> botonesDeClase;
 
 	public Representador() {
         this.coloresDeTextos = new HashMap<fiuba.algo3.algocraft.modelo.juego.Color, Color>();
@@ -27,7 +27,7 @@ public class Representador {
         this.coloresDeTextos.put(fiuba.algo3.algocraft.modelo.juego.Color.BLANCO, Color.white);
         this.coloresDeTextos.put(fiuba.algo3.algocraft.modelo.juego.Color.CELESTE, Color.cyan);
 
-        this.botonesDeClase = new HashMap<Class, Class>();
+        this.botonesDeClase = new HashMap<Class<?>, Class<?>>();
         this.botonesDeClase.put(Barraca.class, VistaBotonBarraca.class);
         this.botonesDeClase.put(CentroDeMineral.class,  VistaBotonCentroMineral.class);
         this.botonesDeClase.put(DepositoSuministro.class,  VistaBotonDepositoSuministro.class);
@@ -60,7 +60,7 @@ public class Representador {
         return this.coloresDeTextos.get(j.getColor());
     }
 
-    public Class getClaseBoton(Interactuable interactuable) {
+    public Class<?> getClaseBoton(Interactuable interactuable) {
         return this.botonesDeClase.get(interactuable.getClass());
     }
 }
