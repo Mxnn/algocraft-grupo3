@@ -49,68 +49,68 @@ public class IngresoJugadoresVista extends JDialog {
         this.modelo = modelo;
 		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		this.setVisible(true);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 513, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
 			JLabel lblNombreJugador = new JLabel("Nombre Jugador 1:");
-			lblNombreJugador.setBounds(10, 13, 101, 14);
+			lblNombreJugador.setBounds(10, 54, 132, 14);
 			contentPanel.add(lblNombreJugador);
 		}
 		{
 			nombre1 = new JTextField();
-			nombre1.setBounds(121, 10, 86, 20);
+			nombre1.setBounds(152, 51, 86, 20);
 			contentPanel.add(nombre1);
 			nombre1.setColumns(10);
 		}
 		{
 			JLabel lblColor = new JLabel("Color:");
-			lblColor.setBounds(217, 13, 41, 14);
+			lblColor.setBounds(248, 54, 41, 14);
 			contentPanel.add(lblColor);
 		}
 		{
 			ComboBoxColores color1 = new ComboBoxColores();
-			color1.setBounds(268, 10, 60, 20);
+			color1.setBounds(299, 51, 60, 20);
 			contentPanel.add(color1);
             this.colorJ1 = color1;
 		}
 		
 		JLabel lblRaza = new JLabel("Raza:");
-		lblRaza.setBounds(338, 13, 46, 14);
+		lblRaza.setBounds(369, 54, 46, 14);
 		contentPanel.add(lblRaza);
 		
 		ComboBoxRazas raza1 = new ComboBoxRazas();
-		raza1.setBounds(375, 10, 60, 20);
+		raza1.setBounds(406, 51, 60, 20);
 		contentPanel.add(raza1);
         this.razaJ1 = raza1;
 		{
 			JLabel lblNombreJugador_2 = new JLabel("Nombre Jugador 2:");
-			lblNombreJugador_2.setBounds(10, 62, 101, 14);
+			lblNombreJugador_2.setBounds(10, 114, 132, 14);
 			contentPanel.add(lblNombreJugador_2);
 		}
 		
 		nombre2 = new JTextField();
 		nombre2.setColumns(10);
-		nombre2.setBounds(121, 59, 86, 20);
+		nombre2.setBounds(152, 111, 86, 20);
 		contentPanel.add(nombre2);
 		
 		JLabel label = new JLabel("Color:");
-		label.setBounds(217, 62, 41, 14);
+		label.setBounds(248, 114, 41, 14);
 		contentPanel.add(label);
 		
 		ComboBoxColores color2 = new ComboBoxColores();
-		color2.setBounds(268, 59, 60, 20);
+		color2.setBounds(299, 111, 60, 20);
 		contentPanel.add(color2);
         this.colorJ2 = color2;
 		
 		JLabel label_1 = new JLabel("Raza:");
-		label_1.setBounds(338, 62, 46, 14);
+		label_1.setBounds(369, 114, 46, 14);
 		contentPanel.add(label_1);
 		
 		ComboBoxRazas raza2 = new ComboBoxRazas();
-		raza2.setBounds(375, 59, 60, 20);
+		raza2.setBounds(406, 111, 60, 20);
 		contentPanel.add(raza2);
         this.razaJ2 = raza2;
 		{
