@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft.vista;
 
-import fiuba.algo3.algocraft.controlador.ControladorClickEnParcela;
+import fiuba.algo3.algocraft.controlador.ClickEnParcelaListener;
 import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 
@@ -8,7 +8,7 @@ public class ObjetoMain {
 	 public static void main(String[] args) throws ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNombreCorto {
 		 Juego elJuego = new Juego();
 //		 elJuego.setMapaParaTests(); //para saber bien la vista
-		 ControladorClickEnParcela unControlador = new ControladorClickEnParcela(elJuego);
+		 ClickEnParcelaListener unControlador = new ClickEnParcelaListener(elJuego);
 
 		 VistaJuego vista = VistaJuego.createInstance(elJuego, unControlador);
 		 

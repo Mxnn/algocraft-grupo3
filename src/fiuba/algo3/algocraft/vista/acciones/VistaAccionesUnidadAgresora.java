@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft.vista.acciones;
 
-import fiuba.algo3.algocraft.controlador.AtacarListener;
+import fiuba.algo3.algocraft.controlador.accionesDeUnidades.AtacarListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 

@@ -1,7 +1,7 @@
 package fiuba.algo3.algocraft.vista.acciones;
 
-import fiuba.algo3.algocraft.controlador.NaveTransporteInsertarUnidadListener;
-import fiuba.algo3.algocraft.controlador.NaveTransporteSacarUnidadesComboBoxListener;
+import fiuba.algo3.algocraft.controlador.accionesDeUnidades.NaveTransporteInsertarUnidadListener;
+import fiuba.algo3.algocraft.controlador.accionesDeUnidades.NaveTransporteSacarUnidadesComboBoxListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.NaveTransporte;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;

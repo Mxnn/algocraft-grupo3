@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft.vista.acciones;
 
-import fiuba.algo3.algocraft.controlador.MoverListener;
+import fiuba.algo3.algocraft.controlador.accionesDeUnidades.MoverListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 

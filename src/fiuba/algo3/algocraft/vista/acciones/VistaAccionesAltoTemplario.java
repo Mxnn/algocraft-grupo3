@@ -1,8 +1,7 @@
 package fiuba.algo3.algocraft.vista.acciones;
 
-import fiuba.algo3.algocraft.controlador.LanzarAlucinacionListener;
-import fiuba.algo3.algocraft.controlador.LanzarRadiacionListener;
-import fiuba.algo3.algocraft.controlador.LanzarTormentaPsionicaListener;
+import fiuba.algo3.algocraft.controlador.ataques.LanzarAlucinacionListener;
+import fiuba.algo3.algocraft.controlador.ataques.LanzarTormentaPsionicaListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.AltoTemplario;
 

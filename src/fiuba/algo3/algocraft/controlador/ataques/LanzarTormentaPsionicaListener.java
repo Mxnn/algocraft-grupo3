@@ -1,18 +1,19 @@
-package fiuba.algo3.algocraft.controlador;
+package fiuba.algo3.algocraft.controlador.ataques;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import fiuba.algo3.algocraft.controlador.comandos.AccionPorTurnoListener;
 import fiuba.algo3.algocraft.controlador.comandos.ComandoAtaqueTormentaPsionica;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 
 public class LanzarTormentaPsionicaListener implements ActionListener {
     private Unidad representado;
-	private ControladorAccionPorTurno controladorAtacar;
+	private AccionPorTurnoListener controladorAtacar;
 	
 	public LanzarTormentaPsionicaListener(Unidad representado){
 		this.representado = representado;
-		this.controladorAtacar = ControladorAccionPorTurno.createInstance();
+		this.controladorAtacar = AccionPorTurnoListener.createInstance();
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {

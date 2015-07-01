@@ -3,7 +3,7 @@ package fiuba.algo3.algocraft.vista;
 import javax.swing.JFrame;
 
 import fiuba.algo3.algocraft.controlador.operacionesDeVentana.CerrarFrameListener;
-import fiuba.algo3.algocraft.controlador.ControladorClickEnParcela;
+import fiuba.algo3.algocraft.controlador.ClickEnParcelaListener;
 import fiuba.algo3.algocraft.controlador.operacionesDeVentana.CreadoresListener;
 import fiuba.algo3.algocraft.controlador.operacionesDeVentana.NuevoJuegoListener;
 import fiuba.algo3.algocraft.controlador.operacionesDeVentana.ReferenciasListener;
@@ -34,9 +34,9 @@ public class VistaJuego implements ObservadorJuego {
 
 	public static int CANTIDAD_DE_OPCIONES = 8;
 
-    public static VistaJuego createInstance(Juego juego, ControladorClickEnParcela controladorClickEnParcela) {
+    public static VistaJuego createInstance(Juego juego, ClickEnParcelaListener clickEnParcelaListener) {
         if (INSTANCIA == null) {
-            INSTANCIA = new VistaJuego(juego, controladorClickEnParcela);
+            INSTANCIA = new VistaJuego(juego, clickEnParcelaListener);
         }
 
         return INSTANCIA;
@@ -46,14 +46,14 @@ public class VistaJuego implements ObservadorJuego {
         return INSTANCIA;
     }
 
-	private VistaJuego(Juego elJuego, ControladorClickEnParcela controladorClickEnParcela)  {
+	private VistaJuego(Juego elJuego, ClickEnParcelaListener clickEnParcelaListener)  {
         this.modelo = elJuego;
 
         JFrame ventanaPrincipal= new JFrame("AlgoCraft");
         this.ventanaPrincipal = ventanaPrincipal;
         ventanaPrincipal.setSize(1024,778);
         
-        VistaMapa vistaMapa = VistaMapa.createInstance(controladorClickEnParcela ,this.modelo.getMapa());
+        VistaMapa vistaMapa = VistaMapa.createInstance(clickEnParcelaListener,this.modelo.getMapa());
         this.vistaMapa = vistaMapa;
         vistaMapa.setBackground(new Color(240, 240, 240));
         ventanaPrincipal.getContentPane().add(vistaMapa);

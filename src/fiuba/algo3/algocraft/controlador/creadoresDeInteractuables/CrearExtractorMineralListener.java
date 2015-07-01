@@ -2,7 +2,6 @@ package fiuba.algo3.algocraft.controlador.creadoresDeInteractuables;
 
 import java.awt.event.ActionEvent;
 
-import fiuba.algo3.algocraft.controlador.ConstruccionListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionElementoNoAdmitidoEnParcela;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionParcelaOcupada;

@@ -1,20 +1,21 @@
-package fiuba.algo3.algocraft.controlador;
+package fiuba.algo3.algocraft.controlador.accionesDeUnidades;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import fiuba.algo3.algocraft.controlador.comandos.AccionPorTurnoListener;
 import fiuba.algo3.algocraft.controlador.comandos.ComandoMover;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 
 public class MoverListener implements ActionListener {
 //    private Juego modelo;
     private Unidad representado;
-	private ControladorAccionPorTurno controladorMover;
+	private AccionPorTurnoListener controladorMover;
 
 	public MoverListener(Unidad representado){
 //		this.modelo = modelo;
 		this.representado = representado;
-		this.controladorMover = ControladorAccionPorTurno.createInstance();
+		this.controladorMover = AccionPorTurnoListener.createInstance();
 	}
 
 	public void actionPerformed(ActionEvent arg0) {

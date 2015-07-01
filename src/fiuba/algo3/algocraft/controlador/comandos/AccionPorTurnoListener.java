@@ -1,31 +1,30 @@
-package fiuba.algo3.algocraft.controlador;
+package fiuba.algo3.algocraft.controlador.comandos;
 
-import fiuba.algo3.algocraft.controlador.comandos.ComandoAccionPorTurno;
 import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 
-public class ControladorAccionPorTurno {
-	private static ControladorAccionPorTurno INSTANCIA = null;
+public class AccionPorTurnoListener {
+	private static AccionPorTurnoListener INSTANCIA = null;
 
 	private Unidad unidad;
 	private ComandoAccionPorTurno comando;
 	
-    public ControladorAccionPorTurno() {
+    public AccionPorTurnoListener() {
     	
 
 	}
 
-	public static ControladorAccionPorTurno createInstance() {
+	public static AccionPorTurnoListener createInstance() {
         if (INSTANCIA == null) {
-            INSTANCIA = new ControladorAccionPorTurno();
+            INSTANCIA = new AccionPorTurnoListener();
         }
 
         return INSTANCIA;
     }
 	
-    public static ControladorAccionPorTurno getInstance() {
+    public static AccionPorTurnoListener getInstance() {
         return INSTANCIA;
     }
     

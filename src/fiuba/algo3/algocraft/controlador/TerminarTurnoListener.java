@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft.controlador;
 
+import fiuba.algo3.algocraft.controlador.comandos.AccionPorTurnoListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import java.awt.event.ActionEvent;
@@ -17,7 +18,7 @@ public class TerminarTurnoListener extends JuegoListener {
         try {
 				modelo.pasarTurno(this.modelo.getJugadorQueJuega());
 
-        	ControladorAccionPorTurno.createInstance().resetControlador();
+        	AccionPorTurnoListener.createInstance().resetControlador();
             //estos los podemos hacer runtime, no podrian pasar nunca creo
         } catch (ExcepcionEstadoMuerto excepcionEstadoMuerto) {
 //            JOptionPane.showMessageDialog(this.frame, "...");

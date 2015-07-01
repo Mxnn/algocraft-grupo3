@@ -1,6 +1,9 @@
-package fiuba.algo3.algocraft.controlador;
+package fiuba.algo3.algocraft.controlador.accionesDeUnidades;
 
 import java.awt.event.ActionEvent;
+
+import fiuba.algo3.algocraft.controlador.comandos.AccionPorTurnoListener;
+import fiuba.algo3.algocraft.controlador.JuegoListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnergiaInsuficiente;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEstadoMuerto;
@@ -26,7 +29,7 @@ public class ObjetivoListener extends JuegoListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 			try {
-				ControladorAccionPorTurno.createInstance().ejecutarAccionDeTurno(this.modelo.getMapa(),this.ubicacion);
+				AccionPorTurnoListener.createInstance().ejecutarAccionDeTurno(this.modelo.getMapa(),this.ubicacion);
 			} catch (ExcepcionEnemigoFueraDeAlcance e1) {
 				this.mostrarError(e1.getMessage());
 

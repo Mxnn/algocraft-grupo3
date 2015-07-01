@@ -1,7 +1,7 @@
 package fiuba.algo3.algocraft.vista.acciones;
 
-import fiuba.algo3.algocraft.controlador.LanzarEmpListener;
-import fiuba.algo3.algocraft.controlador.LanzarRadiacionListener;
+import fiuba.algo3.algocraft.controlador.ataques.LanzarEmpListener;
+import fiuba.algo3.algocraft.controlador.ataques.LanzarRadiacionListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveCiencia;
 

@@ -4,20 +4,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
-import fiuba.algo3.algocraft.vista.VistaJuego;
 
 public class ParcelaListener implements ActionListener {
-	ControladorClickEnParcela controladorClickEnParcela;
+	ClickEnParcelaListener clickEnParcelaListener;
 	int x;
 	int y;
 
-	public ParcelaListener(ControladorClickEnParcela elControlador){
-		this.controladorClickEnParcela=elControlador;
+	public ParcelaListener(ClickEnParcelaListener elControlador){
+		this.clickEnParcelaListener =elControlador;
 	}
 	public void actionPerformed(ActionEvent arg0) {
 		//sacar esta excepcion despues
 		try {
-			controladorClickEnParcela.clickEnParcela(this.x, this.y);
+			clickEnParcelaListener.clickEnParcela(this.x, this.y);
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
