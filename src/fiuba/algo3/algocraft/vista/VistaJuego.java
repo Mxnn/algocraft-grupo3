@@ -17,6 +17,7 @@ import fiuba.algo3.algocraft.vista.acciones.VistaAcciones;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -149,8 +150,8 @@ public class VistaJuego implements ObservadorJuego {
 	}
 
 	public void hayPerdedor(Jugador perdedor) {
-		// TODO Auto-generated method stub
-		//PONER CODIGO QUE MUESTRE UNA VENTANA O ALGO
+		 JOptionPane.showMessageDialog(this.ventanaPrincipal, perdedor.getNombre() + " ha perdido!");
+		 this.ventanaPrincipal.dispose();
 	}
 
 	@Override
