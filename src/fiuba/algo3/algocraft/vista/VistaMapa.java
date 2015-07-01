@@ -269,8 +269,8 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
     }
 
     @Override
-    public void removerUnidadDeLaVista(Unidad unidad) {
-        Coordenada ubicacion = unidad.getParcela().getCoordenada();
+    public void removerInteractuableDeLaVista(Interactuable interactuable) {
+        Coordenada ubicacion = interactuable.getParcela().getCoordenada();
         JPanel panel = this.getPanel(ubicacion);
         panel.remove(panel.getComponentCount() - 1);
     }

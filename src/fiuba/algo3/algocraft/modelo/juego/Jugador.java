@@ -46,6 +46,7 @@ public class Jugador {
     private int mineral;
 
     private ObservadorJugador observadorJugador;
+    private ObservadorMapa observadorMapa;
     
     public Jugador(String nombre, Color color, Raza raza) throws ExcepcionNombreCorto {
         if (nombre.length() < LONGITUD_MINIMA_PARA_EL_NOMBRE)
@@ -60,6 +61,7 @@ public class Jugador {
 
     public void setObservadores(ObservadorMapa observador){
     	this.raza.setObservadores(observador);
+        this.observadorMapa = observador;
     }
 
     public void setObservadorJugador(ObservadorJugador observador) {
@@ -249,10 +251,14 @@ public class Jugador {
 
     public void eliminarUnidad(Unidad unidad) {
         (this.unidades).remove(unidad);
+        if (this.observadorMapa != null)
+            this.observadorMapa.removerInteractuableDeLaVista(unidad);
     }
 
     public void eliminarConstruccion(Construccion construccion) {
         (this.construcciones).remove(construccion);
+        if (this.observadorMapa != null)
+            this.observadorMapa.removerInteractuableDeLaVista(construccion);
     }
 
     public Collection<Construccion> getConstrucciones() {

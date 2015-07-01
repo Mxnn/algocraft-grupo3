@@ -54,7 +54,7 @@ public abstract class NaveTransporte extends Unidad {
                 parcela.vaciarParcela();
 
             if (this.observador != null)
-                this.observador.removerUnidadDeLaVista(unidad);
+                this.observador.removerInteractuableDeLaVista(unidad);
         }
         else
             throw new ExcepcionNaveDeTransporteLlena();
