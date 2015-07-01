@@ -2,7 +2,7 @@ package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
-import fiuba.algo3.algocraft.vista.acciones.VistaAccionesPuertoEstelar;
+import fiuba.algo3.algocraft.vista.acciones.construcciones.VistaAccionesPuertoEstelar;
 
 public class VistaBotonPuertoEstelar extends VistaBotonRepresentante {
 	public static final String CODIGO = "PET";

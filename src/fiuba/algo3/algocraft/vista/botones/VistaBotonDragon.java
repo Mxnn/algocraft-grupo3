@@ -3,7 +3,7 @@ package fiuba.algo3.algocraft.vista.botones;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Dragon;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
-import fiuba.algo3.algocraft.vista.acciones.VistaAccionesUnidadAgresora;
+import fiuba.algo3.algocraft.vista.acciones.unidades.VistaAccionesUnidadAgresora;
 
 public class VistaBotonDragon extends VistaBotonRepresentante {
 	private static final String NOMBRE = "Dragon";

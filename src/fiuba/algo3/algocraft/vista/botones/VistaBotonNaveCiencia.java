@@ -2,7 +2,7 @@ package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.NaveCiencia;
-import fiuba.algo3.algocraft.vista.acciones.VistaAccionesNaveCiencia;
+import fiuba.algo3.algocraft.vista.acciones.unidades.VistaAccionesNaveCiencia;
 
 public class VistaBotonNaveCiencia extends VistaBotonRepresentante {
 	private static final String NOMBRE = "Nave Ciencia";

@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista.acciones;
+package fiuba.algo3.algocraft.vista.acciones.construcciones;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import fiuba.algo3.algocraft.controlador.creadoresDeInteractuables.CrearGolliatListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
+import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 public class VistaAccionesFabrica extends VistaAccionesInteractuable {
 	public VistaAccionesFabrica(Juego modelo, Fabrica representado) {

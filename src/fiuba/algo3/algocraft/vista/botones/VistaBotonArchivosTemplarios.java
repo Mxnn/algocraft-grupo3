@@ -3,7 +3,7 @@ package fiuba.algo3.algocraft.vista.botones;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.ArchivosTemplarios;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
-import fiuba.algo3.algocraft.vista.acciones.VistaAccionesArchivosTemplarios;
+import fiuba.algo3.algocraft.vista.acciones.construcciones.VistaAccionesArchivosTemplarios;
 
 public class VistaBotonArchivosTemplarios extends VistaBotonRepresentante {
 	private static final String CODIGO = "ArT";

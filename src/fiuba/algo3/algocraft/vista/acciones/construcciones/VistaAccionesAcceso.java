@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista.acciones;
+package fiuba.algo3.algocraft.vista.acciones.construcciones;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -9,6 +9,7 @@ import fiuba.algo3.algocraft.controlador.creadoresDeInteractuables.CrearDragonLi
 import fiuba.algo3.algocraft.controlador.creadoresDeInteractuables.CrearZealotListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
+import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 public class  VistaAccionesAcceso  extends VistaAccionesInteractuable {
 	public VistaAccionesAcceso(Juego modelo, Acceso representado) {

@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista.acciones;
+package fiuba.algo3.algocraft.vista.acciones.unidades;
 
 import fiuba.algo3.algocraft.controlador.ataques.LanzarEmpListener;
 import fiuba.algo3.algocraft.controlador.ataques.LanzarRadiacionListener;

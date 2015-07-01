@@ -1,5 +1,5 @@
 
-package fiuba.algo3.algocraft.vista.acciones;
+package fiuba.algo3.algocraft.vista.acciones.construcciones;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -11,6 +11,7 @@ import fiuba.algo3.algocraft.controlador.creadoresDeInteractuables.CrearNaveCien
 import fiuba.algo3.algocraft.controlador.creadoresDeInteractuables.CrearNaveTransporteListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
+import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 public class VistaAccionesPuertoEstelar  extends VistaAccionesInteractuable {
 

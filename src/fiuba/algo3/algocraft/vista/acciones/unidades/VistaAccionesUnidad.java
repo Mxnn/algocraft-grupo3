@@ -1,8 +1,9 @@
-package fiuba.algo3.algocraft.vista.acciones;
+package fiuba.algo3.algocraft.vista.acciones.unidades;
 
 import fiuba.algo3.algocraft.controlador.accionesDeUnidades.MoverListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
+import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 import javax.swing.JButton;
 
