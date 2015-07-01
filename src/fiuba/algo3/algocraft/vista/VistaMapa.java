@@ -11,7 +11,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import fiuba.algo3.algocraft.controlador.Controlador;
+import fiuba.algo3.algocraft.controlador.ControladorClickEnParcela;
 import fiuba.algo3.algocraft.controlador.ParcelaListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
@@ -41,14 +41,14 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
 	private int columnas;
     private final List<JButton> listaBotonesParcela = new ArrayList<JButton>();
     private final List<JPanel> listaPanelesParcela = new ArrayList<JPanel>();
-    private Controlador controlador;
+    private ControladorClickEnParcela controladorClickEnParcela;
     private Coordenada coordenadaSeleccionada;
     private Representador representador;
 	private VistaBotonInteractuable botonEnEspera = null;
 
-    public static VistaMapa createInstance(Controlador controlador, Mapa mapa) {
+    public static VistaMapa createInstance(ControladorClickEnParcela controladorClickEnParcela, Mapa mapa) {
         if (INSTANCIA == null)
-            INSTANCIA = new VistaMapa(controlador, mapa);
+            INSTANCIA = new VistaMapa(controladorClickEnParcela, mapa);
 
         return INSTANCIA;
     }
@@ -57,11 +57,11 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
         return INSTANCIA;
     }
 
-	private VistaMapa(Controlador controlador, Mapa mapa) {
+	private VistaMapa(ControladorClickEnParcela controladorClickEnParcela, Mapa mapa) {
 	    this.setVisible(false);
 		this.filas=  mapa.getFilas();
 		this.columnas = mapa.getColumnas();
-		this.controlador = controlador;
+		this.controladorClickEnParcela = controladorClickEnParcela;
 		this.representador = new Representador();
 		this.setLocation(0, 0);
 		this.setSize(650,650);
@@ -74,7 +74,7 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
 	        int x = i % columnas;
 
             VistaBotonParcela buttonActual = new VistaBotonParcela(new Coordenada(x, y));
-            ParcelaListener l = controlador.getParcelaListener();
+            ParcelaListener l = controladorClickEnParcela.getParcelaListener();
             buttonActual.addActionListener(l);
             l.setCoordenadasBoton(x,y);
 	        listaBotonesParcela.add(buttonActual);
@@ -115,7 +115,7 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
     	
     	this.agregarBoton(buttonActual, panelParcela);
     	
-    	ParcelaListener l = this.controlador.getParcelaListener();
+    	ParcelaListener l = this.controladorClickEnParcela.getParcelaListener();
     	l.setCoordenadasBoton(this.coordenadaSeleccionada.getX(), this.coordenadaSeleccionada.getY());
     	buttonActual.addActionListener(l);
     }
@@ -125,7 +125,7 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
     	
     	this.agregarBoton(buttonActual, panelParcela);
     	
-    	ParcelaListener l = this.controlador.getParcelaListener();
+    	ParcelaListener l = this.controladorClickEnParcela.getParcelaListener();
     	l.setCoordenadasBoton(coordenada.getX(), coordenada.getY());
     	buttonActual.addActionListener(l);
     }

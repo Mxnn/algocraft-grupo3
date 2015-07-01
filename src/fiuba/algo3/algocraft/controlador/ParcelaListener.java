@@ -7,17 +7,17 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.vista.VistaJuego;
 
 public class ParcelaListener implements ActionListener {
-	Controlador controlador;
+	ControladorClickEnParcela controladorClickEnParcela;
 	int x;
 	int y;
 
-	public ParcelaListener(Controlador elControlador){
-		this.controlador=elControlador;
+	public ParcelaListener(ControladorClickEnParcela elControlador){
+		this.controladorClickEnParcela=elControlador;
 	}
 	public void actionPerformed(ActionEvent arg0) {
 		//sacar esta excepcion despues
 		try {
-			controlador.clickEnParcela(this.x, this.y);
+			controladorClickEnParcela.clickEnParcela(this.x, this.y);
 		} catch (ExcepcionCoordenadaFueraDelMapa e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

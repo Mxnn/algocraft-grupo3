@@ -10,13 +10,12 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.vista.ObservadorMapa;
 import fiuba.algo3.algocraft.vista.VistaJuego;
 
-public class Controlador {
+public class ControladorClickEnParcela {
 	Juego modelo;
 	VistaJuego vista;
-	Coordenada coordPartida;
 	private ObservadorMapa observador;
 	
-	public Controlador(Juego elJuego) {
+	public ControladorClickEnParcela(Juego elJuego) {
 		this.modelo = elJuego;
 	}
 
@@ -26,7 +25,7 @@ public class Controlador {
 	}
 
 	public void clickEnParcela(int x, int y) throws ExcepcionCoordenadaFueraDelMapa {
-		System.out.println("click en parcela "+x+","+y);
+//		System.out.println("click en parcela "+x+","+y);
 		vista.seleccionarCoordenada(x, y);
 		this.observador.seleccionarCoordenada(x,y);
 	}
@@ -35,26 +34,6 @@ public class Controlador {
 		this.vista = vista;
 	}
 
-	public void terminarTurno() throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
-		this.modelo.pasarTurno(this.modelo.getJugadorQueJuega());
-	}
-//
-//	public void mover() throws ExcepcionCoordenadaFueraDelMapa {
-//		this.coordPartida= this.vista.getCoordenadaSeleccionada();
-//		vista.displayError("Bien, ahora clickear sobre destinacion");
-//       
-//	}
-//
-//	public void ponerDestinacion() throws ExcepcionCoordenadaFueraDelMapa {
-//		if (this.coordPartida!=null) {
-//            Unidad unidad = (Unidad) this.modelo.getMapa().devolverElementoEnParcela(this.coordPartida);
-//            unidad.moverHasta(this.vista.getCoordenadaSeleccionada());
-//            this.coordPartida=null;
-//		} else {
-//			vista.displayError("Primer, clickear sobre la unidad");
-//		}
-//		
-//	}
 
 	public void setObservadores(ObservadorMapa observador) {
 		this.observador = observador;

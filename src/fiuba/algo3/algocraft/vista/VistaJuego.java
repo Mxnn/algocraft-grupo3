@@ -3,7 +3,7 @@ package fiuba.algo3.algocraft.vista;
 import javax.swing.JFrame;
 
 import fiuba.algo3.algocraft.controlador.CerrarFrameListener;
-import fiuba.algo3.algocraft.controlador.Controlador;
+import fiuba.algo3.algocraft.controlador.ControladorClickEnParcela;
 import fiuba.algo3.algocraft.controlador.CreadoresListener;
 import fiuba.algo3.algocraft.controlador.NuevoJuegoListener;
 import fiuba.algo3.algocraft.controlador.ReferenciasListener;
@@ -33,9 +33,9 @@ public class VistaJuego implements ObservadorJuego {
 
 	public static int CANTIDAD_DE_OPCIONES = 8;
 
-    public static VistaJuego createInstance(Juego juego, Controlador controlador) {
+    public static VistaJuego createInstance(Juego juego, ControladorClickEnParcela controladorClickEnParcela) {
         if (INSTANCIA == null) {
-            INSTANCIA = new VistaJuego(juego, controlador);
+            INSTANCIA = new VistaJuego(juego, controladorClickEnParcela);
         }
 
         return INSTANCIA;
@@ -45,14 +45,14 @@ public class VistaJuego implements ObservadorJuego {
         return INSTANCIA;
     }
 
-	private VistaJuego(Juego elJuego, Controlador controlador)  {
+	private VistaJuego(Juego elJuego, ControladorClickEnParcela controladorClickEnParcela)  {
         this.modelo = elJuego;
 
         JFrame ventanaPrincipal= new JFrame("AlgoCraft");
         this.ventanaPrincipal = ventanaPrincipal;
         ventanaPrincipal.setSize(1024,778);
         
-        VistaMapa vistaMapa = VistaMapa.createInstance(controlador ,this.modelo.getMapa());
+        VistaMapa vistaMapa = VistaMapa.createInstance(controladorClickEnParcela ,this.modelo.getMapa());
         this.vistaMapa = vistaMapa;
         vistaMapa.setBackground(new Color(240, 240, 240));
         ventanaPrincipal.getContentPane().add(vistaMapa);
@@ -115,25 +115,8 @@ public class VistaJuego implements ObservadorJuego {
 		this.barraLateral.setPanelAcciones(new VistaAcciones(this.modelo));//cambia dependiendo elemento seleccionado
 	}
 
-//	public void inicializarMapa() throws ExcepcionCoordenadaFueraDelMapa {
-//		vistaMapa.setParcelas(this.modelo.getMapa());
-//        ventanaPrincipal.repaint();
-//	}
 
 	public void seleccionarCoordenada(int x, int y) throws ExcepcionCoordenadaFueraDelMapa {
-		/*Mapa mapa = modelo.getMapa();
-		Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y));
-		//es un asco esto pero bueno, despues cambiamos
-		if(parcela.estaVacia()){
-			this.barraLateral.setPanelAcciones(new VistaAccionesParcelaVacia(this.modelo));;
-		}else{
-			Object o = parcela.devolverElemento();
-			VistaAcciones vistaActual = this.getVistaElemento(o.getClass());
-			if(vistaActual == null){
-				vistaActual = this.getVistaElemento(o.getClass().getSuperclass());
-			}
-			this.barraLateral.setPanelAcciones(vistaActual);
-		}*/
         VistaAcciones vistaDelBoton = this.vistaMapa.getBoton(new Coordenada(x, y)).getVistaDeAcciones(this.modelo);
         this.barraLateral.setPanelAcciones(vistaDelBoton);
 		this.coordenadaSeleccionada = new Coordenada(x,y);
