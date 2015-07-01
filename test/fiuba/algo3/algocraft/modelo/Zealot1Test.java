@@ -31,6 +31,7 @@ import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
 import fiuba.algo3.algocraft.modelo.razas.protoss.unidades.Zealot;
 import fiuba.algo3.algocraft.modelo.razas.terran.Terran;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
+import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Espectro;
 import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Marine;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
@@ -110,8 +111,86 @@ public class Zealot1Test {
 
         zealot.atacar(barraca.getParcela());
         unJugador.terminarTurno(juego);
-//        ataque.ejecutarAtaque();
 
         assertEquals(barraca.getVida(), 1000-8);
+    }
+    
+    @Test
+    public void atacarAVoladorNoDanya() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionParcelaVacia {
+        Juego juego = new Juego();
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
+        juego.agregarJugador(unJugador);
+        juego.agregarJugador(unJugador2);
+        Mapa mapa = new Mapa(2, 5, 5);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
+        unJugador2.sumarGasVespeno(999);
+        unJugador2.sumarMinerales(999);
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+        unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(2, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
+        UnidadAgresora zealot = new Zealot(unJugador);
+        while(!zealot.estaCreado()) {
+            unJugador.terminarTurno(juego);
+            unJugador2.terminarTurno(juego);
+        }
+        mapa.ubicarElementoEnParcela(new Coordenada(0,0) , zealot);
+        unJugador.terminarTurno(juego);
+
+        Espectro espectro = new Espectro(unJugador2);
+        while(!espectro.estaCreado()) {
+            unJugador2.terminarTurno(juego);
+            unJugador.terminarTurno(juego);
+        }
+        mapa.ubicarElementoEnParcela(new Coordenada(1,0), espectro);
+
+        unJugador2.terminarTurno(juego);
+        zealot.atacar(espectro.getParcela());
+        unJugador.terminarTurno(juego);
+        assertEquals(espectro.getVida(), espectro.VIDA_INICIAL);
+    }
+
+    @Test
+    public void atacarFueraDeRangoNoDanya() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionParcelaVacia {
+        Juego juego = new Juego();
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Protoss.getInstance());
+        Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
+        juego.agregarJugador(unJugador);
+        juego.agregarJugador(unJugador2);
+        Mapa mapa = new Mapa(2, 5, 5);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
+        unJugador2.sumarGasVespeno(999);
+        unJugador2.sumarMinerales(999);
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+        unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
+        UnidadAgresora zealot = new Zealot(unJugador);
+        while(!zealot.estaCreado()) {
+            unJugador.terminarTurno(juego);
+            unJugador2.terminarTurno(juego);
+        }
+        mapa.ubicarElementoEnParcela(new Coordenada(0,0) , zealot);
+        unJugador.terminarTurno(juego);
+
+        Marine marine = new Marine(unJugador2);
+        while(!marine.estaCreado()) {
+            unJugador2.terminarTurno(juego);
+            unJugador.terminarTurno(juego);
+        }
+        mapa.ubicarElementoEnParcela(new Coordenada(2,0) , marine);
+        unJugador2.terminarTurno(juego);
+
+        zealot.atacar(marine.getParcela());
+        unJugador.terminarTurno(juego);
+        assertEquals(marine.getVida(), marine.VIDA_INICIAL);
     }
 }
