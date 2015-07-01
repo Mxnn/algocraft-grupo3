@@ -273,7 +273,7 @@ public class Jugador {
         return this.ataques;
     }
 
-    public void terminarTurno(Juego juego) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionEnemigoFueraDeAlcance, ExcepcionCoordenadaFueraDelMapa {
+    public void terminarTurno(Juego juego) throws ExcepcionNoEsElTurnoDelJugador, ExcepcionEstadoMuerto, ExcepcionCoordenadaFueraDelMapa {
     	juego.pasarTurno(this);
     }
     

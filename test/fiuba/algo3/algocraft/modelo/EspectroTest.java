@@ -158,4 +158,87 @@ public class EspectroTest {
 
         assertEquals(barraca.getVida(), 1000-8);
     }
+    
+
+    @Test
+    public void atacarFueraDeRangoEnTierraNoDanya() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionNoEsElTurnoDelJugador, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionParcelaVacia {
+        Juego juego = new Juego();
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
+        juego.agregarJugador(unJugador);
+        juego.agregarJugador(unJugador2);
+        Mapa mapa = new Mapa(2, 8, 8);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
+        unJugador2.sumarGasVespeno(999);
+        unJugador2.sumarMinerales(999);
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+        unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
+        UnidadAgresora espectro = new Espectro(unJugador);
+        while(!espectro.estaCreado()) {
+            unJugador.terminarTurno(juego);
+            unJugador2.terminarTurno(juego);
+        }
+        mapa.ubicarElementoEnParcela(new Coordenada(0,0), espectro);
+        unJugador.terminarTurno(juego);
+
+        Marine marine = new Marine(unJugador2);
+        while(!marine.estaCreado()) {
+            unJugador2.terminarTurno(juego);
+            unJugador.terminarTurno(juego);
+        }
+        mapa.ubicarElementoEnParcela(new Coordenada(7,0), marine);
+
+        unJugador2.terminarTurno(juego);
+        espectro.atacar(marine.getParcela());
+
+        unJugador.terminarTurno(juego);
+        assertEquals(marine.getVida(),marine.VIDA_INICIAL );
+    }
+
+    @Test
+    public void atacarFueraDeRangoEnAireNoDanya() throws ExcepcionNoHaySuministrosDisponibles, ExcepcionEstadoMuerto, ExcepcionRecursosInsuficientes, ExcepcionCoordenadaFueraDelMapa, ExcepcionParcelaOcupada, ExcepcionNumeroDeBasesInvalido, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionNombreCorto, ExcepcionEntidadEnConstruccion, ExcepcionColorEnUso, ExcepcionAlcanzadoElMaximoCupoDeJugadores, ExcepcionNombreEnUso, ExcepcionNoEsElTurnoDelJugador, ExcepcionParcelaVacia {
+        Juego juego = new Juego();
+        Jugador unJugador = new Jugador("Juan", Color.ROJO, Terran.getInstance());
+        Jugador unJugador2 = new Jugador("Juan2", Color.VERDE, Terran.getInstance());
+        juego.agregarJugador(unJugador);
+        juego.agregarJugador(unJugador2);
+        Mapa mapa = new Mapa(2, 7, 7);
+        unJugador.sumarGasVespeno(999);
+        unJugador.sumarMinerales(999);
+        unJugador2.sumarGasVespeno(999);
+        unJugador2.sumarMinerales(999);
+        unJugador.crearAdicionalDeSuministro(mapa, new Coordenada(3, 3));
+        unJugador2.crearAdicionalDeSuministro(mapa, new Coordenada(3, 1));
+        for(int i= 0; i<=7; i++){
+        	unJugador.terminarTurno(juego);
+        	unJugador2.terminarTurno(juego);
+        }
+        UnidadAgresora espectro = new Espectro(unJugador);
+        while(!espectro.estaCreado()) {
+            unJugador.terminarTurno(juego);
+            unJugador2.terminarTurno(juego);
+        }
+        mapa.ubicarElementoEnParcela(new Coordenada(0,0), espectro);
+        unJugador.terminarTurno(juego);
+
+        Espectro espectro2 = new Espectro(unJugador2);
+        mapa.ubicarElementoEnParcela(new Coordenada(6,0), espectro2);
+        while(!espectro2.estaCreado()) {
+            unJugador2.terminarTurno(juego);
+            unJugador.terminarTurno(juego);
+        }
+        unJugador2.terminarTurno(juego);
+       espectro.atacar(espectro2.getParcela());
+
+       unJugador.terminarTurno(juego);
+       
+       assertEquals(espectro2.getVida(),espectro2.VIDA_INICIAL );
+    }
 }
+
+
