@@ -1,5 +1,6 @@
-package fiuba.algo3.algocraft.controlador;
+package fiuba.algo3.algocraft.controlador.comandos;
 
+import fiuba.algo3.algocraft.controlador.NaveTransporteInsertarUnidadListener;
 import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
@@ -14,7 +15,7 @@ public class ComandoIngresarALaNave extends ComandoAccionPorTurno {
     }
 
     @Override
-    public void ejectutar(Unidad nave, Mapa mapa, Coordenada coordenadaObjetivo) throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionEnergiaInsuficiente, ExcepcionParcelaVacia {
+    public void ejecutar(Unidad nave, Mapa mapa, Coordenada coordenadaObjetivo) throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionEnergiaInsuficiente, ExcepcionParcelaVacia {
 
         try {
             Unidad unidadAIngresar = (Unidad) mapa.devolverElementoEnParcela(coordenadaObjetivo);

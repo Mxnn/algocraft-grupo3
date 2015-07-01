@@ -5,7 +5,7 @@ import java.awt.Insets;
 
 import javax.swing.JButton;
 
-import fiuba.algo3.algocraft.controlador.CrearMarineListener;
+import fiuba.algo3.algocraft.controlador.creadoresDeInteractuables.CrearMarineListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Barraca;
 

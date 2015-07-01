@@ -5,8 +5,8 @@ import java.awt.Insets;
 
 import javax.swing.JButton;
 
-import fiuba.algo3.algocraft.controlador.CrearDragonListener;
-import fiuba.algo3.algocraft.controlador.CrearZealotListener;
+import fiuba.algo3.algocraft.controlador.creadoresDeInteractuables.CrearDragonListener;
+import fiuba.algo3.algocraft.controlador.creadoresDeInteractuables.CrearZealotListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.protoss.construcciones.Acceso;
 

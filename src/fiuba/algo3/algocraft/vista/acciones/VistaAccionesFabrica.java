@@ -5,7 +5,7 @@ import java.awt.Insets;
 
 import javax.swing.JButton;
 
-import fiuba.algo3.algocraft.controlador.CrearGolliatListener;
+import fiuba.algo3.algocraft.controlador.creadoresDeInteractuables.CrearGolliatListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.Fabrica;
 

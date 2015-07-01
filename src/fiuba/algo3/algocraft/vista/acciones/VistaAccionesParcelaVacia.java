@@ -2,7 +2,7 @@ package fiuba.algo3.algocraft.vista.acciones;
 
 import javax.swing.*;
 
-import fiuba.algo3.algocraft.controlador.*;
+import fiuba.algo3.algocraft.controlador.creadoresDeInteractuables.*;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 

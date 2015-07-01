@@ -3,9 +3,7 @@ package fiuba.algo3.algocraft.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
-import fiuba.algo3.algocraft.modelo.juego.Juego;
-import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
+import fiuba.algo3.algocraft.controlador.comandos.ComandoMover;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 
 public class MoverListener implements ActionListener {

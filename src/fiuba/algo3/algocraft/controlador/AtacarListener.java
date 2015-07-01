@@ -2,11 +2,8 @@ package fiuba.algo3.algocraft.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import fiuba.algo3.algocraft.modelo.juego.Juego;
-import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+import fiuba.algo3.algocraft.controlador.comandos.ComandoAtaqueComun;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
-import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 
 public class AtacarListener implements ActionListener{
     private Unidad representado;
@@ -18,7 +15,7 @@ public class AtacarListener implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.controladorAccionPorTurno.setUnidad((UnidadAgresora)this.representado);
+		this.controladorAccionPorTurno.setUnidad(this.representado);
 		this.controladorAccionPorTurno.setComando(new ComandoAtaqueComun());
 		
 	}

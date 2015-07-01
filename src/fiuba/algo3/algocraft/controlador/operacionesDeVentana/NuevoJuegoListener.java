@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.controlador;
+package fiuba.algo3.algocraft.controlador.operacionesDeVentana;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

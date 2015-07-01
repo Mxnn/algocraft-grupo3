@@ -1,5 +1,6 @@
-package fiuba.algo3.algocraft.controlador;
+package fiuba.algo3.algocraft.controlador.creadoresDeInteractuables;
 
+import fiuba.algo3.algocraft.controlador.JuegoListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 

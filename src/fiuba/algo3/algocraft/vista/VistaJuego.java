@@ -2,11 +2,11 @@ package fiuba.algo3.algocraft.vista;
 
 import javax.swing.JFrame;
 
-import fiuba.algo3.algocraft.controlador.CerrarFrameListener;
+import fiuba.algo3.algocraft.controlador.operacionesDeVentana.CerrarFrameListener;
 import fiuba.algo3.algocraft.controlador.ControladorClickEnParcela;
-import fiuba.algo3.algocraft.controlador.CreadoresListener;
-import fiuba.algo3.algocraft.controlador.NuevoJuegoListener;
-import fiuba.algo3.algocraft.controlador.ReferenciasListener;
+import fiuba.algo3.algocraft.controlador.operacionesDeVentana.CreadoresListener;
+import fiuba.algo3.algocraft.controlador.operacionesDeVentana.NuevoJuegoListener;
+import fiuba.algo3.algocraft.controlador.operacionesDeVentana.ReferenciasListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;

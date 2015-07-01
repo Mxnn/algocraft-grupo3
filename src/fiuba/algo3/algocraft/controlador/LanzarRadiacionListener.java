@@ -3,8 +3,8 @@ package fiuba.algo3.algocraft.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import fiuba.algo3.algocraft.controlador.comandos.ComandoAtaqueRadiacion;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
-import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 
 public class LanzarRadiacionListener implements ActionListener {
     private Unidad representado;

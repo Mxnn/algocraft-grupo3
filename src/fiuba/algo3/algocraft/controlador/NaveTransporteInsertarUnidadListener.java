@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft.controlador;
 
+import fiuba.algo3.algocraft.controlador.comandos.ComandoIngresarALaNave;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 import java.awt.event.ActionEvent;

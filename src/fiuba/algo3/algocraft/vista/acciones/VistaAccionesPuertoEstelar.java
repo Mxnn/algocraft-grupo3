@@ -6,9 +6,9 @@ import java.awt.Insets;
 
 import javax.swing.JButton;
 
-import fiuba.algo3.algocraft.controlador.CrearEspectroListener;
-import fiuba.algo3.algocraft.controlador.CrearNaveCienciaListener;
-import fiuba.algo3.algocraft.controlador.CrearNaveTransporteListener;
+import fiuba.algo3.algocraft.controlador.creadoresDeInteractuables.CrearEspectroListener;
+import fiuba.algo3.algocraft.controlador.creadoresDeInteractuables.CrearNaveCienciaListener;
+import fiuba.algo3.algocraft.controlador.creadoresDeInteractuables.CrearNaveTransporteListener;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
 

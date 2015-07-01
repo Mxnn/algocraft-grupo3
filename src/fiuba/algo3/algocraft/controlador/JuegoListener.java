@@ -12,7 +12,7 @@ public abstract class JuegoListener implements ActionListener {
         this.modelo = modelo;
     }
 
-    protected void mostrarError(String msg) {
+    public void mostrarError(String msg) {
         VistaJuego.getInstance().displayError(msg);
     }
 }

@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.controlador;
+package fiuba.algo3.algocraft.controlador.comandos;
 
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnergiaInsuficiente;
@@ -20,9 +20,6 @@ public abstract class ComandoAccionPorTurno {
 	public Parcela getParcela(Mapa mapa, Coordenada coordenada){
 		return mapa.obtenerParcelaEnCoordenada(coordenada);
 	}
-	
-	
-	
-	public abstract void ejectutar(Unidad unidad, Mapa mapa, Coordenada coordenadaObjetivo) throws ExcepcionEstadoMuerto, ExcepcionEnergiaInsuficiente, ExcepcionParcelaVacia, ExcepcionEntidadEnConstruccion, ExcepcionEnemigoFueraDeAlcance, ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionUnidadNoClonable, ExcepcionRecursosInsuficientes;
 
+	public abstract void ejecutar(Unidad unidad, Mapa mapa, Coordenada coordenadaObjetivo) throws ExcepcionEstadoMuerto, ExcepcionEnergiaInsuficiente, ExcepcionParcelaVacia, ExcepcionEntidadEnConstruccion, ExcepcionEnemigoFueraDeAlcance, ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionUnidadNoClonable, ExcepcionRecursosInsuficientes;
 }

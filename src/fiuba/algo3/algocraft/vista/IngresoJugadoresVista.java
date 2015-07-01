@@ -11,11 +11,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import fiuba.algo3.algocraft.controlador.CerrarFrameListener;
+import fiuba.algo3.algocraft.controlador.operacionesDeVentana.CerrarFrameListener;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
-import fiuba.algo3.algocraft.controlador.UnloadDatosJugadoresListener;
+import fiuba.algo3.algocraft.controlador.operacionesDeVentana.UnloadDatosJugadoresListener;
 
 public class IngresoJugadoresVista extends JDialog {
 

@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.controlador;
+package fiuba.algo3.algocraft.controlador.comandos;
 
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnemigoFueraDeAlcance;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionEnergiaInsuficiente;
@@ -10,7 +10,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 public class ComandoMover extends ComandoAccionPorTurno {
 
 	@Override
-	public void ejectutar(Unidad unidad, Mapa mapa,Coordenada coordenadaObjetivo) throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionEnergiaInsuficiente {
+	public void ejecutar(Unidad unidad, Mapa mapa, Coordenada coordenadaObjetivo) throws ExcepcionEnemigoFueraDeAlcance, ExcepcionEstadoMuerto, ExcepcionEnergiaInsuficiente {
 		unidad.moverHasta(coordenadaObjetivo);
 	}
 
