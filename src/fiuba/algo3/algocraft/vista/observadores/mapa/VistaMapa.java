@@ -13,10 +13,8 @@ import javax.swing.JPanel;
 
 import fiuba.algo3.algocraft.controlador.ClickEnParcelaListener;
 import fiuba.algo3.algocraft.controlador.ParcelaListener;
-import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
-import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
@@ -27,7 +25,12 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.Unidad;
 import fiuba.algo3.algocraft.vista.botones.*;
 
 public class VistaMapa extends JPanel implements ObservadorMapa {
-    private static VistaMapa INSTANCIA = null;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private static VistaMapa INSTANCIA = null;
 
 	public static final Color PARCELA_TIERRA = Color.lightGray;
     public static final Color PARCELA_ESPACIO = Color.black;
@@ -90,11 +93,6 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
         }
 	}
 
-//    public JButton getButton(int x, int y) {
-//        int index = y * this.columnas + x;
-//        return listaBotonesParcela.get(index);
-//    }
-
     public VistaBotonInteractuable getBoton(Coordenada coordenada) {
         JPanel panel = this.getPanel(coordenada);
 
@@ -148,7 +146,7 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
     		panelParcela.remove(INDICE_BOTON_INTERACTUABLE);
     }
     
-	public void refrescar(Mapa mapa) throws ExcepcionCoordenadaFueraDelMapa {
+	public void refrescar(Mapa mapa) {
 		for(int x=0; x<this.columnas; x++){
     		for(int y=0; y<this.filas; y++){
     			JPanel panelParcela = this.getPanel(new Coordenada(x,y));
