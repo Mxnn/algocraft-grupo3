@@ -16,7 +16,6 @@ public abstract class NaveTransporte extends Unidad {
     protected final int RANGO_DE_INSERCION_DE_UNIDADES = 1;
     protected int lugaresOcupados;
     protected int capacidad;
-//    private ObservadorMapa observador;
     protected ArrayList<Unidad> unidades = new ArrayList<Unidad>();
 
     public NaveTransporte(Jugador propietario, Vitalidad vitalidad, int tiempoDeConstruccion, int cupoDeTransporte, int vision, int suministro, int capacidad, Costo costo) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
@@ -24,10 +23,6 @@ public abstract class NaveTransporte extends Unidad {
         this.lugaresOcupados = 0;
         this.capacidad = capacidad;
     }
-
-//    public void setObservador(ObservadorMapa observador) {
-//        this.observador = observador;
-//    }
 
     public void insertarUnidad(Unidad unidad) throws ExcepcionNaveDeTransporteLlena, ExcepcionUnidadEnemiga, ExcepcionNoEsUnidadTerrestre, ExcepcionEntidadEnConstruccion, ExcepcionUnidadYaSeEncuentraEnLaNave, ExcepcionUnidadMuyLejos {
         if (!this.estaCreado())
