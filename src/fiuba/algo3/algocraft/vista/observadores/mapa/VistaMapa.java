@@ -152,12 +152,8 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
     		for(int y=0; y<this.filas; y++){
     			Parcela parcela = mapa.obtenerParcelaEnCoordenada(new Coordenada(x,y));
     			//PROBABLEMENTE HAYA QUE CAMBIAR ESTO
-    			if(!parcela.estaVacia() && parcela.devolverElemento().estaCreado()){
+    			if(!parcela.estaVacia() && parcela.devolverElemento().estaCreado())
     					this.activarBoton(parcela.getCoordenada());
-    			}
-    			else if(parcela.estaVacia()){
-    				this.desinscribirElemento(new Coordenada(x,y));
-    			}
     		}
 		}
 		this.repaint();
