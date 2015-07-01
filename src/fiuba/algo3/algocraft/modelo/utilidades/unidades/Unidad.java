@@ -46,6 +46,8 @@ public abstract class Unidad extends Interactuable {
     @Override
     public void destruir() {
         (this.propietario).eliminarUnidad(this);
+        if (this.parcelaUbicacion != null)
+            (this.parcelaUbicacion).vaciarParcela();
     }
 
     public int getCupoDeTransporte() { return this.cupoDeTransporte; }
