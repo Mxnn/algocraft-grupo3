@@ -17,7 +17,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Danyo;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.RangoAtaque;
-import fiuba.algo3.algocraft.vista.ObservadorMapa;
+import fiuba.algo3.algocraft.vista.observadores.mapa.ObservadorMapa;
 
 public abstract class Construccion extends Interactuable {
 	

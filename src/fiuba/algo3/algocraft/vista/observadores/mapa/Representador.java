@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.observadores.mapa;
 
 import java.awt.Color;
 import java.util.HashMap;

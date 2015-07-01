@@ -8,7 +8,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.TipoDeConstruccion;
-import fiuba.algo3.algocraft.vista.ObservadorMapa;
+import fiuba.algo3.algocraft.vista.observadores.mapa.ObservadorMapa;
 
 public class ArchivosTemplarios extends Construccion {
     private static final int TIEMPO_DE_CONSTRUCCION = 9;

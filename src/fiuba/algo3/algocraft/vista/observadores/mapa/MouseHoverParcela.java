@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.observadores.mapa;
 
 import fiuba.algo3.algocraft.vista.botones.VistaBotonInteractuable;
 import javax.swing.border.LineBorder;

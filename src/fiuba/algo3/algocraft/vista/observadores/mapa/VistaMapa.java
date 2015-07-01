@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.observadores.mapa;
 
 import java.awt.CardLayout;
 import java.awt.Color;

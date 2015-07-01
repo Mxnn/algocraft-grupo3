@@ -14,7 +14,7 @@ import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.modelo.utilidades.Costo;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.Vitalidad;
-import fiuba.algo3.algocraft.vista.ObservadorMapa;
+import fiuba.algo3.algocraft.vista.observadores.mapa.ObservadorMapa;
 
 public abstract class Unidad extends Interactuable {
 	protected int cupoDeTransporte;

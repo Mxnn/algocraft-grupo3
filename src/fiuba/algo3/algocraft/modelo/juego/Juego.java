@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.razas.Raza;
-import fiuba.algo3.algocraft.vista.ObservadorJuego;
-import fiuba.algo3.algocraft.vista.ObservadorMapa;
+import fiuba.algo3.algocraft.vista.observadores.juego.ObservadorJuego;
+import fiuba.algo3.algocraft.vista.observadores.mapa.ObservadorMapa;
 
 public class Juego {
     public static int MAXIMO_NUMERO_DE_JUGADORES = 2;

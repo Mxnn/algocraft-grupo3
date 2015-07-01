@@ -1,7 +1,7 @@
 package fiuba.algo3.algocraft.controlador;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
-import fiuba.algo3.algocraft.vista.VistaJuego;
+import fiuba.algo3.algocraft.vista.observadores.juego.VistaJuego;
 
 import java.awt.event.ActionListener;
 

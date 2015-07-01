@@ -6,7 +6,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.NaveTransporte;
-import fiuba.algo3.algocraft.vista.VistaMapa;
+import fiuba.algo3.algocraft.vista.observadores.mapa.VistaMapa;
 
 import java.awt.event.ActionEvent;
 

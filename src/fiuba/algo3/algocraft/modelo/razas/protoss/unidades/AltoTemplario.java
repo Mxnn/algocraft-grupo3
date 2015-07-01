@@ -13,7 +13,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.Clon;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.NaveTransporte;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadAgresora;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.UnidadMagica;
-import fiuba.algo3.algocraft.vista.ObservadorMapa;
+import fiuba.algo3.algocraft.vista.observadores.mapa.ObservadorMapa;
 
 public class AltoTemplario extends UnidadMagica {
 
@@ -35,22 +35,6 @@ public class AltoTemplario extends UnidadMagica {
     public AltoTemplario(Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
         super(propietario, new VitalidadProtoss(VIDA_INICIAL, ESCUDO_INICIAL), TIEMPO_DE_CONSTRUCCION, CUPO_DE_TRANSPORTE, VISION, SUMINISTRO, ENERGIA_MAXIMA, ENERGIA_INICIAL, REGENERACION_ENERGIA, COSTO);
     }
-    
-//    public void crearAlucinacion(Interactuable unidadAClonar, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionEnergiaInsuficiente, ExcepcionEntidadEnConstruccion, ExcepcionUnidadNoClonable {
-//        if (!this.estaCreado())
-//            throw new ExcepcionEntidadEnConstruccion();
-//
-//        this.gastarEnergia(COSTO_ENERGIA_ALUCINACION);
-//        try{
-//            Clon clon = this.crearClon((UnidadAgresora) unidadAClonar);
-//            mapa.ubicarCercaDeParcela(unidadAClonar.getParcela(), clon);
-//            Clon clon2 = this.crearClon((UnidadAgresora) unidadAClonar);
-//            mapa.ubicarCercaDeParcela(unidadAClonar.getParcela(), clon2);
-//        }
-//        catch (ClassCastException e) {
-//        	throw new ExcepcionUnidadNoClonable();
-//        }
-//    }
     
     public void crearAlucinacion(Parcela parcela, Mapa mapa) throws ExcepcionUnidadEnemiga, ExcepcionNoHayLugarDisponible, ExcepcionNoHaySuministrosDisponibles, ExcepcionEnergiaInsuficiente, ExcepcionUnidadNoClonable, ExcepcionParcelaVacia, ExcepcionRecursosInsuficientes {
         if (!this.estaCreado())

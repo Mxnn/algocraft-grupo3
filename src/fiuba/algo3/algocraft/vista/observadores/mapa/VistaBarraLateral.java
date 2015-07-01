@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.observadores.mapa;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -9,6 +9,7 @@ import javax.swing.JTabbedPane;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
+import fiuba.algo3.algocraft.vista.observadores.jugador.ObservadorJugador;
 
 public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador {
     private final Color COLOR_DATOS_JUGADOR_QUE_NO_JUEGA = Color.gray;
@@ -41,11 +42,8 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         this.modelo = modelo;
 		//hay que modificar para que el tabbedPane se cree desde este constructor
         representador = new Representador();
-        int y=0;
         this.setBounds(627, 0, 355, 641);
         JPanel panelPrincipal = new JPanel();
-        
-
 
         this.addTab("Informacion", panelPrincipal);
         panelPrincipal.setLayout(null);
@@ -71,7 +69,6 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         gbc_lblInformacionJugador.gridx = 2;
         gbc_lblInformacionJugador.gridy = 0;
         panelInfos.add(lblInformacionJugador, gbc_lblInformacionJugador);
-        y++;
 
         JLabel lblNombre = new JLabel(LABEL_NOMBRE);
         GridBagConstraints gbc_lblNombre = new GridBagConstraints();
@@ -87,7 +84,6 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         gbc_lblNombreJ1.gridx = 2;
         gbc_lblNombreJ1.gridy = 1;
         panelInfos.add(lblNombreJ1, gbc_lblNombreJ1);
-        y++;
 
         JLabel lblMinerales = new JLabel(LABEL_MINERALES);
         GridBagConstraints gbc_lblMinerales = new GridBagConstraints();
@@ -103,7 +99,6 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         gbc_lblCantminj1.gridx = 2;
         gbc_lblCantminj1.gridy = 2;
         panelInfos.add(lblCantminj1, gbc_lblCantminj1);
-        y++;
 
         JLabel lblGas = new JLabel(LABEL_GAS);
         GridBagConstraints gbc_lblGas = new GridBagConstraints();
@@ -120,7 +115,6 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         gbc_lblCantgasj1.gridx = 2;
         gbc_lblCantgasj1.gridy = 3;
         panelInfos.add(lblCantgasj1, gbc_lblCantgasj1);
-        y++;
 
         JLabel lblSuministros = new JLabel(LABEL_POBLACION);
         GridBagConstraints gbc_lblSuministros = new GridBagConstraints();
@@ -137,7 +131,6 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         gbc_lblPoblacionj1.gridx = 2;
         gbc_lblPoblacionj1.gridy = 4;
         panelInfos.add(lblPoblacionj1, gbc_lblPoblacionj1);
-        y++;
 
         JLabel lblInformacionJugador_1 = new JLabel("Informacion Jugador 2");
         GridBagConstraints gbc_lblInformacionJugador_1 = new GridBagConstraints();
@@ -145,7 +138,6 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         gbc_lblInformacionJugador_1.gridx = 2;
         gbc_lblInformacionJugador_1.gridy = 6;
         panelInfos.add(lblInformacionJugador_1, gbc_lblInformacionJugador_1);
-        y++;
 
         JLabel label = new JLabel(LABEL_NOMBRE);
         GridBagConstraints gbc_label = new GridBagConstraints();
@@ -161,7 +153,6 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         gbc_lblNombreJ2.gridx = 2;
         gbc_lblNombreJ2.gridy = 7;
         panelInfos.add(lblNombreJ2, gbc_lblNombreJ2);
-        y++;
 
         JLabel label_1 = new JLabel(LABEL_MINERALES);
         GridBagConstraints gbc_label_1 = new GridBagConstraints();
@@ -177,7 +168,7 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         gbc_lblCantminj2.gridx = 2;
         gbc_lblCantminj2.gridy = 8;
         panelInfos.add(lblCantminj2, gbc_lblCantminj2);
-        y++;
+
 
         JLabel label_2 = new JLabel(LABEL_GAS);
         GridBagConstraints gbc_label_2 = new GridBagConstraints();
@@ -193,7 +184,6 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         gbc_lblCantgasj2.gridx = 2;
         gbc_lblCantgasj2.gridy = 9;
         panelInfos.add(lblCantgasj2, gbc_lblCantgasj2);
-        y++;
 
         JLabel lblPoblacionj2 = new JLabel("");
         this.poblacionJ2 = lblPoblacionj2;
@@ -216,12 +206,6 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         
         this.error = panelError;
 
-//        JLabel lblError = new JLabel("");
-//        lblError.setForeground(Color.RED);
-//        lblError.setFont(new Font("Tahoma", Font.PLAIN, 14));
-//        panelError.add(lblError);
-//        this.error = lblError;
-
         this.labelsJ1.add(this.nombreJ1);
         this.labelsJ1.add(this.gasJ1);
         this.labelsJ1.add(this.mineralJ1);
@@ -231,9 +215,6 @@ public class VistaBarraLateral extends JTabbedPane implements ObservadorJugador 
         this.labelsJ2.add(this.gasJ2);
         this.labelsJ2.add(this.mineralJ2);
         this.labelsJ2.add(this.poblacionJ2);
-                                
-
-        
 	}
 
 	public void refrescar() {

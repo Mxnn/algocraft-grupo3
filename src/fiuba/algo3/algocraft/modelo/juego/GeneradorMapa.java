@@ -5,14 +5,12 @@ import java.util.ArrayList;
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNumeroDeBasesInvalido;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
-import fiuba.algo3.algocraft.modelo.mapa.Parcela;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaEspacio;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaMineral;
-import fiuba.algo3.algocraft.modelo.mapa.ParcelaTierra;
 import fiuba.algo3.algocraft.modelo.mapa.ParcelaVolcan;
 import fiuba.algo3.algocraft.modelo.mapa.Randomizador;
 import fiuba.algo3.algocraft.modelo.mapa.RandomizadorTests;
-import fiuba.algo3.algocraft.vista.ObservadorMapa;
+import fiuba.algo3.algocraft.vista.observadores.mapa.ObservadorMapa;
 
 public class GeneradorMapa {
 	private Mapa mapa;
@@ -75,8 +73,7 @@ public class GeneradorMapa {
     private void setearParcelaMineral(Coordenada coordenada){
     	ParcelaMineral parcela = new ParcelaMineral(coordenada);
     	this.mapa.insertarParcela(parcela);
-    	for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearVistaParcela(parcela);
     	}
     }
@@ -84,16 +81,14 @@ public class GeneradorMapa {
     private void setearParcelaVolcan(Coordenada coordenada){
     	ParcelaVolcan parcela = new ParcelaVolcan(coordenada);
     	this.mapa.insertarParcela(parcela);
-    	for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearVistaParcela(parcela);
     	}
     }
     private void setearParcelaEspacio(Coordenada coordenada){
     	ParcelaEspacio parcela = new ParcelaEspacio(coordenada);
     	this.mapa.insertarParcela(parcela);
-    	for(int i=0; i<this.observadores.size();i++){
-    		ObservadorMapa observador = this.observadores.get(i);
+        for (ObservadorMapa observador: this.observadores) {
     		observador.crearVistaParcela(parcela);
     	}
     }
@@ -101,19 +96,13 @@ public class GeneradorMapa {
     private void crearBasesEnMapa() {
     	int x = this.rand.randInt(0, 4); //calcular bordes desde el mapa
     	int y = this.rand.randInt(0, this.mapa.getFilas()-2);
-//    	System.out.println(x);
-//    	System.out.println(y);
-    	
-//    	this.mapa.insertarParcela(new ParcelaVolcan(new Coordenada(x,y)));
+
     	this.setearParcelaVolcan(new Coordenada(x,y));
     	
-//    	this.mapa.insertarParcela(new ParcelaMineral(new Coordenada(x+1,y)));
-//    	this.mapa.insertarParcela(new ParcelaMineral(new Coordenada(x+2,y)));
+
     	this.setearParcelaMineral(new Coordenada(x+1,y));
     	this.setearParcelaMineral(new Coordenada(x+2,y));
-    	
-//    	this.mapa.insertarParcela(new ParcelaMineral(new Coordenada(x,y+1)));
-//    	this.mapa.insertarParcela(new ParcelaMineral(new Coordenada(x,y+2)));
+
     	this.setearParcelaMineral(new Coordenada(x,y+1));
     	this.setearParcelaMineral(new Coordenada(x,y+2));
     	
@@ -121,16 +110,11 @@ public class GeneradorMapa {
     	int yEspejada = this.mapa.getFilas()-1-y;
     	
     	Coordenada coordenadaOpuesta = new Coordenada(xEspejada,yEspejada);
-//    	this.mapa.insertarParcela(new ParcelaVolcan(new Coordenada(xEspejada,yEspejada)));
     	this.setearParcelaVolcan(coordenadaOpuesta);
-    	
-//    	this.mapa.insertarParcela(new ParcelaMineral(new Coordenada(xEspejada-1,yEspejada)));
-//    	this.mapa.insertarParcela(new ParcelaMineral(new Coordenada(xEspejada-2,yEspejada)));
+
     	this.setearParcelaMineral(new Coordenada(xEspejada-1,yEspejada));
     	this.setearParcelaMineral(new Coordenada(xEspejada-2,yEspejada));
-    	
-//    	this.mapa.insertarParcela(new ParcelaMineral(new Coordenada(xEspejada,yEspejada-1)));
-//    	this.mapa.insertarParcela(new ParcelaMineral(new Coordenada(xEspejada,yEspejada-2)));
+
     	this.setearParcelaMineral(new Coordenada(xEspejada,yEspejada-1));
     	this.setearParcelaMineral(new Coordenada(xEspejada,yEspejada-2));
     }
@@ -142,7 +126,6 @@ public class GeneradorMapa {
         	int y = this.rand.randInt(0, this.mapa.getFilas());
         	Coordenada coordenada = new Coordenada(x,y);
         	if (this.mapa.coordenadaExiste(coordenada))
-//        		this.mapa.insertarParcela(new ParcelaMineral(coordenada));
         		this.setearParcelaMineral(coordenada);
     	}
     }
@@ -157,7 +140,6 @@ public class GeneradorMapa {
     		coordenadas.add(coordenada);
     		for (int j = 0; j < coordenadas.size(); j++) {
         		if(this.mapa.coordenadaExiste((coordenadas).get(j)))
-//        			this.mapa.insertarParcela(new ParcelaEspacio(coordenadas.get(j)));
         			this.setearParcelaEspacio(coordenadas.get(j));
         	}	
     	}

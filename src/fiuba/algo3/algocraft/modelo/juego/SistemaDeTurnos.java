@@ -6,7 +6,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
 import fiuba.algo3.algocraft.modelo.utilidades.Interactuable;
 import fiuba.algo3.algocraft.modelo.utilidades.unidades.Ataque;
-import fiuba.algo3.algocraft.vista.ObservadorJuego;
+import fiuba.algo3.algocraft.vista.observadores.juego.ObservadorJuego;
 
 
 public class SistemaDeTurnos {

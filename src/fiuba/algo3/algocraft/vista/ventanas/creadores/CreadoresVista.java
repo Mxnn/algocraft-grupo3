@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.ventanas.creadores;
 
 import java.awt.BorderLayout;
 

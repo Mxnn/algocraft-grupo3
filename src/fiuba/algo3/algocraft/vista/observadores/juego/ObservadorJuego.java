@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.observadores.juego;
 
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 

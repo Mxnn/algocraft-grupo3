@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.ventanas.referencias;
 
 import java.awt.BorderLayout;
 
@@ -156,25 +156,25 @@ public class ReferenciasVista extends JDialog {
 		lblReferenciasParcelas.setBounds(552, 13, 129, 19);
 		contentPanel.add(lblReferenciasParcelas);
 		
-		JLabel lblGrisParcelaDe = new JLabel(" Parcela de tierra");
+		JLabel lblGrisParcelaDe = new JLabel(" Parcela de tierra(Gris)");
 		lblGrisParcelaDe.setForeground(Color.BLACK);
 		lblGrisParcelaDe.setBounds(540, 83, 179, 19);
 		contentPanel.add(lblGrisParcelaDe);
 		
-		JLabel lblParcelaDeEspacio = new JLabel("         Parcela de espacio");
+		JLabel lblParcelaDeEspacio = new JLabel("         Parcela de espacio(Negro)");
 		lblParcelaDeEspacio.setBounds(516, 113, 179, 19);
 		contentPanel.add(lblParcelaDeEspacio);
 		
-		JLabel lblParcelaDeMineral = new JLabel("        Parcela de mineral");
+		JLabel lblParcelaDeMineral = new JLabel("        Parcela de mineral(Celeste)");
 		lblParcelaDeMineral.setBounds(516, 143, 203, 19);
 		contentPanel.add(lblParcelaDeMineral);
 		
-		JLabel lblParcelaDeVolcan = new JLabel("         Parcela de Volcan (Gaz)");
+		JLabel lblParcelaDeVolcan = new JLabel("         Parcela de Volcan(Anaranjado)");
 		lblParcelaDeVolcan.setBounds(516, 173, 203, 19);
 		contentPanel.add(lblParcelaDeVolcan);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\PC\\Desktop\\UBA_cursos\\algo\\java\\tp\\tp2\\grey_case.JPG"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\PC\\Desktop\\UBA_cursos\\algo\\java\\tp\\tp2\\.grey_caseJPG"));
 		lblNewLabel.setBounds(509, 83, 21, 19);
 		contentPanel.add(lblNewLabel);
 		

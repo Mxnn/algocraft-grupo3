@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.observadores.juego;
 
 import javax.swing.JFrame;
 
@@ -12,7 +12,11 @@ import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.modelo.mapa.Coordenada;
 import fiuba.algo3.algocraft.modelo.mapa.Mapa;
+import fiuba.algo3.algocraft.vista.observadores.jugador.ObservadorJugador;
+import fiuba.algo3.algocraft.vista.observadores.mapa.VistaBarraLateral;
 import fiuba.algo3.algocraft.vista.acciones.VistaAcciones;
+import fiuba.algo3.algocraft.vista.observadores.mapa.ObservadorMapa;
+import fiuba.algo3.algocraft.vista.observadores.mapa.VistaMapa;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -53,7 +57,7 @@ public class VistaJuego implements ObservadorJuego {
         this.ventanaPrincipal = ventanaPrincipal;
         ventanaPrincipal.setSize(1024,778);
         
-        VistaMapa vistaMapa = VistaMapa.createInstance(clickEnParcelaListener,this.modelo.getMapa());
+        VistaMapa vistaMapa = VistaMapa.createInstance(clickEnParcelaListener, this.modelo.getMapa());
         this.vistaMapa = vistaMapa;
         vistaMapa.setBackground(new Color(240, 240, 240));
         ventanaPrincipal.getContentPane().add(vistaMapa);

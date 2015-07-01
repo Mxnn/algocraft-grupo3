@@ -2,8 +2,8 @@ package fiuba.algo3.algocraft.controlador;
 
 import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionCoordenadaFueraDelMapa;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
-import fiuba.algo3.algocraft.vista.ObservadorMapa;
-import fiuba.algo3.algocraft.vista.VistaJuego;
+import fiuba.algo3.algocraft.vista.observadores.mapa.ObservadorMapa;
+import fiuba.algo3.algocraft.vista.observadores.juego.VistaJuego;
 
 public class ClickEnParcelaListener {
 	Juego modelo;

@@ -13,7 +13,7 @@ import fiuba.algo3.algocraft.modelo.utilidades.construcciones.Construccion;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorGas;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.ExtractorMineral;
 import fiuba.algo3.algocraft.modelo.utilidades.construcciones.AdicionalSuministros;
-import fiuba.algo3.algocraft.vista.ObservadorMapa;
+import fiuba.algo3.algocraft.vista.observadores.mapa.ObservadorMapa;
 
 public class Terran extends Raza {
     private static Terran INSTANCIA = null;

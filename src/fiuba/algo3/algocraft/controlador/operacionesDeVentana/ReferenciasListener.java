@@ -2,7 +2,7 @@ package fiuba.algo3.algocraft.controlador.operacionesDeVentana;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import fiuba.algo3.algocraft.vista.ReferenciasVista;
+import fiuba.algo3.algocraft.vista.ventanas.referencias.ReferenciasVista;
 
 public class ReferenciasListener implements ActionListener {
 

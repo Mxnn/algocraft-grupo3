@@ -1,7 +1,7 @@
 package fiuba.algo3.algocraft.vista.botones;
 
 import fiuba.algo3.algocraft.modelo.juego.Juego;
-import fiuba.algo3.algocraft.vista.MouseHoverParcela;
+import fiuba.algo3.algocraft.vista.observadores.mapa.MouseHoverParcela;
 import fiuba.algo3.algocraft.vista.acciones.VistaAcciones;
 
 import java.awt.*;

@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.ventanas.ingresoJugadores;
 
 import fiuba.algo3.algocraft.modelo.razas.Raza;
 import fiuba.algo3.algocraft.modelo.razas.protoss.Protoss;

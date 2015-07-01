@@ -3,6 +3,8 @@ package fiuba.algo3.algocraft.vista;
 import fiuba.algo3.algocraft.controlador.ClickEnParcelaListener;
 import fiuba.algo3.algocraft.modelo.excepciones.*;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
+import fiuba.algo3.algocraft.vista.observadores.juego.VistaJuego;
+import fiuba.algo3.algocraft.vista.observadores.mapa.ObservadorMapa;
 
 public class ObjetoMain {
 	 public static void main(String[] args) throws ExcepcionNumeroDeBasesInvalido, ExcepcionCoordenadaFueraDelMapa, ExcepcionElementoNoAdmitidoEnParcela, ExcepcionParcelaOcupada, ExcepcionNombreCorto {

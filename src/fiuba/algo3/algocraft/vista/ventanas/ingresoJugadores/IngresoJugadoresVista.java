@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.vista;
+package fiuba.algo3.algocraft.vista.ventanas.ingresoJugadores;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -16,6 +16,7 @@ import fiuba.algo3.algocraft.modelo.excepciones.ExcepcionNombreCorto;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.modelo.juego.Jugador;
 import fiuba.algo3.algocraft.controlador.operacionesDeVentana.UnloadDatosJugadoresListener;
+import fiuba.algo3.algocraft.vista.observadores.juego.VistaJuego;
 
 public class IngresoJugadoresVista extends JDialog {
 
