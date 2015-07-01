@@ -11,7 +11,7 @@ public class VistaBotonScout extends VistaBotonRepresentante {
 	private static final String NOMBRE = "Scout";
 
 	public VistaBotonScout(Scout scout){
-		super(scout);
+		super(scout, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

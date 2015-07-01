@@ -9,7 +9,7 @@ public class VistaBotonMarine extends VistaBotonRepresentante {
 	private static final String CODIGO = "Ma";
 
 	public VistaBotonMarine(Marine marine) {
-		super(marine);
+		super(marine, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

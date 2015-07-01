@@ -6,11 +6,11 @@ import fiuba.algo3.algocraft.vista.acciones.VistaAccionesAcceso;
 import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 
 public class VistaBotonAcceso extends VistaBotonRepresentante {
-	public static final String CODIGO = "Ac";
-	public static final String NOMBRE = "Acceso";
+	private static final String CODIGO = "Ac";
+	private static final String NOMBRE = "Acceso";
 	
 	public VistaBotonAcceso(Acceso acceso){
-		super(acceso);
+		super(acceso, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

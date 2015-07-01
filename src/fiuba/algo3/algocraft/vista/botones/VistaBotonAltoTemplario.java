@@ -11,8 +11,8 @@ public class VistaBotonAltoTemplario extends VistaBotonRepresentante {
 	public static final String NOMBRE = "Alto Templario";
 	
 	public VistaBotonAltoTemplario(AltoTemplario templario){
-		super(templario);
-		this.setText("AlT");
+		super(templario, CODIGO, NOMBRE);
+		this.setText(CODIGO);
 	}
 
     @Override

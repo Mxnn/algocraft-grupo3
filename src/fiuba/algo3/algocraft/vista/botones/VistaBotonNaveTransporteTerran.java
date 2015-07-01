@@ -9,7 +9,7 @@ public class VistaBotonNaveTransporteTerran extends VistaBotonRepresentante {
 	private static final String CODIGO = "NTT";
 
 	public VistaBotonNaveTransporteTerran(NaveTransporteTerran nave){
-		super(nave);
+		super(nave, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

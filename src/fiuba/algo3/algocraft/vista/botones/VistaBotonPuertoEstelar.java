@@ -5,11 +5,11 @@ import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.PuertoEstelar;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesPuertoEstelar;
 
 public class VistaBotonPuertoEstelar extends VistaBotonRepresentante {
-	private static final String CODIGO = "PET";
-	private static final String NOMBRE = "Puerto Estelar Terran";
+	public static final String CODIGO = "PET";
+	public static final String NOMBRE = "Puerto Estelar Terran";
 
 	public VistaBotonPuertoEstelar(PuertoEstelar puertoEstelar){
-		super(puertoEstelar);
+		super(puertoEstelar, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

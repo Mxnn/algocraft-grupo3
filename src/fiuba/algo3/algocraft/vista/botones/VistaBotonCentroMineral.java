@@ -5,11 +5,11 @@ import fiuba.algo3.algocraft.modelo.razas.terran.construcciones.CentroDeMineral;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 public class VistaBotonCentroMineral extends VistaBotonRepresentante {
-    public static final String CODIGO = "CM";
-    public static final String NOMBRE = "Centro de Mineral";
+    private static final String CODIGO = "CM";
+    private static final String NOMBRE = "Centro de Mineral";
 
 	public VistaBotonCentroMineral(CentroDeMineral centroDeMineral){
-		super(centroDeMineral);
+		super(centroDeMineral, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

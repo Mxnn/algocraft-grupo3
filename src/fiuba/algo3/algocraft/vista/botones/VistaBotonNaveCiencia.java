@@ -9,7 +9,7 @@ public class VistaBotonNaveCiencia extends VistaBotonRepresentante {
 	private static final String CODIGO = "NC";
 
 	public VistaBotonNaveCiencia(NaveCiencia nave){
-		super(nave);
+		super(nave, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

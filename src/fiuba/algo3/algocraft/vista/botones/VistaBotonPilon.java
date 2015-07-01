@@ -10,7 +10,7 @@ public class VistaBotonPilon extends VistaBotonRepresentante {
     public static final String NOMBRE = "Pilon";
 
 	public VistaBotonPilon(Pilon pilon){
-		super(pilon);
+		super(pilon, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

@@ -10,7 +10,7 @@ public class VistaBotonBarraca extends VistaBotonRepresentante {
 	private static final String CODIGO = "Ba";
 
 	public VistaBotonBarraca(Barraca barraca){
-		super(barraca);
+		super(barraca, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

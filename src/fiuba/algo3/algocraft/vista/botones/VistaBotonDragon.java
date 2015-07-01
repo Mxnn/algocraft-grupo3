@@ -10,7 +10,7 @@ public class VistaBotonDragon extends VistaBotonRepresentante {
 	private static final String CODIGO = "Dr";
 
 	public VistaBotonDragon(Dragon dragon) {
-		super(dragon);
+		super(dragon, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

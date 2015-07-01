@@ -10,7 +10,7 @@ public class VistaBotonFabrica extends VistaBotonRepresentante {
 	private static final String CODIGO = "Fa";
 
 	public VistaBotonFabrica(Fabrica fabrica){
-		super(fabrica);
+		super(fabrica, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

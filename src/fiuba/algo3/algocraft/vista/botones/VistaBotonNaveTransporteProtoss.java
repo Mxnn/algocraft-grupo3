@@ -11,7 +11,7 @@ public class VistaBotonNaveTransporteProtoss extends VistaBotonRepresentante {
 	private static final String CODIGO = "NTP";
 
 	public VistaBotonNaveTransporteProtoss(NaveTransporteProtoss nave){
-		super(nave);
+		super(nave, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

@@ -7,12 +7,14 @@ import fiuba.algo3.algocraft.modelo.utilidades.unidades.Clon;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesUnidadAgresora;
 
 public class VistaBotonClon extends VistaBotonRepresentante {
-	private static final String NOMBRE = "Clon";
-	private static final String CODIGO = "Cl";
+//	private String codigoClonado;
+//	private String nombreClonado;
 	
-	public VistaBotonClon(Clon clon) {
-		super(clon);
-		this.setText(CODIGO);
+	public VistaBotonClon(Clon clon, VistaBotonInteractuable botonAClonar) {
+		super(clon,botonAClonar.getCodigo(), botonAClonar.getNombre());
+//		this.codigoClonado = botonAClonar.getCodigo();
+//		this.nombreClonado = botonAClonar.getNombre();
+		this.setText(this.codigo);
 	}
 	
     @Override
@@ -20,7 +22,7 @@ public class VistaBotonClon extends VistaBotonRepresentante {
     	Clon representado = (Clon) this.elementoRepresentado;
 
     	VistaAccionesUnidadAgresora vistaAcciones = new VistaAccionesUnidadAgresora(modelo, representado);
-    	vistaAcciones.setTitulo(NOMBRE);
+    	vistaAcciones.setTitulo(this.nombre);
 
     	vistaAcciones.setVida(Clon.VIDA_INICIAL, this.elementoRepresentado.getVida());
     	

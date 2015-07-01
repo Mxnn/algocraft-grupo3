@@ -3,12 +3,16 @@ package fiuba.algo3.algocraft.vista.botones;
 import fiuba.algo3.algocraft.modelo.juego.Juego;
 import fiuba.algo3.algocraft.vista.MouseHoverParcela;
 import fiuba.algo3.algocraft.vista.acciones.VistaAcciones;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 public abstract class VistaBotonInteractuable extends JButton {
+	protected String nombre;
+	protected String codigo;
 
 	public VistaBotonInteractuable() {
         super();
@@ -30,5 +34,13 @@ public abstract class VistaBotonInteractuable extends JButton {
     	for( ActionListener al : listeners) {
             this.removeActionListener( al );
         }
+    }
+    
+    public String getCodigo(){
+    	return this.codigo;
+    }
+    
+    public String getNombre(){
+    	return this.codigo;
     }
 }

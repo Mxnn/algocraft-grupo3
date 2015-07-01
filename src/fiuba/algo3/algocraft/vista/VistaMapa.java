@@ -245,15 +245,18 @@ public class VistaMapa extends JPanel implements ObservadorMapa {
     
     @Override
     public void crearUnidad(Clon clon) {
-        VistaBotonInteractuable boton;
+        VistaBotonInteractuable botonClonado;
+        VistaBotonClon botonClon;
         Unidad unidad = clon.getClonado();
         try {
-            Class<?> claseBoton = this.representador.getClaseBoton(unidad);
-            boton = (VistaBotonInteractuable) claseBoton.getDeclaredConstructor(unidad.getClass()).newInstance(unidad);
-            this.ponerColorDeLetraAdecuado(boton, unidad);
+            Class<?> claseBotonClonado = this.representador.getClaseBoton(unidad);
+            Class<?> claseBotonClon = this.representador.getClaseBoton(clon);
+            botonClonado = (VistaBotonInteractuable) claseBotonClonado.getDeclaredConstructor(unidad.getClass()).newInstance(unidad);
+            botonClon = (VistaBotonClon) claseBotonClon.getDeclaredConstructor(new Class[] {clon.getClass(), VistaBotonInteractuable.class}).newInstance(new Object[] { clon, botonClonado });
+            this.ponerColorDeLetraAdecuado(botonClon, clon);
 
             Coordenada coordenada = clon.getParcela().getCoordenada();
-            this.agregarUnidad(boton, coordenada);
+            this.agregarUnidad(botonClon, coordenada);
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {

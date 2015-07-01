@@ -11,7 +11,6 @@ import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 
 public class Clon extends UnidadAgresora {
 	public static final int VIDA_INICIAL = 0;
-	private UnidadAgresora original;
 	private UnidadAgresora clonado;
 	
 	public Clon(UnidadAgresora aClonar, Jugador propietario) throws ExcepcionNoHaySuministrosDisponibles, ExcepcionRecursosInsuficientes {
@@ -25,12 +24,12 @@ public class Clon extends UnidadAgresora {
 	}
 	@Override
 	public int seleccionarDanyo(Danyo danyo) {
-		return original.seleccionarDanyo(danyo);
+		return clonado.seleccionarDanyo(danyo);
 	}
 
 	@Override
 	public int seleccionarRango(RangoAtaque rango) {
-		return original.seleccionarRango(rango);
+		return clonado.seleccionarRango(rango);
 	}
 
 	@Override

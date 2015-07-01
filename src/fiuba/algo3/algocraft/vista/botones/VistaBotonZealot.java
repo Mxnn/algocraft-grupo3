@@ -11,7 +11,7 @@ public class VistaBotonZealot extends VistaBotonRepresentante {
 	private static final String CODIGO = "Ze";
 
 	public VistaBotonZealot(Zealot zealot){
-		super(zealot);
+		super(zealot, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

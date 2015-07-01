@@ -6,11 +6,11 @@ import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesInteractuable;
 
 public class VistaBotonNexoMineral extends VistaBotonRepresentante {
-    public static final String CODIGO = "NM";
-    public static final String NOMBRE = "Nexo Mineral";
+    private static final String CODIGO = "NM";
+    private static final String NOMBRE = "Nexo Mineral";
 
 	public VistaBotonNexoMineral(NexoMineral nexoMineral){
-		super(nexoMineral);
+		super(nexoMineral, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

@@ -5,11 +5,11 @@ import fiuba.algo3.algocraft.modelo.razas.terran.unidades.Golliat;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesUnidadAgresora;
 
 public class VistaBotonGolliat extends VistaBotonRepresentante {
-	private static final String NOMBRE = "Golliat";
-	private static final String CODIGO = "Go";
+	public static final String NOMBRE = "Golliat";
+	public static final String CODIGO = "Go";
 
 	public VistaBotonGolliat(Golliat golliat){
-		super(golliat);
+		super(golliat, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 
@@ -21,4 +21,5 @@ public class VistaBotonGolliat extends VistaBotonRepresentante {
     	vistaAcciones.setVida(Golliat.VIDA_INICIAL, this.elementoRepresentado.getVida());
         return vistaAcciones;
     }
+
 }

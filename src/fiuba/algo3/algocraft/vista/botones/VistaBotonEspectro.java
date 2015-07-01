@@ -9,7 +9,7 @@ public class VistaBotonEspectro extends VistaBotonRepresentante {
 	private static final String CODIGO = "Es";
 
 	public VistaBotonEspectro(Espectro espectro){
-		super(espectro);
+		super(espectro, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 

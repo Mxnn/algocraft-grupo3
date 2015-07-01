@@ -6,11 +6,11 @@ import fiuba.algo3.algocraft.modelo.utilidades.VitalidadProtoss;
 import fiuba.algo3.algocraft.vista.acciones.VistaAccionesPuertoEstelarProtoss;
 
 public class VistaBotonPuertoEstelarProtoss extends VistaBotonRepresentante {
-	private static final String NOMBRE = "Puerto Estelar Protoss";
-	private static final String CODIGO = "PEP";
+	public static final String NOMBRE = "Puerto Estelar Protoss";
+	public static final String CODIGO = "PEP";
 
 	public VistaBotonPuertoEstelarProtoss(PuertoEstelarProtoss puerto){
-		super(puerto);
+		super(puerto, CODIGO, NOMBRE);
 		this.setText(CODIGO);
 	}
 
