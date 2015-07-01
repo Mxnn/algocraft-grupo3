@@ -149,19 +149,19 @@ public class ReferenciasVista extends JDialog {
 		
 		JLabel lblGrisParcelaDe = new JLabel(" Parcela de tierra(Color Gris)");
 		lblGrisParcelaDe.setForeground(Color.BLACK);
-		lblGrisParcelaDe.setBounds(540, 83, 179, 19);
+		lblGrisParcelaDe.setBounds(540, 83, 295, 19);
 		contentPanel.add(lblGrisParcelaDe);
 		
 		JLabel lblParcelaDeEspacio = new JLabel("         Parcela de espacio(Color Negro)");
-		lblParcelaDeEspacio.setBounds(516, 113, 179, 19);
+		lblParcelaDeEspacio.setBounds(516, 113, 319, 19);
 		contentPanel.add(lblParcelaDeEspacio);
 		
 		JLabel lblParcelaDeMineral = new JLabel("        Parcela de mineral(Color Celeste)");
-		lblParcelaDeMineral.setBounds(516, 143, 203, 19);
+		lblParcelaDeMineral.setBounds(516, 143, 319, 19);
 		contentPanel.add(lblParcelaDeMineral);
 		
 		JLabel lblParcelaDeVolcan = new JLabel("         Parcela de Volcan(Color Anaranjado)");
-		lblParcelaDeVolcan.setBounds(516, 173, 203, 19);
+		lblParcelaDeVolcan.setBounds(516, 173, 319, 19);
 		contentPanel.add(lblParcelaDeVolcan);
 		
 		JLabel lblNota = new JLabel("Nota: los elementos escritos en color gris son elementos ");
