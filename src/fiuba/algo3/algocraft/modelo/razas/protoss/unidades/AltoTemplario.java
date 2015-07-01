@@ -67,6 +67,7 @@ public class AltoTemplario extends UnidadMagica {
             mapa.ubicarCercaDeParcela(unidadAClonar.getParcela(), clon);
             for (ObservadorMapa observador: this.observadores) {
 	    		observador.crearUnidad(clon);
+	    		clon.setObservador(observador);
 	    	}
             
             
@@ -74,6 +75,7 @@ public class AltoTemplario extends UnidadMagica {
             mapa.ubicarCercaDeParcela(unidadAClonar.getParcela(), clon2);
             for (ObservadorMapa observador: this.observadores) {
 	    		observador.crearUnidad(clon2);
+	    		clon2.setObservador(observador);
 	    	}
         }
         catch (ClassCastException e) {
