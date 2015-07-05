@@ -43,7 +43,7 @@
 			<include name="*.jar" />
 		</fileset>
 	</path>
-	
+
 	<target name="setup">
 		<delete dir="${build}" />
 		<mkdir dir="${build}" />
@@ -133,15 +133,22 @@
 	</target>
 
 	<target name="empaquetar" depends="compilar.paquete">
-		<jar destfile="${build}/dist/titiritero.jar" basedir="${build}/classes" />
-	</target>
+    <jar destfile="${build}/dist/algo-craft.jar" basedir="${build}/classes"/>
+  </target>
+
+  <target name="ejecutar.aplicacion" depends="empaquetar">
+    <java classname="fiuba.algo3.algocraft.vista.ObjetoMain" fork="true">
+      <classpath refid="classpath"/>
+      <classpath location="${build}/dist/algo-craft.jar" />
+    </java>
+  </target>
 
 	<target name="integracion-continua" depends="run-pmd,coverage-report,alternate-coverage-report" description="Ejecuta todas las tareas de integracion y genera los correspondientes reportes"/>
 
 	<!-- Ivy installation -->
 	<target name="download-ivy" unless="skip.download">
 		<mkdir dir="${ivy.jar.dir}" />
-		<!-- download Ivy from web site so that it can be used even 
+		<!-- download Ivy from web site so that it can be used even
          without any special installation -->
 		<echo message="installing ivy..." />
 		<get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar" dest="${ivy.jar.file}" usetimestamp="true" />
@@ -158,8 +165,8 @@
 	<!-- Resolve dependencies -->
 	<target name="resolve" depends="install-ivy" description="--> retrieve dependencies with ivy">
 		<ivy:retrieve conf="build" pattern="${libs}/[artifact]-[type]-[revision].[ext]" />
-		<ivy:retrieve conf="analysis" pattern="${libs}/analysis/[artifact](-[classifier]).[ext]"/>	
-		
+		<ivy:retrieve conf="analysis" pattern="${libs}/analysis/[artifact](-[classifier]).[ext]"/>
+
 	</target>
 	<!-- End of 'Resolve dependencies -->
 
